@@ -41,10 +41,11 @@ HTML is the language that gives a web page its structure and content. This path 
 | 23 | [HTML5 Features](23-html5-features.md) | 🟡 Intermediate |
 | 24 | [Accessibility Basics](24-accessibility-basics.md) | 🟡 Intermediate |
 | 25 | [Mini Projects](25-mini-projects.md) | 🟡 Intermediate |
+| 26 | [HTML History](26-html-history.md) | 🟡 Intermediate |
 
 ## 🎯 Learning Path
 
-`01 Setup` → `02–10 Page basics` → `11–13 Forms` → `14–18 Useful HTML tools` → `19–24 Modern web basics` → `25 Build projects`
+`01 Setup` → `02–10 Page basics` → `11–13 Forms` → `14–18 Useful HTML tools` → `19–24 Modern web basics` → `25 Build projects` → `26 HTML history`
 
 ## 🧪 Practice
 
