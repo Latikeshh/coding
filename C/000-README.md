@@ -41,4 +41,3 @@ This section is being expanded. The next C lessons will be added only when they 
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Open the HTML path →](../HTML/00-README.md)
-./
