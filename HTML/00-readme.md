@@ -81,3 +81,4 @@ Planned lessons, not yet implemented:
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-vs-code.md)
+.
