@@ -21,3 +21,13 @@ Different questions need different answer boxes. A birthday needs a date picker;
 ```
 
 Other useful types include `number`, `checkbox`, `radio`, and `file`.
+
+## 💡 Practical Example
+
+Use `checkbox` when a visitor can choose several options, such as pizza toppings. Use `radio` when they must pick one option, such as small, medium, or large.
+
+## ✅ Remember
+
+An input type improves the experience but does not replace clear instructions. Add a label so people know exactly what each field is for.
+
+[← First: HTML Home](README.md) | [← Previous: Forms](Forms.md) | [Next: Buttons →](Buttons.md)

@@ -19,3 +19,13 @@ A web button is like a doorbell: pressing it asks the page to do something.
 ```
 
 Inside a form, `type="submit"` sends the form. Give buttons clear action words.
+
+## 💡 Practical Example
+
+“Add to basket,” “Save changes,” and “Send message” are clear button labels because they describe the result of pressing them. A label like “OK” often leaves people guessing.
+
+## ✅ Remember
+
+Use a `<button>` for an action. Use a link when the visitor is simply moving to another page.
+
+[← First: HTML Home](README.md) | [← Previous: Input Types](Input-Types.md) | [Next: Div and Span →](Div-and-Span.md)

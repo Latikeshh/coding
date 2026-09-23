@@ -21,3 +21,13 @@ A `div` is like a storage box holding several things. A `span` is like putting a
 ```
 
 Prefer meaningful tags such as `<main>` or `<article>` when they describe the content better.
+
+## 💡 Practical Example
+
+An online shop could wrap each product card in a `<div>`. Inside it, a `<span>` can wrap only the price so CSS can make that small part green or bold.
+
+## ✅ Remember
+
+`div` starts on a new line as a block. `span` stays inside the current line. Neither tells the browser what the content means by itself.
+
+[← First: HTML Home](README.md) | [← Previous: Buttons](Buttons.md) | [Next: Attributes →](HTML-Attributes.md)

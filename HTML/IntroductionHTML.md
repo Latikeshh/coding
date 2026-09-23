@@ -20,3 +20,13 @@ Think of a web page as a house. HTML is its frame and rooms. CSS makes it look n
 ```
 
 Tags such as `<h1>` tell the browser what each piece of content is.
+
+## 💡 Practical Example
+
+Imagine a page for your favourite café. HTML can give the café a name with a heading, describe its menu with paragraphs, and add a link to its location. It does not need to be perfect—start with the content people need to read.
+
+## ✅ Remember
+
+HTML is not a programming language that does calculations. It is a markup language: it labels the parts of a page so the browser can display them correctly.
+
+[← First: HTML Home](README.md) | [Next: Document Structure →](HTML-Document-Structure.md)

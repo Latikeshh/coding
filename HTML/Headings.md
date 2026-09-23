@@ -21,3 +21,13 @@ An `<h1>` is the main title of a book. `<h2>` is a chapter title, and `<h3>` is 
 ```
 
 Use headings in order; choose a level for meaning, not only for its size.
+
+## 💡 Practical Example
+
+On a travel page, use `<h1>` for “Visit Jaipur.” Use `<h2>` for “Places to see” and “Where to eat.” Under “Places to see,” use `<h3>` for each place. Readers can immediately understand the page.
+
+## ✅ Remember
+
+Most pages should have one main `<h1>`. Do not choose a heading just to make text large; CSS can change size later.
+
+[← First: HTML Home](README.md) | [← Previous: Document Structure](HTML-Document-Structure.md) | [Next: Paragraphs →](Paragraphs.md)

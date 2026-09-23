@@ -23,3 +23,13 @@ A form is like a paper form at a clinic: a person fills in boxes and then sends 
 ```
 
 A `label` tells people what information to enter.
+
+## 💡 Practical Example
+
+A bakery contact form might ask for a name, email, and message. Connect each label to its input using the same `for` and `id` value. Clicking the label then places the cursor in the correct box.
+
+## ✅ Remember
+
+HTML creates the form on screen. To actually save or email submitted information, a form needs a server or another service later.
+
+[← First: HTML Home](README.md) | [← Previous: Tables](Tables.md) | [Next: Input Types →](Input-Types.md)
