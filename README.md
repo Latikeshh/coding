@@ -8,7 +8,7 @@ This repository is a growing collection of easy-to-read coding notes. Each lesso
 
 | Language | Status | Start here |
 |---|---|---|
-| 🌐 HTML | Available | [Open the HTML learning path](HTML/README.md) |
+| 🌐 HTML | Available | [Open the HTML learning path](HTML/00-README.md) |
 
 CSS, JavaScript, C, C++, Java, Python, and more are planned. They are not listed as available yet because their lessons have not been added.
 
@@ -36,4 +36,4 @@ You can help improve this learning resource:
 
 This repository focuses on understandable notes and practical examples—not complicated theory. The goal is to help a beginner feel comfortable taking the next small step.
 
-[Start learning HTML →](HTML/README.md)
+[Start learning HTML →](HTML/00-README.md)
