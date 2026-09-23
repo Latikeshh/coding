@@ -1,5 +1,7 @@
 # HTML Document Structure
 
+> 🟢 Beginner
+
 ## 📖 Definition
 
 An HTML document has a standard outer structure that tells the browser where the page starts and where its visible content is.
@@ -34,5 +36,46 @@ Save this code in a file called `index.html`, then open it in a browser. “My F
 ## ✅ Remember
 
 Put page content—headings, paragraphs, images, and links—inside `<body>`. Put setup information, such as `<title>`, inside `<head>`.
+
+- `<!DOCTYPE html>` comes first.
+- `<head>` holds page information.
+- `<body>` holds visible page content.
+
+## 💻 Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Weekend Plans</title>
+</head>
+<body>
+  <h1>My Weekend Plans</h1>
+</body>
+</html>
+```
+
+## 👀 Output
+
+The browser tab says **Weekend Plans**. The page shows the heading **My Weekend Plans**.
+
+## 🔍 How It Works
+
+The `lang="en"` attribute says the page is in English. The title belongs in `<head>`, while the heading belongs in `<body>`.
+
+## ⚠️ Common Mistakes
+
+- Do not put visible headings inside `<head>`.
+- Do not forget the closing `</body>` and `</html>` tags.
+
+## 🧪 Try It Yourself
+
+Create an HTML document with your own browser-tab title and one page heading.
+
+## 🎯 Mini Challenge
+
+Add a paragraph and check that only the title appears in the browser tab.
+
+## 🧭 Navigation
 
 [← First: HTML Home](README.md) | [← Previous: Introduction](02-introduction.md) | [Next: Headings →](04-headings.md)

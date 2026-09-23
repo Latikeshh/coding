@@ -1,5 +1,7 @@
 # Set Up VS Code for HTML
 
+> 🟢 Beginner
+
 ## 📖 Definition
 
 Visual Studio Code (usually called **VS Code**) is a free code editor. You can use it to write, save, and view your HTML files.
@@ -55,5 +57,33 @@ You do not need dozens of extensions. Too many can be confusing. Read an extensi
 ## ✅ Remember
 
 Save before checking your browser. If the page does not change, first check that you saved the correct file and refreshed the correct browser tab. Start with plain HTML; CSS and JavaScript can be added after you understand the basics.
+
+- Use a folder to keep project files together.
+- Save HTML files with the `.html` extension.
+- Start with VS Code's built-in HTML support before adding many extensions.
+
+## 🧪 Try It Yourself
+
+Create a folder named `my-first-page`, add `index.html`, and change the heading in the starter code to your name.
+
+## 🎯 Mini Challenge
+
+Add a second paragraph that says what you want to learn from HTML, then preview the saved page in a browser.
+
+## 👀 Output
+
+Your browser shows your heading and paragraph. The text in `<title>` appears in the browser tab, not inside the page.
+
+## 🔍 How It Works
+
+VS Code saves the code as an HTML file. Your browser reads that file and turns its tags into the page you see.
+
+## ⚠️ Common Mistakes
+
+- Saving the file as `index.html.txt` instead of `index.html`.
+- Editing one file but opening a different file in the browser.
+- Forgetting to save before refreshing the browser.
+
+## 🧭 Navigation
 
 [← First: HTML Home](README.md) | [Next: Introduction to HTML →](02-introduction.md)

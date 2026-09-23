@@ -1,5 +1,7 @@
 # Headings
 
+> 🟢 Beginner
+
 ## 📖 Definition
 
 Headings are titles and subtitles on a page. HTML has six heading levels, from `<h1>` to `<h6>`.
@@ -29,5 +31,41 @@ On a travel page, use `<h1>` for “Visit Jaipur.” Use `<h2>` for “Places to
 ## ✅ Remember
 
 Most pages should have one main `<h1>`. Do not choose a heading just to make text large; CSS can change size later.
+
+- `<h1>` is the main subject of the page.
+- Use `<h2>` for major sections.
+- Keep heading levels in a sensible order.
+
+## 💻 Example
+
+```html
+<h1>Student Portfolio</h1>
+<h2>About Me</h2>
+<h2>My Projects</h2>
+<h3>Science Fair Website</h3>
+```
+
+## 👀 Output
+
+A large “Student Portfolio” title is followed by two section headings. “Science Fair Website” appears as a smaller heading inside Projects.
+
+## 🔍 How It Works
+
+The number in a heading tag shows its level in the page outline, not just its size. A project is a subsection of “My Projects,” so it uses `<h3>`.
+
+## ⚠️ Common Mistakes
+
+- Do not use several unrelated `<h1>` headings.
+- Do not skip from `<h1>` straight to `<h4>` only for a smaller look.
+
+## 🧪 Try It Yourself
+
+Plan a recipe page using one `<h1>` and at least two `<h2>` headings.
+
+## 🎯 Mini Challenge
+
+Create headings for a school timetable page with a sensible hierarchy.
+
+## 🧭 Navigation
 
 [← First: HTML Home](README.md) | [← Previous: Document Structure](03-html-document-structure.md) | [Next: Paragraphs →](05-paragraphs.md)

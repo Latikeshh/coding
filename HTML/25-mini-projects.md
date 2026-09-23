@@ -1,5 +1,7 @@
 # Mini Projects
 
+> 🟡 Intermediate
+
 ## 📖 Definition
 
 Mini projects are small web pages you build to practise HTML skills together.
@@ -33,4 +35,44 @@ Build a “My Favourite Place” page: add one `<h1>`, two paragraphs, an image 
 
 It is fine to look back at earlier lessons while building. If something does not work, check spelling, closing tags, and file names first—small mistakes are normal when learning.
 
-[← First: HTML Home](README.md) | [← Previous: Accessibility Basics](24-accessibility-basics.md) | [Back to First Lesson: VS Code Setup →](01-setup-vs-code.md)
+- Build a small version before adding extra features.
+- Reuse ideas from earlier lessons.
+- Test each change in a browser.
+
+## 💻 Example
+
+```html
+<h1>Weekend Recipe</h1>
+<img src="pancakes.jpg" alt="Stack of pancakes with berries">
+<h2>Ingredients</h2>
+<ul>
+  <li>Flour</li>
+  <li>Milk</li>
+  <li>Egg</li>
+</ul>
+```
+
+## 👀 Output
+
+A simple recipe page shows a title, an image, an ingredients heading, and a bulleted list.
+
+## 🔍 How It Works
+
+This project combines headings, images, and lists. You already know each part; the project teaches you how to use them together.
+
+## ⚠️ Common Mistakes
+
+- Do not try to build a full shopping website as your first project.
+- Do not add CSS or JavaScript before the HTML content works.
+
+## 🧪 Try It Yourself
+
+Build one page: a profile, a recipe, a travel plan, or a study timetable. Include at least a heading, paragraph, image or table, and link.
+
+## 🎯 Mini Challenge
+
+Build a one-page café menu with a semantic header, a price list, and a labelled feedback form. Plan it first; do not copy a complete answer.
+
+## 🧭 Navigation
+
+[← Previous](24-accessibility-basics.md) | [🏠 HTML Home](README.md)

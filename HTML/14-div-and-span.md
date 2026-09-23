@@ -1,5 +1,7 @@
 # Div and Span
 
+> 🟡 Intermediate
+
 ## 📖 Definition
 
 `<div>` groups larger blocks of content. `<span>` groups a small piece of text inside a line.
@@ -29,5 +31,40 @@ An online shop could wrap each product card in a `<div>`. Inside it, a `<span>` 
 ## ✅ Remember
 
 `div` starts on a new line as a block. `span` stays inside the current line. Neither tells the browser what the content means by itself.
+
+- A `div` groups a block of content.
+- A `span` wraps a small inline piece of content.
+- Use semantic elements first when they describe the content.
+
+## 💻 Example
+
+```html
+<div class="notice">
+  <p>Your total is <span class="price">$12</span>.</p>
+</div>
+```
+
+## 👀 Output
+
+The sentence appears as one paragraph. CSS could later style the whole notice or only the price.
+
+## 🔍 How It Works
+
+The `div` wraps the full notice. The `span` wraps only “$12,” which makes that small part easy to target with CSS.
+
+## ⚠️ Common Mistakes
+
+- Do not replace every meaningful tag with `<div>`.
+- Do not use `<span>` to wrap a full page section.
+
+## 🧪 Try It Yourself
+
+Wrap a product name and price in a `div`, then wrap only the price in a `span`.
+
+## 🎯 Mini Challenge
+
+Plan a product card using semantic tags where possible and `div` only where it helps grouping.
+
+## 🧭 Navigation
 
 [← First: HTML Home](README.md) | [← Previous: Buttons](13-buttons.md) | [Next: Attributes →](15-html-attributes.md)
