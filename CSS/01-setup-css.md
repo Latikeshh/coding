@@ -76,4 +76,4 @@ Create a `style.css` file and link it to an `index.html` file. Change the headin
 
 ## 🧭 Navigation
 
-[← CSS Home](00-README.md) | [Next: Introduction to CSS →](02-introduction.md)
+[← CSS Home](00-README.md) | [Next: Introduction to CSS →](02-introduction-to-css.md)

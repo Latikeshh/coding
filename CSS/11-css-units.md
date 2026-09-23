@@ -128,4 +128,4 @@ Change `2rem` to `1.5rem` and change `80%` to `60%` to see how the layout change
 
 ## 🧭 Navigation
 
-[← Previous](10-colors.md) | [CSS Home](00-README.md) | [Next →](12-backgrounds.md)
+[← Previous](10-width-and-height.md) | [CSS Home](00-README.md) | [Next →](12-backgrounds.md)

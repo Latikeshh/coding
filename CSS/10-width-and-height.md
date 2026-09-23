@@ -77,4 +77,4 @@ Change the card width and height. Notice how the content may wrap when the box b
 
 ## 🧭 Navigation
 
-[← Previous](09-padding.md) | [CSS Home](00-README.md) | [Next →](11-box-model.md)
+[← Previous](09-specificity.md) | [CSS Home](00-README.md) | [Next →](11-css-units.md)

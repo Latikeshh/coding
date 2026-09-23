@@ -82,4 +82,4 @@ The paragraph text will likely be red because the ID selector is more specific t
 
 ## 🧭 Navigation
 
-[← Previous](08-selectors.md) | [CSS Home](00-README.md) | [Next →](10-colors.md)
+[← Previous](08-selectors.md) | [CSS Home](00-README.md) | [Next →](10-width-and-height.md)
