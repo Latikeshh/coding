@@ -71,4 +71,4 @@ Add a clear submit button and labels for every field without looking at the exam
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Tables](10-tables.md) | [Next: Input Types →](12-input-types.md)
+[← First: HTML Home](00-README.md) | [← Previous: Tables](10-tables.md) | [Next: Input Types →](12-input-types.md)

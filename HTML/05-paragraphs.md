@@ -66,4 +66,4 @@ Make a short “About Me” section with a heading and three readable paragraphs
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Headings](04-headings.md) | [Next: Text Formatting →](06-text-formatting.md)
+[← First: HTML Home](00-README.md) | [← Previous: Headings](04-headings.md) | [Next: Text Formatting →](06-text-formatting.md)

@@ -68,4 +68,4 @@ Make a pizza order choice with three radio buttons and two topping checkboxes.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Forms](11-forms.md) | [Next: Buttons →](13-buttons.md)
+[← First: HTML Home](00-README.md) | [← Previous: Forms](11-forms.md) | [Next: Buttons →](13-buttons.md)

@@ -64,4 +64,4 @@ Make a three-link navigation menu with meaningful link text.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Text Formatting](06-text-formatting.md) | [Next: Images →](08-images.md)
+[← First: HTML Home](00-README.md) | [← Previous: Text Formatting](06-text-formatting.md) | [Next: Images →](08-images.md)

@@ -65,4 +65,4 @@ Create a simple product card with an image, heading, and paragraph.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Links](07-links.md) | [Next: Lists →](09-lists.md)
+[← First: HTML Home](00-README.md) | [← Previous: Links](07-links.md) | [Next: Lists →](09-lists.md)

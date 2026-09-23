@@ -67,4 +67,4 @@ Add a heading and paragraph for a pretend café without copying the example abov
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: VS Code Setup](01-setup-vs-code.md) | [Next: Document Structure →](03-html-document-structure.md)
+[← First: HTML Home](00-README.md) | [← Previous: VS Code Setup](01-setup-vs-code.md) | [Next: Document Structure →](03-html-document-structure.md)

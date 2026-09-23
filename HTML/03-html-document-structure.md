@@ -78,4 +78,4 @@ Add a paragraph and check that only the title appears in the browser tab.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Introduction](02-introduction.md) | [Next: Headings →](04-headings.md)
+[← First: HTML Home](00-README.md) | [← Previous: Introduction](02-introduction.md) | [Next: Headings →](04-headings.md)

@@ -67,4 +67,4 @@ Write three button labels for an online shop that make the action obvious.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Input Types](12-input-types.md) | [Next: Div and Span →](14-div-and-span.md)
+[← First: HTML Home](00-README.md) | [← Previous: Input Types](12-input-types.md) | [Next: Div and Span →](14-div-and-span.md)

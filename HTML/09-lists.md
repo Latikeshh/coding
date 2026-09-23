@@ -71,4 +71,4 @@ Write a four-step ordered list for making your favourite drink.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Images](08-images.md) | [Next: Tables →](10-tables.md)
+[← First: HTML Home](00-README.md) | [← Previous: Images](08-images.md) | [Next: Tables →](10-tables.md)

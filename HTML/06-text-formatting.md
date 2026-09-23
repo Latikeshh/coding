@@ -66,4 +66,4 @@ Create a shop announcement that uses each of the three formatting tags once, wit
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Paragraphs](05-paragraphs.md) | [Next: Links →](07-links.md)
+[← First: HTML Home](00-README.md) | [← Previous: Paragraphs](05-paragraphs.md) | [Next: Links →](07-links.md)

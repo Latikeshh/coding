@@ -77,4 +77,4 @@ Create a weekly study timetable with a heading row and at least three days.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Lists](09-lists.md) | [Next: Forms →](11-forms.md)
+[← First: HTML Home](00-README.md) | [← Previous: Lists](09-lists.md) | [Next: Forms →](11-forms.md)

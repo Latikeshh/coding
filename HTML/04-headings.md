@@ -68,4 +68,4 @@ Create headings for a school timetable page with a sensible hierarchy.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Document Structure](03-html-document-structure.md) | [Next: Paragraphs →](05-paragraphs.md)
+[← First: HTML Home](00-README.md) | [← Previous: Document Structure](03-html-document-structure.md) | [Next: Paragraphs →](05-paragraphs.md)

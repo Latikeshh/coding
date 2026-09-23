@@ -86,4 +86,4 @@ VS Code saves the code as an HTML file. Your browser reads that file and turns i
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [Next: Introduction to HTML →](02-introduction.md)
+[← First: HTML Home](00-README.md) | [Next: Introduction to HTML →](02-introduction.md)
