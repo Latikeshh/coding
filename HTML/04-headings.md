@@ -30,4 +30,4 @@ On a travel page, use `<h1>` for “Visit Jaipur.” Use `<h2>` for “Places to
 
 Most pages should have one main `<h1>`. Do not choose a heading just to make text large; CSS can change size later.
 
-[← First: HTML Home](README.md) | [← Previous: Document Structure](HTML-Document-Structure.md) | [Next: Paragraphs →](Paragraphs.md)
+[← First: HTML Home](README.md) | [← Previous: Document Structure](03-html-document-structure.md) | [Next: Paragraphs →](05-paragraphs.md)

@@ -28,4 +28,4 @@ For a recipe, `alt="A bowl of tomato soup with basil"` describes useful informat
 
 The `<img>` tag has no closing tag. Make sure `src` points to the correct file name and folder; a wrong address makes a broken-image icon appear.
 
-[← First: HTML Home](README.md) | [← Previous: Links](Links.md) | [Next: Lists →](Lists.md)
+[← First: HTML Home](README.md) | [← Previous: Links](07-links.md) | [Next: Lists →](09-lists.md)

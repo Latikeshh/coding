@@ -29,4 +29,4 @@ Use one paragraph to introduce a book and another to explain why you recommend i
 
 Pressing Enter many times in your code does not create separate paragraphs in the browser. Use `<p>` tags when you want a new paragraph.
 
-[← First: HTML Home](README.md) | [← Previous: Headings](Headings.md) | [Next: Text Formatting →](Text-Formatting.md)
+[← First: HTML Home](README.md) | [← Previous: Headings](04-headings.md) | [Next: Text Formatting →](06-text-formatting.md)

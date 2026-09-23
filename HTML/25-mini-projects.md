@@ -33,4 +33,4 @@ Build a “My Favourite Place” page: add one `<h1>`, two paragraphs, an image 
 
 It is fine to look back at earlier lessons while building. If something does not work, check spelling, closing tags, and file names first—small mistakes are normal when learning.
 
-[← First: HTML Home](README.md) | [← Previous: Accessibility Basics](Accessibility-Basics.md) | [Back to First Lesson: Introduction →](IntroductionHTML.md)
+[← First: HTML Home](README.md) | [← Previous: Accessibility Basics](24-accessibility-basics.md) | [Back to First Lesson: VS Code Setup →](01-setup-vs-code.md)

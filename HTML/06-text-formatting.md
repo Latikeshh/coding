@@ -30,4 +30,4 @@ On a medicine reminder page, write “Take after food” as normal text, but use
 
 Use formatting sparingly. If everything is bold or highlighted, nothing feels important. Choose the tag that matches the meaning of the words.
 
-[← First: HTML Home](README.md) | [← Previous: Paragraphs](Paragraphs.md) | [Next: Links →](Links.md)
+[← First: HTML Home](README.md) | [← Previous: Paragraphs](05-paragraphs.md) | [Next: Links →](07-links.md)

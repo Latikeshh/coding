@@ -28,4 +28,4 @@ In `<img src="logo.png" alt="Sunrise Bakery logo">`, `src` tells the browser whi
 
 Attributes belong in the opening tag. Spell their names correctly and leave a space between attributes.
 
-[← First: HTML Home](README.md) | [← Previous: Div and Span](Div-and-Span.md) | [Next: Comments →](HTML-Comments.md)
+[← First: HTML Home](README.md) | [← Previous: Div and Span](14-div-and-span.md) | [Next: Comments →](16-html-comments.md)

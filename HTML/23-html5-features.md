@@ -30,4 +30,4 @@ Before HTML5, adding video often required a separate plugin. Today, the `<video>
 
 HTML5 is still HTML, not a completely separate language to learn. You use its modern features alongside the headings, paragraphs, and links you already know.
 
-[← First: HTML Home](README.md) | [← Previous: Semantic HTML](Semantic-HTML.md) | [Next: Accessibility Basics →](Accessibility-Basics.md)
+[← First: HTML Home](README.md) | [← Previous: Semantic HTML](22-semantic-html.md) | [Next: Accessibility Basics →](24-accessibility-basics.md)

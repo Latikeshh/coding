@@ -32,4 +32,4 @@ A bakery contact form might ask for a name, email, and message. Connect each lab
 
 HTML creates the form on screen. To actually save or email submitted information, a form needs a server or another service later.
 
-[← First: HTML Home](README.md) | [← Previous: Tables](Tables.md) | [Next: Input Types →](Input-Types.md)
+[← First: HTML Home](README.md) | [← Previous: Tables](10-tables.md) | [Next: Input Types →](12-input-types.md)

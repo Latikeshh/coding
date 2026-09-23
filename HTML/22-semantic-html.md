@@ -30,4 +30,4 @@ On a news page, use `<nav>` for menu links, `<main>` for the central content, an
 
 Semantic tags often look like ordinary blocks at first. Their main value is the meaning they add, which CSS can style later.
 
-[← First: HTML Home](README.md) | [← Previous: Iframes](Iframes.md) | [Next: HTML5 Features →](HTML5-Features.md)
+[← First: HTML Home](README.md) | [← Previous: Iframes](21-iframes.md) | [Next: HTML5 Features →](23-html5-features.md)

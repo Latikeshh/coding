@@ -31,4 +31,4 @@ A packing list for a trip works well as a `<ul>` because you can pack items in a
 
 Every list item goes inside `<li>`. Do not type hyphens by hand when the content is truly a list—the HTML list gives it proper structure.
 
-[← First: HTML Home](README.md) | [← Previous: Images](Images.md) | [Next: Tables →](Tables.md)
+[← First: HTML Home](README.md) | [← Previous: Images](08-images.md) | [Next: Tables →](10-tables.md)

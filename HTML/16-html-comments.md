@@ -29,4 +29,4 @@ When your page has a header, main content, and footer, a short comment before ea
 
 Comments are for people reading the code, not for visitors reading the page. They do not change the visible design.
 
-[← First: HTML Home](README.md) | [← Previous: Attributes](HTML-Attributes.md) | [Next: Colors →](HTML-Colors.md)
+[← First: HTML Home](README.md) | [← Previous: Attributes](15-html-attributes.md) | [Next: Colors →](17-html-colors.md)

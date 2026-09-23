@@ -28,4 +28,4 @@ For pages in the same project, you can use a file name: `<a href="contact.html">
 
 Check that a link tells visitors where it leads. “Read our return policy” is much more helpful than “More.”
 
-[← First: HTML Home](README.md) | [← Previous: Text Formatting](Text-Formatting.md) | [Next: Images →](Images.md)
+[← First: HTML Home](README.md) | [← Previous: Text Formatting](06-text-formatting.md) | [Next: Images →](08-images.md)

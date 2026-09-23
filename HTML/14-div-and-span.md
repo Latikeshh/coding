@@ -30,4 +30,4 @@ An online shop could wrap each product card in a `<div>`. Inside it, a `<span>` 
 
 `div` starts on a new line as a block. `span` stays inside the current line. Neither tells the browser what the content means by itself.
 
-[← First: HTML Home](README.md) | [← Previous: Buttons](Buttons.md) | [Next: Attributes →](HTML-Attributes.md)
+[← First: HTML Home](README.md) | [← Previous: Buttons](13-buttons.md) | [Next: Attributes →](15-html-attributes.md)

@@ -28,4 +28,4 @@ For a garden shop, dark green text on a white background is easy to read and fit
 
 The `style` attribute is useful for a quick experiment. As a site grows, put colour rules in a separate CSS file so they are easier to reuse.
 
-[← First: HTML Home](README.md) | [← Previous: Comments](HTML-Comments.md) | [Next: Entities →](HTML-Entities.md)
+[← First: HTML Home](README.md) | [← Previous: Comments](16-html-comments.md) | [Next: Entities →](18-html-entities.md)

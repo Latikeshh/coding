@@ -30,4 +30,4 @@ If a coding lesson needs to display `<p>`, write `&lt;p&gt;` in the page. Withou
 
 An entity begins with `&` and ends with `;`. Use one when a character has a special meaning in HTML.
 
-[← First: HTML Home](README.md) | [← Previous: Colors](HTML-Colors.md) | [Next: Audio →](Audio.md)
+[← First: HTML Home](README.md) | [← Previous: Colors](17-html-colors.md) | [Next: Audio →](19-audio.md)

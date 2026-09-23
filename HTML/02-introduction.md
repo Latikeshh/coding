@@ -29,4 +29,4 @@ Imagine a page for your favourite café. HTML can give the café a name with a h
 
 HTML is not a programming language that does calculations. It is a markup language: it labels the parts of a page so the browser can display them correctly.
 
-[← First: HTML Home](README.md) | [Next: Document Structure →](HTML-Document-Structure.md)
+[← First: HTML Home](README.md) | [← Previous: VS Code Setup](01-setup-vs-code.md) | [Next: Document Structure →](03-html-document-structure.md)

@@ -28,4 +28,4 @@ A local business may embed a map so customers can find its address. The map is d
 
 Some websites block themselves from being embedded. If an iframe is blank, check whether the source website allows embedding.
 
-[← First: HTML Home](README.md) | [← Previous: Video](Video.md) | [Next: Semantic HTML →](Semantic-HTML.md)
+[← First: HTML Home](README.md) | [← Previous: Video](20-video.md) | [Next: Semantic HTML →](22-semantic-html.md)

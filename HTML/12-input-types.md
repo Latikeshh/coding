@@ -30,4 +30,4 @@ Use `checkbox` when a visitor can choose several options, such as pizza toppings
 
 An input type improves the experience but does not replace clear instructions. Add a label so people know exactly what each field is for.
 
-[← First: HTML Home](README.md) | [← Previous: Forms](Forms.md) | [Next: Buttons →](Buttons.md)
+[← First: HTML Home](README.md) | [← Previous: Forms](11-forms.md) | [Next: Buttons →](13-buttons.md)

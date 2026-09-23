@@ -30,4 +30,4 @@ Before publishing a form, try using it with only the Tab key. You should be able
 
 Accessibility is not an optional extra added at the end. Small habits—such as writing real labels and alt text—make every page more useful from the beginning.
 
-[← First: HTML Home](README.md) | [← Previous: HTML5 Features](HTML5-Features.md) | [Next: Mini Projects →](Mini-Projects.md)
+[← First: HTML Home](README.md) | [← Previous: HTML5 Features](23-html5-features.md) | [Next: Mini Projects →](25-mini-projects.md)

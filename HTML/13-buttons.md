@@ -28,4 +28,4 @@ Inside a form, `type="submit"` sends the form. Give buttons clear action words.
 
 Use a `<button>` for an action. Use a link when the visitor is simply moving to another page.
 
-[← First: HTML Home](README.md) | [← Previous: Input Types](Input-Types.md) | [Next: Div and Span →](Div-and-Span.md)
+[← First: HTML Home](README.md) | [← Previous: Input Types](12-input-types.md) | [Next: Div and Span →](14-div-and-span.md)

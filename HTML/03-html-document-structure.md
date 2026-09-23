@@ -35,4 +35,4 @@ Save this code in a file called `index.html`, then open it in a browser. “My F
 
 Put page content—headings, paragraphs, images, and links—inside `<body>`. Put setup information, such as `<title>`, inside `<head>`.
 
-[← First: HTML Home](README.md) | [← Previous: Introduction](IntroductionHTML.md) | [Next: Headings →](Headings.md)
+[← First: HTML Home](README.md) | [← Previous: Introduction](02-introduction.md) | [Next: Headings →](04-headings.md)
