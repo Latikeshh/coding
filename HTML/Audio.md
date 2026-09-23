@@ -22,3 +22,13 @@ It works like a small music player placed inside your web page.
 ```
 
 The `controls` attribute shows play, pause, and volume controls.
+
+## 💡 Practical Example
+
+For a pronunciation lesson, add a short audio clip after each new word. Visitors can press play only when they are ready, rather than being surprised by sound starting automatically.
+
+## ✅ Remember
+
+Provide a written transcript when audio contains important spoken information. A transcript helps people who cannot hear the recording or prefer to read.
+
+[← First: HTML Home](README.md) | [← Previous: Entities](HTML-Entities.md) | [Next: Video →](Video.md)

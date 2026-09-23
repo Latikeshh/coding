@@ -19,3 +19,13 @@ An attribute is like a label on a package. The package is the element; the label
 ```
 
 Here, `href` and `title` are attributes. Attribute values usually go in quotes.
+
+## 💡 Practical Example
+
+In `<img src="logo.png" alt="Sunrise Bakery logo">`, `src` tells the browser which image to load and `alt` describes that image. One element can have more than one attribute.
+
+## ✅ Remember
+
+Attributes belong in the opening tag. Spell their names correctly and leave a space between attributes.
+
+[← First: HTML Home](README.md) | [← Previous: Div and Span](Div-and-Span.md) | [Next: Comments →](HTML-Comments.md)

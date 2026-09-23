@@ -21,3 +21,13 @@ HTML5 is an updated toolbox. It added better tools, such as semantic sections, a
 ```
 
 `<!DOCTYPE html>` tells browsers to use modern HTML rules.
+
+## 💡 Practical Example
+
+Before HTML5, adding video often required a separate plugin. Today, the `<video>` element lets a browser play a video directly, while an `email` input can help a visitor enter an email address.
+
+## ✅ Remember
+
+HTML5 is still HTML, not a completely separate language to learn. You use its modern features alongside the headings, paragraphs, and links you already know.
+
+[← First: HTML Home](README.md) | [← Previous: Semantic HTML](Semantic-HTML.md) | [Next: Accessibility Basics →](Accessibility-Basics.md)

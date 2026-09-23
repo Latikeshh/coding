@@ -22,3 +22,13 @@ It is like placing a small television screen on your page with controls for the 
 ```
 
 Add captions when possible so more people can understand the video.
+
+## 💡 Practical Example
+
+A bicycle-repair page could show a short video of fixing a flat tyre. Add a short paragraph below it that explains what viewers will learn before they press play.
+
+## ✅ Remember
+
+Video files can be large. Keep clips focused, use a sensible width, and give visitors controls instead of forcing the video to play.
+
+[← First: HTML Home](README.md) | [← Previous: Audio](Audio.md) | [Next: Iframes →](Iframes.md)

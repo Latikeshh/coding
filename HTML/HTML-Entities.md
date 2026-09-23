@@ -21,3 +21,13 @@ An entity is a safe nickname for a character. The browser reads the nickname and
 ```
 
 `&lt;` displays `<` and `&amp;` displays `&`.
+
+## 💡 Practical Example
+
+If a coding lesson needs to display `<p>`, write `&lt;p&gt;` in the page. Without the entity, the browser may think you are trying to create a real paragraph.
+
+## ✅ Remember
+
+An entity begins with `&` and ends with `;`. Use one when a character has a special meaning in HTML.
+
+[← First: HTML Home](README.md) | [← Previous: Colors](HTML-Colors.md) | [Next: Audio →](Audio.md)

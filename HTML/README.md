@@ -30,3 +30,7 @@ HTML is the starting point for building web pages. Work through these folders in
 | 24 | [Mini Projects](Mini-Projects.md) |
 
 Tip: create an `.html` file, paste an example, save it, and open it in a browser to see the result.
+
+## Start Learning
+
+[First lesson: Introduction to HTML →](IntroductionHTML.md)

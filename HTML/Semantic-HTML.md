@@ -21,3 +21,13 @@ Instead of labeling every room in a building “box,” use labels such as entra
 </main>
 <footer>© 2026</footer>
 ```
+
+## 💡 Practical Example
+
+On a news page, use `<nav>` for menu links, `<main>` for the central content, and `<article>` for each news story. The code then reads like a simple description of the page.
+
+## ✅ Remember
+
+Semantic tags often look like ordinary blocks at first. Their main value is the meaning they add, which CSS can style later.
+
+[← First: HTML Home](README.md) | [← Previous: Iframes](Iframes.md) | [Next: HTML5 Features →](HTML5-Features.md)
