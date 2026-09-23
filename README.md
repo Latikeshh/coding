@@ -6,23 +6,23 @@ This repository is a growing collection of easy-to-read coding notes. Each lesso
 
 ## 📚 Languages
 
-| Language | Status | Start here |
-|---|---|---|
-| 🌐 HTML | Available | [Open the HTML learning path](HTML/00-README.md) |
-| 🎨 CSS | Available | [Open the CSS learning path](CSS/00-README.md) |
-| ⚙️ C | Available | [Open the C learning path](C/00-README.md) |
-| ⚡ JavaScript | Available | [Open the JavaScript learning path](JS/00-README.md) |
-| 🚀 C++ | Available | [Open the C++ learning path](CPP/00-README.md) |
+| Language | Lessons | Status | Start here |
+|---|---|---|---|
+| 🌐 HTML | 26 Lessons | Available | [Open the HTML learning path](HTML/00-README.md) |
+| 🎨 CSS | 38 Lessons | Available | [Open the CSS learning path](CSS/00-README.md) |
+| ⚙️ C | 23 Lessons | Available | [Open the C learning path](C/00-README.md) |
+| ⚡ JavaScript | 24 Lessons | Available | [Open the JavaScript learning path](JS/00-README.md) |
+| 🚀 C++ | 23 Lessons | Available | [Open the C++ learning path](CPP/00-README.md) |
 
 Java, Python, and more are planned. They will be added as future learning paths are created.
 
 ## 🗺️ Learning Roadmap
 
-1. **HTML — available:** set up VS Code, learn page structure, add content, create forms, and build small projects.
-2. **CSS — available:** learn selectors, colors, layout, spacing, flexbox, grid, and responsive design.
-3. **C — available:** set up compiler, master variables, I/O, control flow, functions, arrays, pointers, structs, and CLI projects.
-4. **JavaScript — available:** learn console devtools, variables, data types, functions, DOM manipulation, arrays, objects, and mini-apps.
-5. **C++ — available:** learn OOP concepts, classes, objects, vectors, inheritance, input/output streams, and C++ projects.
+1. **HTML — 26 lessons:** set up VS Code, page structure, forms, media, accessibility, and mini projects.
+2. **CSS — 38 lessons:** selectors, box model, flexbox, grid, animations, responsive design, and card layouts.
+3. **C — 23 lessons:** compiler setup, variables, control flow, functions, arrays, pointers, dynamic memory (`malloc`), structs, unions, file I/O, macros, storage classes, and CLI tools.
+4. **JavaScript — 24 lessons:** scope, hoisting, ES6+ features, `map`/`filter`/`reduce`, closures, Promises, `async`/`await`, Fetch API, prototypes, classes, DOM, event delegation, `localStorage`, and mini projects.
+5. **C++ — 23 lessons:** stream I/O, references, `std::vector`, OOP, constructors/RAII, inheritance/polymorphism, operator overloading, smart pointers, STL containers/algorithms, templates, lambdas, exception handling, file streams, and move semantics.
 6. **More languages — coming later:** each path will be added only when it has real lessons to study.
 
 ## 🎯 Learning Method
