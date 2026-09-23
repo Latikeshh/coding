@@ -67,4 +67,4 @@ Plan a product card using semantic tags where possible and `div` only where it h
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Buttons](13-buttons.md) | [Next: Attributes →](15-html-attributes.md)
+[← First: HTML Home](00-README.md) | [← Previous: Buttons](13-buttons.md) | [Next: Attributes →](15-html-attributes.md)

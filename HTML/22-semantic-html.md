@@ -74,4 +74,4 @@ Create a blog post outline using `header`, `nav`, `main`, `article`, and `footer
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Iframes](21-iframes.md) | [Next: HTML5 Features →](23-html5-features.md)
+[← First: HTML Home](00-README.md) | [← Previous: Iframes](21-iframes.md) | [Next: HTML5 Features →](23-html5-features.md)

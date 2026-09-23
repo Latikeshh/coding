@@ -68,4 +68,4 @@ Embed a map for a pretend shop and write a text address outside the iframe too.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Video](20-video.md) | [Next: Semantic HTML →](22-semantic-html.md)
+[← First: HTML Home](00-README.md) | [← Previous: Video](20-video.md) | [Next: Semantic HTML →](22-semantic-html.md)

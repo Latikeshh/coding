@@ -75,4 +75,4 @@ Build a one-page café menu with a semantic header, a price list, and a labelled
 
 ## 🧭 Navigation
 
-[← Previous](24-accessibility-basics.md) | [🏠 HTML Home](README.md)
+[← Previous](24-accessibility-basics.md) | [🏠 HTML Home](00-README.md)

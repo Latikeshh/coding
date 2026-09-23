@@ -67,4 +67,4 @@ Add comments to mark a header, main content, and footer—without commenting eve
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Attributes](15-html-attributes.md) | [Next: Colors →](17-html-colors.md)
+[← First: HTML Home](00-README.md) | [← Previous: Attributes](15-html-attributes.md) | [Next: Colors →](17-html-colors.md)

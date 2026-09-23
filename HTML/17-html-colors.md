@@ -65,4 +65,4 @@ Choose two colours for a café notice and check that the text remains readable.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Comments](16-html-comments.md) | [Next: Entities →](18-html-entities.md)
+[← First: HTML Home](00-README.md) | [← Previous: Comments](16-html-comments.md) | [Next: Entities →](18-html-entities.md)

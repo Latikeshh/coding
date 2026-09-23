@@ -63,4 +63,4 @@ Add useful `id`, `name`, and `required` attributes to a form field.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Div and Span](14-div-and-span.md) | [Next: Comments →](16-html-comments.md)
+[← First: HTML Home](00-README.md) | [← Previous: Div and Span](14-div-and-span.md) | [Next: Comments →](16-html-comments.md)

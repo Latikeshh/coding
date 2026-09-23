@@ -69,4 +69,4 @@ Update an old-style page outline to use at least three meaningful HTML elements.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Semantic HTML](22-semantic-html.md) | [Next: Accessibility Basics →](24-accessibility-basics.md)
+[← First: HTML Home](00-README.md) | [← Previous: Semantic HTML](22-semantic-html.md) | [Next: Accessibility Basics →](24-accessibility-basics.md)

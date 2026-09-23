@@ -70,4 +70,4 @@ Add two `<source>` files with different formats so the browser can choose one it
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Entities](18-html-entities.md) | [Next: Video →](20-video.md)
+[← First: HTML Home](00-README.md) | [← Previous: Entities](18-html-entities.md) | [Next: Video →](20-video.md)

@@ -9,13 +9,15 @@ This repository is a growing collection of easy-to-read coding notes. Each lesso
 | Language | Status | Start here |
 |---|---|---|
 | 🌐 HTML | Available | [Open the HTML learning path](HTML/00-README.md) |
+| ⚙️ C | Available | [Open the C learning path](C/000-README.md) |
 
-CSS, JavaScript, C, C++, Java, Python, and more are planned. They are not listed as available yet because their lessons have not been added.
+CSS, JavaScript, C++, Java, Python, and more are planned. They are not listed as available yet because their lessons have not been added.
 
 ## 🗺️ Learning Roadmap
 
 1. **HTML — available:** set up VS Code, learn page structure, add content, create forms, and build small projects.
-2. **More languages — coming later:** each path will be added only when it has real lessons to study.
+2. **C — available:** begin with the C homepage and continue with future lessons as they are added.
+3. **More languages — coming later:** each path will be added only when it has real lessons to study.
 
 ## 🎯 Learning Method
 

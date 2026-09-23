@@ -68,4 +68,4 @@ Make a short HTML note that correctly displays `<`, `>`, and `&`.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: Colors](17-html-colors.md) | [Next: Audio →](19-audio.md)
+[← First: HTML Home](00-README.md) | [← Previous: Colors](17-html-colors.md) | [Next: Audio →](19-audio.md)

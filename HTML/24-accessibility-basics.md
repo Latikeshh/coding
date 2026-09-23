@@ -70,4 +70,4 @@ Review a page you built earlier and improve one image, one link, and one form fi
 
 ## 🧭 Navigation
 
-[← First: HTML Home](README.md) | [← Previous: HTML5 Features](23-html5-features.md) | [Next: Mini Projects →](25-mini-projects.md)
+[← First: HTML Home](00-README.md) | [← Previous: HTML5 Features](23-html5-features.md) | [Next: Mini Projects →](25-mini-projects.md)
