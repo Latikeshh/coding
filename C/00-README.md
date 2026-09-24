@@ -1,22 +1,23 @@
-# 🧠 Learn C
+# 🧠 Learn C Programming
 
 C is a high-performance, system-level programming language that powers operating systems, compilers, embedded devices, game engines, and databases. Learning C gives you an intimate understanding of computer memory, hardware, pointers, and systems programming.
 
-> 🟢 **Beginner to Advanced:** start with compiler setup, master primitive types, control flow, functions, dynamic memory allocation (`malloc`/`free`), advanced pointers, file I/O, structs, unions, macros, and multi-file project compilation.
+> 🟢 **Beginner to Advanced:** Start with compiler setup, master primitive types, control flow, functions, dynamic memory allocation (`malloc`/`free`), advanced pointers, file I/O, structs, unions, macros, and multi-file project compilation.
 
 ## 📖 What You Will Learn
 
-- Setting up GCC/Clang compilers and writing C programs
-- Primitive data types, format specifiers, and I/O (`printf`, `scanf`, `fgets`)
+- Setting up GCC/Clang compilers and writing ISO C11 applications
+- Primitive data types, format specifiers, and stream I/O (`printf`, `scanf`, `fgets`)
 - Control structures, loops, and function modularization
 - Multidimensional arrays, string manipulation, and standard libraries (`<string.h>`)
-- Pointers, memory addresses, pointer arithmetic, function pointers, and `void*`
+- Pointers, memory addresses, pointer arithmetic, double pointers, function pointers, and `void*`
 - Dynamic memory allocation on the Heap (`malloc`, `calloc`, `realloc`, `free`)
 - User-defined data types (`struct`, `union`, `enum`, `typedef`, bit fields)
-- Low-level file I/O operations (`fopen`, `fread`, `fwrite`, `fseek`)
-- C Preprocessor directives (`#define`, `#ifdef`, `#pragma`) and macros
+- Persistent file I/O operations (`fopen`, `fprintf`, `fread`, `fwrite`, `fseek`)
+- C Preprocessor directives (`#define`, `#ifdef`, `#ifndef`) and safe macros
 - Storage classes (`static`, `extern`, `auto`, `register`) and CLI argument parsing (`argc`/`argv`)
 - Multi-file C project structure, header files (`.h`), and Makefiles
+- Error handling with `errno`, `perror()`, and defensive programming
 
 ## 📚 Lessons
 
@@ -24,9 +25,9 @@ C is a high-performance, system-level programming language that powers operating
 |---|---|---|---|
 | 01 | Set Up C Environment | 🟢 Beginner | [Open lesson](01-setup-c.md) |
 | 02 | Introduction to C | 🟢 Beginner | [Open lesson](02-introduction-to-c.md) |
-| 03 | Variables & Primitive Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.md) |
+| 03 | Variables & Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.md) |
 | 04 | Input & Output (`printf`, `scanf`, `fgets`) | 🟢 Beginner | [Open lesson](04-input-output.md) |
-| 05 | Operators | 🟢 Beginner | [Open lesson](05-operators.md) |
+| 05 | Operators in C | 🟢 Beginner | [Open lesson](05-operators.md) |
 | 06 | Conditionals (`if`, `else`, `switch`) | 🟢 Beginner | [Open lesson](06-conditionals.md) |
 | 07 | Loops (`for`, `while`, `do-while`) | 🟢 Beginner | [Open lesson](07-loops.md) |
 | 08 | Functions & Scope | 🟢 Beginner | [Open lesson](08-functions.md) |
@@ -40,7 +41,7 @@ C is a high-performance, system-level programming language that powers operating
 | 16 | Enumerations (`enum`) | 🟡 Intermediate | [Open lesson](16-enums.md) |
 | 17 | File Handling (`fopen`, `fread`, `fwrite`) | 🔴 Advanced | [Open lesson](17-file-handling.md) |
 | 18 | C Preprocessor & Macros (`#define`, `#ifdef`) | 🟡 Intermediate | [Open lesson](18-preprocessor-and-macros.md) |
-| 19 | Storage Classes (`static`, `extern`, `register`) | 🔴 Advanced | [Open lesson](19-storage-classes.md) |
+| 19 | Storage Classes & Qualifiers (`static`, `extern`) | 🔴 Advanced | [Open lesson](19-storage-classes.md) |
 | 20 | Command Line Arguments (`argc`, `argv`) | 🟡 Intermediate | [Open lesson](20-command-line-arguments.md) |
 | 21 | Multi-file Projects & Header Files (`.h`) | 🔴 Advanced | [Open lesson](21-multi-file-projects.md) |
 | 22 | Error Handling & Debugging (`errno`, `perror`) | 🔴 Advanced | [Open lesson](22-error-handling.md) |
@@ -52,20 +53,20 @@ C is a high-performance, system-level programming language that powers operating
 
 ## 🧪 Practice Routine
 
-1. Read the explanation and understand the C code example.
-2. Compile code using `gcc -Wall -std=c11 filename.c -o program`.
+1. Read the lesson explanation and study the C code example.
+2. Compile code using `gcc -Wall -Wextra -std=c11 filename.c -o program`.
 3. Run executables in terminal and inspect output.
 4. Experiment with pointer addresses, memory allocations, and edge cases.
-5. Solve practice challenges.
+5. Solve the "Try It Yourself" and "Mini Challenge" tasks.
 
 ## ✅ Progress Checklist
 
-- [ ] I can write, compile, and debug C applications with `gcc`.
+- [ ] I can write, compile, and debug C applications with `gcc -Wall -Wextra -std=c11`.
 - [ ] I understand pointer arithmetic, dereferencing, and memory layouts.
 - [ ] I can dynamically allocate and free heap memory without memory leaks.
 - [ ] I can read/write binary and text files using C standard file streams.
 - [ ] I understand storage classes (`static`, `extern`) and scope rules.
-- [ ] I can organize complex C codebases into header files and separate source files.
+- [ ] I can organize complex C codebases into header files (`.h`) and separate source files (`.c`).
 
 ## 🧭 Navigation
 
