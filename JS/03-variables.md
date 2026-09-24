@@ -1,78 +1,105 @@
-# Variables in JavaScript
+# Variables in JavaScript (`let`, `const`, `var`)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-A **variable** is a named container used to store data values in computer memory so they can be referenced, reused, and updated throughout a program.
+A **variable** is a named container in computer memory used to store data values. In JavaScript, variables are declared using `const`, `let`, or the legacy keyword `var`.
 
-> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
->
-> - **English:** Use `const` by default for variables that do not change, and `let` for values that will be reassigned later. Avoid `var`.
-> - **Hindi:** जो वैल्यू बदलनी नहीं है उसके लिए `const` और जिसे बदलना है उसके लिए `let` का उपयोग करें। `var` का इस्तेमाल न करें।
-> - **Marathi:** न बदलणाऱ्या व्हॅल्यूसाठी `const` आणि बदलणाऱ्या व्हॅल्यूसाठी `let` वापरा.
-> - **Hinglish:** Unchanging values ke liye `const` aur reassigned values ke liye `let` use karo. Legacy `var` ko avoid karo.
+## 🇮🇳 Hindi
+
+Variable memory mein ek named box ki tarah hota hai jisme hum data store karte hain taaki usko pooray program mein dobara use ya update kar sakein. Modern JavaScript mein constant values ke liye `const` aur changeable values ke liye `let` use kiya jata hai.
+
+## 🚩 Marathi
+
+Variable mhanje memory madhye data store karnya sathi dilele naav. Unchanging values sathi `const` aani badalnaraya values sathi `let` cha wapar kela jato. Legacy `var` cha wapar aajkal kela jaat nahi.
 
 ## 🤔 Why Do We Use Them?
 
-Instead of repeating values like prices, user names, or scores throughout your program, you store them in variables with descriptive names.
+Instead of hardcoding values like user names, prices, or calculations multiple times in code, you store them in descriptive variables. This makes code clean, maintainable, and reusable.
 
 ## 🧠 Simple Explanation
 
-Think of a variable as a labeled box on a shelf. The label is the variable name (e.g. `age`), and what you place inside the box is the value (e.g. `25`).
+Think of a variable as a labeled container in your kitchen. The label is the variable name (e.g., `userScore`), and what you put inside is the value (e.g., `100`).
 
-## 📝 Syntax
+## 📝 Syntax & Keyword Rules
 
-JavaScript provides three keywords to declare variables:
-
-1. `const`: Use for values that **will not change** (constant).
-2. `let`: Use for values that **can be reassigned later**.
-3. `var`: Legacy scope rules (avoid in modern ES6+ JS code).
+| Keyword | Scope | Reassignable? | Redeclarable? | Hoisted? |
+|---|---|---|---|---|
+| `const` | Block Scope | ❌ No | ❌ No | Yes (TDZ) |
+| `let` | Block Scope | ✅ Yes | ❌ No | Yes (TDZ) |
+| `var` | Function Scope | ✅ Yes | ✅ Yes | Yes (`undefined`) |
 
 ```javascript
-const birthYear = 2000;
-let score = 10;
-score = 15; // Value reassigned
+// 1. const (Use by default for values that won't change)
+const birthYear = 2002;
+
+// 2. let (Use for variables whose value will change later)
+let currentAge = 22;
+currentAge = 23; // Reassignment allowed
+
+// 3. var (Legacy - avoid in modern JavaScript code)
+var legacyVar = "Old way";
 ```
 
-## 💡 Practical Example
+## 💡 Complete Example
 
 ```javascript
-const userName = "Alex";
-let userAge = 22;
+const productName = "Wireless Mouse";
+const unitPrice = 499;
+let quantity = 2;
 
-console.log(userName);
-console.log(userAge);
+let totalCost = unitPrice * quantity;
+console.log("Product:", productName);
+console.log("Quantity:", quantity);
+console.log("Total Cost:", totalCost);
 
-// Updating variable
-userAge = 23;
-console.log("Updated Age:", userAge);
+// Updating quantity
+quantity = 3;
+totalCost = unitPrice * quantity;
+console.log("Updated Quantity:", quantity);
+console.log("Updated Total Cost:", totalCost);
 ```
 
 ## 👀 Output
 
 ```text
-Alex
-22
-Updated Age: 23
+Product: Wireless Mouse
+Quantity: 2
+Total Cost: 998
+Updated Quantity: 3
+Updated Total Cost: 1497
 ```
 
-## ⚠️ Common Mistakes
+## 🎯 Variable Naming Rules
 
-- Trying to reassign a `const` variable:
-  ```javascript
-  const pi = 3.14;
-  pi = 3.15; // TypeError: Assignment to constant variable!
-  ```
-- Using spaces or hyphens in variable names (use camelCase instead: `userScore`, `totalAmount`).
+- Use `camelCase` for variable names (`userScore`, `totalAmount`).
+- Names can contain letters, numbers, underscores (`_`), and dollar signs (`$`).
+- Names **cannot start with a number**.
+- Cannot use reserved keywords (`let`, `class`, `function`, `return`).
 
 ## 🧪 Try It Yourself
 
-Declare a `const` variable for your country's name and a `let` variable for your current age. Print both.
+1. Declare a `const` variable for your country name.
+2. Declare a `let` variable for your current savings balance.
+3. Update the savings balance variable and print both values.
 
-## 🎯 Mini Challenge
+## ⚠️ Common Mistakes
 
-Declare a variable `price = 100` and `tax = 18`. Calculate and print the total price (`price + tax`).
+- Reassigning a `const` variable:
+  ```javascript
+  const pi = 3.14;
+  pi = 3.14159; // TypeError: Assignment to constant variable.
+  ```
+- Using `var` inside loops, leading to unintended variable leakage outside the block.
+
+## 🌍 Real-World Usage
+
+Variables store shopping cart items, user session information, form inputs, score counters in games, and UI toggles.
+
+## 💡 Remember
+
+Default to `const` for all variable declarations. Switch to `let` only when you know the value will be reassigned. Avoid `var`.
 
 ## 🧭 Navigation
 

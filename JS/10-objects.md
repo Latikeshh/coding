@@ -4,80 +4,125 @@
 
 ## 📖 Definition
 
-- **Object:** Key-value data structure (keys are strings or symbols).
-- **`Map`:** Key-value structure where keys can be **any data type** (objects, functions, primitives) and insertion order is preserved.
-- **`Set`:** Collection of **unique values** (duplicates are automatically filtered out).
-- **`Date`:** Built-in object for handling calendar dates and timestamps.
-- **RegExp:** Regular Expressions used for text pattern matching and validation.
+- **Object:** Key-value data structure where keys are strings or symbols.
+- **`Map`:** Key-value collection where keys can be **any data type** (objects, functions, primitives) and insertion order is preserved.
+- **`Set`:** Collection of **unique values** where duplicates are automatically removed.
+- **`Date`:** Built-in object for managing timestamps, dates, and time calculations.
+- **RegExp:** Regular Expressions used for text pattern matching and string validation.
 
-> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
->
-> - **English:** Objects store key-value pairs. `Map` allows keys of any data type. `Set` enforces unique values. `Date` manages timestamps, and `RegExp` validates text patterns.
-> - **Hindi:** ऑब्जेक्ट्स की-वैल्यू डेटा स्टोर करते हैं। `Map` में किसी भी टाइप की 'की' हो सकती है। `Set` में डुप्लिकेट वैल्यूज़ नहीं होतीं।
-> - **Marathi:** ऑब्जेक्ट्स की-व्हॅल्यू डाटा साठवतात. `Set` मध्ये डुप्लिकेट व्हॅल्यू राहू शकत नाहीत.
-> - **Hinglish:** Objects key-value pairs store karte hain. `Set` duplicate values auto-remove kar deta hai aur `Map` kisi bhi data type ki keys allow karta hai.
+## 🇮🇳 Hindi
 
----
+Objects JavaScript ke fundamental building blocks hain. Structured key-value data ke liye Object aur `Map` use karein, unique items store karne ke liye `Set`, calendar dates ke liye `Date`, aur string validations ke liye `RegExp` ka use hota hai.
 
-## 📝 Syntax & Examples
+## 🚩 Marathi
 
-### 1. Object Literal
+Objects madhye data key-value pair स्वरूपात saathavla jato. Duplicate values kadhnyasathi `Set` cha wapar kara, badalnaraya keys sathi `Map`, tareekh ani vele sathi `Date` aani validation sathi `RegExp` cha wapar kara.
+
+## 📝 Structures & Features
+
+### 1. Objects (Dot vs Bracket Notation)
 ```javascript
-const user = {
-  name: "Sophia",
-  age: 25,
+const userProfile = {
+  id: 101,
+  fullName: "Ananya Roy",
+  role: "Engineer",
+  skills: ["JS", "React"],
   greet() {
-    console.log(`Hello, I am ${this.name}`);
+    return `Hi, I am ${this.fullName}`;
   }
 };
-user.greet();
+
+console.log(userProfile.fullName);       // Dot notation
+console.log(userProfile["role"]);        // Bracket notation
+
+// Utility methods
+console.log(Object.keys(userProfile));   // ['id', 'fullName', 'role', 'skills', 'greet']
+console.log(Object.values(userProfile)); // [101, 'Ananya Roy', 'Engineer', ...]
 ```
 
-### 2. `Set` (Unique Values Collection)
+### 2. `Set` (Collection of Unique Values)
 ```javascript
-const uniqueIDs = new Set([101, 102, 101, 103]);
-uniqueIDs.add(104);
-console.log(uniqueIDs.size); // 4 (101 duplicate was ignored)
-console.log(uniqueIDs.has(102)); // true
+const numbers = [10, 20, 10, 30, 20, 40];
+const uniqueNumbers = new Set(numbers);
+uniqueNumbers.add(50);
+
+console.log("Unique Size:", uniqueNumbers.size); // 5 (Duplicates ignored)
+console.log("Has 20?", uniqueNumbers.has(20));    // true
 ```
 
-### 3. `Map` (Key-Value with Any Data Type as Keys)
+### 3. `Map` (Any Data Type as Key)
 ```javascript
 const userRoles = new Map();
-const keyObj = { id: 1 };
+const keyObject = { id: 1 };
 
-userRoles.set(keyObj, "Admin");
-console.log(userRoles.get(keyObj)); // "Admin"
+userRoles.set(keyObject, "Administrator");
+console.log(userRoles.get(keyObject)); // "Administrator"
 ```
 
 ### 4. `Date` Object
 ```javascript
 const now = new Date();
-console.log(now.getFullYear()); // e.g. 2026
-console.log(now.toISOString()); // e.g. "2026-09-24T09:15:00.000Z"
+console.log("Current Year:", now.getFullYear());
+console.log("ISO Format:", now.toISOString());
 ```
 
 ### 5. Regular Expressions (`RegExp`)
 ```javascript
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-console.log(emailRegex.test("user@example.com")); // true
-console.log(emailRegex.test("invalid-email"));     // false
+console.log(emailRegex.test("user@domain.com")); // true
+console.log(emailRegex.test("invalid-email"));   // false
 ```
 
----
+## 💡 Complete Example
 
-## ⚠️ Common Mistakes
+```javascript
+// Clean user input by removing duplicate tags and validating email
+function processUserRegistration(emailInput, tagsArray) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const isValidEmail = emailPattern.test(emailInput);
 
-- Trying to access `Map` values using dot notation (`map.key`) instead of `map.get(key)`.
-- Forgetting that months in `Date` object are 0-indexed (`0` = January, `11` = December).
+  const cleanTags = Array.from(new Set(tagsArray));
+
+  return {
+    email: emailInput,
+    valid: isValidEmail,
+    tags: cleanTags,
+    registeredAt: new Date().toLocaleDateString()
+  };
+}
+
+let result = processUserRegistration("dev@example.com", ["js", "html", "js", "css", "html"]);
+console.log(result);
+```
+
+## 👀 Output
+
+```text
+{
+  email: 'dev@example.com',
+  valid: true,
+  tags: [ 'js', 'html', 'css' ],
+  registeredAt: '9/24/2026'
+}
+```
 
 ## 🧪 Try It Yourself
 
-Create a `Set` of 5 numbers containing duplicates and print its unique size.
+1. Create an object `car` with `make`, `model`, `year`, and a `drive()` method.
+2. Create an array containing numbers with duplicates and convert it to a `Set` to remove duplicates.
 
-## 🎯 Mini Challenge
+## ⚠️ Common Mistakes
 
-Write a function `validatePhone(str)` using a Regular Expression to check if a string contains a valid 10-digit phone number.
+- Forgetting that months in JavaScript `Date` object are 0-indexed (`0` = January, `11` = December!).
+- Accessing `Map` entries with dot notation (`map.key`) instead of using `.get(key)`.
+
+## 🌍 Real-World Usage
+
+Managing user profile state, filtering unique tags/categories in e-commerce, formatting timestamps, and validating email/password fields in registration forms.
+
+## 💡 Remember
+
+Use `Object` for fixed structured records, `Set` for deduplication, `Map` when keys are dynamic or non-strings, and `Date` for calendar tracking.
 
 ## 🧭 Navigation
 
