@@ -4,37 +4,38 @@
 
 ## 📖 Definition
 
-An **Inline Frame (`<iframe>`)** embeds an external HTML document, video, or interactive widget (such as Google Maps, YouTube videos, or external widgets) directly inside the current webpage.
+An **Inline Frame (`<iframe>`)** embeds an external HTML document, web page, or interactive widget (such as Google Maps, YouTube video players, or external widgets) directly inside the current webpage.
 
-## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
+## 🌍 Multilingual Summary
 
 ### English
-An `<iframe>` embeds external content (maps, videos, external sites). Always provide a descriptive `title` attribute for screen reader accessibility.
+An `<iframe>` embeds external content (maps, videos, external web pages). Always provide a descriptive `title` attribute for screen reader accessibility.
 
 ### Hindi
-`<iframe>` टैग बाहरी वेब पेज, मैप या यूट्यूब वीडियो को अपने पेज में एम्बेड करता है। एक्सेसिबिलिटी के लिए `title` एट्रिब्यूट देना अनिवार्य है।
+External content (jaise Google Maps ya YouTube videos) ko apne page mein embed karne ke liye `<iframe>` tag use karein. Screen readers ke liye `title` attribute compulsory hai.
 
 ### Marathi
-दुसऱ्या वेबसाईटचा भाग, नकाशे किंवा युट्यूब व्हिडिओ आपल्या पेजवर दाखवण्यासाठी `<iframe>` वापरतात. `title` ॲट्रिब्यूट देणे आवश्यक आहे.
+External content (jase Google Maps kiva YouTube videos) potchya webpage madhye dakhavnyasathi `<iframe>` tag vaprtat. `title` attribute dene aavashyak aahe.
 
-### Hinglish
-External content (jaise Google Maps ya YouTube videos) ko apne page mein embed karne ke liye `<iframe>` tag use karo. Screen readers ke liye `title` attribute compulsory hai.
+## 🤔 Why Do We Use Iframes?
 
-## 📝 Key Attributes of `<iframe>`
+Iframes allow web developers to integrate interactive third-party tools—interactive location maps, embedded video players, payment portals, or social media widgets—without writing complex custom rendering logic from scratch.
+
+## 📐 Key Attributes of `<iframe>`
 
 - **`src`:** The target URL of the external webpage or embedded widget.
-- **`title` (Mandatory for Accessibility):** Explains what content the frame contains so screen reader users understand its purpose.
+- **`title` (Mandatory for Accessibility):** Describes the embedded frame content so screen reader users understand its purpose.
 - **`width` & `height`:** Specifies frame container dimensions in pixels or percentages.
-- **`loading="lazy"`:** Defers loading the iframe content until the user scrolls near it, improving initial page load performance.
-- **`sandbox`:** Restricts script execution, form submission, and popups inside the embedded iframe for security (`sandbox="allow-scripts allow-same-origin"`).
+- **`loading="lazy"`:** Defers loading iframe content until the user scrolls near it, improving initial page loading speed.
+- **`sandbox`:** Restricts script execution, form submissions, and popups inside the embedded frame for security (`sandbox="allow-scripts allow-same-origin"`).
 - **`allowfullscreen`:** Permits embedded video players to enter full-screen mode.
 
-## 🔒 Security & Embedding Restrictions
+## 🔒 Security & Framing Restrictions
 
-1. **Mandatory `title` Attribute:** Screen readers announce iframes by their `title`. Omitting `title` breaks accessibility compliance.
-2. **`X-Frame-Options` & CSP Security Headers:** Major websites (such as Google Search, Facebook, GitHub, or banking portals) send HTTP security headers (`X-Frame-Options: DENY` or `X-Frame-Options: SAMEORIGIN`) preventing external sites from embedding their pages inside an `<iframe>`. This protects users against clickjacking attacks.
+1. **Mandatory `title` Attribute:** Screen readers announce iframes by their `title`. Omitting `title` violates accessibility standards.
+2. **`X-Frame-Options` & CSP Security Headers:** Major websites (such as Google Search, GitHub, or banking portals) send HTTP security headers (`X-Frame-Options: DENY` or `X-Frame-Options: SAMEORIGIN`) preventing external sites from embedding their pages inside an `<iframe>` to protect against clickjacking attacks.
 
-## 📝 Code Example
+## 💻 Code Example
 
 ```html
 <!DOCTYPE html>
@@ -77,20 +78,36 @@ External content (jaise Google Maps ya YouTube videos) ko apne page mein embed k
 </html>
 ```
 
-## ⚠️ Common Mistakes
+## 👀 Output / What You Will See
 
-- **Forgetting the `title` attribute:** Writing `<iframe src="...">` without `title="Description"` breaks accessibility standards.
-- **Attempting to embed sites that block framing:** Trying to embed `https://google.com` results in a blank gray box due to security headers set by the target server.
+Two embedded interactive frames rendered seamlessly on the page: an interactive Google Maps location widget and a playable YouTube video player.
 
 ## 🧪 Try It Yourself
 
 1. Embed a Google Maps location widget inside an `<iframe>`.
-2. Add a descriptive `title`, `width="100%"`, `height="300"`, and `loading="lazy"`.
+2. Add a descriptive `title` attribute, `width="100%"`, `height="300"`, and `loading="lazy"`.
+3. Test a YouTube video embed with `allowfullscreen`.
 
-## 🎯 Mini Challenge
+## ⚠️ Common Mistakes
 
-Create an HTML page containing two `<iframe>` widgets (one map and one YouTube video embed), ensuring both have accessible `title` attributes and responsive container widths.
+- **Forgetting the `title` attribute:** Writing `<iframe src="...">` without `title="Description"` breaks accessibility standards.
+- **Attempting to embed sites that block framing:** Trying to embed `https://google.com` results in a blank box due to `X-Frame-Options` security headers set by Google.
+
+## 🌐 Real-World Usage
+
+Contact pages embed Google Maps, blog articles embed YouTube videos, and e-commerce stores embed payment provider widgets using secure `<iframe>` containers.
+
+## 🔗 Related Topics
+
+- [Video](20-video.md)
+- [Accessibility Basics](24-accessibility-basics.md)
+
+## 💡 Remember
+
+- Always provide a descriptive `title` attribute on every `<iframe>`.
+- Use `loading="lazy"` to defer loading off-screen iframes.
+- Some websites block iframe embedding using security headers.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](00-README.md) | [← Previous: Video](20-video.md) | [Next: Semantic HTML →](22-semantic-html.md)
+[← Previous: Video](20-video.md) | [HTML Home](00-README.md) | [Next: Semantic HTML →](22-semantic-html.md)

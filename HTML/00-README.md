@@ -6,19 +6,16 @@ Welcome to the **HTML Learning Path**! HTML (HyperText Markup Language) is the s
 
 ---
 
-## 🌍 Multilingual Summary / संक्षेप / स्पष्टीकरण
+## 🌍 Multilingual Summary
 
 ### English
 HTML provides the structure and semantic meaning of a web page (headings, text, links, images, forms, tables, and modern media).
 
 ### Hindi
-HTML वेब पेज का ढांचा (structure) तैयार करता है, जैसे headings, paragraphs, links, images, forms और tables.
+HTML webpage ka structure aur foundation tayar karta hai, jaise headings, paragraphs, links, images, forms, aur tables display karna.
 
 ### Marathi
-HTML वेब पेजचा पाया आणि रचना (structure) तयार करते, जसे की headings, text, links, images, forms आणि tables.
-
-### Hinglish
-HTML web page ka structure banata hai, jaise headings, paragraphs, images, links, forms aur tables display karna.
+HTML webpage cha paya ani structure tayar karte, jase ki headings, text, links, images, forms, ani tables display karne.
 
 ---
 
@@ -27,11 +24,14 @@ HTML web page ka structure banata hai, jaise headings, paragraphs, images, links
 - Setting up VS Code and browser Developer Tools
 - HTML document boilerplate (`<!DOCTYPE html>`, `<html>`, `<head>`, `<body>`)
 - Headings hierarchy (`<h1>` to `<h6>`), paragraphs, and semantic text formatting
-- Navigation links (`<a>`), images (`<img>`, `<picture>`), lists (`<ul>`, `<ol>`, `<dl>`), and tables (`<table>`)
-- Interactive forms (`<form>`, `<label>`, `<input>`, `<textarea>`, `<select>`, `<button>`, `<fieldset>`)
-- Input types (`text`, `email`, `password`, `number`, `date`, `tel`, `checkbox`, `radio`)
+- Navigation links (`<a>`), images (`<img>`, `<figure>`, `<picture>`), lists (`<ul>`, `<ol>`, `<dl>`), and tables (`<table>`)
+- Interactive forms (`<form>`, `<label>`, `<input>`, `<textarea>`, `<select>`, `<button>`, `<fieldset>`, `<datalist>`)
+- Input types (`text`, `email`, `password`, `number`, `date`, `tel`, `checkbox`, `radio`) and client-side validation
 - Structuring web layouts with semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`)
+- Metadata, favicon, viewport settings, SEO basics, and Open Graph social cards
 - Incorporating media (`<audio>`, `<video>`, `<iframe>`), HTML entities, colors, and comments
+- Modern interactive elements (`<details>`, `<summary>`, `<dialog>`, `<progress>`, `<meter>`, `<template>`)
+- Global attributes (`id`, `class`, `title`, `lang`, `dir`, `hidden`, `tabindex`, `contenteditable`) and custom `data-*` attributes
 - Web accessibility fundamentals (a11y), keyboard focus, ARIA guidance, and HTML validation
 - Building real-world HTML mini projects (portfolio, recipe card, registration form)
 
@@ -67,12 +67,18 @@ HTML web page ka structure banata hai, jaise headings, paragraphs, images, links
 | 24 | Web Accessibility (a11y) & HTML Validation | 🟡 Intermediate | [Open lesson](24-accessibility-basics.md) |
 | 25 | HTML Mini Projects | 🟡 Intermediate | [Open lesson](25-mini-projects.md) |
 | 26 | History & Standards of HTML | 🟡 Intermediate | [Open lesson](26-html-history.md) |
+| 27 | Meta Tags & Head Metadata | 🟡 Intermediate | [Open lesson](27-meta-tags.md) |
+| 28 | Advanced Form Controls & HTML Validation | 🟡 Intermediate | [Open lesson](28-advanced-form-controls.md) |
+| 29 | Responsive Images & Art Direction (`<picture>`, `srcset`, `sizes`, `loading="lazy"`) | 🟡 Intermediate | [Open lesson](29-responsive-images.md) |
+| 30 | Interactive HTML5 Elements (`<details>`, `<summary>`, `<dialog>`, `<progress>`, `<meter>`, `<template>`) | 🟡 Intermediate | [Open lesson](30-interactive-elements.md) |
+| 31 | Global Attributes & Custom Data Attributes (`data-*`, `tabindex`, `contenteditable`) | 🟡 Intermediate | [Open lesson](31-global-and-data-attributes.md) |
+| 32 | HTML SEO & Open Graph Metadata | 🟡 Intermediate | [Open lesson](32-html-seo-and-open-graph.md) |
 
 ---
 
 ## 🎯 Recommended Learning Path
 
-`01–03 Setup & Structure` → `04–10 Core Elements & Content` → `11–13 Forms & User Input` → `14–18 Attributes & Tools` → `19–24 Semantic HTML, Media & Accessibility` → `25–26 Mini Projects & History`
+`01–03 Setup & Structure` → `04–10 Core Elements & Content` → `11–13 Forms & User Input` → `14–18 Attributes & Tools` → `19–24 Semantic HTML, Media & Accessibility` → `25–26 Mini Projects & History` → `27–32 Metadata, Validation, Responsive Media, Interactive Tags & SEO`
 
 ---
 
@@ -82,10 +88,13 @@ HTML web page ka structure banata hai, jaise headings, paragraphs, images, links
 - [ ] I understand the HTML boilerplate structure (`<!DOCTYPE html>`, `<html>`, `<head>`, `<body>`).
 - [ ] I can structure content with logical headings (`<h1>`–`<h6>`), paragraphs, formatted text, links, and images.
 - [ ] I can create bulleted, numbered, and description lists, as well as accessible tables.
-- [ ] I can build labelled, validated HTML forms with appropriate input types and buttons.
+- [ ] I can build labelled, validated HTML forms with appropriate input types, dropdowns, and buttons.
 - [ ] I understand when to use semantic tags (`<header>`, `<main>`, `<article>`, `<nav>`) over generic `<div>` containers.
-- [ ] I know how to embed audio, video, and iframes accessibly.
-- [ ] I built at least one complete HTML mini project.
+- [ ] I know how to embed audio, video, and iframes accessibly with captions and transcripts.
+- [ ] I can configure meta tags, favicons, viewport settings, and Open Graph metadata for social sharing.
+- [ ] I know how to build responsive images with `<picture>` and `srcset`.
+- [ ] I understand interactive HTML5 tags (`<details>`, `<dialog>`, `<progress>`, `<meter>`) and custom `data-*` attributes.
+- [ ] I built complete HTML mini projects and validated my HTML code.
 
 ---
 

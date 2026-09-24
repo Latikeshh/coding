@@ -4,21 +4,18 @@
 
 ## 📖 Definition
 
-**HTML** was invented by British computer scientist **Sir Tim Berners-Lee** in **1989–1991** at CERN (European Organization for Nuclear Research) to enable scientists to share documents across computer networks. Today, HTML is maintained as a **Living Standard** by **WHATWG** (Web Hypertext Application Technology Working Group) in collaboration with **W3C** (World Wide Web Consortium).
+**HTML** was invented by British computer scientist **Sir Tim Berners-Lee** in **1989–1991** at CERN (European Organization for Nuclear Research) to enable scientists to share hyperlinked documents across computer networks. Today, HTML is maintained as an evolving **Living Standard** by **WHATWG** (Web Hypertext Application Technology Working Group).
 
-## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
+## 🌍 Multilingual Summary
 
 ### English
 Tim Berners-Lee invented HTML at CERN in 1989–1991. Today WHATWG maintains HTML as an evolving "Living Standard" continuously updated for modern web browsers.
 
 ### Hindi
-टिम बर्नर्स-ली ने 1989-1991 में CERN में HTML का आविष्कार किया था। आज WHATWG इसे एक "Living Standard" के रूप में लगातार अपडेट करता है।
+Tim Berners-Lee ne 1989-1991 mein CERN mein HTML invent kiya tha. Aaj WHATWG HTML ko "Living Standard" ke roop mein continuously maintain karta hai.
 
 ### Marathi
-टिम बर्नर्स-ली यांनी 1989-1991 मध्ये CERN मध्ये HTML ची सुरुवात केली. आज WHATWG हे 'Living Standard' म्हणून अपडेट ठेवते.
-
-### Hinglish
-Tim Berners-Lee ne 1989-1991 mein CERN mein HTML invent kiya tha. Aaj WHATWG HTML ko "Living Standard" ke roop mein continuamente maintain karta hai.
+Tim Berners-Lee yani 1989-1991 madhye CERN madhye HTML shodhle. Aaj WHATWG ya HTML la 'Living Standard' mhanun update thevte.
 
 ## 📜 Historical Timeline of HTML
 
@@ -42,4 +39,4 @@ Unlike earlier decades where HTML had rigid, static version numbers (like HTML 2
 
 ## 🧭 Navigation
 
-[← First: HTML Home](00-README.md) | [← Previous: Mini Projects](25-mini-projects.md)
+[← Previous: Mini Projects](25-mini-projects.md) | [HTML Home](00-README.md) | [Next: Meta Tags →](27-meta-tags.md)

@@ -4,30 +4,31 @@
 
 ## 📖 Definition
 
-**HTML Entities** are special code sequences used to display reserved HTML characters (like `<` or `>`) that browsers would otherwise interpret as HTML markup tags, or specific symbols that may not be easily typed on standard keyboards (like `©` or `™`).
+**HTML Entities** are special code sequences used to display reserved HTML syntax characters (like `<` or `>`) that browsers would otherwise interpret as tag markup, or specific symbols that may not be easily typed on standard computer keyboards (like `©` or `™`).
 
-## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
+## 🌍 Multilingual Summary
 
 ### English
-Entities display reserved characters like `&lt;` for `<`, `&gt;` for `>`, `&amp;` for `&`, and `&copy;` for `©`. Always end entity codes with a semicolon `;`.
+Entities display reserved syntax characters like `&lt;` for `<`, `&gt;` for `>`, `&amp;` for `&`, and `&copy;` for `©`. Always end entity codes with a semicolon `;`.
 
 ### Hindi
-HTML में स्पेशल सिम्बल्स दिखाने के लिए एंटिटीज का इस्तेमाल होता है, जैसे `<` के लिए `&lt;`, `>` के लिए `&gt;`, और `©` के लिए `&copy;` लिखें। अंत में सेमीकोलन `;` लगाना न भूलें।
+Special reserved characters ko literal text dikhane ke liye entities use hoti hain (jaise `<` ke liye `&lt;`, `>` ke liye `&gt;`, `&` ke liye `&amp;`, `©` ke liye `&copy;`). End mein semicolon `;` lagayein.
 
 ### Marathi
-खास चिन्हे दाखवण्यासाठी एंटिटीज वापरतात (उदा. `<` साठी `&lt;` आणि `©` साठी `&copy;`). शेवटी सेमीकोलन `;` देणे आवश्यक आहे.
+Special characters screen var dakhavnyasathi entities vapartat (`<` sathi `&lt;`, `>` sathi `&gt;`, `©` sathi `&copy;`). End madhye semicolon `;` dene aavashyak aahe.
 
-### Hinglish
-Special reserved characters ko screen par literal text dikhane ke liye entities use hoti hain (jaise `<` ke liye `&lt;` aur `&` ke liye `&amp;`). Semicolon `;` hamesha add karein.
+## 🤔 Why Do We Use Entities?
+
+Certain characters are reserved in HTML syntax (`<`, `>`, `&`, `"`, `'`). If you type `<p>` inside body text, web browsers treat it as an opening HTML paragraph tag instead of displaying literal `<p>` text. HTML entities instruct browsers to render literal symbol characters without breaking HTML syntax parsing.
 
 ## 📝 Common HTML Entities Reference
 
-| Symbol / Character | Meaning | Entity Name | Entity Code |
+| Symbol / Character | Description | Entity Name | Entity Code |
 |---|---|---|---|
-| `<` | Less than | `&lt;` | `&#60;` |
-| `>` | Greater than | `&gt;` | `&#62;` |
-| `&` | Ampersand | `&amp;` | `&#38;` |
-| `"` | Double quotation mark | `&quot;` | `&#34;` |
+| `<` | Less-than symbol | `&lt;` | `&#60;` |
+| `>` | Greater-than symbol | `&gt;` | `&#62;` |
+| `&` | Ampersand symbol | `&amp;` | `&#38;` |
+| `"` | Double quote mark | `&quot;` | `&#34;` |
 | `'` | Single quote / Apostrophe | `&apos;` | `&#39;` |
 | `©` | Copyright symbol | `&copy;` | `&#169;` |
 | `™` | Trademark symbol | `&trade;` | `&#8482;` |
@@ -37,19 +38,18 @@ Special reserved characters ko screen par literal text dikhane ke liye entities 
 
 ## 🧠 When Are Entities Necessary?
 
-Entities are primarily needed for reserved characters that have special meaning in HTML syntax:
+- **Syntax Safety:** Printing literal HTML code snippets inside tutorials (e.g., displaying `&lt;h1&gt;` on screen).
+- **Trademarks & Copyrights:** Formatting footer legal statements with `&copy;` and `&trade;`.
+- **Note on UTF-8:** Because modern HTML boilerplate uses `<meta charset="UTF-8">`, you can type standard Unicode symbols directly. Entities are primarily used for syntax safety (`<`, `>`, `&`).
 
-- **Reserved Characters:** Writing `<p>` directly inside body text causes browsers to treat it as an HTML tag opening. Using `&lt;p&gt;` forces the browser to render literal `<p>` text.
-- **UTF-8 Character Encoding Note:** Because modern HTML boilerplate documents use `<meta charset="UTF-8">`, you can type standard Unicode characters (like `₹` or `€` or emojis `😊`) directly into text. Entities are mainly reserved for syntax safety (`<`, `>`, `&`, `"`, `'`) and trademark/copyright formatting.
-
-## 📝 Code Example
+## 💻 Code Example
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HTML Entities Example</title>
+  <title>HTML Entities Practice</title>
 </head>
 <body>
 
@@ -57,9 +57,9 @@ Entities are primarily needed for reserved characters that have special meaning 
 
   <p>To create a main heading in HTML, use the &lt;h1&gt; heading &lt;/h1&gt; tags.</p>
 
-  <p>Condition: 5 &lt; 10 &amp;&amp; 20 &gt; 15</p>
+  <p>Mathematical expression: 5 &lt; 10 &amp;&amp; 20 &gt; 15</p>
 
-  <p>Company Name: Johnson &amp; Johnson Co.</p>
+  <p>Company Title: Johnson &amp; Johnson Co.</p>
 
   <p>Special Pricing: &#8377;1,499 or &euro;18.50</p>
 
@@ -73,28 +73,41 @@ Entities are primarily needed for reserved characters that have special meaning 
 </html>
 ```
 
-## 👀 Output
+## 👀 Output / What You Will See
 
-- **"To create a main heading in HTML, use the `<h1>` heading `</h1>` tags."**
-- **"Condition: 5 < 10 && 20 > 15"**
-- **"Company Name: Johnson & Johnson Co."**
-- **"Special Pricing: ₹1,499 or €18.50"**
-- **"Copyright © 2026 Coding Notes ™. All rights reserved."**
-
-## ⚠️ Common Mistakes
-
-- **Forgetting the trailing semicolon `;`:** Writing `&lt` or `&copy` instead of `&lt;` or `&copy;`.
-- **Using `&nbsp;` repeatedly for layout gaps:** Inserting `&nbsp;&nbsp;&nbsp;&nbsp;` to force gaps between text instead of using CSS `margin` or `padding`.
+- "To create a main heading in HTML, use the `<h1>` heading `</h1>` tags."
+- "Mathematical expression: 5 < 10 && 20 > 15"
+- "Company Title: Johnson & Johnson Co."
+- "Special Pricing: ₹1,499 or €18.50"
+- "Copyright © 2026 Coding Notes ™. All rights reserved."
 
 ## 🧪 Try It Yourself
 
-Write an HTML sentence displaying:
-`In HTML, we write <a> for hyperlinks and & for ampersand.` using proper HTML entities.
+Write an HTML sentence displaying:  
+`In HTML, we write <a> for hyperlinks and & for ampersand.` using proper HTML entities (`&lt;`, `&gt;`, `&amp;`).
 
-## 🎯 Mini Challenge
+## ⚠️ Common Mistakes
 
-Create a footer section displaying the text `Copyright © 2026 Student Portal ™ | Price: ₹999` using HTML entities for all symbols.
+- **Forgetting trailing semicolons `;`:** Writing `&lt` or `&copy` instead of `&lt;` or `&copy;`.
+- **Using `&nbsp;` repeatedly for visual layout gaps:** Inserting `&nbsp;&nbsp;&nbsp;&nbsp;` to force gaps between text instead of using CSS `margin` or `padding`.
+
+## 🌐 Real-World Usage
+
+Tech documentation sites, code tutorial portals, e-commerce stores, and website footers use HTML entities for code snippets and legal symbol display.
+
+## 🔗 Related Topics
+
+- [Text Formatting](06-text-formatting.md)
+- [Colors](17-html-colors.md)
+
+## 💡 Remember
+
+- `&lt;` = `<`
+- `&gt;` = `>`
+- `&amp;` = `&`
+- `&copy;` = `©`
+- Always end entity codes with a semicolon `;`.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](00-README.md) | [← Previous: Colors](17-html-colors.md) | [Next: Audio →](19-audio.md)
+[← Previous: Colors](17-html-colors.md) | [HTML Home](00-README.md) | [Next: Audio →](19-audio.md)

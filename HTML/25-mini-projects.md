@@ -6,19 +6,16 @@
 
 Practical mini projects allow you to combine all learned HTML concepts—document structure, headings, lists, tables, images, media, forms, accessibility labels, and semantic elements—into complete, real-world web pages.
 
-## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
+## 🌍 Multilingual Summary
 
 ### English
 Practice HTML by building complete mini projects: a Developer Resume, a Recipe Card page, and a Registration Form.
 
 ### Hindi
-सीखे गए सभी HTML टैग्स की प्रैक्टिस के लिए तीन व्यावहारिक मिनी प्रोजेक्ट्स (डेवलपर रिज़्यूमे, रेसिपी कार्ड और रजिस्ट्रेशन फॉर्म) बनाएं।
+Learned HTML concepts ko apply karne ke liye complete mini projects (Developer Resume, Recipe Card, Workshop Registration Form) practice karein.
 
 ### Marathi
-शिकलेल्या सर्व HTML टॅग्जचा सराव करण्यासाठी तीन लहान प्रोजेक्ट्स (डेव्हलपर रिझ्युमे, रेसिपी कार्ड आणि नोंदणी फॉर्म) बनवा.
-
-### Hinglish
-Learned HTML concepts ko apply karne ke liye complete mini projects (Developer Resume, Recipe Card, Event Registration Form) practice karo.
+Shiklele HTML concepts apply karanyasathi 3 complete mini projects (Developer Resume, Recipe Card, Workshop Registration Form) practice kara.
 
 ---
 
@@ -246,4 +243,4 @@ A comprehensive form combining `<fieldset>`, input validations, dropdowns, and t
 
 ## 🧭 Navigation
 
-[← First: HTML Home](00-README.md) | [← Previous: Accessibility Basics](24-accessibility-basics.md) | [Next: HTML History →](26-html-history.md)
+[← Previous: Accessibility Basics](24-accessibility-basics.md) | [HTML Home](00-README.md) | [Next: HTML History →](26-html-history.md)

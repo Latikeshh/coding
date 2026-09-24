@@ -4,38 +4,44 @@
 
 ## 📖 Definition
 
-The **`<table>`** element presents structured, 2-dimensional **tabular data** arranged into rows and columns. Tables should be used strictly for tabular data (e.g., student marks, flight schedules, pricing plans, timetables), and **never for page layouts**.
+The **`<table>`** element presents structured, 2-dimensional **tabular data** arranged into rows and columns. Tables must be used strictly for tabular data (e.g., student grade sheets, flight schedules, pricing plans, timetables), and **never for page layout**.
 
-## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
+## 🌍 Multilingual Summary
 
 ### English
 Tables display structured tabular data. Structure tables using `<caption>`, `<thead>`, `<tbody>`, `<tfoot>`, `<tr>` (row), `<th>` (header cell), and `<td>` (data cell).
 
 ### Hindi
-टेबल में डेटा रो (`<tr>`), हेडर सेल (`<th>`), और डेटा सेल (`<td>`) में दिखाया जाता है। हमेशा `<caption>`, `<thead>` और `<tbody>` का इस्तेमाल करें। टेबल का उपयोग सिर्फ डेटा दिखाने के लिए करें, पेज लेआउट के लिए नहीं।
+Tabular data ke liye `<table>` use karein. `<caption>` table summary deta hai, `<tr>` row banata hai, `<th>` header cell hai, aur `<td>` normal data cell hai. Page layout ke liye tables kabhi mat use karein.
 
 ### Marathi
-तक्ता माहिती रो (`<tr>`) आणि कॉलममध्ये दाखवतो. हेडरसाठी `<th>` आणि डाटासाठी `<td>` वापरतात. तक्ता फक्त डेटा दाखवण्यासाठी वापरावा, लेआउटसाठी नाही.
+Tabular data sathi `<table>` vapra. `<caption>` table chi mahiti dete, `<tr>` row tayar karto, `<th>` header cell aahe, ani `<td>` normal data cell aahe. Layout sathi tables kadhihi vapru naka.
 
-### Hinglish
-Tabular data ke liye `<table>` use karo. `<tr>` row banata hai, `<th>` header cell aur `<td>` normal data cell hota hai. Page layout ke liye tables mat use karo.
+## 🤔 Why Do We Use Tables?
+
+Tabular data requires rigid grid alignment so visitors and screen readers can analyze relationships between rows and columns (e.g. comparing student marks across subjects or comparing software subscription tiers).
 
 ## 🧱 Standard HTML Table Structure
 
 An accessible, well-structured table uses semantic sectioning elements:
 
-| Element | Description |
+| Element | Description & Role |
 |---|---|
 | `<table>` | Outer container wrapping all table content. |
-| `<caption>` | Title or caption describing the table data for screen readers and users. |
+| `<caption>` | Title or description of the table data for screen readers and users. |
 | `<thead>` | Groups header rows defining column titles. |
-| `<tbody>` | Groups primary data rows. |
-| `<tfoot>` | Groups summary or total rows at the bottom. |
+| `<tbody>` | Groups primary body data rows. |
+| `<tfoot>` | Groups summary or total rows at the bottom of the table. |
 | `<tr>` | Defines a single horizontal table row (*table row*). |
 | `<th>` | Defines a bold, centered header cell (*table header*). Uses `scope="col"` or `scope="row"`. |
 | `<td>` | Defines a standard data cell (*table data*). |
 
-## 📝 Code Example
+## 🔑 Spanning Rows & Columns (`colspan` & `rowspan`)
+
+- **`colspan="N"`:** Spans a single cell horizontally across `N` columns.
+- **`rowspan="N"`:** Spans a single cell vertically across `N` rows.
+
+## 💻 Code Example
 
 ```html
 <!DOCTYPE html>
@@ -80,7 +86,7 @@ An accessible, well-structured table uses semantic sectioning elements:
     </tbody>
     <tfoot>
       <tr>
-        <th scope="row" colspan="2">Average Score</th>
+        <th scope="row" colspan="2">Average Class Score</th>
         <td colspan="2">91.6</td>
       </tr>
     </tfoot>
@@ -90,27 +96,38 @@ An accessible, well-structured table uses semantic sectioning elements:
 </html>
 ```
 
-## 🔑 Spanning Rows & Columns (`colspan` & `rowspan`)
+## 👀 Output / What You Will See
 
-- **`colspan="N"`:** Spans a single cell horizontally across `N` columns.
-- **`rowspan="N"`:** Spans a single cell vertically across `N` rows.
-
-## ⚠️ Common Mistakes
-
-- **Using tables for website layout:** Using `<table>` to position sidebars or headers (use CSS Flexbox/Grid instead).
-- **Omitting `<caption>` and `scope` attributes:** Leaves screen reader users without context about what column or row headers mean.
-- **Using outdated `border="1"` presentation attributes:** Table styling (borders, padding, zebra striping) should always be handled in CSS.
+A structured grid table displaying student examination results with clear column headers (**Student Name**, **Subject**, **Marks**, **Grade**), data rows, and a summary footer row spanning multiple columns.
 
 ## 🧪 Try It Yourself
 
-Build a 3-column timetable table for a school or college schedule:
-1. Column headers: **Time**, **Subject**, **Room**.
-2. Include `<caption>`, `<thead>`, `<tbody>`, and 3 rows of schedule data.
+1. Build a 3-column timetable table for a school or college schedule.
+2. Include `<caption>`, `<thead>`, `<tbody>`, and 3 data rows (`<tr>`).
+3. Use `scope="col"` on column headers (`<th>`).
+4. Add a footer row using `<tfoot>` and `colspan`.
 
-## 🎯 Mini Challenge
+## ⚠️ Common Mistakes
 
-Create a product comparison table listing 2 products, their features, and prices, using `colspan` in `<tfoot>` to display a summary note.
+- **Using tables for website page layout:** Using `<table>` to position sidebars or headers (use CSS Flexbox/Grid instead).
+- **Omitting `<caption>` and `scope` attributes:** Leaves screen reader users without context about what column or row headers represent.
+- **Using outdated presentation attributes:** Styling borders or background colors using `border="1"` or `bgcolor` instead of CSS.
+
+## 🌐 Real-World Usage
+
+Financial reports, sports scoreboards, airline flight schedules, e-commerce pricing plans, and university mark sheets rely on accessible HTML tables.
+
+## 🔗 Related Topics
+
+- [Lists](09-lists.md)
+- [Accessibility Basics](24-accessibility-basics.md)
+
+## 💡 Remember
+
+- Use tables ONLY for tabular data.
+- Always include `<caption>` for table context.
+- Use `<th>` with `scope="col"` or `scope="row"` for headers.
 
 ## 🧭 Navigation
 
-[← First: HTML Home](00-README.md) | [← Previous: Lists](09-lists.md) | [Next: Forms →](11-forms.md)
+[← Previous: Lists](09-lists.md) | [HTML Home](00-README.md) | [Next: Forms →](11-forms.md)

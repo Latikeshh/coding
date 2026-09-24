@@ -27,7 +27,7 @@ Every learning path is carefully ordered from environment setup and fundamentals
 
 | Language | Lessons | Target Level | Key Focus | Start Here |
 |---|---|---|---|---|
-| 🌐 **HTML** | 26 Lessons | Beginner → Intermediate | HTML5, Semantic Elements, Forms, Media, Accessibility, SEO | [Start HTML Path](HTML/00-README.md) |
+| 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | HTML5, Semantic Elements, Forms, Media, Accessibility, SEO | [Start HTML Path](HTML/00-README.md) |
 | 🎨 **CSS** | 38 Lessons | Beginner → Advanced | Selectors, Box Model, Flexbox, Grid, Animations, Responsive Design | [Start CSS Path](CSS/00-README.md) |
 | ⚙️ **C** | 23 Lessons | Beginner → Systems | ISO C11, Pointers, Dynamic Memory (`malloc`/`free`), Structs, File I/O | [Start C Path](C/00-README.md) |
 | ⚡ **JavaScript** | 24 Lessons | Beginner → Advanced | ES6+, Scope, Closures, Promises, Async/Await, DOM, Web Storage | [Start JS Path](JS/00-README.md) |

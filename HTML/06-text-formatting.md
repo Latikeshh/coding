@@ -4,40 +4,46 @@
 
 ## 📖 Definition
 
-HTML provides semantic text-formatting tags that add visual style and semantic meaning to words, phrases, or characters inside body text.
+HTML provides semantic text-formatting elements that add visual styling and structural meaning to specific words, phrases, or characters inside body text.
 
-## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
+## 🌍 Multilingual Summary
 
 ### English
-Use `<strong>` for strong importance (bold) and `<em>` for emphasized text (italic). Use `<b>` and `<i>` when you want visual formatting without implying semantic importance.
+Use `<strong>` for strong importance (bold) and `<em>` for emphasized text (italic). Use `<b>` and `<i>` when you want visual styling without implying extra semantic importance.
 
 ### Hindi
-महत्वपूर्ण शब्दों के लिए `<strong>` (बोल्ड) और जोर देने के लिए `<em>` (इटैलिक) का प्रयोग करें। केवल दिखने में बोल्ड या इटैलिक करने के लिए `<b>` और `<i>` का इस्तेमाल होता है।
+Important words ke liye `<strong>` (bold) aur emphasis ke liye `<em>` (italic) use karein. Bina extra semantic importance ke sirf visual style ke liye `<b>` aur `<i>` tags use hote hain.
 
 ### Marathi
-महत्वाच्या शब्दांसाठी `<strong>` आणि भर देण्यासाठी `<em>` वापरा. फक्त दिसायला बोल्ड किंवा इटॅलिक करण्यासाठी `<b>` व `<i>` टॅग्ज वापरतात.
+Mhatvachya shabdansathi `<strong>` ani bhar dinyasathi `<em>` vapra. Sirf visual style sathi `<b>` ani `<i>` tags vaparle jatat.
 
-### Hinglish
-Important text ke liye `<strong>` (bold) aur emphasis ke liye `<em>` (italic) use karo. Bina extra importance ke sirf visual style ke liye `<b>` aur `<i>` tags hote hain.
+## 🔑 Semantic Tags vs. Visual Tags Reference
 
-## 🔑 Semantic Tags vs. Visual Tags
-
-| Tag | Purpose & Semantic Meaning | Default Appearance |
+| Tag | Purpose & Semantic Meaning | Default Visual Appearance |
 |---|---|---|
-| `<strong>` | Strong importance, urgency, or warning. Screen readers emphasize this text. | **Bold** |
-| `<b>` | Draws attention visually without implying extra semantic importance (e.g. key terms). | **Bold** |
-| `<em>` | Stress emphasis that changes sentence meaning when spoken aloud. | *Italic* |
-| `<i>` | Alternate voice, technical terms, foreign phrases, thoughts, or book titles. | *Italic* |
-| `<mark>` | Highlighted text for relevance or reference. | <mark>Yellow Highlight</mark> |
-| `<small>` | Side comments, disclaimers, copyright notices, or legal fine print. | Small text |
-| `<del>` | Deleted or outdated text (e.g., original price before discount). | ~~Strikethrough~~ |
-| `<ins>` | Newly inserted text (e.g., discounted sale price). | <u>Underlined</u> |
-| `<sub>` | Subscript characters (e.g., chemical formula H<sub>2</sub>O). | Subscript |
-| `<sup>` | Superscript characters (e.g., math formula X<sup>2</sup> or 1<sup>st</sup> place). | Superscript |
-| `<code>` | Inline computer code snippets (displayed in monospace font). | `Monospace` |
-| `<hr>` | Thematic break or horizontal divider between topics. | Horizontal Line |
+| **`<strong>`** | Strong importance, urgency, or warning. Screen readers emphasize this text verbally. | **Bold text** |
+| **`<b>`** | Draws visual attention without implying semantic importance (e.g. key terms). | **Bold text** |
+| **`<em>`** | Stress emphasis that changes sentence meaning when spoken aloud. | *Italic text* |
+| **`<i>`** | Alternate voice, technical terms, foreign phrases, thoughts, or publication titles. | *Italic text* |
+| **`<mark>`** | Highlighted text indicating relevance or active search matches. | <mark>Yellow background highlight</mark> |
+| **`<small>`** | Side comments, copyright notices, legal fine print, or disclaimers. | Small text |
+| **`<del>`** | Deleted or obsolete text (e.g., original price before discount). | ~~Strikethrough text~~ |
+| **`<ins>`** | Newly inserted text (e.g., updated discounted price). | <u>Underlined text</u> |
+| **`<sub>`** | Subscript characters (e.g., chemical formula H<sub>2</sub>O). | Lowered subscript text |
+| **`<sup>`** | Superscript characters (e.g., math exponent X<sup>2</sup> or ordinal 1<sup>st</sup>). | Raised superscript text |
+| **`<code>`** | Inline computer code snippets (displayed in monospace font). | `Monospace font` |
+| **`<hr>`** | Thematic break or horizontal divider between topics. | Horizontal line divider |
 
-## 📝 Code Example
+## 📐 Syntax & Examples
+
+```html
+<p><strong>Warning:</strong> Limited tickets remaining!</p>
+<p>Original Price: <del>$99</del> <ins>$49</ins> (<mark>50% OFF</mark>)</p>
+<p>Water chemical formula: H<sub>2</sub>O</p>
+<p>Pythagorean theorem: a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p>
+```
+
+## 💻 Code Example
 
 ```html
 <!DOCTYPE html>
@@ -48,48 +54,61 @@ Important text ke liye `<strong>` (bold) aur emphasis ke liye `<em>` (italic) us
 </head>
 <body>
 
-  <h1>Wireless Headphones Deal</h1>
+  <h1>Wireless Headphones Super Sale</h1>
 
-  <p><strong>Warning:</strong> Limited stock available!</p>
+  <p><strong>Urgent Notice:</strong> Limited stock available at discounted pricing!</p>
 
   <p>Original Price: <del>$99.99</del> <ins>$49.99</ins> (<mark>50% OFF</mark>)</p>
 
-  <p>Uses Bluetooth <i>5.3</i> technology for stable connectivity.</p>
+  <p>Features active noise cancellation and Bluetooth <i>5.3</i> technology.</p>
 
-  <p>Formula for kinetic energy: <code>E<sub>k</sub> = ½mv<sup>2</sup></code></p>
+  <p>Kinetic energy formula: <code>E<sub>k</sub> = ½mv<sup>2</sup></code></p>
 
   <hr>
 
-  <p><small>© 2026 TechStore Inc. All rights reserved. Terms and conditions apply.</small></p>
+  <p><small>&copy; 2026 TechStore Inc. All rights reserved. Terms and conditions apply.</small></p>
 
 </body>
 </html>
 ```
 
-## 👀 Output
+## 👀 Output / What You Will See
 
-- **"Warning:"** renders bold with strong semantic importance.
-- **"$99.99"** renders strikethrough and **"$49.99"** renders underlined.
-- **"50% OFF"** renders with a yellow highlight.
+- **"Urgent Notice:"** renders in bold with strong importance.
+- **"$99.99"** renders with strikethrough, and **"$49.99"** renders underlined.
+- **"50% OFF"** renders with a bright yellow highlight background.
 - **"E<sub>k</sub> = ½mv<sup>2</sup>"** displays subscript `k` and superscript `2`.
-- **"© 2026..."** renders as smaller fine-print text below a horizontal line.
-
-## ⚠️ Common Mistakes
-
-- **Confusing `<b>`/`<i>` with `<strong>`/`<em>`:** Use `<strong>` and `<em>` when the meaning matters for screen readers and search engines.
-- **Using `<ins>` instead of CSS for underline:** Do not use `<ins>` purely to underline text; use CSS `text-decoration: underline`.
+- **"© 2026..."** renders as fine-print text below a horizontal line.
 
 ## 🧪 Try It Yourself
 
 Write a paragraph for a bookstore promotion featuring:
-1. A book title in `<i>`.
-2. A warning message in `<strong>`.
-3. An original price in `<del>` and sale price in `<ins>`.
+1. A book title wrapped in `<i>`.
+2. A warning notice wrapped in `<strong>`.
+3. An original price wrapped in `<del>` and a sale price wrapped in `<ins>`.
+4. A chemical formula like H<sub>2</sub>SO<sub>4</sub> using `<sub>`.
 
-## 🎯 Mini Challenge
+## ⚠️ Common Mistakes
 
-Write out two chemical formulas (like H<sub>2</sub>SO<sub>4</sub>) using `<sub>` and two mathematical powers (like 10<sup>3</sup>) using `<sup>`.
+- **Confusing `<b>`/`<i>` with `<strong>`/`<em>`:** Use `<strong>` and `<em>` when the semantic meaning matters for screen readers and search engines.
+- **Using `<ins>` instead of CSS for underline:** Do not use `<ins>` purely to underline plain text; use CSS `text-decoration: underline`.
+
+## 🌐 Real-World Usage
+
+E-commerce sites, technical blogs, news platforms, and documentation portals use semantic text formatting to highlight key terms, discount pricing, mathematical formulas, and legal disclaimers accessibly.
+
+## 🔗 Related Topics
+
+- [Paragraphs](05-paragraphs.md)
+- [HTML Entities](18-html-entities.md)
+
+## 💡 Remember
+
+- `<strong>` = Important bold text.
+- `<em>` = Emphasized italic text.
+- `<sub>` = Subscript (lowered text).
+- `<sup>` = Superscript (raised text).
 
 ## 🧭 Navigation
 
-[← First: HTML Home](00-README.md) | [← Previous: Paragraphs](05-paragraphs.md) | [Next: Links →](07-links.md)
+[← Previous: Paragraphs](05-paragraphs.md) | [HTML Home](00-README.md) | [Next: Links →](07-links.md)
