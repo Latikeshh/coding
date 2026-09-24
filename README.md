@@ -7,10 +7,28 @@
 [![ECMAScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](JS/00-README.md)
 [![HTML5 & CSS3](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3-orange.svg)](HTML/00-README.md)
 [![Multilingual](https://img.shields.io/badge/Languages-EN%20%7C%20HI%20%7C%20MR%20%7C%20Hinglish-green.svg)](#-multilingual-pedagogy-and-accessibility)
+[![LinkedIn](https://img.shields.io/badge/Author-Latikesh_Marathe-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/latikesh-marathe-966218374)
 
-Welcome to **Coding** — a structured, technically rigorous, and beginner-first repository created for self-taught developers, computer science students, educators, and software engineers.
+Welcome to **Coding** — a structured, technically rigorous, and beginner-first repository created by **[Latikesh Marathe](https://www.linkedin.com/in/latikesh-marathe-966218374)** for self-taught developers, computer science students, educators, and software engineers.
 
 This repository eliminates artificial complexity, outdated practices, and superficial tutorials. Every lesson combines formal definitions, 4-language explanations, runnable production-ready code examples, common pitfall warnings, real-world usage contexts, hands-on exercises, and capstone mini projects.
+
+---
+
+## 📢 Share & Connect
+
+If you find this repository helpful, support the project by starring it and sharing it with fellow learners:
+
+[![GitHub Stars](https://img.shields.io/github/stars/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/network/members)
+
+### Connect with the Author:
+[![Connect on LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-Latikesh_Marathe-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/latikesh-marathe-966218374)
+
+### Spread the Word:
+[![Share on LinkedIn](https://img.shields.io/badge/Share_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)
+[![Share on WhatsApp](https://img.shields.io/badge/Share_on_WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding)
+[![Share on Telegram](https://img.shields.io/badge/Share_on_Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/share/url?url=https://github.com/Latikeshh/coding&text=Check%20out%20this%20free%20multilingual%20programming%20resource!)
 
 ---
 
