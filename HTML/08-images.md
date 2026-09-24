@@ -1,67 +1,83 @@
-# Images
+# Images, `<picture>`, & `<figure>`
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-The `<img>` tag puts an image on a web page.
+The **`<img>`** element embeds an image into a webpage. HTML5 also provides **`<figure>`** and **`<figcaption>`** for self-contained captioned images, and **`<picture>`** for responsive art-direction images.
 
-## 🤔 Why Do We Use It?
+## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
-Images can show products, people, instructions, or ideas more quickly than text alone.
+### English
+Embed images using `<img>` with descriptive `alt` text. Use `<figure>` and `<figcaption>` for image captions, and `<picture>` for displaying different images on mobile and desktop screens.
 
-## 🧠 Simple Explanation
+### Hindi
+पेज में इमेज जोड़ने के लिए `<img>` और `alt` टेक्स्ट का यूज़ करें। इमेज कैप्शन के लिए `<figure>` और `<figcaption>`, और रेस्पॉन्सिव इमेजेस के लिए `<picture>` टैग का इस्तेमाल होता है।
 
-The `src` is the image's address. The `alt` text is a short description for people who cannot see it or when the image fails to load.
+### Marathi
+वेब पेजवर फोटो दाखवण्यासाठी `<img>` आणि `alt` मजकूर वापरावा. फोटोला कॅप्शन देण्यासाठी `<figure>` आणि `<figcaption>` तर वेगवेगळ्या स्क्रीनसाठी `<picture>` वापरा.
 
-## 📝 Syntax
+### Hinglish
+Image add karne ke liye `<img>` tag aur descriptive `alt` text use karo. Caption ke liye `<figure>` + `<figcaption>` aur responsive screen images ke liye `<picture>` tag use hota hai.
 
-```html
-<img src="puppy.jpg" alt="A brown puppy playing with a red ball">
-```
+## 📝 Key Attributes of `<img>`
 
-Always write useful `alt` text for meaningful images.
-
-## 💡 Practical Example
-
-For a recipe, `alt="A bowl of tomato soup with basil"` describes useful information. If an image is only decoration, use empty alt text: `alt=""`, so screen readers can skip it.
-
-## ✅ Remember
-
-The `<img>` tag has no closing tag. Make sure `src` points to the correct file name and folder; a wrong address makes a broken-image icon appear.
-
-- `src` tells the browser where the image file is.
-- `alt` describes meaningful images.
-- `width` can set a displayed width when needed.
-
-## 💻 Example
+- **`src` (source):** Specifies the relative file path or absolute URL of the image file (e.g. JPG, PNG, WebP, SVG, GIF).
+- **`alt` (alternative text):** Describes the image for screen readers, search engines, or when the image fails to load.
+- **`width` & `height`:** Specifies intrinsic dimensions in pixels to reserve space and prevent layout shifts.
 
 ```html
-<img src="images/mango-smoothie.jpg"
-     alt="A mango smoothie in a glass with a straw"
-     width="300">
+<img src="assets/puppy.jpg" alt="A golden retriever puppy sitting on a green lawn" width="400" height="300">
 ```
 
-## 👀 Output
+## 🔍 How to Write Good `alt` Text
 
-A 300-pixel-wide mango smoothie image appears. If it cannot load, the alternative text explains what should have been shown.
+| Scenario | Good `alt` Text Example | Bad `alt` Text Example |
+|---|---|---|
+| **Informative Image** | `alt="A red sports car parked in front of a modern glass office building"` | `alt="image"` or `alt="car"` |
+| **Chart / Data** | `alt="Bar chart showing annual revenue growth from $1M in 2024 to $2.5M in 2026"` | `alt="chart"` |
+| **Decorative Image** | `alt=""` (Screen readers silently skip purely decorative background borders) | `alt="divider line"` |
 
-## 🔍 How It Works
+## 🖼️ Captioned Images with `<figure>` & `<figcaption>`
 
-The file is inside an `images` folder, so `src` uses `images/` before the file name. The `alt` text is not usually visible unless the image fails or a screen reader reads it.
+When an image requires a visible caption or reference label, wrap it in `<figure>`:
+
+```html
+<figure>
+  <img src="images/everest.jpg" alt="Snow-covered peak of Mount Everest against a clear blue sky" width="600" height="400">
+  <figcaption>Figure 1.1: Mount Everest summit photographed at sunrise.</figcaption>
+</figure>
+```
+
+## 📱 Responsive Art Direction with `<picture>`
+
+The `<picture>` element allows you to serve different image versions depending on the user's screen size (e.g. a cropped square image for mobile and a wide banner for desktop):
+
+```html
+<picture>
+  <!-- Desktop screen (800px and wider) -->
+  <source media="(min-width: 800px)" srcset="images/hero-desktop.jpg">
+  <!-- Tablet screen (480px to 799px) -->
+  <source media="(min-width: 480px)" srcset="images/hero-tablet.jpg">
+  <!-- Mobile screen fallback -->
+  <img src="images/hero-mobile.jpg" alt="Developer coding at a dual-monitor workstation" width="400" height="300">
+</picture>
+```
 
 ## ⚠️ Common Mistakes
 
-- Do not write `alt="image"`; describe what matters in the image.
-- Check uppercase and lowercase letters in file names when an image does not load.
+- **Writing useless `alt` text:** Using `alt="image.jpg"` or `alt="picture"`.
+- **Wrong file paths:** Writing `src="pic.jpg"` when the file is stored inside an `images/` folder (`src="images/pic.jpg"`).
+- **Omitting `width` and `height`:** Causes Cumulative Layout Shift (CLS) as the page loads.
 
 ## 🧪 Try It Yourself
 
-Add one meaningful image to a hobby page and write useful alt text.
+1. Add an image tag with a descriptive `alt` text and specified `width` and `height`.
+2. Wrap the image inside a `<figure>` tag and add a caption using `<figcaption>`.
 
 ## 🎯 Mini Challenge
 
-Create a simple product card with an image, heading, and paragraph.
+Create a responsive `<picture>` component providing two image sizes: one wide image for desktop screens (`min-width: 768px`) and one compact image for mobile screens.
 
 ## 🧭 Navigation
 

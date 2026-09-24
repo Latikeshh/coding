@@ -1,89 +1,22 @@
-# Developer Tools
+# Developer Tools for CSS
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Developer Tools are built-in browser tools for inspecting and debugging HTML and CSS.
+Browser Developer Tools (`F12`) allow inspecting, editing, debugging, and testing HTML and CSS live in real-time.
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Inspect elements and test CSS edits live in browser DevTools (`F12`).
+> - **Hindi:** ब्राउज़र देवटूल्स (`F12`) से लाइव CSS स्टाइल बदलकर देखा और टेस्ट किया जा सकता है।
+> - **Marathi:** ब्राउझर देवटूल्स (`F12`) वापरून लाईव्ह बदल करून पाहता येतात.
+> - **Hinglish:** DevTools (`F12`) se live CSS rules inspect karo, box model verify karo, aur mobile breakpoints test karo.
 
-They help you check styles, test changes, and understand layout issues quickly.
+## 📝 Key DevTools Features
 
-## 🧠 Simple Explanation
-
-Developer Tools let you click an element, see its CSS, and experiment without editing the whole file.
-
-## Common features
-
-- Inspect element
-- CSS panel
-- Console
-- Responsive mode
-- Layout and box model inspection
-
-## 📝 Syntax
-
-Open your browser and use:
-
-- Chrome/Edge: `F12`
-- Firefox: `F12`
-
-Then click an element to inspect it.
-
-## 💡 Example
-
-```css
-.card {
-  border: 1px solid #ddd;
-  padding: 20px;
-}
-```
-
-Try changing the border or padding inside Developer Tools to see the result live.
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>DevTools Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="card">Inspect me</div>
-</body>
-</html>
-```
-
-```css
-.card {
-  border: 1px solid #ddd;
-  padding: 20px;
-}
-```
-
-## 👀 What You Will See
-
-The browser will show the box model, CSS rules, and layout details for the selected element.
-
-## 🧪 Try It Yourself
-
-Use the inspect tool on a button or card and adjust the styles live.
-
-## ⚠️ Common Mistakes
-
-- Making temporary changes without remembering the original code.
-- Ignoring the box model panel.
-- Not testing in responsive mode.
-
-## ✅ Remember
-
-- Developer Tools are essential for debugging.
-- They help you learn faster by showing real-time CSS behavior.
-- Use them often when building websites.
+- **Inspect Element (`Ctrl + Shift + C`):** Click any page element to view its applied CSS rules and calculated Box Model.
+- **Toggle Device Toolbar (`Ctrl + Shift + M`):** Test responsive layouts at different mobile viewpoints.
 
 ## 🧭 Navigation
 

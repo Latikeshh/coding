@@ -4,94 +4,32 @@
 
 ## 📖 Definition
 
-Pseudo-classes style elements based on their state or position.
+Pseudo-classes select and style elements based on their specific user interaction states or structural positions in the DOM tree (e.g. `:hover`, `:focus`, `:active`, `:first-child`, `:nth-child()`).
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Pseudo-classes style elements based on state (`:hover`, `:focus`, `:visited`) or DOM tree position (`:first-child`, `:nth-child()`).
+> - **Hindi:** सूडो-क्लासेस यूज़र इंटरैक्शन स्टेट्स (`:hover`, `:focus`) और पोजीशन (`:first-child`) के आधार पर स्टाइल करती हैं।
+> - **Marathi:** स्टेटनुसार (`:hover`, `:focus`) एलिमेंट्सना स्टाइल करण्यासाठी प्सुडो-क्लासेस वापरतात.
+> - **Hinglish:** Element state (`:hover`, `:focus`, `:active`) ya structural position (`:nth-child()`) target karne ke liye pseudo-classes use hoti hain.
 
-They help make interfaces interactive without extra HTML.
-
-## 🧠 Simple Explanation
-
-A pseudo-class adds styling when the element is hovered, focused, visited, or active.
-
-## Common pseudo-classes
-
-- `:hover` → when the mouse is over an element
-- `:focus` → when an input is focused
-- `:active` → when the element is being clicked
-- `:visited` → links that were visited
-- `:first-child` → first child of a parent
-
-## 📝 Syntax
+## 📝 Syntax & Examples
 
 ```css
-a:hover {
-  color: #0055aa;
+/* Mouse hover state */
+button:hover {
+  background-color: #0056b3;
 }
 
-button:focus {
-  outline: 2px solid #0055aa;
+/* Keyboard focus state (essential for accessibility!) */
+input:focus, button:focus {
+  outline: 2px solid #0056b3;
 }
+
+/* Structural positional pseudo-classes */
+li:first-child { font-weight: bold; }
+tr:nth-child(even) { background-color: #f2f2f2; }
 ```
-
-## 💡 Example
-
-```css
-a:hover {
-  text-decoration: underline;
-}
-
-input:focus {
-  border-color: #0055aa;
-}
-```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pseudo-classes</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <a href="#">Click me</a>
-  <input type="text" placeholder="Type here">
-</body>
-</html>
-```
-
-```css
-a:hover {
-  text-decoration: underline;
-}
-
-input:focus {
-  border-color: #0055aa;
-}
-```
-
-## 👀 What You Will See
-
-The link underlines on hover, and the input shows a focus state when selected.
-
-## 🧪 Try It Yourself
-
-Hover the link and click into the input to see the states.
-
-## ⚠️ Common Mistakes
-
-- Forgetting that pseudo-classes need the correct selector.
-- Overusing hover for important content.
-- Not testing keyboard focus for accessibility.
-
-## ✅ Remember
-
-- Pseudo-classes respond to state.
-- They are useful for interactive styling.
-- Focus states matter for accessibility.
 
 ## 🧭 Navigation
 

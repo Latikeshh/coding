@@ -4,81 +4,35 @@
 
 ## 📖 Definition
 
-Pseudo-elements let you style parts of an element, such as the first letter or part of text before or after content.
+Pseudo-elements style specific sub-parts of an element or insert virtual content into the page before or after an element (`::before`, `::after`, `::first-line`, `::selection`).
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Pseudo-elements style sub-parts of elements. `::before` and `::after` insert decorative virtual elements (require `content: ""`).
+> - **Hindi:** सूडो-एलीमेंट्स (`::before`, `::after`) बिना एक्स्ट्रा HTML के वर्चुअल डेकोरेटिव कंटेंट जोड़ने का काम करते हैं (`content: ""` ज़रूरी है)।
+> - **Marathi:** `::before` आणि `::after` मुळे HTML न बदलता डिझाईन जोडता येते.
+> - **Hinglish:** `::before` aur `::after` se CSS ke zariye virtual elements insert kiye jaate hain. Always specify `content: ""`.
 
-They help add decorative details or extra content without changing the HTML structure.
-
-## 🧠 Simple Explanation
-
-Pseudo-elements are like virtual child elements inside a selector.
-
-## Common pseudo-elements
-
-- `::before` → inserts content before an element
-- `::after` → inserts content after an element
-- `::first-letter` → styles the first letter of a text block
-- `::selection` → styles selected text
-
-## 📝 Syntax
+## 📝 Syntax & Examples
 
 ```css
-p::first-letter {
-  font-size: 2em;
-  color: #333;
+/* Decorative icon or quote insertion */
+blockquote::before {
+  content: "“";
+  font-size: 2rem;
+  color: #888;
 }
-```
 
-## 💡 Example
-
-```css
+/* Underline effect under heading */
 h2::after {
-  content: " ✨";
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #007bff;
+  margin-top: 5px;
 }
 ```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pseudo-elements</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h2>Welcome</h2>
-</body>
-</html>
-```
-
-```css
-h2::after {
-  content: " ✨";
-}
-```
-
-## 👀 What You Will See
-
-The heading gets a small decorative sparkle after the text.
-
-## 🧪 Try It Yourself
-
-Replace the text after the heading with a different symbol or word.
-
-## ⚠️ Common Mistakes
-
-- Forgetting the `content` property when using `::before` or `::after`.
-- Using pseudo-elements as a substitute for proper HTML structure.
-- Styling content that should be added in HTML instead.
-
-## ✅ Remember
-
-- Pseudo-elements are for styling parts of an element.
-- `::before` and `::after` require `content`.
-- Keep them simple and purposeful.
 
 ## 🧭 Navigation
 

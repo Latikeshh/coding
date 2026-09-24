@@ -4,24 +4,31 @@
 
 ## 📖 Definition
 
-Pointer arithmetic operates on memory addresses based on the size of the underlying data type. Advanced pointer concepts include pointers to pointers, function pointers, and generic `void*` pointers.
+Pointer arithmetic operates on memory addresses according to byte sizes of the underlying data type (`sizeof(type)`). Advanced pointer concepts include double pointers (`**`), function pointers, and generic pointers (`void*`).
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `ptr + 1` increments address by `sizeof(type)` bytes. Double pointers (`**`) store pointer addresses. `void*` is a generic raw memory pointer.
+> - **Hindi:** `ptr + 1` करने पर एड्रेस `sizeof(type)` बाइट्स आगे बढ़ता है। डबल पॉइंटर (`**`) पॉइंटर का एड्रेस स्टोर करता है।
+> - **Marathi:** पॉइंटरमध्ये `+1` केल्यास ॲड्रेस प्रकाराच्या साईझनुसार (`sizeof`) पुढे सरकतो.
+> - **Hinglish:** Pointer arithmetic data type size ke mutabiq chalti hai (`ptr++` moves by `sizeof(T)` bytes). Double pointers (`**ptr`) pointers ke address hold karte hain.
 
 ---
 
 ## 🔢 Pointer Arithmetic
 
-Adding `1` to a pointer increases its memory address by `sizeof(type)` bytes:
+Adding `1` to a pointer increases its address offset by `sizeof(type)` bytes:
 
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int arr[3] = {10, 20, 30};
-    int *ptr = arr; // Points to arr[0]
+    int *ptr = arr; // Equivalent to &arr[0]
 
-    printf("Address ptr: %p, Value: %d\n", (void*)ptr, *ptr);
-    ptr++; // Moves by sizeof(int) = 4 bytes to arr[1]
-    printf("Address ptr+1: %p, Value: %d\n", (void*)ptr, *ptr);
+    printf("Address arr[0]: %p, Value: %d\n", (void*)ptr, *ptr);
+    ptr++; // Moves address forward by sizeof(int) = 4 bytes to arr[1]
+    printf("Address arr[1]: %p, Value: %d\n", (void*)ptr, *ptr);
 
     return 0;
 }
@@ -31,41 +38,35 @@ int main() {
 
 ## 🔄 Pointer to Pointer (`**ptr`)
 
-A pointer that stores the address of another pointer:
+A pointer holding the memory address of another pointer:
 
 ```c
 int value = 42;
 int *p1 = &value;   // Pointer to int
 int **p2 = &p1;     // Pointer to pointer to int
 
-printf("Value: %d\n", **p2); // Dereferences twice to get 42
+printf("Value via double pointer: %d\n", **p2); // Dereferences twice
 ```
 
 ---
 
 ## ⚡ Function Pointers
 
-Store references to executable function memory addresses:
+Store executable code memory addresses to pass functions as arguments:
 
 ```c
 #include <stdio.h>
 
-void greet() {
-    printf("Hello from Function Pointer!\n");
+int add(int a, int b) { return a + b; }
+int multiply(int a, int b) { return a * b; }
+
+void execute(int (*operation)(int, int), int x, int y) {
+    printf("Result: %d\n", operation(x, y));
 }
 
-int add(int a, int b) {
-    return a + b;
-}
-
-int main() {
-    // Declaring function pointer: return_type (*ptr_name)(param_types)
-    void (*funcPtr)() = greet;
-    funcPtr(); // Calls greet()
-
-    int (*mathPtr)(int, int) = add;
-    printf("Sum: %d\n", mathPtr(10, 20));
-
+int main(void) {
+    execute(add, 10, 20);      // Passes 'add' function pointer
+    execute(multiply, 10, 20); // Passes 'multiply' function pointer
     return 0;
 }
 ```
@@ -74,14 +75,13 @@ int main() {
 
 ## 🌐 Generic Pointers (`void*`)
 
-A `void*` pointer can hold the address of any data type, but must be explicitly cast before dereferencing:
+A `void*` pointer holds an untyped raw memory address. It must be explicitly cast before dereferencing:
 
 ```c
 int num = 100;
 void *gPtr = &num;
 
-// Cast to int* before dereferencing:
-printf("Value: %d\n", *(int*)gPtr);
+printf("Cast and dereference: %d\n", *(int*)gPtr);
 ```
 
 ---
@@ -92,7 +92,7 @@ Declare an array `float prices[] = {1.5f, 2.5f, 3.5f};` and access all elements 
 
 ## 🎯 Mini Challenge
 
-Write a function `void execute(int (*op)(int, int), int x, int y)` that accepts a function pointer and prints the result of calling `op(x, y)`.
+Write a generic swap function `void swapGeneric(void *a, void *b, size_t size)` using `void*` and byte-by-byte memory copying (`memcpy`).
 
 ## 🧭 Navigation
 

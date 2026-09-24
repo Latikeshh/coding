@@ -4,28 +4,26 @@
 
 ## 📖 Definition
 
-A **function** is a self-contained block of code that performs a specific task and can be called repeatedly.
+Functions break programs into modular, reusable procedures. Declare function prototypes at the top of the file before calling them in `main()`.
 
-## 📝 Structure of a C Function
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Declare function prototypes at top of file so the compiler recognizes parameters and return types before execution.
+> - **Hindi:** फंक्शन को `main()` से पहले डिक्लेयर (प्रोटोटाइप) करना चाहिए ताकि कंपाइलर को उसका रिटर्न टाइप पता रहे।
+> - **Marathi:** फंक्शन वापरण्यापूर्वी त्याचे प्रोटोटाइप डिक्लेअर करणे आवश्यक आहे.
+> - **Hinglish:** Compiler errors se bachne ke liye `main()` ke upar Function Prototypes (`return_type name(params);`) declare karo.
 
-```c
-return_type function_name(parameter_type parameter_name) {
-    // Code logic
-    return value;
-}
-```
-
-## 💡 Practical Example
+## 📝 Syntax
 
 ```c
 #include <stdio.h>
 
-// Function Prototype / Declaration
+// Function Prototype Declaration
 int addNumbers(int x, int y);
 
-int main() {
+int main(void) {
     int sum = addNumbers(12, 28);
-    printf("The sum is: %d\n", sum);
+    printf("Sum: %d\n", sum);
     return 0;
 }
 
@@ -34,24 +32,6 @@ int addNumbers(int x, int y) {
     return x + y;
 }
 ```
-
-## 👀 Output
-
-```text
-The sum is: 40
-```
-
-## ⚠️ Common Mistakes
-
-- Calling a function before declaring or defining it (use function prototypes at the top of the file).
-
-## 🧪 Try It Yourself
-
-Write a function `float multiply(float a, float b)` that returns the product of two floating point numbers.
-
-## 🎯 Mini Challenge
-
-Write a function `isPositive(int num)` that returns `1` if `num > 0`, `-1` if `num < 0`, and `0` if `num == 0`.
 
 ## 🧭 Navigation
 

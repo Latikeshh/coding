@@ -4,62 +4,30 @@
 
 ## 📖 Definition
 
-An **array** is an ordered collection of values stored under a single variable name.
+An **Array** is an ordered list of elements stored sequentially under a single variable reference. Array indexing is zero-based (`0` to `length - 1`).
 
-## 📝 Syntax & Common Methods
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Arrays store ordered items. Indexing starts at `0`. Use `.push()` to add items and `.length` to check size.
+> - **Hindi:** एरे (Array) आइटम्स की लिस्ट है। इंडेक्स `0` से शुरू होता है। आइटम जोड़ने के लिए `.push()` का प्रयोग करें।
+> - **Marathi:** एरेमध्ये माहिती क्रमवार साठवली जाते. इंडेक्स `0` पासून सुरू होतो.
+> - **Hinglish:** Array ordered items ki collection hoti hai. First item `arr[0]` par aur last item `arr[arr.length - 1]` par hota hai.
+
+## 📝 Syntax & Common Operations
 
 ```javascript
 let fruits = ["Apple", "Banana", "Cherry"];
 
-// Accessing items by index (starts at 0)
 console.log(fruits[0]); // "Apple"
+fruits.push("Orange");  // Adds "Orange" to end
+fruits.pop();           // Removes last element
+console.log(fruits.length); // 3
 
-// Useful Methods:
-fruits.push("Orange"); // Adds to the end
-fruits.pop();           // Removes from the end
-console.log(fruits.length); // Array length
-```
-
-## 💡 Practical Example
-
-```javascript
-let scores = [85, 92, 78, 90];
-
-// Looping through an array
-for (let i = 0; i < scores.length; i++) {
-  console.log("Score " + (i + 1) + ": " + scores[i]);
-}
-
-// Using forEach
-scores.forEach((score) => {
-  console.log("Item:", score);
+// Array iteration
+fruits.forEach((fruit, index) => {
+  console.log(`${index + 1}: ${fruit}`);
 });
 ```
-
-## 👀 Output
-
-```text
-Score 1: 85
-Score 2: 92
-Score 3: 78
-Score 4: 90
-Item: 85
-Item: 92
-Item: 78
-Item: 90
-```
-
-## ⚠️ Common Mistakes
-
-- Array indexing starts at `0`, not `1`. The last item is at index `array.length - 1`.
-
-## 🧪 Try It Yourself
-
-Create an array of 4 favorite colors. Add a new color using `.push()` and log the total number of colors using `.length`.
-
-## 🎯 Mini Challenge
-
-Write a function `findMax(arr)` that takes an array of numbers and returns the highest number in the array.
 
 ## 🧭 Navigation
 

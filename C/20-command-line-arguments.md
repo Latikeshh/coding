@@ -4,72 +4,34 @@
 
 ## 📖 Definition
 
-Command line arguments allow users to pass arguments directly to a C executable when launching it from the terminal shell.
+Command line arguments pass inputs directly into the executable binary from the terminal shell via `int argc` (argument count) and `char *argv[]` (argument vector).
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `argc` gives argument count (including binary name). `argv[]` array holds argument strings. Use `atoi()` to convert strings to numbers.
+> - **Hindi:** `argc` आर्गुमेंट की संख्या बताता है और `argv[]` में इनपुट टेक्स्ट स्ट्रिंग्स होती हैं।
+> - **Marathi:** टर्मिनलवरून इनपुट देण्यासाठी `argc` आणि `argv[]` वापरले जातात.
+> - **Hinglish:** Command line input reading ke liye `int argc, char *argv[]` parameters use karo. Numbers ke liye `atoi(argv[i])` convert karta hai.
 
-## 📝 Syntax & Mechanics
-
-The `main` function receives two parameters:
-- `int argc` (Argument Count): Total number of arguments passed (including program executable name).
-- `char *argv[]` (Argument Vector): An array of null-terminated string pointers representing each argument.
+## 📝 Syntax
 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    printf("Executable name: %s\n", argv[0]);
-    printf("Total arguments passed: %d\n", argc - 1);
-
-    for (int i = 1; i < argc; i++) {
-        printf("Arg [%d]: %s\n", i, argv[i]);
+    if (argc < 3) {
+        printf("Usage: %s <num1> <num2>\n", argv[0]);
+        return 1;
     }
+
+    int num1 = atoi(argv[1]);
+    int num2 = atoi(argv[2]);
+    printf("Sum: %d\n", num1 + num2);
 
     return 0;
 }
 ```
-
----
-
-## 💻 Running in Terminal
-
-```bash
-gcc program.c -o program
-./program hello world 123
-```
-
-## 👀 Output
-
-```text
-Executable name: ./program
-Total arguments passed: 3
-Arg [1]: hello
-Arg [2]: world
-Arg [3]: 123
-```
-
----
-
-## 💡 Converting String Arguments to Numbers
-
-Use `atoi()` or `atof()` from `<stdlib.h>`:
-
-```c
-int num1 = atoi(argv[1]);
-int num2 = atoi(argv[2]);
-printf("Sum: %d\n", num1 + num2);
-```
-
----
-
-## 🧪 Try It Yourself
-
-Write a CLI program `add` that takes two numbers as arguments, converts them with `atoi()`, and prints their sum.
-
-## 🎯 Mini Challenge
-
-Write a program that takes a file name as a CLI argument (`./view notes.txt`) and prints its contents to stdout.
 
 ## 🧭 Navigation
 

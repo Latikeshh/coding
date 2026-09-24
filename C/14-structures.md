@@ -4,17 +4,21 @@
 
 ## 📖 Definition
 
-A **structure** (`struct`) allows you to group variables of different types together under a single custom data type. `typedef` creates clean type aliases for structures.
+A **structure** (`struct`) groups variables of different data types together under a single custom type. `typedef` creates clean type aliases.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `struct` groups heterogeneous variables. Use the arrow operator (`->`) to access struct members through a pointer.
+> - **Hindi:** `struct` अलग-अलग डेटा टाइप्स के वेरिएबल्स का ग्रुप बनाता है। पॉइंटर द्वारा एक्सेस करने के लिए एरो एलीमेंट (`->`) का उपयोग करें।
+> - **Marathi:** `struct` मुळे वेगवेगळ्या प्रकारचा डेटा एकाच टाईपमध्ये साठवता येतो.
+> - **Hinglish:** Heterogeneous data variables ko group karne ke liye `struct` use hota hai. Pointer dereferencing ke liye `ptr->member` use karo.
 
-## 📝 Syntax & `typedef`
+## 📝 Syntax & Example
 
 ```c
 #include <stdio.h>
 #include <string.h>
 
-// Struct definition with typedef alias 'Employee'
 typedef struct {
     int id;
     char name[40];
@@ -22,54 +26,16 @@ typedef struct {
 } Employee;
 
 void printEmployee(const Employee *emp) {
-    // Arrow operator (->) is used to access struct members through a pointer
+    // Use arrow operator -> with struct pointers
     printf("ID: %d | Name: %s | Salary: $%.2f\n", emp->id, emp->name, emp->salary);
 }
 
-int main() {
-    Employee e1;
-    e1.id = 101;
-    strcpy(e1.name, "Sarah Connor");
-    e1.salary = 75000.0f;
-
-    // Pass struct pointer to function
+int main(void) {
+    Employee e1 = {101, "Sarah Connor", 75000.0f};
     printEmployee(&e1);
-
     return 0;
 }
 ```
-
----
-
-## 👀 Output
-
-```text
-ID: 101 | Name: Sarah Connor | Salary: $75000.00
-```
-
----
-
-## 🧱 Struct Alignment and Padding
-
-Compilers add padding bytes inside structs so variables align with memory word boundaries:
-
-```c
-struct Sample {
-    char c;     // 1 byte
-                // (3 bytes padding added by compiler)
-    int i;      // 4 bytes
-};              // Total size: 8 bytes (not 5 bytes!)
-```
-
----
-
-## 🧪 Try It Yourself
-
-Create a `typedef struct` named `Rectangle` with `float width` and `float height`. Write a function `float getArea(const Rectangle *r)` that calculates area.
-
-## 🎯 Mini Challenge
-
-Create an array of 3 `Employee` structs, take user input for each employee's details, and print the entire roster.
 
 ## 🧭 Navigation
 

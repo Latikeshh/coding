@@ -4,62 +4,32 @@
 
 ## 📖 Definition
 
-A **data type** defines what kind of value a variable holds (such as numbers, text, or true/false values).
+JavaScript variables hold Primitive Data Types (`String`, `Number`, `Boolean`, `BigInt`, `Symbol`, `Undefined`, `Null`) and Object Data Types (`Object`, `Array`, `Function`, `Map`, `Set`).
 
-## 🤔 Why Do We Use Them?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Primitive types include `String`, `Number`, `Boolean`, `null`, and `undefined`. Use `typeof` to check a variable's data type.
+> - **Hindi:** प्रिमिटिव डाटा टाइप्स: `String`, `Number`, `Boolean`, `null`, `undefined`| डाटा टाइप चेक करने के लिए `typeof` का उपयोग करें।
+> - **Marathi:** डेटा टाईप तपासण्यासाठी `typeof` ऑपरेटर वापरतात.
+> - **Hinglish:** Primitive data types (`string`, `number`, `boolean`, `null`, `undefined`) aur `typeof` operator se variable type check kiya jaata hai.
 
-JavaScript needs to know whether it is dealing with text, math calculations, or logic decisions.
-
-## 🧠 Simple Explanation
-
-Just like in real life where numbers are used for counting and letters are used for writing words, programming languages separate values into different types.
-
-## 📝 Common Data Types
-
-### Primitive Data Types:
-1. **String:** Text wrapped in quotes (`"Hello"`, `'JS'`, `` `World` ``)
-2. **Number:** Integers and decimals (`42`, `3.14`)
-3. **Boolean:** Logical true or false (`true`, `false`)
-4. **Undefined:** Variable declared but not assigned a value
-5. **Null:** Intentionally empty value
-
-## 💡 Practical Example
+## 📝 Syntax & Examples
 
 ```javascript
 let productName = "Wireless Mouse"; // String
 let price = 29.99;                  // Number
 let inStock = true;                 // Boolean
-let discount;                       // Undefined
-let promoCode = null;               // Null
+let discount;                       // Undefined (uninitialized)
+let promoCode = null;               // Null (intentional empty value)
 
-console.log(typeof productName); // string
-console.log(typeof price);       // number
-console.log(typeof inStock);     // boolean
-```
-
-## 👀 Output
-
-```text
-string
-number
-boolean
+console.log(typeof productName);    // "string"
+console.log(typeof price);          // "number"
+console.log(typeof inStock);        // "boolean"
 ```
 
 ## ⚠️ Common Mistakes
 
-- Mixing strings and numbers in addition:
-  ```javascript
-  console.log("5" + 5); // "55" (String concatenation, not math addition!)
-  console.log(5 + 5);   // 10
-  ```
-
-## 🧪 Try It Yourself
-
-Create variables for your favorite movie (String), release year (Number), and whether you have watched it more than twice (Boolean).
-
-## 🎯 Mini Challenge
-
-Use `typeof` to check the data type of `100`, `"100"`, `false`, and `undefined`.
+- Unintended type coercion during string addition: `"5" + 5` produces `"55"` (string concatenation), while `5 + 5` produces `10`.
 
 ## 🧭 Navigation
 

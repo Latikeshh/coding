@@ -4,15 +4,22 @@
 
 ## 📖 Definition
 
-CSS is a style language used to describe how HTML elements should look and be arranged on a webpage.
+CSS (Cascading Style Sheets) is a style language used to describe how HTML elements should look, be styled, and be arranged on a webpage.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** CSS styles HTML content by adding colors, fonts, margins, padding, animations, and responsive layouts.
+> - **Hindi:** CSS वेब पेज को स्टाइल करता है - जैसे रंग, फ़ॉन्ट, स्पेसिंग (माजिर्न/पैडिंग), लेआउट और एनीमेशन जोडना।
+> - **Marathi:** CSS द्वारे HTML मजकुराला रंग, फॉन्ट, जागा (spacing), लेआउट आणि एनीमेशन्स देऊन आकर्षक बनवले जाते.
+> - **Hinglish:** CSS HTML page ko styling deta hai, jaise colors, fonts, spacing, alignment, aur animations apply karna.
 
 ## 🤔 Why Do We Use It?
 
-Without CSS, websites would be plain text and basic structure. CSS makes pages easier to read, more attractive, and more organized.
+Without CSS, websites would be plain black text and basic structure. CSS makes pages easier to read, visually attractive, and organized across different screens.
 
 ## 🧠 Simple Explanation
 
-HTML is the content. CSS is the design. A page with only HTML is like a room with walls and furniture but no paint or decoration.
+HTML is the content and frame. CSS is the paint and decoration. A page with only HTML is like a house with walls but no paint or interior design.
 
 ## 📝 Syntax
 
@@ -69,23 +76,23 @@ h2 {
 
 ## 👀 What You Will See
 
-The page is cleaner because it has a light background, readable text, and a dark heading color.
+The page is cleaner because it has a light background, readable dark text, and a navy heading color.
 
 ## 🧪 Try It Yourself
 
-Change the background color and the heading color. Observe how the page mood changes.
+Change the background color and the heading color. Observe how the page design changes.
 
 ## ⚠️ Common Mistakes
 
-- Writing CSS without connecting it to the HTML file.
+- Writing CSS without connecting it to the HTML file via `<link rel="stylesheet" href="style.css">`.
 - Mixing HTML tags and CSS rules incorrectly.
-- Forgetting that CSS usually uses lowercase property names.
+- Forgetting that CSS uses lowercase property names.
 
 ## ✅ Remember
 
-- CSS works with HTML to create the final page.
-- CSS is not only for color; it is also used for layout and spacing.
-- CSS can be written in a separate file for easier maintenance.
+- CSS works with HTML to create the final webpage.
+- CSS handles styling, color, layout, and spacing.
+- Writing CSS in a separate `.css` file keeps code clean and maintainable.
 
 ## 🧭 Navigation
 

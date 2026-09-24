@@ -1,69 +1,85 @@
-# Div and Span
+# Generic Containers (`<div>` and `<span>`)
 
 > 🟡 Intermediate
 
 ## 📖 Definition
 
-`<div>` groups larger blocks of content. `<span>` groups a small piece of text inside a line.
+**`<div>`** (Division) is a generic **block-level** container used to group elements for layout styling or scripting. **`<span>`** is a generic **inline-level** container used to wrap small snippets of text or elements within a sentence without forcing a line break.
 
-## 🤔 Why Do We Use It?
+## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
-They help organize content and give CSS or JavaScript a specific part of the page to work with.
+### English
+`<div>` is a generic block container (starts on a new line and takes full width). `<span>` is a generic inline container (stays in the same line). Prefer semantic tags when available.
 
-## 🧠 Simple Explanation
+### Hindi
+`<div>` एक ब्लॉक-लेवल कंटेनर (नया पैराग्राफ/लाइन लेता है) है। `<span>` एक इनलाइन कंटेनर (लाइन के अंदर शब्द या टेक्स्ट ग्रुप करने के लिए) है। जहाँ संभव हो, सिमेंटिक टैग्स का इस्तेमाल करें।
 
-A `div` is like a storage box holding several things. A `span` is like putting a small sticker on one word.
+### Marathi
+`<div>` हा ब्लॉक कंटेनर (नवीन ओळीवर सुरू होतो) आहे, तर `<span>` इनलाइन कंटेनर आहे. जिथे शक्य असेल तिथे सिमेंटिक टॅग्ज वापरा.
 
-## 📝 Syntax
+### Hinglish
+`<div>` block element hai jo container sections banata hai. `<span>` inline element hai jo line ke andar text styling ke liye use hota hai. Generic `<div>` ke bajaye semantic tags prefer karo.
 
-```html
-<div class="product">
-  <p>Tea: <span class="price">$4</span></p>
-</div>
-```
+## 🧱 Block vs. Inline Elements Explained
 
-Prefer meaningful tags such as `<main>` or `<article>` when they describe the content better.
+Understanding block vs. inline display behavior is essential in web development:
 
-## 💡 Practical Example
+| Property | Block-Level (`<div>`, `<p>`, `<h1>`, `<header>`) | Inline-Level (`<span>`, `<a>`, `<strong>`, `<em>`) |
+|---|---|---|
+| **Line Behavior** | Always starts on a **new line** in the layout. | Stays in the **same line** alongside neighboring content. |
+| **Width Behavior** | Expands automatically to take up **100% full available width**. | Takes up only as much width as its content requires. |
+| **Nesting Rules** | Can contain both block and inline elements. | Should only contain other inline elements or plain text. |
 
-An online shop could wrap each product card in a `<div>`. Inside it, a `<span>` can wrap only the price so CSS can make that small part green or bold.
-
-## ✅ Remember
-
-`div` starts on a new line as a block. `span` stays inside the current line. Neither tells the browser what the content means by itself.
-
-- A `div` groups a block of content.
-- A `span` wraps a small inline piece of content.
-- Use semantic elements first when they describe the content.
-
-## 💻 Example
+## 📝 Code Example
 
 ```html
-<div class="notice">
-  <p>Your total is <span class="price">$12</span>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Div and Span Demonstration</title>
+</head>
+<body>
+
+  <!-- Block container grouping a card unit -->
+  <div class="product-card">
+    <h2>Wireless Gaming Mouse</h2>
+    <p>High precision optical sensor with customizable RGB lighting.</p>
+    <p>Price: <span class="highlight-price">$29.99</span> <span class="badge">In Stock</span></p>
+  </div>
+
+</body>
+</html>
 ```
 
 ## 👀 Output
 
-The sentence appears as one paragraph. CSS could later style the whole notice or only the price.
+A block division container (`<div>`) wrapping a card component where the price **"$29.99"** and status **"In Stock"** are styled inside inline `<span>` elements on the same line.
 
-## 🔍 How It Works
+## ⚖️ When to Use `<div>` and `<span>` vs. Semantic HTML
 
-The `div` wraps the full notice. The `span` wraps only “$12,” which makes that small part easy to target with CSS.
+Because `<div>` and `<span>` have no inherent semantic meaning, they should be used **only when no suitable semantic HTML tag exists**:
+
+- **Use `<header>`** instead of `<div class="header">`.
+- **Use `<nav>`** instead of `<div class="navigation">`.
+- **Use `<main>`** instead of `<div class="content">`.
+- **Use `<article>`** instead of `<div class="post">`.
+- **Use `<div>` or `<span>`** for purely visual styling containers (e.g. wrapper grids, flex cards, icon wrappers) where no semantic tag applies.
 
 ## ⚠️ Common Mistakes
 
-- Do not replace every meaningful tag with `<div>`.
-- Do not use `<span>` to wrap a full page section.
+- **"Div Soup":** Nesting dozens of unlabelled `<div>` containers instead of using semantic structural tags (`<header>`, `<section>`, `<article>`, `<footer>`).
+- **Wrapping whole block paragraphs inside `<span>`:** `<span>` should only wrap inline text fragments.
 
 ## 🧪 Try It Yourself
 
-Wrap a product name and price in a `div`, then wrap only the price in a `span`.
+Create an HTML snippet featuring:
+1. One `<div>` wrapping a product card component.
+2. A sentence inside the card using `<span>` to highlight the product discount price.
 
 ## 🎯 Mini Challenge
 
-Plan a product card using semantic tags where possible and `div` only where it helps grouping.
+Refactor a layout that uses `<div class="header">`, `<div class="nav">`, and `<div class="footer">` to use semantic HTML tags (`<header>`, `<nav>`, `<footer>`).
 
 ## 🧭 Navigation
 

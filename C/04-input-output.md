@@ -4,47 +4,62 @@
 
 ## 📖 Definition
 
-Input and output (I/O) functions allow programs to interact with users. In C, `printf()` is used for output and `scanf()` is used to read input from the keyboard.
+Input and output (I/O) functions enable programs to interact with users and shell streams via standard libraries (`<stdio.h>`).
 
-## 📝 Reading User Input with `scanf()`
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `printf` outputs formatted data to terminal. `scanf` reads formatted input and requires the address-of operator `&`. Use `fgets` for strings with spaces.
+> - **Hindi:** `printf` आउटपुट देता है और `scanf` यूज़र इनपुट पढ़ता है। `scanf` में वेरिएबल के साथ `&` लगाना जरूरी होता है।
+> - **Marathi:** `printf` टर्मिनलवर प्रिंट करते आणि `scanf` इनपुट वाचते. `scanf` वापरताना `&` आवश्यक आहे.
+> - **Hinglish:** `printf` terminal output ke liye hai aur `scanf` user input padhta hai. `scanf` mein `&` miss mat karo.
 
-`scanf()` reads formatted input from standard input. The `&` (address-of) operator is required before variable names so `scanf` knows where in memory to store the entered value.
+## 📝 Reading Input with `scanf()` and `fgets()`
+
+- `scanf("%d", &variable)` reads formatted numbers/characters. The `&` (address-of) operator tells `scanf` where in memory to store the entered value.
+- For strings containing spaces, prefer `fgets(buffer, sizeof(buffer), stdin)` over `scanf("%s", buffer)` to prevent buffer overflows!
 
 ## 💡 Practical Example
 
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int age;
     float score;
 
     printf("Enter your age: ");
-    scanf("%d", &age);
+    if (scanf("%d", &age) != 1) {
+        printf("Invalid age input!\n");
+        return 1;
+    }
 
     printf("Enter your score: ");
-    scanf("%f", &score);
+    if (scanf("%f", &score) != 1) {
+        printf("Invalid score input!\n");
+        return 1;
+    }
 
-    printf("\n--- Result ---\n");
-    printf("Your age is %d and score is %.2f\n", age, score);
+    printf("\n--- Summary ---\n");
+    printf("Age: %d | Score: %.2f\n", age, score);
 
     return 0;
 }
 ```
 
-## 👀 Example Interaction
+## 👀 Output
 
 ```text
 Enter your age: 24
 Enter your score: 88.5
 
---- Result ---
-Your age is 24 and score is 88.50
+--- Summary ---
+Age: 24 | Score: 88.50
 ```
 
 ## ⚠️ Common Mistakes
 
-- Forgetting the address-of operator `&` in `scanf("%d", &age)`! This will cause a program crash or segmentation fault.
+- Forgetting the address-of operator `&` in `scanf("%d", &age)`. This attempts to write to an uninitialized address and causes segmentation fault crashes!
+- Using `scanf("%s", str)` for strings without bounds limits, leading to security buffer overflows. Use `fgets()` instead.
 
 ## 🧪 Try It Yourself
 
@@ -52,7 +67,7 @@ Write a program that asks the user for two integers, adds them together, and pri
 
 ## 🎯 Mini Challenge
 
-Ask the user to enter their temperature in Celsius and convert it to Fahrenheit using `(Celsius * 9/5) + 32`.
+Ask the user to enter temperature in Celsius and convert it to Fahrenheit using `(Celsius * 9/5) + 32`.
 
 ## 🧭 Navigation
 

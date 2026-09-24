@@ -4,14 +4,26 @@
 
 ## 📖 Definition
 
-Functions organize code into modular blocks. C++ allows passing parameters by **value** (makes a copy) or by **reference** using `&` (modifies original variable directly).
+Functions organize code into modular, reusable blocks. C++ allows passing function parameters by **Value** (copies value) or by **Reference** (`&`), which avoids expensive copies and allows direct caller variable modification.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Pass-by-reference (`&`) allows a function to modify the caller's variable directly and avoids making data copies. Use `const T&` to prevent unwanted modification.
+> - **Hindi:** पास-बाय-रेफरेंस (`&`) से फंक्शन ओरिजिनल वेरिएबल को सीधे बदल सकता है। बिना बदलाव के फ़ास्ट परफॉरमेंस के लिए `const T&` का इस्तेमाल करें।
+> - **Marathi:** `&` (रेफरन्स) मुळे मूळ व्हॅरियबलमध्ये थेट बदल करता येतो आणि कॉपी करण्याचा खर्च वाचतो.
+> - **Hinglish:** Pass-by-reference (`&`) se unnecessary variable copying avoid hoti hai. Modifying stop karne ke saath speed chahiye toh `const T&` pass karo.
 
 ## 📝 Syntax & Pass-by-Reference
 
 ```cpp
 // Pass-by-reference using &
 void doubleValue(int &num) {
-    num *= 2; // Directly modifies caller variable
+    num *= 2; // Directly modifies original variable
+}
+
+// Pass-by-const-reference (Fast & Read-only)
+void printMessage(const std::string &msg) {
+    std::cout << msg << std::endl;
 }
 ```
 
@@ -59,7 +71,7 @@ Multiply(7) [using default]: 7
 
 ## ⚠️ Common Mistakes
 
-- Modifying arguments unintendedly when passing by reference: use `const int &num` if you want reference performance without allowing modification.
+- Accidentally modifying caller variables when passing by reference: use `const int &num` if you want reference performance without allowing caller variable mutation.
 
 ## 🧪 Try It Yourself
 

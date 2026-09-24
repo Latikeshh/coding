@@ -4,31 +4,28 @@
 
 ## 📖 Definition
 
-- **Inheritance:** Class mechanism to inherit fields and methods from parent base classes.
-- **Polymorphism:** Allows base class pointers or references to invoke derived class implementations at runtime using `virtual` and `override`.
+- **Inheritance:** Derived classes inherit attributes and member functions from parent base classes.
+- **Polymorphism:** Allows base pointers or references to trigger derived class method overrides dynamically at runtime using `virtual` and `override`.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Pure virtual functions (`virtual void f() = 0;`) create Abstract Classes. Derived classes use `override` for dynamic polymorphism.
+> - **Hindi:** प्योर वर्चुअल फंक्शन (`virtual void f() = 0;`) से एब्स्ट्रैक्ट क्लास बनती है। चाइल्ड क्लास में `override` का प्रयोग करें।
+> - **Marathi:** पॉलिमॉर्फिझममुळे बेस क्लास पॉइंटरद्वारे डिराईव्हड क्लासचे पद्धती (methods) चालवता येतात.
+> - **Hinglish:** Base class pointers ke zariye runtime child class methods execute karne ke liye `virtual` function aur `override` keyword use karo.
 
-## 📝 Virtual Functions & Pure Virtual Classes (Abstract Classes)
-
-A class containing at least one **pure virtual function** (`virtual void func() = 0;`) is an **Abstract Class** and cannot be directly instantiated.
+## 📝 Syntax
 
 ```cpp
 #include <iostream>
 #include <vector>
-#include <memory>
 using namespace std;
 
 // Abstract Base Class
 class Shape {
 public:
-    // Pure virtual function
-    virtual double getArea() const = 0;
-
-    // Virtual Destructor (Crucial for proper cleanup in derived objects!)
-    virtual ~Shape() {
-        cout << "Shape Destructor" << endl;
-    }
+    virtual double getArea() const = 0; // Pure virtual function
+    virtual ~Shape() {} // Virtual destructor for safe cleanup
 };
 
 class Circle : public Shape {
@@ -36,65 +33,9 @@ private:
     double radius;
 public:
     Circle(double r) : radius(r) {}
-
-    double getArea() const override {
-        return 3.14159 * radius * radius;
-    }
-
-    ~Circle() override {
-        cout << "Circle Destructor" << endl;
-    }
+    double getArea() const override { return 3.14159 * radius * radius; }
 };
-
-class Rectangle : public Shape {
-private:
-    double width, height;
-public:
-    Rectangle(double w, double h) : width(w), height(h) {}
-
-    double getArea() const override {
-        return width * height;
-    }
-};
-
-int main() {
-    // Array of base pointers holding derived objects (Polymorphism)
-    vector<Shape*> shapes;
-    shapes.push_back(new Circle(5.0));
-    shapes.push_back(new Rectangle(4.0, 6.0));
-
-    for (const Shape* shape : shapes) {
-        cout << "Area: " << shape->getArea() << endl;
-    }
-
-    // Cleanup
-    for (Shape* shape : shapes) delete shape;
-
-    return 0;
-}
 ```
-
----
-
-## 👀 Output
-
-```text
-Area: 78.5398
-Area: 24
-Circle Destructor
-Shape Destructor
-Shape Destructor
-```
-
----
-
-## 🧪 Try It Yourself
-
-Create an abstract base class `Employee` with a pure virtual `calculatePay()` method. Derive `SalariedEmployee` and `HourlyEmployee`.
-
-## 🎯 Mini Challenge
-
-Explain why polymorphic base classes must always declare a `virtual ~Base()` destructor.
 
 ## 🧭 Navigation
 

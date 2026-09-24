@@ -1,72 +1,111 @@
-# Accessibility Basics
+# Web Accessibility (a11y) & HTML Validation
 
 > 🟡 Intermediate
 
 ## 📖 Definition
 
-Accessibility means designing a web page so people with different abilities can use it.
+**Web Accessibility (a11y)** means building webpages so that everyone—including people with visual, auditory, physical, speech, or cognitive disabilities—can access, navigate, and understand web content seamlessly.
 
-## 🤔 Why Do We Use It?
+## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
-People may use a keyboard, screen reader, magnifier, captions, or other tools. Accessible pages welcome more visitors.
+### English
+Web accessibility ensures pages work for everyone, including screen readers and keyboard users. Prefer native semantic HTML elements first before using ARIA. Always validate your HTML.
 
-## 🧠 Simple Explanation
+### Hindi
+एक्सेसिबिलिटी (a11y) का मतलब है कि आपका पेज सभी यूज़र्स (स्क्रीन रीडर और कीबोर्ड यूज़र्स सहित) के लिए आसानी से इस्तेमाल हो सके। ARIA से पहले हमेशा नेटिव सिमेंटिक HTML टैग्स का इस्तेमाल करें।
 
-Accessibility is like adding a ramp beside stairs. It gives more people a practical way to enter and use the same place.
+### Marathi
+ॲक्सेसिबिलिटीमुळे (a11y) स्क्रीन रीडर आणि कीबोर्ड वापरणाऱ्यांसह सर्व युझर्सना वेबसाईट सहज वापरता येते. ARIA आधी नेहमी नेटिव्ह सिमेंटिक टॅग्ज वापरावेत.
 
-## 📝 Syntax
+### Hinglish
+Accessibility (a11y) ensure karti hai ki aapka web page sabhi users (screen readers, keyboard-only users) ke liye easy-to-use ho. Pehle native semantic tags use karo, ARIA sirf zaroorat padne par.
 
-```html
-<label for="email">Email address</label>
-<input id="email" type="email">
-<img src="team.jpg" alt="Three shop staff standing at the counter">
-```
+## ♿ 5 Core Pillars of Accessible HTML
 
-Use clear headings, meaningful links, labels, keyboard-friendly controls, and good color contrast.
+1. **Form Input Labels:** Every form control must have a connected `<label for="id">` so screen readers state what information is expected.
+2. **Descriptive Image Alternative Text:** All informative images must provide meaningful `alt` text. Purely decorative images must use `alt=""`.
+3. **Logical Heading Outline:** Use `<h1>` through `<h6>` sequentially without skipping levels so screen readers can parse page structure.
+4. **Keyboard Navigability & Visible Focus:** All links, buttons, and form inputs must be reachable using the `Tab` key, with a clear visible focus outline (`outline`).
+5. **Descriptive Link Text:** Avoid vague link text like *"click here"* or *"link"*. Use descriptive anchor text like *"Download Course Syllabus (PDF)"*.
 
-## 💡 Practical Example
+## ⚖️ Native Semantic HTML vs. ARIA Rules
 
-Before publishing a form, try using it with only the Tab key. You should be able to reach each field and button, and see which item is selected. This quick test catches many common problems.
+**ARIA (Accessible Rich Internet Applications)** attributes (`role="..."`, `aria-label="..."`, `aria-expanded="..."`) provide additional accessibility information for complex web applications.
 
-## ✅ Remember
-
-Accessibility is not an optional extra added at the end. Small habits—such as writing real labels and alt text—make every page more useful from the beginning.
-
-- Use labels for form fields.
-- Write meaningful alternative text for useful images.
-- Make sure the keyboard can reach interactive controls.
-- Use enough colour contrast for readable text.
-
-## 💻 Example
+> [!IMPORTANT]
+> **First Rule of ARIA:** *Do not use ARIA if a native HTML element already exists that provides the semantic meaning and keyboard behavior you need.*
 
 ```html
-<label for="phone">Phone number</label>
-<input id="phone" type="tel" autocomplete="tel">
+<!-- BAD: Custom clickable div with ARIA override -->
+<div role="button" tabindex="0" onclick="submitForm()">Submit</div>
 
-<a href="contact.html">Contact our support team</a>
+<!-- GOOD: Native HTML button (automatically focusable & screen reader accessible) -->
+<button type="submit">Submit</button>
 ```
 
-## 👀 Output
+## 🔍 Checking HTML Code Quality: HTML Validation
 
-A clearly labelled phone field and a link that explains its destination appear on the page.
+Writing valid HTML ensures consistent rendering across browsers and screen readers.
 
-## 🔍 How It Works
+- **Browser Developer Tools:** Press `F12` or `Ctrl + Shift + I` in Chrome/Firefox/Edge to inspect the rendered DOM tree and console errors.
+- **W3C Markup Validation Service:** You can paste your HTML code into [validator.w3.org](https://validator.w3.org/) to check for unclosed tags, duplicate IDs, or missing attributes.
 
-The label tells every visitor what to enter. The descriptive link text remains useful when a screen reader lists links out of context.
+## 📝 Code Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessible Contact Form</title>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Support Team</h1>
+  </header>
+
+  <main>
+    <form action="/contact" method="POST">
+
+      <p>
+        <label for="user-name">Full Name (required):</label><br>
+        <input id="user-name" type="text" name="name" required placeholder="e.g. Latikesh">
+      </p>
+
+      <p>
+        <label for="user-email">Email Address (required):</label><br>
+        <input id="user-email" type="email" name="email" required placeholder="name@domain.com">
+      </p>
+
+      <p>
+        <button type="submit" aria-label="Submit contact inquiry form">Send Inquiry</button>
+      </p>
+
+    </form>
+  </main>
+
+  <footer>
+    <p><a href="privacy.html">Read Privacy Policy Statement</a></p>
+  </footer>
+
+</body>
+</html>
+```
 
 ## ⚠️ Common Mistakes
 
-- Do not use “click here” as link text.
-- Do not remove keyboard focus outlines without adding an equally visible replacement.
-- Do not write alt text for purely decorative images; use `alt=""` instead.
+- **Removing CSS focus outlines (`outline: none`):** Prevents keyboard users from seeing which button or link is active.
+- **Using color alone to convey meaning:** E.g. relying only on red text for error messages without text descriptions or icons.
 
 ## 🧪 Try It Yourself
 
-Use only the Tab key to test a small practice form. Check that you can reach every control.
+1. Open your webpage in a browser.
+2. Press the `Tab` key repeatedly to verify that you can navigate through every link, button, and input box in logical order.
 
 ## 🎯 Mini Challenge
 
-Review a page you built earlier and improve one image, one link, and one form field for accessibility.
+Run an HTML document you created through the [W3C HTML Validator](https://validator.w3.org/) and resolve any reported markup errors.
 
 ## 🧭 Navigation
 

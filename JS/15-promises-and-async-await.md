@@ -4,16 +4,23 @@
 
 ## 📖 Definition
 
-JavaScript is **single-threaded**, meaning it executes one task at a time. To prevent long-running tasks (like network calls, database queries, or timers) from freezing the UI, JavaScript uses **Asynchronous Operations** backed by the **Event Loop**.
+JavaScript is single-threaded. To perform time-consuming operations (network API requests, timers, file access) without freezing the user interface, JavaScript uses **Asynchronous Programming** managed by the **Event Loop**.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Promises handle async operations (`Pending`, `Fulfilled`, `Rejected`). `async`/`await` makes async code look synchronous and clean.
+> - **Hindi:** प्रॉमिस (Promise) और `async`/`await` का उपयोग नेटवर्क और टाइमर जैसे एसिंक्रोनस कार्यों को बिना यूआई फ्रीज किए संभालने के लिए होता है।
+> - **Marathi:** प्रॉमिस आणि `async`/`await` मुळे नेटवर्क रिक्वेस्टसारखी कामे स्क्रीन गोठवल्याशिवाय (freeze न करता) होतात.
+> - **Hinglish:** Promises aur `async`/`await` se asynchronous code (network calls, timers) clean aur predictable tareeqe se handle hota hai.
 
 ---
 
 ## 1. Promises
 
-A **Promise** represents an asynchronous operation that will complete in the future. It can be in one of three states:
-1. `Pending`: Initial state, waiting for result.
-2. `Fulfilled`: Operation completed successfully (`resolve()`).
-3. `Rejected`: Operation failed (`reject()`).
+A **Promise** represents an asynchronous operation that will complete in the future:
+1. `Pending`: Initial state.
+2. `Fulfilled`: Successful completion (`resolve()`).
+3. `Rejected`: Failed operation (`reject()`).
 
 ```javascript
 const myPromise = new Promise((resolve, reject) => {
@@ -28,7 +35,7 @@ const myPromise = new Promise((resolve, reject) => {
   }, 1000);
 });
 
-// Consuming a promise with .then() and .catch()
+// Consuming a promise
 myPromise
   .then((data) => console.log(data))
   .catch((error) => console.error(error))
@@ -39,14 +46,12 @@ myPromise
 
 ## 2. Modern `async` / `await` Syntax
 
-`async`/`await` is cleaner syntactic sugar built on top of Promises. It lets you write asynchronous code that looks synchronous and sequential.
+`async`/`await` is clean syntactic sugar built on Promises. It makes asynchronous code look synchronous and sequential.
 
 ```javascript
-// Function marked as async returns a Promise automatically
 async function fetchData() {
   try {
     console.log("Fetching...");
-    // Pause execution until promise resolves
     let result = await myPromise;
     console.log("Result:", result);
   } catch (err) {
@@ -68,22 +73,6 @@ Fetching...
 (1 second pause)
 Result: Data loaded successfully!
 Cleanup executed.
-```
-
----
-
-## 💡 `Promise.all()` — Parallel Asynchronous Execution
-
-Run multiple promises concurrently and wait for all to complete:
-
-```javascript
-const p1 = Promise.resolve(10);
-const p2 = new Promise((res) => setTimeout(() => res(20), 500));
-const p3 = Promise.resolve(30);
-
-Promise.all([p1, p2, p3]).then((values) => {
-  console.log(values); // [10, 20, 30]
-});
 ```
 
 ---

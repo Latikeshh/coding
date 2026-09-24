@@ -1,11 +1,18 @@
-# Namespaces & Modern C++ (C++11 to C++20)
+# Namespaces & Modern C++ (C++17 to C++20)
 
 > 🔴 Advanced
 
 ## 📖 Definition
 
 - **Namespaces:** Prevent global name collisions by scoping identifiers under named boundaries.
-- **Modern C++ Features:** Syntax additions from C++11, C++14, C++17, and C++20 that improve type safety, performance, and readability.
+- **Modern C++ Library Types:** Standard types like `std::optional` (nullable values), `std::variant` (type-safe union), `std::tuple` (heterogeneous fixed-size collection), and `std::filesystem`.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Namespaces avoid name conflicts. Modern C++ provides `std::optional` (nullable value), `std::variant` (type-safe union), and `std::tuple`.
+> - **Hindi:** नेमस्पेस से ग्लोबल नाम टकराने (collision) से बचते हैं। मॉडर्न C++ में `std::optional` और `std::variant` टाइप-सेफ डाटा हैंडलिंग प्रदान करते हैं।
+> - **Marathi:** नेमस्पेसमुळे ग्लोबल नावांचे टक्करे टळतात. `std::optional` आणि `std::variant` टाइप-सेफ डाटा हाताळतात.
+> - **Hinglish:** Namespaces name collision rokte hain. Modern C++ mein `std::optional` (optional return values) aur `std::variant` (type-safe union) use karte hain.
 
 ---
 
@@ -31,13 +38,16 @@ int main() {
 
 ---
 
-## 2. Key Modern C++ Features
+## 2. Key Modern C++ Features & Library Types
 
 ```cpp
 #include <iostream>
 #include <vector>
 #include <tuple>
 #include <optional>
+#include <variant>
+#include <string>
+
 using namespace std;
 
 // 1. Compile-time constants
@@ -46,22 +56,30 @@ constexpr int square(int x) { return x * x; }
 // 2. Enum classes (Strongly typed enums)
 enum class Status { SUCCESS, ERROR, PENDING };
 
-// 3. std::optional (C++17) for optional returns
+// 3. std::optional (C++17)
 optional<string> findUser(int id) {
     if (id == 1) return "Alice";
     return nullopt; // Represents absence of value
 }
 
+// 4. std::variant (C++17 Type-Safe Union)
+using DataValue = variant<int, double, string>;
+
 int main() {
-    // 4. Structured Bindings (C++17)
+    // Structured Bindings (C++17)
     auto [x, y, z] = make_tuple(10, 20.5, "Text");
     cout << "Tuple: " << x << ", " << y << ", " << z << endl;
 
-    // 5. std::optional usage
+    // std::optional usage
     auto user = findUser(1);
     if (user.has_value()) {
         cout << "Found: " << user.value() << endl;
     }
+
+    // std::variant usage
+    DataValue val = 100;
+    val = "Type Safe String";
+    cout << "Variant holds: " << get<string>(val) << endl;
 
     return 0;
 }
@@ -75,7 +93,7 @@ Create a custom namespace `MathConstants` with `constexpr double PI = 3.14159265
 
 ## 🎯 Mini Challenge
 
-Use `enum class Color { RED, GREEN, BLUE };` inside a `switch` statement with static casting.
+Use `std::variant<int, std::string>` to represent a function response that can return an integer error code or a success message string.
 
 ## 🧭 Navigation
 

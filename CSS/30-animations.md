@@ -1,92 +1,31 @@
-# Animations
+# CSS Animations (`@keyframes`)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Animations let elements change over time with keyframes and timing.
+CSS Animations allow multi-step, complex visual animations using `@keyframes` rules to define intermediate styles at percentages (`0%` to `100%`).
 
-## 🤔 Why Do We Use It?
-
-They bring interfaces to life and can create attention-grabbing visual effects.
-
-## 🧠 Simple Explanation
-
-Instead of a single transition, animation can include multiple steps over time.
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Define animation steps with `@keyframes` and apply using `animation: name duration timing-function iteration-count`.
+> - **Hindi:** मल्टी-स्टेप एनीमेशन के लिए `@keyframes` में स्टेट्स (0% से 100%) डिफाइन करके `animation` प्रॉपर्टी द्वारा अप्लाई करें।
+> - **Marathi:** `@keyframes` द्वारे एनीमेशनचे टप्पे (0% ते 100%) ठरवता येतात.
+> - **Hinglish:** `@keyframes` se complex multi-step animations bante hain. Keep animations subtle for best user experience.
 
 ## 📝 Syntax
 
 ```css
 @keyframes pulse {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.5; }
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.element {
-  animation: pulse 2s infinite;
-}
-```
-
-## 💡 Example
-
-```css
-@keyframes slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(20px); }
-}
-
-.card {
-  animation: slide 1s ease-in-out infinite alternate;
+.badge-active {
+  animation: pulse 2s infinite ease-in-out;
 }
 ```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Animations Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="card">Animated card</div>
-</body>
-</html>
-```
-
-```css
-@keyframes slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(20px); }
-}
-
-.card {
-  animation: slide 1s ease-in-out infinite alternate;
-}
-```
-
-## 👀 What You Will See
-
-The card gently moves back and forth across the page.
-
-## 🧪 Try It Yourself
-
-Change the animation duration to `3s` and see the speed slow down.
-
-## ⚠️ Common Mistakes
-
-- Overusing animations, which can distract users.
-- Not providing a sensible timing function.
-- Forgetting about performance on mobile devices.
-
-## ✅ Remember
-
-- Animations are best when subtle and purposeful.
-- `@keyframes` defines the behavior over time.
-- Use them to support design, not overwhelm it.
 
 ## 🧭 Navigation
 

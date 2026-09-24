@@ -4,76 +4,24 @@
 
 ## 📖 Definition
 
-The `width` and `height` properties control the size of an element.
+The `width` and `height` properties define the dimensions of block-level and inline-block HTML elements.
 
-## 🤔 Why Do We Use It?
-
-You use width and height to create cards, buttons, menus, and other layout blocks with a consistent size.
-
-## 🧠 Simple Explanation
-
-Every box on a page has a width and height. CSS lets you decide how large the box should be.
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `width` and `height` set element dimensions. Use `min-width` and `max-width` for responsive layouts.
+> - **Hindi:** `width` (चौड़ाई) और `height` (ऊंचाई) एलीमेंट का आकार तय करते हैं। रेस्पॉन्सिव लेआउट के लिए `max-width` का उपयोग करें।
+> - **Marathi:** `width` आणि `height` मुळे बॉक्सची लांबी आणि रुंदी ठरते.
+> - **Hinglish:** `width` aur `height` se element size set hota hai. Mobile responsiveness ke liye `max-width: 100%` best hai.
 
 ## 📝 Syntax
 
 ```css
-.box {
-  width: 300px;
-  height: 150px;
-}
-```
-
-## 💡 Example
-
-```css
 .card {
-  width: 280px;
-  height: 180px;
-  background-color: #efefef;
+  width: 100%;
+  max-width: 400px; /* Prevents card from growing past 400px on desktop */
+  min-height: 200px;
 }
 ```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Card Layout</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="card">
-    <h2>Recipe of the Week</h2>
-    <p>Easy pasta and tomato sauce.</p>
-  </div>
-</body>
-</html>
-```
-
-```css
-.card {
-  width: 280px;
-  height: 180px;
-  background-color: #efefef;
-  padding: 20px;
-}
-```
-
-## 👀 What You Will See
-
-The card has a fixed size and sits neatly in the page, making the content easier to read.
-
-## 🧪 Try It Yourself
-
-Change the card width and height. Notice how the content may wrap when the box becomes smaller.
-
-## ✅ Remember
-
-- Width decides how wide an element is.
-- Height decides how tall an element is.
-- Fixed sizes can be useful, but flexible layouts are often better on different screens.
 
 ## 🧭 Navigation
 

@@ -1,83 +1,27 @@
-# Borders
+# Borders & Box Shadows
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-A border is the line around an element. It can separate content and make boxes easier to see.
+Borders draw boundary lines around elements. `border-radius` rounds element corners, and `box-shadow` adds elevation drop shadows.
 
-## 🤔 Why Do We Use It?
-
-Borders help organize content and highlight important sections.
-
-## 🧠 Simple Explanation
-
-A border is like a frame around a picture. It helps define where the box starts and ends.
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Set borders with `border: width style color`. Use `border-radius` for rounded corners and `box-shadow` for elevation.
+> - **Hindi:** `border` से किनारे की लाइन बनती है, `border-radius` से कोने गोल होते हैं, और `box-shadow` से परछाई (shadow) बनती है।
+> - **Marathi:** `border-radius` मुळे कोपरे गोल होतात आणि `box-shadow` मुळे सावली (shadow) दिसते.
+> - **Hinglish:** Border lines ke liye `border` shorthand, rounded corners ke liye `border-radius: 8px` aur elevation ke liye `box-shadow` use karo.
 
 ## 📝 Syntax
 
 ```css
 .card {
   border: 2px solid #333;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Drop shadow */
 }
 ```
-
-## 💡 Example
-
-```css
-.card {
-  border: 2px solid #555;
-  padding: 20px;
-  border-radius: 8px;
-}
-```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Borders Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="card">
-    <h2>Student Card</h2>
-    <p>Grade: A</p>
-  </div>
-</body>
-</html>
-```
-
-```css
-.card {
-  border: 2px solid #555;
-  padding: 20px;
-  border-radius: 8px;
-}
-```
-
-## 👀 What You Will See
-
-The card has a visible border and rounded corners, making it feel more polished.
-
-## 🧪 Try It Yourself
-
-Change the border color and border thickness. See how the card changes.
-
-## ⚠️ Common Mistakes
-
-- Forgetting to include border width.
-- Using too many border styles at once.
-- Overusing heavy borders, which can make a page look busy.
-
-## ✅ Remember
-
-- `border` controls the visual line around an element.
-- `border-radius` rounds the corners.
-- Borders can help group content without being too noisy.
 
 ## 🧭 Navigation
 

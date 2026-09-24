@@ -4,56 +4,23 @@
 
 ## 📖 Definition
 
-To compile and run C++ code, you need a C++ compiler such as **GCC (`g++`)**, **Clang**, or **MSVC** (Microsoft Visual C++).
+To compile and execute C++ programs, install an ISO-compliant C++ compiler like **GCC (`g++`)**, **Clang (`clang++`)**, or **MSVC**.
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Compile C++ source files (`.cpp`) with `g++ -std=c++17 filename.cpp -o program`.
+> - **Hindi:** सी++ कोड (`.cpp`) चलाने से पहले `g++` कंपाइलर द्वारा प्रोग्राम कंपाइल करना पड़ता है।
+> - **Marathi:** C++ प्रोग्राम चालवण्यासाठी `g++` द्वारे कंपाईल करावा लागतो.
+> - **Hinglish:** C++ code execute karne ke liye `g++ -std=c++17 main.cpp -o main` se compile karo.
 
-C++ source files (`.cpp`) are compiled into machine code executables (`.exe` on Windows or ELF binaries on Linux/macOS) for direct, high-speed execution.
+## 🚀 Setup & Compilation Commands
 
-## 🚀 Step-by-Step Setup
-
-### Step 1: Install `g++` Compiler
-- **Windows:** Install MinGW-w64 via MSYS2 or standalone installer. Verify with `g++ --version` in terminal.
-- **macOS:** Install Xcode Command Line Tools (`xcode-select --install`).
-- **Linux:** Install via terminal: `sudo apt install build-essential g++`.
-
-### Step 2: Write Starter Code
-Create `main.cpp` in VS Code:
-```cpp
-#include <iostream>
-
-int main() {
-    std::cout << "Hello, C++ World!" << std::endl;
-    return 0;
-}
-```
-
-### Step 3: Compile and Run
-In VS Code Terminal:
 ```bash
-g++ main.cpp -o main
-./main      # Linux/macOS
-main.exe    # Windows
+# Compile using C++17 standard
+g++ -std=c++17 -Wall main.cpp -o main
+./main      # On Linux / macOS
+main.exe    # On Windows
 ```
-
-## 👀 Output
-
-```text
-Hello, C++ World!
-```
-
-## ⚠️ Common Mistakes
-
-- Forgetting `#include <iostream>` when using `std::cout` or `std::cin`.
-- Forgetting to save the `.cpp` file before compiling.
-
-## 🧪 Try It Yourself
-
-Write and compile a C++ program that prints `"Setting up C++ was successful!"`.
-
-## 🎯 Mini Challenge
-
-Print your name, favorite game or software, and target learning goal on three separate lines using `std::cout`.
 
 ## 🧭 Navigation
 

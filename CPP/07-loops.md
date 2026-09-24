@@ -1,64 +1,35 @@
-# Loops in C++
+# Loops & Range-Based For in C++
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Loops repeat code blocks automatically. C++ supports standard `for` loops, `while` loops, `do-while` loops, and C++11 **range-based `for` loops**.
+Loops repeat C++ statements automatically. Modern C++ (C++11+) includes **Range-Based `for` Loops** for easy container iteration.
 
-## 📝 Types of Loops
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Use standard `for`/`while` loops or modern C++ Range-Based `for (auto item : container)` for clean collection iteration.
+> - **Hindi:** मॉडर्न C++ में एरे और वेक्टर्स को आसानी से पढ़ने के लिए रेंज-बेस्ड फॉर लूप `for (auto x : vec)` का प्रयोग करें।
+> - **Marathi:** मॉडर्न C++ मधील रेंज-बेस्ड फॉर लूपमुळे एरे आणि व्हेक्टर्स वाचणे सोपे जाते.
+> - **Hinglish:** Range-based `for` loop `for (const auto &item : vec)` se vectors aur arrays easily iterate hote hain.
 
-### 1. `for` Loop
-```cpp
-for (int i = 1; i <= 5; i++) {
-    cout << "Count: " << i << endl;
-}
-```
-
-### 2. Range-Based `for` Loop (Modern C++)
-```cpp
-int nums[] = {10, 20, 30};
-for (int num : nums) {
-    cout << "Value: " << num << endl;
-}
-```
-
-## 💡 Practical Example
+## 📝 Syntax
 
 ```cpp
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {
-    cout << "Multiplication Table of 3:" << endl;
-    for (int i = 1; i <= 10; i++) {
-        cout << "3 x " << i << " = " << (3 * i) << endl;
+    vector<int> nums = {10, 20, 30};
+
+    // Range-based for loop
+    for (int n : nums) {
+        cout << "Item: " << n << endl;
     }
     return 0;
 }
 ```
-
-## 👀 Output
-
-```text
-Multiplication Table of 3:
-3 x 1 = 3
-3 x 2 = 6
-...
-3 x 10 = 30
-```
-
-## ⚠️ Common Mistakes
-
-- Off-by-one errors in loop boundaries (e.g. `i < size` vs `i <= size`).
-
-## 🧪 Try It Yourself
-
-Write a `while` loop that asks the user to enter a positive number and keeps asking until a positive number is entered.
-
-## 🎯 Mini Challenge
-
-Print all even numbers from `2` to `50` using a `for` loop.
 
 ## 🧭 Navigation
 

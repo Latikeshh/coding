@@ -4,11 +4,18 @@
 
 ## 📖 Definition
 
-A **function** is a reusable block of code designed to perform a specific task when called.
+A **function** is a reusable block of code designed to perform a specific task when invoked.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Functions group logic into reusable blocks. Use parameters for input and `return` to send a result back.
+> - **Hindi:** फंक्शन कोड को री-यूज़ करने योग्य बनाता है। यह इनपुट (parameters) लेता है और `return` से रिजल्ट वापस देता है।
+> - **Marathi:** फंक्शनमुळे कोड पुन्हा वापरता येतो. ते इनपुट घेऊन `return` द्वारे उत्तर परत करते.
+> - **Hinglish:** Function reusable code blocks hote hain. Code duplication se bachne ke liye logic ko functions mein wrap karo.
 
 ## 🤔 Why Do We Use Them?
 
-Functions prevent code duplication (**DRY principle:** Don't Repeat Yourself). You write the logic once and call it whenever needed.
+Functions prevent code duplication (**DRY principle:** Don't Repeat Yourself). You write the logic once and execute it whenever needed.
 
 ## 📝 Syntax
 
@@ -52,7 +59,7 @@ Total Price: 1100
 
 ## ⚠️ Common Mistakes
 
-- Forgetting to `return` a value when you need the result outside the function (functions return `undefined` by default without a `return` statement).
+- Forgetting to `return` a value when you need the calculated result outside the function (functions return `undefined` by default without a `return` statement).
 
 ## 🧪 Try It Yourself
 

@@ -4,11 +4,18 @@
 
 ## 📖 Definition
 
-**JavaScript (JS)** is a lightweight, dynamic programming language that powers interactive features on the web.
+**JavaScript (JS)** is a lightweight, dynamic programming language that powers interactive behavior and logic on the web.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** JavaScript adds interactivity, logic, and dynamic updates to web pages.
+> - **Hindi:** जावास्क्रिप्ट वेब पेज में इंटरएक्टिविटी और लॉजिक जोड़ता है (जैसे बटन क्लिक, पॉपअप, लाइव डाटा अपडेट)।
+> - **Marathi:** जावास्क्रिप्ट वेब पेजला परस्परसंवादी (interactive) बनवते आणि लॉजिक जोडते.
+> - **Hinglish:** JavaScript web page ko dynamic aur interactive banata hai, jaise button click handling aur live updates.
 
 ## 🤔 Why Do We Use It?
 
-HTML provides the **skeleton** of a web page, CSS provides the **styling**, and JavaScript provides the **behavior** and interactive features (like popups, animations, forms validation, and live updates).
+HTML provides the **skeleton** of a web page, CSS provides the **styling**, and JavaScript provides the **behavior** and interactive features (like popups, animations, form validation, and live API updates).
 
 ## 🧠 Simple Explanation
 

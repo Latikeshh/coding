@@ -2,83 +2,35 @@
 
 > 🟡 Intermediate
 
-ES6 (ECMAScript 2015) and subsequent updates introduced modern features that make JavaScript code cleaner, concise, and easier to write.
+## 📖 Definition
 
----
+ES6 (ECMAScript 2015) introduced modern features including Template Literals, Destructuring, Spread/Rest operators (`...`), and Default Parameters that improve code conciseness and safety.
 
-## 1. Template Literals
-Use backticks `` ` `` to interpolate variables and handle multi-line strings easily:
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Modern ES6+ features like destructuring, template literals `` `${var}` ``, and spread/rest operators (`...`) make code cleaner.
+> - **Hindi:** ES6+ फीचर्स (डिस्ट्रक्चरिंग, टेम्पलेट लिटरल्स, स्प्रेड ऑपरेटर्स) कोड को छोटा और साफ बनाते हैं।
+> - **Marathi:** ES6+ मुळे आधुनिक कोड लिहिणे सोपे आणि वेगाने होते.
+> - **Hinglish:** Modern ES6 features: Template literals `` `${var}` ``, Object/Array destructuring, aur Spread/Rest (`...`) operators.
+
+## 📝 Key Features Syntax
+
 ```javascript
-const user = "David";
-const age = 28;
-console.log(`Hello, ${user}! Next year you will be ${age + 1}.`);
-```
+// 1. Template Literals
+const user = "Alex";
+console.log(`Welcome, ${user}!`);
 
----
-
-## 2. Destructuring Assignment
-Unpack values from arrays or properties from objects into distinct variables:
-
-### Object Destructuring:
-```javascript
-const person = { name: "Sarah", city: "London", role: "Developer" };
+// 2. Object & Array Destructuring
+const person = { name: "Sarah", role: "Dev" };
 const { name, role } = person;
-console.log(`${name} is a ${role}`); // "Sarah is a Developer"
+
+const colors = ["Red", "Green"];
+const [primary] = colors;
+
+// 3. Spread Operator (...)
+const arr1 = [1, 2];
+const combined = [...arr1, 3, 4]; // [1, 2, 3, 4]
 ```
-
-### Array Destructuring:
-```javascript
-const colors = ["Red", "Green", "Blue"];
-const [firstColor, secondColor] = colors;
-console.log(firstColor, secondColor); // "Red Green"
-```
-
----
-
-## 3. Spread Operator (`...`)
-Expands arrays or objects into individual elements/properties:
-```javascript
-const arr1 = [1, 2, 3];
-const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
-
-const userDetails = { name: "Alex" };
-const userProfile = { ...userDetails, age: 30, location: "NYC" };
-```
-
----
-
-## 4. Rest Parameters (`...`)
-Collects multiple arguments into a single array parameter inside a function:
-```javascript
-function sumAll(...numbers) {
-  return numbers.reduce((total, num) => total + num, 0);
-}
-
-console.log(sumAll(10, 20, 30, 40)); // 100
-```
-
----
-
-## 5. Default Parameters
-Provide default fallback values for function arguments:
-```javascript
-function greetUser(name = "Guest") {
-  console.log(`Welcome, ${name}!`);
-}
-
-greetUser();        // "Welcome, Guest!"
-greetUser("Maya"); // "Welcome, Maya!"
-```
-
----
-
-## 🧪 Try It Yourself
-
-Use object destructuring to extract `title` and `author` from a `book` object and print them using a template literal.
-
-## 🎯 Mini Challenge
-
-Write a function `combineArrays(arr1, arr2)` that uses the spread operator to return a single combined array.
 
 ## 🧭 Navigation
 

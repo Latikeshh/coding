@@ -2,11 +2,18 @@
 
 > 🔴 Advanced
 
-Apply dynamic memory allocation, file I/O, structs, CLI arguments, and error handling to build complete C software.
+## 📖 Definition
 
----
+Mini projects combine pointers, dynamic memory allocation, file streams, structs, CLI parsing, and error handling into functional software.
 
-## 🏗️ Project 1: Dynamic Student Database with File Persistence
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Practice C by building dynamic data structures and persisting binary records to disk storage.
+> - **Hindi:** सीखे गए सी कॉन्सेप्ट्स (पॉइंटर्स, `malloc`, `FILE*`) की प्रेक्टिस के लिए बाइनरी स्टूडेंट डेटाबेस बनाएं।
+> - **Marathi:** प्रॅक्टिससाठी `malloc` आणि फाईल्स हाताळून बायनरी डाटाबेस प्रोजेक्ट बनवा.
+> - **Hinglish:** Real C skills test karne ke liye Heap memory allocation, struct arrays, aur binary disk file persistence combine karke project banao.
+
+## 🏗️ Project: Dynamic Persistent Student Database
 
 ```c
 #include <stdio.h>
@@ -19,40 +26,33 @@ typedef struct {
     float gpa;
 } Student;
 
-void saveDatabase(Student *db, int count) {
+void saveToDisk(Student *db, int count) {
     FILE *fp = fopen("students.bin", "wb");
-    if (!fp) return;
+    if (!fp) {
+        perror("Disk save failed");
+        return;
+    }
     fwrite(&count, sizeof(int), 1, fp);
     fwrite(db, sizeof(Student), count, fp);
     fclose(fp);
-    printf("Saved %d records to disk.\n", count);
+    printf("Successfully saved %d records.\n", count);
 }
 
-int main() {
-    int capacity = 2;
+int main(void) {
     int count = 0;
-    Student *db = (Student*) malloc(capacity * sizeof(Student));
+    Student *db = (Student*) malloc(2 * sizeof(Student));
+    if (!db) return 1;
 
-    // Add Student 1
     db[count].id = 1;
     strcpy(db[count].name, "Alice");
     db[count].gpa = 3.9f;
     count++;
 
-    // Add Student 2
-    db[count].id = 2;
-    strcpy(db[count].name, "Bob");
-    db[count].gpa = 3.7f;
-    count++;
-
-    saveDatabase(db, count);
-
+    saveToDisk(db, count);
     free(db);
     return 0;
 }
 ```
-
----
 
 ## 🧭 Navigation
 

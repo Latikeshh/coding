@@ -1,86 +1,30 @@
-# CSS Functions
+# CSS Functions (`calc()`, `clamp()`, `var()`)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-CSS functions perform operations or return values used in property declarations.
+CSS functions perform runtime calculations, retrieve variable values, or compute colors directly within style declarations (e.g. `calc()`, `clamp()`, `min()`, `max()`, `var()`, `rgb()`).
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `calc()` performs math calculations (`calc(100% - 40px)`). `clamp(min, val, max)` sets responsive fluid typography and sizing.
+> - **Hindi:** `calc()` से गणितीय गणना की जाती है। `clamp()` से टेक्स्ट साइज को मोबाइल और डेस्कटॉप के बीच फ्लेक्सिबल बनाया जाता है।
+> - **Marathi:** `calc()` मुळे गणिती आकडेमोड करता येते तर `clamp()` मुळे फॉन्ट साईझ स्क्रीननुसार ॲडजस्ट होते.
+> - **Hinglish:** CSS functions mein `calc()` dynamic math evaluation ke liye aur `clamp()` fluid typography & responsive sizing ke liye use hote hain.
 
-They help create flexible styles, especially with colors, sizes, and calculations.
-
-## 🧠 Simple Explanation
-
-Functions are reusable instructions, such as `rgb()`, `rgba()`, `calc()`, and `var()`.
-
-## Common functions
-
-- `rgb()` / `rgba()` → set colors
-- `hsl()` / `hsla()` → set colors in hue, saturation, lightness format
-- `calc()` → perform math between values
-- `var()` → use a CSS variable
-
-## 📝 Syntax
+## 📝 Syntax & Examples
 
 ```css
 .card {
-  width: calc(100% - 40px);
-  background: rgba(0, 0, 0, 0.1);
+  width: calc(100% - 40px); /* Subtracts 40px margin from 100% width */
+}
+
+/* Fluid responsive typography */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem); /* Min 1.5rem, preferred 5vw, max 3rem */
 }
 ```
-
-## 💡 Example
-
-```css
-.container {
-  width: calc(100% - 2rem);
-  padding: 20px;
-}
-```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CSS Functions</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">Use calc for flexible widths.</div>
-</body>
-</html>
-```
-
-```css
-.container {
-  width: calc(100% - 2rem);
-  padding: 20px;
-}
-```
-
-## 👀 What You Will See
-
-The container fits the page while leaving space from the edges.
-
-## 🧪 Try It Yourself
-
-Change `2rem` to `3rem` and see how the width changes.
-
-## ⚠️ Common Mistakes
-
-- Forgetting spaces inside `calc()`.
-- Using unsupported color formats without knowing the browser support.
-- Overcomplicating with functions when plain values work fine.
-
-## ✅ Remember
-
-- Functions add flexibility to CSS.
-- `calc()` is especially useful for responsive sizing.
-- Functions are a big part of modern CSS workflows.
 
 ## 🧭 Navigation
 

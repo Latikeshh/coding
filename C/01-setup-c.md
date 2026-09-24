@@ -4,61 +4,33 @@
 
 ## 📖 Definition
 
-To write and run C code, you need a **C compiler** (such as `GCC` or `Clang`) that translates human-readable C code into machine code binaries.
+To write and run C applications, you need a C compiler (like `GCC` or `Clang`) that translates human-readable source code (`.c`) into machine executables.
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** C source code (`.c`) must be compiled with `gcc` into an executable binary before running.
+> - **Hindi:** सी सोर्स कोड (`.c`) को चलाने से पहले `gcc` कंपाइलर द्वारा बाइनरी में कंपाइल करना पड़ता है।
+> - **Marathi:** C प्रोग्राम चालवण्यासाठी `gcc` द्वारे कंपाईल करणे आवश्यक असते.
+> - **Hinglish:** C code ko execute karne se pehle `gcc filename.c -o program` se compile karna padta hai.
 
-Unlike interpreted languages, C source code (`.c`) must be compiled into an executable file (`.exe` on Windows or a binary on Linux/macOS) before it can run on your computer.
+## 🚀 Step-by-Step Setup & Compilation
 
-## 🧠 Simple Explanation
-
-Think of C source code as a recipe written in words. The compiler is a machine that converts that recipe into a finished meal (an executable program).
-
-## 🚀 Step-by-Step Setup
-
-### Step 1: Install GCC Compiler
-- **Windows:** Download MinGW-w64 or install via `wsl` / `MSYS2`. Verify installation by typing `gcc --version` in command prompt.
-- **macOS:** Open Terminal and install Xcode Command Line Tools by typing `xcode-select --install`.
-- **Linux:** Install GCC via package manager: `sudo apt install build-essential`.
-
-### Step 2: Write Your First C Program
-1. Open VS Code and create a file named `hello.c`.
-2. Add the following code:
+### 1. Write Starter Code (`hello.c`)
 ```c
-#include <stdio.stdio.h> // Header for input/output functions
+#include <stdio.h>
 
-int main() {
+int main(void) {
     printf("Hello, C World!\n");
     return 0;
 }
 ```
 
-### Step 3: Compile and Run
-Open your terminal inside VS Code and type:
+### 2. Compile and Run in Terminal
 ```bash
-gcc hello.c -o hello
-./hello      # On Linux/macOS
+gcc -Wall -std=c11 hello.c -o hello
+./hello      # On Linux / macOS
 hello.exe    # On Windows
 ```
-
-## 👀 Output
-
-```text
-Hello, C World!
-```
-
-## ⚠️ Common Mistakes
-
-- Forgetting to compile before running (changes in `.c` files will not show in execution until recompiled).
-- Forgetting the trailing `.c` extension when compiling (`gcc main.c`).
-
-## 🧪 Try It Yourself
-
-Compile and run a C program that prints `"I am setting up C on my system!"`.
-
-## 🎯 Mini Challenge
-
-Print two lines: Your name on the first line and your favorite programming language on the second line using `\n` line breaks.
 
 ## 🧭 Navigation
 

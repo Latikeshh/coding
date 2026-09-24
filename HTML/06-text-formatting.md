@@ -1,68 +1,94 @@
-# Text Formatting
+# Text Formatting (`<strong>`, `<em>`, `<b>`, `<i>`, etc.)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Text-formatting tags add meaning or emphasis to words, such as importance, stress, or a marked note.
+HTML provides semantic text-formatting tags that add visual style and semantic meaning to words, phrases, or characters inside body text.
 
-## 🤔 Why Do We Use It?
+## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
-They help readers notice important information and give screen readers useful context.
+### English
+Use `<strong>` for strong importance (bold) and `<em>` for emphasized text (italic). Use `<b>` and `<i>` when you want visual formatting without implying semantic importance.
 
-## 🧠 Simple Explanation
+### Hindi
+महत्वपूर्ण शब्दों के लिए `<strong>` (बोल्ड) और जोर देने के लिए `<em>` (इटैलिक) का प्रयोग करें। केवल दिखने में बोल्ड या इटैलिक करने के लिए `<b>` और `<i>` का इस्तेमाल होता है।
 
-Formatting is like using a highlighter or speaking a word with extra stress. Use it when the meaning needs attention.
+### Marathi
+महत्वाच्या शब्दांसाठी `<strong>` आणि भर देण्यासाठी `<em>` वापरा. फक्त दिसायला बोल्ड किंवा इटॅलिक करण्यासाठी `<b>` व `<i>` टॅग्ज वापरतात.
 
-## 📝 Syntax
+### Hinglish
+Important text ke liye `<strong>` (bold) aur emphasis ke liye `<em>` (italic) use karo. Bina extra importance ke sirf visual style ke liye `<b>` aur `<i>` tags hote hain.
+
+## 🔑 Semantic Tags vs. Visual Tags
+
+| Tag | Purpose & Semantic Meaning | Default Appearance |
+|---|---|---|
+| `<strong>` | Strong importance, urgency, or warning. Screen readers emphasize this text. | **Bold** |
+| `<b>` | Draws attention visually without implying extra semantic importance (e.g. key terms). | **Bold** |
+| `<em>` | Stress emphasis that changes sentence meaning when spoken aloud. | *Italic* |
+| `<i>` | Alternate voice, technical terms, foreign phrases, thoughts, or book titles. | *Italic* |
+| `<mark>` | Highlighted text for relevance or reference. | <mark>Yellow Highlight</mark> |
+| `<small>` | Side comments, disclaimers, copyright notices, or legal fine print. | Small text |
+| `<del>` | Deleted or outdated text (e.g., original price before discount). | ~~Strikethrough~~ |
+| `<ins>` | Newly inserted text (e.g., discounted sale price). | <u>Underlined</u> |
+| `<sub>` | Subscript characters (e.g., chemical formula H<sub>2</sub>O). | Subscript |
+| `<sup>` | Superscript characters (e.g., math formula X<sup>2</sup> or 1<sup>st</sup> place). | Superscript |
+| `<code>` | Inline computer code snippets (displayed in monospace font). | `Monospace` |
+| `<hr>` | Thematic break or horizontal divider between topics. | Horizontal Line |
+
+## 📝 Code Example
 
 ```html
-<p><strong>Warning:</strong> The shop closes at 6 PM.</p>
-<p>Please <em>save</em> your work.</p>
-<p><mark>Sale ends today.</mark></p>
-```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce Product Offer</title>
+</head>
+<body>
 
-`<strong>` means important and `<em>` adds emphasis.
+  <h1>Wireless Headphones Deal</h1>
 
-## 💡 Practical Example
+  <p><strong>Warning:</strong> Limited stock available!</p>
 
-On a medicine reminder page, write “Take after food” as normal text, but use `<strong>` for “Do not exceed the stated dose.” The stronger wording signals that the message matters.
+  <p>Original Price: <del>$99.99</del> <ins>$49.99</ins> (<mark>50% OFF</mark>)</p>
 
-## ✅ Remember
+  <p>Uses Bluetooth <i>5.3</i> technology for stable connectivity.</p>
 
-Use formatting sparingly. If everything is bold or highlighted, nothing feels important. Choose the tag that matches the meaning of the words.
+  <p>Formula for kinetic energy: <code>E<sub>k</sub> = ½mv<sup>2</sup></code></p>
 
-- `<strong>` means important.
-- `<em>` adds spoken emphasis.
-- `<mark>` marks text that needs attention.
+  <hr>
 
-## 💻 Example
+  <p><small>© 2026 TechStore Inc. All rights reserved. Terms and conditions apply.</small></p>
 
-```html
-<p><strong>Bring your ID.</strong> Entry starts at <em>9 AM</em>.</p>
-<p><mark>Registration closes Friday.</mark></p>
+</body>
+</html>
 ```
 
 ## 👀 Output
 
-“Bring your ID.” is strong, “9 AM” is emphasised, and the registration message is highlighted.
-
-## 🔍 How It Works
-
-These tags add meaning as well as a default visual style. A screen reader can announce emphasis or importance differently.
+- **"Warning:"** renders bold with strong semantic importance.
+- **"$99.99"** renders strikethrough and **"$49.99"** renders underlined.
+- **"50% OFF"** renders with a yellow highlight.
+- **"E<sub>k</sub> = ½mv<sup>2</sup>"** displays subscript `k` and superscript `2`.
+- **"© 2026..."** renders as smaller fine-print text below a horizontal line.
 
 ## ⚠️ Common Mistakes
 
-- Do not use `<strong>` just to make every heading bold.
-- Do not use formatting tags to create page layout.
+- **Confusing `<b>`/`<i>` with `<strong>`/`<em>`:** Use `<strong>` and `<em>` when the meaning matters for screen readers and search engines.
+- **Using `<ins>` instead of CSS for underline:** Do not use `<ins>` purely to underline text; use CSS `text-decoration: underline`.
 
 ## 🧪 Try It Yourself
 
-Write a short event notice with one important phrase and one emphasised time.
+Write a paragraph for a bookstore promotion featuring:
+1. A book title in `<i>`.
+2. A warning message in `<strong>`.
+3. An original price in `<del>` and sale price in `<ins>`.
 
 ## 🎯 Mini Challenge
 
-Create a shop announcement that uses each of the three formatting tags once, without overusing them.
+Write out two chemical formulas (like H<sub>2</sub>SO<sub>4</sub>) using `<sub>` and two mathematical powers (like 10<sup>3</sup>) using `<sup>`.
 
 ## 🧭 Navigation
 

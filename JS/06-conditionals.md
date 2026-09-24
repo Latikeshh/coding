@@ -4,70 +4,28 @@
 
 ## 📖 Definition
 
-**Conditional statements** allow your code to make decisions and execute different blocks of code depending on whether a condition is `true` or `false`.
+Conditional statements (`if`, `else if`, `else`, `switch`) control execution branching based on evaluated boolean expressions.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `if...else` statements execute specific code blocks based on boolean conditions (`true` or `false`).
+> - **Hindi:** `if...else` स्टेटमेंट कंडीशंस की जांच करके अलग-अलग कोड ब्लॉक चलाता है।
+> - **Marathi:** निर्णयानुसार कोड चालवण्यासाठी `if...else` वापरले जाते.
+> - **Hinglish:** Decisions lene ke liye `if...else if...else` use hota hai. Multiple fixed checks ke liye `switch` use kar sakte ho.
 
 ## 📝 Syntax
 
-### `if ... else if ... else`
 ```javascript
-if (condition1) {
-  // Runs if condition1 is true
-} else if (condition2) {
-  // Runs if condition2 is true
+let score = 85;
+
+if (score >= 90) {
+  console.log("Grade: A+");
+} else if (score >= 75) {
+  console.log("Grade: B");
 } else {
-  // Runs if no conditions are true
+  console.log("Grade: C");
 }
 ```
-
-## 💡 Practical Example
-
-```javascript
-let hour = 14;
-
-if (hour < 12) {
-  console.log("Good morning!");
-} else if (hour < 18) {
-  console.log("Good afternoon!");
-} else {
-  console.log("Good evening!");
-}
-```
-
-## 👀 Output
-
-```text
-Good afternoon!
-```
-
-## 💡 Switch Statement Example
-
-```javascript
-let day = "Monday";
-
-switch (day) {
-  case "Monday":
-    console.log("Start of the work week!");
-    break;
-  case "Friday":
-    console.log("Weekend is almost here!");
-    break;
-  default:
-    console.log("Just another day!");
-}
-```
-
-## ⚠️ Common Mistakes
-
-- Forgetting curly braces `{}` around multi-line blocks.
-- Forgetting `break` in `switch` cases, which causes execution to fall through to the next case.
-
-## 🧪 Try It Yourself
-
-Write an `if/else` block that checks if a variable `temperature` is above `30` (print "Hot"), between `15` and `30` (print "Pleasant"), or below `15` (print "Cold").
-
-## 🎯 Mini Challenge
-
-Create a simple grading system where marks `>= 90` gives `"A"`, `>= 75` gives `"B"`, and lower gives `"C"`.
 
 ## 🧭 Navigation
 

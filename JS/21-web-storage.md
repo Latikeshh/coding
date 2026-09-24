@@ -4,65 +4,34 @@
 
 ## 📖 Definition
 
-Web Storage APIs allow web applications to store key-value data directly in the user's browser:
-- `localStorage`: Data persists indefinitely until explicitly cleared (even after closing browser).
-- `sessionStorage`: Data lasts only for the duration of the current browser tab session.
+Web Storage APIs persist key-value string data directly inside the user's browser:
+- `localStorage`: Data persists permanently across browser restarts until cleared.
+- `sessionStorage`: Data lasts only for the duration of the active browser tab session.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `localStorage` persists key-value data permanently. `sessionStorage` clears when tab closes. Use `JSON.stringify()` / `JSON.parse()` for objects.
+> - **Hindi:** `localStorage` डेटा को ब्राउज़र बंद होने के बाद भी सुरक्षित रखता है। ऑब्जेक्ट्स स्टोर करने के लिए `JSON.stringify()` का प्रयोग करें।
+> - **Marathi:** `localStorage` मधील डेटा ब्राउझर बंद केल्यावरही साठवलेला राहतो.
+> - **Hinglish:** Persistent data (jaise user theme preferences) ke liye `localStorage` use karo. Objects store karte waqt `JSON.stringify()` aur `JSON.parse()` zaroori hai.
 
-## 📝 `localStorage` Syntax & Operations
-
-Data in Web Storage must be stored as **strings**. Complex objects must be serialized using `JSON.stringify()`.
+## 📝 Syntax & Operations
 
 ```javascript
-// 1. Saving simple string data
+// 1. Saving simple string
 localStorage.setItem("theme", "dark");
 
-// 2. Retrieving data
-const savedTheme = localStorage.getItem("theme");
-console.log(savedTheme); // "dark"
-
-// 3. Storing objects/arrays
-const userSettings = { fontSize: 16, notifications: true };
+// 2. Saving objects/arrays
+const userSettings = { fontSize: 16, theme: "dark" };
 localStorage.setItem("settings", JSON.stringify(userSettings));
 
-// 4. Retrieving and parsing objects
-const settingsObj = JSON.parse(localStorage.getItem("settings"));
-console.log(settingsObj.fontSize); // 16
+// 3. Retrieving and parsing objects
+const settings = JSON.parse(localStorage.getItem("settings"));
+console.log(settings.fontSize); // 16
 
-// 5. Removing data
+// 4. Removing items
 localStorage.removeItem("theme");
-
-// 6. Clearing all stored items
-// localStorage.clear();
 ```
-
----
-
-## 💡 Practical Use Case: Persistent Theme Selector
-
-```javascript
-// Apply saved theme on page load
-const currentTheme = localStorage.getItem("preferredTheme") || "light";
-document.body.className = currentTheme;
-
-// Function to update theme
-function toggleTheme() {
-  const newTheme = document.body.className === "light" ? "dark" : "light";
-  document.body.className = newTheme;
-  localStorage.setItem("preferredTheme", newTheme);
-}
-```
-
----
-
-## 🧪 Try It Yourself
-
-Store your name in `localStorage`. Reload the page and retrieve it using `getItem()`.
-
-## 🎯 Mini Challenge
-
-Create a simple page counter that increments and saves to `localStorage` every time the page refreshes.
 
 ## 🧭 Navigation
 

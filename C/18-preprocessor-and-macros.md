@@ -4,68 +4,28 @@
 
 ## 📖 Definition
 
-The **C Preprocessor** is a text-substitution tool that runs on source code before the actual compilation phase begins. All preprocessor directives begin with `#`.
+The **C Preprocessor** performs text substitution, file inclusion (`#include`), and conditional compilation (`#ifdef`) before source code compilation begins.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Preprocessor directives (`#define`, `#ifdef`) run before compilation. Use Header Guards (`#ifndef`) in `.h` files.
+> - **Hindi:** प्रीप्रोसेसर निर्देश (`#define`, `#ifdef`) कंपाइलेशन से पहले टेक्स्ट रिप्लेसमेंट करते हैं।
+> - **Marathi:** प्रीप्रोसेसर कोड कंपाईल होण्यापूर्वी टेक्स्ट रीप्लेसमेंट करतो.
+> - **Hinglish:** Preprocessor `#define` constants/macros text-replace karta hai. Header files mein multiple inclusions rokne ke liye Header Guards use karo.
 
-## 📝 Common Preprocessor Directives
+## 📝 Syntax
 
-### 1. Macro Definitions (`#define`)
 ```c
 #include <stdio.h>
 
 #define PI 3.14159
-#define SQUARE(x) ((x) * (x)) // Macro function
+#define SQUARE(x) ((x) * (x))
 
-int main() {
-    printf("PI value: %f\n", PI);
-    printf("Square of 5: %d\n", SQUARE(5)); // Replaced with ((5) * (5))
+int main(void) {
+    printf("Area: %.2f\n", PI * SQUARE(5));
     return 0;
 }
 ```
-
----
-
-### 2. Conditional Compilation (`#ifdef`, `#ifndef`, `#endif`)
-Allows selectively including code based on defined flags or operating system macros:
-
-```c
-#include <stdio.h>
-
-#define DEBUG_MODE 1
-
-int main() {
-#if DEBUG_MODE
-    printf("[DEBUG]: Debug logging enabled.\n");
-#endif
-
-    printf("Application running normally.\n");
-    return 0;
-}
-```
-
----
-
-### 3. Header Guards (Prevent Multiple Inclusions)
-Inside custom `.h` files:
-```c
-#ifndef MY_HEADER_H
-#define MY_HEADER_H
-
-// Header content declarations
-
-#endif // MY_HEADER_H
-```
-
----
-
-## 🧪 Try It Yourself
-
-Define a macro `MAX(a, b) ((a) > (b) ? (a) : (b))` and test it with two numbers.
-
-## 🎯 Mini Challenge
-
-Write a preprocessor check `#ifdef _WIN32` to display `"Running on Windows"` vs `"Running on POSIX"`.
 
 ## 🧭 Navigation
 

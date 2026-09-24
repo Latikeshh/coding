@@ -1,78 +1,42 @@
-# Set Up CSS
+# Set Up CSS Environment
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-CSS stands for Cascading Style Sheets. It is used to style HTML elements and control how a page looks.
+Setting up CSS involves creating a `.css` file and linking it to an HTML document using the `<link rel="stylesheet" href="style.css">` tag inside `<head>`.
 
-## 🤔 Why Do We Use It?
-
-HTML gives a page structure, but CSS gives it color, spacing, fonts, and layout. Without CSS, a page would look plain and difficult to read.
-
-## 🧠 Simple Explanation
-
-Think of HTML as the wall, and CSS as the paint, furniture, and decoration. Your browser reads the HTML and then applies the CSS rules you write.
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Connect CSS to HTML using `<link rel="stylesheet" href="style.css">` inside the HTML `<head>` tag.
+> - **Hindi:** HTML से CSS जोड़ने के लिए `<head>` में `<link rel="stylesheet" href="style.css">` का प्रयोग करें।
+> - **Marathi:** HTML ला CSS जोडण्यासाठी `<head>` मध्ये `<link>` टॅग वापरतात.
+> - **Hinglish:** External CSS file ko HTML ke `<head>` section mein `<link rel="stylesheet" href="style.css">` se connect karo.
 
 ## 📝 Syntax
 
-```css
-selector {
-  property: value;
-}
-```
-
-## 💡 Example
-
-```css
-h1 {
-  color: blue;
-  font-size: 32px;
-}
-```
-
-## 🌐 HTML + CSS Example
-
 ```html
-<!DOCTYPE html>
-<html lang="en">
+<!-- Inside index.html head section -->
 <head>
   <meta charset="UTF-8">
   <title>My Styled Page</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>Welcome to My Page</h1>
-  <p>This text is styled with CSS.</p>
-</body>
-</html>
 ```
 
 ```css
-h1 {
-  color: blue;
-  font-size: 32px;
-}
-
-p {
+/* Inside style.css */
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
   color: #333;
-  font-size: 18px;
 }
 ```
 
-## 👀 What You Will See
+## ⚠️ Common Mistakes
 
-The heading becomes blue and larger, while the paragraph keeps a readable dark gray color.
-
-## 🧪 Try It Yourself
-
-Create a `style.css` file and link it to an `index.html` file. Change the heading color to green and increase the font size.
-
-## ✅ Remember
-
-- CSS is written in separate files or inside the HTML file.
-- The browser reads CSS rules and applies them to matching elements.
-- A small change in a property can improve the whole page.
+- Incorrect file path inside `href="style.css"` (e.g. spelling or folder path errors).
+- Placing the `<link>` tag inside `<body>` instead of `<head>`.
 
 ## 🧭 Navigation
 

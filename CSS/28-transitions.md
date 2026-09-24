@@ -1,92 +1,32 @@
-# Transitions
+# CSS Transitions
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Transitions make CSS changes happen smoothly over time.
+Transitions create smooth property change animations over a specified duration when element states change (e.g. on `:hover` or `:focus`).
 
-## 🤔 Why Do We Use It?
-
-They improve user experience by making hover effects and state changes feel polished.
-
-## 🧠 Simple Explanation
-
-Instead of changing immediately, an element can animate from one style to another over a short time.
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `transition` smoothly animates CSS state changes (`transition: property duration timing-function`).
+> - **Hindi:** `transition` स्टेट बदलने पर एनीमेशन को अचानक के बजाय धीरे और स्मूथ (smooth) बनाता है।
+> - **Marathi:** `transition` मुळे होणारे बदल अचानक न होता टप्प्याटप्प्याने स्मूथ दिसतात.
+> - **Hinglish:** Hover effects ko smooth banane ke liye `transition: background-color 0.3s ease;` use karo.
 
 ## 📝 Syntax
 
 ```css
-button {
-  transition: background-color 0.3s ease;
+.btn {
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-  background-color: #0055aa;
-}
-```
-
-## 💡 Example
-
-```css
-button {
-  background: #eee;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background: #dbeeff;
+.btn:hover {
+  background-color: #0056b3;
   transform: translateY(-2px);
 }
 ```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Transitions Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <button>Hover me</button>
-</body>
-</html>
-```
-
-```css
-button {
-  background: #eee;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background: #dbeeff;
-  transform: translateY(-2px);
-}
-```
-
-## 👀 What You Will See
-
-The button changes color and lifts slightly on hover.
-
-## 🧪 Try It Yourself
-
-Change the duration from `0.3s` to `1s` to make the effect slower.
-
-## ⚠️ Common Mistakes
-
-- Using transitions on too many elements.
-- Making the animation feel distracting.
-- Forgetting to declare the property being transitioned.
-
-## ✅ Remember
-
-- Transitions create smooth visual changes.
-- They are simple and effective for UI polish.
-- Use them to support the user experience, not distract from it.
 
 ## 🧭 Navigation
 

@@ -4,78 +4,36 @@
 
 ## 📖 Definition
 
-Real-world C applications split source code into multiple `.c` implementation files and `.h` header files to improve compilation speed, maintainability, and code organization.
+Production C software is split into `.h` header interface files (declarations) and `.c` implementation source files (definitions) for modularity and compilation speed.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Put prototypes/structs in `.h` header files with Header Guards (`#ifndef`). Compile all `.c` files together.
+> - **Hindi:** डिक्लेरेशन `.h` हेडर फाइलों में और इम्प्लीमेंटेशन `.c` फाइलों में रखें। सब फाइलों को एक साथ कंपाइल करें।
+> - **Marathi:** मोठे प्रोजेक्ट्स सोपे करण्यासाठी मोड्युलर कोड (.h आणि .c) वापरला जातो.
+> - **Hinglish:** Clean architecture ke liye function prototypes `.h` file mein rakho, aur implementations `.c` file mein. Compile with `gcc main.c utils.c -o app`.
 
-## 📁 File Structure Example
+## 📝 Structure
 
-```text
-my_project/
-├── math_utils.h   # Declarations & prototypes
-├── math_utils.c   # Implementations
-└── main.c         # Entry point
-```
-
----
-
-### 1. `math_utils.h`
 ```c
-#ifndef MATH_UTILS_H
-#define MATH_UTILS_H
-
-// Function prototypes
-int add(int a, int b);
+/* utils.h */
+#ifndef UTILS_H
+#define UTILS_H
 int multiply(int a, int b);
+#endif
 
-#endif // MATH_UTILS_H
-```
+/* utils.c */
+#include "utils.h"
+int multiply(int a, int b) { return a * b; }
 
-### 2. `math_utils.c`
-```c
-#include "math_utils.h"
-
-int add(int a, int b) {
-    return a + b;
-}
-
-int multiply(int a, int b) {
-    return a * b;
-}
-```
-
-### 3. `main.c`
-```c
+/* main.c */
 #include <stdio.h>
-#include "math_utils.h" // User header enclosed in quotes ""
-
-int main() {
-    printf("Add: %d\n", add(10, 5));
-    printf("Multiply: %d\n", multiply(10, 5));
+#include "utils.h"
+int main(void) {
+    printf("%d\n", multiply(5, 4));
     return 0;
 }
 ```
-
----
-
-## 🛠️ Compiling Multi-file Projects
-
-Compile all `.c` files together into a single executable binary:
-
-```bash
-gcc main.c math_utils.c -o app
-./app
-```
-
----
-
-## 🧪 Try It Yourself
-
-Create a header `string_utils.h` with a prototype `void toUpper(char *str)` and implement it in `string_utils.c`.
-
-## 🎯 Mini Challenge
-
-Write a basic Makefile that automates compiling `main.c` and `math_utils.c` into `app.exe`.
 
 ## 🧭 Navigation
 

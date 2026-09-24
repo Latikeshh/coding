@@ -4,76 +4,32 @@
 
 ## 📖 Definition
 
-**Operators** are special symbols used to perform calculations, compare values, and execute logical evaluations.
+Operators perform calculations, assignments, logical checks, and value comparisons.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Always use strict equality `===` (checks value and type) instead of loose equality `==` to avoid automatic type conversion errors.
+> - **Hindi:** हमेशा स्ट्रिक्ट इक्वैलिटी `===` का प्रयोग करें, जो वैल्यू और डेटा टाइप दोनों की जांच करता है।
+> - **Marathi:** ऑपरेटर तुलना करण्यासाठी `===` (स्ट्रिक्ट इक्वॅलिटी) वापरणे सुरक्षित असते.
+> - **Hinglish:** Hamesha strict equality `===` (value + type check) use karo. Loose `==` se type coercion bugs aate hain.
 
 ## 📝 Categories of Operators
 
-### 1. Arithmetic Operators
-Used for mathematical operations:
-- `+` (Addition)
-- `-` (Subtraction)
-- `*` (Multiplication)
-- `/` (Division)
-- `%` (Modulus / Remainder)
-
-### 2. Comparison Operators
-Used to compare two values (returns `true` or `false`):
-- `===` (Strict equality: value AND type must match)
-- `!==` (Strict inequality)
-- `>` (Greater than)
-- `<` (Less than)
-- `>=` (Greater than or equal)
-- `<=` (Less than or equal)
-
-### 3. Logical Operators
-Used to combine conditions:
-- `&&` (AND: both conditions must be true)
-- `||` (OR: at least one condition must be true)
-- `!` (NOT: reverses a boolean value)
-
-## 💡 Practical Example
-
 ```javascript
-let a = 10;
-let b = 3;
+// 1. Arithmetic Operators
+console.log(10 + 3);  // 13
+console.log(10 % 3);  // 1 (Modulus remainder)
 
-console.log("Sum:", a + b);       // 13
-console.log("Remainder:", a % b); // 1
+// 2. Strict Comparison Operators
+console.log(10 === 10);    // true
+console.log(10 === "10");  // false (Types do not match!)
+console.log(10 == "10");   // true (Avoid loose equality!)
 
-let age = 20;
-let hasLicense = true;
-
-let canDrive = age >= 18 && hasLicense;
-console.log("Can Drive:", canDrive); // true
+// 3. Logical Operators
+let isAdult = true;
+let hasTicket = true;
+console.log(isAdult && hasTicket); // true (AND operator)
 ```
-
-## 👀 Output
-
-```text
-Sum: 13
-Remainder: 1
-Can Drive: true
-```
-
-## ⚠️ Common Mistakes
-
-- Using `=` (assignment) instead of `===` (comparison):
-  ```javascript
-  // Wrong comparison:
-  if (x = 5) { ... } // Assigns 5 to x!
-  
-  // Correct comparison:
-  if (x === 5) { ... }
-  ```
-- Using loose equality `==` instead of strict equality `===`: always prefer `===` to prevent unexpected type coercion.
-
-## 🧪 Try It Yourself
-
-Test `10 === "10"` vs `10 == "10"` in your browser console and observe the difference.
-
-## 🎯 Mini Challenge
-
-Write a comparison that checks if a number is between `10` and `50` (inclusive).
 
 ## 🧭 Navigation
 

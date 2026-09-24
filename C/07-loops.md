@@ -4,63 +4,35 @@
 
 ## 📖 Definition
 
-Loops repeat a block of C statements as long as a specified condition remains `true`.
+Loops (`for`, `while`, `do-while`) repeat C statements automatically as long as a control condition stays `true`.
 
-## 📝 Types of Loops
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `for` loops repeat fixed counts. `do-while` loops guarantee at least one execution before condition testing.
+> - **Hindi:** `for` लूप निश्चित गिनती के लिए और `do-while` लूप कम से कम एक बार जरूर चलता है।
+> - **Marathi:** `for` लूप गणनेसाठी आणि `do-while` लूप किमान एकदा नक्की चालतो.
+> - **Hinglish:** Fixed iteration ke liye `for` loop aur post-condition check ke liye `do-while` loop use karte hain.
 
-1. **`for` loop:** Used when the number of iterations is known in advance.
-2. **`while` loop:** Runs as long as the condition evaluates to `true`.
-3. **`do-while` loop:** Guarantees execution at least once before checking the condition.
-
-## 💡 Practical Example
+## 📝 Syntax
 
 ```c
 #include <stdio.h>
 
-int main() {
-    // 1. For loop
-    printf("For Loop:\n");
+int main(void) {
+    // For loop
     for (int i = 1; i <= 3; i++) {
-        printf("i = %d\n", i);
+        printf("Count: %d\n", i);
     }
 
-    // 2. While loop
-    printf("\nWhile Loop:\n");
-    int count = 3;
-    while (count > 0) {
-        printf("count = %d\n", count);
-        count--;
-    }
+    // Do-while loop (Runs at least once)
+    int count = 1;
+    do {
+        printf("Executing do-while\n");
+    } while (count == 0);
 
     return 0;
 }
 ```
-
-## 👀 Output
-
-```text
-For Loop:
-i = 1
-i = 2
-i = 3
-
-While Loop:
-count = 3
-count = 2
-count = 1
-```
-
-## ⚠️ Common Mistakes
-
-- Creating an infinite loop by failing to update loop control variables (e.g. omitting `count--`).
-
-## 🧪 Try It Yourself
-
-Write a `for` loop that prints all numbers from `1` to `20` that are divisible by `3`.
-
-## 🎯 Mini Challenge
-
-Write a program that uses a `while` loop to calculate the factorial of a number entered by the user (e.g. `5! = 5 * 4 * 3 * 2 * 1 = 120`).
 
 ## 🧭 Navigation
 

@@ -1,93 +1,65 @@
-# Media Queries
+# Media Queries & Container Queries
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Media queries let CSS apply different rules depending on screen size, resolution, or device type.
+- **Media Queries (`@media`):** Apply CSS rules based on device features, viewport width, or resolution.
+- **Container Queries (`@container`):** Modern CSS feature that applies styles based on the size of a parent container rather than the global viewport size.
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Media Queries (`@media`) adapt layouts based on screen viewport size. Container Queries (`@container`) adapt styles based on parent container width.
+> - **Hindi:** मीडिया क्वेरीज़ (`@media`) स्क्रीन साइज के हिसाब से स्टाइल बदलती हैं। कंटेनर क्वेरीज़ (`@container`) पैरेंट बॉक्स की चौड़ाई के हिसाब से स्टाइल बदलती हैं।
+> - **Marathi:** मीडिया क्वेरीज (`@media`) स्क्रीन साईझनुसार स्टाइल बदलतात. कंटेनर क्वेरीज पॉरेंट बॉक्सच्या आकारावर अवलंबून असतात.
+> - **Hinglish:** Media Queries (`@media`) global screen width ke mutabiq styles badalti hain. Container Queries (`@container`) parent element ke size par depend karti hain.
 
-They are the heart of responsive design.
+## 📝 Syntax & Examples
 
-## 🧠 Simple Explanation
-
-A media query is a condition: “If the screen is smaller than this, do this.”
-
-## 📝 Syntax
-
+### 1. Viewport Media Queries (`@media`)
 ```css
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: column;
-  }
-}
-```
-
-## 💡 Example
-
-```css
+/* Base Mobile Styles */
 .card {
   width: 100%;
 }
 
-@media (min-width: 700px) {
+/* Tablet / Desktop Breakpoint */
+@media (min-width: 768px) {
   .card {
     width: 50%;
   }
 }
 ```
 
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Media Queries</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="card">
-    Responsive card
-  </div>
-</body>
-</html>
-```
-
+### 2. Container Queries (`@container`)
 ```css
-.card {
-  width: 100%;
-  padding: 20px;
+/* Declare container parent */
+.sidebar {
+  container-type: inline-size;
+  container-name: sidebar-card;
 }
 
-@media (min-width: 700px) {
-  .card {
-    width: 50%;
+/* Style child when container width changes */
+@container sidebar-card (min-width: 350px) {
+  .card-content {
+    display: flex;
+    flex-direction: row;
   }
 }
 ```
-
-## 👀 What You Will See
-
-At larger widths, the card becomes narrower and more centered.
-
-## 🧪 Try It Yourself
-
-Change the breakpoint from `700px` to `500px` and observe the layout changing earlier.
 
 ## ⚠️ Common Mistakes
 
-- Using too many breakpoints.
-- Not testing on real devices.
-- Overusing media queries without a clear mobile-first plan.
+- Overusing arbitrary viewport breakpoints instead of natural content layout breakpoints.
+- Forgetting to declare `container-type: inline-size` on parent element when using `@container` queries.
 
-## ✅ Remember
+## 🧪 Try It Yourself
 
-- Media queries help adapt layouts by conditions.
-- Breakpoints are screen-size thresholds.
-- They are essential in modern responsive design.
+Write a media query that changes body background color when screen width is below `600px`.
+
+## 🎯 Mini Challenge
+
+Build a responsive grid card that switches from a stacked layout to a side-by-side flex layout using a media query breakpoint at `768px`.
 
 ## 🧭 Navigation
 

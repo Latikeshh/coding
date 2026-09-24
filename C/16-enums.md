@@ -4,64 +4,32 @@
 
 ## 📖 Definition
 
-An **enumeration** (`enum`) is a user-defined data type consisting of named integer constants. Enums make code readable by replacing magic numbers with meaningful words.
+An **enumeration** (`enum`) defines custom integer constants represented by human-readable names, replacing raw magic numbers.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `enum` replaces magic integer numbers with self-documenting constant names (`SUCCESS = 0`).
+> - **Hindi:** `enum` कोड को पढ़ने में आसान बनाने के लिए नंबर्स को नाम (जैसे `SUCCESS`, `ERROR`) देता है।
+> - **Marathi:** `enum` मुळे नंबर्सऐवजी नावांचा वापर करून कोड सोपा होतो.
+> - **Hinglish:** Magic numbers replace karne ke liye `enum` (`SUCCESS = 0`, `FAILED = 1`) use karo.
 
-## 📝 Syntax & Usage
+## 📝 Syntax
 
 ```c
 #include <stdio.h>
 
-enum Day {
-    SUNDAY = 0,
-    MONDAY = 1,
-    TUESDAY = 2,
-    WEDNESDAY = 3,
-    THURSDAY = 4,
-    FRIDAY = 5,
-    SATURDAY = 6
-};
-
-// Typedef with enum
 typedef enum {
-    LOW,      // Defaults to 0
-    MEDIUM,   // Defaults to 1
-    HIGH      // Defaults to 2
-} PriorityLevel;
+    STATUS_OK = 200,
+    STATUS_NOT_FOUND = 404,
+    STATUS_SERVER_ERROR = 500
+} HttpStatus;
 
-int main() {
-    enum Day today = WEDNESDAY;
-
-    if (today == WEDNESDAY) {
-        printf("Mid-week day! Day code: %d\n", today);
-    }
-
-    PriorityLevel alert = HIGH;
-    printf("Alert level: %d\n", alert);
-
+int main(void) {
+    HttpStatus code = STATUS_OK;
+    printf("HTTP Response Code: %d\n", code);
     return 0;
 }
 ```
-
----
-
-## 👀 Output
-
-```text
-Mid-week day! Day code: 3
-Alert level: 2
-```
-
----
-
-## 🧪 Try It Yourself
-
-Create an enum `HttpStatus` with constants `OK = 200`, `NOT_FOUND = 404`, and `SERVER_ERROR = 500`. Print their values.
-
-## 🎯 Mini Challenge
-
-Write a function `void handleState(enum State s)` that uses a `switch` statement to handle states `START`, `RUNNING`, and `STOPPED`.
 
 ## 🧭 Navigation
 

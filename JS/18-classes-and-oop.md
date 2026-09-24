@@ -4,79 +4,38 @@
 
 ## 📖 Definition
 
-ES6 introduced the `class` syntax as syntactic sugar over JavaScript's existing prototype-based inheritance model.
+ES6 Classes provide clean syntactic sugar over prototype-based inheritance, supporting constructors, private fields (`#`), methods, and inheritance (`extends`/`super`).
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** ES6 `class` supports constructors, methods, private fields (`#privateVar`), and subclassing using `extends` and `super()`.
+> - **Hindi:** ES6 क्लास में `constructor`, प्राइवेट वेरिएबल्स (`#`), और `extends` से इनहेरिटेंस होता है।
+> - **Marathi:** क्लासमध्ये ऑब्जेक्ट तयार करण्यासाठी `constructor` आणि इनहेरिटन्ससाठी `extends` वापरतात.
+> - **Hinglish:** ES6 Classes OOP patterns follow karti hain. Subclasses ke constructor mein `super()` call karna mandatory hota hai.
 
-## 📝 Class Declaration & Features
+## 📝 Syntax
 
 ```javascript
 class User {
-  // Private field (starts with #)
-  #password;
+  #secretKey; // Private field
 
-  // Constructor
-  constructor(username, email, password) {
+  constructor(username, key) {
     this.username = username;
-    this.email = email;
-    this.#password = password;
+    this.#secretKey = key;
   }
 
-  // Method
   getProfile() {
-    return `${this.username} (${this.email})`;
-  }
-
-  // Private method / getter
-  verifyPassword(input) {
-    return this.#password === input;
-  }
-
-  // Static method (called on Class itself, not instance)
-  static generateId() {
-    return Math.floor(Math.random() * 10000);
+    return `User: ${this.username}`;
   }
 }
 
-const user1 = new User("coder123", "coder@mail.com", "secret123");
-console.log(user1.getProfile());        // "coder123 (coder@mail.com)"
-console.log(User.generateId());          // Random number
-// console.log(user1.#password);        // SyntaxError: Private field!
-```
-
----
-
-## 🧬 Class Inheritance (`extends` and `super`)
-
-Subclasses inherit properties and methods from parent classes using `extends`:
-
-```javascript
 class Admin extends User {
-  constructor(username, email, password, permissions) {
-    // Call parent class constructor using super()
-    super(username, email, password);
-    this.permissions = permissions;
-  }
-
-  deleteUser(targetUser) {
-    console.log(`Admin ${this.username} deleted user ${targetUser}`);
+  constructor(username, key, role) {
+    super(username, key); // Calls parent constructor
+    this.role = role;
   }
 }
-
-const admin = new Admin("boss", "admin@mail.com", "adminpass", ["READ", "WRITE", "DELETE"]);
-console.log(admin.getProfile()); // Inherited method from User
-admin.deleteUser("john_doe");
 ```
-
----
-
-## 🧪 Try It Yourself
-
-Create a `Vehicle` class with a `speed` property and a `drive()` method. Create an `ElectricCar` subclass that adds a `batteryLevel` property.
-
-## 🎯 Mini Challenge
-
-Add a getter `get battery()` and setter `set battery(val)` with validation checking that `val` is between `0` and `100`.
 
 ## 🧭 Navigation
 

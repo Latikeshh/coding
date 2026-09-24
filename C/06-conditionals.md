@@ -4,46 +4,26 @@
 
 ## 📖 Definition
 
-Conditional statements allow C programs to make decisions and branching paths depending on evaluated conditions.
+Conditional statements (`if`, `else if`, `else`, `switch`) evaluate logical expressions to determine execution branches.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Use `if (x == 10)` for comparison. Do not confuse assignment `=` with comparison `==`.
+> - **Hindi:** शर्त चेक करने के लिए `if (x == 10)` का इस्तेमाल करें। गलत असाइनमेंट `if (x = 10)` से बचें।
+> - **Marathi:** तुलना करण्यासाठी `==` वापरतात. `=` वापरल्यास व्हॅल्यू असाईन होते.
+> - **Hinglish:** Comparison ke liye `==` use karo. `if (x = 10)` likhne par value assign ho jaati hai aur condition always `true` ho jaati hai.
 
 ## 📝 Syntax
-
-### `if ... else if ... else`
-```c
-if (condition) {
-    // Code block 1
-} else if (another_condition) {
-    // Code block 2
-} else {
-    // Default block
-}
-```
-
-### `switch` Statement
-```c
-switch (choice) {
-    case 1:
-        // Action 1
-        break;
-    case 2:
-        // Action 2
-        break;
-    default:
-        // Default action
-}
-```
-
-## 💡 Practical Example
 
 ```c
 #include <stdio.h>
 
-int main() {
-    int marks = 82;
+int main(void) {
+    int score = 82;
 
-    if (marks >= 90) {
+    if (score >= 90) {
         printf("Grade: A+\n");
-    } else if (marks >= 75) {
+    } else if (score >= 75) {
         printf("Grade: B\n");
     } else {
         printf("Grade: C\n");
@@ -52,24 +32,6 @@ int main() {
     return 0;
 }
 ```
-
-## 👀 Output
-
-```text
-Grade: B
-```
-
-## ⚠️ Common Mistakes
-
-- Using `=` instead of `==` inside an `if` condition: `if (x = 10)` sets `x` to `10` and always evaluates to `true`! Always use `if (x == 10)`.
-
-## 🧪 Try It Yourself
-
-Write a program that prompts for an age and prints `"Eligible to vote"` if age is 18 or older, otherwise `"Not eligible"`.
-
-## 🎯 Mini Challenge
-
-Create a simple menu choice using `switch` where option 1 prints `"Start Game"`, option 2 prints `"Settings"`, and option 3 prints `"Exit"`.
 
 ## 🧭 Navigation
 

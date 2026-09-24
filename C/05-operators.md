@@ -4,55 +4,31 @@
 
 ## 📖 Definition
 
-**Operators** in C perform mathematical calculations, logical checks, and value assignments.
+Operators perform mathematical calculations, relational comparisons, and logical checks. In C, integer division (`int / int`) truncates decimal values.
 
-## 📝 Operators Summary
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Dividing two integers produces an integer (truncates decimal). Cast to `float` or `double` for decimal division (`(float)a / b`).
+> - **Hindi:** दो इंटीजर को भाग देने पर दशमलव का हिस्सा हट जाता है। सही भागफल के लिए `(float)a / b` में कास्ट करें।
+> - **Marathi:** दोन इंटीजर्सचा भागाकार इंटीजरच मिळतो. दशांश उत्तरासाठी टाइप कास्टिंग वापरतात.
+> - **Hinglish:** Integer division (`5 / 2 = 2`) decimal part truncate kar deta hai. Decimal output ke liye `(float)5 / 2` cast karo.
 
-1. **Arithmetic:** `+`, `-`, `*`, `/`, `%`
-2. **Relational:** `==`, `!=`, `>`, `<`, `>=`, `<=`
-3. **Logical:** `&&` (AND), `||` (OR), `!` (NOT)
-4. **Increment / Decrement:** `++`, `--`
-
-## 💡 Practical Example
+## 📝 Syntax & Examples
 
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int a = 15, b = 4;
 
-    printf("Addition: %d\n", a + b);
-    printf("Integer Division: %d\n", a / b); // Truncates decimal part!
-    printf("Modulus (Remainder): %d\n", a % b);
-
-    int count = 5;
-    count++;
-    printf("Incremented Count: %d\n", count);
+    printf("Sum: %d\n", a + b);               // 19
+    printf("Integer Division: %d\n", a / b);    // 3 (Truncates .75!)
+    printf("Decimal Division: %.2f\n", (float)a / b); // 3.75 (Casted)
+    printf("Remainder: %d\n", a % b);          // 3 (Modulus)
 
     return 0;
 }
 ```
-
-## 👀 Output
-
-```text
-Addition: 19
-Integer Division: 3
-Modulus (Remainder): 3
-Incremented Count: 6
-```
-
-## ⚠️ Common Mistakes
-
-- **Integer Division:** Dividing two integers produces an integer (e.g. `5 / 2` yields `2`, not `2.5`). Cast one operand to `float` or `double` if you want a decimal result: `(float)5 / 2`.
-
-## 🧪 Try It Yourself
-
-Write a C program that calculates the remainder when `29` is divided by `5`.
-
-## 🎯 Mini Challenge
-
-Write a program that takes an integer number from the user and checks if it is even or odd using the `%` operator.
 
 ## 🧭 Navigation
 

@@ -1,152 +1,42 @@
-# Types of CSS
+# Types of CSS (Inline, Internal, External)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-CSS can be written in three common ways: inline, internal, and external.
+CSS can be added to an HTML document using three methods: **Inline CSS** (inside HTML tags), **Internal CSS** (inside `<style>` tags in `<head>`), and **External CSS** (in a separate `.css` file).
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** External CSS (in a `.css` file) is the best practice for production websites. Inline CSS is for single-element overrides.
+> - **Hindi:** एक्सटर्नल CSS (`.css` फाइल) सबसे सही तरीका है। इनलाइन CSS केवल एक एलीमेंट के लिए होता है।
+> - **Marathi:** मोठ्या प्रोजेक्ट्ससाठी एक्सटर्नल CSS फाइल वापरणे योग्य मानले जाते.
+> - **Hinglish:** Web development mein External CSS (`.css` file) use karna best practice hai. Inline CSS ko avoid karna chahiye.
 
-Different situations need different ways to add CSS. A small one-off style may use inline CSS, while a real website usually uses an external stylesheet.
+## 📝 Comparison Table
 
-## 🧠 Simple Explanation
-
-Think of it like choosing where to write your notes:
-
-- in the same line as the text
-- inside the page header
-- in a separate file
-
-## 1. Inline CSS
-
-Inline CSS is written directly inside an HTML tag.
-
-```html
-<p style="color: red; font-size: 18px;">Hello</p>
-```
-
-### What it is
-
-It applies styles directly to one element.
-
-### Advantages
-
-- Very quick for small changes
-- Helpful for testing ideas
-
-### Disadvantages
-
-- Hard to maintain in larger projects
-- Repeated styles can create duplication
-
-### When it is useful
-
-- Small quick tests
-- One-time special styling
-
-## 2. Internal CSS
-
-Internal CSS is written inside the `<style>` tag in the `<head>` of an HTML document.
+| Type | Syntax Location | Best Used For | Reusability |
+|---|---|---|---|
+| **Inline** | `style="..."` attribute inside HTML element | Small single-element testing | Low |
+| **Internal** | `<style>` block inside HTML `<head>` | Single-page HTML document | Moderate |
+| **External** | External `.css` file linked via `<link>` | Production multi-page websites | High |
 
 ```html
+<!-- 1. Inline CSS -->
+<p style="color: red;">Inline Text</p>
+
+<!-- 2. Internal CSS -->
 <head>
   <style>
-    p {
-      color: red;
-    }
+    p { color: blue; }
   </style>
 </head>
+
+<!-- 3. External CSS (Recommended) -->
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
 ```
-
-### What it is
-
-It styles elements within that one page.
-
-### Advantages
-
-- Good for single-page examples
-- Easy to keep all styles together
-
-### Disadvantages
-
-- Not reusable across multiple pages
-- More difficult to organize in larger sites
-
-### When it is useful
-
-- Small pages
-- Learning examples
-- One-page demos
-
-## 3. External CSS
-
-External CSS is kept in its own file and linked into the HTML file.
-
-```html
-<link rel="stylesheet" href="style.css">
-```
-
-```css
-p {
-  color: red;
-}
-```
-
-### What it is
-
-The HTML file connects to a separate CSS file using the `<link>` tag.
-
-### Advantages
-
-- Reusable across many pages
-- Cleaner and easier to maintain
-- Better for websites and larger projects
-
-### Disadvantages
-
-- Requires an extra file
-- You must remember to link it correctly
-
-### Why it is commonly used
-
-For larger websites, external CSS keeps the code organized and easier to update.
-
-## Project Structure Example
-
-```text
-project/
-├── index.html
-└── style.css
-```
-
-## Comparison Table
-
-| Type | Written where? | Best for |
-|---|---|---|
-| Inline | Inside an HTML element | Small one-off styles |
-| Internal | Inside the `<style>` tag in the HTML head | One-page styling |
-| External | In a separate `.css` file | Websites and larger projects |
-
-## 👀 What You Will See
-
-The page will use different styling depending on where the CSS is written. External CSS is usually the cleanest and most professional choice for larger projects.
-
-## 🧪 Try It Yourself
-
-Write the same style once as inline CSS, once as internal CSS, and once as external CSS. Compare how each method works.
-
-## ⚠️ Common Mistakes
-
-- Putting CSS in the wrong place and expecting it to work.
-- Forgetting the semicolon in inline style.
-- Not linking the external CSS file correctly.
-
-## ✅ Remember
-
-- Inline CSS styles a single element.
-- Internal CSS styles one page.
-- External CSS is best for projects with multiple pages.
 
 ## 🧭 Navigation
 

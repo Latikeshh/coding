@@ -4,59 +4,36 @@
 
 ## 📖 Definition
 
-Exception handling isolates runtime errors (out-of-bounds access, division by zero, failed memory allocations) from normal execution flow.
+Exception handling (`try`, `catch`, `throw`) catches runtime errors (like division by zero, failed allocations, file failures) without abruptly terminating program execution.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Throw exceptions with `throw` and handle them inside `try {} catch (const std::exception& e) {}` blocks.
+> - **Hindi:** रनटाइम एरर्स को संभालने के लिए `throw` करें और `try...catch` ब्लॉक में कैच करें।
+> - **Marathi:** रनटाईम एरर्स हाताळण्यासाठी `try...catch` वापरले जाते.
+> - **Hinglish:** App crash hone se bachane ke liye runtime errors ko `try...catch` block mein handle karo.
 
-## 📝 Syntax & Custom Exceptions
+## 📝 Syntax
 
 ```cpp
 #include <iostream>
 #include <stdexcept>
-#include <string>
 using namespace std;
 
 double divide(double a, double b) {
-    if (b == 0) {
-        throw runtime_error("Math Error: Division by Zero!");
-    }
+    if (b == 0) throw runtime_error("Division by zero!");
     return a / b;
 }
 
 int main() {
     try {
-        cout << "Result: " << divide(10.0, 2.0) << endl;
-        cout << "Result: " << divide(5.0, 0.0) << endl; // Throws exception!
-    } catch (const runtime_error& e) {
-        cout << "Caught Exception: " << e.what() << endl;
-    } catch (...) {
-        cout << "Caught unknown exception!" << endl;
+        cout << divide(10, 0) << endl;
+    } catch (const exception& e) {
+        cerr << "Caught: " << e.what() << endl;
     }
-
-    cout << "Program continues execution safely." << endl;
     return 0;
 }
 ```
-
----
-
-## 👀 Output
-
-```text
-Result: 5
-Caught Exception: Math Error: Division by Zero!
-Program continues execution safely.
-```
-
----
-
-## 🧪 Try It Yourself
-
-Write a function `checkAge(int age)` that throws an `invalid_argument` exception if `age < 18`.
-
-## 🎯 Mini Challenge
-
-Create a custom exception class `OutOfBalanceException : public std::exception` and throw it inside a bank withdrawal function.
 
 ## 🧭 Navigation
 

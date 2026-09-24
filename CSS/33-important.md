@@ -1,76 +1,25 @@
-# Important
+# The `!important` Rule
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-The `!important` rule gives a CSS declaration higher priority than normal declarations.
+The `!important` flag overrides all standard specificity rules for a specific CSS property declaration.
 
-## 🤔 Why Do We Use It?
-
-It can be useful in special cases when a style must override other rules.
-
-## 🧠 Simple Explanation
-
-If a rule is marked with `!important`, it is treated as more important than other conflicting rules.
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `!important` overrides standard CSS specificity rules. Use sparingly only when overriding third-party styles.
+> - **Hindi:** `!important` किसी भी दूसरे CSS रूल को ओवरराइड कर देता है। इसका इस्तेमाल बहुत कम करना चाहिए।
+> - **Marathi:** `!important` मुळे इतर सर्व नियम दुर्लक्षित केले जातात.
+> - **Hinglish:** `!important` rule specificity override kar deta hai. Maintenance issues se bachne ke liye ise avoid karo.
 
 ## 📝 Syntax
 
 ```css
-p {
-  color: red !important;
+.alert-text {
+  color: red !important; /* Overrides element, class, and ID selector colors */
 }
 ```
-
-## 💡 Example
-
-```css
-.warning {
-  color: orange !important;
-}
-```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Important Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <p class="warning">This text is important.</p>
-</body>
-</html>
-```
-
-```css
-.warning {
-  color: orange !important;
-}
-```
-
-## 👀 What You Will See
-
-The paragraph color remains orange even if another rule tries to set it differently.
-
-## 🧪 Try It Yourself
-
-Remove `!important` and see how the normal CSS cascade changes the result.
-
-## ⚠️ Common Mistakes
-
-- Overusing `!important` makes CSS harder to maintain.
-- Using it to avoid understanding specificity.
-- It can cause confusion when debugging styles.
-
-## ✅ Remember
-
-- `!important` is a powerful override.
-- Use it sparingly and only when necessary.
-- Good CSS structure is usually better than forcing overrides.
 
 ## 🧭 Navigation
 

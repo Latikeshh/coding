@@ -4,8 +4,15 @@
 
 ## 📖 Definition
 
-- **Higher-Order Function (HOF):** A function that takes one or more functions as arguments, or returns a function.
-- **Closure:** A function's ability to "remember" and access variables from its outer lexical scope, even after that outer function has finished executing.
+- **Higher-Order Function (HOF):** A function that accepts one or more functions as arguments or returns a function.
+- **Closure:** A inner function's ability to "remember" and access variables from its outer lexical scope even after the outer function has returned.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** A closure gives an inner function access to an outer function's variable scope even after execution ends.
+> - **Hindi:** क्लोजर (Closure) अंदरूनी फंक्शन को बाहरी फंक्शन के वैरियेबल्स याद रखने की क्षमता देता है।
+> - **Marathi:** क्लोजरमुळे आतील फंक्शनला बाहेरील फंक्शनमधील व्हॅरियबल्स वापरता येतात.
+> - **Hinglish:** Closure ek inner function ko outer function ke variables access karne ki permission deta hai, chahe outer function finish ho chuka ho.
 
 ---
 

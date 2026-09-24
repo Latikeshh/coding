@@ -1,26 +1,17 @@
-# Navigation Bars
+# Navigation Bar Components
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Navigation bars are the menus at the top of a webpage that help users move around the site.
+A Navigation Bar (Navbar) provides links to main website sections using Flexbox for alignment and spacing.
 
-## 🤔 Why Do We Use It?
-
-A clear navigation bar makes the website easier to use and improves user experience.
-
-## 🧠 Simple Explanation
-
-Navigation bars are usually horizontal sections containing links such as Home, About, and Contact.
-
-## Common navbar styles
-
-- `display: flex`
-- `justify-content: space-between`
-- `padding`
-- `background-color`
-- `gap`
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Build navbars using `display: flex` with `justify-content: space-between` and `align-items: center`.
+> - **Hindi:** नेवबार बनाने के लिए फ्लेक्सबॉक्स (`display: flex`) और `justify-content: space-between` का प्रयोग करें।
+> - **Marathi:** नॅव्हिगेशन बारसाठी फ्लेक्सबॉक्स लेआउट वापरणे सोपे पडते.
+> - **Hinglish:** Responsive Navigation bar ke liye parent container par `display: flex` aur `justify-content: space-between` apply karo.
 
 ## 📝 Syntax
 
@@ -28,71 +19,18 @@ Navigation bars are usually horizontal sections containing links such as Home, A
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 15px 20px;
-  background: #f4f4f4;
-}
-```
-
-## 💡 Example
-
-```css
-.navbar {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #f6f6f6;
-  padding: 15px 20px;
+  padding: 15px 30px;
+  background-color: #1a1a1a;
+  color: white;
 }
-```
 
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Navbar Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <nav class="navbar">
-    <div>Brand</div>
-    <div>Home | About | Contact</div>
-  </nav>
-</body>
-</html>
-```
-
-```css
-.navbar {
+.nav-menu {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f6f6f6;
-  padding: 15px 20px;
+  gap: 20px;
+  list-style: none;
 }
 ```
-
-## 👀 What You Will See
-
-The brand sits on one side and the menu links on the other side.
-
-## 🧪 Try It Yourself
-
-Change `space-between` to `center` and see how the layout changes.
-
-## ⚠️ Common Mistakes
-
-- Making the menu too wide or too crowded.
-- Not making the navigation responsive for mobile screens.
-- Ignoring hover states for links.
-
-## ✅ Remember
-
-- Navigation bars are one of the most common page elements.
-- Keep them clear and easy to scan.
-- Flexbox is a natural fit for this layout.
 
 ## 🧭 Navigation
 

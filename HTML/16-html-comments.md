@@ -1,69 +1,111 @@
-# HTML Comments
+# HTML Comments (`<!-- -->`)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-A comment is a note in HTML code that the browser does not show on the web page.
+**HTML comments** are developer notes written inside the HTML document. Browsers completely ignore comments during page rendering, so they are not visible on the rendered webpage layout.
 
-## 🤔 Why Do We Use It?
+## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
-Comments explain a difficult part of code or mark a section for people who edit the file later.
+### English
+HTML comments (`<!-- comment -->`) are notes for developers that browsers do not display on screen. Use comments to document code structure or temporarily disable code during debugging.
 
-## 🧠 Simple Explanation
+### Hindi
+कमेंट्स (`<!-- टिप्पणी -->`) डेवलपर्स के लिए नोट्स होते हैं जिन्हें ब्राउज़र स्क्रीन पर नहीं दिखाता। इनका उपयोग कोड स्ट्रक्चर समझाने या डिबगिंग के लिए होता है।
 
-A comment is like a sticky note inside a recipe book. The cook can read it, but it is not served with the food.
+### Marathi
+कमेंट्स (`<!-- टिप्पणी -->`) कोड वाचणाऱ्यांसाठी किंवा स्वतःसाठी लिहिलेल्या नोट्स असतात. ब्राउझर हे वाचत नाही किंवा स्क्रीनवर दाखवत नाही.
 
-## 📝 Syntax
+### Hinglish
+Comments (`<!-- note -->`) developer notes ke liye hote hain jo browser screen par render nahi hote. Debugging ke time code temporarily disable karne ke liye bhi use hote hain.
 
-```html
-<!-- Navigation links start here -->
-<nav>...</nav>
-```
-
-Do not put passwords, private notes, or secret information in comments: people can view page source.
-
-## 💡 Practical Example
-
-When your page has a header, main content, and footer, a short comment before each part can help you find it while learning. Remove comments that only repeat obvious code.
-
-## ✅ Remember
-
-Comments are for people reading the code, not for visitors reading the page. They do not change the visible design.
-
-- Comments begin with `<!--` and end with `-->`.
-- Use them for helpful notes or section markers.
-- Never treat comments as private storage.
-
-## 💻 Example
+## 📝 Syntax & Usage
 
 ```html
-<!-- Contact section starts here -->
-<section>
-  <h2>Contact</h2>
-</section>
+<!-- Single-line HTML comment -->
+
+<!-- 
+  Multi-line HTML comment
+  spanning across multiple lines
+-->
 ```
 
-## 👀 Output
+## 🧠 Why Do We Use Comments?
 
-Only the “Contact” heading is visible. The comment is visible only in the HTML source code.
+1. **Documenting Code Sections:** Helps you and team members navigate large HTML documents by labeling header, navigation, main content, sidebar, and footer sections.
+   ```html
+   <!-- ==================== MAIN NAVIGATION START ==================== -->
+   <nav>
+     <a href="index.html">Home</a>
+     <a href="about.html">About</a>
+   </nav>
+   <!-- ==================== MAIN NAVIGATION END ==================== -->
+   ```
+2. **Temporarily Disabling Code During Debugging:** You can "comment out" code blocks to test layout changes without deleting the code:
+   ```html
+   <!-- <p>This feature is temporarily disabled for maintenance.</p> -->
+   ```
 
-## 🔍 How It Works
+## 🚨 CRITICAL SECURITY WARNING
 
-The browser ignores everything between `<!--` and `-->`. That is why comments are useful for notes but never for sensitive information.
+HTML comments are sent to the client browser and can be viewed by **ANYONE** who inspects page source code (by pressing `Ctrl + U` or using browser Developer Tools `F12`).
+
+> [!CAUTION]
+> **NEVER store sensitive information in HTML comments!**
+> Do not put database passwords, private API keys, user credentials, personal phone numbers, or confidential developer notes inside HTML comments.
+
+## 📝 Code Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Comments Example</title>
+</head>
+<body>
+
+  <!-- Header Banner Area -->
+  <header>
+    <h1>Tech Learning Portal</h1>
+  </header>
+
+  <!-- Main Article Content -->
+  <main>
+    <article>
+      <h2>Learning Web Development</h2>
+      <p>HTML is the starting point for building modern web applications.</p>
+
+      <!-- TODO: Add video tutorial link here after review -->
+    </article>
+  </main>
+
+  <!-- Footer Info -->
+  <footer>
+    <p>© 2026 Tech Learning Portal</p>
+  </footer>
+
+</body>
+</html>
+```
 
 ## ⚠️ Common Mistakes
 
-- Do not nest one HTML comment inside another.
-- Do not leave passwords, API keys, or private messages in comments.
+- **Nesting comments inside comments:** Writing `<!-- <!-- nested --> -->` is invalid syntax and breaks parsing in web browsers.
+- **Putting sensitive keys or notes in comments:** Exposes private information publicly to website visitors.
+- **Leaving clutter comments in production code:** Clean up temporary debugging comments before publishing websites live.
 
 ## 🧪 Try It Yourself
 
-Add one helpful comment before a section in your practice page.
+Open an HTML file in VS Code and:
+1. Add comments marking the start and end of a navigation bar.
+2. Comment out a paragraph so it disappears from the browser preview.
+3. Use keyboard shortcut `Ctrl + /` (or `Cmd + /` on Mac) to toggle comments quickly in VS Code.
 
 ## 🎯 Mini Challenge
 
-Add comments to mark a header, main content, and footer—without commenting every single line.
+Open any public website in your browser, press `Ctrl + U` to view the page source, and locate the HTML comments written by its developers.
 
 ## 🧭 Navigation
 

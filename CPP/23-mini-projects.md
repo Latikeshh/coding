@@ -2,11 +2,18 @@
 
 > 🔴 Advanced
 
-Build production-grade applications combining OOP, smart pointers, STL, templates, exception handling, and file streams.
+## 📖 Definition
 
----
+Mini projects combine OOP, smart pointers, vector containers, STL algorithms, templates, exception handling, and file streams into complete applications.
 
-## 🏗️ Project 1: Inventory Management System with File Storage & Smart Pointers
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Practice modern C++ by building production-grade OOP applications with file persistence and smart pointers.
+> - **Hindi:** सीखी हुई सभी C++ तकनीकों (`smart_ptr`, `vector`, `fstream`) का इस्तेमाल करके रियल-वर्ल्ड प्रोजेक्ट बनाएं।
+> - **Marathi:** प्रॅक्टिससाठी स्मार्ट पॉइंटर्स आणि फाईल हँडलिंग वापरून प्रोजेक्ट्स बनवा.
+> - **Hinglish:** Modern C++ OOP patterns, smart pointers, aur file storage combine karke practical projects build karo.
+
+## 🏗️ Project: Persistent Inventory Manager
 
 ```cpp
 #include <iostream>
@@ -17,58 +24,39 @@ Build production-grade applications combining OOP, smart pointers, STL, template
 
 using namespace std;
 
-class Item {
+class Product {
 public:
     int id;
     string name;
     double price;
 
-    Item(int i, string n, double p) : id(i), name(n), price(p) {}
-
-    void display() const {
-        cout << "ID: " << id << " | Name: " << name << " | Price: $" << price << endl;
-    }
+    Product(int i, string n, double p) : id(i), name(n), price(p) {}
 };
 
-class Inventory {
+class Store {
 private:
-    vector<unique_ptr<Item>> items;
+    vector<unique_ptr<Product>> catalog;
 
 public:
-    void addItem(int id, string name, double price) {
-        items.push_back(make_unique<Item>(id, name, price));
+    void addProduct(int id, string name, double price) {
+        catalog.push_back(make_unique<Product>(id, name, price));
     }
 
-    void listItems() const {
-        cout << "\n=== Current Inventory ===" << endl;
-        for (const auto& item : items) {
-            item->display();
+    void saveToCSV(const string& path) const {
+        ofstream out(path);
+        for (const auto& p : catalog) {
+            out << p->id << "," << p->name << "," << p->price << endl;
         }
-    }
-
-    void saveToFile(const string& filename) const {
-        ofstream outFile(filename);
-        if (!outFile) return;
-        for (const auto& item : items) {
-            outFile << item->id << "," << item->name << "," << item->price << endl;
-        }
-        cout << "Saved inventory to " << filename << endl;
     }
 };
 
 int main() {
-    Inventory inv;
-    inv.addItem(101, "Gaming Laptop", 1299.99);
-    inv.addItem(102, "Mechanical Keyboard", 89.50);
-
-    inv.listItems();
-    inv.saveToFile("inventory.csv");
-
+    Store store;
+    store.addProduct(101, "Gaming Laptop", 1299.99);
+    store.saveToCSV("catalog.csv");
     return 0;
 }
 ```
-
----
 
 ## 🧭 Navigation
 

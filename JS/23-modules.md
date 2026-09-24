@@ -4,71 +4,36 @@
 
 ## 📖 Definition
 
-**ES Modules (ESM)** allow you to split your JavaScript code into separate reusable files. Each module has its own scope and exports specific functions, objects, or primitive values.
+ES Modules (ESM) organize JavaScript codebases into separate, scoped files using `export` (named or default) and `import` directives.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Split JS into modular files using `export` and `import`. Include `type="module"` in HTML script tags.
+> - **Hindi:** कोड को अलग-अलग फाइलों में बांटने के लिए `export` और `import` का प्रयोग करें। HTML में `<script type="module">` लिखना होता है।
+> - **Marathi:** कोड सोपा आणि व्यवस्थित ठेवण्यासाठी ES Modules (`import`/`export`) वापरतात.
+> - **Hinglish:** Modular code structure ke liye `export` aur `import` use karo. HTML script tag mein `type="module"` specify karna zaroori hai.
 
-## 📝 Module Syntax
+## 📝 Syntax
 
-To use ES Modules in browsers, include `type="module"` in your HTML script tag:
-```html
-<script type="module" src="app.js"></script>
-```
-
----
-
-### 1. Named Exports (`utils.js`)
 ```javascript
-// Exporting functions individually
-export function add(a, b) {
-  return a + b;
-}
-
-export function multiply(a, b) {
-  return a * b;
-}
-
+// Inside mathUtils.js (Named Export)
+export function add(a, b) { return a + b; }
 export const PI = 3.14159;
+
+// Inside app.js (Importing Named Exports)
+import { add, PI } from './mathUtils.js';
+console.log(add(10, 5)); // 15
 ```
 
-### 2. Importing Named Exports (`app.js`)
 ```javascript
-import { add, multiply, PI } from './utils.js';
-
-console.log(add(5, 10)); // 15
-console.log(PI);         // 3.14159
-```
-
----
-
-### 3. Default Exports (`User.js`)
-A file can have **one** default export:
-```javascript
+// Inside User.js (Default Export)
 export default class User {
-  constructor(name) {
-    this.name = name;
-  }
+  constructor(name) { this.name = name; }
 }
+
+// Inside main.js (Importing Default Export)
+import User from './User.js';
 ```
-
-### 4. Importing Default Exports (`main.js`)
-```javascript
-// Default exports do not require curly braces {} and can be renamed freely
-import CustomUser from './User.js';
-
-const u = new CustomUser("Marcus");
-console.log(u.name); // "Marcus"
-```
-
----
-
-## 🧪 Try It Yourself
-
-Create a file `math.js` that exports a function `square(n)`. Import and use it in `main.js`.
-
-## 🎯 Mini Challenge
-
-Create a `Logger` class as a default export in `Logger.js` and import it into `app.js` to log application messages.
 
 ## 🧭 Navigation
 

@@ -4,14 +4,16 @@
 
 ## 📖 Definition
 
-The `<fstream>` library provides stream classes to read from and write to disk files:
-- `std::ofstream`: Output file stream for writing data.
-- `std::ifstream`: Input file stream for reading data.
-- `std::fstream`: Input/Output file stream for simultaneous read and write.
+The `<fstream>` library provides stream classes to read and write disk files: `std::ofstream` (writing), `std::ifstream` (reading), and `std::fstream` (read/write).
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Use `ofstream` to write disk files and `ifstream` with `getline()` to read files. RAII automatically closes files when stream scope ends.
+> - **Hindi:** फाईल में लिखने के लिए `ofstream` और पढ़ने के लिए `ifstream` का उपयोग करें। स्कोप खत्म होते ही फाइल अपने आप बंद हो जाती है।
+> - **Marathi:** फाईलमध्ये लिहिण्यासाठी `ofstream` आणि वाचण्यासाठी `ifstream` वापरतात.
+> - **Hinglish:** Disk file persistence ke liye `ofstream` (write) aur `ifstream` (read) use hota hai. RAII destruction se files auto-close ho jaati hain.
 
-## 📝 Writing and Reading Files
+## 📝 Syntax
 
 ```cpp
 #include <iostream>
@@ -20,39 +22,18 @@ The `<fstream>` library provides stream classes to read from and write to disk f
 using namespace std;
 
 int main() {
-    // 1. Writing to a file
-    ofstream outFile("data.txt");
-    if (outFile.is_open()) {
-        outFile << "C++ File Handling" << endl;
-        outFile << "Line 2: Persistent Storage" << endl;
-        outFile.close(); // RAII automatically closes file if scope ends
-    }
+    ofstream outFile("notes.txt");
+    outFile << "Persistent C++ File Storage" << endl;
+    outFile.close();
 
-    // 2. Reading from a file line by line
-    ifstream inFile("data.txt");
-    if (inFile.is_open()) {
-        string line;
-        while (getline(inFile, line)) {
-            cout << "Read: " << line << endl;
-        }
-        inFile.close();
-    } else {
-        cerr << "Unable to open file!" << endl;
+    ifstream inFile("notes.txt");
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
     }
-
     return 0;
 }
 ```
-
----
-
-## 🧪 Try It Yourself
-
-Write a program that takes user input and appends it to `log.txt` using `ofstream outFile("log.txt", ios::app)`.
-
-## 🎯 Mini Challenge
-
-Write a program that reads a text file and counts total characters and total lines in the file.
 
 ## 🧭 Navigation
 

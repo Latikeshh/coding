@@ -4,75 +4,32 @@
 
 ## 📖 Definition
 
-**Templates** enable generic programming in C++, allowing functions and classes to operate on any data type without duplicating code.
+**Templates** enable generic programming in C++, allowing functions and classes to work with any data type (`template <typename T>`) without code duplication.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Templates (`template <typename T>`) write generic functions and classes that work with any data type.
+> - **Hindi:** टेम्पलेट्स (`template <typename T>`) से जेनेरिक फंक्शन और क्लासेस बनती हैं जो किसी भी डेटा टाइप पर काम करती हैं।
+> - **Marathi:** टेम्पलेट्समुळे एकाच कोडद्वारे कोणत्याही डेटा टाईपवर काम करता येते.
+> - **Hinglish:** Reusable generic functions aur classes likhne ke liye `template <typename T>` use karo.
 
-## 1. Function Templates
+## 📝 Syntax
 
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
-// Template function accepting generic type T
 template <typename T>
-T getMaximum(T a, T b) {
-    return (a > b) ? a : b;
+T getMin(T a, T b) {
+    return (a < b) ? a : b;
 }
 
 int main() {
-    cout << "Max Int: " << getMaximum(10, 25) << endl;         // T inferred as int
-    cout << "Max Double: " << getMaximum(3.14, 2.71) << endl;   // T inferred as double
-    cout << "Max String: " << getMaximum<string>("Apple", "Zebra") << endl; // Explicit T
+    cout << getMin(10, 20) << endl;     // Works with int
+    cout << getMin(3.14, 1.5) << endl;  // Works with double
     return 0;
 }
 ```
-
----
-
-## 2. Class Templates
-
-```cpp
-#include <iostream>
-using namespace std;
-
-template <typename T, int SIZE>
-class FixedArray {
-private:
-    T arr[SIZE];
-
-public:
-    void set(int index, T value) {
-        if (index >= 0 && index < SIZE) arr[index] = value;
-    }
-
-    T get(int index) const {
-        return arr[index];
-    }
-};
-
-int main() {
-    FixedArray<int, 5> intArray;
-    intArray.set(0, 100);
-
-    FixedArray<string, 3> strArray;
-    strArray.set(0, "C++ Templates");
-
-    cout << intArray.get(0) << " | " << strArray.get(0) << endl;
-    return 0;
-}
-```
-
----
-
-## 🧪 Try It Yourself
-
-Write a function template `void swapValues(T &a, T &b)` that swaps two variables of any type.
-
-## 🎯 Mini Challenge
-
-Create a template class `Pair<T1, T2>` that holds two elements of different types with `getFirst()` and `getSecond()` methods.
 
 ## 🧭 Navigation
 

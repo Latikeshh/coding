@@ -1,78 +1,249 @@
-# Mini Projects
+# HTML Mini Projects
 
 > 🟡 Intermediate
 
 ## 📖 Definition
 
-Mini projects are small web pages you build to practise HTML skills together.
+Practical mini projects allow you to combine all learned HTML concepts—document structure, headings, lists, tables, images, media, forms, accessibility labels, and semantic elements—into complete, real-world web pages.
 
-## 🤔 Why Do We Use It?
+## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
-Reading syntax is useful, but building a small page helps you remember how the pieces fit together.
+### English
+Practice HTML by building complete mini projects: a Developer Resume, a Recipe Card page, and a Registration Form.
 
-## 🧠 Simple Explanation
+### Hindi
+सीखे गए सभी HTML टैग्स की प्रैक्टिस के लिए तीन व्यावहारिक मिनी प्रोजेक्ट्स (डेवलपर रिज़्यूमे, रेसिपी कार्ड और रजिस्ट्रेशन फॉर्म) बनाएं।
 
-Think of practice projects as short cooking recipes. Each one lets you use familiar ingredients in a real result.
+### Marathi
+शिकलेल्या सर्व HTML टॅग्जचा सराव करण्यासाठी तीन लहान प्रोजेक्ट्स (डेव्हलपर रिझ्युमे, रेसिपी कार्ड आणि नोंदणी फॉर्म) बनवा.
 
-## 📝 Syntax
+### Hinglish
+Learned HTML concepts ko apply karne ke liye complete mini projects (Developer Resume, Recipe Card, Event Registration Form) practice karo.
 
-```html
-<h1>My Reading List</h1>
-<ul>
-  <li>The Hobbit</li>
-  <li>Charlotte's Web</li>
-</ul>
-<a href="https://example.com">Find more books</a>
-```
+---
 
-Try making a recipe page, a simple contact form, or a table of your weekly study plan. Start small, then add one new HTML idea at a time.
+## 🏗️ Project 1: Developer Portfolio / Resume Page
 
-## 💡 Practical Example
-
-Build a “My Favourite Place” page: add one `<h1>`, two paragraphs, an image with alt text, a three-item list, and a link. Open it in a browser and change one detail at a time. That is how confidence grows.
-
-## ✅ Remember
-
-It is fine to look back at earlier lessons while building. If something does not work, check spelling, closing tags, and file names first—small mistakes are normal when learning.
-
-- Build a small version before adding extra features.
-- Reuse ideas from earlier lessons.
-- Test each change in a browser.
-
-## 💻 Example
+A structured personal resume page using semantic HTML5 tags:
 
 ```html
-<h1>Weekend Recipe</h1>
-<img src="pancakes.jpg" alt="Stack of pancakes with berries">
-<h2>Ingredients</h2>
-<ul>
-  <li>Flour</li>
-  <li>Milk</li>
-  <li>Egg</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Latikesh Sharma - Web Developer Portfolio and Resume">
+  <title>Latikesh Sharma - Developer Portfolio</title>
+</head>
+<body>
+
+  <header>
+    <h1>Latikesh Sharma</h1>
+    <p>Frontend Web Developer &amp; Computer Science Student</p>
+    <nav>
+      <a href="#about">About</a> |
+      <a href="#skills">Skills</a> |
+      <a href="#projects">Projects</a> |
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <hr>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Passionate computer science student dedicated to building clean, accessible, and high-performance web applications using modern HTML5, CSS3, and JavaScript.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Frontend Development (HTML5, CSS3, JavaScript)</li>
+        <li>Version Control (Git &amp; GitHub)</li>
+        <li>Web Accessibility (a11y) &amp; Responsive Web Design</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+
+      <article>
+        <h3>1. Student Learning Portal</h3>
+        <p>A web platform providing structured coding notes and tutorials for beginners.</p>
+      </article>
+
+      <article>
+        <h3>2. E-Commerce Food Ordering Site</h3>
+        <p>An accessible frontend prototype featuring restaurant menus and order placement forms.</p>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:latikesh@example.com">latikesh@example.com</a></p>
+      <p>GitHub: <a href="https://github.com" target="_blank" rel="noopener">github.com/Latikeshh</a></p>
+    </section>
+  </main>
+
+  <hr>
+
+  <footer>
+    <p>&copy; 2026 Latikesh Sharma. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
 ```
 
-## 👀 Output
+---
 
-A simple recipe page shows a title, an image, an ingredients heading, and a bulleted list.
+## 🏗️ Project 2: Restaurant Recipe Card Page
 
-## 🔍 How It Works
+A recipe showcase page utilizing `<figure>`, `<figcaption>`, `<dl>`, and `<ol>`:
 
-This project combines headings, images, and lists. You already know each part; the project teaches you how to use them together.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluffy Homemade Pancakes Recipe</title>
+</head>
+<body>
 
-## ⚠️ Common Mistakes
+  <header>
+    <h1>Classic Fluffy Pancakes</h1>
+    <p>A quick 15-minute breakfast pancake recipe for family mornings.</p>
+  </header>
 
-- Do not try to build a full shopping website as your first project.
-- Do not add CSS or JavaScript before the HTML content works.
+  <main>
+    <figure>
+      <img src="images/pancakes.jpg" alt="Stack of golden fluffy pancakes topped with maple syrup and fresh berries" width="500" height="350">
+      <figcaption>Figure 1: Golden fluffy pancakes served fresh with syrup.</figcaption>
+    </figure>
 
-## 🧪 Try It Yourself
+    <section>
+      <h2>Recipe Quick Facts</h2>
+      <dl>
+        <dt>Prep Time:</dt>
+        <dd>10 minutes</dd>
+        <dt>Cook Time:</dt>
+        <dd>15 minutes</dd>
+        <dt>Servings:</dt>
+        <dd>4 servings</dd>
+      </dl>
+    </section>
 
-Build one page: a profile, a recipe, a travel plan, or a study timetable. Include at least a heading, paragraph, image or table, and link.
+    <section>
+      <h2>Ingredients</h2>
+      <ul>
+        <li>1½ cups all-purpose flour</li>
+        <li>3½ teaspoons baking powder</li>
+        <li>1 tablespoon sugar</li>
+        <li>1¼ cups milk</li>
+        <li>1 egg</li>
+        <li>3 tablespoons melted butter</li>
+      </ul>
+    </section>
 
-## 🎯 Mini Challenge
+    <section>
+      <h2>Step-by-Step Instructions</h2>
+      <ol>
+        <li>Sift flour, baking powder, and sugar together in a large bowl.</li>
+        <li>Make a well in the center and pour in milk, egg, and melted butter; mix until smooth.</li>
+        <li>Heat a lightly oiled griddle or frying pan over medium-high heat.</li>
+        <li>Pour batter onto griddle; cook until bubbles form, then flip and brown second side.</li>
+      </ol>
+    </section>
+  </main>
 
-Build a one-page café menu with a semantic header, a price list, and a labelled feedback form. Plan it first; do not copy a complete answer.
+  <footer>
+    <p>Recipe published by Food Corner Blog &bull; &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
+```
+
+---
+
+## 🏗️ Project 3: Student Registration Form Page
+
+A comprehensive form combining `<fieldset>`, input validations, dropdowns, and textareas:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Registration Form</title>
+</head>
+<body>
+
+  <main>
+    <h1>Web Development Workshop Registration</h1>
+    <p>Fill out the form below to register for the upcoming web development bootcamp.</p>
+
+    <form action="/submit-registration" method="POST">
+
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <p>
+          <label for="name">Full Name:</label><br>
+          <input id="name" type="text" name="fullName" required placeholder="John Doe">
+        </p>
+
+        <p>
+          <label for="email">Email Address:</label><br>
+          <input id="email" type="email" name="userEmail" required placeholder="john@example.com">
+        </p>
+
+        <p>
+          <label for="phone">Phone Number:</label><br>
+          <input id="phone" type="tel" name="userPhone" pattern="[0-9]{10}" placeholder="9876543210" required>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Workshop Details</legend>
+
+        <p>
+          <label for="track">Select Learning Track:</label><br>
+          <select id="track" name="learningTrack" required>
+            <option value="">-- Choose a Track --</option>
+            <option value="html-css">HTML5 &amp; CSS3 Fundamentals</option>
+            <option value="javascript">JavaScript ES6 &amp; DOM</option>
+            <option value="fullstack">Fullstack Web Development</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="comments">Why do you want to join this workshop?</label><br>
+          <textarea id="comments" name="reasons" rows="4" cols="50" placeholder="Share your coding goals..."></textarea>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Complete Registration</button>
+        <button type="reset">Clear Form</button>
+      </p>
+
+    </form>
+  </main>
+
+  <footer>
+    <p>Questions? Contact us at <a href="mailto:workshops@college.edu">workshops@college.edu</a></p>
+  </footer>
+
+</body>
+</html>
+```
+
+---
 
 ## 🧭 Navigation
 
-[← Previous](24-accessibility-basics.md) | [🏠 HTML Home](00-README.md)
+[← First: HTML Home](00-README.md) | [← Previous: Accessibility Basics](24-accessibility-basics.md) | [Next: HTML History →](26-html-history.md)

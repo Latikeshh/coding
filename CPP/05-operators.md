@@ -4,16 +4,16 @@
 
 ## 📖 Definition
 
-**Operators** in C++ perform arithmetic, comparison, logical, and assignment operations.
+Operators perform arithmetic calculations, relational comparisons, and logical checks (`&&`, `||`, `!`).
 
-## 📝 Operators Summary
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** C++ provides arithmetic (`+`, `-`, `*`, `/`), relational (`==`, `!=`), and logical (`&&`, `||`, `!`) operators.
+> - **Hindi:** गणितीय गणना के लिए अरिथमेटिक और तुलना के लिए रिलेशनल एंव लॉजिकल ऑपरेटर यूज़ होते हैं।
+> - **Marathi:** सी++ मधील ऑपरेटर गणिते आणि तुलना करण्यासाठी वापरतात.
+> - **Hinglish:** Arithmetic math operations ke liye aur logical operators (`&&`, `||`) multiple conditions combine karne ke liye hote hain.
 
-1. **Arithmetic:** `+`, `-`, `*`, `/`, `%`
-2. **Relational:** `==`, `!=`, `>`, `<`, `>=`, `<=`
-3. **Logical:** `&&` (AND), `||` (OR), `!` (NOT)
-4. **Compound Assignment:** `+=`, `-=`, `*=`, `/=`
-
-## 💡 Practical Example
+## 📝 Syntax
 
 ```cpp
 #include <iostream>
@@ -21,42 +21,13 @@ using namespace std;
 
 int main() {
     int x = 20, y = 6;
-
-    cout << "Addition: " << (x + y) << endl;
-    cout << "Division (integer): " << (x / y) << endl;
-    cout << "Remainder: " << (x % y) << endl;
-
-    x += 5; // x is now 25
-    cout << "Updated x: " << x << endl;
-
-    bool result = (x > 20) && (y < 10);
-    cout << "Logical Check: " << (result ? "True" : "False") << endl;
-
+    cout << "Division: " << (x / y) << " | Remainder: " << (x % y) << endl;
+    
+    bool valid = (x > 10) && (y < 10);
+    cout << "Check: " << (valid ? "Valid" : "Invalid") << endl;
     return 0;
 }
 ```
-
-## 👀 Output
-
-```text
-Addition: 26
-Division (integer): 3
-Remainder: 2
-Updated x: 25
-Logical Check: True
-```
-
-## ⚠️ Common Mistakes
-
-- Confusing assignment `=` with equality comparison `==`.
-
-## 🧪 Try It Yourself
-
-Write a C++ program that checks if a user-entered number is between `1` and `100` using `&&`.
-
-## 🎯 Mini Challenge
-
-Write a program that calculates the compound assignment score of a game after 3 rounds (`score += roundPoints`).
 
 ## 🧭 Navigation
 

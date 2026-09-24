@@ -4,7 +4,14 @@
 
 ## 📖 Definition
 
-A **variable** is a named container used to store data values in memory so they can be reused and updated later.
+A **variable** is a named container used to store data values in computer memory so they can be referenced, reused, and updated throughout a program.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Use `const` by default for variables that do not change, and `let` for values that will be reassigned later. Avoid `var`.
+> - **Hindi:** जो वैल्यू बदलनी नहीं है उसके लिए `const` और जिसे बदलना है उसके लिए `let` का उपयोग करें। `var` का इस्तेमाल न करें।
+> - **Marathi:** न बदलणाऱ्या व्हॅल्यूसाठी `const` आणि बदलणाऱ्या व्हॅल्यूसाठी `let` वापरा.
+> - **Hinglish:** Unchanging values ke liye `const` aur reassigned values ke liye `let` use karo. Legacy `var` ko avoid karo.
 
 ## 🤔 Why Do We Use Them?
 
@@ -18,14 +25,14 @@ Think of a variable as a labeled box on a shelf. The label is the variable name 
 
 JavaScript provides three keywords to declare variables:
 
-1. `const`: Use for values that **will not change**.
-2. `let`: Use for values that **can change later**.
-3. `var`: Older way (avoid in modern JS code).
+1. `const`: Use for values that **will not change** (constant).
+2. `let`: Use for values that **can be reassigned later**.
+3. `var`: Legacy scope rules (avoid in modern ES6+ JS code).
 
 ```javascript
 const birthYear = 2000;
 let score = 10;
-score = 15; // Updated value
+score = 15; // Value reassigned
 ```
 
 ## 💡 Practical Example
@@ -57,7 +64,7 @@ Updated Age: 23
   const pi = 3.14;
   pi = 3.15; // TypeError: Assignment to constant variable!
   ```
-- Using spaces in variable names (use camelCase instead: `userScore`, `totalAmount`).
+- Using spaces or hyphens in variable names (use camelCase instead: `userScore`, `totalAmount`).
 
 ## 🧪 Try It Yourself
 

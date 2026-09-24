@@ -4,15 +4,16 @@
 
 ## 📖 Definition
 
-CSS syntax is the correct structure used to write CSS rules.
+A CSS rule consists of a **Selector**, a pair of curly braces `{}` containing one or more **Declarations** made of a **Property** and a **Value** ending with a semicolon `;`.
 
-## 🤔 Why Do We Use It?
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** CSS syntax: `selector { property: value; }`. Always end declarations with a semicolon `;`.
+> - **Hindi:** CSS सिंटैक्स: `selector { property: value; }`| हर डिक्लेरेशन के बाद सेमिकोलन `;` लगाना न भूलें।
+> - **Marathi:** सीएसएस सिंटॅक्स: `selector { property: value; }`. प्रत्येक प्रॉपर्टीनंतर सेमिकोलन आवश्यक आहे.
+> - **Hinglish:** CSS rule structure: `selector { property: value; }`. Har property declaration ke baad semicolon `;` zaroori hai.
 
-The browser can only understand CSS when it follows the correct rule format.
-
-## 🧠 Simple Explanation
-
-A CSS rule says: “Find this element and apply these styles.”
+## 📝 Syntax Structure
 
 ```css
 selector {
@@ -20,74 +21,13 @@ selector {
 }
 ```
 
-### Each part means:
-
-- `selector` → what you want to style
-- `property` → what you want to change
-- `value` → how you want to change it
-
-## 📝 Syntax
-
-```css
-p {
-  color: blue;
-  font-size: 18px;
-}
-```
-
-## 💡 Example
-
 ```css
 h1 {
-  color: darkgreen;
-  font-size: 32px;
-  text-align: center;
+  color: darkgreen;      /* Property: color, Value: darkgreen */
+  font-size: 32px;       /* Property: font-size, Value: 32px */
+  text-align: center;    /* Property: text-align, Value: center */
 }
 ```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CSS Syntax</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Welcome</h1>
-</body>
-</html>
-```
-
-```css
-h1 {
-  color: darkgreen;
-  font-size: 32px;
-  text-align: center;
-}
-```
-
-## 👀 What You Will See
-
-The heading becomes dark green, larger, and centered on the page.
-
-## 🧪 Try It Yourself
-
-Change the `color` and `font-size` values and reload the page.
-
-## ⚠️ Common Mistakes
-
-- Forgetting the semicolon after each declaration.
-- Missing closing braces.
-- Writing CSS rules outside the selector block.
-
-## ✅ Remember
-
-- CSS rules always use braces.
-- Each property ends with a semicolon.
-- The selector decides what gets styled.
 
 ## 🧭 Navigation
 

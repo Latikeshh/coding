@@ -1,70 +1,100 @@
-# HTML Entities
+# HTML Entities (`&lt;`, `&gt;`, `&amp;`, `&copy;`)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-HTML entities are special codes for characters that would otherwise be confused with HTML or are hard to type.
+**HTML Entities** are special code sequences used to display reserved characters (like `<` or `>`) that browsers would otherwise interpret as HTML markup tags, or symbols not easily typed on standard keyboards (like `©`, `™`, or non-breaking spaces).
 
-## 🤔 Why Do We Use It?
+## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
-They let you show reserved symbols, spaces, and characters correctly.
+### English
+Entities display reserved characters like `&lt;` for `<`, `&gt;` for `>`, `&amp;` for `&`, and `&copy;` for `©`. Always end entity codes with a semicolon `;`.
 
-## 🧠 Simple Explanation
+### Hindi
+HTML में स्पेशल सिम्बल्स दिखाने के लिए एंटिटीज का इस्तेमाल होता है, जैसे `<` के लिए `&lt;`, `>` के लिए `&gt;`, और `©` के लिए `&copy;` लिखें। अंत में सेमीकोलन `;` लगाना न भूलें।
 
-An entity is a safe nickname for a character. The browser reads the nickname and shows the intended symbol.
+### Marathi
+खास चिन्हे दाखवण्यासाठी एंटिटीज वापरतात (उदा. `<` साठी `&lt;` आणि `©` साठी `&copy;`). शेवटी सेमीकोलन `;` देणे आवश्यक आहे.
 
-## 📝 Syntax
+### Hinglish
+Special reserved characters ko screen par literal text dikhane ke liye entities use hoti hain (jaise `<` ke liye `&lt;` aur `&` ke liye `&amp;`). Semicolon `;` hamesha add karein.
+
+## 📝 Essential HTML Entities Reference
+
+| Symbol / Character | Meaning | Entity Name | Entity Code |
+|---|---|---|---|
+| `<` | Less than | `&lt;` | `&#60;` |
+| `>` | Greater than | `&gt;` | `&#62;` |
+| `&` | Ampersand | `&amp;` | `&#38;` |
+| `"` | Double quotation mark | `&quot;` | `&#34;` |
+| `'` | Single quote / Apostrophe | `&apos;` | `&#39;` |
+| `©` | Copyright symbol | `&copy;` | `&#169;` |
+| `™` | Trademark symbol | `&trade;` | `&#8482;` |
+| `€` | Euro currency symbol | `&euro;` | `&#8364;` |
+| `₹` | Indian Rupee symbol | `&#8377;` | `&#8377;` |
+|   | Non-breaking space | `&nbsp;` | `&#160;` |
+
+## 🧠 Why Do We Need Entities?
+
+Suppose you want to write a tutorial explaining how to use paragraph tags in HTML:
+
+- **Incorrect Code:** `<p>To make a paragraph, type <p> in HTML.</p>`
+- **Problem:** The browser sees `<p>` inside the sentence and thinks you are starting a new paragraph element!
+- **Correct Code with Entities:** `<p>To make a paragraph, type &lt;p&gt; in HTML.</p>`
+
+## 📝 Code Example
 
 ```html
-<p>5 &lt; 10</p>
-<p>Tea &amp; Coffee</p>
-<p>Price: 10&nbsp;USD</p>
-```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Entities Example</title>
+</head>
+<body>
 
-`&lt;` displays `<` and `&amp;` displays `&`.
+  <h1>HTML Entities Demonstration</h1>
 
-## 💡 Practical Example
+  <p>To create a main heading in HTML, use the &lt;h1&gt; heading &lt;/h1&gt; tags.</p>
 
-If a coding lesson needs to display `<p>`, write `&lt;p&gt;` in the page. Without the entity, the browser may think you are trying to create a real paragraph.
+  <p>Condition: 5 &lt; 10 &amp;&amp; 20 &gt; 15</p>
 
-## ✅ Remember
+  <p>Company Name: Johnson &amp; Johnson Co.</p>
 
-An entity begins with `&` and ends with `;`. Use one when a character has a special meaning in HTML.
+  <p>Special Pricing: &#8377;1,499 or &euro;18.50</p>
 
-- `&lt;` shows a less-than sign.
-- `&gt;` shows a greater-than sign.
-- `&amp;` shows an ampersand.
+  <hr>
 
-## 💻 Example
+  <footer>
+    <p>Copyright &copy; 2026 Coding Notes &trade;. All rights reserved.</p>
+  </footer>
 
-```html
-<p>Use &lt;h1&gt; for a main heading.</p>
-<p>Research &amp; planning come first.</p>
+</body>
+</html>
 ```
 
 ## 👀 Output
 
-Use `<h1>` for a main heading.
-
-Research & planning come first.
-
-## 🔍 How It Works
-
-The browser turns each entity into one character. This lets a lesson show HTML code without the browser trying to interpret it as a real tag.
+- **"To create a main heading in HTML, use the `<h1>` heading `</h1>` tags."**
+- **"Condition: 5 < 10 && 20 > 15"**
+- **"Company Name: Johnson & Johnson Co."**
+- **"Special Pricing: ₹1,499 or €18.50"**
+- **"Copyright © 2026 Coding Notes ™. All rights reserved."**
 
 ## ⚠️ Common Mistakes
 
-- Do not forget the ending semicolon in an entity.
-- Use `&amp;` when an ampersand belongs in displayed HTML text.
+- **Forgetting the trailing semicolon `;`:** Writing `&lt` or `&copy` instead of `&lt;` or `&copy;`.
+- **Using `&nbsp;` repeatedly for layout gaps:** Inserting `&nbsp;&nbsp;&nbsp;&nbsp;` to force gaps between text instead of using CSS `margin` or `padding`.
 
 ## 🧪 Try It Yourself
 
-Write a paragraph that displays the text `<p>Hello</p>` in the browser.
+Write an HTML sentence displaying:
+`In HTML, we write <a> for hyperlinks and & for ampersand.` using proper HTML entities.
 
 ## 🎯 Mini Challenge
 
-Make a short HTML note that correctly displays `<`, `>`, and `&`.
+Create a footer section displaying the text `Copyright © 2026 Student Portal ™ | Price: ₹999` using HTML entities for all symbols.
 
 ## 🧭 Navigation
 

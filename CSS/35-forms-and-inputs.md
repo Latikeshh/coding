@@ -4,103 +4,33 @@
 
 ## 📖 Definition
 
-Forms and inputs are HTML elements used to collect user information, and CSS can make them look clean and user-friendly.
+Styling HTML form controls (`<input>`, `<textarea>`, `<select>`, `<button>`) improves usability, accessibility, and visual presentation.
 
-## 🤔 Why Do We Use It?
-
-Styling forms improves usability and makes websites look more polished.
-
-## 🧠 Simple Explanation
-
-A form is a collection of inputs such as text boxes, buttons, checkboxes, and dropdowns.
-
-## Common selectors
-
-- `input`
-- `button`
-- `textarea`
-- `select`
-- `label`
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Style inputs with `padding`, `border`, `border-radius`, and `:focus` state outlines for accessibility.
+> - **Hindi:** इनपुट फील्ड्स में `padding`, `border`, और `:focus` स्टेट्स देकर फॉर्म को सुंदर और सुलभ बनाएं।
+> - **Marathi:** इनपुट फील्ड्सना `padding` आणि `:focus` स्टेट देऊन फॉर्म आकर्षक बनवावा.
+> - **Hinglish:** Form inputs ko style karne ke liye `box-sizing: border-box`, `padding`, aur accessible `:focus` outline style use karo.
 
 ## 📝 Syntax
 
 ```css
-input {
-  padding: 10px;
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
-button {
-  background: #007bff;
-  color: white;
-}
-```
-
-## 💡 Example
-
-```css
-form {
-  max-width: 400px;
-}
-
-input, textarea, button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
+input:focus, textarea:focus {
+  border-color: #007bff;
+  outline: 2px solid rgba(0, 123, 255, 0.25);
 }
 ```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Form Styling</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <form>
-    <label>Name</label>
-    <input type="text" placeholder="Enter your name">
-    <button>Submit</button>
-  </form>
-</body>
-</html>
-```
-
-```css
-form {
-  max-width: 400px;
-}
-
-input, textarea, button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-}
-```
-
-## 👀 What You Will See
-
-The form fields and button are spaced and styled consistently.
-
-## 🧪 Try It Yourself
-
-Change the button color and border radius to create a different style.
-
-## ⚠️ Common Mistakes
-
-- Making form controls too narrow or hard to click.
-- Ignoring accessibility and readable labels.
-- Styling only the button and not the surrounding layout.
-
-## ✅ Remember
-
-- Forms are interactive and should be easy to use.
-- CSS makes them clearer and more attractive.
-- Good form design improves conversion and usability.
 
 ## 🧭 Navigation
 

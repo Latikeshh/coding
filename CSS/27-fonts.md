@@ -1,96 +1,30 @@
-# Fonts
+# Fonts (`font-family`, `@font-face`)
 
 > 🟢 Beginner
 
 ## 📖 Definition
 
-Fonts control the typeface used for text on a page.
+Font properties control typefaces, weights, and custom web fonts using `font-family`, `font-weight`, and `@font-face` or Google Fonts.
 
-## 🤔 Why Do We Use It?
-
-Font choice affects readability, tone, and overall visual design.
-
-## 🧠 Simple Explanation
-
-Fonts determine how letters look: bold, modern, classic, playful, or readable.
-
-## Common font properties
-
-- `font-family` → the typeface
-- `font-size` → how large the text is
-- `font-weight` → boldness
-- `font-style` → italic, normal, oblique
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** Set typefaces with `font-family`. Always specify generic fallbacks (`sans-serif`, `serif`, `monospace`).
+> - **Hindi:** `font-family` से फ़ॉन्ट तय करें। अंत में फॉलबैक सिस्टम फ़ॉन्ट (जैसे `sans-serif`) अवश्य लिखें।
+> - **Marathi:** `font-family` मध्ये मुख्य फॉन्ट आणि शेवटी फॉलबॅक फॉन्ट लिहावा.
+> - **Hinglish:** Fonts ke liye `font-family: 'Inter', sans-serif;` use karo. Fallback font hamesha specify karo.
 
 ## 📝 Syntax
 
 ```css
-p {
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-}
-```
-
-## 💡 Example
-
-```css
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
 }
 
 h1 {
-  font-size: 2.5rem;
   font-weight: 700;
 }
 ```
-
-## 🌐 HTML + CSS Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Fonts Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Course Notes</h1>
-  <p>Choose fonts that are easy to read.</p>
-</body>
-</html>
-```
-
-```css
-body {
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-```
-
-## 👀 What You Will See
-
-The page uses a clean sans-serif typeface and a strong heading style.
-
-## 🧪 Try It Yourself
-
-Try `font-family: Georgia, serif;` and see how the page feels different.
-
-## ⚠️ Common Mistakes
-
-- Using too many font families in one design.
-- Choosing decorative fonts for paragraphs.
-- Forgetting fallback fonts.
-
-## ✅ Remember
-
-- Font choice affects readability and branding.
-- Use system fonts or common web-safe fonts first.
-- Combine carefully for a clean visual style.
 
 ## 🧭 Navigation
 

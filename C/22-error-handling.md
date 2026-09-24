@@ -4,57 +4,31 @@
 
 ## 📖 Definition
 
-C provides system error codes via `<errno.h>` and helper logging functions (`perror()` and `strerror()`) to diagnose runtime failures.
+C system calls store error codes inside global `<errno.h>`. Print human-readable system error diagnostics using `perror()` and `strerror()`.
 
----
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** System library failures populate `errno`. Print descriptive system errors using `perror("Failed message")`.
+> - **Hindi:** सिस्टम एरर आने पर `errno` कोड सेट होता है। `perror()` से इंसान के पढ़ने योग्य एरर मैसेज प्रिंट होता है।
+> - **Marathi:** सिस्टीम एरर समजण्यासाठी `perror()` चा वापर होतो.
+> - **Hinglish:** File/Network system call fail hone par `perror("Error Message")` se exact system error cause debug karo.
 
-## 📝 Error Codes & Functions
-
-- `errno`: Global integer storing the error code of the last failed system library call.
-- `perror("prefix")`: Prints prefix string followed by the human-readable explanation of `errno`.
-- `strerror(errno)`: Returns a pointer to the textual error string associated with an error code.
+## 📝 Syntax
 
 ```c
 #include <stdio.h>
 #include <errno.h>
-#include <string.h>
 
-int main() {
-    FILE *fp = fopen("non_existent_file.txt", "r");
-
+int main(void) {
+    FILE *fp = fopen("missing.txt", "r");
     if (fp == NULL) {
-        printf("Error Code (errno): %d\n", errno);
-        printf("Error Message: %s\n", strerror(errno));
-
-        // Convenience function:
-        perror("File Open Failed");
+        perror("File Open Failure"); // Prints: File Open Failure: No such file or directory
         return 1;
     }
-
     fclose(fp);
     return 0;
 }
 ```
-
----
-
-## 👀 Output
-
-```text
-Error Code (errno): 2
-Error Message: No such file or directory
-File Open Failed: No such file or directory
-```
-
----
-
-## 🧪 Try It Yourself
-
-Attempt to open a restricted or non-existent file path and print the error using `perror()`.
-
-## 🎯 Mini Challenge
-
-Write a function `FILE* safeOpen(const char* path, const char* mode)` that logs detailed errors if opening fails.
 
 ## 🧭 Navigation
 

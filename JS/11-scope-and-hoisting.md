@@ -4,13 +4,20 @@
 
 ## 📖 Definition
 
-- **Scope** determines where variables are accessible in your code.
-- **Hoisting** is JavaScript's default behavior of moving variable and function declarations to the top of their containing scope during compilation.
-- **Temporal Dead Zone (TDZ)** is the period between entering a scope and the actual variable initialization where accessing `let` or `const` variables throws a `ReferenceError`.
+- **Scope:** Defines where variables are accessible in your code.
+- **Hoisting:** JavaScript's behavior of lifting function and variable declarations to the top of their scope during compilation.
+- **Temporal Dead Zone (TDZ):** The time gap between entering scope and variable initialization where accessing `let`/`const` throws a `ReferenceError`.
+
+> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
+>
+> - **English:** `let` and `const` are block-scoped. Accessing `let`/`const` before initialization triggers Temporal Dead Zone (TDZ) errors.
+> - **Hindi:** `let` और `const` ब्लॉक-स्कोप्ड होते हैं। डिक्लेरेशन से पहले एक्सेस करने पर TDZ एरर आता है।
+> - **Marathi:** `let` आणि `const` ब्लॉक-स्कोप्ड असतात. डिक्लेअर करण्यापूर्वी वापरल्यास एरर येतो.
+> - **Hinglish:** `let`/`const` block-scoped hote hain. Unhe initialize karne se pehle access karne par TDZ `ReferenceError` aata hai.
 
 ## 📝 Types of Scope
 
-1. **Global Scope:** Accessible anywhere in the application.
+1. **Global Scope:** Accessible everywhere.
 2. **Function Scope:** Variables declared with `var`, `let`, or `const` inside a function are local to that function.
 3. **Block Scope:** Variables declared with `let` or `const` inside `{}` (e.g. `if`, `for`) cannot be accessed outside the block.
 
