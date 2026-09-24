@@ -4,12 +4,12 @@
 
 ## 📖 Definition
 
-**Semantic HTML** means using HTML tags that clearly describe the structural meaning and role of their content to web browsers, search engines (SEO), and accessibility screen readers, rather than wrapping everything inside meaningless generic `<div>` containers.
+**Semantic HTML** means using HTML tags that clearly describe the structural meaning and role of their content to web browsers, search engines (SEO), developers, and assistive technologies (screen readers), rather than wrapping everything inside meaningless generic `<div>` containers.
 
 ## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
 ### English
-Semantic tags (`<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`, `<time>`) describe their structural content role to search engines and screen readers.
+Semantic tags (`<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`, `<time>`, `<details>`) describe their structural content role to search engines and screen readers.
 
 ### Hindi
 सिमेंटिक टैग्स (जैसे `<header>`, `<nav>`, `<main>`, `<article>`, `<footer>`) कंटेंट के अर्थ को स्पष्ट करते हैं, जिससे SEO और एक्सेसिबिलिटी बेहतर होती है।
@@ -32,11 +32,12 @@ Semantic tags generic `<div>` ke bajaye page layout sections ko meaningful names
 | **`<aside>`** | Tangentially related side content (sidebar links, author bio, related posts, ads). | Positioned alongside main content. |
 | **`<footer>`** | Footer block containing copyright notices, privacy policy links, or contact info. | Positioned at bottom of page or section. |
 | **`<time>`** | Machine-readable date/time stamp using `datetime="YYYY-MM-DD"`. | Helps search engines parse publication dates. |
+| **`<details>` & `<summary>`** | Native interactive collapsible widget (accordion/FAQ toggle). | `<summary>` defines the clickable header phrase. |
 
 ## 🌟 Benefits of Semantic HTML
 
-1. **Accessibility (a11y):** Screen reader users navigate using landmark shortcuts (jumping directly to `<main>` or `<nav>`).
-2. **SEO (Search Engine Optimization):** Google crawlers prioritize content inside `<article>` and `<main>` over footers or sidebars.
+1. **Accessibility Landmarks:** Screen readers allow users to jump directly between landmark sections (like skipping straight to `<main>` or `<nav>`). While semantic HTML alone does not solve all accessibility needs, it provides the fundamental structural foundation.
+2. **Search Engine Understanding:** Search engine crawlers prioritize content inside `<article>` and `<main>` over footers or sidebars.
 3. **Clean Code Maintainability:** Developers can read `<article>` and `<nav>` instantly without deciphering `<div class="box-12">`.
 
 ## 📝 Code Example
@@ -67,7 +68,7 @@ Semantic tags generic `<div>` ke bajaye page layout sections ko meaningful names
     <article>
       <header>
         <h2>Getting Started with Semantic HTML5</h2>
-        <p>Published on <time datetime="2026-09-24">September 24, 2026</time> by Latikesh</p>
+        <p>Published on <time datetime="2026-09-24">September 24, 2026</time></p>
       </header>
 
       <section>
@@ -75,10 +76,11 @@ Semantic tags generic `<div>` ke bajaye page layout sections ko meaningful names
         <p>Semantic markup provides meaning to search engines and screen readers alike.</p>
       </section>
 
-      <section>
-        <h3>Core Principles</h3>
-        <p>Replace generic containers with meaningful elements whenever possible.</p>
-      </section>
+      <!-- Native Collapsible FAQ Section -->
+      <details>
+        <summary>Click here for Frequently Asked Questions</summary>
+        <p>Semantic HTML tags are block-level elements by default and require no extra JavaScript to expand.</p>
+      </details>
     </article>
 
     <!-- Related Sidebar -->
@@ -105,7 +107,7 @@ Semantic tags generic `<div>` ke bajaye page layout sections ko meaningful names
 
 - **Using multiple `<main>` tags on a single page:** Invalid HTML.
 - **Using `<section>` without a heading:** A `<section>` should almost always contain an `<h2>`–`<h6>` heading.
-- **Using `<div>` for everything ("Div Soup"):** Prevents screen readers from discovering landmark navigation shortcuts.
+- **Assuming semantic HTML solves all accessibility needs:** You still need proper form labels, keyboard focus, and contrast.
 
 ## 🧪 Try It Yourself
 
@@ -116,7 +118,7 @@ Structure a simple personal blog layout using:
 
 ## 🎯 Mini Challenge
 
-Take a layout that uses generic `<div id="header">`, `<div id="nav">`, `<div id="main">`, and `<div id="footer">` tags, and refactor it into clean semantic HTML5.
+Take a layout that uses generic `<div id="header">`, `<div id="nav">`, `<div id="main">`, and `<div id="footer">` tags, and refactor it into clean semantic HTML.
 
 ## 🧭 Navigation
 

@@ -23,8 +23,8 @@ Image add karne ke liye `<img>` tag aur descriptive `alt` text use karo. Caption
 ## 📝 Key Attributes of `<img>`
 
 - **`src` (source):** Specifies the relative file path or absolute URL of the image file (e.g. JPG, PNG, WebP, SVG, GIF).
-- **`alt` (alternative text):** Describes the image for screen readers, search engines, or when the image fails to load.
-- **`width` & `height`:** Specifies intrinsic dimensions in pixels to reserve space and prevent layout shifts.
+- **`alt` (alternative text):** Describes the image content for screen readers, or when the image fails to load.
+- **`width` & `height`:** Specifies intrinsic pixel dimensions. Providing these dimensions helps the browser reserve space before the image file finishes downloading, reducing Cumulative Layout Shift (CLS).
 
 ```html
 <img src="assets/puppy.jpg" alt="A golden retriever puppy sitting on a green lawn" width="400" height="300">
@@ -36,11 +36,11 @@ Image add karne ke liye `<img>` tag aur descriptive `alt` text use karo. Caption
 |---|---|---|
 | **Informative Image** | `alt="A red sports car parked in front of a modern glass office building"` | `alt="image"` or `alt="car"` |
 | **Chart / Data** | `alt="Bar chart showing annual revenue growth from $1M in 2024 to $2.5M in 2026"` | `alt="chart"` |
-| **Decorative Image** | `alt=""` (Screen readers silently skip purely decorative background borders) | `alt="divider line"` |
+| **Decorative Image** | `alt=""` (Screen readers silently skip decorative background borders) | `alt="divider line"` |
 
 ## 🖼️ Captioned Images with `<figure>` & `<figcaption>`
 
-When an image requires a visible caption or reference label, wrap it in `<figure>`:
+When an image requires a visible caption, diagram reference, or explanation, wrap it inside a `<figure>` element:
 
 ```html
 <figure>
@@ -51,7 +51,7 @@ When an image requires a visible caption or reference label, wrap it in `<figure
 
 ## 📱 Responsive Art Direction with `<picture>`
 
-The `<picture>` element allows you to serve different image versions depending on the user's screen size (e.g. a cropped square image for mobile and a wide banner for desktop):
+The `<picture>` element allows you to serve different image files depending on the user's screen size (e.g. a cropped vertical image for mobile screens and a wide banner for desktop displays):
 
 ```html
 <picture>
@@ -66,18 +66,17 @@ The `<picture>` element allows you to serve different image versions depending o
 
 ## ⚠️ Common Mistakes
 
-- **Writing useless `alt` text:** Using `alt="image.jpg"` or `alt="picture"`.
-- **Wrong file paths:** Writing `src="pic.jpg"` when the file is stored inside an `images/` folder (`src="images/pic.jpg"`).
-- **Omitting `width` and `height`:** Causes Cumulative Layout Shift (CLS) as the page loads.
+- **Writing uninformative `alt` text:** Using `alt="image.jpg"` or `alt="picture"`.
+- **Incorrect file paths:** Writing `src="pic.jpg"` when the file is stored inside an `images/` folder (`src="images/pic.jpg"`).
 
 ## 🧪 Try It Yourself
 
-1. Add an image tag with a descriptive `alt` text and specified `width` and `height`.
+1. Add an image tag with descriptive `alt` text and specified `width` and `height`.
 2. Wrap the image inside a `<figure>` tag and add a caption using `<figcaption>`.
 
 ## 🎯 Mini Challenge
 
-Create a responsive `<picture>` component providing two image sizes: one wide image for desktop screens (`min-width: 768px`) and one compact image for mobile screens.
+Create a responsive `<picture>` component providing two image sizes: one wide banner image for desktop screens (`min-width: 768px`) and one compact image for mobile screens.
 
 ## 🧭 Navigation
 

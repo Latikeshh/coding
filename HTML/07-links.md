@@ -23,15 +23,15 @@ Hyperlink banane ke liye `<a href="destination_url">` use hota hai. Anchor text 
 ## 📝 Link Syntax & Destinations
 
 ### 1. External Absolute URLs
-Points to an external web page on another server:
+Points to an external webpage on another domain or server:
 ```html
 <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Download VS Code</a>
 ```
-- **`target="_blank"`:** Opens the destination link in a new browser tab.
-- **`rel="noopener"`:** Security best practice preventing the opened page from accessing your window object (`window.opener`).
+- **`target="_blank"`:** Opens the destination link in a new browser tab or window.
+- **`rel="noopener"`:** A recommended security and privacy best practice when opening links in a new tab to prevent the opened page from accessing the opening page's `window.opener` object. (Modern browsers also include automatic built-in protections).
 
 ### 2. Internal Relative File Links
-Points to another page within the same project directory:
+Points to another file within the same project folder structure:
 ```html
 <a href="about.html">About Us</a>
 <a href="contact.html">Contact Us</a>
@@ -94,9 +94,8 @@ Clickable blue underlined text strings that navigate to external websites, jump 
 
 ## ⚠️ Common Mistakes
 
-- **Uninformative link text:** Writing `<a href="menu.html">Click here</a>` instead of `<a href="menu.html">View Restaurant Menu</a>`. Screen reader users often jump between links out of context.
-- **Missing `href` attribute:** Writing `<a>Contact Us</a>` creates plain unclickable text.
-- **Forgetting `rel="noopener"` on `target="_blank"` links:** Poses security risks and potential performance lag.
+- **Uninformative link text:** Writing `<a href="menu.html">Click here</a>` instead of `<a href="menu.html">View Restaurant Menu</a>`. Screen reader users often navigate by jumping through a list of links out of context.
+- **Missing `href` attribute:** Writing `<a>Contact Us</a>` creates an unclickable anchor without a destination link.
 
 ## 🧪 Try It Yourself
 

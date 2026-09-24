@@ -29,10 +29,10 @@ External content (jaise Google Maps ya YouTube videos) ko apne page mein embed k
 - **`sandbox`:** Restricts script execution, form submission, and popups inside the embedded iframe for security (`sandbox="allow-scripts allow-same-origin"`).
 - **`allowfullscreen`:** Permits embedded video players to enter full-screen mode.
 
-## 🔒 Security & Privacy Considerations
+## 🔒 Security & Embedding Restrictions
 
-1. **Mandatory `title` Attribute:** Screen readers announce iframes by their `title`. Omitting `title` causes accessibility audit failures.
-2. **`X-Frame-Options` HTTP Header:** Certain major websites (like Google Search, Facebook, or banking sites) set server headers preventing their pages from being embedded inside `<iframe>` tags on external sites to prevent clickjacking attacks.
+1. **Mandatory `title` Attribute:** Screen readers announce iframes by their `title`. Omitting `title` breaks accessibility compliance.
+2. **`X-Frame-Options` & CSP Security Headers:** Major websites (such as Google Search, Facebook, GitHub, or banking portals) send HTTP security headers (`X-Frame-Options: DENY` or `X-Frame-Options: SAMEORIGIN`) preventing external sites from embedding their pages inside an `<iframe>`. This protects users against clickjacking attacks.
 
 ## 📝 Code Example
 
@@ -51,7 +51,7 @@ External content (jaise Google Maps ya YouTube videos) ko apne page mein embed k
     <h2>Visit Our Office</h2>
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2183123!2d-73.9855!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMDcuOCJX!5e0!3m2!1sen!2sin!4v123456789" 
-      title="Interactive Google Map showing store location in New York" 
+      title="Interactive Google Map showing store location" 
       width="100%" 
       height="350" 
       style="border:0;" 
@@ -80,7 +80,7 @@ External content (jaise Google Maps ya YouTube videos) ko apne page mein embed k
 ## ⚠️ Common Mistakes
 
 - **Forgetting the `title` attribute:** Writing `<iframe src="...">` without `title="Description"` breaks accessibility standards.
-- **Attempting to embed sites that block framing:** Trying to embed `https://google.com` results in a blank gray box due to `X-Frame-Options: DENY`.
+- **Attempting to embed sites that block framing:** Trying to embed `https://google.com` results in a blank gray box due to security headers set by the target server.
 
 ## 🧪 Try It Yourself
 

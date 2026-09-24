@@ -22,15 +22,15 @@ Accessibility (a11y) ensure karti hai ki aapka web page sabhi users (screen read
 
 ## ♿ 5 Core Pillars of Accessible HTML
 
-1. **Form Input Labels:** Every form control must have a connected `<label for="id">` so screen readers state what information is expected.
-2. **Descriptive Image Alternative Text:** All informative images must provide meaningful `alt` text. Purely decorative images must use `alt=""`.
-3. **Logical Heading Outline:** Use `<h1>` through `<h6>` sequentially without skipping levels so screen readers can parse page structure.
-4. **Keyboard Navigability & Visible Focus:** All links, buttons, and form inputs must be reachable using the `Tab` key, with a clear visible focus outline (`outline`).
+1. **Form Input Labels:** Every form control should have a connected `<label for="id">` so screen readers state what information is expected.
+2. **Descriptive Image Alternative Text:** All informative images must provide meaningful `alt` text. Purely decorative images must use `alt=""` so screen readers skip them.
+3. **Logical Heading Outline:** Use `<h1>` through `<h6>` to build a logical nested outline for your document content.
+4. **Keyboard Navigability & Visible Focus:** All links, buttons, and form inputs must be reachable using the `Tab` key, maintaining a clear visible focus indicator (`outline`).
 5. **Descriptive Link Text:** Avoid vague link text like *"click here"* or *"link"*. Use descriptive anchor text like *"Download Course Syllabus (PDF)"*.
 
 ## ⚖️ Native Semantic HTML vs. ARIA Rules
 
-**ARIA (Accessible Rich Internet Applications)** attributes (`role="..."`, `aria-label="..."`, `aria-expanded="..."`) provide additional accessibility information for complex web applications.
+**ARIA (Accessible Rich Internet Applications)** attributes (`role="..."`, `aria-label="..."`, `aria-expanded="..."`) provide additional accessibility information for complex custom web applications.
 
 > [!IMPORTANT]
 > **First Rule of ARIA:** *Do not use ARIA if a native HTML element already exists that provides the semantic meaning and keyboard behavior you need.*
@@ -45,10 +45,10 @@ Accessibility (a11y) ensure karti hai ki aapka web page sabhi users (screen read
 
 ## 🔍 Checking HTML Code Quality: HTML Validation
 
-Writing valid HTML ensures consistent rendering across browsers and screen readers.
+Writing valid HTML ensures consistent parsing across browsers and assistive screen readers.
 
-- **Browser Developer Tools:** Press `F12` or `Ctrl + Shift + I` in Chrome/Firefox/Edge to inspect the rendered DOM tree and console errors.
-- **W3C Markup Validation Service:** You can paste your HTML code into [validator.w3.org](https://validator.w3.org/) to check for unclosed tags, duplicate IDs, or missing attributes.
+- **Browser Developer Tools:** Press `F12` or `Ctrl + Shift + I` in Chrome/Firefox/Edge to inspect the rendered DOM tree and console warnings.
+- **W3C Markup Validation Service:** You can check your HTML code at [validator.w3.org](https://validator.w3.org/) to identify unclosed tags, invalid nesting, duplicate IDs, or missing required attributes.
 
 ## 📝 Code Example
 
@@ -70,7 +70,7 @@ Writing valid HTML ensures consistent rendering across browsers and screen reade
 
       <p>
         <label for="user-name">Full Name (required):</label><br>
-        <input id="user-name" type="text" name="name" required placeholder="e.g. Latikesh">
+        <input id="user-name" type="text" name="name" required placeholder="e.g. Alex">
       </p>
 
       <p>
@@ -95,8 +95,8 @@ Writing valid HTML ensures consistent rendering across browsers and screen reade
 
 ## ⚠️ Common Mistakes
 
-- **Removing CSS focus outlines (`outline: none`):** Prevents keyboard users from seeing which button or link is active.
-- **Using color alone to convey meaning:** E.g. relying only on red text for error messages without text descriptions or icons.
+- **Removing CSS focus outlines (`outline: none`):** Prevents keyboard users from seeing which button or link is currently focused.
+- **Using color alone to convey meaning:** E.g. relying solely on red text for error messages without text labels or icons.
 
 ## 🧪 Try It Yourself
 

@@ -4,7 +4,7 @@
 
 ## 📖 Definition
 
-**`<div>`** (Division) is a generic **block-level** container used to group elements for layout styling or scripting. **`<span>`** is a generic **inline-level** container used to wrap small snippets of text or elements within a sentence without forcing a line break.
+**`<div>`** (Division) is a generic **block-level** container used to group elements for layout styling, wrapping, or scripting. **`<span>`** is a generic **inline-level** container used to wrap small snippets of text or elements within a sentence without forcing a line break.
 
 ## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
@@ -58,18 +58,19 @@ A block division container (`<div>`) wrapping a card component where the price *
 
 ## ⚖️ When to Use `<div>` and `<span>` vs. Semantic HTML
 
-Because `<div>` and `<span>` have no inherent semantic meaning, they should be used **only when no suitable semantic HTML tag exists**:
+`<div>` and `<span>` are not bad elements—they are essential building blocks for CSS layout wrappers, grid systems, and flexbox containers. However, because `<div>` and `<span>` have no inherent semantic meaning:
 
-- **Use `<header>`** instead of `<div class="header">`.
-- **Use `<nav>`** instead of `<div class="navigation">`.
-- **Use `<main>`** instead of `<div class="content">`.
-- **Use `<article>`** instead of `<div class="post">`.
-- **Use `<div>` or `<span>`** for purely visual styling containers (e.g. wrapper grids, flex cards, icon wrappers) where no semantic tag applies.
+- **Prefer semantic HTML elements** when an element exists that specifically describes the content:
+  - Use `<header>` for page/section headers.
+  - Use `<nav>` for navigation link blocks.
+  - Use `<main>` for primary page content.
+  - Use `<article>` for self-contained post units.
+- **Use `<div>` or `<span>`** for purely visual styling wrappers, grid containers, or UI icon targets where no semantic element applies.
 
 ## ⚠️ Common Mistakes
 
-- **"Div Soup":** Nesting dozens of unlabelled `<div>` containers instead of using semantic structural tags (`<header>`, `<section>`, `<article>`, `<footer>`).
-- **Wrapping whole block paragraphs inside `<span>`:** `<span>` should only wrap inline text fragments.
+- **"Div Soup":** Nesting dozens of unlabelled `<div>` containers everywhere when semantic structural tags (`<header>`, `<section>`, `<article>`, `<footer>`) fit the content better.
+- **Wrapping block paragraphs inside `<span>`:** `<span>` should only wrap inline text fragments.
 
 ## 🧪 Try It Yourself
 

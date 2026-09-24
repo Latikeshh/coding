@@ -12,13 +12,13 @@ Every standard HTML document follows a required boilerplate structure. The docum
 An HTML page is structured with `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`. Metadata in `<head>` helps browsers and search engines, while `<body>` contains all visible content.
 
 ### Hindi
-HTML पेज में `<!DOCTYPE html>`, `<html>`, `<head>` और `<body>` होते हैं। `<head>` में पेज की जानकारी (title, SEO, metadata) होती है, जबकि `<body>` में यूज़र को दिखने वाला सारा कंटेंट होता है।
+HTML पेज में `<!DOCTYPE html>`, `<html>`, `<head>` और `<body>` होते हैं। `<head>` में पेज की जानकारी (title, metadata) होती है, जबकि `<body>` में यूज़र को दिखने वाला सारा कंटेंट होता है।
 
 ### Marathi
-HTML पेज `<!DOCTYPE html>`, `<html>`, `<head>` आणि `<body>` ने बनलेला असतो. `<head>` मध्ये पेजची माहिती (title, SEO) असते तर `<body>` मध्ये स्क्रीनवर दिसणारा सर्व मजकूर असतो.
+HTML पेज `<!DOCTYPE html>`, `<html>`, `<head>` आणि `<body>` ने बनलेला असतो. `<head>` मध्ये पेजची माहिती (title, metadata) असते तर `<body>` मध्ये स्क्रीनवर दिसणारा सर्व मजकूर असतो.
 
 ### Hinglish
-HTML document structure mein `<!DOCTYPE html>`, `<html>`, `<head>`, aur `<body>` hote hain. `<head>` section search engines aur metadata ke liye hota hai, jabki `<body>` mein actual visible content hota hai.
+HTML document structure mein `<!DOCTYPE html>`, `<html>`, `<head>`, aur `<body>` hote hain. `<head>` section metadata ke liye hota hai, jabki `<body>` mein actual visible content hota hai.
 
 ## 🧱 The Standard HTML Boilerplate
 
@@ -43,31 +43,31 @@ HTML document structure mein `<!DOCTYPE html>`, `<html>`, `<head>`, aur `<body>`
 
 1. **`<!DOCTYPE html>`:**
    - **Important:** This is an information declaration, **NOT an HTML tag**.
-   - Tells the web browser that the document is written in modern **HTML5**.
+   - Tells the web browser that the document is written in modern **HTML**.
 2. **`<html lang="en">`:**
    - The root element wrapping all HTML content on the page.
-   - The `lang="en"` attribute specifies the document language, helping screen readers and search engines.
+   - The `lang="en"` attribute specifies the document language, helping screen readers and language tools.
 3. **`<head>`:**
    - Contains metadata (data about data), page titles, character encodings, viewport settings, external CSS links, and scripts.
-   - None of the content inside `<head>` is directly displayed inside the main browser viewing area (except the title in the browser tab).
+   - Content inside `<head>` is not directly displayed inside the main browser viewing area (except the page title on the tab).
 4. **`<meta charset="UTF-8">`:**
-   - Specifies the character encoding format. UTF-8 supports almost all written human languages, symbols, and emojis.
+   - Specifies character encoding. UTF-8 supports almost all written human languages, symbols, and emojis.
 5. **`<meta name="viewport" content="width=device-width, initial-scale=1.0">`:**
-   - Crucial for mobile responsiveness. Tells mobile browsers to render the page at the device's actual screen width rather than zooming out to a desktop layout.
+   - Sets the viewport width to match the device screen width. Without this tag, mobile browsers may render pages using a wide virtual desktop viewport (e.g. 980px), making content appear zoomed out on small mobile screens.
 6. **`<meta name="description" content="...">`:**
-   - Provides a concise summary of the page for search engines (SEO). Google often displays this text snippet in search results.
+   - Provides a concise summary of the webpage. Search engines may use this text to display snippets in search results.
 7. **`<link rel="icon" href="favicon.ico">`:**
-   - Links a small icon (favicon) displayed next to the page title on browser tabs.
+   - Links a small favicon displayed on browser tabs next to the page title.
 8. **`<title>`:**
-   - Sets the page title shown on browser tabs, bookmarks, and search engine result headings.
+   - Sets the title displayed on browser tabs, bookmarks, and search result headings.
 9. **`<body>`:**
    - Contains all visible content: headings, paragraphs, images, buttons, forms, tables, audio, and video.
 
 ## ⚠️ Common Mistakes
 
-- **Placing visible content inside `<head>`:** Placing `<p>` or `<h1>` tags inside `<head>` causes layout issues.
-- **Omitting the viewport meta tag:** Forgetting `<meta name="viewport">` breaks mobile responsiveness.
-- **Forgetting `<title>`:** Leaving out `<title>` results in browser tabs showing raw file paths (e.g. `file:///C:/index.html`).
+- **Placing visible content inside `<head>`:** Placing `<p>` or `<h1>` tags inside `<head>` is invalid and causes parsing issues.
+- **Omitting the viewport meta tag:** Can cause mobile devices to display pages at zoomed-out desktop widths.
+- **Forgetting `<title>`:** Leaves browser tabs displaying raw file paths (e.g. `file:///C:/index.html`).
 
 ## 🧪 Try It Yourself
 

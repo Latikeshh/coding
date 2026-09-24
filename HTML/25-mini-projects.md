@@ -32,13 +32,13 @@ A structured personal resume page using semantic HTML5 tags:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Latikesh Sharma - Web Developer Portfolio and Resume">
-  <title>Latikesh Sharma - Developer Portfolio</title>
+  <meta name="description" content="Alex Kumar - Web Developer Portfolio and Resume">
+  <title>Alex Kumar - Developer Portfolio</title>
 </head>
 <body>
 
   <header>
-    <h1>Latikesh Sharma</h1>
+    <h1>Alex Kumar</h1>
     <p>Frontend Web Developer &amp; Computer Science Student</p>
     <nav>
       <a href="#about">About</a> |
@@ -81,15 +81,15 @@ A structured personal resume page using semantic HTML5 tags:
 
     <section id="contact">
       <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:latikesh@example.com">latikesh@example.com</a></p>
-      <p>GitHub: <a href="https://github.com" target="_blank" rel="noopener">github.com/Latikeshh</a></p>
+      <p>Email: <a href="mailto:alex@example.com">alex@example.com</a></p>
+      <p>GitHub: <a href="https://github.com" target="_blank" rel="noopener">github.com/example-user</a></p>
     </section>
   </main>
 
   <hr>
 
   <footer>
-    <p>&copy; 2026 Latikesh Sharma. All rights reserved.</p>
+    <p>&copy; 2026 Alex Kumar. All rights reserved.</p>
   </footer>
 
 </body>

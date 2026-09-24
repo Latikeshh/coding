@@ -1,33 +1,33 @@
-# Modern HTML5 Features & Built-in Validation
+# Modern HTML Features & Built-in Validation
 
 > 🟡 Intermediate
 
 ## 📖 Definition
 
-**HTML5** is the modern living standard specification for HTML (maintained by WHATWG). It introduced semantic structural elements, native audio/video support, interactive graphics (`<canvas>`, `<svg>`), offline storage APIs, and powerful built-in client-side form validation attributes.
+The term **"HTML5"** refers to the major generation of HTML specifications introduced around the 2010s that brought semantic structural elements, native audio/video support, interactive graphics (`<canvas>`, `<svg>`), offline storage APIs, and built-in client-side form validation. Today, the HTML specification evolves continuously as a **Living Standard** maintained by WHATWG.
 
 ## 🌐 Multilingual Summary / संक्षेप / स्पष्टीकरण
 
 ### English
-HTML5 introduced semantic tags, native audio/video, canvas graphics, and built-in form validation attributes (`required`, `pattern`, `type="email"`).
+HTML5 introduced semantic tags, native audio/video, canvas graphics, and built-in form validation attributes (`required`, `pattern`, `type="email"`). Today's HTML evolves continuously as a Living Standard.
 
 ### Hindi
-HTML5 में सिमेंटिक टैग्स, नेटिव मीडिया (ऑडियो/वीडियो), कैनवस, और इन-बिल्ट फॉर्म वैलिडेशन (`required`, `pattern`) जैसे आधुनिक फीचर्स मिले।
+HTML5 में सिमेंटिक टैग्स, नेटिव मीडिया (ऑडियो/वीडियो), कैनवस, और इन-बिल्ट फॉर्म वैलिडेशन (`required`, `pattern`) जैसे आधुनिक फीचर्स मिले। आज HTML एक लगातार अपडेट होने वाला Living Standard है।
 
 ### Marathi
-HTML5 मुळे ऑडिओ, व्हिडिओ, नवीन इनपुट प्रकार आणि बिल्ट-इन फॉर्म व्हॅलिडेशन (`required`) वापरणे सोपे झाले.
+HTML5 मुळे ऑडिओ, व्हिडिओ, नवीन इनपुट प्रकार आणि बिल्ट-इन फॉर्म व्हॅलिडेशन (`required`) वापरणे सोपे झाले. आज HTML हे 'Living Standard' म्हणून अपडेट होत राहते.
 
 ### Hinglish
-HTML5 modern web standard hai jo semantic elements, native media, aur client-side form validation attributes (`required`, `pattern`, `min`, `max`) provide karta hai.
+HTML5 modern web features (semantic elements, native media, client-side form validation) introduce karta hai. Aaj HTML continuously update hone wala WHATWG Living Standard hai.
 
 ## 🚀 Key Innovations Introduced in HTML5
 
-1. **Simplified Document Boilerplate:** Clean, short doctype: `<!DOCTYPE html>`.
+1. **Simplified Document Boilerplate:** Clean, short doctype declaration: `<!DOCTYPE html>`.
 2. **Semantic Structural Tags:** `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`, `<figure>`.
-3. **Native Media Elements:** `<audio>`, `<video>`, and `<track>` without requiring third-party Flash plugins.
+3. **Native Media Elements:** `<audio>`, `<video>`, and `<track>` without requiring third-party plugins.
 4. **Enhanced Input Types:** `email`, `url`, `tel`, `number`, `date`, `time`, `color`, `range`, `search`.
 5. **Built-in Form Validation Attributes:** `required`, `pattern`, `min`, `max`, `step`, `minlength`, `maxlength`.
-6. **2D/3D Graphics & Vector Support:** `<canvas>` API and native inline `<svg>` graphics.
+6. **Graphics & Interactive Elements:** `<canvas>` API, inline `<svg>`, `<details>`, and `<summary>`.
 
 ## 📝 Built-in Client-Side Form Validation
 
@@ -43,7 +43,7 @@ Before HTML5, verifying user email formatting or required fields required writin
   <label for="email">Email Address:</label>
   <input id="email" type="email" name="email" required placeholder="user@domain.com">
 
-  <!-- Regex pattern matching (e.g. 10-digit Indian phone number) -->
+  <!-- Regex pattern matching (e.g. 10-digit phone number) -->
   <label for="phone">Phone (10 digits):</label>
   <input id="phone" type="tel" name="phone" pattern="[0-9]{10}" required placeholder="9876543210">
 
@@ -51,14 +51,14 @@ Before HTML5, verifying user email formatting or required fields required writin
 </form>
 ```
 
-When a user submits invalid data, modern browsers automatically block form submission and display a localized popup bubble error message (e.g. *"Please fill out this field"* or *"Please enter an email address"*).
+When a user submits invalid data, modern browsers automatically block form submission and display a localized popup error bubble.
 
 ## 🛑 Important Security Rule: Client vs. Server Validation
 
-While HTML5 client-side validation provides a fast, responsive user experience, **it can be bypassed by malicious users** by editing HTML inside browser Developer Tools.
+While HTML5 client-side validation provides a fast, responsive user experience and immediate feedback:
 
 > [!IMPORTANT]
-> **Always perform backend server-side validation!** Client-side HTML5 validation is for user convenience, while server-side validation is required for application security.
+> **Client-side validation does NOT replace server-side validation.** Users can easily bypass client-side HTML validation by disabling JavaScript or editing HTML in Developer Tools. Always validate and sanitize user data on the backend server for security.
 
 ## 📝 Code Example
 
