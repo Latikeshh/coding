@@ -4,7 +4,7 @@
 
 Welcome to **Coding** — an open-source, beginner-first, and technically accurate educational repository designed for learners, students, teachers, and self-taught developers worldwide.
 
-Whether you are writing your first line of HTML or mastering modern C++20 move semantics, this repository provides a structured, trust-worthy learning path with zero unnecessary fluff or artificial complexity.
+Whether you are writing your first line of HTML or mastering low-level C memory allocation, this repository provides a structured, trustworthy learning path with zero unnecessary fluff or artificial complexity.
 
 ---
 
@@ -12,10 +12,10 @@ Whether you are writing your first line of HTML or mastering modern C++20 move s
 
 This repository is **English-first**, maintaining industry-standard technical terms, keywords, and code syntax across all lessons. To make abstract programming concepts accessible to learners from diverse linguistic backgrounds, key concepts, definitions, summaries, and common mistakes include explanations in:
 
-- **English** (Primary technical instruction)
-- **Hindi** (हिंदी) — Natural explanations using standard technical terms
-- **Marathi** (मराठी) — Simple, clear explanations for regional learners
-- **Hinglish** (Latin Script) — Natural conversational explanations for Indian learners
+- **English** — Primary technical instruction
+- **Hindi** — Natural explanations using standard technical terms (Roman/Latin script for clean terminal reading)
+- **Marathi** — Simple, clear explanations for regional learners (Roman/Latin script)
+- **Hinglish** — Conversational explanations for Indian learners (Roman/Latin script)
 
 *Note: Programming syntax, keywords, tags, function names, and commands remain strictly in English.*
 
@@ -25,12 +25,12 @@ This repository is **English-first**, maintaining industry-standard technical te
 
 Every learning path is carefully ordered from environment setup and fundamentals to intermediate patterns, advanced systems concepts, and real-world mini projects.
 
-| Language | Lessons    | Target Level | Key Focus | Start Here |
-|---|------------|---|---|---|
+| Language | Lessons | Target Level | Key Focus | Start Here |
+|---|---|---|---|---|
 | 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | HTML5, Semantic Elements, Forms, Media, Accessibility, SEO | [Start HTML Path](HTML/00-README.md) |
 | 🎨 **CSS** | 43 Lessons | Beginner → Advanced | Selectors, Box Model, Flexbox, Grid, Animations, Responsive Design | [Start CSS Path](CSS/00-README.md) |
 | ⚙️ **C** | 23 Lessons | Beginner → Systems | ISO C11, Pointers, Dynamic Memory (`malloc`/`free`), Structs, File I/O | [Start C Path](C/00-README.md) |
-| ⚡ **JavaScript** | 24 Lessons | Beginner → Advanced | ES6+, Scope, Closures, Promises, Async/Await, DOM, Web Storage | [Start JS Path](JS/00-README.md) |
+| ⚡ **JavaScript** | 25 Lessons | Beginner → Advanced | ES6+, Scope, Closures, Promises, Async/Await, DOM, Web Storage | [Start JS Path](JS/00-README.md) |
 | 🚀 **C++** | 23 Lessons | Beginner → Systems | ISO C++17/20, OOP, RAII, Smart Pointers, STL, Templates, Move Semantics | [Start C++ Path](CPP/00-README.md) |
 
 ---
