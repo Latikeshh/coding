@@ -7,9 +7,8 @@
 [![ECMAScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](JS/00-README.md)
 [![HTML5 & CSS3](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3-orange.svg)](HTML/00-README.md)
 [![Multilingual](https://img.shields.io/badge/Languages-EN%20%7C%20HI%20%7C%20MR%20%7C%20Hinglish-green.svg)](#-multilingual-pedagogy-and-accessibility)
-[![LinkedIn](https://img.shields.io/badge/Author-Latikesh_Marathe-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/latikesh-marathe-966218374)
 
-Welcome to **Coding** — a structured, technically rigorous, and beginner-first repository created by **[Latikesh Marathe](https://www.linkedin.com/in/latikesh-marathe-966218374)** for self-taught developers, computer science students, educators, and software engineers.
+Welcome to **Coding** — a structured, technically rigorous, and beginner-first open-source repository created for self-taught developers, computer science students, educators, and software engineers.
 
 This repository eliminates artificial complexity, outdated practices, and superficial tutorials. Every lesson combines formal definitions, 4-language explanations, runnable production-ready code examples, common pitfall warnings, real-world usage contexts, hands-on exercises, and capstone mini projects.
 
@@ -21,9 +20,6 @@ If you find this repository helpful, support the project by starring it and shar
 
 [![GitHub Stars](https://img.shields.io/github/stars/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/network/members)
-
-### Connect with the Author:
-[![Connect on LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-Latikesh_Marathe-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/latikesh-marathe-966218374)
 
 ### Spread the Word:
 [![Share on LinkedIn](https://img.shields.io/badge/Share_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)
@@ -175,13 +171,29 @@ For beginners entering software development, we recommend following this progres
 
 ---
 
-## 🤝 Contributing & Community
+## 👥 Creator & Contributors
 
-Contributions are welcome! If you spot a typo, a bug in a code example, or want to improve an explanation:
+### 👨‍💻 Created & Maintained By
+This repository was created and is actively maintained by:
+
+| Creator | Profile | Connect |
+|---|---|---|
+| **Latikesh Marathe** | [@Latikeshh](https://github.com/Latikeshh) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Latikesh_Marathe-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/latikesh-marathe-966218374) |
+
+---
+
+### 🤝 Become a Contributor
+Contributions from the open-source community are welcome! Whether you are fixing a typo, improving an explanation, adding a code example, or reporting an edge case:
+
 1. Fork the repository.
-2. Create a focused branch (`git checkout -b fix-explanation`).
-3. Commit clear, well-described changes.
-4. Open a Pull Request.
+2. Create a focused feature branch (`git checkout -b feature/improvement`).
+3. Commit clear, well-described changes (`git commit -m 'Improve explanation'`).
+4. Push to your branch (`git push origin feature/improvement`).
+5. Open a Pull Request.
+
+All contributors will be featured below!
+
+[![Contributors](https://contrib.rocks/image?repo=Latikeshh/coding)](https://github.com/Latikeshh/coding/graphs/contributors)
 
 ---
 
