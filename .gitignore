@@ -1,0 +1,55 @@
+# Ignore all .txt files created for local work (e.g. prompt.txt, notes, scratch files)
+*.txt
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE and Editor directories & settings
+.idea/
+.vscode/
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+*.userprefs
+*.workspace
+
+# Compiled C / C++ binaries and object files
+*.exe
+*.out
+*.o
+*.obj
+*.bin
+*.a
+*.so
+*.dylib
+*.dll
+*.pdb
+*.idb
+
+# Temporary, build, and scratch directories
+.artifacts/
+scratch/
+tmp/
+temp/
+build/
+dist/
+
+# Node.js / JavaScript dependencies and logs
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment and secret files
+.env
+.env.local
+.env.*.local

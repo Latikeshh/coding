@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92418d0f-9782-4569-a128-e1346ab1d71e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/C/01-setup-c.md" beforeDir="false" afterPath="$PROJECT_DIR$/C/01-setup-c.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C/04-input-output.md" beforeDir="false" afterPath="$PROJECT_DIR$/C/04-input-output.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C/20-command-line-arguments.md" beforeDir="false" afterPath="$PROJECT_DIR$/C/20-command-line-arguments.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPP/01-setup-cpp.md" beforeDir="false" afterPath="$PROJECT_DIR$/CPP/01-setup-cpp.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="92418d0f-9782-4569-a128-e1346ab1d71e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
