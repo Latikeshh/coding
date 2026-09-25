@@ -9,16 +9,16 @@ Setting up the C environment involves installing a C compiler (such as **GCC** o
 ## 🌐 Multilingual Explanation
 
 ### English
-To write and run C programs, you need a text editor and a C compiler. The compiler translates your `.c` source code into machine instructions. Commands like `gcc -Wall -Wextra -std=c11 program.c -o program` compile the code cleanly with modern standard rules and safety warnings enabled.
+To write and run C programs, you need a text editor and a C compiler (or an all-in-one IDE like Dev-C++ or VS Code). The compiler translates your `.c` source code into machine instructions. Commands like `gcc -Wall -Wextra -std=c11 program.c -o program` compile the code cleanly with modern standard rules and safety warnings enabled.
 
 ### Hindi
-C programs likhne aur chalane ke liye aapko ek text editor aur C compiler (jaise GCC ya Clang) ki zaroorat hoti hai. Compiler aapke `.c` code ko computer ke samajhne yogya binary (machine code) mein badalta hai. `gcc -Wall -Wextra -std=c11 program.c -o program` command se code surakshit aur aadhunik C11 standard ke anusar compile hota hai.
+C programs likhne aur chalane ke liye aapko ek text editor aur C compiler (jaise GCC ya Clang) ki zaroorat hoti hai, ya aap Dev-C++ jaise all-in-one IDE ka upyog kar sakte hain. Compiler aapke `.c` code ko computer ke samajhne yogya binary (machine code) mein badalta hai. `gcc -Wall -Wextra -std=c11 program.c -o program` command se code safe aur aadhunik C11 standard ke anusar compile hota hai.
 
 ### Marathi
-C madhil programs lihinyasathi aani chalavanyasathi text editor aani C compiler chi (jasakhi GCC kiva Clang) garaj aste. Compiler tumchya `.c` code che rupantar machine code madhye karto. `gcc -Wall -Wextra -std=c11 program.c -o program` ya command dware surakshit aani C11 standards nusar code compile kela jato.
+C madhil programs lihinyasathi aani chalavanyasathi text editor aani C compiler chi (jasakhi GCC kiva Clang) garaj aste, kiva aapan Dev-C++ sarkha ready-made IDE vaparu shakto. Compiler tumchya `.c` code che rupantar machine code madhye karto. `gcc -Wall -Wextra -std=c11 program.c -o program` ya command dware safe aani C11 standards nusar code compile kela jato.
 
 ### Hinglish
-C language mein code run karne ke liye humein C compiler (jaise GCC ya Clang) ki zaroorat hoti hai. Compiler humare `.c` source code ko machine binary file mein convert karta hai. `gcc -Wall -Wextra -std=c11 program.c -o program` command se code bina kisi error ya safety warning ke compile hota hai.
+C language mein code run karne ke liye humein C compiler (jaise GCC ya Clang) ki zaroorat hoti hai. Windows users Dev-C++ IDE ya VS Code + MinGW-w64 use kar sakte hain. `gcc -Wall -Wextra -std=c11 program.c -o program` command se code bina kisi error ya safety warning ke compile hota hai.
 
 ## 🤔 Why Do We Use It?
 
@@ -30,7 +30,9 @@ Think of C source code as a recipe written in English. Your CPU is a chef who on
 
 ## 📝 Setup Instructions Across Operating Systems
 
-### 1. Windows (Using MinGW-w64 / MSYS2)
+### 1. Windows Setup Options
+
+#### Option A: Using MinGW-w64 / MSYS2 (Terminal / VS Code)
 1. Download and install **MSYS2** or **MinGW-w64**.
 2. Run the package manager command:
    ```bash
@@ -41,6 +43,14 @@ Think of C source code as a recipe written in English. Your CPU is a chef who on
    ```cmd
    gcc --version
    ```
+
+#### Option B: Using Dev-C++ IDE (All-in-One Beginner IDE for Windows)
+**Dev-C++** (such as **Embarcadero Dev-C++** or Orwell Dev-C++) is a popular, lightweight standalone IDE for Windows that includes a bundled MinGW GCC compiler suite.
+1. Download the **Embarcadero Dev-C++** installer from official GitHub releases or SourceForge.
+2. Run the `.exe` setup installer. It automatically installs both the Dev-C++ code editor and the bundled MinGW GCC compiler.
+3. Open Dev-C++ -> Click **File -> New -> Source File** (or press `Ctrl + N`).
+4. Write your C program and save the file with a `.c` extension (e.g. `hello.c`).
+5. Press **`F11`** (or click **Execute -> Compile & Run**) to automatically compile and execute your C code in an output console window.
 
 ### 2. Linux (Ubuntu / Debian / Fedora)
 Open your terminal and install the build tools:
@@ -72,7 +82,7 @@ int main(void) {
 }
 ```
 
-### Compiling and Running
+### Compiling and Running via Terminal
 
 ```bash
 # Compile with warnings and modern standard
@@ -84,6 +94,9 @@ gcc -Wall -Wextra -std=c11 hello.c -o hello
 # Run on Windows (CMD / PowerShell):
 hello.exe
 ```
+
+### Compiling and Running in Dev-C++ IDE
+Press **`F9`** to Compile, **`F10`** to Run, or **`F11`** to Compile & Run simultaneously.
 
 ## 🔍 Code Breakdown
 
@@ -101,8 +114,9 @@ Hello, World! Welcome to C programming.
 
 ## ⚠️ Common Mistakes
 
-- **Forgetting `-o filename`:** Running `gcc hello.c` without `-o` generates a default output file named `a.out` (Linux/macOS) or `a.exe` (Windows).
-- **Missing Path Variable on Windows:** Getting `'gcc' is not recognized as an internal or external command` because MinGW bin folder is not in PATH.
+- **Forgetting `-o filename` in Terminal:** Running `gcc hello.c` without `-o` generates a default output file named `a.out` (Linux/macOS) or `a.exe` (Windows).
+- **Saving as `.cpp` instead of `.c` in Dev-C++:** Saving C source code with `.cpp` extension causes Dev-C++ to compile it as C++ code instead of standard C.
+- **Missing Path Variable on Windows:** Getting `'gcc' is not recognized as an internal or external command` when using CMD/PowerShell because MinGW bin folder is not added to System PATH.
 - **Forgetting `return 0;` or `int main(void)` signature:** Using legacy non-standard signatures like `void main()` causes compiler warnings on strict standards.
 
 ## 🛡️ Safety / Important Flags
@@ -123,13 +137,13 @@ Every major operating system kernel (Linux, Windows kernel, macOS Darwin), embed
 
 ## 🧪 Try It Yourself
 
-1. Install GCC or Clang on your machine.
+1. Install GCC/Clang or Dev-C++ on your machine.
 2. Create a file called `info.c` and print your name and favorite programming language.
-3. Compile it using `-Wall -Wextra -std=c11` and run it.
+3. Compile and run it successfully.
 
 ## 🎯 Mini Challenge
 
-Write a program named `square.c` that prints a 4x4 box made of `#` symbols using 4 separate `printf` statements. Compile and run it successfully.
+Write a program named `square.c` that prints a 4x4 box made of `#` symbols using 4 separate `printf` statements. Compile and run it in your terminal or Dev-C++.
 
 ## 🔗 Related Topics
 

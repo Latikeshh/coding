@@ -15,7 +15,7 @@ Command line arguments pass parameters to `main(int argc, char *argv[])`. `argc`
 Terminal shell se C program chalate waqt inputs dene ke liye Command Line Arguments ka use hota hai. `main(int argc, char *argv[])` in inputs ko receive karta hai. `argc` total arguments ki count batata hai (jisne `argv[0]` par program name hota hai). Numbers mein conversion ke liye `atoi()` ki jagah `strtol()` ka use karein kyunki `strtol()` invalid input error check karta hai.
 
 ### Marathi
-Terminal varun program chalavatana parameters denyasathi Command Line Arguments vaparale jatat. `argc` arguments chi sankhya sangto (`argv[0]` madhye program cha path asto). `argv[]` madhye sarv arguments text (string) swarupat asatat. Strings che numbers madhye rupantar karanyasathi `atoi()` peksha `strtol()` vaparane jasta surakshit aahe.
+Terminal varun program chalavatana parameters denyasathi Command Line Arguments vaparale jatat. `argc` arguments chi sankhya sangto (`argv[0]` madhye program cha path asto). `argv[]` madhye sarv arguments text (string) swarupat asatat. Strings che numbers madhye rupantar karanyasathi `atoi()` peksha `strtol()` vaparane jasta safe aahe.
 
 ### Hinglish
 CLI tools (jaise `gcc`, `git`, `curl`) command line arguments se operate hote hain. `argv[0]` par hamesha executable ka name/path hota hai, isliye real user parameters `argv[1]` se start hote hain. Raw `atoi(argv[1])` unsafe hota hai kyunki invalid text paas hone par woh `0` return karta hai aur error detect nahi karta. Safe conversion ke liye `strtol()` use karo.

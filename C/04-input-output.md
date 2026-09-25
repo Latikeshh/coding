@@ -15,7 +15,7 @@ C uses functions from `<stdio.h>` for stream I/O. `printf()` formats and display
 C stream I/O ke liye `<stdio.h>` functions ka use karta hai. `printf()` output formatted way mein dikhata hai. `scanf()` user input read karta hai aur isme address-of operator (`&var`) dena padta hai. Multi-word strings ke liye `fgets()` ka upyog karna chahiye taaki buffer overflow se bacha ja sake.
 
 ### Marathi
-C madhye stream I/O sathi `<stdio.h>` mhadhil functions vaparali jatat. `printf()` output chaanglya format madhye dakhavate. `scanf()` user input vachnyasathi vaparatat aani tyasathi variable cha address (`&var`) dyava lagto. Full text inputs sathi `fgets()` vaparane surakshit aste.
+C madhye stream I/O sathi `<stdio.h>` mhadhil functions vaparali jatat. `printf()` output chaanglya format madhye dakhavate. `scanf()` user input vachnyasathi vaparatat aani tyasathi variable cha address (`&var`) dyava lagto. Full text inputs sathi `fgets()` vaparane safe aste.
 
 ### Hinglish
 `printf()` terminal output dikhane ke liye hai aur `scanf()` user input padhne ke liye. `scanf()` mein primitive types ke sath `&` (address-of) lagana zaroori hota hai. Multi-word string inputs ke liye `scanf("%s")` unsafe hai, safe alternative `fgets()` hai.

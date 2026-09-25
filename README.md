@@ -1,11 +1,12 @@
 # 💻 Coding — Practical, Accurate & Multilingual Programming Resource
 
-> **A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development and Systems Programming.**
+> **A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development, Systems Programming, and Version Control.**
 
 [![Standard ISO C11](https://img.shields.io/badge/C-ISO_C11-blue.svg)](C/00-README.md)
 [![Standard C++20](https://img.shields.io/badge/C++-ISO_C++17/20-blue.svg)](CPP/00-README.md)
 [![ECMAScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](JS/00-README.md)
 [![HTML5 & CSS3](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3-orange.svg)](HTML/00-README.md)
+[![Git & GitHub](https://img.shields.io/badge/Version_Control-Git_%26_GitHub-black.svg)](Git-and-GitHub/00-README.md)
 [![Multilingual](https://img.shields.io/badge/Languages-EN%20%7C%20HI%20%7C%20MR%20%7C%20Hinglish-green.svg)](#-multilingual-pedagogy-and-accessibility)
 
 Welcome to **Coding** — a structured, technically rigorous, and beginner-first open-source repository created for self-taught developers, computer science students, educators, and software engineers.
@@ -30,7 +31,7 @@ If you find this repository helpful, support the project by starring it and shar
 
 ## 📂 Repository Architecture & Structure
 
-The repository is modularly organized into 5 primary technology tracks comprising **147+ comprehensive lessons**:
+The repository is modularly organized into 6 primary technology tracks comprising **177+ comprehensive lessons**:
 
 ```text
 coding/
@@ -42,6 +43,10 @@ coding/
 │   ├── 00-README.md       # CSS Master Syllabus & Learning Path
 │   ├── 01-setup-css.md
 │   └── ... [02 to 43]
+├── 🔀 Git-and-GitHub/     # 30 Lessons: Git CLI, Branching, Merging, Rebase, Stash, Remotes, PRs, SSH & Actions CI/CD
+│   ├── 00-README.md       # Git & GitHub Master Syllabus
+│   ├── 01-introduction-to-version-control.md
+│   └── ... [02 to 30]
 ├── ⚙️ C/                  # 23 Lessons: ISO C11, Pointers, Dynamic Memory (malloc/free), Structs & File I/O
 │   ├── 00-README.md       # C Master Syllabus & Systems Learning Path
 │   ├── 01-setup-c.md
@@ -65,6 +70,7 @@ coding/
 |---|---|---|---|---|
 | 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | Document Structure, Semantic HTML5, Forms & Validations, Audio/Video, Accessibility (ARIA), Meta Tags, Open Graph & SEO | [Explore HTML](HTML/00-README.md) |
 | 🎨 **CSS** | 43 Lessons | Beginner → Advanced | Specificity, Box Model, Flexbox, CSS Grid, Media Queries, Transitions, Keyframe Animations, Custom Properties (Variables), Dark Mode & Architecture | [Explore CSS](CSS/00-README.md) |
+| 🔀 **Git & GitHub** | 30 Lessons | Beginner → Advanced DevOps | Git CLI, 3 Trees, Committing, `.gitignore`, Branching, 3-Way Merge, Conflict Resolution, Rebase, Stash, Remotes, PRs, SSH, Pages & Actions CI/CD | [Explore Git & GitHub](Git-and-GitHub/00-README.md) |
 | ⚙️ **C** | 23 Lessons | Beginner → Systems | ISO C11, Input/Output (`fgets`), Pointer Arithmetic, Dynamic Memory Allocation (`malloc`/`free`), Structs, Unions, File I/O, Header Guards & Persistent Binary Database Engine | [Explore C](C/00-README.md) |
 | ⚡ **JavaScript** | 25 Lessons | Beginner → Advanced | Modern ES6+, Scoping & Hoisting, Closures, Promises, `async`/`await`, Fetch API, Prototypes, ES6 Classes, DOM Selection/Events & Web Storage | [Explore JS](JS/00-README.md) |
 | 🚀 **C++** | 23 Lessons | Beginner → Advanced Systems | ISO C++17/20, References, Modern OOP, Operator Overloading, Smart Pointers (`unique_ptr`/`shared_ptr`), STL Containers & Algorithms, Templates, Exceptions, Lambda Expressions & Move Semantics | [Explore C++](CPP/00-README.md) |
@@ -111,7 +117,19 @@ Every lesson in this repository follows a consistent, high-yield pedagogical str
 
 ## ⚡ Quick Execution & Compilation Cheatsheet
 
-### 1. Running C Programs (ISO C11)
+### 1. Git & GitHub Operations (CLI)
+```bash
+# Initialize, stage, and commit
+git init
+git add .
+git commit -m "Initial commit"
+
+# Sync with GitHub
+git remote add origin git@github.com:username/repo.git
+git push -u origin main
+```
+
+### 2. Running C Programs (ISO C11)
 ```bash
 # Compile with strict warnings enabled
 gcc -Wall -Wextra -std=c11 program.c -o program
@@ -121,7 +139,7 @@ gcc -Wall -Wextra -std=c11 program.c -o program
 program.exe      # Windows
 ```
 
-### 2. Running C++ Programs (ISO C++17/20)
+### 3. Running C++ Programs (ISO C++17/20)
 ```bash
 # Compile with modern C++ standard
 g++ -Wall -Wextra -std=c++20 program.cpp -o program
@@ -130,7 +148,7 @@ g++ -Wall -Wextra -std=c++20 program.cpp -o program
 ./program
 ```
 
-### 3. Running JavaScript (Node.js & DevTools)
+### 4. Running JavaScript (Node.js & DevTools)
 ```bash
 # Run via Node.js runtime
 node script.js
@@ -138,7 +156,7 @@ node script.js
 # Or open browser Developer Console (F12) -> Console tab
 ```
 
-### 4. Running Web Projects (HTML / CSS)
+### 5. Running Web Projects (HTML / CSS)
 Open `.html` files in any modern web browser or use VS Code **Live Server** extension for hot-reloading.
 
 ---
@@ -148,17 +166,17 @@ Open `.html` files in any modern web browser or use VS Code **Live Server** exte
 For beginners entering software development, we recommend following this progressive sequence:
 
 ```text
-[1. Web Fundamentals]
-   HTML (Structure & Content) ──> CSS (Styling, Flexbox & Grid)
-                                       │
-                                       ▼
-[2. Dynamic Web Logic]          JavaScript (ES6+, DOM, Async/Await)
-                                       │
-                                       ▼
-[3. Low-Level Systems]          C (Pointers, Memory & Structs)
-                                       │
-                                       ▼
-[4. High-Performance OOP]       C++ (Modern OOP, STL, Smart Pointers & Move Semantics)
+[1. Version Control & Web Fundamentals]
+   Git & GitHub (Version Control) ──> HTML (Structure) ──> CSS (Styling, Flexbox & Grid)
+                                                                 │
+                                                                 ▼
+[2. Dynamic Web Logic]                     JavaScript (ES6+, DOM, Async/Await)
+                                                                 │
+                                                                 ▼
+[3. Low-Level Systems]                     C (Pointers, Memory & Structs)
+                                                                 │
+                                                                 ▼
+[4. High-Performance OOP]                  C++ (Modern OOP, STL, Smart Pointers & Move Semantics)
 ```
 
 ---
@@ -201,6 +219,7 @@ All contributors will be featured below!
 
 - 🌐 [HTML Learning Path](HTML/00-README.md)
 - 🎨 [CSS Learning Path](CSS/00-README.md)
+- 🔀 [Git & GitHub Path](Git-and-GitHub/00-README.md)
 - ⚙️ [C Systems Path](C/00-README.md)
 - ⚡ [JavaScript Path](JS/00-README.md)
 - 🚀 [C++ Systems Path](CPP/00-README.md)
