@@ -1,76 +1,121 @@
-# ⚡ Learn JavaScript
+# ⚡ Learn SQL
 
-JavaScript is the programming language of the Web. It brings web pages to life by making them interactive, handling user events, updating content dynamically, managing asynchronous operations, and building full-stack applications.
+SQL (Structured Query Language) is the standard language used to communicate with relational databases. It lets you create databases and tables, store and retrieve data, filter and sort records, combine data from multiple tables, modify records, and perform powerful data analysis.
 
-> 🟢 **Beginner to Advanced:** Start with the browser console, master core syntax, dive deep into closures, promises, async/await, DOM manipulation, OOP, and modern ES6+ features.
+> 🟢 **Beginner to Advanced:** Start with database fundamentals and basic queries, master filtering, sorting, grouping, and joins, then move into subqueries, functions, views, indexes, transactions, constraints, normalization, and advanced SQL techniques.
 
 ## 📖 What You Will Learn
 
-- How JavaScript runs in browsers and Node.js
-- Variables, data types, scoping rules (`var`, `let`, `const`, TDZ), and hoisting
-- Control flow, operators, loops, and error handling
-- Functions, closures, higher-order functions, and callback patterns
-- Advanced array operations (`map`, `filter`, `reduce`) and object handling
-- Asynchronous programming, Promises, `async`/`await`, and Fetch API
-- Object-Oriented JS, Prototypes, `this` binding, and ES6 Classes
-- DOM selection, event bubbling, event delegation, and Web Storage APIs
-- Modular JS architecture (`import`/`export`), DevTools debugging, and building real-world projects
+* What databases and relational databases are
+* SQL syntax, statements, keywords, and comments
+* Creating and managing databases and tables
+* Inserting, reading, updating, and deleting data
+* Filtering data using `WHERE`, `AND`, `OR`, `NOT`, and `BETWEEN`
+* Sorting and limiting query results with `ORDER BY` and `LIMIT`
+* SQL data types and NULL values
+* Aggregate functions such as `COUNT`, `SUM`, `AVG`, `MIN`, and `MAX`
+* Grouping data using `GROUP BY` and filtering groups with `HAVING`
+* Combining data using `INNER`, `LEFT`, `RIGHT`, and `FULL` joins
+* Primary keys, foreign keys, unique constraints, and other constraints
+* Subqueries and correlated subqueries
+* SQL functions, expressions, and conditional logic
+* Views, indexes, and database optimization concepts
+* Transactions, `COMMIT`, `ROLLBACK`, and ACID properties
+* Database normalization and relational design
+* Common Table Expressions (CTEs) and recursive queries
+* Window functions and advanced data analysis
+* Stored procedures, triggers, and database automation
+* Practical SQL projects and real-world database queries
 
 ## 📚 Lessons
 
-| # | Topic | Level | Link |
-|---|---|---|---|
-| 01 | Set Up JavaScript Environment | 🟢 Beginner | [Open lesson](01-setup-js.md) |
-| 02 | Introduction to JavaScript | 🟢 Beginner | [Open lesson](02-introduction-to-js.md) |
-| 03 | Variables (`let`, `const`, `var`) | 🟢 Beginner | [Open lesson](03-variables.md) |
-| 04 | Data Types & String Methods | 🟢 Beginner | [Open lesson](04-data-types.md) |
-| 05 | Operators in JavaScript | 🟢 Beginner | [Open lesson](05-operators.md) |
-| 06 | Conditionals (`if`, `switch`, Ternary) | 🟢 Beginner | [Open lesson](06-conditionals.md) |
-| 07 | Loops (`for`, `while`, `for...of`, `for...in`) | 🟢 Beginner | [Open lesson](07-loops.md) |
-| 08 | Functions in JavaScript | 🟢 Beginner | [Open lesson](08-functions.md) |
-| 09 | Arrays & Essential Methods | 🟡 Intermediate | [Open lesson](09-arrays.md) |
-| 10 | Objects, `Map`, `Set`, `Date` & RegExp | 🟡 Intermediate | [Open lesson](10-objects.md) |
-| 11 | Scope, Hoisting & Temporal Dead Zone (TDZ) | 🟡 Intermediate | [Open lesson](11-scope-and-hoisting.md) |
-| 12 | Modern ES6+ Features | 🟡 Intermediate | [Open lesson](12-es6-features.md) |
-| 13 | Advanced Array Methods (`map`, `filter`, `reduce`) | 🟡 Intermediate | [Open lesson](13-advanced-array-methods.md) |
-| 14 | Higher-Order Functions & Closures | 🔴 Advanced | [Open lesson](14-closures-and-callbacks.md) |
-| 15 | Asynchronous JS, Promises & Async/Await | 🔴 Advanced | [Open lesson](15-promises-and-async-await.md) |
-| 16 | Fetch API & Working with JSON | 🔴 Advanced | [Open lesson](16-fetch-api-and-json.md) |
-| 17 | Prototypes, `this` Keyword & Binding | 🔴 Advanced | [Open lesson](17-prototypes-and-this.md) |
-| 18 | ES6 Classes & Object-Oriented JS | 🔴 Advanced | [Open lesson](18-classes-and-oop.md) |
-| 19 | DOM Selection & Manipulation | 🟡 Intermediate | [Open lesson](19-dom-manipulation.md) |
-| 20 | Event Bubbling, Delegation & Web APIs | 🔴 Advanced | [Open lesson](20-event-delegation-and-web-apis.md) |
-| 21 | Web Storage (`localStorage` & `sessionStorage`) | 🟡 Intermediate | [Open lesson](21-web-storage.md) |
-| 22 | Error Handling (`try...catch...finally`) | 🟡 Intermediate | [Open lesson](22-error-handling.md) |
-| 23 | JS Modules (`import` / `export`) | 🟡 Intermediate | [Open lesson](23-modules.md) |
-| 24 | Comprehensive JS Mini Projects | 🔴 Advanced | [Open lesson](24-mini-projects.md) |
-| 25 | Practical JavaScript Debugging in DevTools | 🟡 Intermediate | [Open lesson](25-javascript-debugging.md) |
+| #  | Topic                                           | Level           | Link                                          |
+| -- | ----------------------------------------------- | --------------- | --------------------------------------------- |
+| 01 | Set Up SQL Environment                          | 🟢 Beginner     | [Open lesson](01-setup-sql.md)                |
+| 02 | Introduction to SQL & Databases                 | 🟢 Beginner     | [Open lesson](02-introduction-to-sql.md)      |
+| 03 | Database & Table Basics                         | 🟢 Beginner     | [Open lesson](03-databases-and-tables.md)     |
+| 04 | SQL Data Types & NULL Values                    | 🟢 Beginner     | [Open lesson](04-data-types-and-null.md)      |
+| 05 | `INSERT` – Adding Data                          | 🟢 Beginner     | [Open lesson](05-insert.md)                   |
+| 06 | `SELECT` – Reading Data                         | 🟢 Beginner     | [Open lesson](06-select.md)                   |
+| 07 | Filtering Data with `WHERE`                     | 🟢 Beginner     | [Open lesson](07-where.md)                    |
+| 08 | Operators in SQL                                | 🟢 Beginner     | [Open lesson](08-operators.md)                |
+| 09 | Sorting & Limiting Results                      | 🟢 Beginner     | [Open lesson](09-order-by-and-limit.md)       |
+| 10 | `UPDATE` & `DELETE`                             | 🟢 Beginner     | [Open lesson](10-update-and-delete.md)        |
+| 11 | SQL Constraints                                 | 🟡 Intermediate | [Open lesson](11-constraints.md)              |
+| 12 | Primary Keys & Foreign Keys                     | 🟡 Intermediate | [Open lesson](12-primary-and-foreign-keys.md) |
+| 13 | Aggregate Functions                             | 🟡 Intermediate | [Open lesson](13-aggregate-functions.md)      |
+| 14 | `GROUP BY` & `HAVING`                           | 🟡 Intermediate | [Open lesson](14-group-by-and-having.md)      |
+| 15 | SQL Joins                                       | 🟡 Intermediate | [Open lesson](15-joins.md)                    |
+| 16 | SQL String, Numeric & Date Functions            | 🟡 Intermediate | [Open lesson](16-sql-functions.md)            |
+| 17 | Conditional Logic with `CASE`                   | 🟡 Intermediate | [Open lesson](17-case-expressions.md)         |
+| 18 | Subqueries & Nested Queries                     | 🟡 Intermediate | [Open lesson](18-subqueries.md)               |
+| 19 | Set Operations (`UNION`, `INTERSECT`, `EXCEPT`) | 🟡 Intermediate | [Open lesson](19-set-operations.md)           |
+| 20 | Database Relationships & Normalization          | 🟡 Intermediate | [Open lesson](20-normalization.md)            |
+| 21 | Views & Virtual Tables                          | 🟡 Intermediate | [Open lesson](21-views.md)                    |
+| 22 | Indexes & Query Performance                     | 🔴 Advanced     | [Open lesson](22-indexes-and-performance.md)  |
+| 23 | Transactions & ACID                             | 🔴 Advanced     | [Open lesson](23-transactions.md)             |
+| 24 | Common Table Expressions (CTEs)                 | 🔴 Advanced     | [Open lesson](24-ctes.md)                     |
+| 25 | Recursive CTEs                                  | 🔴 Advanced     | [Open lesson](25-recursive-ctes.md)           |
+| 26 | Window Functions                                | 🔴 Advanced     | [Open lesson](26-window-functions.md)         |
+| 27 | Stored Procedures & Functions                   | 🔴 Advanced     | [Open lesson](27-stored-procedures.md)        |
+| 28 | Triggers                                        | 🔴 Advanced     | [Open lesson](28-triggers.md)                 |
+| 29 | SQL Security & Permissions                      | 🔴 Advanced     | [Open lesson](29-sql-security.md)             |
+| 30 | Practical SQL Projects                          | 🔴 Advanced     | [Open lesson](30-sql-projects.md)             |
 
 ## 🎯 Suggested Learning Flow
 
-`01–08 Core Fundamentals` → `09–13 ES6 & Data Manipulation` → `14–16 Async JS & APIs` → `17–18 Prototypes & OOP` → `19–21 DOM & Storage` → `22–23 Errors & Modules` → `24–25 Mini Projects & DevTools Debugging`
+`01–04 SQL & Database Fundamentals` → `05–10 CRUD & Query Basics` → `11–15 Constraints, Keys & Joins` → `16–20 Functions, Subqueries & Database Design` → `21–23 Views, Indexes & Transactions` → `24–26 CTEs & Advanced Queries` → `27–29 Procedures, Triggers & Security` → `30 Practical Projects`
 
 ## 🧪 Practice Routine
 
 For each lesson:
-1. Read the explanation and study the code example.
-2. Open your browser Developer Console (`F12`) or VS Code Node runtime.
-3. Type out all examples manually to build muscle memory.
-4. Tweak parameters, test edge cases, and inspect output.
-5. Solve the "Try It Yourself" and "Mini Challenge" tasks.
+
+1. Read the explanation and study the SQL examples.
+2. Run every query using your SQL environment.
+3. Create your own database and tables instead of only copying examples.
+4. Insert different types of data and experiment with the queries.
+5. Change conditions, joins, functions, and values to observe the results.
+6. Test edge cases such as `NULL`, duplicate values, and empty results.
+7. Solve the **Try It Yourself** and **Mini Challenge** tasks.
+8. Review the generated result and understand why the query produced it.
+
+## 🗄️ Recommended SQL Environments
+
+You can practice SQL using:
+
+* MySQL
+* PostgreSQL
+* SQLite
+* Microsoft SQL Server
+* MariaDB
+* Oracle Database
+* Online SQL playgrounds
+
+> ⚠️ SQL syntax can vary between database systems. Most fundamental SQL concepts are shared, but features such as date functions, `LIMIT`, stored procedures, and some advanced syntax may differ between MySQL, PostgreSQL, SQL Server, Oracle, and SQLite.
 
 ## ✅ Progress Checklist
 
-- [ ] I can write and execute JavaScript in browsers and Node.js.
-- [ ] I understand scope, closures, lexical environment, and hoisting.
-- [ ] I can use ES6 destructuring, spread/rest, and arrow functions effortlessly.
-- [ ] I can transform arrays using `map`, `filter`, and `reduce`.
-- [ ] I can handle asynchronous network requests using Promises and `async`/`await`.
-- [ ] I understand `this` binding, prototypes, and ES6 classes.
-- [ ] I can manipulate the DOM, delegate events, and store persistent user data.
-- [ ] I built interactive mini projects using modular code architecture.
-- [ ] I can debug runtime errors using browser DevTools and breakpoints.
+* [ ] I understand what SQL and relational databases are.
+* [ ] I can create databases and tables.
+* [ ] I understand SQL data types and `NULL`.
+* [ ] I can insert, select, update, and delete records.
+* [ ] I can filter and sort query results.
+* [ ] I understand primary keys and foreign keys.
+* [ ] I can use SQL constraints correctly.
+* [ ] I can use aggregate functions such as `COUNT`, `SUM`, and `AVG`.
+* [ ] I can group data using `GROUP BY` and `HAVING`.
+* [ ] I understand and can use different types of joins.
+* [ ] I can write subqueries and nested queries.
+* [ ] I understand database relationships and normalization.
+* [ ] I can create and use views.
+* [ ] I understand indexes and basic query optimization.
+* [ ] I understand transactions, `COMMIT`, `ROLLBACK`, and ACID.
+* [ ] I can write CTEs and recursive queries.
+* [ ] I can use window functions for advanced data analysis.
+* [ ] I understand stored procedures and triggers.
+* [ ] I understand basic database security and permissions.
+* [ ] I have built practical SQL projects using real-world datasets.
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-js.md)
+[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-sql.md)
