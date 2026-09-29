@@ -18,6 +18,14 @@ Loops mule ekach code block punha punha run kela jaat. Condition `true` asel top
 
 Instead of writing `console.log()` 100 times manually, a loop can iterate through thousands of database items or render UI lists in milliseconds.
 
+## 🧠 Simple Explanation
+
+- **Standard `for` loop:** Ideal when you know the exact number of times you want to repeat an action. It automatically handles initialization, condition checking, and counter increments in a single line.
+- **`while` loop:** Used when you want to repeat actions based on an ongoing condition rather than a fixed count. It checks the condition before every iteration and stops when the condition becomes false.
+- **`do...while` loop:** Similar to a `while` loop, but with a guarantee that the code block will execute at least once. It checks the condition after running the code rather than before.
+- **`for...of` loop:** Specifically designed for modern JavaScript to easily loop through items in lists, arrays, or text strings. It directly gives you the value of each item without needing index numbers.
+- **`for...in` loop:** Used to inspect all the property keys or names inside an object. It lets you examine the labels or keys attached to data objects rather than list values.
+
 ## 📝 Loop Types & Syntax
 
 ### 1. Standard `for` Loop

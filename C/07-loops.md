@@ -26,9 +26,9 @@ Writing repetitive code manually (like printing 100 invoice records or reading 1
 
 ## 🧠 Simple Explanation
 
-- **`for` loop:** "Run this code exactly 10 times."
-- **`while` loop:** "Keep running this code as long as the battery is above 5%."
-- **`do-while` loop:** "Ask the user for password first, then check if it's correct. Repeat if wrong."
+- **`for` loop:** Used when you know beforehand exactly how many times you need to repeat a task. Like a fitness coach telling you to do precisely 10 push-ups, it automatically manages the starting point, the ending limit, and the counting step.
+- **`while` loop:** Used when you don't know how many repetitions are needed in advance, but you know the stopping condition. Like checking your phone battery: "Keep playing music as long as the battery percentage is above 5%," stopping the moment it hits 0%.
+- **`do-while` loop:** Similar to a `while` loop, but with a guarantee that the code block will run at least once before checking the condition. Like a secure login prompt: ask the user for their password at least once, and then repeat asking if they entered the wrong one.
 
 ## 📝 Loop Constructs & Syntax
 

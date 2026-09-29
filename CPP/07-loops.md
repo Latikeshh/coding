@@ -13,6 +13,13 @@ Loops repeat C++ statements automatically. Modern C++ (C++11+) includes **Range-
 > - **Marathi:** मॉडर्न C++ मधील रेंज-बेस्ड फॉर लूपमुळे एरे आणि व्हेक्टर्स वाचणे सोपे जाते.
 > - **Hinglish:** Range-based `for` loop `for (const auto &item : vec)` se vectors aur arrays easily iterate hote hain.
 
+## 🧠 Simple Explanation
+
+- **Standard `for` loop:** Used when you know the exact number of iterations needed. It keeps track of a counter variable from a start point to an end point, making it ideal for counting tasks.
+- **`while` loop:** Used when repetition depends on a dynamic condition rather than a fixed count. It checks the condition before every run, continuing as long as the condition remains true.
+- **`do-while` loop:** Similar to a `while` loop, but it guarantees that the code inside executes at least once before checking the condition at the end.
+- **Range-Based `for` loop:** A modern C++ feature designed to easily inspect every item in a collection or list (like a vector or array) one by one without needing manual counters or index numbers.
+
 ## 📝 Syntax
 
 ```cpp
