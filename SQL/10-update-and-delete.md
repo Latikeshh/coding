@@ -85,10 +85,12 @@ Updated Table Result:
 
 | Feature | `DELETE FROM table` | `TRUNCATE TABLE` |
 |---|---|---|
-| Category | DML | DDL |
+| Category | DML | Commonly classified as DDL; classification varies |
 | Condition Filter | Allows `WHERE` filter | Removes ALL rows (No `WHERE` allowed) |
-| Performance | Slower (logs row-by-row) | Extremely Fast (deallocates pages) |
-| Transaction Rollback | Can be rolled back in transaction | Cannot be easily rolled back in some DBs |
+| Performance | Depends on table size, indexes, triggers, and engine | Often optimized for bulk removal, but actual performance varies |
+| Transaction Rollback | Depends on database and transaction context | Depends on database and transaction context |
+
+`TRUNCATE TABLE` removes every row but keeps the table definition. Its support, locking, trigger behavior, identity-counter handling, and rollback semantics differ among database systems. Confirm the behavior for your engine before using it in production.
 
 ## ⚠️ Common Mistakes
 

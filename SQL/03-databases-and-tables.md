@@ -20,8 +20,8 @@ Database aani Tables cha structure tayar karnyasathi `CREATE` command vaparatat.
 - `USE database_name;`: Selects the active database (MySQL/SQL Server).
 - `CREATE TABLE table_name (...);`: Defines a new table schema with column names and data types.
 - `ALTER TABLE table_name ...;`: Modifies an existing table's columns or structure.
-- `DROP TABLE table_name;`: Permanently deletes a table and all its contained data.
-- `TRUNCATE TABLE table_name;`: Removes **all rows** from a table instantly while keeping table structure intact.
+- `DROP TABLE table_name;`: Removes a table definition and its data, subject to the database's transaction and recovery behavior.
+- `TRUNCATE TABLE table_name;`: Removes all rows while keeping the table definition; availability and exact behavior vary by database.
 
 ## 💡 Practical Example: Complete DDL Script
 
@@ -62,13 +62,15 @@ DROP COLUMN category;
 
 | Command | Category | Action | Structure Kept? |
 |---|---|---|---|
-| `DROP TABLE` | DDL | Deletes table schema AND all data permanently | ❌ No |
-| `TRUNCATE TABLE` | DDL | Instantly empties all data rows | ✅ Yes |
+| `DROP TABLE` | Usually DDL | Removes the table definition and its data | ❌ No |
+| `TRUNCATE TABLE` | Classification varies | Removes all rows while keeping the table definition | ✅ Yes |
 | `DELETE FROM` | DML | Removes specific rows based on `WHERE` condition | ✅ Yes |
+
+> The DDL/DML classification, transaction rollback support, trigger behavior, identity-counter handling, and performance of `TRUNCATE` vary by database. Do not assume it is always faster than `DELETE` or impossible to roll back; check your database documentation.
 
 ## ⚠️ Common Mistakes
 
-- Forgetting that `DROP TABLE` permanently destroys data with **no undo option**!
+- Forgetting that `DROP TABLE` removes both the table definition and its data; whether a transaction or backup can recover it depends on the database and setup.
 - Trying to create a table before selecting an active database (`USE database_name;`).
 
 ## 🌍 Real-World Usage
