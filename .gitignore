@@ -1,5 +1,5 @@
 # Ignore all .txt files created for local work (e.g. prompt.txt, notes, scratch files)
-*.txt
+
 
 # OS generated files
 .DS_Store
