@@ -5,6 +5,8 @@
 [![Standard ISO C11](https://img.shields.io/badge/C-ISO_C11-blue.svg)](C/00-README.md)
 [![Standard C++20](https://img.shields.io/badge/C++-ISO_C++17/20-blue.svg)](CPP/00-README.md)
 [![ECMAScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](JS/00-README.md)
+[![Python](https://img.shields.io/badge/Python-3-blue.svg)](python/00-README.md)
+[![Java](https://img.shields.io/badge/Java-JDK%2025-orange.svg)](java/00-README.md)
 [![HTML5 & CSS3](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3-orange.svg)](HTML/00-README.md)
 [![Git & GitHub](https://img.shields.io/badge/Version_Control-Git_%26_GitHub-black.svg)](Git-and-GitHub/00-README.md)
 [![Multilingual](https://img.shields.io/badge/Languages-EN%20%7C%20HI%20%7C%20MR%20%7C%20Hinglish-green.svg)](#-multilingual-pedagogy-and-accessibility)
@@ -31,7 +33,7 @@ If you find this repository helpful, support the project by starring it and shar
 
 ## 📂 Repository Architecture & Structure
 
-The repository is modularly organized into 6 primary technology tracks comprising **177+ comprehensive lessons**:
+The repository is modularly organized into 8 primary technology tracks comprising **231 lessons**:
 
 ```text
 coding/
@@ -68,6 +70,8 @@ coding/
 
 | Track | Total Lessons | Level Range | Key Concepts Covered | Quick Link |
 |---|---|---|---|---|
+| Python | 31 Lessons | Beginner → Practical | Python 3 fundamentals, collections, functions, OOP, files, testing, projects | [Explore Python](python/00-README.md) |
+| Java | 24 Lessons | Beginner → Practical | JDK 25, types, control flow, collections, OOP, files, testing, projects | [Explore Java](java/00-README.md) |
 | 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | Document Structure, Semantic HTML5, Forms & Validations, Audio/Video, Accessibility (ARIA), Meta Tags, Open Graph & SEO | [Explore HTML](HTML/00-README.md) |
 | 🎨 **CSS** | 43 Lessons | Beginner → Advanced | Specificity, Box Model, Flexbox, CSS Grid, Media Queries, Transitions, Keyframe Animations, Custom Properties (Variables), Dark Mode & Architecture | [Explore CSS](CSS/00-README.md) |
 | 🔀 **Git & GitHub** | 30 Lessons | Beginner → Advanced DevOps | Git CLI, 3 Trees, Committing, `.gitignore`, Branching, 3-Way Merge, Conflict Resolution, Rebase, Stash, Remotes, PRs, SSH, Pages & Actions CI/CD | [Explore Git & GitHub](Git-and-GitHub/00-README.md) |
@@ -223,3 +227,5 @@ All contributors will be featured below!
 - ⚙️ [C Systems Path](C/00-README.md)
 - ⚡ [JavaScript Path](JS/00-README.md)
 - 🚀 [C++ Systems Path](CPP/00-README.md)
+- [Python Learning Path](python/00-README.md)
+- [Java Learning Path](java/00-README.md)
