@@ -202,6 +202,12 @@ This repository was created and is actively maintained by:
 |---|---|---|
 | **Latikesh Marathe** | [@Latikeshh](https://github.com/Latikeshh) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Latikesh_Marathe-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/latikesh-marathe-966218374) |
 
+### Curriculum Contributors
+
+| Contributor | Profile | Contribution |
+|---|---|---|
+| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](python/00-README.md) and [Java](java/00-README.md) learning paths. |
+
 ---
 
 ### 🤝 Become a Contributor
