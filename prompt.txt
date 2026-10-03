@@ -2,17 +2,17 @@ You are working on my GitHub repository:
 
 `https://github.com/Latikeshh/coding`
 
-I want you to create a **complete Python learning curriculum from scratch** inside a new folder:
+I want you to create a **complete java learning curriculum from scratch** inside a new folder:
 
-`Python/`
+`java/`
 
-Python does NOT currently exist in the repository, so you must create the folder and all required Markdown lesson files.
+java does NOT currently exist in the repository, so you must create the folder and all required Markdown lesson files.
 
 ## IMPORTANT SCOPE RULE
 
 Work ONLY inside:
 
-`Python/`
+`java/`
 
 Do NOT modify:
 
@@ -23,13 +23,13 @@ Do NOT modify:
 * `README.md`
 * any other existing folder or file
 
-Do not change existing curriculum files outside `Python/`.
+Do not change existing curriculum files outside `java/`.
 
 ---
 
 # 1. MAIN GOAL
 
-Create a Python curriculum that is:
+Create a java curriculum that is:
 
 * Beginner-friendly
 * Technically accurate
@@ -41,13 +41,13 @@ Create a Python curriculum that is:
 * Supported with modern Hindi and Marathi explanations
 * Hindi and Marathi MUST use Roman/Latin script only
 * No Devanagari anywhere
-* Based on modern Python 3
+* Based on modern java 3
 * Suitable for someone learning programming and logic building from zero
-* Focused on actually writing Python programs, not only theory
+* Focused on actually writing java programs, not only theory
 
 Do NOT simply copy the structure or wording of C/JS.
 
-Python should have its own natural learning progression.
+java should have its own natural learning progression.
 
 ---
 
@@ -55,17 +55,17 @@ Python should have its own natural learning progression.
 
 Create:
 
-`Python/00-README.md`
+`java/00-README.md`
 
 Then create a properly numbered sequence of lessons.
 
 Use a structure similar to:
 
 ```text
-Python/
+java/
 ├── 00-README.md
-├── 01-setup-python.md
-├── 02-introduction-to-python.md
+├── 01-setup-java.md
+├── 02-introduction-to-java.md
 ├── 03-variables-and-data-types.md
 ├── 04-input-output.md
 ├── 05-operators.md
@@ -103,11 +103,11 @@ The final curriculum must have a clear beginner → intermediate → practical p
 
 ---
 
-# 3. PYTHON README
+# 3. java README
 
 Create:
 
-`Python/00-README.md`
+`java/00-README.md`
 
 It must contain:
 
@@ -115,21 +115,21 @@ It must contain:
 
 Explain:
 
-* What Python is
-* Why Python is popular
-* Where Python is used
-* Why Python is useful for beginners
-* Python's role in automation, web development, data science, AI/ML, scripting, tools and backend development
+* What java is
+* Why java is popular
+* Where java is used
+* Why java is useful for beginners
+* java's role in automation, web development, data science, AI/ML, scripting, tools and backend development
 
-Mention that Python is:
+Mention that java is:
 
 * High-level
 * Dynamically typed
-* Interpreted/bytecode-executed through implementations such as CPython
+* Interpreted/bytecode-executed through implementations such as Cjava
 * General-purpose
 * Indentation-sensitive
 
-Do NOT make inaccurate claims such as "Python is purely interpreted" without qualification.
+Do NOT make inaccurate claims such as "java is purely interpreted" without qualification.
 
 ## Prerequisites
 
@@ -144,11 +144,11 @@ Explain what a beginner needs:
 Clearly divide the course into stages:
 
 ```text
-01–08   Python Fundamentals
+01–08   java Fundamentals
 09–14   Core Data Structures and Strings
 15–18   Functions, Modules, Files and Errors
-19–23   Advanced Python Concepts
-24–30   Practical Python Development
+19–23   Advanced java Concepts
+24–30   Practical java Development
 31      Mini Projects
 ```
 
@@ -179,7 +179,7 @@ Make sure every link points to the correct filename.
 
 # 4. STANDARD LESSON FORMAT
 
-Every Python lesson from `01` onward should follow a consistent structure.
+Every java lesson from `01` onward should follow a consistent structure.
 
 Use:
 
@@ -239,24 +239,24 @@ Example:
 
 ```text
 Hindi:
-Python me variable ek naam hota hai jiske andar hum value store kar sakte hain.
+java me variable ek naam hota hai jiske andar hum value store kar sakte hain.
 
 Marathi:
-Python madhye variable mhanje ek nav aahe jyachya madhye apan value store karu shakto.
+java madhye variable mhanje ek nav aahe jyachya madhye apan value store karu shakto.
 ```
 
 DO NOT use:
 
 ```text
 पायथन में variable...
-Python मध्ये variable...
+java मध्ये variable...
 ```
 
 There must be:
 
-**ZERO Devanagari characters anywhere in Python lessons.**
+**ZERO Devanagari characters anywhere in java lessons.**
 
-After creating the files, scan the entire `Python/` folder for Unicode range:
+After creating the files, scan the entire `java/` folder for Unicode range:
 
 `U+0900–U+097F`
 
@@ -278,20 +278,20 @@ This includes:
 
 ---
 
-# 6. 01 — SETUP PYTHON
+# 6. 01 — SETUP java
 
 Cover:
 
-* Installing Python 3
-* Python interpreter
-* Python REPL
+* Installing java 3
+* java interpreter
+* java REPL
 * Running `.py` files
-* `python --version`
-* `python3 --version`
+* `java --version`
+* `java3 --version`
 * Windows considerations
 * PATH
 * VS Code or another editor
-* First Python program
+* First java program
 * `print()`
 
 Explain the difference between:
@@ -305,25 +305,25 @@ Do not assume every operating system uses exactly the same command.
 
 ---
 
-# 7. 02 — INTRODUCTION TO PYTHON
+# 7. 02 — INTRODUCTION TO java
 
 Cover:
 
-* Python syntax
+* java syntax
 * indentation
 * comments
 * statements
 * expressions
 * blocks
 * case sensitivity
-* Python philosophy at a beginner level
+* java philosophy at a beginner level
 * readable code
 
 Explain why indentation matters.
 
 Example:
 
-```python
+```java
 if age >= 18:
     print("Adult")
 ```
@@ -349,11 +349,11 @@ Cover:
 * `type()`
 * `isinstance()`
 
-Explain that Python variables are names bound to objects rather than fixed typed boxes.
+Explain that java variables are names bound to objects rather than fixed typed boxes.
 
 Cover:
 
-```python
+```java
 x = 10
 x = "Hello"
 ```
@@ -368,14 +368,14 @@ Also explain mutable vs immutable objects at an appropriate beginner level.
 
 Cover:
 
-```python
+```java
 print()
 input()
 ```
 
 Explain that:
 
-```python
+```java
 input()
 ```
 
@@ -383,7 +383,7 @@ returns a string.
 
 Cover:
 
-```python
+```java
 int(input())
 float(input())
 ```
@@ -396,7 +396,7 @@ Also explain:
 
 Example:
 
-```python
+```java
 name = input("Enter your name: ")
 print(f"Hello, {name}")
 ```
@@ -458,13 +458,13 @@ IMPORTANT:
 
 Clearly distinguish:
 
-```python
+```java
 ==
 ```
 
 from:
 
-```python
+```java
 is
 ```
 
@@ -478,7 +478,7 @@ Explain operator precedence with examples.
 
 Cover:
 
-```python
+```java
 if
 elif
 else
@@ -494,7 +494,7 @@ Include:
 
 Example:
 
-```python
+```java
 result = "Pass" if marks >= 40 else "Fail"
 ```
 
@@ -506,20 +506,20 @@ Explain truthy/falsy values with practical examples.
 
 Cover:
 
-```python
+```java
 for
 while
 ```
 
 Also:
 
-```python
+```java
 range()
 ```
 
 And:
 
-```python
+```java
 break
 continue
 pass
@@ -553,20 +553,20 @@ Cover:
 
 Example:
 
-```python
+```java
 def add(a, b):
     return a + b
 ```
 
 Explain:
 
-```python
+```java
 return
 ```
 
 versus:
 
-```python
+```java
 print()
 ```
 
@@ -605,14 +605,14 @@ Explain mutable behavior.
 
 Cover list copying:
 
-```python
+```java
 a = [1, 2, 3]
 b = a
 ```
 
 versus:
 
-```python
+```java
 b = a.copy()
 ```
 
@@ -634,13 +634,13 @@ Cover:
 
 Explain:
 
-```python
+```java
 x = (10,)
 ```
 
 versus:
 
-```python
+```java
 x = (10)
 ```
 
@@ -687,7 +687,7 @@ Mention that keys must be hashable.
 
 Include practical examples such as:
 
-```python
+```java
 student = {
     "name": "Rahul",
     "marks": 85
@@ -735,7 +735,7 @@ Include practical examples.
 
 Cover:
 
-```python
+```java
 [x * 2 for x in numbers]
 ```
 
@@ -770,7 +770,7 @@ Cover:
 
 Explain mutable default argument mistakes:
 
-```python
+```java
 def add_item(item, items=[]):
 ```
 
@@ -782,7 +782,7 @@ Explain why this can cause unexpected behavior.
 
 Cover:
 
-```python
+```java
 import
 from ... import ...
 as
@@ -804,7 +804,7 @@ Explain module execution clearly.
 
 Cover:
 
-```python
+```java
 open()
 ```
 
@@ -822,7 +822,7 @@ t
 
 Prefer context managers:
 
-```python
+```java
 with open("data.txt", "r", encoding="utf-8") as file:
     data = file.read()
 ```
@@ -848,7 +848,7 @@ Explain why `with` is preferred.
 
 Cover:
 
-```python
+```java
 try
 except
 else
@@ -867,7 +867,7 @@ Explain:
 
 Avoid teaching:
 
-```python
+```java
 except:
 ```
 
@@ -904,7 +904,7 @@ Do not overcomplicate OOP for beginners.
 
 Use practical examples such as:
 
-```python
+```java
 class BankAccount:
     ...
 ```
@@ -949,7 +949,7 @@ Explain real-world use cases.
 
 Cover:
 
-```python
+```java
 lambda
 map()
 filter()
@@ -957,7 +957,7 @@ filter()
 
 And:
 
-```python
+```java
 functools.reduce()
 ```
 
@@ -973,7 +973,7 @@ Show equivalent loop examples.
 
 Cover:
 
-```python
+```java
 import re
 ```
 
@@ -1004,7 +1004,7 @@ Do not claim regex alone provides complete validation for complex formats.
 
 Cover:
 
-```python
+```java
 datetime
 date
 time
@@ -1025,7 +1025,7 @@ Explain naive vs timezone-aware datetime.
 
 Cover:
 
-```python
+```java
 json
 ```
 
@@ -1038,7 +1038,7 @@ load
 dump
 ```
 
-Explain Python ↔ JSON conversion.
+Explain java ↔ JSON conversion.
 
 Cover:
 
@@ -1049,7 +1049,7 @@ Cover:
 * booleans
 * null/None
 
-Explain that not every Python object is directly JSON serializable.
+Explain that not every java object is directly JSON serializable.
 
 ---
 
@@ -1057,7 +1057,7 @@ Explain that not every Python object is directly JSON serializable.
 
 Cover:
 
-```python
+```java
 csv
 ```
 
@@ -1091,7 +1091,7 @@ Explain clearly:
 
 Example:
 
-```python
+```java
 def add(a: int, b: int) -> int:
     return a + b
 ```
@@ -1128,7 +1128,7 @@ venv
 Commands should include platform-aware examples where appropriate:
 
 ```bash
-python -m venv .venv
+java -m venv .venv
 ```
 
 Activation examples for Windows and Unix-like systems.
@@ -1136,9 +1136,9 @@ Activation examples for Windows and Unix-like systems.
 Cover:
 
 ```bash
-python -m pip install package
-python -m pip list
-python -m pip freeze
+java -m pip install package
+java -m pip list
+java -m pip freeze
 ```
 
 Explain:
@@ -1188,7 +1188,7 @@ Explain that project structure can vary and this is one practical approach, not 
 
 # 36. 31 — MINI PROJECTS
 
-Create a strong collection of progressive Python projects.
+Create a strong collection of progressive java projects.
 
 Do NOT make every project just a calculator.
 
@@ -1223,20 +1223,20 @@ Do not necessarily provide a complete solution for every project; encourage the 
 
 # 37. CODE QUALITY REQUIREMENTS
 
-Every Python example must:
+Every java example must:
 
-* Use valid Python 3 syntax
+* Use valid java 3 syntax
 * Be logically correct
 * Be executable where applicable
 * Avoid unnecessary complexity
 * Use meaningful variable names
-* Prefer modern Python practices
-* Avoid obsolete Python 2 syntax
+* Prefer modern java practices
+* Avoid obsolete java 2 syntax
 * Avoid dangerous or misleading shortcuts
 
 Use:
 
-```python
+```java
 if __name__ == "__main__":
 ```
 
@@ -1244,7 +1244,7 @@ where appropriate.
 
 ---
 
-# 38. IMPORTANT PYTHON TECHNICAL ACCURACY
+# 38. IMPORTANT java TECHNICAL ACCURACY
 
 During the audit, specifically verify these topics.
 
@@ -1272,7 +1272,7 @@ set
 
 Correct:
 
-```python
+```java
 a == b
 ```
 
@@ -1280,7 +1280,7 @@ for value equality.
 
 Use:
 
-```python
+```java
 a is b
 ```
 
@@ -1290,11 +1290,11 @@ Do not teach identity as general equality.
 
 ### Function arguments
 
-Explain Python's argument passing accurately.
+Explain java's argument passing accurately.
 
 Avoid saying simply:
 
-> Python is pass-by-reference.
+> java is pass-by-reference.
 
 Explain object references / call-by-sharing style behavior in a beginner-friendly way.
 
@@ -1302,13 +1302,13 @@ Explain object references / call-by-sharing style behavior in a beginner-friendl
 
 Explain:
 
-```python
+```java
 b = a
 ```
 
 versus:
 
-```python
+```java
 b = a.copy()
 ```
 
@@ -1320,7 +1320,7 @@ Prefer specific exception types.
 
 Avoid recommending bare:
 
-```python
+```java
 except:
 ```
 
@@ -1330,23 +1330,23 @@ as normal practice.
 
 Prefer:
 
-```python
+```java
 with open(...) as file:
 ```
 
 ### Virtual environments
 
-Use `python -m pip` and `python -m venv` where practical.
+Use `java -m pip` and `java -m venv` where practical.
 
 ### Type hints
 
 Make it clear that type hints are primarily for tooling/readability and are not automatically runtime enforcement.
 
-### Python version
+### java version
 
-Use Python 3 only.
+Use java 3 only.
 
-Do not include Python 2 examples.
+Do not include java 2 examples.
 
 ---
 
@@ -1404,15 +1404,15 @@ For example:
 
 ### English
 
-Python list ek ordered collection hoti hai.
+java list ek ordered collection hoti hai.
 
 ### Hindi
 
-Python me list ek aisi collection hai jisme hum multiple values ko ek jagah store kar sakte hain.
+java me list ek aisi collection hai jisme hum multiple values ko ek jagah store kar sakte hain.
 
 ### Marathi
 
-Python madhye list mhanje ek collection aahe jyamadhye apan anek values ekatra store karu shakto.
+java madhye list mhanje ek collection aahe jyamadhye apan anek values ekatra store karu shakto.
 
 ### Hinglish
 
@@ -1465,7 +1465,7 @@ Use clear Markdown headings.
 For example:
 
 ```markdown
-# Python Lists
+# java Lists
 
 ## Definition
 ## Creating a List
@@ -1487,12 +1487,12 @@ Do not put the entire lesson inside one huge paragraph.
 
 Avoid statements like:
 
-* "Python is always faster than C"
-* "Python is completely interpreted"
-* "Python is automatically memory safe in every situation"
-* "Python doesn't use memory management"
-* "Python has no pointers"
-* "Python passes everything by reference"
+* "java is always faster than C"
+* "java is completely interpreted"
+* "java is automatically memory safe in every situation"
+* "java doesn't use memory management"
+* "java has no pointers"
+* "java passes everything by reference"
 
 If a topic is nuanced, explain the simplified beginner version and then give the technically accurate clarification.
 
@@ -1502,7 +1502,7 @@ If a topic is nuanced, explain the simplified beginner version and then give the
 
 After creating all files, perform a second complete audit of the entire:
 
-`Python/`
+`java/`
 
 folder.
 
@@ -1519,7 +1519,7 @@ Check:
 ### Technical correctness
 
 * code examples are valid
-* Python 3 syntax
+* java 3 syntax
 * explanations are accurate
 * no misleading claims
 
@@ -1554,7 +1554,7 @@ Match their educational quality and consistency.
 
 ### Beginner experience
 
-Check that someone starting Python from zero can follow:
+Check that someone starting java from zero can follow:
 
 ```text
 setup
@@ -1592,7 +1592,7 @@ projects
 
 # 46. IMPORTANT — DO NOT OVER-EDIT
 
-Because Python is being created from scratch, you have freedom to build it properly.
+Because java is being created from scratch, you have freedom to build it properly.
 
 However:
 
@@ -1602,10 +1602,10 @@ However:
 * Do not add advanced topics just to increase lesson count.
 * Do not sacrifice clarity for completeness.
 * Do not copy C/JS explanations word-for-word.
-* Do not use outdated Python 2 material.
+* Do not use outdated java 2 material.
 * Do not add unnecessary libraries.
 
-The goal is a **high-quality Python curriculum**, not the largest possible curriculum.
+The goal is a **high-quality java curriculum**, not the largest possible curriculum.
 
 ---
 
@@ -1614,7 +1614,7 @@ The goal is a **high-quality Python curriculum**, not the largest possible curri
 After completing the work, report:
 
 ```text
-Python folder created: YES/NO
+java folder created: YES/NO
 
 Total files:
 Total lessons:
@@ -1625,7 +1625,7 @@ YES/NO
 Navigation:
 PASS/FAIL
 
-Python 3 syntax:
+java 3 syntax:
 PASS/FAIL
 
 Technical audit:
@@ -1658,7 +1658,7 @@ YES/NO
 C untouched:
 YES/NO
 
-Python curriculum ready to freeze:
+java curriculum ready to freeze:
 YES/NO
 ```
 
@@ -1666,4 +1666,4 @@ Also list any remaining issues instead of hiding them.
 
 Before finishing, perform the audit one more time and fix any issue you find.
 
-The final result should be a clean, beginner-friendly, technically accurate Python curriculum that fits naturally beside my existing HTML, CSS, JS and C learning folders.
+The final result should be a clean, beginner-friendly, technically accurate java curriculum that fits naturally beside my existing HTML, CSS, JS and C learning folders.
