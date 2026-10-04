@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 classes and oops"
+---
+
 # Classes & Objects (OOP Basics)
 
 > 🟡 Intermediate
@@ -78,3 +83,4 @@ Create a `BankAccount` class with `deposit(amount)` and `withdraw(amount)` metho
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Vectors](09-arrays-and-vectors.md) | [Next: Constructors & Destructors →](11-constructors-and-destructors.md)
+

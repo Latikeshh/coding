@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 iframes"
+---
+
 # Inline Frames (`<iframe>`)
 
 > 🟡 Intermediate
@@ -111,3 +116,4 @@ Contact pages embed Google Maps, blog articles embed YouTube videos, and e-comme
 ## 🧭 Navigation
 
 [← Previous: Video](20-video.md) | [HTML Home](00-README.md) | [Next: Semantic HTML →](22-semantic-html.md)
+

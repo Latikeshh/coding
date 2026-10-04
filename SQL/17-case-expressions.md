@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 case expressions"
+---
+
 # Conditional Logic with CASE
 
 > 🟡 Intermediate
@@ -98,3 +103,4 @@ Create a query that labels a product `Low stock` when quantity is below 10 and `
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: SQL Functions](16-sql-functions.md) | [Next: Subqueries →](18-subqueries.md)
+

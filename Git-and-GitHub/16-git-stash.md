@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 git stash"
+---
+
 # Git Stash (`git stash`)
 
 > 🟡 Intermediate
@@ -140,3 +145,4 @@ Run `git stash list` after popping your stash and confirm that `stash@{0}` was a
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Rebase](15-git-rebase.md) | [Next: Remote Repositories →](17-remote-repositories-and-remotes.md)
+

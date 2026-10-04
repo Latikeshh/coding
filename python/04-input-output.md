@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "04 input output"
+---
+
 # Input and Output
 
 ## Definition
@@ -79,3 +84,4 @@ Handle a nonnumeric entry without crashing.
 [Previous: 03 Variables and Data Types](03-variables-and-data-types.md)  
 [Home](00-README.md)  
 [Next: 05 Operators](05-operators.md)
+

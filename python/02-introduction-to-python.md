@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 introduction to python"
+---
+
 # Introduction to Python
 
 ## Definition
@@ -83,3 +88,4 @@ Add a second condition for a teen age range.
 [Previous: 01 Set Up Python](01-setup-python.md)  
 [Home](00-README.md)  
 [Next: 03 Variables and Data Types](03-variables-and-data-types.md)
+

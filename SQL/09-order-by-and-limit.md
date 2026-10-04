@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 order by and limit"
+---
+
 # Sorting & Limiting Results (`ORDER BY`, `LIMIT`)
 
 > 🟢 Beginner
@@ -121,3 +126,4 @@ Write a query to display the 2nd highest spending customer from the `customers` 
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Operators in SQL](08-operators.md) | [Next: UPDATE & DELETE →](10-update-and-delete.md)
+

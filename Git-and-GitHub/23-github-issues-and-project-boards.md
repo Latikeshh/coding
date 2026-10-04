@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 github issues and project boards"
+---
+
 # GitHub Issues, Projects & Discussions
 
 > 🟡 Intermediate
@@ -104,3 +109,4 @@ Make a edit in your local project, commit with message `Add footer links (Fixes 
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: SSH Keys](22-ssh-keys-and-github-authentication.md) | [Next: GitHub Pages →](24-github-pages-and-hosting.md)
+

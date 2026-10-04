@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 operators"
+---
+
 # Operators
 
 ## Definition
@@ -82,3 +87,4 @@ Predict and verify an expression using parentheses and // versus /.
 [Previous: 04 Input and Output](04-input-output.md)  
 [Home](00-README.md)  
 [Next: 06 Conditionals](06-conditionals.md)
+

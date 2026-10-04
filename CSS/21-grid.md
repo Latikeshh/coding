@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 grid"
+---
+
 # CSS Grid Layout (2D Grids)
 
 > 🟡 Intermediate
@@ -164,3 +169,4 @@ CSS Grid powers complex web application dashboards (sidebar + main content + hea
 ## 🧭 Navigation
 
 [← Previous](20-flexbox.md) | [CSS Home](00-README.md) | [Next →](22-responsive-design.md)
+

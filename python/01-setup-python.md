@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 setup python"
+---
+
 # Set Up Python
 
 ## Definition
@@ -90,3 +95,4 @@ At a `>>>` prompt, enter `2 + 3` for an immediate REPL result. In script mode, s
 [Previous: Home](00-README.md)  
 [Home](00-README.md)  
 [Next: 02 Introduction to Python](02-introduction-to-python.md)
+

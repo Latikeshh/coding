@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 width and height"
+---
+
 # Width and Height (`min-width`, `max-width`)
 
 > 🟢 Beginner
@@ -138,3 +143,4 @@ Every modern responsive framework (Bootstrap, Tailwind, Grid systems) uses `max-
 ## 🧭 Navigation
 
 [← Previous](09-specificity.md) | [CSS Home](00-README.md) | [Next →](11-css-units.md)
+

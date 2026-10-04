@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 setup sql"
+---
+
 # Set Up SQL Environment
 
 > 🟢 Beginner
@@ -84,3 +89,4 @@ Write a query that displays two columns: `ProductName` containing `'Laptop'` and
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [Next: Introduction to SQL & Databases →](02-introduction-to-sql.md)
+

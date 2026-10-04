@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 history of css"
+---
+
 # History & Standards of CSS
 
 > 🟢 Beginner
@@ -102,3 +107,4 @@ Modern web standards managed by W3C working groups ensure that CSS code written 
 ## 🧭 Navigation
 
 [← Previous](02-introduction-to-css.md) | [CSS Home](00-README.md) | [Next →](04-types-of-css.md)
+

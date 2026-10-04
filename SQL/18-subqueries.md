@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "18 subqueries"
+---
+
 # Subqueries & Nested Queries
 
 > 🟡 Intermediate
@@ -95,3 +100,4 @@ Return each department whose average salary is greater than the overall company 
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: CASE Expressions](17-case-expressions.md) | [Next: Set Operations →](19-set-operations.md)
+

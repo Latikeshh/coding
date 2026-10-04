@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "25 json and data serialization"
+---
+
 # JSON and Data Serialization
 
 ## Definition
@@ -83,3 +88,4 @@ Convert a custom object to a deliberate JSON-compatible dictionary.
 [Previous: 24 Date and Time](24-datetime.md)  
 [Home](00-README.md)  
 [Next: 26 Working with CSV](26-working-with-csv.md)
+

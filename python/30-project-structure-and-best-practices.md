@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "30 project structure and best practices"
+---
+
 # Project Structure and Best Practices
 
 ## Definition
@@ -91,3 +96,4 @@ Explain why this example layout is one option and keep core logic separate from 
 [Previous: 29 Virtual Environments and pip](29-virtual-environments-and-pip.md)  
 [Home](00-README.md)  
 [Next: 31 Mini Projects](31-mini-projects.md)
+

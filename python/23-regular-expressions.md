@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 regular expressions"
+---
+
 # Regular Expressions
 
 ## Definition
@@ -81,3 +86,4 @@ Explain why a simple email regex is only email-like validation.
 [Previous: 22 Lambda, Map, Filter, and Reduce](22-lambda-map-filter-reduce.md)  
 [Home](00-README.md)  
 [Next: 24 Date and Time](24-datetime.md)
+

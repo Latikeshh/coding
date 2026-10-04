@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 merging branches"
+---
+
 # Merging Branches (`git merge`)
 
 > 🟡 Intermediate
@@ -129,3 +134,4 @@ Run `git log --oneline --graph --all` after merging to visually inspect how the 
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Branching](12-branching-basics.md) | [Next: Merge Conflicts →](14-handling-merge-conflicts.md)
+

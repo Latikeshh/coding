@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 introduction to version control"
+---
+
 # Introduction to Version Control & Git
 
 > 🟢 Beginner
@@ -105,3 +110,4 @@ Write down 3 major benefits of a **Distributed** Version Control System over a *
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [Next: Installation & Setup →](02-installation-and-setup.md)
+

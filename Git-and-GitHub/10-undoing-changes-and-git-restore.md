@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 undoing changes and git restore"
+---
+
 # Undoing Local Changes (`git restore`)
 
 > 🟢 Beginner
@@ -117,3 +122,4 @@ Modify `README.md`, stage it with `git add README.md`, and then use `git restore
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Git Diff](09-git-diff-and-inspecting-changes.md) | [Next: Reset & Revert →](11-git-reset-and-git-revert.md)
+

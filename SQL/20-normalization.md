@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 normalization"
+---
+
 # Database Relationships & Normalization
 
 > 🟡 Intermediate
@@ -91,3 +96,4 @@ A table stores `order_id`, `product_id`, `product_name`, `quantity`, and `produc
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Set Operations](19-set-operations.md) | [Next: Views →](21-views.md)
+

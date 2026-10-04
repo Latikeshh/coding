@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "18 classes and oop"
+---
+
 # ES6 Classes & Object-Oriented JS
 
 > 🔴 Advanced
@@ -101,3 +106,4 @@ Use `class` for OOP design, `#` for private fields, `extends` for inheritance, a
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Prototypes & this](17-prototypes-and-this.md) | [Next: DOM Selection →](19-dom-manipulation.md)
+

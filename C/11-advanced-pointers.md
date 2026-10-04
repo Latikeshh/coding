@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 advanced pointers"
+---
+
 # Advanced Pointers & Pointer Arithmetic
 
 > 🔴 Advanced
@@ -194,3 +199,4 @@ Write a generic function `void printGeneric(void *data, char type)` that checks 
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Pointers Basics](10-pointers-basics.md) | [Next: Strings →](12-strings.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 inheritance and polymorphism"
+---
+
 # Inheritance and Polymorphism
 
 ## Definition
@@ -85,3 +90,4 @@ Store several shapes in a `List<Shape>` and print each area without checking eac
 ## Navigation
 
 [Previous: Encapsulation](15-encapsulation-and-composition.md) | [Home](00-README.md) | [Next: Interfaces](17-interfaces-and-abstract-classes.md)
+

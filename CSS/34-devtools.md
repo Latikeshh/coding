@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "34 devtools"
+---
+
 # Browser Developer Tools for CSS
 
 > 🟢 Beginner
@@ -133,3 +138,4 @@ Professional web developers use DevTools daily to inspect layout bugs, test mobi
 ## 🧭 Navigation
 
 [← Previous](33-important.md) | [CSS Home](00-README.md) | [Next →](35-forms-and-inputs.md)
+

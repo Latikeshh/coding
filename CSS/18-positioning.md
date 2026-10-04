@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "18 positioning"
+---
+
 # Positioning, `z-index` & Stacking Context
 
 > 🟡 Intermediate
@@ -168,3 +173,4 @@ Positioning powers essential UI patterns: fixed header bars, notification badges
 ## 🧭 Navigation
 
 [← Previous](17-display.md) | [CSS Home](00-README.md) | [Next →](19-float-and-clear.md)
+

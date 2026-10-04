@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 encapsulation and composition"
+---
+
 # Encapsulation and Composition
 
 ## Definition
@@ -85,3 +90,4 @@ Build a `Playlist` that contains `Song` objects and exposes add, remove, and rea
 ## Navigation
 
 [Previous: Classes](14-classes-and-objects.md) | [Home](00-README.md) | [Next: Inheritance](16-inheritance-and-polymorphism.md)
+

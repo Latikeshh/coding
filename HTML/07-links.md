@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 links"
+---
+
 # Links & Anchors (`<a>`)
 
 > 🟢 Beginner
@@ -123,3 +128,4 @@ Every website uses links for global navigation bars, breadcrumbs, social media l
 ## 🧭 Navigation
 
 [← Previous: Text Formatting](06-text-formatting.md) | [HTML Home](00-README.md) | [Next: Images →](08-images.md)
+

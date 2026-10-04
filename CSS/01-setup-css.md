@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 setup css"
+---
+
 # Set Up CSS Environment
 
 > 🟢 Beginner
@@ -122,3 +127,4 @@ Every professional production website connects modular external CSS stylesheets 
 ## 🧭 Navigation
 
 [← CSS Home](00-README.md) | [Next: Introduction to CSS →](02-introduction-to-css.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 borders"
+---
+
 # Borders, Border Radius & Box Shadows
 
 > 🟢 Beginner
@@ -179,3 +184,4 @@ Material Design and modern web interfaces use structured `box-shadow` elevation 
 ## 🧭 Navigation
 
 [← Previous](12-backgrounds.md) | [CSS Home](00-README.md) | [Next →](14-margins.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "41 css architecture and dark mode"
+---
+
 # CSS Architecture (BEM), `@supports` & Dark Mode
 
 > 🔴 Advanced
@@ -239,3 +244,4 @@ Major tech companies (GitHub, Twitter/X, Slack, Stripe) structure design systems
 ## 🧭 Navigation
 
 [← Previous](40-modern-css-features.md) | [CSS Home](00-README.md) | [Next →](42-overflow-and-visibility.md)
+

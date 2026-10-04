@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 prototypes and this"
+---
+
 # Prototypes, `this` Keyword & Explicit Binding
 
 > 🔴 Advanced
@@ -108,3 +113,4 @@ Method call -> `this` = object. Arrow function -> `this` = lexical parent scope.
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Fetch API & JSON](16-fetch-api-and-json.md) | [Next: Classes & OOP →](18-classes-and-oop.md)
+

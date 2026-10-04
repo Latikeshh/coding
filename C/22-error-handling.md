@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 error handling"
+---
+
 # Error Handling & Debugging (`errno`, `perror`)
 
 > 🔴 Advanced
@@ -163,3 +168,4 @@ Write a program that prompts the user for a filename, opens it using `fopen()`, 
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Multi-file Projects](21-multi-file-projects.md) | [Next: Mini Projects →](23-mini-projects.md)
+

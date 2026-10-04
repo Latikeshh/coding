@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "29 virtual environments and pip"
+---
+
 # Virtual Environments and pip
 
 ## Definition
@@ -101,3 +106,4 @@ Recreate dependencies from requirements.txt in a fresh environment.
 [Previous: 28 Testing and Debugging](28-testing-and-debugging.md)  
 [Home](00-README.md)  
 [Next: 30 Project Structure and Best Practices](30-project-structure-and-best-practices.md)
+

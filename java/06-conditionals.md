@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "06 conditionals"
+---
+
 # Conditionals
 
 ## Definition
@@ -86,3 +91,4 @@ Read an integer and report whether it is negative, zero, or positive, then wheth
 ## Navigation
 
 [Previous: Operators](05-operators-and-expressions.md) | [Home](00-README.md) | [Next: Loops](07-loops.md)
+

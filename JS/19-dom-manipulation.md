@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 dom manipulation"
+---
+
 # DOM Selection & Manipulation
 
 > 🟡 Intermediate
@@ -102,3 +107,4 @@ Prefer `querySelector` for flexibility and `.textContent` for safe text injectio
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Classes & OOP](18-classes-and-oop.md) | [Next: Event Delegation →](20-event-delegation-and-web-apis.md)
+

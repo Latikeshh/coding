@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "42 overflow and visibility"
+---
+
 # Overflow & Visibility (`overflow`, `clip-path`)
 
 > 🟢 Beginner
@@ -130,3 +135,4 @@ A card box with a capped height of 180px. Because the text paragraphs exceed 180
 ## 🧭 Navigation
 
 [← Previous](41-css-architecture-and-dark-mode.md) | [CSS Home](00-README.md) | [Next →](43-css-lists-and-tables.md)
+

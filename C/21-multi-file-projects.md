@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 multi file projects"
+---
+
 # Multi-file Projects & Header Files (`.h`)
 
 > 🔴 Advanced
@@ -239,3 +244,4 @@ Build a multi-file student grade project:
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: CLI Arguments](20-command-line-arguments.md) | [Next: Error Handling →](22-error-handling.md)
+

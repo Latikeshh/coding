@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 git diff and inspecting changes"
+---
+
 # Inspecting Changes (`git diff`)
 
 > 🟢 Beginner
@@ -121,3 +126,4 @@ Run `git diff --stat` on a modified file and note down how many insertions (`+`)
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Gitignore](08-ignoring-files-with-gitignore.md) | [Next: Undoing Changes →](10-undoing-changes-and-git-restore.md)
+

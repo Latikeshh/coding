@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 file input and output"
+---
+
 # File Input and Output
 
 ## Definition
@@ -82,3 +87,4 @@ Count the number of lines and words in a text file; report a helpful message if 
 ## Navigation
 
 [Previous: Packages](19-packages-and-project-organization.md) | [Home](00-README.md) | [Next: Lambdas and Streams](21-lambdas-and-streams.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 tables"
+---
+
 # Tables (`<table>`, `<thead>`, `<tbody>`, `<caption>`)
 
 > 🟢 Beginner
@@ -131,3 +136,4 @@ Financial reports, sports scoreboards, airline flight schedules, e-commerce pric
 ## 🧭 Navigation
 
 [← Previous: Lists](09-lists.md) | [HTML Home](00-README.md) | [Next: Forms →](11-forms.md)
+

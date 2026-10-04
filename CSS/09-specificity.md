@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 specificity"
+---
+
 # Specificity, Cascade & Inheritance
 
 > 🟡 Intermediate
@@ -139,3 +144,4 @@ Modern CSS methodology (like BEM architecture or utility classes) keeps selector
 ## 🧭 Navigation
 
 [← Previous](08-selectors.md) | [CSS Home](00-README.md) | [Next →](10-width-and-height.md)
+

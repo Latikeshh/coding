@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "33 important"
+---
+
 # The `!important` Rule
 
 > 🟢 Beginner
@@ -108,3 +113,4 @@ The paragraph text renders in **red** because `.status-message { color: red !imp
 ## 🧭 Navigation
 
 [← Previous](32-functions.md) | [CSS Home](00-README.md) | [Next →](34-devtools.md)
+

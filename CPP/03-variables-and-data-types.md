@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 variables and data types"
+---
+
 # Variables and Primitive Data Types in C++
 
 > 🟢 Beginner
@@ -34,3 +39,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Introduction](02-introduction-to-cpp.md) | [Next: Input & Output →](04-input-output.md)
+

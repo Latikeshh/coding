@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 classes and objects"
+---
+
 # Classes and Objects
 
 ## Definition
@@ -90,3 +95,4 @@ Create two independent accounts and verify that depositing into one does not cha
 ## Navigation
 
 [Previous: Generics](13-generics.md) | [Home](00-README.md) | [Next: Encapsulation](15-encapsulation-and-composition.md)
+

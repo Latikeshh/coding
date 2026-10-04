@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 strings"
+---
+
 # Strings in C (`<string.h>`)
 
 > 🟡 Intermediate
@@ -160,3 +165,4 @@ Write a function `void reverseString(char str[])` that reverses a string in-plac
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Advanced Pointers](11-advanced-pointers.md) | [Next: Dynamic Memory Allocation →](13-dynamic-memory-allocation.md)
+

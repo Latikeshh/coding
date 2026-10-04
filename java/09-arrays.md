@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 arrays"
+---
+
 # Arrays
 
 ## Definition
@@ -82,3 +87,4 @@ Create a 3-by-3 multiplication table using a two-dimensional array and nested lo
 ## Navigation
 
 [Previous: Methods](08-methods.md) | [Home](00-README.md) | [Next: Strings](10-strings.md)
+

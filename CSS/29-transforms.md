@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "29 transforms"
+---
+
 # CSS Transforms (2D & 3D)
 
 > 🟡 Intermediate
@@ -144,3 +149,4 @@ Transforms power smooth 60 FPS UI animations: 3D card flips, off-canvas mobile m
 ## 🧭 Navigation
 
 [← Previous](28-transitions.md) | [CSS Home](00-README.md) | [Next →](30-animations.md)
+

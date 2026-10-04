@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 dates and time"
+---
+
 # Dates and Time
 
 ## Definition
@@ -79,3 +84,4 @@ Parse a date, reject dates before today, and display it in ISO format and a huma
 ## Navigation
 
 [Previous: Lambdas and Streams](21-lambdas-and-streams.md) | [Home](00-README.md) | [Next: Testing and Debugging](23-testing-and-debugging.md)
+

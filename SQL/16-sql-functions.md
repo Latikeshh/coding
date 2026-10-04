@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 sql functions"
+---
+
 # SQL String, Numeric & Date Functions
 
 > 🟡 Intermediate
@@ -87,3 +92,4 @@ Return product name, price after a 5% discount rounded to two places, and a fall
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: SQL Joins](15-joins.md) | [Next: CASE Expressions →](17-case-expressions.md)
+

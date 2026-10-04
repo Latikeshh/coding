@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "26 window functions"
+---
+
 # Window Functions
 
 > 🔴 Advanced
@@ -98,3 +103,4 @@ Return the top two salaries in each department. Decide whether ties should be in
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Recursive CTEs](25-recursive-ctes.md) | [Next: Stored Procedures →](27-stored-procedures.md)
+

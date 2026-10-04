@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 file handling"
+---
+
 # File Handling
 
 ## Definition
@@ -79,3 +84,4 @@ Handle FileNotFoundError and verify a file closes after an exception.
 [Previous: 16 Modules and Packages](16-modules-and-packages.md)  
 [Home](00-README.md)  
 [Next: 18 Exception Handling](18-exception-handling.md)
+

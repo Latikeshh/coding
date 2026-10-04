@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "18 exception handling"
+---
+
 # Exception Handling
 
 ## Definition
@@ -85,3 +90,4 @@ Create a custom exception for an invalid transaction and catch only what can be 
 [Previous: 17 File Handling](17-file-handling.md)  
 [Home](00-README.md)  
 [Next: 19 Object-Oriented Programming](19-object-oriented-programming.md)
+

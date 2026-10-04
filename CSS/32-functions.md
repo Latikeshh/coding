@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "32 functions"
+---
+
 # CSS Functions (`calc()`, `min()`, `max()`, `clamp()`)
 
 > 🟡 Intermediate
@@ -150,3 +155,4 @@ Modern web design systems use `clamp()` for fluid responsive typography and flui
 ## 🧭 Navigation
 
 [← Previous](31-variables.md) | [CSS Home](00-README.md) | [Next →](33-important.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "04 initializing a repository"
+---
+
 # Initializing a Repository (`git init`)
 
 > 🟢 Beginner
@@ -126,3 +131,4 @@ Create an empty text file `index.html` inside your new `git-practice` folder usi
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Config](03-git-configuration.md) | [Next: File States →](05-git-file-states-and-lifecycle.md)
+

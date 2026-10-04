@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "24 pseudo classes"
+---
+
 # Pseudo-classes (`:hover`, `:focus`, `:nth-child`)
 
 > 🟢 Beginner
@@ -181,3 +186,4 @@ Pseudo-classes power interactive navigation hover states, zebra-striped data tab
 ## 🧭 Navigation
 
 [← Previous](23-media-queries.md) | [CSS Home](00-README.md) | [Next →](25-pseudo-elements.md)
+

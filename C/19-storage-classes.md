@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 storage classes"
+---
+
 # Storage Classes & Qualifiers in C
 
 > 🔴 Advanced
@@ -156,3 +161,4 @@ Write a program with a `const double CONVERSION_RATE = 83.50;` (USD to INR). Wri
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Preprocessor](18-preprocessor-and-macros.md) | [Next: CLI Arguments →](20-command-line-arguments.md)
+

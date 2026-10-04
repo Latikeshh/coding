@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 arrays"
+---
+
 # Arrays in C
 
 > 🟡 Intermediate
@@ -201,3 +206,4 @@ Write a program that takes a 3x3 matrix of integers, calculates the sum of eleme
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Functions](08-functions.md) | [Next: Pointers Basics →](10-pointers-basics.md)
+

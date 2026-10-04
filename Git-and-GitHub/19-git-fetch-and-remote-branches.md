@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 git fetch and remote branches"
+---
+
 # Remote Tracking & Fetching (`git fetch`)
 
 > 🟡 Intermediate
@@ -127,3 +132,4 @@ Explain the difference between `main` and `origin/main` in your own words.
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Push & Pull](18-git-push-and-git-pull.md) | [Next: Introduction to GitHub →](20-introduction-to-github.md)
+

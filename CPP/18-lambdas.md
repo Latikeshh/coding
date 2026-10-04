@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "18 lambdas"
+---
+
 # Lambdas & Function Objects
 
 > 🔴 Advanced
@@ -32,3 +37,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Templates](17-templates.md) | [Next: Exception Handling →](19-exception-handling.md)
+

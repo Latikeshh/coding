@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 move semantics"
+---
+
 # Move Semantics & Rvalue References (`&&`)
 
 > 🔴 Advanced
@@ -80,3 +85,4 @@ Implement a Move Assignment Operator (`operator=(HugeBuffer&& other)`) for the `
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Namespaces & Modern C++](21-namespaces-and-modern-cpp.md) | [Next: Comprehensive Mini Projects →](23-mini-projects.md)
+

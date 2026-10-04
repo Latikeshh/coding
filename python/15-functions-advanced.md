@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 functions advanced"
+---
+
 # Advanced Functions
 
 ## Definition
@@ -85,3 +90,4 @@ Demonstrate why a mutable default leaks state, then fix it with None.
 [Previous: 14 List Comprehensions](14-list-comprehensions.md)  
 [Home](00-README.md)  
 [Next: 16 Modules and Packages](16-modules-and-packages.md)
+

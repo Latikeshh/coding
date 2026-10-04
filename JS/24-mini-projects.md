@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "24 mini projects"
+---
+
 # Comprehensive JavaScript Mini Projects
 
 > 🔴 Advanced
@@ -125,3 +130,4 @@ Aapn shiklele sarv JS concepts ektra karun practical interactive apps banva.
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: JS Modules](23-modules.md) | [Next: JavaScript Debugging →](25-javascript-debugging.md)
+

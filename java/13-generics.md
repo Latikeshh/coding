@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 generics"
+---
+
 # Generics
 
 ## Definition
@@ -82,3 +87,4 @@ Create a generic `Pair<A, B>` record and use it to store a product name with its
 ## Navigation
 
 [Previous: Enums and Records](12-enums-and-records.md) | [Home](00-README.md) | [Next: Classes and Objects](14-classes-and-objects.md)
+

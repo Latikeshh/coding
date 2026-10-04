@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 dictionaries"
+---
+
 # Dictionaries
 
 ## Definition
@@ -79,3 +84,4 @@ Use setdefault to initialize a list of attendance dates.
 [Previous: 11 Sets](11-sets.md)  
 [Home](00-README.md)  
 [Next: 13 Strings](13-strings.md)
+

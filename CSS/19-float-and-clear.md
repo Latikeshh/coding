@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 float and clear"
+---
+
 # Float and Clear Layouts
 
 > 🟢 Beginner
@@ -142,3 +147,4 @@ Floats remain useful in editorial blogs, news sites, and digital magazines for w
 ## 🧭 Navigation
 
 [← Previous](18-positioning.md) | [CSS Home](00-README.md) | [Next →](20-flexbox.md)
+

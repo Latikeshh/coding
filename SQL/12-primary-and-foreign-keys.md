@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 primary and foreign keys"
+---
+
 # Primary Keys & Foreign Keys
 
 > 🟡 Intermediate
@@ -97,3 +102,4 @@ Design tables for departments and employees, ensuring each employee references a
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: SQL Constraints](11-constraints.md) | [Next: Aggregate Functions →](13-aggregate-functions.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 update and delete"
+---
+
 # `UPDATE` & `DELETE` – Modifying Data
 
 > 🟢 Beginner
@@ -118,3 +123,4 @@ Write a query that updates all employees in the `'HR'` department by setting the
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Sorting & Limiting Results](09-order-by-and-limit.md)
+

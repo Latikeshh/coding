@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 collections"
+---
+
 # Collections: Lists, Sets, and Maps
 
 ## Definition
@@ -92,3 +97,4 @@ Count how often each word appears in a sentence using a `Map<String, Integer>`.
 ## Navigation
 
 [Previous: Strings](10-strings.md) | [Home](00-README.md) | [Next: Enums and Records](12-enums-and-records.md)
+

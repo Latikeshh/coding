@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "06 conditionals"
+---
+
 # Conditionals
 
 ## Definition
@@ -79,3 +84,4 @@ Test zero, exact threshold, and just-below threshold values.
 [Previous: 05 Operators](05-operators.md)  
 [Home](00-README.md)  
 [Next: 07 Loops](07-loops.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "26 working with csv"
+---
+
 # Working with CSV
 
 ## Definition
@@ -83,3 +88,4 @@ Handle missing columns and malformed numeric cells.
 [Previous: 25 JSON and Data Serialization](25-json-and-data-serialization.md)  
 [Home](00-README.md)  
 [Next: 27 Type Hints and Dataclasses](27-type-hints-and-dataclasses.md)
+

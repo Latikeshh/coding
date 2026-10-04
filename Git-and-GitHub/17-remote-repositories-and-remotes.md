@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 remote repositories and remotes"
+---
+
 # Remote Repositories (`git remote`)
 
 > 🟢 Beginner
@@ -118,3 +123,4 @@ Run `git remote add test-remote https://github.com/test/repo.git`, then rename `
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Stash](16-git-stash.md) | [Next: Push & Pull →](18-git-push-and-git-pull.md)
+

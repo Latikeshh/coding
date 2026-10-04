@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 object oriented programming"
+---
+
 # Object-Oriented Programming
 
 ## Definition
@@ -83,3 +88,4 @@ Use composition to attach a statement/history object.
 [Previous: 18 Exception Handling](18-exception-handling.md)  
 [Home](00-README.md)  
 [Next: 20 Iterators and Generators](20-iterators-and-generators.md)
+

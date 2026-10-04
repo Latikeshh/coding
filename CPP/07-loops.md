@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 loops"
+---
+
 # Loops & Range-Based For in C++
 
 > 🟢 Beginner
@@ -41,3 +46,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Conditionals](06-conditionals.md) | [Next: Functions →](08-functions.md)
+

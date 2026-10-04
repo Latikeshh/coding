@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 joins"
+---
+
 # SQL Joins
 
 > 🟡 Intermediate
@@ -95,3 +100,4 @@ Write a query that lists every customer and their order IDs, including customers
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: GROUP BY & HAVING](14-group-by-and-having.md) | [Next: SQL Functions →](16-sql-functions.md)
+

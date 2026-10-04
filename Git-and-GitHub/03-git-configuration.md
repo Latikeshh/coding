@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 git configuration"
+---
+
 # Git Configuration (`git config`)
 
 > 🟢 Beginner
@@ -128,3 +133,4 @@ Run `git config --list --show-origin` in your terminal and identify the exact fi
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Setup](02-installation-and-setup.md) | [Next: Initializing Repository →](04-initializing-a-repository.md)
+

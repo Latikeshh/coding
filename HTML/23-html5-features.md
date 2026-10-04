@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 html5 features"
+---
+
 # Modern HTML Features & Built-in Validation
 
 > 🟡 Intermediate
@@ -138,3 +143,4 @@ All modern web forms utilize built-in HTML5 validation attributes alongside serv
 ## 🧭 Navigation
 
 [← Previous: Semantic HTML](22-semantic-html.md) | [HTML Home](00-README.md) | [Next: Accessibility Basics →](24-accessibility-basics.md)
+

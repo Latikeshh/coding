@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 operators"
+---
+
 # Operators in JavaScript
 
 > 🟢 Beginner
@@ -103,3 +108,4 @@ Always use strict equality (`===` and `!==`) to prevent hidden type conversion b
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Data Types](04-data-types.md) | [Next: Conditionals →](06-conditionals.md)
+

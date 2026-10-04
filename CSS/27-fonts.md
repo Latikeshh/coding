@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "27 fonts"
+---
+
 # Web Fonts (`font-family`, `@font-face`)
 
 > 🟢 Beginner
@@ -165,3 +170,4 @@ Modern web design systems host self-hosted `.woff2` font files using `@font-face
 ## 🧭 Navigation
 
 [← Previous](26-text-styling.md) | [CSS Home](00-README.md) | [Next →](28-transitions.md)
+

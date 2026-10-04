@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "06 conditionals"
+---
+
 # Conditionals in C++
 
 > 🟢 Beginner
@@ -31,3 +36,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Operators](05-operators.md) | [Next: Loops →](07-loops.md)
+

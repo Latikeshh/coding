@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "27 stored procedures"
+---
+
 # Stored Procedures & Functions
 
 > 🔴 Advanced
@@ -83,3 +88,4 @@ Design (do not assume portable syntax for) a routine that marks an order paid on
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Window Functions](26-window-functions.md) | [Next: Triggers →](28-triggers.md)
+

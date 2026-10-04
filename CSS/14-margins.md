@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 margins"
+---
+
 # Margins & Margin Collapse
 
 > 🟢 Beginner
@@ -144,3 +149,4 @@ Developers use `margin: 0 auto` to center main layout wrapper containers (`.cont
 ## 🧭 Navigation
 
 [← Previous](13-borders.md) | [CSS Home](00-README.md) | [Next →](15-padding.md)
+

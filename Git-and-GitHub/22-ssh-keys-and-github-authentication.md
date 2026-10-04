@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 ssh keys and github authentication"
+---
+
 # SSH Keys & GitHub Authentication
 
 > 🟡 Intermediate
@@ -120,3 +125,4 @@ Add your SSH Public Key to your GitHub Settings and verify successful authentica
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Forking & PRs](21-forking-and-pull-requests.md) | [Next: GitHub Issues & Projects →](23-github-issues-and-project-boards.md)
+

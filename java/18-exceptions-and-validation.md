@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "18 exceptions and validation"
+---
+
 # Exceptions and Validation
 
 ## Definition
@@ -84,3 +89,4 @@ Implement a withdrawal method that rejects invalid amounts and insufficient fund
 ## Navigation
 
 [Previous: Interfaces](17-interfaces-and-abstract-classes.md) | [Home](00-README.md) | [Next: Packages](19-packages-and-project-organization.md)
+

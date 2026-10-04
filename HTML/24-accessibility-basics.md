@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "24 accessibility basics"
+---
+
 # Web Accessibility (a11y) & HTML Validation
 
 > 🟡 Intermediate
@@ -129,3 +134,4 @@ Government portals, educational institutions, enterprise web applications, and g
 ## 🧭 Navigation
 
 [← Previous: HTML5 Features](23-html5-features.md) | [HTML Home](00-README.md) | [Next: Mini Projects →](25-mini-projects.md)
+

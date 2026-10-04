@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 introduction to cpp"
+---
+
 # Introduction to C++
 
 > 🟢 Beginner
@@ -62,3 +67,4 @@ Display a simple welcome card made of lines and stars using `std::cout`.
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Setup](01-setup-cpp.md) | [Next: Variables & Data Types →](03-variables-and-data-types.md)
+

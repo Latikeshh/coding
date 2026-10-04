@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 java program structure"
+---
+
 # Java Program Structure
 
 ## Definition
@@ -91,3 +96,4 @@ Create `Profile.java` with a `main` method that prints a name, a learning goal, 
 ## Navigation
 
 [Previous: Setup](01-setup-java.md) | [Home](00-README.md) | [Next: Variables](03-variables-and-data-types.md)
+

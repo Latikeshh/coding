@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 indexes and performance"
+---
+
 # Indexes & Query Performance
 
 > 🔴 Advanced
@@ -89,3 +94,4 @@ Given frequent queries filtering by `status` and ordering by `created_at`, propo
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Views](21-views.md) | [Next: Transactions →](23-transactions.md)
+

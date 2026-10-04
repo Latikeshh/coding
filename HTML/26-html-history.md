@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "26 html history"
+---
+
 # History & Standards of HTML
 
 > 🟡 Intermediate
@@ -40,3 +45,4 @@ Unlike earlier decades where HTML had rigid, static version numbers (like HTML 2
 ## 🧭 Navigation
 
 [← Previous: Mini Projects](25-mini-projects.md) | [HTML Home](00-README.md) | [Next: Meta Tags →](27-meta-tags.md)
+

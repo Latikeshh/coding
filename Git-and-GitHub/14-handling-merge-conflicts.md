@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 handling merge conflicts"
+---
+
 # Handling Merge Conflicts Step-by-Step
 
 > 🟡 Intermediate
@@ -136,3 +141,4 @@ Open `README.md`, resolve the conflict manually, remove all conflict markers (`<
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Merging](13-merging-branches.md) | [Next: Git Rebase →](15-git-rebase.md)
+

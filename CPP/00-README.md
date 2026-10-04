@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "CPP Master Syllabus"
+permalink: /CPP/
+---
+
 # 🚀 Learn C++
 
 C++ is a high-performance, object-oriented, systems-level programming language used in game development (Unreal Engine), high-frequency trading, operating systems, compilers, database systems, embedded devices, and robotics.
@@ -71,3 +77,4 @@ C++ is a high-performance, object-oriented, systems-level programming language u
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-cpp.md)
+

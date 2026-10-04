@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "04 types of css"
+---
+
 # Types of CSS (Inline, Internal, External)
 
 > 🟢 Beginner
@@ -119,3 +124,4 @@ Professional developers use External CSS combined with build tools or modular st
 ## 🧭 Navigation
 
 [← Previous](03-history-of-css.md) | [CSS Home](00-README.md) | [Next →](05-how-to-add-css.md)
+

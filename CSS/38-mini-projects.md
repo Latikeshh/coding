@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "38 mini projects"
+---
+
 # CSS Mini Projects
 
 > 🟡 Intermediate
@@ -379,3 +384,4 @@ p {
 ## 🧭 Navigation
 
 [← Previous](37-navigation-bars.md) | [CSS Home](00-README.md) | [Next →](39-advanced-selectors.md)
+

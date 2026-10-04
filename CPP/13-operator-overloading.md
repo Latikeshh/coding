@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 operator overloading"
+---
+
 # Operator Overloading
 
 > 🔴 Advanced
@@ -34,3 +39,4 @@ public:
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Polymorphism](12-inheritance-and-polymorphism.md) | [Next: Smart Pointers →](14-smart-pointers.md)
+

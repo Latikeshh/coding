@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 closures and callbacks"
+---
+
 # Higher-Order Functions & Closures
 
 > 🔴 Advanced
@@ -110,3 +115,4 @@ Closure = A function + its lexical environment reference.
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Array Methods](13-advanced-array-methods.md) | [Next: Promises & Async/Await →](15-promises-and-async-await.md)
+

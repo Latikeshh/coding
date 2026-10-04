@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "C Master Syllabus"
+permalink: /C/
+---
+
 # 🧠 Learn C Programming
 
 C is a high-performance, system-level programming language that powers operating systems, compilers, embedded devices, game engines, and databases. Learning C gives you an intimate understanding of computer memory, hardware, pointers, and systems programming.
@@ -71,3 +77,4 @@ C is a high-performance, system-level programming language that powers operating
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-c.md)
+

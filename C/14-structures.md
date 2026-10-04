@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 structures"
+---
+
 # Structures (`struct`) & `typedef`
 
 > 🟡 Intermediate
@@ -170,3 +175,4 @@ Write a program that creates an array of 3 `struct Book` items (`title`, `author
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Dynamic Memory Allocation](13-dynamic-memory-allocation.md) | [Next: Unions & Bit Fields →](15-unions-and-bit-fields.md)
+

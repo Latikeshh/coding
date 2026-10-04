@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 databases and tables"
+---
+
 # Database & Table Basics (`CREATE`, `ALTER`, `DROP`)
 
 > 🟢 Beginner
@@ -94,3 +99,4 @@ Write an `ALTER TABLE` statement that adds an `email` column of type `VARCHAR(15
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Introduction to SQL](02-introduction-to-sql.md) | [Next: SQL Data Types & NULL →](04-data-types-and-null.md)
+

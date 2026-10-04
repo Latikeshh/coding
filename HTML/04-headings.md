@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "04 headings"
+---
+
 # Headings (`<h1>` to `<h6>`)
 
 > 🟢 Beginner
@@ -120,3 +125,4 @@ All major websites (blogs, news outlets, e-commerce stores) use structured headi
 ## 🧭 Navigation
 
 [← Previous: Document Structure](03-html-document-structure.md) | [HTML Home](00-README.md) | [Next: Paragraphs →](05-paragraphs.md)
+

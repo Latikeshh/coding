@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "28 advanced form controls"
+---
+
 # Advanced Form Controls & HTML Validation
 
 > 🟡 Intermediate
@@ -147,3 +152,4 @@ E-commerce checkout forms, job application portals, hotel booking platforms, and
 ## 🧭 Navigation
 
 [← Previous: Meta Tags](27-meta-tags.md) | [HTML Home](00-README.md) | [Next: Responsive Images →](29-responsive-images.md)
+

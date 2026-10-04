@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 mini projects"
+---
+
 # Comprehensive C++ Mini Projects
 
 > 🔴 Advanced
@@ -61,3 +66,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Move Semantics](22-move-semantics.md)
+

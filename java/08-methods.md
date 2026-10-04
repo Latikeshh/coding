@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 methods"
+---
+
 # Methods
 
 ## Definition
@@ -84,3 +89,4 @@ Write a method that accepts a year and returns whether it is a leap year; test c
 ## Navigation
 
 [Previous: Loops](07-loops.md) | [Home](00-README.md) | [Next: Arrays](09-arrays.md)
+

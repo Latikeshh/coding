@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 html document structure"
+---
+
 # HTML Document Structure & Metadata
 
 > 🟢 Beginner
@@ -124,3 +129,4 @@ Every professional website on the internet includes boilerplate metadata to ensu
 ## 🧭 Navigation
 
 [← Previous: Introduction](02-introduction.md) | [HTML Home](00-README.md) | [Next: Headings →](04-headings.md)
+

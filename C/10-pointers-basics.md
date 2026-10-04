@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 pointers basics"
+---
+
 # Pointers Basics in C
 
 > 🟡 Intermediate
@@ -169,3 +174,4 @@ Write a function `void doubleValue(int *val)` that doubles the value of an integ
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Arrays](09-arrays.md) | [Next: Advanced Pointers →](11-advanced-pointers.md)
+

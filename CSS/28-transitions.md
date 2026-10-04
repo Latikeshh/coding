@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "28 transitions"
+---
+
 # CSS Transitions
 
 > 🟢 Beginner
@@ -158,3 +163,4 @@ Transitions format button hover states, navigation link underlines, card elevati
 ## 🧭 Navigation
 
 [← Previous](27-fonts.md) | [CSS Home](00-README.md) | [Next →](29-transforms.md)
+

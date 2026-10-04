@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 introduction"
+---
+
 # Introduction to HTML
 
 > 🟢 Beginner
@@ -110,3 +115,4 @@ HTML forms the core content layer of every single web application, mobile web vi
 ## 🧭 Navigation
 
 [← Previous: VS Code Setup](01-setup-vs-code.md) | [HTML Home](00-README.md) | [Next: Document Structure →](03-html-document-structure.md)
+

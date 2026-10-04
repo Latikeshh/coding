@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 list comprehensions"
+---
+
 # List Comprehensions
 
 ## Definition
@@ -79,3 +84,4 @@ Create a nested comprehension for a small coordinate grid without obscuring inte
 [Previous: 13 Strings](13-strings.md)  
 [Home](00-README.md)  
 [Next: 15 Advanced Functions](15-functions-advanced.md)
+

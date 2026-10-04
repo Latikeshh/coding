@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "26 github actions and ci cd basics"
+---
+
 # GitHub Actions & CI/CD Automation Basics
 
 > 🔴 Advanced
@@ -151,3 +156,4 @@ Edit `hello.yml` to add a second step that prints the current date and time usin
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Tags & Releases](25-git-tags-and-releases.md) | [Next: Git Aliases & Shortcuts →](27-git-aliases-and-shortcuts.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 lambdas and streams"
+---
+
 # Lambdas and Streams
 
 ## Definition
@@ -81,3 +86,4 @@ Group words by their first letter using `Collectors.groupingBy`; compare with a 
 ## Navigation
 
 [Previous: Files](20-file-input-and-output.md) | [Home](00-README.md) | [Next: Dates and Time](22-dates-and-time.md)
+

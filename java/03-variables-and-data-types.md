@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 variables and data types"
+---
+
 # Variables and Data Types
 
 ## Definition
@@ -108,3 +113,4 @@ Calculate a student's percentage without integer-division loss. Try `var` for on
 ## Navigation
 
 [Previous: Structure](02-java-program-structure.md) | [Home](00-README.md) | [Next: Input and Output](04-input-and-output.md)
+

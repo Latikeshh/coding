@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 responsive design"
+---
+
 # Responsive Web Design Principles
 
 > 🟢 Beginner
@@ -176,3 +181,4 @@ All modern websites (news platforms, e-commerce stores, social media dashboards)
 ## 🧭 Navigation
 
 [← Previous](21-grid.md) | [CSS Home](00-README.md) | [Next →](23-media-queries.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "30 animations"
+---
+
 # CSS Animations (`@keyframes`)
 
 > 🟡 Intermediate
@@ -165,3 +170,4 @@ CSS `@keyframes` power infinite loading spinners, pulsing live-status badges, sk
 ## 🧭 Navigation
 
 [← Previous](29-transforms.md) | [CSS Home](00-README.md) | [Next →](31-variables.md)
+

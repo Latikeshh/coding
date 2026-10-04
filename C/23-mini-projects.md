@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 mini projects"
+---
+
 # Comprehensive C Mini Projects
 
 > 🔴 Advanced
@@ -566,3 +571,4 @@ Extend Project 3 by adding a `deleteRecord(Database *db, int id)` function that 
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Error Handling](22-error-handling.md)
+

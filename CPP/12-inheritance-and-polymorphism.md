@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 inheritance and polymorphism"
+---
+
 # Inheritance & Polymorphism (`virtual`, `override`)
 
 > 🔴 Advanced
@@ -40,3 +45,4 @@ public:
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Constructors](11-constructors-and-destructors.md) | [Next: Operator Overloading →](13-operator-overloading.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 html attributes"
+---
+
 # HTML Attributes (`id`, `class`, `title`, Global Attributes)
 
 > 🟢 Beginner
@@ -101,3 +106,4 @@ All modern web frameworks and UI libraries rely heavily on `class` names for CSS
 ## 🧭 Navigation
 
 [← Previous: Div and Span](14-div-and-span.md) | [HTML Home](00-README.md) | [Next: Comments →](16-html-comments.md)
+

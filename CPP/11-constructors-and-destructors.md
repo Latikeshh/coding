@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 constructors and destructors"
+---
+
 # Constructors, Destructors & RAII
 
 > 🟡 Intermediate
@@ -87,3 +92,4 @@ Implement a `Person` class with `name` and `age`, demonstrating default, paramet
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: OOP Basics](10-classes-and-oops.md) | [Next: Inheritance & Polymorphism →](12-inheritance-and-polymorphism.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "04 data types and null"
+---
+
 # SQL Data Types & NULL Values
 
 > 🟢 Beginner
@@ -119,3 +124,4 @@ Write a query using `COALESCE` that displays a lead's phone number or the string
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Database & Table Basics](03-databases-and-tables.md) | [Next: INSERT – Adding Data →](05-insert.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "31 mini projects"
+---
+
 # Mini Projects
 
 ## Definition
@@ -83,3 +88,4 @@ Add persistence and tests only after the core interaction works.
 [Previous: 30 Project Structure and Best Practices](30-project-structure-and-best-practices.md)  
 [Home](00-README.md)  
 This is the final lesson.
+

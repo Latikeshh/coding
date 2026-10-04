@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 lists"
+---
+
 # Lists
 
 ## Definition
@@ -82,3 +87,4 @@ Show aliasing with b=a, then compare with a shallow copy.
 [Previous: 08 Functions](08-functions.md)  
 [Home](00-README.md)  
 [Next: 10 Tuples](10-tuples.md)
+

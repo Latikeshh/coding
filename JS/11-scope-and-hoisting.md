@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 scope and hoisting"
+---
+
 # Scope, Hoisting & Temporal Dead Zone (TDZ)
 
 > 🟡 Intermediate
@@ -113,3 +118,4 @@ Block scope prevents variable collisions in loops, module functions, and compone
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Objects](10-objects.md) | [Next: Modern ES6+ Features →](12-es6-features.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 transactions"
+---
+
 # Transactions & ACID
 
 > 🔴 Advanced
@@ -96,3 +101,4 @@ Describe checks an application should perform before committing a money transfer
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Indexes & Performance](22-indexes-and-performance.md) | [Next: Common Table Expressions →](24-ctes.md)
+

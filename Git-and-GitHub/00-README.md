@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "Git-and-GitHub Master Syllabus"
+permalink: /Git-and-GitHub/
+---
+
 # 🔀 Learn Git & GitHub — Version Control & Collaboration Masterclass
 
 Git is the world's most popular distributed version control system, and GitHub is the premier cloud platform for code hosting, collaboration, open-source development, and CI/CD automation. Mastering Git and GitHub is an essential core skill for every software engineer, web developer, and DevOps practitioner.
@@ -114,3 +120,4 @@ Git is the world's most popular distributed version control system, and GitHub i
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-introduction-to-version-control.md)
+

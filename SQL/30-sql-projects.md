@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "30 sql projects"
+---
+
 # Practical SQL Projects
 
 > 🔴 Advanced
@@ -102,3 +107,4 @@ Add product categories and build a report of monthly revenue by category. Define
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: SQL Security](29-sql-security.md) | [SQL Home →](00-README.md)
+

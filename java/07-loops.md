@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 loops"
+---
+
 # Loops
 
 ## Definition
@@ -81,3 +86,4 @@ Print a right triangle of stars using nested loops. Then explain how many times 
 ## Navigation
 
 [Previous: Conditionals](06-conditionals.md) | [Home](00-README.md) | [Next: Methods](08-methods.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 introduction to js"
+---
+
 # Introduction to JavaScript
 
 > 🟢 Beginner
@@ -81,3 +86,4 @@ HTML gives structure, CSS gives style, and JavaScript gives life and interactivi
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: JS Setup](01-setup-js.md) | [Next: Variables →](03-variables.md)
+

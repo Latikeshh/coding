@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 file handling"
+---
+
 # File Handling (`fopen`, `fread`, `fwrite`)
 
 > 🔴 Advanced
@@ -188,3 +193,4 @@ Write a program that copies a binary file (e.g. an image file or `.bin` file) fr
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Enumerations](16-enums.md) | [Next: Preprocessor →](18-preprocessor-and-macros.md)
+

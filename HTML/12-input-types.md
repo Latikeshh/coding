@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 input types"
+---
+
 # Input Types (`text`, `email`, `password`, `date`, etc.)
 
 > 🟢 Beginner
@@ -140,3 +145,4 @@ Every web application uses tailored input types to gather accurate, validated da
 ## 🧭 Navigation
 
 [← Previous: Forms](11-forms.md) | [HTML Home](00-README.md) | [Next: Buttons →](13-buttons.md)
+

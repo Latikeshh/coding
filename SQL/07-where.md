@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 where"
+---
+
 # Filtering Data with `WHERE`
 
 > 🟢 Beginner
@@ -111,3 +116,4 @@ Write a query to retrieve staff who are either in `'Engineering'` or `'Marketing
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: SELECT – Reading Data](06-select.md) | [Next: Operators in SQL →](08-operators.md)
+

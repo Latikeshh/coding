@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 display"
+---
+
 # Display Property (`block`, `inline`, `inline-block`, `none`)
 
 > 🟢 Beginner
@@ -137,3 +142,4 @@ Converting `<a>` anchor elements into `display: inline-block` or `display: flex`
 ## 🧭 Navigation
 
 [← Previous](16-box-model.md) | [CSS Home](00-README.md) | [Next →](18-positioning.md)
+

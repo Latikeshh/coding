@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "06 css syntax"
+---
+
 # CSS Syntax & Rules
 
 > 🟢 Beginner
@@ -144,3 +149,4 @@ Developers format CSS rules with clean indentation and spacing (often automated 
 ## 🧭 Navigation
 
 [← Previous](05-how-to-add-css.md) | [CSS Home](00-README.md) | [Next →](07-css-comments.md)
+

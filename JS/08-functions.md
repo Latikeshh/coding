@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 functions"
+---
+
 # Functions in JavaScript
 
 > 🟢 Beginner
@@ -106,3 +111,4 @@ Keep functions focused on a single responsibility. Master Arrow functions as the
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Arrays →](09-arrays.md)
+

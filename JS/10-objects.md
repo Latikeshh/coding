@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 objects"
+---
+
 # Objects, `Map`, `Set`, `Date` & RegExp
 
 > 🟡 Intermediate
@@ -127,3 +132,4 @@ Use `Object` for fixed structured records, `Set` for deduplication, `Map` when k
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Arrays](09-arrays.md) | [Next: Scope & Hoisting →](11-scope-and-hoisting.md)
+

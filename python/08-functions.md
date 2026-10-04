@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 functions"
+---
+
 # Functions
 
 ## Definition
@@ -81,3 +86,4 @@ Return a result from one function and print it only in the caller.
 [Previous: 07 Loops](07-loops.md)  
 [Home](00-README.md)  
 [Next: 09 Lists](09-lists.md)
+

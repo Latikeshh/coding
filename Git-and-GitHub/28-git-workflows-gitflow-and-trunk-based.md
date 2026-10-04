@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "28 git workflows gitflow and trunk based"
+---
+
 # Industry Workflows (GitFlow & Trunk-Based)
 
 > 🔴 Advanced
@@ -119,3 +124,4 @@ Write down the 3 steps required in GitFlow to deliver an emergency bug fix for a
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Aliases](27-git-aliases-and-shortcuts.md) | [Next: Best Practices & Security →](29-git-best-practices-and-security.md)
+

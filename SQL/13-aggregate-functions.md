@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 aggregate functions"
+---
+
 # Aggregate Functions
 
 > 🟡 Intermediate
@@ -101,3 +106,4 @@ Write one query that returns total, average, and number of known sale amounts fo
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Primary Keys & Foreign Keys](12-primary-and-foreign-keys.md) | [Next: GROUP BY & HAVING →](14-group-by-and-having.md)
+

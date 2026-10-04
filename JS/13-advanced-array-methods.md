@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 advanced array methods"
+---
+
 # Advanced Array Methods (`map`, `filter`, `reduce`)
 
 > 🟡 Intermediate
@@ -87,3 +92,4 @@ Method chaining (`.filter().map().reduce()`) allows powerful, clean, single-stat
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: ES6 Features](12-es6-features.md) | [Next: Closures & Callbacks →](14-closures-and-callbacks.md)
+

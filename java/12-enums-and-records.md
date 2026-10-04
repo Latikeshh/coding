@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 enums and records"
+---
+
 # Enums and Records
 
 ## Definition
@@ -82,3 +87,4 @@ Add a method to an enum that returns a user-friendly label for each status.
 ## Navigation
 
 [Previous: Collections](11-collections.md) | [Home](00-README.md) | [Next: Generics](13-generics.md)
+

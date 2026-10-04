@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 unions and bit fields"
+---
+
 # Unions & Bit Fields in C
 
 > 🔴 Advanced
@@ -173,3 +178,4 @@ Write a tagged union structure `typedef struct { int type; union { int i; float 
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Structures](14-structures.md) | [Next: Enumerations →](16-enums.md)
+

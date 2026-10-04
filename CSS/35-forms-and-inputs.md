@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "35 forms and inputs"
+---
+
 # Styling Forms & Inputs
 
 > 🟢 Beginner
@@ -224,3 +229,4 @@ E-commerce checkout forms and login modals use custom CSS form styling, floating
 ## 🧭 Navigation
 
 [← Previous](34-devtools.md) | [CSS Home](00-README.md) | [Next →](36-card-layout.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 branching basics"
+---
+
 # Branching Basics (`git branch`, `git switch`)
 
 > 🟢 Beginner
@@ -129,3 +134,4 @@ Switch back to `feature-signup` using `git switch feature-signup` and verify wit
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Reset & Revert](11-git-reset-and-git-revert.md) | [Next: Merging Branches →](13-merging-branches.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 setup c"
+---
+
 # Set Up C Environment
 
 > 🟢 Beginner
@@ -154,3 +159,4 @@ Write a program named `square.c` that prints a 4x4 box made of `#` symbols using
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [Next: Introduction to C →](02-introduction-to-c.md)
+

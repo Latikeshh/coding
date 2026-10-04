@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 operators"
+---
+
 # Operators in C
 
 > 🟢 Beginner
@@ -157,3 +162,4 @@ Write a program that takes a total number of seconds (e.g. `3800` seconds) and c
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Input/Output](04-input-output.md) | [Next: Conditionals →](06-conditionals.md)
+

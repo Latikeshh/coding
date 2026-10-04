@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "37 navigation bars"
+---
+
 # Navigation Bar Components
 
 > 🟢 Beginner
@@ -202,3 +207,4 @@ Flexbox navbars form the header foundation for SaaS landing pages, documentation
 ## 🧭 Navigation
 
 [← Previous](36-card-layout.md) | [CSS Home](00-README.md) | [Next →](38-mini-projects.md)
+

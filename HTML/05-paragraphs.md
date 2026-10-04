@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 paragraphs"
+---
+
 # Paragraphs (`<p>`)
 
 > 🟢 Beginner
@@ -99,3 +104,4 @@ Every blog post, news article, documentation page, and web application uses `<p>
 ## 🧭 Navigation
 
 [← Previous: Headings](04-headings.md) | [HTML Home](00-README.md) | [Next: Text Formatting →](06-text-formatting.md)
+

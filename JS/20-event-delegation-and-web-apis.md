@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 event delegation and web apis"
+---
+
 # Event Bubbling, Delegation & Web APIs
 
 > 🔴 Advanced
@@ -93,3 +98,4 @@ Use Event Delegation for dynamic lists to keep memory lightweight and code simpl
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: DOM Manipulation](19-dom-manipulation.md) | [Next: Web Storage →](21-web-storage.md)
+

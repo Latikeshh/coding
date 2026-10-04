@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 forms"
+---
+
 # Forms (`<form>`, `<label>`, `action`, `method`)
 
 > 🟢 Beginner
@@ -134,3 +139,4 @@ All major web platforms rely on HTML forms for authentication, user profiles, ch
 ## 🧭 Navigation
 
 [← Previous: Tables](10-tables.md) | [HTML Home](00-README.md) | [Next: Input Types →](12-input-types.md)
+

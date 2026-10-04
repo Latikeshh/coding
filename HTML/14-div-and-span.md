@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 div and span"
+---
+
 # Generic Containers (`<div>` and `<span>`)
 
 > 🟡 Intermediate
@@ -95,3 +100,4 @@ Web developers use `<div>` containers extensively as Flexbox and CSS Grid wrappe
 ## 🧭 Navigation
 
 [← Previous: Buttons](13-buttons.md) | [HTML Home](00-README.md) | [Next: Attributes →](15-html-attributes.md)
+

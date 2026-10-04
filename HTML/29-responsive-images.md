@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "29 responsive images"
+---
+
 # Responsive Images & Art Direction (`<picture>`, `srcset`, `sizes`, `loading="lazy"`)
 
 > 🟡 Intermediate
@@ -127,3 +132,4 @@ E-commerce stores, news publishers, and photography portals use responsive image
 ## 🧭 Navigation
 
 [← Previous: Advanced Form Controls](28-advanced-form-controls.md) | [HTML Home](00-README.md) | [Next: Interactive Elements →](30-interactive-elements.md)
+

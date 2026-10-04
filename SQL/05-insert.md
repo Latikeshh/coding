@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 insert"
+---
+
 # `INSERT` – Adding Data to Tables
 
 > 🟢 Beginner
@@ -112,3 +117,4 @@ Write a single multi-row `INSERT` query that adds 2 new products into a `product
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Data Types & NULL](04-data-types-and-null.md) | [Next: SELECT – Reading Data →](06-select.md)
+

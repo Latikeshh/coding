@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 setup cpp"
+---
+
 # Set Up C++ Environment
 
 > 🟢 Beginner
@@ -153,3 +158,4 @@ Write a program named `banner.cpp` that prints a 3-line banner welcoming yoursel
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [Next: Introduction to C++ →](02-introduction-to-cpp.md)
+

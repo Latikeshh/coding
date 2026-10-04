@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 lists"
+---
+
 # Lists (`<ul>`, `<ol>`, `<dl>`)
 
 > 🟢 Beginner
@@ -157,3 +162,4 @@ Lists form the underlying structural foundation of navigation menus, article tab
 ## 🧭 Navigation
 
 [← Previous: Images](08-images.md) | [HTML Home](00-README.md) | [Next: Tables →](10-tables.md)
+

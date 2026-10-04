@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 html colors"
+---
+
 # HTML & CSS Colors (HEX, RGB, HSL, Contrast)
 
 > 🟢 Beginner
@@ -103,3 +108,4 @@ All professional websites use consistent color systems (HEX, RGB, RGBA) defined 
 ## 🧭 Navigation
 
 [← Previous: Comments](16-html-comments.md) | [HTML Home](00-README.md) | [Next: Entities →](18-html-entities.md)
+

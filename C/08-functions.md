@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 functions"
+---
+
 # Functions in C
 
 > 🟢 Beginner
@@ -161,3 +166,4 @@ Write a function `void getMaxMin(int a, int b, int *max, int *min)` that takes t
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Arrays →](09-arrays.md)
+

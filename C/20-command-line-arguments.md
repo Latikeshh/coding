@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 command line arguments"
+---
+
 # Command Line Arguments (`argc`, `argv`)
 
 > 🟡 Intermediate
@@ -182,3 +187,4 @@ Write a CLI program named `greet` that accepts optional flag `--uppercase` or `-
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Storage Classes](19-storage-classes.md) | [Next: Multi-file Projects →](21-multi-file-projects.md)
+

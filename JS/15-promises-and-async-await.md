@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 promises and async await"
+---
+
 # Asynchronous JS, Promises & Async/Await
 
 > 🔴 Advanced
@@ -107,3 +112,4 @@ Always wrap `await` calls in `try...catch` blocks for robust error handling.
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Closures](14-closures-and-callbacks.md) | [Next: Fetch API & JSON →](16-fetch-api-and-json.md)
+

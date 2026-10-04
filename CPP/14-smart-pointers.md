@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 smart pointers"
+---
+
 # Smart Pointers (`std::unique_ptr`, `std::shared_ptr`)
 
 > 🔴 Advanced
@@ -84,3 +89,4 @@ Demonstrate moving a `unique_ptr` from one variable to another using `std::move(
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Operator Overloading](13-operator-overloading.md) | [Next: STL Containers →](15-stl-containers.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "25 recursive ctes"
+---
+
 # Recursive CTEs
 
 > 🔴 Advanced
@@ -95,3 +100,4 @@ Adapt the example to list all descendants of a chosen department node and explai
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Common Table Expressions](24-ctes.md) | [Next: Window Functions →](26-window-functions.md)
+

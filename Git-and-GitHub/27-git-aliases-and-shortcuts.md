@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "27 git aliases and shortcuts"
+---
+
 # Terminal Productivity & Git Aliases
 
 > 🟡 Intermediate
@@ -138,3 +143,4 @@ Set up the custom `git lg` alias in your terminal using the command provided in 
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: GitHub Actions](26-github-actions-and-ci-cd-basics.md) | [Next: Git Workflows →](28-git-workflows-gitflow-and-trunk-based.md)
+

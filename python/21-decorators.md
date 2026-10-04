@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 decorators"
+---
+
 # Decorators
 
 ## Definition
@@ -87,3 +92,4 @@ Make sure the wrapper forwards arguments and returns the wrapped value.
 [Previous: 20 Iterators and Generators](20-iterators-and-generators.md)  
 [Home](00-README.md)  
 [Next: 22 Lambda, Map, Filter, and Reduce](22-lambda-map-filter-reduce.md)
+

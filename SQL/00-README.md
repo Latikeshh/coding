@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "SQL Master Syllabus"
+permalink: /SQL/
+---
+
 # ⚡ Learn SQL
 
 SQL (Structured Query Language) is the standard language used to communicate with relational databases. It lets you create databases and tables, store and retrieve data, filter and sort records, combine data from multiple tables, modify records, and perform powerful data analysis.
@@ -119,3 +125,4 @@ You can practice SQL using:
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-sql.md)
+

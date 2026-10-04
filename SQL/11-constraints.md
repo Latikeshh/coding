@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 constraints"
+---
+
 # SQL Constraints
 
 > 🟡 Intermediate
@@ -117,3 +122,4 @@ Create an `inventory` table with a primary key, a unique required SKU, a require
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: UPDATE & DELETE](10-update-and-delete.md) | [Next: Primary Keys & Foreign Keys →](12-primary-and-foreign-keys.md)
+

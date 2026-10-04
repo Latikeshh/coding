@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 lambda map filter reduce"
+---
+
 # Lambda, Map, Filter, and Reduce
 
 ## Definition
@@ -83,3 +88,4 @@ Choose the clearest approach for filtering and transforming student scores.
 [Previous: 21 Decorators](21-decorators.md)  
 [Home](00-README.md)  
 [Next: 23 Regular Expressions](23-regular-expressions.md)
+

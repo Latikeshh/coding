@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "31 variables"
+---
+
 # CSS Variables (Custom Properties)
 
 > 🟢 Beginner
@@ -184,3 +189,4 @@ CSS Custom Properties power dark mode toggles, multi-tenant white-label branding
 ## 🧭 Navigation
 
 [← Previous](30-animations.md) | [CSS Home](00-README.md) | [Next →](32-functions.md)
+

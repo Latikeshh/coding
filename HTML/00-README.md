@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "HTML Master Syllabus"
+permalink: /HTML/
+---
+
 # 🌐 Learn HTML — Complete HTML5 & Web Fundamentals
 
 Welcome to the **HTML Learning Path**! HTML (HyperText Markup Language) is the standard markup language used to structure web pages and display content on the internet.
@@ -101,3 +107,4 @@ HTML webpage cha paya ani structure tayar karte, jase ki headings, text, links, 
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-vs-code.md)
+

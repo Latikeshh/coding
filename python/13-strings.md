@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 strings"
+---
+
 # Strings
 
 ## Definition
@@ -79,3 +84,4 @@ Use startswith, endswith, replace, find, and count on a sentence.
 [Previous: 12 Dictionaries](12-dictionaries.md)  
 [Home](00-README.md)  
 [Next: 14 List Comprehensions](14-list-comprehensions.md)
+

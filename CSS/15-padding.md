@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 padding"
+---
+
 # Padding & Spacing
 
 > 🟢 Beginner
@@ -152,3 +157,4 @@ Mobile accessibility guidelines (WCAG) require interactive buttons to have a min
 ## 🧭 Navigation
 
 [← Previous](14-margins.md) | [CSS Home](00-README.md) | [Next →](16-box-model.md)
+

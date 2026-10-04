@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "30 interactive elements"
+---
+
 # Interactive HTML5 Elements (`<details>`, `<summary>`, `<dialog>`, `<progress>`, `<meter>`, `<template>`)
 
 > 🟡 Intermediate
@@ -143,3 +148,4 @@ FAQ sections, dashboard metrics, download progress indicators, terms-of-service 
 ## 🧭 Navigation
 
 [← Previous: Responsive Images](29-responsive-images.md) | [HTML Home](00-README.md) | [Next: Global & Data Attributes →](31-global-and-data-attributes.md)
+

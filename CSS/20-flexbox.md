@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 flexbox"
+---
+
 # Flexbox Layout (Main & Cross Axes)
 
 > 🟡 Intermediate
@@ -186,3 +191,4 @@ Flexbox is used in almost every web application for navigation bars, card lists,
 ## 🧭 Navigation
 
 [← Previous](19-float-and-clear.md) | [CSS Home](00-README.md) | [Next →](21-grid.md)
+

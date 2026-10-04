@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 namespaces and modern cpp"
+---
+
 # Namespaces & Modern C++ (C++17 to C++20)
 
 > 🔴 Advanced
@@ -98,3 +103,4 @@ Use `std::variant<int, std::string>` to represent a function response that can r
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: File Streams](20-file-streams.md) | [Next: Move Semantics →](22-move-semantics.md)
+

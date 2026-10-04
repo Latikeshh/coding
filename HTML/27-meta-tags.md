@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "27 meta tags"
+---
+
 # Meta Tags & Head Metadata
 
 > 🟡 Intermediate
@@ -145,3 +150,4 @@ All professional websites, e-commerce stores, and blog platforms use `<meta>` ta
 ## 🧭 Navigation
 
 [← Previous: HTML History](26-html-history.md) | [HTML Home](00-README.md) | [Next: Advanced Form Controls →](28-advanced-form-controls.md)
+

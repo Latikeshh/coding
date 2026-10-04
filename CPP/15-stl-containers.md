@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 stl containers"
+---
+
 # STL Containers (`map`, `set`, `unordered_map`)
 
 > 🟡 Intermediate
@@ -33,3 +38,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Smart Pointers](14-smart-pointers.md) | [Next: STL Algorithms →](16-stl-algorithms.md)
+

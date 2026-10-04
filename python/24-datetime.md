@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "24 datetime"
+---
+
 # Date and Time
 
 ## Definition
@@ -81,3 +86,4 @@ Compare naive and aware datetimes; use zoneinfo for a named local zone.
 [Previous: 23 Regular Expressions](23-regular-expressions.md)  
 [Home](00-README.md)  
 [Next: 25 JSON and Data Serialization](25-json-and-data-serialization.md)
+

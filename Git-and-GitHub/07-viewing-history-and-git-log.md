@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 viewing history and git log"
+---
+
 # Viewing History (`git log`, `git status`)
 
 > 🟢 Beginner
@@ -121,3 +126,4 @@ Run `git log -n 2 --stat` in your terminal and identify how many insertions/dele
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Committing](06-staging-and-committing.md) | [Next: Ignoring Files →](08-ignoring-files-with-gitignore.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "13 dynamic memory allocation"
+---
+
 # Dynamic Memory Allocation (`malloc`, `calloc`, `realloc`, `free`)
 
 > 🔴 Advanced
@@ -178,3 +183,4 @@ Write a program that dynamically allocates memory for a string of 50 characters,
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Strings](12-strings.md) | [Next: Structures →](14-structures.md)
+

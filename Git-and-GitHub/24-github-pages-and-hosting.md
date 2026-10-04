@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "24 github pages and hosting"
+---
+
 # Free Hosting with GitHub Pages
 
 > 🟢 Beginner
@@ -116,3 +121,4 @@ Update `index.html` locally with CSS styles, commit, and push to `main`. Refresh
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Issues & Projects](23-github-issues-and-project-boards.md) | [Next: Tags & Releases →](25-git-tags-and-releases.md)
+

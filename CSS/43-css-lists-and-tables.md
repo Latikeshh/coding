@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "43 css lists and tables"
+---
+
 # CSS Lists & Table Styling (`list-style`, `border-collapse`)
 
 > 🟢 Beginner
@@ -168,3 +173,4 @@ A clean, accessible data table featuring a dark header row, collapsed single-lin
 ## 🧭 Navigation
 
 [← Previous](42-overflow-and-visibility.md) | [CSS Home](00-README.md)
+

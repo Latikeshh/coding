@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 set operations"
+---
+
 # Set Operations: UNION, INTERSECT & EXCEPT
 
 > 🟡 Intermediate
@@ -85,3 +90,4 @@ Write a query that returns IDs present in `active_users` but not in `blocked_use
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Subqueries](18-subqueries.md) | [Next: Normalization →](20-normalization.md)
+

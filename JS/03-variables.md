@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 variables"
+---
+
 # Variables in JavaScript (`let`, `const`, `var`)
 
 > 🟢 Beginner
@@ -104,3 +109,4 @@ Default to `const` for all variable declarations. Switch to `let` only when you 
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Introduction](02-introduction-to-js.md) | [Next: Data Types →](04-data-types.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "36 card layout"
+---
+
 # Card Layout Components
 
 > 🟢 Beginner
@@ -194,3 +199,4 @@ Card components are the primary UI building blocks for e-commerce product grids 
 ## 🧭 Navigation
 
 [← Previous](35-forms-and-inputs.md) | [CSS Home](00-README.md) | [Next →](37-navigation-bars.md)
+

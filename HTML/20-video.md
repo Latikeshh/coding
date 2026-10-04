@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 video"
+---
+
 # Video (`<video>`)
 
 > 🟡 Intermediate
@@ -110,3 +115,4 @@ E-learning portals, news websites, product landing pages, and portfolio sites us
 ## 🧭 Navigation
 
 [← Previous: Audio](19-audio.md) | [HTML Home](00-README.md) | [Next: Iframes →](21-iframes.md)
+

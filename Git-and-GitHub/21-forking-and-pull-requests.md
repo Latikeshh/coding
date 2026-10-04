@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 forking and pull requests"
+---
+
 # Forking & Pull Requests (PRs)
 
 > 🟡 Intermediate
@@ -126,3 +131,4 @@ Run `git remote -v` inside your cloned fork and configure `upstream` link refere
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: GitHub Intro](20-introduction-to-github.md) | [Next: SSH Authentication →](22-ssh-keys-and-github-authentication.md)
+

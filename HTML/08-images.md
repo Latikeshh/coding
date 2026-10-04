@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 images"
+---
+
 # Images, `<figure>`, & `<picture>`
 
 > 🟢 Beginner
@@ -121,3 +126,4 @@ E-commerce stores, news platforms, travel blogs, and portfolios use responsive i
 ## 🧭 Navigation
 
 [← Previous: Links](07-links.md) | [HTML Home](00-README.md) | [Next: Lists →](09-lists.md)
+

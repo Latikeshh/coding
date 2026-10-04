@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "04 input and output"
+---
+
 # Input and Output
 
 ## Definition
@@ -99,3 +104,4 @@ Ask for item price and quantity, parse both, and print the total with two decima
 ## Navigation
 
 [Previous: Variables](03-variables-and-data-types.md) | [Home](00-README.md) | [Next: Operators](05-operators-and-expressions.md)
+

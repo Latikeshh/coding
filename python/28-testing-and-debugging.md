@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "28 testing and debugging"
+---
+
 # Testing and Debugging
 
 ## Definition
@@ -87,3 +92,4 @@ Write tests for normal input, edge input, and expected exceptions.
 [Previous: 27 Type Hints and Dataclasses](27-type-hints-and-dataclasses.md)  
 [Home](00-README.md)  
 [Next: 29 Virtual Environments and pip](29-virtual-environments-and-pip.md)
+

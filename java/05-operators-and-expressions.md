@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 operators and expressions"
+---
+
 # Operators and Expressions
 
 ## Definition
@@ -84,3 +89,4 @@ Given a score, calculate whether it is passing and whether it falls in the 75–
 ## Navigation
 
 [Previous: Input and Output](04-input-and-output.md) | [Home](00-README.md) | [Next: Conditionals](06-conditionals.md)
+

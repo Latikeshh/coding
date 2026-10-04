@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 variables and data types"
+---
+
 # Variables and Data Types in C
 
 > 🟢 Beginner
@@ -148,3 +153,4 @@ Write a program that uses `sizeof` to display the memory sizes of `short`, `int`
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Introduction](02-introduction-to-c.md) | [Next: Input & Output →](04-input-output.md)
+

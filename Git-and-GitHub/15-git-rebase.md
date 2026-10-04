@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "15 git rebase"
+---
+
 # Git Rebase (`git rebase`)
 
 > 🔴 Advanced
@@ -128,3 +133,4 @@ Run `git log --oneline` after squashing and verify that the two small commits we
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Conflicts](14-handling-merge-conflicts.md) | [Next: Git Stash →](16-git-stash.md)
+

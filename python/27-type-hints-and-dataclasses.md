@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "27 type hints and dataclasses"
+---
+
 # Type Hints and Dataclasses
 
 ## Definition
@@ -79,3 +84,4 @@ Use field(default_factory=list) and note hints alone do not validate runtime val
 [Previous: 26 Working with CSV](26-working-with-csv.md)  
 [Home](00-README.md)  
 [Next: 28 Testing and Debugging](28-testing-and-debugging.md)
+

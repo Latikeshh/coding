@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "14 group by and having"
+---
+
 # GROUP BY & HAVING
 
 > 🟡 Intermediate
@@ -89,3 +94,4 @@ Using an `orders` table, return each customer with total completed-order value, 
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Aggregate Functions](13-aggregate-functions.md) | [Next: SQL Joins →](15-joins.md)
+

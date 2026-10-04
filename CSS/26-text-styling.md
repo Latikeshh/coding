@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "26 text styling"
+---
+
 # Text Styling & Typography
 
 > 🟢 Beginner
@@ -183,3 +188,4 @@ Designers use `text-decoration: none` to strip default underlines from links, ad
 ## 🧭 Navigation
 
 [← Previous](25-pseudo-elements.md) | [CSS Home](00-README.md) | [Next →](27-fonts.md)
+

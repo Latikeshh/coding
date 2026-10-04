@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 css comments"
+---
+
 # CSS Comments
 
 > 🟢 Beginner
@@ -138,3 +143,4 @@ Production design systems use structured section headers in comments (`/* --- BU
 ## 🧭 Navigation
 
 [← Previous](06-css-syntax.md) | [CSS Home](00-README.md) | [Next →](08-selectors.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "39 advanced selectors"
+---
+
 # Advanced Selectors (`:is()`, `:where()`, `:has()`, Combinators)
 
 > 🔴 Advanced
@@ -168,3 +173,4 @@ Add `:has(input:focus)` to a form container: `.form-group:has(input:focus) { bac
 ## 🧭 Navigation
 
 [← Previous](38-mini-projects.md) | [CSS Home](00-README.md) | [Next →](40-modern-css-features.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "31 global and data attributes"
+---
+
 # Global Attributes & Custom Data Attributes (`data-*`, `tabindex`, `contenteditable`)
 
 > 🟡 Intermediate
@@ -144,3 +149,4 @@ Modern web applications use `data-*` attributes for filtering lists, storing UI 
 ## 🧭 Navigation
 
 [← Previous: Interactive Elements](30-interactive-elements.md) | [HTML Home](00-README.md) | [Next: HTML SEO & Open Graph →](32-html-seo-and-open-graph.md)
+

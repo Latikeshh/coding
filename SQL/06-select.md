@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "06 select"
+---
+
 # `SELECT` – Reading Data
 
 > 🟢 Beginner
@@ -131,3 +136,4 @@ Write a `SELECT` query that calculates an employee's daily pay assuming 22 worki
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: INSERT – Adding Data](05-insert.md) | [Next: Filtering Data with WHERE →](07-where.md)
+

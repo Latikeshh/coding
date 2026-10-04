@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 exception handling"
+---
+
 # Exception Handling (`try`, `catch`, `throw`)
 
 > 🟡 Intermediate
@@ -38,3 +43,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Lambdas](18-lambdas.md) | [Next: File Streams →](20-file-streams.md)
+

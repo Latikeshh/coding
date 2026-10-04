@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 ignoring files with gitignore"
+---
+
 # Ignoring Files (`.gitignore`)
 
 > 🟢 Beginner
@@ -134,3 +139,4 @@ Create a folder named `temp-cache/` and a file inside it `temp-cache/cache.txt`.
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Viewing History](07-viewing-history-and-git-log.md) | [Next: Git Diff →](09-git-diff-and-inspecting-changes.md)
+

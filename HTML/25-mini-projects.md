@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "25 mini projects"
+---
+
 # HTML Mini Projects
 
 > 🟡 Intermediate
@@ -244,3 +249,4 @@ A comprehensive form combining `<fieldset>`, input validations, dropdowns, and t
 ## 🧭 Navigation
 
 [← Previous: Accessibility Basics](24-accessibility-basics.md) | [HTML Home](00-README.md) | [Next: HTML History →](26-html-history.md)
+

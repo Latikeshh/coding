@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 introduction to github"
+---
+
 # Introduction to GitHub Platform
 
 > 🟢 Beginner
@@ -115,3 +120,4 @@ Refresh your GitHub repository web page in your browser and verify that your com
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Fetching](19-git-fetch-and-remote-branches.md) | [Next: Forking & Pull Requests →](21-forking-and-pull-requests.md)
+

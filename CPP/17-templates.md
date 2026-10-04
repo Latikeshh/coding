@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "17 templates"
+---
+
 # Generic Programming & Templates
 
 > 🔴 Advanced
@@ -34,3 +39,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: STL Algorithms](16-stl-algorithms.md) | [Next: Lambdas →](18-lambdas.md)
+

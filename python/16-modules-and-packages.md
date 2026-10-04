@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 modules and packages"
+---
+
 # Modules and Packages
 
 ## Definition
@@ -83,3 +88,4 @@ Move reusable logic into a module and test both direct run and import.
 [Previous: 15 Advanced Functions](15-functions-advanced.md)  
 [Home](00-README.md)  
 [Next: 17 File Handling](17-file-handling.md)
+

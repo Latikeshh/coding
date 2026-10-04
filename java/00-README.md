@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "java Master Syllabus"
+permalink: /java/
+---
+
 # Learn Java
 
 This beginner-to-practical course teaches Java by writing small programs and building toward useful applications. It uses Java SE 25 (JDK 25) as its reference version; code uses stable language features and avoids preview features. Java SE 25 was released in September 2025 and is an LTS release. See the [JDK 25 documentation](https://docs.oracle.com/en/java/javase/25/) and [release announcement](https://www.oracle.com/news/announcement/oracle-releases-java-25-2025-09-16/).
@@ -89,3 +95,4 @@ Java is popular because it has a large ecosystem, a mature standard library, bro
 ## Repository Navigation
 
 [Repository Home](../README.md) | [Start Lesson 01](01-setup-java.md)
+

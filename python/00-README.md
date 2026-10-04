@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "python Master Syllabus"
+permalink: /python/
+---
+
 # Learn Python 3
 
 ## Introduction
@@ -158,3 +164,4 @@ For each project, state its goal, concepts, requirements, expected behavior, sug
 | JSON Notes App | modules, JSON, search and CRUD | corrupt/missing JSON; tags |
 
 Larger projects can use `main.py`, focused modules, a data file, and `tests/`. Specify prompts and results, then verify normal and edge cases.
+

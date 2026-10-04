@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 installation and setup"
+---
+
 # Git Installation & Environment Setup
 
 > 🟢 Beginner
@@ -118,3 +123,4 @@ Run `git help init` in your terminal and observe how Git opens the official docu
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Introduction](01-introduction-to-version-control.md) | [Next: Git Configuration →](03-git-configuration.md)
+

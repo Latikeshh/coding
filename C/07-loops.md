@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 loops"
+---
+
 # Loops in C
 
 > 🟢 Beginner
@@ -181,3 +186,4 @@ Write a program using nested `for` loops to print a multiplication table grid fo
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Conditionals](06-conditionals.md) | [Next: Functions →](08-functions.md)
+

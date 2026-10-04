@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "29 git best practices and security"
+---
+
 # Security Best Practices & Secret Protection
 
 > 🔴 Advanced
@@ -117,3 +122,4 @@ Explain why revoking / invalidating a leaked API key on your cloud provider dash
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Workflows](28-git-workflows-gitflow-and-trunk-based.md) | [Next: Capstone Projects →](30-practical-projects-and-workflows.md)
+

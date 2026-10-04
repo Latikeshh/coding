@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "09 arrays and vectors"
+---
+
 # Arrays & Dynamic Vectors (`std::vector`)
 
 > 🟡 Intermediate
@@ -35,3 +40,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Functions](08-functions.md) | [Next: Classes & OOP →](10-classes-and-oops.md)
+

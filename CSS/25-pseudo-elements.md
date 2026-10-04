@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "25 pseudo elements"
+---
+
 # Pseudo-elements (`::before`, `::after`)
 
 > 🟡 Intermediate
@@ -163,3 +168,4 @@ Pseudo-elements power CSS-only icons, custom checkboxes/radios, animated underli
 ## 🧭 Navigation
 
 [← Previous](24-pseudo-classes.md) | [CSS Home](00-README.md) | [Next →](26-text-styling.md)
+

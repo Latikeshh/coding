@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "25 git tags and releases"
+---
+
 # Git Tags & GitHub Releases
 
 > 🟡 Intermediate
@@ -140,3 +145,4 @@ Push your tag to GitHub using `git push origin v1.0.0` (or `git push origin --ta
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: GitHub Pages](24-github-pages-and-hosting.md) | [Next: GitHub Actions →](26-github-actions-and-ci-cd-basics.md)
+

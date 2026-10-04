@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 setup vs code"
+---
+
 # Set Up VS Code for HTML
 
 > 🟢 Beginner
@@ -121,3 +126,4 @@ Professional software engineers, frontend developers, and UI/UX designers across
 ## 🧭 Navigation
 
 [HTML Home](00-README.md) | [Next: Introduction to HTML →](02-introduction.md)
+

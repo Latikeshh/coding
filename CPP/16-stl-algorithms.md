@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 stl algorithms"
+---
+
 # STL Algorithms & Iterators
 
 > 🟡 Intermediate
@@ -31,3 +36,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: STL Containers](15-stl-containers.md) | [Next: Templates →](17-templates.md)
+

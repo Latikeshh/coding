@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 introduction to css"
+---
+
 # Introduction to CSS
 
 > 🟢 Beginner
@@ -136,3 +141,4 @@ Every modern site (Google, YouTube, Amazon, Wikipedia) uses CSS to format brandi
 ## 🧭 Navigation
 
 [← Previous](01-setup-css.md) | [CSS Home](00-README.md) | [Next →](03-history-of-css.md)
+

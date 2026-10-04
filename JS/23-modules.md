@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 modules"
+---
+
 # JavaScript Modules (`import` / `export`)
 
 > 🟡 Intermediate
@@ -104,3 +109,4 @@ Use named exports for utility libraries and default exports for main component o
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Error Handling](22-error-handling.md) | [Next: Comprehensive Mini Projects →](24-mini-projects.md)
+

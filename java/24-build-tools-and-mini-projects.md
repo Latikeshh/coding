@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "24 build tools and mini projects"
+---
+
 # Build Tools and Mini Projects
 
 ## Definition
@@ -79,3 +84,4 @@ Complete the To-Do CLI with add, list, complete, and remove commands; save data 
 ## Navigation
 
 [Previous: Testing](23-testing-and-debugging.md) | [Home](00-README.md) | Next: End of Course
+

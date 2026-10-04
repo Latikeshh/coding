@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "18 preprocessor and macros"
+---
+
 # C Preprocessor & Macros (`#define`, `#ifdef`)
 
 > 🟡 Intermediate
@@ -161,3 +166,4 @@ Write a macro `#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))`. Test i
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: File Handling](17-file-handling.md) | [Next: Storage Classes →](19-storage-classes.md)
+

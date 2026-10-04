@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "24 ctes"
+---
+
 # Common Table Expressions (CTEs)
 
 > 🔴 Advanced
@@ -100,3 +105,4 @@ Write a CTE that finds each department's average salary, then return only depart
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Transactions](23-transactions.md) | [Next: Recursive CTEs →](25-recursive-ctes.md)
+

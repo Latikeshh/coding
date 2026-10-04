@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 selectors"
+---
+
 # Basic Selectors (Element, Class, ID, Grouping)
 
 > 🟢 Beginner
@@ -156,3 +161,4 @@ Developers build UI component systems (like Bootstrap or Tailwind) using class s
 ## 🧭 Navigation
 
 [← Previous](07-css-comments.md) | [CSS Home](00-README.md) | [Next →](09-specificity.md)
+

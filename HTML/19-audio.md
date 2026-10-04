@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 audio"
+---
+
 # Audio (`<audio>`)
 
 > 🟡 Intermediate
@@ -107,3 +112,4 @@ Podcast platforms, language learning apps, music streaming services, and online 
 ## 🧭 Navigation
 
 [← Previous: Entities](18-html-entities.md) | [HTML Home](00-README.md) | [Next: Video →](20-video.md)
+

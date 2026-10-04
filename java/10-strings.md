@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 strings"
+---
+
 # Strings
 
 ## Definition
@@ -82,3 +87,4 @@ Normalize a line of comma-separated tags by trimming each tag and joining them w
 ## Navigation
 
 [Previous: Arrays](09-arrays.md) | [Home](00-README.md) | [Next: Collections](11-collections.md)
+

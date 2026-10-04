@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "29 sql security"
+---
+
 # SQL Security & Permissions
 
 > 🔴 Advanced
@@ -82,3 +87,4 @@ For an app with product browsing and order placement, list the minimum read/writ
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Triggers](28-triggers.md) | [Next: SQL Projects →](30-sql-projects.md)
+

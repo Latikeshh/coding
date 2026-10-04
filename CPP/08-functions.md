@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 functions"
+---
+
 # Functions & Pass-by-Reference in C++
 
 > 🟢 Beginner
@@ -84,3 +89,4 @@ Write an overloaded function `area(int side)` for square area and `area(int leng
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Arrays & Vectors →](09-arrays-and-vectors.md)
+

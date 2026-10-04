@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "19 packages and project organization"
+---
+
 # Packages and Project Organization
 
 ## Definition
@@ -80,3 +85,4 @@ Create separate `model` and `app` packages and import a public model type into t
 ## Navigation
 
 [Previous: Exceptions](18-exceptions-and-validation.md) | [Home](00-README.md) | [Next: Files](20-file-input-and-output.md)
+

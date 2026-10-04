@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 introduction to c"
+---
+
 # Introduction to C
 
 > 🟢 Beginner
@@ -121,3 +126,4 @@ Write a program that uses multiple `printf` statements to print a 5-line banner 
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: C Setup](01-setup-c.md) | [Next: Variables & Data Types →](03-variables-and-data-types.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 git reset and git revert"
+---
+
 # Undoing Commits (`git reset`, `git revert`)
 
 > 🟡 Intermediate
@@ -116,3 +121,4 @@ Commit `test.txt` again. Now run `git revert HEAD` and inspect `git log --onelin
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Restore](10-undoing-changes-and-git-restore.md) | [Next: Branching Basics →](12-branching-basics.md)
+

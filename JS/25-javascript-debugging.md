@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "25 javascript debugging"
+---
+
 # Practical JavaScript Debugging in DevTools
 
 > 🟡 Intermediate
@@ -94,3 +99,4 @@ Breakpoints let you pause execution and inspect variables live in memory without
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Mini Projects](24-mini-projects.md)
+

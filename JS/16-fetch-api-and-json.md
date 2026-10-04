@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 fetch api and json"
+---
+
 # Fetch API & Working with JSON
 
 > 🔴 Advanced
@@ -116,3 +121,4 @@ Check `response.ok` before calling `response.json()` to handle HTTP errors clean
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Promises & Async/Await](15-promises-and-async-await.md) | [Next: Prototypes & `this` →](17-prototypes-and-this.md)
+

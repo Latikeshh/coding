@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 testing and debugging"
+---
+
 # Testing and Debugging
 
 ## Definition
@@ -88,3 +93,4 @@ Test a bank account's deposit and withdrawal rules, including zero, negative, an
 ## Navigation
 
 [Previous: Dates and Time](22-dates-and-time.md) | [Home](00-README.md) | [Next: Build Tools and Projects](24-build-tools-and-mini-projects.md)
+

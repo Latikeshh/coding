@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 file streams"
+---
+
 # File Streams (`ifstream`, `ofstream`)
 
 > 🟡 Intermediate
@@ -38,3 +43,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Exception Handling](19-exception-handling.md) | [Next: Namespaces & Modern C++ →](21-namespaces-and-modern-cpp.md)
+

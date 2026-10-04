@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "02 introduction to sql"
+---
+
 # Introduction to SQL & Databases
 
 > 🟢 Beginner
@@ -89,3 +94,4 @@ Categorize the following commands as DDL, DML, or DQL: `INSERT`, `CREATE TABLE`,
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: SQL Setup](01-setup-sql.md) | [Next: Database & Table Basics →](03-databases-and-tables.md)
+

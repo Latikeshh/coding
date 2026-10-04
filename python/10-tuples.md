@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "10 tuples"
+---
+
 # Tuples
 
 ## Definition
@@ -79,3 +84,4 @@ Return two values from a function and unpack them.
 [Previous: 09 Lists](09-lists.md)  
 [Home](00-README.md)  
 [Next: 11 Sets](11-sets.md)
+

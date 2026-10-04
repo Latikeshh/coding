@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 box model"
+---
+
 # The CSS Box Model (`box-sizing: border-box`)
 
 > 🟢 Beginner
@@ -167,3 +172,4 @@ The universal `* { box-sizing: border-box; }` rule is included at the top of eve
 ## 🧭 Navigation
 
 [← Previous](15-padding.md) | [CSS Home](00-README.md) | [Next →](17-display.md)
+

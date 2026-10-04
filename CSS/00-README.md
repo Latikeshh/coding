@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "CSS Master Syllabus"
+permalink: /CSS/
+---
+
 # 🎨 Learn CSS — Cascading Style Sheets & Web Design
 
 Welcome to the **CSS Learning Path**! CSS (Cascading Style Sheets) is the standard language used to control the visual presentation, styling, layout, typography, colors, animations, and responsive design of web pages.
@@ -108,3 +114,4 @@ CSS mule HTML content la colors, fonts, spacing, layout, flexbox, grid, ani resp
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-css.md)
+

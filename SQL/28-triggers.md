@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "28 triggers"
+---
+
 # Triggers
 
 > 🔴 Advanced
@@ -95,3 +100,4 @@ Design an audit trigger for changes to an order's status. Decide whether to reco
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Stored Procedures](27-stored-procedures.md) | [Next: SQL Security →](29-sql-security.md)
+

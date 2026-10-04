@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 how to add css"
+---
+
 # How to Add CSS (`<link>` Tag)
 
 > 🟢 Beginner
@@ -145,3 +150,4 @@ Production websites often link multiple stylesheets (e.g. `reset.css`, `typograp
 ## 🧭 Navigation
 
 [← Previous](04-types-of-css.md) | [CSS Home](00-README.md) | [Next →](06-css-syntax.md)
+

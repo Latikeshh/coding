@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 error handling"
+---
+
 # Error Handling (`try...catch...finally`)
 
 > 🟡 Intermediate
@@ -83,3 +88,4 @@ Always throw `new Error("descriptive message")` and log errors inside `catch` bl
 ## 🧭 Navigation
 
 [← JS Home](00-README.md) | [← Previous: Web Storage](21-web-storage.md) | [Next: JS Modules →](23-modules.md)
+

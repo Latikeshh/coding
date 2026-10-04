@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "06 text formatting"
+---
+
 # Text Formatting (`<strong>`, `<em>`, `<b>`, `<i>`, etc.)
 
 > 🟢 Beginner
@@ -112,3 +117,4 @@ E-commerce sites, technical blogs, news platforms, and documentation portals use
 ## 🧭 Navigation
 
 [← Previous: Paragraphs](05-paragraphs.md) | [HTML Home](00-README.md) | [Next: Links →](07-links.md)
+

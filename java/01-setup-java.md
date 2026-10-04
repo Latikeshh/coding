@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "01 setup java"
+---
+
 # Set Up Java
 
 ## Definition
@@ -79,3 +84,4 @@ Print three lines: a greeting, your learning goal, and the output of a simple ar
 ## Navigation
 
 [Previous: Home](00-README.md) | [Home](00-README.md) | [Next: Program Structure](02-java-program-structure.md)
+

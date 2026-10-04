@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "20 iterators and generators"
+---
+
 # Iterators and Generators
 
 ## Definition
@@ -79,3 +84,4 @@ Process a large text stream line by line with a generator.
 [Previous: 19 Object-Oriented Programming](19-object-oriented-programming.md)  
 [Home](00-README.md)  
 [Next: 21 Decorators](21-decorators.md)
+

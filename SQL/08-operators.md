@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "08 operators"
+---
+
 # Operators in SQL
 
 > 🟢 Beginner
@@ -126,3 +131,4 @@ Write a query to select all items whose category is NOT IN `'Kitchen'` or `'Furn
 ## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Filtering with WHERE](07-where.md) | [Next: Sorting & Limiting Results →](09-order-by-and-limit.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 enums"
+---
+
 # Enumerations (`enum`)
 
 > 🟡 Intermediate
@@ -161,3 +166,4 @@ Write a program defining an `enum UserRole { ROLE_GUEST, ROLE_USER, ROLE_ADMIN }
 ## 🧭 Navigation
 
 [← C Home](00-README.md) | [← Previous: Unions](15-unions-and-bit-fields.md) | [Next: File Handling →](17-file-handling.md)
+

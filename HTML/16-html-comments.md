@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "16 html comments"
+---
+
 # HTML Comments (`<!-- -->`)
 
 > 🟢 Beginner
@@ -111,3 +116,4 @@ Developers use comments to mark section boundaries in large multi-page templates
 ## 🧭 Navigation
 
 [← Previous: Attributes](15-html-attributes.md) | [HTML Home](00-README.md) | [Next: Colors →](17-html-colors.md)
+

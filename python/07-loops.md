@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "07 loops"
+---
+
 # Loops
 
 ## Definition
@@ -85,3 +90,4 @@ Write a while loop that safely retries until valid input arrives.
 [Previous: 06 Conditionals](06-conditionals.md)  
 [Home](00-README.md)  
 [Next: 08 Functions](08-functions.md)
+

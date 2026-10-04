@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "11 sets"
+---
+
 # Sets
 
 ## Definition
@@ -79,3 +84,4 @@ Use discard safely when an optional value may not be present.
 [Previous: 10 Tuples](10-tuples.md)  
 [Home](00-README.md)  
 [Next: 12 Dictionaries](12-dictionaries.md)
+

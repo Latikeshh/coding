@@ -1,3 +1,9 @@
+﻿---
+layout: default
+title: "JS Master Syllabus"
+permalink: /JS/
+---
+
 # ⚡ Learn JavaScript
 
 JavaScript is the programming language of the Web. It brings web pages to life by making them interactive, handling user events, updating content dynamically, managing asynchronous operations, and building full-stack applications.
@@ -74,3 +80,4 @@ For each lesson:
 ## 🧭 Navigation
 
 [← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-js.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "40 modern css features"
+---
+
 # Modern CSS Features (`aspect-ratio`, `object-fit`, Logical Properties)
 
 > 🟡 Intermediate
@@ -171,3 +176,4 @@ E-commerce stores use `object-fit: cover` for product thumbnails, video portals 
 ## 🧭 Navigation
 
 [← Previous](39-advanced-selectors.md) | [CSS Home](00-README.md) | [Next →](41-css-architecture-and-dark-mode.md)
+

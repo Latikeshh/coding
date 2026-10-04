@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "06 staging and committing"
+---
+
 # Staging & Committing Changes (`git add`, `git commit`)
 
 > 🟢 Beginner
@@ -126,3 +131,4 @@ Edit `README.md` to add a second line `Author: Your Name`. Run `git status`, sta
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: File States](05-git-file-states-and-lifecycle.md) | [Next: Viewing History →](07-viewing-history-and-git-log.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "22 semantic html"
+---
+
 # Semantic HTML (`<header>`, `<nav>`, `<main>`, `<article>`, etc.)
 
 > 🟡 Intermediate
@@ -135,3 +140,4 @@ All modern websites and web applications use semantic HTML5 tags for clean archi
 ## 🧭 Navigation
 
 [← Previous: Iframes](21-iframes.md) | [HTML Home](00-README.md) | [Next: HTML5 Features →](23-html5-features.md)
+

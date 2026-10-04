@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "04 input output"
+---
+
 # Input and Output in C++
 
 > 🟢 Beginner
@@ -33,3 +38,4 @@ int main() {
 ## 🧭 Navigation
 
 [← C++ Home](00-README.md) | [← Previous: Variables](03-variables-and-data-types.md) | [Next: Operators →](05-operators.md)
+

@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "03 variables and data types"
+---
+
 # Variables and Data Types
 
 ## Definition
@@ -79,3 +84,4 @@ Show that two equal strings compare equal; avoid using is for value equality.
 [Previous: 02 Introduction to Python](02-introduction-to-python.md)  
 [Home](00-README.md)  
 [Next: 04 Input and Output](04-input-output.md)
+

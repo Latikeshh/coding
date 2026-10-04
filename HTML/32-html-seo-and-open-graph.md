@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "32 html seo and open graph"
+---
+
 # HTML SEO & Open Graph Metadata
 
 > 🟡 Intermediate
@@ -136,3 +141,4 @@ All e-commerce stores, news portals, blogs, and marketing websites rely on HTML 
 ## 🧭 Navigation
 
 [← Previous: Global Attributes](31-global-and-data-attributes.md) | [HTML Home](00-README.md)
+

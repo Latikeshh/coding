@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "12 backgrounds"
+---
+
 # Backgrounds & Gradients
 
 > 🟢 Beginner
@@ -137,3 +142,4 @@ Landing pages combine dark gradient overlays over hero background images (`backg
 ## 🧭 Navigation
 
 [← Previous](11-css-units.md) | [CSS Home](00-README.md) | [Next →](13-borders.md)
+

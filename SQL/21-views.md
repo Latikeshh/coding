@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "21 views"
+---
+
 # Views & Virtual Tables
 
 > 🟡 Intermediate
@@ -90,3 +95,4 @@ Create a view that groups orders by customer and displays each total; explain wh
 ## Navigation
 
 [← SQL Home](00-README.md) | [← Previous: Normalization](20-normalization.md) | [Next: Indexes & Performance →](22-indexes-and-performance.md)
+

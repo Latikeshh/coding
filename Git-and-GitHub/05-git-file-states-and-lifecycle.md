@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "05 git file states and lifecycle"
+---
+
 # Git File States & The 3 Trees
 
 > 🟢 Beginner
@@ -130,3 +135,4 @@ Commit `app.js` with message `"Add app entry file"`. Then open `app.js`, add `co
 ## 🧭 Navigation
 
 [← Home](00-README.md) | [← Previous: Init](04-initializing-a-repository.md) | [Next: Staging & Committing →](06-staging-and-committing.md)
+

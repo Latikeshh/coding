@@ -1,3 +1,8 @@
+﻿---
+layout: default
+title: "23 media queries"
+---
+
 # Media Queries & Container Queries
 
 > 🟡 Intermediate
@@ -201,3 +206,4 @@ Media queries format mobile navigation drawers, while Container Queries allow de
 ## 🧭 Navigation
 
 [← Previous](22-responsive-design.md) | [CSS Home](00-README.md) | [Next →](24-pseudo-classes.md)
+
