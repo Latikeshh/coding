@@ -30,26 +30,34 @@
       <!-- Sidebar Overlay for Mobile -->
       <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-      <!-- Detect Course Context -->
+      <!-- Robust Course Context Detection -->
+      {% assign current_course_id = nil %}
+      {% assign path_lower = page.path | downcase %}
+      {% assign url_lower = page.url | downcase %}
+
+      {% if path_lower contains 'git-and-github/' or url_lower contains 'git-and-github' %}
+        {% assign current_course_id = 'Git-and-GitHub' %}
+      {% elif path_lower contains 'cpp/' or url_lower contains '/cpp/' %}
+        {% assign current_course_id = 'CPP' %}
+      {% elif path_lower contains 'html/' or url_lower contains '/html/' %}
+        {% assign current_course_id = 'HTML' %}
+      {% elif path_lower contains 'css/' or url_lower contains '/css/' %}
+        {% assign current_course_id = 'CSS' %}
+      {% elif path_lower contains 'js/' or url_lower contains '/js/' %}
+        {% assign current_course_id = 'JS' %}
+      {% elif path_lower contains 'python/' or url_lower contains '/python/' %}
+        {% assign current_course_id = 'Python' %}
+      {% elif path_lower contains 'java/' or url_lower contains '/java/' %}
+        {% assign current_course_id = 'Java' %}
+      {% elif path_lower contains 'sql/' or url_lower contains '/sql/' %}
+        {% assign current_course_id = 'SQL' %}
+      {% elif path_lower contains 'c/' or url_lower contains '/c/' %}
+        {% assign current_course_id = 'C' %}
+      {% endif %}
+
       {% assign course_data = nil %}
-      {% if page.url contains '/C/' %}
-        {% assign course_data = site.data.courses.C %}
-      {% elif page.url contains '/CPP/' %}
-        {% assign course_data = site.data.courses.CPP %}
-      {% elif page.url contains '/HTML/' %}
-        {% assign course_data = site.data.courses.HTML %}
-      {% elif page.url contains '/CSS/' %}
-        {% assign course_data = site.data.courses.CSS %}
-      {% elif page.url contains '/JS/' %}
-        {% assign course_data = site.data.courses.JS %}
-      {% elif page.url contains '/Python/' %}
-        {% assign course_data = site.data.courses.Python %}
-      {% elif page.url contains '/Java/' %}
-        {% assign course_data = site.data.courses.Java %}
-      {% elif page.url contains '/SQL/' %}
-        {% assign course_data = site.data.courses.SQL %}
-      {% elif page.url contains '/Git-and-GitHub/' %}
-        {% assign course_data = site.data.courses.Git-and-GitHub %}
+      {% if current_course_id %}
+        {% assign course_data = site.data.courses[current_course_id] %}
       {% endif %}
 
       <!-- Sidebar -->
@@ -84,9 +92,16 @@
               {% for lesson in course_data.lessons %}
                 {% assign lesson_url = lesson.url | relative_url %}
                 {% assign is_lesson_active = false %}
+
                 {% if page.url == lesson.url or page.url == lesson_url %}
                   {% assign is_lesson_active = true %}
                 {% endif %}
+
+                {% assign lesson_file_stem = lesson.file | replace: '.md', '' %}
+                {% if page.path contains lesson_file_stem %}
+                  {% assign is_lesson_active = true %}
+                {% endif %}
+
                 <li class="nav-item">
                   <a href="{{ lesson.url | relative_url }}" class="nav-link {% if is_lesson_active %}active{% endif %}">
                     <span class="nav-bullet">•</span>
