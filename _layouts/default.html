@@ -30,6 +30,28 @@
       <!-- Sidebar Overlay for Mobile -->
       <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
+      <!-- Detect Course Context -->
+      {% assign course_data = nil %}
+      {% if page.url contains '/C/' %}
+        {% assign course_data = site.data.courses.C %}
+      {% elif page.url contains '/CPP/' %}
+        {% assign course_data = site.data.courses.CPP %}
+      {% elif page.url contains '/HTML/' %}
+        {% assign course_data = site.data.courses.HTML %}
+      {% elif page.url contains '/CSS/' %}
+        {% assign course_data = site.data.courses.CSS %}
+      {% elif page.url contains '/JS/' %}
+        {% assign course_data = site.data.courses.JS %}
+      {% elif page.url contains '/Python/' %}
+        {% assign course_data = site.data.courses.Python %}
+      {% elif page.url contains '/Java/' %}
+        {% assign course_data = site.data.courses.Java %}
+      {% elif page.url contains '/SQL/' %}
+        {% assign course_data = site.data.courses.SQL %}
+      {% elif page.url contains '/Git-and-GitHub/' %}
+        {% assign course_data = site.data.courses.Git-and-GitHub %}
+      {% endif %}
+
       <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
@@ -43,25 +65,58 @@
         </div>
 
         <nav class="sidebar-nav">
-          <div class="nav-section-label">Programming Languages</div>
-          <ul class="nav-menu">
-            {% for item in site.data.navigation.main %}
-              {% assign item_url = item.url | relative_url %}
-              {% assign is_active = false %}
-              {% if page.url == item.url or page.url == item_url %}
-                {% assign is_active = true %}
-              {% endif %}
-              <li class="nav-item">
-                <a href="{{ item.url | relative_url }}" class="nav-link {% if is_active %}active{% endif %}">
-                  <span class="nav-icon">{{ item.icon }}</span>
-                  <span class="nav-title">{{ item.title }}</span>
-                  {% if item.count %}
-                    <span class="nav-badge">{{ item.count }}</span>
-                  {% endif %}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
+          {% if course_data %}
+            <!-- Advanced Course-Specific Navigation Bar -->
+            <div class="nav-back-container">
+              <a href="{{ '/' | relative_url }}" class="nav-back-btn">
+                <span class="back-arrow">←</span> All Courses
+              </a>
+            </div>
+
+            <div class="course-nav-header">
+              <div class="course-header-title-group">
+                <span class="course-header-title">{{ course_data.title }}</span>
+              </div>
+              <span class="course-header-badge">{{ course_data.lessons | size }} Lessons</span>
+            </div>
+
+            <ul class="nav-menu course-lessons-menu">
+              {% for lesson in course_data.lessons %}
+                {% assign lesson_url = lesson.url | relative_url %}
+                {% assign is_lesson_active = false %}
+                {% if page.url == lesson.url or page.url == lesson_url %}
+                  {% assign is_lesson_active = true %}
+                {% endif %}
+                <li class="nav-item">
+                  <a href="{{ lesson.url | relative_url }}" class="nav-link {% if is_lesson_active %}active{% endif %}">
+                    <span class="nav-bullet">•</span>
+                    <span class="nav-title">{{ lesson.title }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <!-- Global Tracks Navigation Bar -->
+            <div class="nav-section-label">Programming Languages</div>
+            <ul class="nav-menu">
+              {% for item in site.data.navigation.main %}
+                {% assign item_url = item.url | relative_url %}
+                {% assign is_active = false %}
+                {% if page.url == item.url or page.url == item_url %}
+                  {% assign is_active = true %}
+                {% endif %}
+                <li class="nav-item">
+                  <a href="{{ item.url | relative_url }}" class="nav-link {% if is_active %}active{% endif %}">
+                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-title">{{ item.title }}</span>
+                    {% if item.count %}
+                      <span class="nav-badge">{{ item.count }}</span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </nav>
 
         <div class="sidebar-footer">
