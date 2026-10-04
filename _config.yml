@@ -1,0 +1,33 @@
+theme: jekyll-theme-minimal
+
+title: Learn Coding
+description: Learn programming languages in a simple, practical, and beginner-friendly way.
+
+# Navigation sidebar
+nav:
+  - title: C
+    url: /coding/C/
+  - title: C++
+    url: /coding/CPP/
+  - title: HTML
+    url: /coding/HTML/
+  - title: CSS
+    url: /coding/CSS/
+  - title: JavaScript
+    url: /coding/JS/
+  - title: Python
+    url: /coding/python/
+  - title: Java
+    url: /coding/java/
+  - title: SQL
+    url: /coding/SQL/
+  - title: Git & GitHub
+    url: /coding/Git-and-GitHub/
+
+# GitHub Pages settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Build settings
+markdown: kramdown
