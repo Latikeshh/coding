@@ -20,7 +20,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
 
 <div class="language-grid">
 
-  <a href="{{ '/C/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/C/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">⚙️</span>
@@ -32,7 +32,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore C Track →</span>
   </a>
 
-  <a href="{{ '/CPP/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/CPP/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🚀</span>
@@ -44,7 +44,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore C++ Track →</span>
   </a>
 
-  <a href="{{ '/HTML/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/HTML/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🌐</span>
@@ -56,7 +56,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore HTML Track →</span>
   </a>
 
-  <a href="{{ '/CSS/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/CSS/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🎨</span>
@@ -68,7 +68,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore CSS Track →</span>
   </a>
 
-  <a href="{{ '/JS/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/JS/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">⚡</span>
@@ -80,7 +80,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore JavaScript Track →</span>
   </a>
 
-  <a href="{{ '/Python/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/Python/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🐍</span>
@@ -92,7 +92,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore Python Track →</span>
   </a>
 
-  <a href="{{ '/Java/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/Java/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">☕</span>
@@ -104,7 +104,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore Java Track →</span>
   </a>
 
-  <a href="{{ '/SQL/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/SQL/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🗄️</span>
@@ -116,7 +116,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore SQL Track →</span>
   </a>
 
-  <a href="{{ '/Git-and-GitHub/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/Git-and-GitHub/' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🔀</span>
@@ -233,18 +233,18 @@ If you find this repository helpful, support the project by starring it and shar
 
 | Contributor | Profile | Contribution |
 |---|---|---|
-| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python]({{ '/Python/00-README.md' | relative_url }}) and [Java]({{ '/Java/00-README.md' | relative_url }}) learning paths. |
+| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python]({{ '/Python/' | relative_url }}) and [Java]({{ '/Java/' | relative_url }}) learning paths. |
 
 ---
 
 ## 🧭 Quick Track Links
 
-* ⚙️ [C Systems Path]({{ '/C/00-README.md' | relative_url }})
-* 🚀 [C++ Systems Path]({{ '/CPP/00-README.md' | relative_url }})
-* 🌐 [HTML Learning Path]({{ '/HTML/00-README.md' | relative_url }})
-* 🎨 [CSS Learning Path]({{ '/CSS/00-README.md' | relative_url }})
-* ⚡ [JavaScript Path]({{ '/JS/00-README.md' | relative_url }})
-* 🐍 [Python Learning Path]({{ '/Python/00-README.md' | relative_url }})
-* ☕ [Java Learning Path]({{ '/Java/00-README.md' | relative_url }})
-* 🗄️ [SQL Database Path]({{ '/SQL/00-README.md' | relative_url }})
-* 🔀 [Git & GitHub Path]({{ '/Git-and-GitHub/00-README.md' | relative_url }})
+* ⚙️ [C Systems Path]({{ '/C/' | relative_url }})
+* 🚀 [C++ Systems Path]({{ '/CPP/' | relative_url }})
+* 🌐 [HTML Learning Path]({{ '/HTML/' | relative_url }})
+* 🎨 [CSS Learning Path]({{ '/CSS/' | relative_url }})
+* ⚡ [JavaScript Path]({{ '/JS/' | relative_url }})
+* 🐍 [Python Learning Path]({{ '/Python/' | relative_url }})
+* ☕ [Java Learning Path]({{ '/Java/' | relative_url }})
+* 🗄️ [SQL Database Path]({{ '/SQL/' | relative_url }})
+* 🔀 [Git & GitHub Path]({{ '/Git-and-GitHub/' | relative_url }})

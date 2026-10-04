@@ -1,15 +1,22 @@
+---
+layout: default
+title: "Coding — Practical, Accurate & Multilingual Programming Resource"
+permalink: /README.html
+---
+
 # 💻 Coding — Practical, Accurate & Multilingual Programming Resource
 
 > **A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development, Systems Programming, Databases, and Version Control.**
 
-[![Standard ISO C11](https://img.shields.io/badge/C-ISO_C11-blue.svg)](C/00-README.md)
-[![Standard C++20](https://img.shields.io/badge/C++-ISO_C++17/20-blue.svg)](CPP/00-README.md)
-[![ECMAScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](JS/00-README.md)
-[![Python](https://img.shields.io/badge/Python-3-blue.svg)](Python/00-README.md)
-[![Java](https://img.shields.io/badge/Java-JDK%2025-orange.svg)](Java/00-README.md)
-[![HTML5 & CSS3](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3-orange.svg)](HTML/00-README.md)
-[![Git & GitHub](https://img.shields.io/badge/Version_Control-Git_%26_GitHub-black.svg)](Git-and-GitHub/00-README.md)
-[![Multilingual](https://img.shields.io/badge/Languages-EN%20%7C%20HI%20%7C%20MR%20%7C%20Hinglish-green.svg)](#-multilingual-pedagogy-and-accessibility)
+[![Standard ISO C11](https://img.shields.io/badge/C-ISO_C11-blue.svg)](C/)
+[![Standard C++20](https://img.shields.io/badge/C++-ISO_C++17/20-blue.svg)](CPP/)
+[![ECMAScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](JS/)
+[![Python](https://img.shields.io/badge/Python-3-blue.svg)](Python/)
+[![Java](https://img.shields.io/badge/Java-JDK%2025-orange.svg)](Java/)
+[![HTML5 & CSS3](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3-orange.svg)](HTML/)
+[![SQL](https://img.shields.io/badge/Database-SQL-blue.svg)](SQL/)
+[![Git & GitHub](https://img.shields.io/badge/Version_Control-Git_%26_GitHub-black.svg)](Git-and-GitHub/)
+[![Multilingual](https://img.shields.io/badge/Languages-EN%20%7C%20HI%20%7C%20MR-green.svg)](#-multilingual-pedagogy-and-accessibility)
 
 Welcome to **Coding** — a structured, technically rigorous, and beginner-first open-source repository created for self-taught developers, computer science students, educators, and software engineers.
 
@@ -78,26 +85,25 @@ coding/
 
 | Track | Total Lessons | Level Range | Key Concepts Covered | Quick Link |
 |---|---|---|---|---|
-| 🐍 **Python** | 31 Lessons | Beginner → Practical | Python 3 fundamentals, collections, functions, OOP, files, testing, projects | [Explore Python](Python/00-README.md) |
-| ☕ **Java** | 24 Lessons | Beginner → Practical | General Java SE (JDK 25), types, control flow, collections, OOP, streams, lambdas, testing, projects | [Explore Java](Java/00-README.md) |
-| 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | Document Structure, Semantic HTML5, Forms & Validations, Audio/Video, Accessibility (ARIA), Meta Tags, Open Graph & SEO | [Explore HTML](HTML/00-README.md) |
-| 🎨 **CSS** | 43 Lessons | Beginner → Advanced | Specificity, Box Model, Flexbox, CSS Grid, Media Queries, Transitions, Keyframe Animations, Custom Properties (Variables), Dark Mode & Architecture | [Explore CSS](CSS/00-README.md) |
-| 🔀 **Git & GitHub** | 30 Lessons | Beginner → Advanced DevOps | Git CLI, 3 Trees, Committing, `.gitignore`, Branching, 3-Way Merge, Conflict Resolution, Rebase, Stash, Remotes, PRs, SSH, Pages & Actions CI/CD | [Explore Git & GitHub](Git-and-GitHub/00-README.md) |
-| ⚙️ **C** | 23 Lessons | Beginner → Systems | ISO C11, Input/Output (`fgets`), Pointer Arithmetic, Dynamic Memory Allocation (`malloc`/`free`), Structs, Unions, File I/O, Header Guards & Persistent Binary Database Engine | [Explore C](C/00-README.md) |
-| ⚡ **JavaScript** | 25 Lessons | Beginner → Advanced | Modern ES6+, Scoping & Hoisting, Closures, Promises, `async`/`await`, Fetch API, Prototypes, ES6 Classes, DOM Selection/Events & Web Storage | [Explore JS](JS/00-README.md) |
-| 🚀 **C++** | 23 Lessons | Beginner → Advanced Systems | ISO C++17/20, References, Modern OOP, Operator Overloading, Smart Pointers (`unique_ptr`/`shared_ptr`), STL Containers & Algorithms, Templates, Exceptions, Lambda Expressions & Move Semantics | [Explore C++](CPP/00-README.md) |
-| 🗄️ **SQL** | 30 Lessons | Beginner → Advanced | Relational Databases, CRUD, Joins, Aggregations, Subqueries, CTEs, Window Functions, Views & Transactions | [Explore SQL](SQL/00-README.md) |
+| 🐍 **Python** | 31 Lessons | Beginner → Practical | Python 3 fundamentals, collections, functions, OOP, files, testing, projects | [Explore Python](Python/) |
+| ☕ **Java** | 24 Lessons | Beginner → Practical | General Java SE (JDK 25), types, control flow, collections, OOP, streams, lambdas, testing, projects | [Explore Java](Java/) |
+| 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | Document Structure, Semantic HTML5, Forms & Validations, Audio/Video, Accessibility (ARIA), Meta Tags, Open Graph & SEO | [Explore HTML](HTML/) |
+| 🎨 **CSS** | 43 Lessons | Beginner → Advanced | Specificity, Box Model, Flexbox, CSS Grid, Media Queries, Transitions, Keyframe Animations, Custom Properties (Variables), Dark Mode & Architecture | [Explore CSS](CSS/) |
+| 🔀 **Git & GitHub** | 30 Lessons | Beginner → Advanced DevOps | Git CLI, 3 Trees, Committing, `.gitignore`, Branching, 3-Way Merge, Conflict Resolution, Rebase, Stash, Remotes, PRs, SSH, Pages & Actions CI/CD | [Explore Git & GitHub](Git-and-GitHub/) |
+| ⚙️ **C** | 23 Lessons | Beginner → Systems | ISO C11, Input/Output (`fgets`), Pointer Arithmetic, Dynamic Memory Allocation (`malloc`/`free`), Structs, Unions, File I/O, Header Guards & Persistent Binary Database Engine | [Explore C](C/) |
+| ⚡ **JavaScript** | 25 Lessons | Beginner → Advanced | Modern ES6+, Scoping & Hoisting, Closures, Promises, `async`/`await`, Fetch API, Prototypes, ES6 Classes, DOM Selection/Events & Web Storage | [Explore JS](JS/) |
+| 🚀 **C++** | 23 Lessons | Beginner → Advanced Systems | ISO C++17/20, References, Modern OOP, Operator Overloading, Smart Pointers (`unique_ptr`/`shared_ptr`), STL Containers & Algorithms, Templates, Exceptions, Lambda Expressions & Move Semantics | [Explore C++](CPP/) |
+| 🗄️ **SQL** | 30 Lessons | Beginner → Advanced | Relational Databases, CRUD, Joins, Aggregations, Subqueries, CTEs, Window Functions, Views & Transactions | [Explore SQL](SQL/) |
 
 ---
 
 ## 🌐 Multilingual Pedagogy & Accessibility
 
-Programming terminology and keywords are strictly maintained in **English** across all tracks. However, to help non-native English speakers grasp abstract concepts, every lesson includes explanations in **4 language formats**:
+Programming terminology and keywords are strictly maintained in **English** across all tracks. However, to help non-native English speakers grasp abstract concepts, every lesson includes explanations in **3 language formats**:
 
 1. **English:** Primary technical explanation, formal definitions, and ISO standard specifications.
 2. **Hindi (Roman Script):** Natural, conversational Hindi written in the Roman/Latin alphabet (e.g. `Pointer memory address store karta hai.`).
 3. **Marathi (Roman Script):** Clear, simple Marathi written in the Roman/Latin alphabet (e.g. `Pointer dusrya variable cha memory address sathavato.`).
-4. **Hinglish (Roman Script):** Conversational developer Hinglish commonly spoken in technical discussions.
 
 ---
 
@@ -114,18 +120,18 @@ This repository was created and is actively maintained by:
 
 | Contributor | Profile | Contribution |
 |---|---|---|
-| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](Python/00-README.md) and [Java](Java/00-README.md) learning paths. |
+| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](Python/) and [Java](Java/) learning paths. |
 
 ---
 
 ## 🧭 Navigation Quick Links
 
-- 🌐 [HTML Learning Path](HTML/00-README.md)
-- 🎨 [CSS Learning Path](CSS/00-README.md)
-- 🔀 [Git & GitHub Path](Git-and-GitHub/00-README.md)
-- ⚙️ [C Systems Path](C/00-README.md)
-- ⚡ [JavaScript Path](JS/00-README.md)
-- 🚀 [C++ Systems Path](CPP/00-README.md)
-- 🐍 [Python Learning Path](Python/00-README.md)
-- ☕ [Java Learning Path](Java/00-README.md)
-- 🗄️ [SQL Learning Path](SQL/00-README.md)
+- 🌐 [HTML Learning Path](HTML/)
+- 🎨 [CSS Learning Path](CSS/)
+- 🔀 [Git & GitHub Path](Git-and-GitHub/)
+- ⚙️ [C Systems Path](C/)
+- ⚡ [JavaScript Path](JS/)
+- 🚀 [C++ Systems Path](CPP/)
+- 🐍 [Python Learning Path](Python/)
+- ☕ [Java Learning Path](Java/)
+- 🗄️ [SQL Learning Path](SQL/)

@@ -1,4 +1,4 @@
-/* Custom Master Stylesheet for Learn Coding - GitHub Pages Sidebar Layout */
+/* Enriched Dark Theme Stylesheet for Learn Coding - GitHub Pages */
 
 /* Reset & Base Setup */
 *, *::before, *::after {
@@ -11,8 +11,8 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: #0b0f19 !important;
+  color: #cbd5e1 !important;
   line-height: 1.6;
 }
 
@@ -31,6 +31,7 @@ header, section, footer, main, aside, nav {
   display: flex;
   min-height: 100vh;
   width: 100%;
+  background-color: #0b0f19;
 }
 
 /* Mobile Header & Overlay */
@@ -42,7 +43,7 @@ header, section, footer, main, aside, nav {
   display: none;
 }
 
-/* Sidebar Styling */
+/* Sidebar Styling - Dark Theme */
 .sidebar {
   width: 290px;
   flex-shrink: 0;
@@ -56,7 +57,7 @@ header, section, footer, main, aside, nav {
   height: 100vh !important;
   overflow-y: auto !important;
   z-index: 100;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
 }
 
 .sidebar-header {
@@ -92,8 +93,9 @@ header, section, footer, main, aside, nav {
 
 .brand-tagline {
   font-size: 0.75rem;
-  color: #94a3b8;
-  font-weight: 500;
+  color: #38bdf8;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 /* Sidebar Navigation */
@@ -137,6 +139,7 @@ header, section, footer, main, aside, nav {
   font-weight: 500;
   transition: all 0.15s ease-in-out;
   position: relative;
+  border: 1px solid transparent;
 }
 
 .nav-icon {
@@ -159,7 +162,7 @@ header, section, footer, main, aside, nav {
   font-size: 0.725rem;
   font-weight: 600;
   background-color: #1e293b;
-  color: #94a3b8;
+  color: #38bdf8;
   padding: 0.15rem 0.5rem;
   border-radius: 9999px;
   border: 1px solid #334155;
@@ -169,23 +172,25 @@ header, section, footer, main, aside, nav {
 .nav-link:hover {
   background-color: #1e293b !important;
   color: #f8fafc !important;
-  transform: translateX(2px);
+  border-color: #334155;
+  transform: translateX(3px);
 }
 
 .nav-link:hover .nav-badge {
   background-color: #334155;
-  color: #f1f5f9;
+  color: #7dd3fc;
 }
 
 .nav-link.active {
   background-color: #2563eb !important;
   color: #ffffff !important;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  border-color: #3b82f6;
 }
 
 .nav-link.active .nav-badge {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   border-color: transparent;
 }
@@ -216,19 +221,21 @@ header, section, footer, main, aside, nav {
 .github-link:hover {
   background-color: #334155;
   color: #ffffff !important;
-  border-color: #475569;
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
 .github-icon {
   fill: currentColor;
 }
 
-/* Main Content Area */
+/* Main Content Area - Dark Theme Enriched */
 .main-content {
   flex: 1;
   min-width: 0;
   padding: 2.5rem 3.5rem;
-  background-color: #ffffff;
+  background-color: #0b0f19 !important;
+  color: #cbd5e1 !important;
 }
 
 .content-wrapper {
@@ -236,11 +243,11 @@ header, section, footer, main, aside, nav {
   margin: 0 auto;
 }
 
-/* Typography & Headers */
+/* Dark Theme Typography & Headers */
 .content-wrapper h1 {
   font-size: 2.25rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #f8fafc !important;
   margin-top: 0;
   margin-bottom: 1rem;
   letter-spacing: -0.03em;
@@ -250,10 +257,10 @@ header, section, footer, main, aside, nav {
 .content-wrapper h2 {
   font-size: 1.65rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #f1f5f9 !important;
   margin-top: 2.25rem;
   margin-bottom: 0.85rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid #1e293b;
   padding-bottom: 0.4rem;
   letter-spacing: -0.02em;
 }
@@ -261,7 +268,7 @@ header, section, footer, main, aside, nav {
 .content-wrapper h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #334155;
+  color: #e2e8f0 !important;
   margin-top: 1.75rem;
   margin-bottom: 0.65rem;
 }
@@ -269,7 +276,7 @@ header, section, footer, main, aside, nav {
 .content-wrapper p {
   font-size: 1.05rem;
   line-height: 1.75;
-  color: #334155;
+  color: #cbd5e1 !important;
   margin-bottom: 1.25rem;
 }
 
@@ -281,29 +288,33 @@ header, section, footer, main, aside, nav {
 .content-wrapper li {
   margin-bottom: 0.4rem;
   line-height: 1.65;
-  color: #334155;
+  color: #cbd5e1 !important;
 }
 
 .content-wrapper blockquote {
   margin: 1.5rem 0;
   padding: 1rem 1.25rem;
-  border-left: 4px solid #2563eb;
-  background-color: #f0f9ff;
-  color: #1e3a8a;
+  border-left: 4px solid #38bdf8;
+  background-color: #0f172a;
+  color: #e0f2fe !important;
   border-radius: 0 0.5rem 0.5rem 0;
+  border: 1px solid #1e293b;
+  border-left-width: 4px;
 }
 
 .content-wrapper blockquote p {
   margin-bottom: 0;
-  color: #1e3a8a;
+  color: #e0f2fe !important;
 }
 
 .content-wrapper a {
-  color: #2563eb;
+  color: #38bdf8 !important;
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .content-wrapper a:hover {
+  color: #7dd3fc !important;
   text-decoration: underline;
 }
 
@@ -311,11 +322,11 @@ header, section, footer, main, aside, nav {
 code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.875em;
-  background-color: #f1f5f9;
-  color: #0f172a;
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  border: 1px solid #e2e8f0;
+  background-color: #1e293b !important;
+  color: #38bdf8 !important;
+  padding: 0.2em 0.45em;
+  border-radius: 0.35rem;
+  border: 1px solid #334155;
 }
 
 .highlighter-rouge, .highlight, div.highlighter-rouge, div.highlight {
@@ -326,8 +337,8 @@ code {
 }
 
 pre, pre.highlight, div.highlighter-rouge pre, div.highlight pre {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
+  background-color: #020617 !important;
+  color: #f1f5f9 !important;
   padding: 1.25rem 1.5rem !important;
   border-radius: 0.75rem !important;
   overflow-x: auto !important;
@@ -339,12 +350,12 @@ pre, pre.highlight, div.highlighter-rouge pre, div.highlight pre {
   white-space: pre !important;
   word-spacing: normal !important;
   word-break: normal !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4) !important;
 }
 
 pre code, pre.highlight code, div.highlighter-rouge code, div.highlight code {
   background-color: transparent !important;
-  color: #f8fafc !important;
+  color: #f1f5f9 !important;
   padding: 0 !important;
   border-radius: 0 !important;
   border: none !important;
@@ -353,32 +364,37 @@ pre code, pre.highlight code, div.highlighter-rouge code, div.highlight code {
   white-space: pre !important;
 }
 
-/* Table Styling */
+/* Dark Theme Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.95rem;
+  background-color: #0f172a;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #1e293b;
 }
 
 th, td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #1e293b;
+  color: #cbd5e1;
 }
 
 th {
-  background-color: #f8fafc;
+  background-color: #1e293b;
   font-weight: 700;
-  color: #0f172a;
-  border-bottom: 2px solid #cbd5e1;
+  color: #f8fafc !important;
+  border-bottom: 2px solid #334155;
 }
 
 tr:hover td {
-  background-color: #f1f5f9;
+  background-color: #1e293b;
 }
 
-/* Language Cards Grid */
+/* Dark Theme Language Cards Grid */
 .language-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -390,19 +406,20 @@ tr:hover td {
   display: flex;
   flex-direction: column;
   padding: 1.25rem;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: #0f172a !important;
+  border: 1px solid #1e293b !important;
   border-radius: 0.75rem;
   text-decoration: none !important;
   color: inherit !important;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
 .language-card:hover {
   transform: translateY(-3px);
-  border-color: #2563eb;
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);
+  background-color: #1e293b !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 10px 20px -3px rgba(37, 99, 235, 0.25);
 }
 
 .card-header {
@@ -425,7 +442,7 @@ tr:hover td {
 .card-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #f8fafc !important;
   margin: 0 !important;
   border: none !important;
   padding: 0 !important;
@@ -434,16 +451,16 @@ tr:hover td {
 .card-badge {
   font-size: 0.75rem;
   font-weight: 600;
-  background-color: #eff6ff;
-  color: #1d4ed8;
+  background-color: #1e3a8a;
+  color: #93c5fd;
   padding: 0.2rem 0.55rem;
   border-radius: 9999px;
-  border: 1px solid #bfdbfe;
+  border: 1px solid #1d4ed8;
 }
 
 .card-desc {
   font-size: 0.875rem;
-  color: #64748b;
+  color: #94a3b8 !important;
   margin: 0 0 1rem 0 !important;
   line-height: 1.5;
   flex: 1;
@@ -452,13 +469,17 @@ tr:hover td {
 .card-link-text {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #38bdf8 !important;
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
-/* Roadmap Flow Component */
+.language-card:hover .card-link-text {
+  color: #60a5fa !important;
+}
+
+/* Dark Theme Roadmap Flow Component */
 .roadmap-flow {
   display: flex;
   flex-direction: column;
@@ -467,12 +488,12 @@ tr:hover td {
 }
 
 .roadmap-card {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
   border-left: 4px solid #2563eb;
   border-radius: 0.5rem;
   padding: 1.25rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
 .roadmap-header {
@@ -496,7 +517,7 @@ tr:hover td {
 .step-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #f8fafc !important;
   margin: 0 !important;
   border: none !important;
   padding: 0 !important;
@@ -512,16 +533,16 @@ tr:hover td {
 .tech-tag {
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: #ffffff;
-  color: #1e293b;
+  background-color: #1e293b;
+  color: #f1f5f9;
   padding: 0.35rem 0.75rem;
   border-radius: 0.375rem;
-  border: 1px solid #cbd5e1;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  border: 1px solid #334155;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .roadmap-arrow {
-  color: #94a3b8;
+  color: #38bdf8;
   font-size: 1.1rem;
   font-weight: bold;
 }
@@ -529,7 +550,7 @@ tr:hover td {
 .roadmap-connector {
   text-align: center;
   font-size: 1.25rem;
-  color: #2563eb;
+  color: #38bdf8;
   font-weight: bold;
   margin: -0.25rem 0;
 }
@@ -551,7 +572,7 @@ tr:hover td {
     top: 0;
     z-index: 900;
     border-bottom: 1px solid #1e293b;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
   .sidebar-toggle-btn {
@@ -599,8 +620,8 @@ tr:hover td {
   .sidebar-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
     z-index: 999;
     transition: opacity 0.3s ease;
   }
