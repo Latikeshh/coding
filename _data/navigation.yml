@@ -1,0 +1,40 @@
+main:
+  - title: Home
+    url: "/"
+    icon: "🏠"
+  - title: C
+    url: "/C/"
+    icon: "⚙️"
+    count: "23 Lessons"
+  - title: C++
+    url: "/CPP/"
+    icon: "🚀"
+    count: "23 Lessons"
+  - title: HTML
+    url: "/HTML/"
+    icon: "🌐"
+    count: "32 Lessons"
+  - title: CSS
+    url: "/CSS/"
+    icon: "🎨"
+    count: "43 Lessons"
+  - title: JavaScript
+    url: "/JS/"
+    icon: "⚡"
+    count: "25 Lessons"
+  - title: Python
+    url: "/python/"
+    icon: "🐍"
+    count: "31 Lessons"
+  - title: Java
+    url: "/java/"
+    icon: "☕"
+    count: "24 Lessons"
+  - title: SQL
+    url: "/SQL/"
+    icon: "🗄️"
+    count: "30 Lessons"
+  - title: Git & GitHub
+    url: "/Git-and-GitHub/"
+    icon: "🔀"
+    count: "30 Lessons"

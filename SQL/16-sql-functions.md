@@ -25,6 +25,10 @@ SELECT function_name(expression)
 FROM table_name;
 ```
 
+## SQL Function types
+# (1) SRF Single row fun
+# (2) MRF multi row function
+
 ## Example
 
 ```sql
