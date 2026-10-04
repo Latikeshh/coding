@@ -132,20 +132,67 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
 
 ---
 
-## 📢 Share & Connect
-
-If you find this repository helpful, support the project by starring it and sharing it with fellow learners:
-
-- [⭐ Star on GitHub](https://github.com/Latikeshh/coding/stargazers)
-- [🔀 Fork Repository](https://github.com/Latikeshh/coding/network/members)
-- [💼 Share on LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)
-- [💬 Share on WhatsApp](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding)
-
----
-
 ## 🗺️ Recommended Learning Roadmap
 
 For beginners entering software development, we recommend following this progressive sequence:
+
+<div class="roadmap-flow">
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 1</span>
+      <h3 class="step-title">Version Control & Web Fundamentals</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">🔀 Git & GitHub</span>
+      <span class="roadmap-arrow">➔</span>
+      <span class="tech-tag">🌐 HTML5</span>
+      <span class="roadmap-arrow">➔</span>
+      <span class="tech-tag">🎨 CSS3 (Flexbox & Grid)</span>
+    </div>
+  </div>
+
+  <div class="roadmap-connector">↓</div>
+
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 2</span>
+      <h3 class="step-title">Dynamic Logic & Programming Languages</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">⚡ JavaScript (ES6+ & Async)</span>
+      <span class="tech-tag">🐍 Python</span>
+      <span class="tech-tag">☕ Java</span>
+    </div>
+  </div>
+
+  <div class="roadmap-connector">↓</div>
+
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 3</span>
+      <h3 class="step-title">Databases & Data Persistence</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">🗄️ SQL (Relational Databases, Joins & Queries)</span>
+    </div>
+  </div>
+
+  <div class="roadmap-connector">↓</div>
+
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 4</span>
+      <h3 class="step-title">Systems Programming & Low-Level Memory</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">⚙️ C (Pointers & Memory Allocation)</span>
+      <span class="roadmap-arrow">➔</span>
+      <span class="tech-tag">🚀 C++ (Modern OOP, STL & Move Semantics)</span>
+    </div>
+  </div>
+</div>
+
+### Text Diagram Representation:
 
 ```text
 [1. Version Control & Web Fundamentals]
@@ -160,6 +207,17 @@ For beginners entering software development, we recommend following this progres
                                               ▼
 [4. Systems & Low-Level Memory]    C (Pointers, Memory & Structs) ──> C++ (Modern OOP & STL)
 ```
+
+---
+
+## 📢 Share & Connect
+
+If you find this repository helpful, support the project by starring it and sharing it with fellow learners:
+
+- [⭐ Star on GitHub](https://github.com/Latikeshh/coding/stargazers)
+- [🔀 Fork Repository](https://github.com/Latikeshh/coding/network/members)
+- [💼 Share on LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)
+- [💬 Share on WhatsApp](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding)
 
 ---
 
