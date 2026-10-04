@@ -28,5 +28,5 @@ Fork this repository to your own GitHub account.
 ### 2. Clone Your Fork
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/coding.git
+git clone https://github.com/latikeshh/coding.git
 cd coding
