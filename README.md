@@ -1,12 +1,12 @@
 # 💻 Coding — Practical, Accurate & Multilingual Programming Resource
 
-> **A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development, Systems Programming, and Version Control.**
+> **A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development, Systems Programming, Databases, and Version Control.**
 
 [![Standard ISO C11](https://img.shields.io/badge/C-ISO_C11-blue.svg)](C/00-README.md)
 [![Standard C++20](https://img.shields.io/badge/C++-ISO_C++17/20-blue.svg)](CPP/00-README.md)
 [![ECMAScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](JS/00-README.md)
-[![Python](https://img.shields.io/badge/Python-3-blue.svg)](python/00-README.md)
-[![Java](https://img.shields.io/badge/Java-JDK%2025-orange.svg)](java/00-README.md)
+[![Python](https://img.shields.io/badge/Python-3-blue.svg)](Python/00-README.md)
+[![Java](https://img.shields.io/badge/Java-JDK%2025-orange.svg)](Java/00-README.md)
 [![HTML5 & CSS3](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3-orange.svg)](HTML/00-README.md)
 [![Git & GitHub](https://img.shields.io/badge/Version_Control-Git_%26_GitHub-black.svg)](Git-and-GitHub/00-README.md)
 [![Multilingual](https://img.shields.io/badge/Languages-EN%20%7C%20HI%20%7C%20MR%20%7C%20Hinglish-green.svg)](#-multilingual-pedagogy-and-accessibility)
@@ -33,7 +33,7 @@ If you find this repository helpful, support the project by starring it and shar
 
 ## 📂 Repository Architecture & Structure
 
-The repository is modularly organized into 8 primary technology tracks comprising **231 lessons**:
+The repository is modularly organized into 9 primary technology tracks comprising **260+ lessons**:
 
 ```text
 coding/
@@ -61,7 +61,15 @@ coding/
 │   ├── 00-README.md       # C++ Master Syllabus & Systems OOP Path
 │   ├── 01-setup-cpp.md
 │   └── ... [02 to 23]
-└── 📄 README.md           # Master Repository Documentation
+├── 🐍 Python/             # 31 Lessons: Python 3, Data Structures, Decorators, Generators, Type Hints & Testing
+│   ├── 00-README.md       # Python Master Syllabus & Learning Path
+│   └── ... [01 to 31]
+├── ☕ Java/               # 24 Lessons: General Java SE (JDK 25), OOP, Collections, Streams, Lambdas & Testing
+│   ├── 00-README.md       # Java Master Syllabus & Learning Path
+│   └── ... [01 to 24]
+└── 🗄️ SQL/                # 30 Lessons: Relational DBs, CRUD, Joins, Aggregations, CTEs, Views & Transactions
+    ├── 00-README.md       # SQL Master Syllabus & Learning Path
+    └── ... [01 to 30]
 ```
 
 ---
@@ -70,14 +78,15 @@ coding/
 
 | Track | Total Lessons | Level Range | Key Concepts Covered | Quick Link |
 |---|---|---|---|---|
-| Python | 31 Lessons | Beginner → Practical | Python 3 fundamentals, collections, functions, OOP, files, testing, projects | [Explore Python](python/00-README.md) |
-| Java | 24 Lessons | Beginner → Practical | JDK 25, types, control flow, collections, OOP, files, testing, projects | [Explore Java](java/00-README.md) |
+| 🐍 **Python** | 31 Lessons | Beginner → Practical | Python 3 fundamentals, collections, functions, OOP, files, testing, projects | [Explore Python](Python/00-README.md) |
+| ☕ **Java** | 24 Lessons | Beginner → Practical | General Java SE (JDK 25), types, control flow, collections, OOP, streams, lambdas, testing, projects | [Explore Java](Java/00-README.md) |
 | 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | Document Structure, Semantic HTML5, Forms & Validations, Audio/Video, Accessibility (ARIA), Meta Tags, Open Graph & SEO | [Explore HTML](HTML/00-README.md) |
 | 🎨 **CSS** | 43 Lessons | Beginner → Advanced | Specificity, Box Model, Flexbox, CSS Grid, Media Queries, Transitions, Keyframe Animations, Custom Properties (Variables), Dark Mode & Architecture | [Explore CSS](CSS/00-README.md) |
 | 🔀 **Git & GitHub** | 30 Lessons | Beginner → Advanced DevOps | Git CLI, 3 Trees, Committing, `.gitignore`, Branching, 3-Way Merge, Conflict Resolution, Rebase, Stash, Remotes, PRs, SSH, Pages & Actions CI/CD | [Explore Git & GitHub](Git-and-GitHub/00-README.md) |
 | ⚙️ **C** | 23 Lessons | Beginner → Systems | ISO C11, Input/Output (`fgets`), Pointer Arithmetic, Dynamic Memory Allocation (`malloc`/`free`), Structs, Unions, File I/O, Header Guards & Persistent Binary Database Engine | [Explore C](C/00-README.md) |
 | ⚡ **JavaScript** | 25 Lessons | Beginner → Advanced | Modern ES6+, Scoping & Hoisting, Closures, Promises, `async`/`await`, Fetch API, Prototypes, ES6 Classes, DOM Selection/Events & Web Storage | [Explore JS](JS/00-README.md) |
 | 🚀 **C++** | 23 Lessons | Beginner → Advanced Systems | ISO C++17/20, References, Modern OOP, Operator Overloading, Smart Pointers (`unique_ptr`/`shared_ptr`), STL Containers & Algorithms, Templates, Exceptions, Lambda Expressions & Move Semantics | [Explore C++](CPP/00-README.md) |
+| 🗄️ **SQL** | 30 Lessons | Beginner → Advanced | Relational Databases, CRUD, Joins, Aggregations, Subqueries, CTEs, Window Functions, Views & Transactions | [Explore SQL](SQL/00-README.md) |
 
 ---
 
@@ -89,107 +98,6 @@ Programming terminology and keywords are strictly maintained in **English** acro
 2. **Hindi (Roman Script):** Natural, conversational Hindi written in the Roman/Latin alphabet (e.g. `Pointer memory address store karta hai.`).
 3. **Marathi (Roman Script):** Clear, simple Marathi written in the Roman/Latin alphabet (e.g. `Pointer dusrya variable cha memory address sathavato.`).
 4. **Hinglish (Roman Script):** Conversational developer Hinglish commonly spoken in technical discussions.
-
-> 💡 **Why Roman Script for Regional Languages?**
-> Using Roman/Latin script for Hindi and Marathi ensures seamless readability across code editors, Linux/macOS terminal sessions, Windows Command Prompt, and mobile devices without missing font/glyph dependencies.
-
----
-
-## 📖 Standard Lesson Blueprint
-
-Every lesson in this repository follows a consistent, high-yield pedagogical structure:
-
-```markdown
-1. Topic Title & Difficulty Badge (🟢 Beginner / 🟡 Intermediate / 🔴 Advanced)
-2. 📖 Definition (Formal, technically accurate description)
-3. 🌐 Multilingual Explanation (English, Roman Hindi, Roman Marathi, Hinglish)
-4. 🤔 Why Do We Use It? (Practical software engineering purpose)
-5. 🧠 Simple Explanation (Real-world relatable analogies)
-6. 📝 Syntax & Mechanics (Correct standard syntax & rules)
-7. 💡 Practical Example (Runnable, realistic code example)
-8. 🔍 Code Breakdown (Step-by-step logic explanation)
-9. 👀 Output (Expected deterministic output)
-10. ⚠️ Common Mistakes (Beginner pitfalls, syntax bugs & security warnings)
-11. 🛡️ Safety / Important Notes (Memory safety, UB warnings, standard flags)
-12. 🌍 Real-World Usage (Where this is used in production systems)
-13. 🧪 Try It Yourself (Interactive beginner exercise)
-14. 🎯 Mini Challenge (Slightly harder problem solving task)
-15. 🔗 Related Topics & 🧭 Navigation Links
-```
-
----
-
-## ⚡ Quick Execution & Compilation Cheatsheet
-
-### 1. Git & GitHub Operations (CLI)
-```bash
-# Initialize, stage, and commit
-git init
-git add .
-git commit -m "Initial commit"
-
-# Sync with GitHub
-git remote add origin git@github.com:username/repo.git
-git push -u origin main
-```
-
-### 2. Running C Programs (ISO C11)
-```bash
-# Compile with strict warnings enabled
-gcc -Wall -Wextra -std=c11 program.c -o program
-
-# Execute binary
-./program        # Linux / macOS
-program.exe      # Windows
-```
-
-### 3. Running C++ Programs (ISO C++17/20)
-```bash
-# Compile with modern C++ standard
-g++ -Wall -Wextra -std=c++20 program.cpp -o program
-
-# Execute binary
-./program
-```
-
-### 4. Running JavaScript (Node.js & DevTools)
-```bash
-# Run via Node.js runtime
-node script.js
-
-# Or open browser Developer Console (F12) -> Console tab
-```
-
-### 5. Running Web Projects (HTML / CSS)
-Open `.html` files in any modern web browser or use VS Code **Live Server** extension for hot-reloading.
-
----
-
-## 🗺️ Recommended Learning Roadmap
-
-For beginners entering software development, we recommend following this progressive sequence:
-
-```text
-[1. Version Control & Web Fundamentals]
-   Git & GitHub (Version Control) ──> HTML (Structure) ──> CSS (Styling, Flexbox & Grid)
-                                                                 │
-                                                                 ▼
-[2. Dynamic Web Logic]                     JavaScript (ES6+, DOM, Async/Await)
-                                                                 │
-                                                                 ▼
-[3. Low-Level Systems]                     C (Pointers, Memory & Structs)
-                                                                 │
-                                                                 ▼
-[4. High-Performance OOP]                  C++ (Modern OOP, STL, Smart Pointers & Move Semantics)
-```
-
----
-
-## 🛡️ Technical Accuracy & Quality Assurance
-
-- **Zero Undefined Behavior:** C/C++ lessons explicitly teach memory safety, bounds checking, avoiding undefined behavior (UB), avoiding dangling pointers, and proper heap cleanup (`free`, RAII, `std::unique_ptr`).
-- **Idiomatic Code Patterns:** C code uses idiomatic patterns (e.g. `int *arr = malloc(n * sizeof *arr);` without redundant casting). C++ code uses modern RAII and standard algorithms instead of raw pointer manipulation.
-- **Safe I/O:** Banned legacy unsafe functions (like `gets()`) in favor of bounded functions (`fgets()`, `getline()`).
 
 ---
 
@@ -206,22 +114,7 @@ This repository was created and is actively maintained by:
 
 | Contributor | Profile | Contribution |
 |---|---|---|
-| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](python/00-README.md) and [Java](java/00-README.md) learning paths. |
-
----
-
-### 🤝 Become a Contributor
-Contributions from the open-source community are welcome! Whether you are fixing a typo, improving an explanation, adding a code example, or reporting an edge case:
-
-1. Fork the repository.
-2. Create a focused feature branch (`git checkout -b feature/improvement`).
-3. Commit clear, well-described changes (`git commit -m 'Improve explanation'`).
-4. Push to your branch (`git push origin feature/improvement`).
-5. Open a Pull Request.
-
-All contributors will be featured below!
-
-[![Contributors](https://contrib.rocks/image?repo=Latikeshh/coding)](https://github.com/Latikeshh/coding/graphs/contributors)
+| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](Python/00-README.md) and [Java](Java/00-README.md) learning paths. |
 
 ---
 
@@ -233,5 +126,6 @@ All contributors will be featured below!
 - ⚙️ [C Systems Path](C/00-README.md)
 - ⚡ [JavaScript Path](JS/00-README.md)
 - 🚀 [C++ Systems Path](CPP/00-README.md)
-- [Python Learning Path](python/00-README.md)
-- [Java Learning Path](java/00-README.md)
+- 🐍 [Python Learning Path](Python/00-README.md)
+- ☕ [Java Learning Path](Java/00-README.md)
+- 🗄️ [SQL Learning Path](SQL/00-README.md)

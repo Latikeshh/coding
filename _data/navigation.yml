@@ -23,11 +23,11 @@ main:
     icon: "⚡"
     count: "25 Lessons"
   - title: Python
-    url: "/python/"
+    url: "/Python/"
     icon: "🐍"
     count: "31 Lessons"
   - title: Java
-    url: "/java/"
+    url: "/Java/"
     icon: "☕"
     count: "24 Lessons"
   - title: SQL

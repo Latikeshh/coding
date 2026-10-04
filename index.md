@@ -80,7 +80,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore JavaScript Track →</span>
   </a>
 
-  <a href="{{ '/python/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/Python/00-README.md' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🐍</span>
@@ -92,7 +92,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore Python Track →</span>
   </a>
 
-  <a href="{{ '/java/00-README.md' | relative_url }}" class="language-card">
+  <a href="{{ '/Java/00-README.md' | relative_url }}" class="language-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">☕</span>
@@ -100,7 +100,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
       </div>
       <span class="card-badge">24 Lessons</span>
     </div>
-    <p class="card-desc">JDK 25, Primitive Types, Control Flow, Collections Framework, OOP, Streams, Lambdas & Testing.</p>
+    <p class="card-desc">General Java (Java SE / JDK 25), Primitive Types, Control Flow, Collections, OOP, Streams, Lambdas & Testing.</p>
     <span class="card-link-text">Explore Java Track →</span>
   </a>
 
@@ -233,7 +233,7 @@ If you find this repository helpful, support the project by starring it and shar
 
 | Contributor | Profile | Contribution |
 |---|---|---|
-| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python]({{ '/python/00-README.md' | relative_url }}) and [Java]({{ '/java/00-README.md' | relative_url }}) learning paths. |
+| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python]({{ '/Python/00-README.md' | relative_url }}) and [Java]({{ '/Java/00-README.md' | relative_url }}) learning paths. |
 
 ---
 
@@ -244,7 +244,7 @@ If you find this repository helpful, support the project by starring it and shar
 * 🌐 [HTML Learning Path]({{ '/HTML/00-README.md' | relative_url }})
 * 🎨 [CSS Learning Path]({{ '/CSS/00-README.md' | relative_url }})
 * ⚡ [JavaScript Path]({{ '/JS/00-README.md' | relative_url }})
-* 🐍 [Python Learning Path]({{ '/python/00-README.md' | relative_url }})
-* ☕ [Java Learning Path]({{ '/java/00-README.md' | relative_url }})
+* 🐍 [Python Learning Path]({{ '/Python/00-README.md' | relative_url }})
+* ☕ [Java Learning Path]({{ '/Java/00-README.md' | relative_url }})
 * 🗄️ [SQL Database Path]({{ '/SQL/00-README.md' | relative_url }})
 * 🔀 [Git & GitHub Path]({{ '/Git-and-GitHub/00-README.md' | relative_url }})
