@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Contributing Guide"
+---
+
 # Contributing to Coding Repository
 
 Thank you for your interest in contributing! 🎉

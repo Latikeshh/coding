@@ -121,7 +121,7 @@ Status: All checks passed! [Green Checkmark]
 ## 🛡️ Safety / Important Notes
 
 - GitHub provides free GitHub Actions runner minutes for open-source public repositories.
-- Secrets used in Actions (like AWS keys or SSH keys) must be stored safely in GitHub Settings -> **Secrets and variables -> Actions**, and referenced in YAML as `${{ secrets.AWS_ACCESS_KEY }}`.
+- Secrets used in Actions (like AWS keys or SSH keys) must be stored safely in GitHub Settings -> **Secrets and variables -> Actions**, and referenced in YAML as `{% raw %}${{ secrets.AWS_ACCESS_KEY }}{% endraw %}`.
 
 ## 🌍 Real-World Usage
 

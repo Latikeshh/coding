@@ -90,10 +90,11 @@
 
             <ul class="nav-menu course-lessons-menu">
               {% for lesson in course_data.lessons %}
-                {% assign lesson_url = lesson.url | relative_url %}
+                {% assign lesson_target_url = lesson.url | replace: '.md', '.html' %}
+                {% assign lesson_url = lesson_target_url | relative_url %}
                 {% assign is_lesson_active = false %}
 
-                {% if page.url == lesson.url or page.url == lesson_url %}
+                {% if page.url == lesson.url or page.url == lesson_url or page.url == lesson_target_url %}
                   {% assign is_lesson_active = true %}
                 {% endif %}
 
@@ -103,7 +104,7 @@
                 {% endif %}
 
                 <li class="nav-item">
-                  <a href="{{ lesson.url | relative_url }}" class="nav-link {% if is_lesson_active %}active{% endif %}">
+                  <a href="{{ lesson_target_url | relative_url }}" class="nav-link {% if is_lesson_active %}active{% endif %}">
                     <span class="nav-bullet">•</span>
                     <span class="nav-title">{{ lesson.title }}</span>
                   </a>
