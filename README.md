@@ -107,6 +107,22 @@ Programming terminology and keywords are strictly maintained in **English** acro
 
 ---
 
+## 🤝 Contribution & How to Contribute
+
+We welcome open-source contributions from developers, learners, and educators worldwide! Whether you want to fix a typo, add new lesson examples, improve multilingual explanations, or build capstone projects, your help is deeply appreciated.
+
+### 📌 Quick Contribution Summary:
+1. **Fork** this repository to your GitHub account.
+2. **Clone** your fork locally: `git clone https://github.com/<your-username>/coding.git`
+3. **Create a branch**: `git checkout -b feature/my-new-contribution`
+4. **Commit & Push**: `git add .` -> `git commit -m "feat: add new lesson"` -> `git push origin feature/my-new-contribution`
+5. **Open a Pull Request**: Submit your PR on GitHub!
+
+📖 **For deep step-by-step instructions on git commands, local setup, file formatting rules, and PR submission, read our full guide:**
+👉 **[Read Step-by-Step Contribution Guide (CONTRIBUTING.md)](CONTRIBUTING.md)**
+
+---
+
 ## 👥 Creator & Contributors
 
 ### 👨‍💻 Created & Maintained By
