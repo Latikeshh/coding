@@ -3,84 +3,175 @@ layout: default
 title: "10 classes and oops"
 ---
 
-# Classes & Objects (OOP Basics)
+# Classes & Object-Oriented Programming (OOP) in C++
 
 > 🟡 Intermediate
 
+---
+
 ## 📖 Definition
 
-**Object-Oriented Programming (OOP)** is a design paradigm based on **Classes** (blueprints/user-defined types) and **Objects** (instances of classes holding data and methods).
+**Object-Oriented Programming (OOP)** is a design paradigm centered around **Classes** (user-defined blueprints) and **Objects** (real-world instances of classes holding state and behavior). The four core pillars of OOP are:
+1. **Encapsulation**: Bundling member variables and methods inside a class and restricting direct access via access specifiers (`private`, `public`, `protected`).
+2. **Abstraction**: Exposing only essential interface methods while hiding complex internal implementation logic.
+3. **Inheritance**: Creating new derived classes from existing base classes.
+4. **Polymorphism**: Overriding base class functions at runtime using virtual methods.
 
-> 🌐 **Multilingual Summary / संक्षेप / स्पष्टीकरण**
->
-> - **English:** Classes encapsulate data (private members) and behavior (public methods). Encapsulation protects object state from unauthorized modification.
-> - **Hindi:** क्लास एक ब्लू-प्रिंट है और ऑब्जेक्ट उसका इंस्टेंस है। एन्कैप्सुलेशन से डेटा को `private` रखकर सुरक्षित किया जाता है।
-> - **Marathi:** क्लास म्हणजे ब्लू-प्रिंट आणि ऑब्जेक्ट म्हणजे त्याचे रूप. एन्कॅप्स्युलेशनमुळे डेटा सुरक्षित राहतो.
-> - **Hinglish:** Class ek blueprint hai aur object uski real copy. Data security ke liye members ko `private` rakha jaata hai.
+---
 
-## 📝 Core Concepts
+## 🇮🇳 Hindi Explanation
 
-1. **Class:** User-defined template containing state attributes (member variables) and behavior (member functions/methods).
-2. **Access Specifiers:**
-   - `private`: Accessible only inside class member functions (Encapsulation).
-   - `public`: Accessible from anywhere outside the class.
-   - `protected`: Accessible inside class and derived inheritance classes.
-3. **Constructor:** Special initialization function executed automatically upon object instantiation.
+- **Class**: Ek khali blueprint / format hota hai (jaise Bank Account ka form).
+- **Object**: Us blueprint se bana real instance (jaise Rahul ka Bank Account).
+- **Encapsulation**: Class ke sensitive variables (jaise `balance`) ko `private` rakhna taaki koi bahar se use directly change na kar sake. Access sirf `public` methods (`deposit()`, `withdraw()`) ke zariye milta hai.
+
+---
+
+## 🚩 Marathi Explanation
+
+- **Class**: Ek blueprint aahe (udaharanarth Car cha design).
+- **Object**: Tyapasun banavleli pratyaksh vastu (udaharanarth Tesla Car).
+- **Encapsulation**: Data safe thevnyasathi variables `private` thevane aani tyaana badalnyasathi `public` functions vaparne.
+
+---
+
+## 🔑 Access Specifiers in C++
+
+| Access Specifier | Accessible Inside Class? | Accessible In Derived Class? | Accessible Outside Class? |
+|:---|:---:|:---:|:---:|
+| `private` | ✅ Yes | ❌ No | ❌ No |
+| `protected` | ✅ Yes | ✅ Yes | ❌ No |
+| `public` | ✅ Yes | ✅ Yes | ✅ Yes |
+
+---
 
 ## 💡 Practical Example
 
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-class Car {
+// Class Definition (Blueprint)
+class BankAccount {
 private:
-    string brand;
-    int year;
+    std::string accountNumber;
+    std::string accountHolder;
+    double balance; // Encapsulated private data!
 
 public:
-    // Constructor
-    Car(string b, int y) : brand(b), year(y) {}
+    // Constructor (Initializes Object State)
+    BankAccount(std::string accNum, std::string holder, double initialBalance) {
+        accountNumber = accNum;
+        accountHolder = holder;
+        balance = (initialBalance >= 0.0) ? initialBalance : 0.0;
+    }
 
-    // Member function / Method
-    void displayInfo() const {
-        cout << "Car Brand: " << brand << " | Year: " << year << endl;
+    // Public Method: Deposit Money
+    void deposit(double amount) {
+        if (amount > 0.0) {
+            balance += amount;
+            std::cout << "[SUCCESS] Deposited $" << amount << ". New Balance: $" << balance << std::endl;
+        } else {
+            std::cout << "[ERROR] Deposit amount must be positive!" << std::endl;
+        }
+    }
+
+    // Public Method: Withdraw Money with Validation
+    void withdraw(double amount) {
+        if (amount > 0.0 && amount <= balance) {
+            balance -= amount;
+            std::cout << "[SUCCESS] Withdrew $" << amount << ". Remaining Balance: $" << balance << std::endl;
+        } else {
+            std::cout << "[ERROR] Insufficient funds or invalid amount!" << std::endl;
+        }
+    }
+
+    // Getter Method for Reading Encapsulated Balance
+    double getBalance() const {
+        return balance;
+    }
+
+    void displayDetails() const {
+        std::cout << "Acc Num: " << accountNumber << " | Holder: " << accountHolder << " | Balance: $" << balance << std::endl;
     }
 };
 
 int main() {
-    // Instantiating Objects
-    Car car1("Tesla", 2023);
-    Car car2("Ford", 2020);
+    std::cout << "--- CREATING BANK ACCOUNT OBJECTS ---" << std::endl;
+    
+    // Instantiating BankAccount Object
+    BankAccount acc1("ACC-1001", "Rahul Sharma", 1000.00);
 
-    car1.displayInfo();
-    car2.displayInfo();
+    acc1.displayDetails();
+    acc1.deposit(500.00);
+    acc1.withdraw(200.00);
+    acc1.withdraw(2000.00); // Triggers insufficient funds guard!
+
+    // Direct access to private member is blocked by compiler!
+    // acc1.balance = 500000.00; // COMPILATION ERROR!
 
     return 0;
 }
 ```
 
+---
+
+## 🔍 Code Breakdown
+
+- `class BankAccount`: Defines a custom data structure holding variables and methods.
+- `private:`: Protects `balance` from being directly altered from `main()`.
+- `deposit()` and `withdraw()`: Encapsulate valid business rules and data safety guards.
+- `double getBalance() const`: Read-only public method for querying current balance safely.
+
+---
+
 ## 👀 Output
 
 ```text
-Car Brand: Tesla | Year: 2023
-Car Brand: Ford | Year: 2020
+--- CREATING BANK ACCOUNT OBJECTS ---
+Acc Num: ACC-1001 | Holder: Rahul Sharma | Balance: $1000
+[SUCCESS] Deposited $500. New Balance: $1500
+[SUCCESS] Withdrew $200. Remaining Balance: $1300
+[ERROR] Insufficient funds or invalid amount!
 ```
+
+---
 
 ## ⚠️ Common Mistakes
 
-- Attempting to modify `private` fields directly from outside class scope (`car1.brand = "BMW";` triggers a compilation error!). Use public getter/setter methods instead.
+- **Forgetting Semicolon After Class Definition**: Writing `class Car { ... }` without the ending semicolon `;` causes a confusing compilation error! Always end class definitions with `};`.
+- **Default Access Specifier in `class` vs `struct`**:
+  - In a `class`, members are **`private` by default**.
+  - In a `struct`, members are **`public` by default**.
+
+---
+
+## 🛡️ Best Practices
+
+- Always keep member variables `private` and provide getters/setters as needed (Encapsulation Principle).
+- Mark getter methods `const` if they do not alter any object variables (`double getBalance() const`).
+
+---
 
 ## 🧪 Try It Yourself
 
-Create a `Student` class with private members `name` and `age`, a constructor, and a public `introduce()` method.
+1. Create a `Student` class with private attributes `name`, `rollNumber`, and `marks`. Add a method `hasPassed()` that returns `true` if `marks >= 40`.
+
+---
 
 ## 🎯 Mini Challenge
 
-Create a `BankAccount` class with `deposit(amount)` and `withdraw(amount)` methods containing balance validation checks.
+Design a `Rectangle` class with private members `length` and `width`. Include methods `setDimensions(l, w)`, `calculateArea()`, and `calculatePerimeter()`.
+
+---
+
+## 🔗 Related Topics
+
+- [Constructors & Destructors](11-constructors-and-destructors.md)
+- [Inheritance & Polymorphism](12-inheritance-and-polymorphism.md)
+
+---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Vectors](09-arrays-and-vectors.md) | [Next: Constructors & Destructors →](11-constructors-and-destructors.md)
-
+[← C++ Home](00-README.md) | [← Previous: Arrays & Vectors](09-arrays-and-vectors.md) | [Next: Constructors & Destructors →](11-constructors-and-destructors.md)

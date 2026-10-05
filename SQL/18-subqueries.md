@@ -7,97 +7,246 @@ title: "18 subqueries"
 
 > 🟡 Intermediate
 
-## Definition
+---
 
-A **subquery** is a query nested inside another SQL statement. It can produce a scalar value, a set of values, or rows used as a table expression.
+## 📖 Definition
 
-## Hindi Explanation
+A **Subquery** (also called an **Inner Query** or **Nested Query**) is a query embedded within another SQL statement (the **Outer Query**). Subqueries can be used in `SELECT`, `FROM`, `WHERE`, `HAVING`, and `JOIN` clauses. They evaluate first (or per-row in correlated subqueries) to supply data required by the outer statement.
 
-Subquery ek query ke andar likhi hui doosri query hoti hai. Iska result ek value, values ka set, ya rows ho sakta hai, jise outer query use karti hai.
+---
 
-## Marathi Explanation
+## 🇮🇳 Hindi Explanation
 
-Subquery mhanje eka SQL query madhye lihileli dusri query. Ti ek value, values cha set, kiwa rows deu shakte; outer query ticha vapar karte.
+Subquery ek query ke andar likhi gayi doosri SQL query hoti hai. Pehle ander waali query (Subquery) run hoti hai, uska output nikalta hai, aur fir bahar waali query (Outer Query) us output ko filtering ya calculation ke liye use karti hai. Jaise: *"Un sabhi employees ke naam dikhao jin ki salary average salary se zyada hai."* Pehle subquery average salary nikalegi, fir outer query wo employees chunegi.
 
-## Why Use Them?
+---
 
-Subqueries express questions in stages, such as finding products priced above the overall average or checking whether related rows exist.
+## 🚩 Marathi Explanation
 
-## Syntax
+Subquery mhanje eka main query chya aat lihileli dusri SQL query. Pahile aatli query execute hote aani ticha result main (outer) query madhye vaparla jato. Udaharanarth: *"Sarasari (average) pagarapeksha jast pagar aslelya sarva karmcharyanchi naave dakhva."* Pahile subquery average salary kadhel, mag outer query karmchari nivadel.
+
+---
+
+## 🧩 Types of Subqueries
+
+```text
+                           SUBQUERIES
+                                |
+        +-----------------------+-----------------------+
+        |                                               |
+  Non-Correlated Subqueries                      Correlated Subqueries
+  (Executes once independently)                 (Executes once PER outer row)
+        |                                               |
+  +-----+-----+-----+                             +-----+-----+
+  |           |     |                             |           |
+Scalar    Multi-Row Multi-Col                   EXISTS    NOT EXISTS
+(1x1)     (1xN)     (NxM)
+```
+
+---
+
+## 1. 🎯 Scalar Subqueries (Returns Single Value: 1 Row, 1 Column)
+
+A **Scalar Subquery** returns exactly one single cell value (1 row, 1 column). It can be used anywhere a literal constant or column expression is expected (e.g., in `SELECT` lists or comparison operators like `=`, `>`, `<`).
+
+### Problem: Find all employees who earn more than the overall average company salary.
 
 ```sql
-SELECT columns
-FROM table_name
-WHERE value operator (
-    SELECT expression
-    FROM another_table
+SELECT emp_id, name, salary
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary) 
+    FROM employees -- Returns single scalar value: e.g. 75000.00
+)
+ORDER BY salary DESC;
+```
+
+---
+
+## 2. 📋 Multi-Row Subqueries (Returns 1 Column, Multiple Rows)
+
+A **Multi-Row Subquery** returns a list of values (1 column, N rows). It is used with set operators such as `IN`, `NOT IN`, `ANY`, `ALL`, or `SOME`.
+
+### A. Using `IN`
+Find all customers who have placed at least one order:
+```sql
+SELECT customer_id, name, email
+FROM customers
+WHERE customer_id IN (
+    SELECT DISTINCT customer_id 
+    FROM orders
 );
 ```
 
-## Example
-
+### B. Using `ALL`
+Find products whose price is greater than **ALL** products in the 'Accessories' category:
 ```sql
 SELECT product_id, name, price
 FROM products
-WHERE price > (
-    SELECT AVG(price)
-    FROM products
+WHERE price > ALL (
+    SELECT price 
+    FROM products 
+    WHERE category = 'Accessories'
 );
 ```
 
-## Code Breakdown
+---
 
-The inner query calculates one average value. The outer query returns products whose price exceeds that value. The scalar subquery must produce at most one row; otherwise, many databases report an error.
+## 3. 🔄 Correlated Subqueries (Evaluated Once Per Outer Row)
 
-## Output
+A **Correlated Subquery** depends on values from the outer query row currently being processed. The inner query executes repeatedly—once for every row evaluated by the outer query!
 
-The result contains products above the table's average price. Exact rows depend on the data.
+### Problem: Find employees who earn more than the average salary of THEIR OWN department.
 
-## Another Practical Example
+```sql
+SELECT e.emp_id, e.name, e.dept_id, e.salary
+FROM employees AS e
+WHERE e.salary > (
+    SELECT AVG(d.salary)
+    FROM employees AS d
+    WHERE d.dept_id = e.dept_id -- Reference to outer table 'e'!
+);
+```
 
-Use `EXISTS` to find customers with at least one order:
+---
 
+## 4. ⚡ `EXISTS` & `NOT EXISTS` Operators
+
+`EXISTS` tests for the **presence of matching rows** in a subquery. It returns `TRUE` as soon as the inner query finds at least 1 matching row (short-circuit evaluation), making it extremely fast for existence checks.
+
+### A. Using `EXISTS`
+Find departments that have active employees:
+```sql
+SELECT d.dept_id, d.dept_name
+FROM departments AS d
+WHERE EXISTS (
+    SELECT 1 
+    FROM employees AS e
+    WHERE e.dept_id = d.dept_id
+);
+```
+
+### B. Using `NOT EXISTS` (Anti-Join Pattern)
+Find customers who have **NEVER** placed an order:
 ```sql
 SELECT c.customer_id, c.name
 FROM customers AS c
-WHERE EXISTS (
-    SELECT 1
+WHERE NOT EXISTS (
+    SELECT 1 
     FROM orders AS o
     WHERE o.customer_id = c.customer_id
 );
 ```
 
-This correlated subquery refers to the current outer row. `EXISTS` tests whether any matching row exists; the selected literal is not returned.
+---
 
-## Common Mistakes
+## 5. 📦 Subqueries in `FROM` Clause (Derived Tables)
 
-- Comparing a scalar value with a subquery that returns multiple rows.
-- Using `NOT IN` when the subquery can return NULL, which can make the predicate unknown; `NOT EXISTS` is often a clearer anti-match pattern.
-- Assuming a subquery is always slower than a join. Optimizers may transform either form.
+A subquery in a `FROM` clause creates a temporary, in-memory table called a **Derived Table**. In SQL standards, derived tables **must always have an explicit alias**!
 
-## Important Notes
+```sql
+SELECT 
+    dept_summary.dept_id,
+    dept_summary.total_dept_payroll
+FROM (
+    SELECT dept_id, SUM(salary) AS total_dept_payroll
+    FROM employees
+    GROUP BY dept_id
+) AS dept_summary
+WHERE dept_summary.total_dept_payroll > 200000;
+```
 
-Subqueries can appear in `FROM`, `SELECT`, and predicate positions, with support details varying by product. A derived table in `FROM` generally needs an alias in many engines. Correlated subqueries depend on outer-row values but are not necessarily executed naively once per row; the optimizer decides.
+---
 
-## Real-World Usage
+## 📝 Complete Runnable Setup & Example
 
-Compare records to aggregate thresholds, find matching or missing related records, and break complex reporting logic into readable parts.
+```sql
+-- Setup Tables
+CREATE TABLE depts (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50)
+);
 
-## Try It Yourself
+CREATE TABLE emps (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    dept_id INT,
+    salary DECIMAL(10,2)
+);
 
-1. Find employees earning more than the average salary.
-2. Find products with no order items using `NOT EXISTS`.
+INSERT INTO depts VALUES (1, 'Tech'), (2, 'Sales'), (3, 'HR');
+INSERT INTO emps VALUES 
+(101, 'Rahul', 1, 90000.00),
+(102, 'Priya', 1, 70000.00),
+(103, 'Amit', 2, 60000.00),
+(104, 'Neha', 2, 80000.00);
 
-## Mini Challenge
+-- Complex Query: Find employees earning above their department average
+SELECT 
+    e.emp_name,
+    e.salary,
+    d.dept_name
+FROM emps AS e
+JOIN depts AS d ON e.dept_id = d.dept_id
+WHERE e.salary > (
+    SELECT AVG(salary) 
+    FROM emps 
+    WHERE dept_id = e.dept_id
+);
+```
 
-Return each department whose average salary is greater than the overall company average.
+### Tabular Output
+| emp_name | salary | dept_name |
+|:---|:---|:---|
+| Rahul | 90000.00 | Tech |
+| Neha | 80000.00 | Sales |
 
-## Related Topics
+---
+
+## ⚠️ Critical Subquery Pitfalls
+
+1. **Subquery Returns More Than 1 Row in Equality Comparison**:
+   ```sql
+   -- ERROR: Subquery returns 3 rows, but '=' expects 1 row!
+   SELECT * FROM employees WHERE dept_id = (SELECT dept_id FROM departments);
+   -- FIX: Replace '=' with 'IN'!
+   SELECT * FROM employees WHERE dept_id IN (SELECT dept_id FROM departments);
+   ```
+
+2. **The Dangerous `NOT IN` with `NULL` Bug**:
+   If a subquery used with `NOT IN` returns even a **single `NULL` value**, the entire `NOT IN` condition evaluates to `UNKNOWN`, returning **0 rows**!
+   ```sql
+   -- DANGEROUS if orders.customer_id contains NULL!
+   SELECT * FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM orders);
+   
+   -- SAFE ALTERNATIVE: Always use NOT EXISTS!
+   SELECT * FROM customers c WHERE NOT EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.customer_id);
+   ```
+
+---
+
+## 🧪 Try It Yourself
+
+1. Find the highest-paid employee using a scalar subquery with `MAX()`.
+2. Find all products that have never been ordered using `NOT EXISTS`.
+3. Write a query in `FROM` clause that ranks departments by total salary expenditure.
+
+---
+
+## 🎯 Mini Challenge
+
+Write a query to find all orders whose total order amount is greater than the average order amount of customers from `'India'`.
+
+---
+
+## 🔗 Related Topics
 
 - [SQL Joins](15-joins.md)
-- [Common Table Expressions](24-ctes.md)
+- [Set Operations: UNION & EXCEPT](19-set-operations.md)
+- [Common Table Expressions (CTEs)](24-ctes.md)
 
-## Navigation
+---
+
+## 🧭 Navigation
 
 [← SQL Home](00-README.md) | [← Previous: CASE Expressions](17-case-expressions.md) | [Next: Set Operations →](19-set-operations.md)
-
