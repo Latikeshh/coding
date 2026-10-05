@@ -209,6 +209,16 @@ header, section, footer, main, aside, nav {
   text-overflow: ellipsis;
 }
 
+.search-result-snippet {
+  font-size: 0.725rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 210px;
+  line-height: 1.35;
+}
+
 .search-result-file {
   font-size: 0.7rem;
   color: #64748b;

@@ -1,6 +1,7 @@
 /**
- * Smart Client-Side Search Engine for Learn Coding
- * Instant zero-latency search across 260+ lessons with keyboard shortcuts (Ctrl+K).
+ * Smart Fuzzy Search Engine for Learn Coding
+ * Features: Typo tolerance (Levenshtein distance), content snippet indexing,
+ * relevance scoring, multi-word tokens, term highlighting, and Ctrl+K shortcuts.
  */
 document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.getElementById('search-input');
@@ -12,18 +13,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let selectedIndex = -1;
 
-  // Detect OS for shortcut label (⌘K on Mac, Ctrl+K on Windows/Linux)
+  // Shortcut label (⌘K on Mac, Ctrl+K on Windows/Linux)
   if (searchShortcut) {
     const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
     searchShortcut.textContent = isMac ? '⌘K' : 'Ctrl+K';
   }
 
-  // Get search data index
   function getSearchIndex() {
     return window.SEARCH_INDEX || [];
   }
 
-  // Perform filtering
+  // Calculate Levenshtein Distance for typo tolerance
+  function levenshteinDistance(a, b) {
+    if (a.length === 0) return b.length;
+    if (b.length === 0) return a.length;
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+    for (let i = 1; i <= b.length; i++) {
+      for (let j = 1; j <= a.length; j++) {
+        if (b.charAt(i - 1) === a.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1, // substitution
+            matrix[i][j - 1] + 1,     // insertion
+            matrix[i - 1][j] + 1      // deletion
+          );
+        }
+      }
+    }
+    return matrix[b.length][a.length];
+  }
+
+  // Check if token matches target string exactly or fuzzily (with typos)
+  function matchToken(queryToken, text) {
+    if (!queryToken || !text) return { matched: false, score: 0 };
+    const textLower = text.toLowerCase();
+
+    // Exact substring match
+    if (textLower.includes(queryToken)) {
+      return { matched: true, score: 20 };
+    }
+
+    // Split target text into words for fuzzy comparison
+    const targetWords = textLower.split(/[^a-z0-9]+/);
+    for (const word of targetWords) {
+      if (!word || word.length < 2) continue;
+
+      // Prefix match
+      if (word.startsWith(queryToken) || queryToken.startsWith(word)) {
+        return { matched: true, score: 15 };
+      }
+
+      // Fuzzy typo match (allow 1-2 edit distance)
+      const maxDistance = queryToken.length > 5 ? 2 : (queryToken.length >= 3 ? 1 : 0);
+      if (maxDistance > 0 && Math.abs(word.length - queryToken.length) <= maxDistance) {
+        const dist = levenshteinDistance(queryToken, word);
+        if (dist <= maxDistance) {
+          return { matched: true, score: 10 - dist };
+        }
+      }
+    }
+
+    return { matched: false, score: 0 };
+  }
+
+  // Smart relevance-based search query processor
   function performSearch(query) {
     query = query.trim().toLowerCase();
     if (!query) {
@@ -36,20 +93,66 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchIndex = getSearchIndex();
     const queryTokens = query.split(/\s+/).filter(Boolean);
 
-    // Score and filter results
-    const matches = searchIndex.filter(item => {
-      const titleLower = item.title ? item.title.toLowerCase() : '';
-      const courseLower = item.course ? item.course.toLowerCase() : '';
-      const fileLower = item.file ? item.file.toLowerCase() : '';
+    const scoredResults = [];
 
-      return queryTokens.every(token =>
-        titleLower.includes(token) ||
-        courseLower.includes(token) ||
-        fileLower.includes(token)
-      );
+    searchIndex.forEach(item => {
+      let totalScore = 0;
+      let matchedTokensCount = 0;
+
+      queryTokens.forEach(token => {
+        let tokenMatched = false;
+        let highestTokenScore = 0;
+
+        // Match in Title
+        const titleMatch = matchToken(token, item.title);
+        if (titleMatch.matched) {
+          tokenMatched = true;
+          highestTokenScore = Math.max(highestTokenScore, titleMatch.score * 3);
+        }
+
+        // Match in File name
+        const fileMatch = matchToken(token, item.file);
+        if (fileMatch.matched) {
+          tokenMatched = true;
+          highestTokenScore = Math.max(highestTokenScore, fileMatch.score * 2);
+        }
+
+        // Match in Course name
+        const courseMatch = matchToken(token, item.course);
+        if (courseMatch.matched) {
+          tokenMatched = true;
+          highestTokenScore = Math.max(highestTokenScore, courseMatch.score * 1.5);
+        }
+
+        // Match in Lesson Snippet Content
+        if (item.snippet) {
+          const snippetMatch = matchToken(token, item.snippet);
+          if (snippetMatch.matched) {
+            tokenMatched = true;
+            highestTokenScore = Math.max(highestTokenScore, snippetMatch.score);
+          }
+        }
+
+        if (tokenMatched) {
+          matchedTokensCount++;
+          totalScore += highestTokenScore;
+        }
+      });
+
+      // Require all tokens or majority tokens to match
+      const requiredMatches = queryTokens.length > 1 ? Math.ceil(queryTokens.length * 0.5) : 1;
+      if (matchedTokensCount >= requiredMatches && totalScore > 0) {
+        scoredResults.push({
+          item: item,
+          score: totalScore + (matchedTokensCount * 10)
+        });
+      }
     });
 
-    renderResults(matches, query);
+    // Sort by highest score first
+    scoredResults.sort((a, b) => b.score - a.score);
+
+    renderResults(scoredResults.map(r => r.item), query);
   }
 
   // Render search results UI
@@ -60,19 +163,18 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="search-no-results">
           <span class="no-results-icon">🔍</span>
           <p>No lessons found for "<strong>${escapeHtml(query)}</strong>"</p>
-          <span class="search-tip">Try searching by topic (e.g., C++, Python, Flexbox, Pointers, Arrays)</span>
+          <span class="search-tip">Try searching by topic (e.g., C++, Python, Flexbox, Pointers, Arrays, SQL)</span>
         </div>
       `;
       searchResults.style.display = 'block';
       return;
     }
 
-    // Limit to top 10 matches for fast response
     const topMatches = matches.slice(0, 10);
 
     let html = `
       <div class="search-results-header">
-        <span>Matching Lessons (${matches.length})</span>
+        <span>Found Lessons (${matches.length})</span>
         <span class="search-nav-hint">Use ↑ ↓ to navigate, Enter to select</span>
       </div>
       <ul class="search-results-list" role="listbox">
@@ -80,11 +182,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     topMatches.forEach((item, index) => {
       const courseClass = item.course_id ? item.course_id.toLowerCase().replace(/[^a-z0-9_-]/g, '-') : 'default';
+      const snippetPreview = item.snippet ? highlightText(item.snippet, query) : '';
+
       html += `
         <li class="search-result-item" data-index="${index}">
           <a href="${item.url}" class="search-result-link" tabIndex="-1">
             <div class="search-result-title-group">
               <span class="search-result-title">${highlightText(item.title, query)}</span>
+              ${snippetPreview ? `<span class="search-result-snippet">${snippetPreview}</span>` : ''}
               <span class="search-result-file">${escapeHtml(item.file)}</span>
             </div>
             <span class="search-result-badge badge-${courseClass}">${escapeHtml(item.course)}</span>
@@ -117,9 +222,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!text) return '';
     const escapedText = escapeHtml(text);
     if (!query) return escapedText;
+
     const queryTokens = query.split(/\s+/).filter(Boolean);
     let pattern = queryTokens.map(t => escapeRegExp(t)).join('|');
     if (!pattern) return escapedText;
+
     const regex = new RegExp(`(${pattern})`, 'gi');
     return escapedText.replace(regex, '<mark class="search-highlight">$1</mark>');
   }
