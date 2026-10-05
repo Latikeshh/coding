@@ -1,6 +1,6 @@
 /**
  * Smart Client-Side Search Engine for Learn Coding
- * Real-time fuzzy filtering, keyboard navigation (Ctrl+K), and rich result previews.
+ * Instant zero-latency search across 260+ lessons with keyboard shortcuts (Ctrl+K).
  */
 document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.getElementById('search-input');
@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!searchInput || !searchResults) return;
 
-  let searchIndex = [];
-  let isIndexLoaded = false;
   let selectedIndex = -1;
 
   // Detect OS for shortcut label (⌘K on Mac, Ctrl+K on Windows/Linux)
@@ -20,22 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
     searchShortcut.textContent = isMac ? '⌘K' : 'Ctrl+K';
   }
 
-  // Fetch search.json index lazily or on focus
-  async function loadSearchIndex() {
-    if (isIndexLoaded) return;
-    try {
-      const searchJsonUrl = window.SITE_BASE_URL ? window.SITE_BASE_URL + '/search.json' : '/search.json';
-      const response = await fetch(searchJsonUrl);
-      if (!response.ok) throw new Error('Failed to load search index');
-      searchIndex = await response.json();
-      isIndexLoaded = true;
-    } catch (err) {
-      console.error('Search index error:', err);
-    }
+  // Get search data index
+  function getSearchIndex() {
+    return window.SEARCH_INDEX || [];
   }
-
-  // Load index immediately in background
-  loadSearchIndex();
 
   // Perform filtering
   function performSearch(query) {
@@ -47,13 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    const queryTokens = query.split(/\s+/);
+    const searchIndex = getSearchIndex();
+    const queryTokens = query.split(/\s+/).filter(Boolean);
 
     // Score and filter results
     const matches = searchIndex.filter(item => {
-      const titleLower = item.title.toLowerCase();
-      const courseLower = item.course.toLowerCase();
-      const fileLower = item.file.toLowerCase();
+      const titleLower = item.title ? item.title.toLowerCase() : '';
+      const courseLower = item.course ? item.course.toLowerCase() : '';
+      const fileLower = item.file ? item.file.toLowerCase() : '';
 
       return queryTokens.every(token =>
         titleLower.includes(token) ||
@@ -73,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="search-no-results">
           <span class="no-results-icon">🔍</span>
           <p>No lessons found for "<strong>${escapeHtml(query)}</strong>"</p>
-          <span class="search-tip">Try searching by language (e.g., C++, Python, Flexbox, Pointers)</span>
+          <span class="search-tip">Try searching by topic (e.g., C++, Python, Flexbox, Pointers, Arrays)</span>
         </div>
       `;
       searchResults.style.display = 'block';
@@ -92,14 +79,15 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
 
     topMatches.forEach((item, index) => {
+      const courseClass = item.course_id ? item.course_id.toLowerCase().replace(/[^a-z0-9_-]/g, '-') : 'default';
       html += `
         <li class="search-result-item" data-index="${index}">
           <a href="${item.url}" class="search-result-link" tabIndex="-1">
             <div class="search-result-title-group">
               <span class="search-result-title">${highlightText(item.title, query)}</span>
-              <span class="search-result-file">${item.file}</span>
+              <span class="search-result-file">${escapeHtml(item.file)}</span>
             </div>
-            <span class="search-result-badge badge-${item.course_id.toLowerCase()}">${item.course}</span>
+            <span class="search-result-badge badge-${courseClass}">${escapeHtml(item.course)}</span>
           </a>
         </li>
       `;
@@ -112,9 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add click event listeners
     const resultItems = searchResults.querySelectorAll('.search-result-item');
     resultItems.forEach(item => {
-      item.addEventListener('click', function () {
+      item.addEventListener('click', function (e) {
         const link = item.querySelector('a');
-        if (link) window.location.href = link.href;
+        if (link && link.href) {
+          window.location.href = link.href;
+        }
       });
       item.addEventListener('mouseenter', function () {
         setSelectedIndex(parseInt(item.getAttribute('data-index')));
@@ -124,8 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Highlight matched terms
   function highlightText(text, query) {
-    if (!query) return escapeHtml(text);
+    if (!text) return '';
     const escapedText = escapeHtml(text);
+    if (!query) return escapedText;
     const queryTokens = query.split(/\s+/).filter(Boolean);
     let pattern = queryTokens.map(t => escapeRegExp(t)).join('|');
     if (!pattern) return escapedText;
@@ -134,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function escapeHtml(str) {
+    if (!str) return '';
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
@@ -153,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Input listeners
   searchInput.addEventListener('focus', function () {
-    loadSearchIndex();
     if (searchInput.value.trim().length > 0) {
       performSearch(searchInput.value);
     }
@@ -180,7 +171,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (selectedIndex >= 0 && selectedIndex < items.length) {
         e.preventDefault();
         const activeLink = items[selectedIndex].querySelector('a');
-        if (activeLink) window.location.href = activeLink.href;
+        if (activeLink && activeLink.href) {
+          window.location.href = activeLink.href;
+        }
       }
     } else if (e.key === 'Escape') {
       searchResults.style.display = 'none';

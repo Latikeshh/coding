@@ -1,2 +1,43 @@
-*.md linguist-language=Markdown linguist-detectable
-*.* linguist-language=Markdown linguist-detectable
+# ==============================================================================
+# GitHub Linguist Configuration for Learn Coding Repository
+# Ensures all languages used (CSS, JavaScript, HTML, Markdown, YAML) are properly
+# detected and displayed in GitHub's repository language statistics bar.
+# ==============================================================================
+
+# Markdown Files
+*.md linguist-language=Markdown
+*.md linguist-documentation=false
+*.md linguist-detectable=true
+
+# CSS Stylesheets
+*.css linguist-language=CSS
+*.css linguist-detectable=true
+
+# JavaScript Files
+*.js linguist-language=JavaScript
+*.js linguist-detectable=true
+
+# HTML Layouts & Templates
+*.html linguist-language=HTML
+*.html linguist-detectable=true
+
+# YAML Data & Config Files
+*.yml linguist-language=YAML
+*.yaml linguist-language=YAML
+*.yml linguist-detectable=true
+
+# Programming Source Files (C, C++, Python, Java, SQL)
+*.c linguist-language=C
+*.c linguist-detectable=true
+
+*.cpp linguist-language=C++
+*.cpp linguist-detectable=true
+
+*.py linguist-language=Python
+*.py linguist-detectable=true
+
+*.java linguist-language=Java
+*.java linguist-detectable=true
+
+*.sql linguist-language=SQL
+*.sql linguist-detectable=true

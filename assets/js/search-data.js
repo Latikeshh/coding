@@ -1,0 +1,22 @@
+---
+layout: null
+---
+window.SEARCH_INDEX = [
+  {% assign first = true %}
+  {% for course_item in site.data.courses %}
+    {% assign course_id = course_item[0] %}
+    {% assign course_title = course_item[1].title %}
+    {% for lesson in course_item[1].lessons %}
+      {% if first == false %},{% endif %}
+      {% assign first = false %}
+      {% assign target_url = lesson.url | replace: '.md', '.html' %}
+      {
+        "title": {{ lesson.title | jsonify }},
+        "course": {{ course_title | jsonify }},
+        "course_id": {{ course_id | jsonify }},
+        "file": {{ lesson.file | jsonify }},
+        "url": {{ target_url | relative_url | jsonify }}
+      }
+    {% endfor %}
+  {% endfor %}
+];
