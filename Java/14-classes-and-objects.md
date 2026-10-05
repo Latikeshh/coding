@@ -69,6 +69,7 @@ public class Car {
 ```text
 STACK MEMORY                     HEAP MEMORY
 +-----------------------+        +-----------------------------------+
+
 | main() frame          |        |                                   |
 | account1 reference ----------> | BankAccount Object Instance #1    |
 | account2 reference ----------> | BankAccount Object Instance #2    |

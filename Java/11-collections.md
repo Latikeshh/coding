@@ -23,26 +23,35 @@ Collections Framework dynamic data saathi data structures deto. `List` kramawar 
 
 ```text
                +--------------------+
+
                | Collection (I)     |
                +---------+----------+
+
                          |
       +------------------+------------------+
+
       |                  |                  |
 +-----+------+    +------+-----+    +-------+----+
+
 |  List (I)  |    |   Set (I)  |    | Queue (I)  |
 +-----+------+    +------+-----+    +-------+----+
+
       |                  |                  |
   ArrayList          HashSet            ArrayDeque
   LinkedList         LinkedHashSet      LinkedList
                      TreeSet            PriorityQueue
 
                +--------------------+
+
                |   Map (Interface)  |
                +---------+----------+
+
                          |
             +------------+------------+
+
             |                         |
       +-----+------+            +-----+------+
+
       | HashMap    |            | TreeMap    |
       +------------+            +------------+
 ```

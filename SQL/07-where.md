@@ -75,16 +75,20 @@ WHERE (city = 'Mumbai' OR city = 'Bengaluru') AND age < 30;
 ```text
 Query 1 Output:
 +------------+-------------+-----------+--------+
+
 | name       | department  | salary    | city   |
 +------------+-------------+-----------+--------+
+
 | Ananya Roy | Engineering |  95000.00 | Mumbai |
 | Meera Nair | Engineering | 105000.00 | Mumbai |
 +------------+-------------+-----------+--------+
 
 Query 2 Output:
 +-----------------+-----------+-----+
+
 | name            | city      | age |
 +-----------------+-----------+-----+
+
 | Ananya Roy      | Mumbai    |  28 |
 | Siddharth Verma | Bengaluru |  29 |
 +-----------------+-----------+-----+

@@ -38,6 +38,7 @@ Operators are the building blocks of algorithms. They calculate total prices, co
 ## 📝 Operator Categories in C
 
 ### 1. Arithmetic Operators
+
 | Operator | Name | Example | Result (`a=10, b=3`) |
 |---|---|---|---|
 | `+` | Addition | `a + b` | `13` |
@@ -47,6 +48,7 @@ Operators are the building blocks of algorithms. They calculate total prices, co
 | `%` | Modulus (Remainder) | `a % b` | `1` (10 divided by 3 leaves remainder 1) |
 
 ### 2. Relational & Equality Operators
+
 | Operator | Name | Example | Evaluation |
 |---|---|---|---|
 | `==` | Equal To | `a == b` | `0` (`false`) |
@@ -57,6 +59,7 @@ Operators are the building blocks of algorithms. They calculate total prices, co
 | `<=` | Less Than or Equal | `b <= 2` | `0` (`false`) |
 
 ### 3. Logical Operators
+
 | Operator | Name | Meaning | Result |
 |---|---|---|---|
 | `&&` | Logical AND | Returns `1` only if **both** conditions are `true` | `(10 > 5 && 3 < 5)` -> `1` |

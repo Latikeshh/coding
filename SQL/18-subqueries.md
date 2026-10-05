@@ -31,13 +31,17 @@ Subquery mhanje eka main query chya aat lihileli dusri SQL query. Pahile aatli q
 
 ```text
                            SUBQUERIES
+
                                 |
         +-----------------------+-----------------------+
+
         |                                               |
   Non-Correlated Subqueries                      Correlated Subqueries
   (Executes once independently)                 (Executes once PER outer row)
+
         |                                               |
   +-----+-----+-----+                             +-----+-----+
+
   |           |     |                             |           |
 Scalar    Multi-Row Multi-Col                   EXISTS    NOT EXISTS
 (1x1)     (1xN)     (NxM)
@@ -196,6 +200,7 @@ WHERE e.salary > (
 ```
 
 ### Tabular Output
+
 | emp_name | salary | dept_name |
 |:---|:---|:---|
 | Rahul | 90000.00 | Tech |

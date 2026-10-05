@@ -83,15 +83,19 @@ FROM customer_leads;
 ```text
 Query 1: Leads where phone_number IS NULL
 +---------+--------------+------------------+
+
 | lead_id | full_name    | estimated_budget |
 +---------+--------------+------------------+
+
 |       2 | Sneha Kapoor |         75000.00 |
 +---------+--------------+------------------+
 
 Query 2: Using COALESCE for fallback defaults
 +--------------+-------------------+----------------+
+
 | full_name    | contact_info      | budget_display |
 +--------------+-------------------+----------------+
+
 | Aarav Mehta  | 9876543210        |       50000.00 |
 | Sneha Kapoor | No Phone Provided |       75000.00 |
 | Rohan Sharma | 9123456789        |           0.00 |

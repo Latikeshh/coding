@@ -78,8 +78,10 @@ WHERE item_name LIKE 'Wireless%' OR item_name LIKE '%Cable';
 ```text
 Query 1 (BETWEEN 1000 AND 15000):
 +---------------------+----------+
+
 | item_name           | price    |
 +---------------------+----------+
+
 | Wireless Mouse      |  1200.00 |
 | Mechanical Keyboard |  4500.00 |
 | Ergonomic Chair     | 12500.00 |
@@ -87,8 +89,10 @@ Query 1 (BETWEEN 1000 AND 15000):
 
 Query 2 (IN ('Electronics', 'Furniture')):
 +---------------------+-------------+
+
 | item_name           | category    |
 +---------------------+-------------+
+
 | Gaming Laptop       | Electronics |
 | Wireless Mouse      | Electronics |
 | Mechanical Keyboard | Electronics |
@@ -98,8 +102,10 @@ Query 2 (IN ('Electronics', 'Furniture')):
 
 Query 3 (LIKE Wildcard Pattern):
 +----------------+---------+
+
 | item_name      | price   |
 +----------------+---------+
+
 | Wireless Mouse | 1200.00 |
 | USB-C Cable    |  499.00 |
 +----------------+---------+

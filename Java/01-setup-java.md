@@ -35,6 +35,7 @@ Think of the **JDK** as a complete carpenter's workshop. The **Compiler (`javac`
 
 ```text
 +-------------------------------------------------------+
+
 | JDK (Java Development Kit)                            |
 |  +-------------------------------------------------+  |
 |  | JRE (Java Runtime Environment)                  |  |

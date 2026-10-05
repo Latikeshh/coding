@@ -31,13 +31,17 @@ SQL Functions mhanje database madhye built-in asli-le tools aahet, je text, numb
 
 ```text
                         SQL FUNCTIONS
+
                               |
         +---------------------+---------------------+
+
         |                                           |
   Single-Row (Scalar) Functions            Multi-Row (Aggregate) Functions
   (Returns 1 value per input row)         (Summarizes multiple rows to 1 value)
+
         |                                           |
   +-----+-----+-----+-----+               +-----+-----+-----+-----+
+
   |     |     |     |                     |     |     |     |
 String Num  Date  NULL                   COUNT SUM   AVG  MIN/MAX
 ```
@@ -49,6 +53,7 @@ String Num  Date  NULL                   COUNT SUM   AVG  MIN/MAX
 String functions process textual data in columns or string literals.
 
 ### Common String Functions Table
+
 | Function | Description | Example | Result |
 |:---|:---|:---|:---|
 | `CONCAT(a, b)` | Combines two or more strings | `CONCAT('Hello', ' ', 'World')` | `'Hello World'` |
@@ -77,6 +82,7 @@ FROM employees;
 Numeric functions perform mathematical operations on integers, decimals, and floats.
 
 ### Common Numeric Functions Table
+
 | Function | Description | Example | Result |
 |:---|:---|:---|:---|
 | `ROUND(x, d)` | Rounds $x$ to $d$ decimal places | `ROUND(125.789, 2)` | `125.79` |
@@ -105,6 +111,7 @@ FROM products;
 Date functions handle timestamps, date calculations, intervals, and formatting.
 
 ### Common Date Functions Table
+
 | Function | Description | Example | Output |
 |:---|:---|:---|:---|
 | `CURRENT_DATE` | Returns current system date | `CURRENT_DATE` | `2026-10-05` |
@@ -180,6 +187,7 @@ FROM product_catalog;
 ```
 
 ### Tabular Output
+
 | item_id | clean_code | price | safe_discount | final_price | display_category |
 |:---|:---|:---|:---|:---|:---|
 | 1 | PRO-LAPTOP | 1200.50 | 10.00 | 1080.45 | Electronics |

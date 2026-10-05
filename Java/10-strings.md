@@ -39,6 +39,7 @@ System.out.println(s1.equals(s3)); // true (Compares actual character content!)
 ```text
 HEAP MEMORY
 +--------------------------------------------+
+
 |  s3 -------> [ Object: "Java" ]            |
 |                                            |
 |  STRING CONSTANT POOL (SCP)                |

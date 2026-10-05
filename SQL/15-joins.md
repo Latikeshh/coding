@@ -84,6 +84,7 @@ INSERT INTO employees (emp_id, emp_name, dept_id, salary) VALUES
 ```
 
 ### Table 1: `departments`
+
 | dept_id | dept_name |
 |:---|:---|
 | 10 | Engineering |
@@ -92,6 +93,7 @@ INSERT INTO employees (emp_id, emp_name, dept_id, salary) VALUES
 | 40 | Human Resources |
 
 ### Table 2: `employees`
+
 | emp_id | emp_name | dept_id | salary |
 |:---|:---|:---|:---|
 | 101 | Rahul | 10 | 85000.00 |
@@ -111,6 +113,7 @@ An `INNER JOIN` returns only the rows where there is a matching value in **both*
 ```text
   Table A (Left)     Table B (Right)
    +---------+     +---------+
+
    |         |     |         |
    |     +---|-----+---|     |
    |     |   | ### |   |     |  <-- Only Overlapping / Matching
@@ -132,6 +135,7 @@ INNER JOIN departments AS d
 ```
 
 #### Result Table
+
 | emp_id | emp_name | dept_id | dept_name |
 |:---|:---|:---|:---|
 | 101 | Rahul | 10 | Engineering |
@@ -154,6 +158,7 @@ A `LEFT JOIN` returns **all rows from the left table**, along with matching rows
 ```text
   Table A (Left)     Table B (Right)
    +---------+     +---------+
+
    | ####### |     |         |
    | #######-|-----+---|     |  <-- ALL Rows from Left Table
    | ####### | ### |   |     |      + Matching Rows from Right
@@ -175,6 +180,7 @@ LEFT JOIN departments AS d
 ```
 
 #### Result Table
+
 | emp_id | emp_name | emp_dept_id | dept_name |
 |:---|:---|:---|:---|
 | 101 | Rahul | 10 | Engineering |
@@ -196,6 +202,7 @@ A `RIGHT JOIN` returns **all rows from the right table**, along with matching ro
 ```text
   Table A (Left)     Table B (Right)
    +---------+     +---------+
+
    |         |     | ####### |
    |     +---|-----|-####### |  <-- ALL Rows from Right Table
    |     |   | ### | ####### |      + Matching Rows from Left
@@ -217,6 +224,7 @@ RIGHT JOIN departments AS d
 ```
 
 #### Result Table
+
 | emp_id | emp_name | dept_id | dept_name |
 |:---|:---|:---|:---|
 | 101 | Rahul | 10 | Engineering |
@@ -240,6 +248,7 @@ A `FULL OUTER JOIN` returns **all rows from both tables**. When a row matches, v
 ```text
   Table A (Left)     Table B (Right)
    +---------+     +---------+
+
    | ####### |     | ####### |
    | #######-|-----|-####### |  <-- EVERY SINGLE ROW
    | ####### | ### | ####### |      From Both Tables
@@ -261,6 +270,7 @@ FULL OUTER JOIN departments AS d
 ```
 
 #### Result Table
+
 | emp_id | emp_name | dept_id | dept_name |
 |:---|:---|:---|:---|
 | 101 | Rahul | 10 | Engineering |
@@ -296,6 +306,7 @@ CROSS JOIN departments AS d;
 ```
 
 #### Partial Output Sample (First 6 of 16 Rows)
+
 | emp_name | dept_name |
 |:---|:---|
 | Rahul | Engineering |
@@ -338,6 +349,7 @@ LEFT JOIN staff AS m
 ```
 
 #### Result Table
+
 | employee | manager |
 |:---|:---|
 | Vikram | Top Boss (No Manager) |
@@ -377,6 +389,7 @@ WHERE d.dept_id IS NULL;
 ```
 
 #### Output
+
 | emp_id | emp_name |
 |:---|:---|
 | 104 | Neha |

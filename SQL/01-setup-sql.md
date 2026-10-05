@@ -57,8 +57,10 @@ SELECT 'Hello, SQL World!' AS Greeting, 2026 AS CurrentYear;
 
 ```text
 +-------------------+-------------+
+
 | Greeting          | CurrentYear |
 +-------------------+-------------+
+
 | Hello, SQL World! |        2026 |
 +-------------------+-------------+
 ```

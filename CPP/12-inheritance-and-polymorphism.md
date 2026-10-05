@@ -42,8 +42,10 @@ title: "12 inheritance and polymorphism"
 ```text
                [ Abstract Shape Class ]
               (virtual getArea() = 0)
+
                           |
          +----------------+----------------+
+
          |                                 |
   [ Circle Class ]               [ Rectangle Class ]
 (override getArea())            (override getArea())

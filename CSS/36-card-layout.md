@@ -30,6 +30,7 @@ Cards break complex page layouts into bite-sized, digestible content units. They
 
 ```text
 +------------------------------------------+
+
 | [ CARD IMAGE / MEDIA THUMBNAIL ]         |
 |                                          |
 |  CATEGORY BADGE                          |

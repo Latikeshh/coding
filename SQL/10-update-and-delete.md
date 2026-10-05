@@ -78,8 +78,10 @@ SELECT * FROM employee_accounts;
 ```text
 Updated Table Result:
 +--------+-----------------+-------------+----------+--------+
+
 | emp_id | name            | department  | salary   | status |
 +--------+-----------------+-------------+----------+--------+
+
 |    101 | Ananya Roy      | Engineering | 88000.00 | Active |
 |    102 | Kiran Deshmukh  | Marketing   | 60000.00 | Active |
 |    103 | Siddharth Verma | HR          | 58000.00 | Active |

@@ -80,8 +80,10 @@ ORDER BY city ASC, total_spent DESC;
 ```text
 Query 1 (Top 3 Spenders):
 +---------------+-----------+-------------+
+
 | full_name     | city      | total_spent |
 +---------------+-----------+-------------+
+
 | Ananya Roy    | Bengaluru |   210000.00 |
 | Priya Verma   | Delhi     |   150000.00 |
 | Aarav Mehta   | Mumbai    |   125000.00 |
@@ -89,8 +91,10 @@ Query 1 (Top 3 Spenders):
 
 Query 2 (Sorted by City ASC, Total Spent DESC):
 +---------------+-----------+-------------+
+
 | full_name     | city      | total_spent |
 +---------------+-----------+-------------+
+
 | Ananya Roy    | Bengaluru |   210000.00 |
 | Priya Verma   | Delhi     |   150000.00 |
 | Sneha Kapoor  | Delhi     |    45000.00 |

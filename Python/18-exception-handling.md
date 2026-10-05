@@ -29,22 +29,29 @@ Application crash hone pasun vachvanyasathi `try...except` block vaparatat. Clea
 
 ```text
        +------------------------------------+
+
        | try: Risky Operation Execution      |
        +-----------------+------------------+
+
                          |
            Has Exception?|
           +--------------+--------------+
+
           |                             |
           ▼ YES                         ▼ NO
 +-------------------------+   +-------------------------+
+
 | except ExceptionType:   |   | else:                   |
 | Handles Error           |   | Executes if NO exception|
 +------------+------------+   +------------+------------+
+
              |                             |
              +--------------+--------------+
+
                             |
                             ▼
                +--------------------------+
+
                | finally: ALWAYS Runs!    |
                +--------------------------+
 ```

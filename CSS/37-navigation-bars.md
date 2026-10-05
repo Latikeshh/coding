@@ -30,8 +30,10 @@ The navigation bar is the first UI element visitors interact with when arriving 
 
 ```text
 +-------------------------------------------------------------------+
+
 |  [BRAND LOGO]            [Link 1]  [Link 2]  [Link 3]   [CTA BTN] |
 +-------------------------------------------------------------------+
+
 | <------------------- justify-content: space-between ------------> |
 ```
 

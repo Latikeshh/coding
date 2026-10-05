@@ -91,8 +91,10 @@ SELECT DISTINCT department FROM employees;
 ```text
 Query 1 Output:
 +--------------+-------------+----------+-------------------+
+
 | full_name    | department  | salary   | salary_after_hike |
 +--------------+-------------+----------+-------------------+
+
 | Rahul Dravid | Sports      | 85000.00 |          93500.00 |
 | Priya Sharma | HR          | 60000.00 |          66000.00 |
 | Amit Kumar   | Sports      | 85000.00 |          93500.00 |
@@ -102,8 +104,10 @@ Query 1 Output:
 
 Query 2 Output (DISTINCT):
 +-------------+
+
 | department  |
 +-------------+
+
 | Sports      |
 | HR          |
 | Engineering |

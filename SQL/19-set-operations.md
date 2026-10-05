@@ -39,6 +39,7 @@ Set Operations don swatantra `SELECT` queries che results eka khali ek (vertical
        UNION                     UNION ALL                  INTERSECT                  EXCEPT / MINUS
    +---+     +---+           +---+     +---+            +---+     +---+            +---+     +---+
   / ### \   / ### \         / ### \   / ### \          /     \   /     \          / ### \   /     \
+
  |  ##### X #####  |       |  ##### X #####  |        |   #####X#####   |        |  ##### X       |
   \ ### /   \ ### /         \ ### /   \ ### /          \     /   \     /          \ ### /   \     /
    +---+     +---+           +---+     +---+            +---+     +---+            +---+     +---+
@@ -105,6 +106,7 @@ ORDER BY name;
 ```
 
 #### Output
+
 | name | email | city |
 |:---|:---|:---|
 | Amit Verma | amit@example.test | Bangalore |
@@ -141,6 +143,7 @@ SELECT name, email, city FROM event_attendees;
 ```
 
 #### Output
+
 | name | email | city |
 |:---|:---|:---|
 | Priya Patel | priya@example.test | Delhi |
@@ -159,6 +162,7 @@ SELECT name, email, city FROM event_attendees;
 ```
 
 #### Output
+
 | name | email | city |
 |:---|:---|:---|
 | Amit Verma | amit@example.test | Bangalore |

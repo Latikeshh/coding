@@ -47,6 +47,7 @@ const char *title = "Software Engineer";
 ```
 
 ### Essential Functions in `<string.h>`
+
 | Function | Purpose | Example |
 |---|---|---|
 | `strlen(str)` | Returns string length (excluding `'\0'`) | `strlen("C Code")` -> `6` |

@@ -31,6 +31,7 @@ Window Functions anaik rows var calculations kartat, pan `GROUP BY` pramane rows
 
 ```text
 Input Rows (Sales Data):
+
 | Emp    | Dept | Amount |
 | Rahul  | Tech | 100    |
 | Priya  | Tech | 200    |
@@ -43,6 +44,7 @@ SELECT Dept, SUM(Amount) FROM Sales GROUP BY Dept;
 2. Window Function (Preserves Rows!):
 SELECT Emp, Dept, Amount, SUM(Amount) OVER(PARTITION BY Dept) AS DeptTotal FROM Sales;
 -> Output: ALL 3 Rows Preserved!
+
 | Emp    | Dept | Amount | DeptTotal |
 | Rahul  | Tech | 100    | 300       |
 | Priya  | Tech | 200    | 300       |
@@ -95,6 +97,7 @@ FROM employees;
 ```
 
 #### Result Table
+
 | emp_name | dept_name | salary | row_num | rnk | dense_rnk |
 |:---|:---|:---|:---:|:---:|:---:|
 | Rahul | Tech | 90000 | 1 | **1** | **1** |
@@ -121,6 +124,7 @@ FROM monthly_sales;
 ```
 
 #### Result Table
+
 | sale_month | revenue | prev_month_revenue | revenue_growth |
 |:---|:---|:---|:---|
 | 2026-01 | 50000.00 | 0.00 | +50000.00 |
@@ -149,6 +153,7 @@ FROM bank_transactions;
 ```
 
 #### Result Table
+
 | trans_id | account_id | trans_date | amount | running_balance |
 |:---|:---|:---|:---|:---|
 | 1001 | ACC-01 | 2026-10-01 | +1000.00 | 1000.00 |

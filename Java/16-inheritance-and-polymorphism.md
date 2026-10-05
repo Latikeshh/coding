@@ -57,12 +57,15 @@ Java does **NOT** support extending multiple classes (`class C extends A, B` is 
 
 ```text
        +------------------+
+
        |   SuperClass A   |
        +--------+---------+
+
                 |
        +--------+---------+
        |   SubClass B     |  <-- Overrides execute()
        +--------+---------+
+
                 |
        +--------+---------+
        |   SubClass C     |  <-- Overrides execute()

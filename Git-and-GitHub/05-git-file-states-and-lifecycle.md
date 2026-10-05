@@ -40,6 +40,7 @@ Think of shipping a package with online shopping:
 
 ```text
 +---------------------+       git add       +------------------+     git commit     +-------------------+
+
 |  Working Directory  |  ---------------->  |   Staging Area   |  --------------->  | Local Repository  |
 | (Sandbox on disk)   |                     |     (Index)      |                    | (.git database)   |
 +---------------------+                     +------------------+                    +-------------------+

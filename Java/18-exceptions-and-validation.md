@@ -23,22 +23,30 @@ Application crash hone pasun vachvanyasathi `try...catch` block vaparatat. Custo
 
 ```text
                      +--------------------+
+
                      |  java.lang.Object  |
                      +---------+----------+
+
                                |
                      +---------+----------+
+
                      |    Throwable       |
                      +----+----------+----+
+
                           |          |
             +-------------+          +------------+
+
             |                                     |
   +---------+----------+                +---------+----------+
+
   |      Error         |                |    Exception       |
   +--------------------+                +----+---------------+
   (JVM OutOfMemory,                          |
    StackOverflow)         +------------------+------------------+
+
                           |                                     |
                 +---------+----------+                +---------+----------+
+
                 | Checked Exception  |                | RuntimeException   |
                 +--------------------+                +--------------------+
                 (IOException,                         (NullPointerException,

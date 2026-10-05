@@ -80,8 +80,10 @@ SELECT * FROM employees;
 
 ```text
 +--------+------------+-----------+-------------+----------+------------+
+
 | emp_id | first_name | last_name | department  | salary   | hire_date  |
 +--------+------------+-----------+-------------+----------+------------+
+
 |    101 | Vikram     | Aditya    | Engineering | 85000.00 | 2024-01-15 |
 |    102 | Ananya     | Roy       | Marketing   | 62000.00 | 2024-03-01 |
 |    103 | Kiran      | Deshmukh  | Engineering | 90000.00 | 2023-11-10 |

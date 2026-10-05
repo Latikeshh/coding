@@ -33,11 +33,14 @@ Ha Mini Project C++ madhil sarva mahatvache concepts (Classes, Vectors, File Han
 
 ```text
                   +-----------------------------------+
+
                   |      BankManagementSystem         |
                   |  std::vector<std::shared_ptr<Acc>>|
                   +-----------------------------------+
+
                                     |
             +-----------------------+-----------------------+
+
             |                                               |
   [ Account Operations ]                             [ File Persistence ]
   - createAccount()                                  - saveToFile()

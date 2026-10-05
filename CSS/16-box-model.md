@@ -38,6 +38,7 @@ Think of a picture framed on a wall:
 
 ```text
 +------------------------------------------------+
+
 | MARGIN (Outer transparent space)               |
 |  +------------------------------------------+  |
 |  | BORDER (Boundary line)                   |  |
