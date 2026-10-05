@@ -87,9 +87,9 @@ Web developers use `<div>` containers extensively as Flexbox and CSS Grid wrappe
 
 ## 🔗 Related Topics
 
-- [Paragraphs](05-paragraphs.md)
-- [HTML Attributes](15-html-attributes.md)
-- [Semantic HTML](22-semantic-html.md)
+- [Paragraphs](05-paragraphs.html)
+- [HTML Attributes](15-html-attributes.html)
+- [Semantic HTML](22-semantic-html.html)
 
 ## 💡 Remember
 
@@ -99,5 +99,6 @@ Web developers use `<div>` containers extensively as Flexbox and CSS Grid wrappe
 
 ## 🧭 Navigation
 
-[← Previous: Buttons](13-buttons.md) | [HTML Home](00-README.md) | [Next: Attributes →](15-html-attributes.md)
+[← Previous: Buttons](13-buttons.html) | [HTML Home](./) | [Next: Attributes →](15-html-attributes.html)
+
 

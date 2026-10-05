@@ -119,11 +119,12 @@ Run `git log -n 2 --stat` in your terminal and identify how many insertions/dele
 
 ## 🔗 Related Topics
 
-- [Staging & Committing](06-staging-and-committing.md)
-- [Inspecting Changes with Git Diff](09-git-diff-and-inspecting-changes.md)
-- [Terminal Productivity & Aliases](27-git-aliases-and-shortcuts.md)
+- [Staging & Committing](06-staging-and-committing.html)
+- [Inspecting Changes with Git Diff](09-git-diff-and-inspecting-changes.html)
+- [Terminal Productivity & Aliases](27-git-aliases-and-shortcuts.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Committing](06-staging-and-committing.md) | [Next: Ignoring Files →](08-ignoring-files-with-gitignore.md)
+[← Home](./) | [← Previous: Committing](06-staging-and-committing.html) | [Next: Ignoring Files →](08-ignoring-files-with-gitignore.html)
+
 

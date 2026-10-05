@@ -130,9 +130,9 @@ Production design systems use structured section headers in comments (`/* --- BU
 
 ## 🔗 Related Topics
 
-- [CSS Syntax & Rules](06-css-syntax.md)
-- [Browser Developer Tools for CSS](34-devtools.md)
-- [CSS Architecture (BEM) & Dark Mode](41-css-architecture-and-dark-mode.md)
+- [CSS Syntax & Rules](06-css-syntax.html)
+- [Browser Developer Tools for CSS](34-devtools.html)
+- [CSS Architecture (BEM) & Dark Mode](41-css-architecture-and-dark-mode.html)
 
 ## ✅ Remember
 
@@ -142,5 +142,6 @@ Production design systems use structured section headers in comments (`/* --- BU
 
 ## 🧭 Navigation
 
-[← Previous](06-css-syntax.md) | [CSS Home](00-README.md) | [Next →](08-selectors.md)
+[← Previous](06-css-syntax.html) | [CSS Home](./) | [Next →](08-selectors.html)
+
 

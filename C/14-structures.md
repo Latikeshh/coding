@@ -168,11 +168,12 @@ Write a program that creates an array of 3 `struct Book` items (`title`, `author
 
 ## 🔗 Related Topics
 
-- [Pointers Basics](10-pointers-basics.md)
-- [Dynamic Memory Allocation](13-dynamic-memory-allocation.md)
-- [Unions and Bit Fields](15-unions-and-bit-fields.md)
+- [Pointers Basics](10-pointers-basics.html)
+- [Dynamic Memory Allocation](13-dynamic-memory-allocation.html)
+- [Unions and Bit Fields](15-unions-and-bit-fields.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Dynamic Memory Allocation](13-dynamic-memory-allocation.md) | [Next: Unions & Bit Fields →](15-unions-and-bit-fields.md)
+[← C Home](./) | [← Previous: Dynamic Memory Allocation](13-dynamic-memory-allocation.html) | [Next: Unions & Bit Fields →](15-unions-and-bit-fields.html)
+
 

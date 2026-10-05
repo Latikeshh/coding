@@ -94,8 +94,8 @@ All modern web frameworks and UI libraries rely heavily on `class` names for CSS
 
 ## 🔗 Related Topics
 
-- [Div and Span](14-div-and-span.md)
-- [Global & Data Attributes](31-global-and-data-attributes.md)
+- [Div and Span](14-div-and-span.html)
+- [Global & Data Attributes](31-global-and-data-attributes.html)
 
 ## 💡 Remember
 
@@ -105,5 +105,6 @@ All modern web frameworks and UI libraries rely heavily on `class` names for CSS
 
 ## 🧭 Navigation
 
-[← Previous: Div and Span](14-div-and-span.md) | [HTML Home](00-README.md) | [Next: Comments →](16-html-comments.md)
+[← Previous: Div and Span](14-div-and-span.html) | [HTML Home](./) | [Next: Comments →](16-html-comments.html)
+
 

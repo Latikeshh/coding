@@ -135,9 +135,9 @@ Developers format CSS rules with clean indentation and spacing (often automated 
 
 ## 🔗 Related Topics
 
-- [CSS Comments](07-css-comments.md)
-- [Basic Selectors](08-selectors.md)
-- [Specificity, Cascade & Inheritance](09-specificity.md)
+- [CSS Comments](07-css-comments.html)
+- [Basic Selectors](08-selectors.html)
+- [Specificity, Cascade & Inheritance](09-specificity.html)
 
 ## ✅ Remember
 
@@ -148,5 +148,6 @@ Developers format CSS rules with clean indentation and spacing (often automated 
 
 ## 🧭 Navigation
 
-[← Previous](05-how-to-add-css.md) | [CSS Home](00-README.md) | [Next →](07-css-comments.md)
+[← Previous](05-how-to-add-css.html) | [CSS Home](./) | [Next →](07-css-comments.html)
+
 

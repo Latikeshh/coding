@@ -127,5 +127,6 @@ Use `if...else` for range checks, `switch` for multiple fixed values, and Ternar
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Operators](05-operators.md) | [Next: Loops →](07-loops.md)
+[← JS Home](./) | [← Previous: Operators](05-operators.html) | [Next: Loops →](07-loops.html)
+
 

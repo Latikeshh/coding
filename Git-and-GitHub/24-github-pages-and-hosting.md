@@ -115,10 +115,11 @@ Update `index.html` locally with CSS styles, commit, and push to `main`. Refresh
 
 ## 🔗 Related Topics
 
-- [Introduction to GitHub](20-introduction-to-github.md)
-- [GitHub Actions Basics](26-github-actions-and-ci-cd-basics.md)
+- [Introduction to GitHub](20-introduction-to-github.html)
+- [GitHub Actions Basics](26-github-actions-and-ci-cd-basics.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Issues & Projects](23-github-issues-and-project-boards.md) | [Next: Tags & Releases →](25-git-tags-and-releases.md)
+[← Home](./) | [← Previous: Issues & Projects](23-github-issues-and-project-boards.html) | [Next: Tags & Releases →](25-git-tags-and-releases.html)
+
 

@@ -97,10 +97,11 @@ Create a query that labels a product `Low stock` when quantity is below 10 and `
 
 ## Related Topics
 
-- [SQL Functions](16-sql-functions.md)
-- [GROUP BY & HAVING](14-group-by-and-having.md)
+- [SQL Functions](16-sql-functions.html)
+- [GROUP BY & HAVING](14-group-by-and-having.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: SQL Functions](16-sql-functions.md) | [Next: Subqueries →](18-subqueries.md)
+[← SQL Home](./) | [← Previous: SQL Functions](16-sql-functions.html) | [Next: Subqueries →](18-subqueries.html)
+
 

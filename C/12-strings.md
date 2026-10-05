@@ -158,11 +158,12 @@ Write a function `void reverseString(char str[])` that reverses a string in-plac
 
 ## 🔗 Related Topics
 
-- [Input and Output](04-input-output.md)
-- [Arrays](09-arrays.md)
-- [Pointers Basics](10-pointers-basics.md)
+- [Input and Output](04-input-output.html)
+- [Arrays](09-arrays.html)
+- [Pointers Basics](10-pointers-basics.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Advanced Pointers](11-advanced-pointers.md) | [Next: Dynamic Memory Allocation →](13-dynamic-memory-allocation.md)
+[← C Home](./) | [← Previous: Advanced Pointers](11-advanced-pointers.html) | [Next: Dynamic Memory Allocation →](13-dynamic-memory-allocation.html)
+
 

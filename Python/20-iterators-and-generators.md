@@ -129,9 +129,10 @@ Write a generator function `countdown(start)` that yields numbers counting down 
 
 ## 🔗 Related Topics
 
-- [List Comprehensions](14-list-comprehensions.md)
-- [Decorators](21-decorators.md)
+- [List Comprehensions](14-list-comprehensions.html)
+- [Decorators](21-decorators.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Object-Oriented Programming](19-object-oriented-programming.md) | [Next: Decorators →](21-decorators.md)
+[← Python Home](./) | [← Previous: Object-Oriented Programming](19-object-oriented-programming.html) | [Next: Decorators →](21-decorators.html)
+

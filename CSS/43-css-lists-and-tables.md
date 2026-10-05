@@ -160,9 +160,9 @@ A clean, accessible data table featuring a dark header row, collapsed single-lin
 
 ## 🔗 Related Topics
 
-- [Borders, Border Radius & Box Shadows](13-borders.md)
-- [Pseudo-classes (`:nth-child`)](24-pseudo-classes.md)
-- [Navigation Bar Components](37-navigation-bars.md)
+- [Borders, Border Radius & Box Shadows](13-borders.html)
+- [Pseudo-classes (`:nth-child`)](24-pseudo-classes.html)
+- [Navigation Bar Components](37-navigation-bars.html)
 
 ## ✅ Remember
 
@@ -172,5 +172,6 @@ A clean, accessible data table featuring a dark header row, collapsed single-lin
 
 ## 🧭 Navigation
 
-[← Previous](42-overflow-and-visibility.md) | [CSS Home](00-README.md)
+[← Previous](42-overflow-and-visibility.html) | [CSS Home](./)
+
 

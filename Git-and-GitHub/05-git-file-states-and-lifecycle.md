@@ -128,11 +128,12 @@ Commit `app.js` with message `"Add app entry file"`. Then open `app.js`, add `co
 
 ## 🔗 Related Topics
 
-- [Initializing a Repository](04-initializing-a-repository.md)
-- [Staging & Committing](06-staging-and-committing.md)
-- [Viewing History](07-viewing-history-and-git-log.md)
+- [Initializing a Repository](04-initializing-a-repository.html)
+- [Staging & Committing](06-staging-and-committing.html)
+- [Viewing History](07-viewing-history-and-git-log.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Init](04-initializing-a-repository.md) | [Next: Staging & Committing →](06-staging-and-committing.md)
+[← Home](./) | [← Previous: Init](04-initializing-a-repository.html) | [Next: Staging & Committing →](06-staging-and-committing.html)
+
 

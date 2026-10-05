@@ -125,11 +125,12 @@ Explain the difference between `main` and `origin/main` in your own words.
 
 ## 🔗 Related Topics
 
-- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.md)
-- [Introduction to GitHub](20-introduction-to-github.md)
-- [Forking & Pull Requests](21-forking-and-pull-requests.md)
+- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.html)
+- [Introduction to GitHub](20-introduction-to-github.html)
+- [Forking & Pull Requests](21-forking-and-pull-requests.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Push & Pull](18-git-push-and-git-pull.md) | [Next: Introduction to GitHub →](20-introduction-to-github.md)
+[← Home](./) | [← Previous: Push & Pull](18-git-push-and-git-pull.html) | [Next: Introduction to GitHub →](20-introduction-to-github.html)
+
 

@@ -170,9 +170,10 @@ Write a program that searches through a text log file and counts how many lines 
 
 ## 🔗 Related Topics
 
-- [Exceptions and Validation](18-exceptions-and-validation.md)
-- [Packages and Project Organization](19-packages-and-project-organization.md)
+- [Exceptions and Validation](18-exceptions-and-validation.html)
+- [Packages and Project Organization](19-packages-and-project-organization.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Packages](19-packages-and-project-organization.md) | [Next: Lambdas and Streams →](21-lambdas-and-streams.md)
+[← Java Home](./) | [← Previous: Packages](19-packages-and-project-organization.html) | [Next: Lambdas and Streams →](21-lambdas-and-streams.html)
+

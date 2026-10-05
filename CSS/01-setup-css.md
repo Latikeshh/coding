@@ -114,9 +114,9 @@ Every professional production website connects modular external CSS stylesheets 
 
 ## 🔗 Related Topics
 
-- [Introduction to CSS](02-introduction-to-css.md)
-- [Types of CSS](04-types-of-css.md)
-- [How to Add CSS](05-how-to-add-css.md)
+- [Introduction to CSS](02-introduction-to-css.html)
+- [Types of CSS](04-types-of-css.html)
+- [How to Add CSS](05-how-to-add-css.html)
 
 ## ✅ Remember
 
@@ -126,5 +126,6 @@ Every professional production website connects modular external CSS stylesheets 
 
 ## 🧭 Navigation
 
-[← CSS Home](00-README.md) | [Next: Introduction to CSS →](02-introduction-to-css.md)
+[← CSS Home](./) | [Next: Introduction to CSS →](02-introduction-to-css.html)
+
 

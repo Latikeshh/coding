@@ -118,9 +118,10 @@ Write a program that reads a text file, counts how many times the word `"python"
 
 ## 🔗 Related Topics
 
-- [Working with CSV](26-working-with-csv.md)
-- [JSON Data Serialization](25-json-and-data-serialization.md)
+- [Working with CSV](26-working-with-csv.html)
+- [JSON Data Serialization](25-json-and-data-serialization.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Modules and Packages](16-modules-and-packages.md) | [Next: Exception Handling →](18-exception-handling.md)
+[← Python Home](./) | [← Previous: Modules and Packages](16-modules-and-packages.html) | [Next: Exception Handling →](18-exception-handling.html)
+

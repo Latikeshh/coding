@@ -181,9 +181,10 @@ Add a static variable `totalBooksCreated` to the `Book` class that increments au
 
 ## 🔗 Related Topics
 
-- [Methods](08-methods.md)
-- [Encapsulation and Composition](15-encapsulation-and-composition.md)
+- [Methods](08-methods.html)
+- [Encapsulation and Composition](15-encapsulation-and-composition.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Generics](13-generics.md) | [Next: Encapsulation and Composition →](15-encapsulation-and-composition.md)
+[← Java Home](./) | [← Previous: Generics](13-generics.html) | [Next: Encapsulation and Composition →](15-encapsulation-and-composition.html)
+

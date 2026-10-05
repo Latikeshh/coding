@@ -117,10 +117,11 @@ Write a query that updates all employees in the `'HR'` department by setting the
 
 ## 🔗 Related Topics
 
-- [Filtering Data with `WHERE`](07-where.md)
-- [Sorting & Limiting Results](09-order-by-and-limit.md)
+- [Filtering Data with `WHERE`](07-where.html)
+- [Sorting & Limiting Results](09-order-by-and-limit.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Sorting & Limiting Results](09-order-by-and-limit.md)
+[← SQL Home](./) | [← Previous: Sorting & Limiting Results](09-order-by-and-limit.html)
+
 

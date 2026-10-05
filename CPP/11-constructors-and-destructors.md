@@ -149,11 +149,12 @@ Write a `Logger` class that opens a simulated log file in its constructor, write
 
 ## 🔗 Related Topics
 
-- [Classes & Objects](10-classes-and-oops.md)
-- [Smart Pointers](14-smart-pointers.md)
+- [Classes & Objects](10-classes-and-oops.html)
+- [Smart Pointers](14-smart-pointers.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Classes & OOP](10-classes-and-oops.md) | [Next: Inheritance →](12-inheritance-and-polymorphism.md)
+[← C++ Home](./) | [← Previous: Classes & OOP](10-classes-and-oops.html) | [Next: Inheritance →](12-inheritance-and-polymorphism.html)
+

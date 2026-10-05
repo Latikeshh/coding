@@ -133,9 +133,10 @@ Write a program that uses `reduce()` to find the maximum number in a list `[14, 
 
 ## 🔗 Related Topics
 
-- [List Comprehensions](14-list-comprehensions.md)
-- [Decorators](21-decorators.md)
+- [List Comprehensions](14-list-comprehensions.html)
+- [Decorators](21-decorators.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Decorators](21-decorators.md) | [Next: Regular Expressions →](23-regular-expressions.md)
+[← Python Home](./) | [← Previous: Decorators](21-decorators.html) | [Next: Regular Expressions →](23-regular-expressions.html)
+

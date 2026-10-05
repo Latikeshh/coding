@@ -146,9 +146,10 @@ Write a program that takes an integer array and reverses its elements in-place w
 
 ## 🔗 Related Topics
 
-- [Methods](08-methods.md)
-- [Collections](11-collections.md)
+- [Methods](08-methods.html)
+- [Collections](11-collections.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Methods](08-methods.md) | [Next: Strings →](10-strings.md)
+[← Java Home](./) | [← Previous: Methods](08-methods.html) | [Next: Strings →](10-strings.html)
+

@@ -186,11 +186,12 @@ Write a program that copies a binary file (e.g. an image file or `.bin` file) fr
 
 ## 🔗 Related Topics
 
-- [Input and Output](04-input-output.md)
-- [Structures](14-structures.md)
-- [Error Handling](22-error-handling.md)
+- [Input and Output](04-input-output.html)
+- [Structures](14-structures.html)
+- [Error Handling](22-error-handling.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Enumerations](16-enums.md) | [Next: Preprocessor →](18-preprocessor-and-macros.md)
+[← C Home](./) | [← Previous: Enumerations](16-enums.html) | [Next: Preprocessor →](18-preprocessor-and-macros.html)
+
 

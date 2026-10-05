@@ -154,11 +154,12 @@ Write an inventory management system using `std::map<int, std::string>` (Product
 
 ## 🔗 Related Topics
 
-- [Arrays & Vectors](09-arrays-and-vectors.md)
-- [STL Algorithms](16-stl-algorithms.md)
+- [Arrays & Vectors](09-arrays-and-vectors.html)
+- [STL Algorithms](16-stl-algorithms.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Smart Pointers](14-smart-pointers.md) | [Next: STL Algorithms →](16-stl-algorithms.md)
+[← C++ Home](./) | [← Previous: Smart Pointers](14-smart-pointers.html) | [Next: STL Algorithms →](16-stl-algorithms.html)
+

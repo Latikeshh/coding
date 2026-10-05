@@ -104,8 +104,8 @@ Developers use comments to mark section boundaries in large multi-page templates
 
 ## 🔗 Related Topics
 
-- [Document Structure](03-html-document-structure.md)
-- [HTML Attributes](15-html-attributes.md)
+- [Document Structure](03-html-document-structure.html)
+- [HTML Attributes](15-html-attributes.html)
 
 ## 💡 Remember
 
@@ -115,5 +115,6 @@ Developers use comments to mark section boundaries in large multi-page templates
 
 ## 🧭 Navigation
 
-[← Previous: Attributes](15-html-attributes.md) | [HTML Home](00-README.md) | [Next: Colors →](17-html-colors.md)
+[← Previous: Attributes](15-html-attributes.html) | [HTML Home](./) | [Next: Colors →](17-html-colors.html)
+
 

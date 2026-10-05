@@ -137,9 +137,9 @@ Production websites often link multiple stylesheets (e.g. `reset.css`, `typograp
 
 ## 🔗 Related Topics
 
-- [Set Up CSS Environment](01-setup-css.md)
-- [Types of CSS](04-types-of-css.md)
-- [Browser Developer Tools for CSS](34-devtools.md)
+- [Set Up CSS Environment](01-setup-css.html)
+- [Types of CSS](04-types-of-css.html)
+- [Browser Developer Tools for CSS](34-devtools.html)
 
 ## ✅ Remember
 
@@ -149,5 +149,6 @@ Production websites often link multiple stylesheets (e.g. `reset.css`, `typograp
 
 ## 🧭 Navigation
 
-[← Previous](04-types-of-css.md) | [CSS Home](00-README.md) | [Next →](06-css-syntax.md)
+[← Previous](04-types-of-css.html) | [CSS Home](./) | [Next →](06-css-syntax.html)
+
 

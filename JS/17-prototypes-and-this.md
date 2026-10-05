@@ -112,5 +112,6 @@ Method call -> `this` = object. Arrow function -> `this` = lexical parent scope.
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Fetch API & JSON](16-fetch-api-and-json.md) | [Next: Classes & OOP →](18-classes-and-oop.md)
+[← JS Home](./) | [← Previous: Fetch API & JSON](16-fetch-api-and-json.html) | [Next: Classes & OOP →](18-classes-and-oop.html)
+
 

@@ -130,8 +130,8 @@ Landing pages combine dark gradient overlays over hero background images (`backg
 
 ## 🔗 Related Topics
 
-- [Borders, Border Radius & Box Shadows](13-borders.md)
-- [CSS Variables (Custom Properties)](31-variables.md)
+- [Borders, Border Radius & Box Shadows](13-borders.html)
+- [CSS Variables (Custom Properties)](31-variables.html)
 
 ## ✅ Remember
 
@@ -141,5 +141,6 @@ Landing pages combine dark gradient overlays over hero background images (`backg
 
 ## 🧭 Navigation
 
-[← Previous](11-css-units.md) | [CSS Home](00-README.md) | [Next →](13-borders.md)
+[← Previous](11-css-units.html) | [CSS Home](./) | [Next →](13-borders.html)
+
 

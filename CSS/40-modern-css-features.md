@@ -163,9 +163,9 @@ E-commerce stores use `object-fit: cover` for product thumbnails, video portals 
 
 ## 🔗 Related Topics
 
-- [CSS Functions (`calc()`, `clamp()`)](32-functions.md)
-- [Card Layout Components](36-card-layout.md)
-- [Advanced Selectors](39-advanced-selectors.md)
+- [CSS Functions (`calc()`, `clamp()`)](32-functions.html)
+- [Card Layout Components](36-card-layout.html)
+- [Advanced Selectors](39-advanced-selectors.html)
 
 ## ✅ Remember
 
@@ -175,5 +175,6 @@ E-commerce stores use `object-fit: cover` for product thumbnails, video portals 
 
 ## 🧭 Navigation
 
-[← Previous](39-advanced-selectors.md) | [CSS Home](00-README.md) | [Next →](41-css-architecture-and-dark-mode.md)
+[← Previous](39-advanced-selectors.html) | [CSS Home](./) | [Next →](41-css-architecture-and-dark-mode.html)
+
 

@@ -132,9 +132,10 @@ Re-structure an unformatted Python script by renaming variable names to `snake_c
 
 ## 🔗 Related Topics
 
-- [Virtual Environments and Pip](29-virtual-environments-and-pip.md)
-- [Capstones & Mini Projects](31-mini-projects.md)
+- [Virtual Environments and Pip](29-virtual-environments-and-pip.html)
+- [Capstones & Mini Projects](31-mini-projects.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Virtual Environments and Pip](29-virtual-environments-and-pip.md) | [Next: Mini Projects →](31-mini-projects.md)
+[← Python Home](./) | [← Previous: Virtual Environments and Pip](29-virtual-environments-and-pip.html) | [Next: Mini Projects →](31-mini-projects.html)
+

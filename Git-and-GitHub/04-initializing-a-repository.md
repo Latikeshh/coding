@@ -124,11 +124,12 @@ Create an empty text file `index.html` inside your new `git-practice` folder usi
 
 ## 🔗 Related Topics
 
-- [Git Configuration](03-git-configuration.md)
-- [Git File States & Lifecycle](05-git-file-states-and-lifecycle.md)
-- [Staging & Committing](06-staging-and-committing.md)
+- [Git Configuration](03-git-configuration.html)
+- [Git File States & Lifecycle](05-git-file-states-and-lifecycle.html)
+- [Staging & Committing](06-staging-and-committing.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Config](03-git-configuration.md) | [Next: File States →](05-git-file-states-and-lifecycle.md)
+[← Home](./) | [← Previous: Config](03-git-configuration.html) | [Next: File States →](05-git-file-states-and-lifecycle.html)
+
 

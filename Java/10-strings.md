@@ -159,9 +159,10 @@ Write a program that takes a sentence string and counts the total number of vowe
 
 ## 🔗 Related Topics
 
-- [Arrays](09-arrays.md)
-- [Collections](11-collections.md)
+- [Arrays](09-arrays.html)
+- [Collections](11-collections.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Arrays](09-arrays.md) | [Next: Collections →](11-collections.md)
+[← Java Home](./) | [← Previous: Arrays](09-arrays.html) | [Next: Collections →](11-collections.html)
+

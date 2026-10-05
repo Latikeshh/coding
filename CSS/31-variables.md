@@ -177,8 +177,8 @@ CSS Custom Properties power dark mode toggles, multi-tenant white-label branding
 
 ## 🔗 Related Topics
 
-- [CSS Functions (`calc()`, `clamp()`)](32-functions.md)
-- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.md)
+- [CSS Functions (`calc()`, `clamp()`)](32-functions.html)
+- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.html)
 
 ## ✅ Remember
 
@@ -188,5 +188,6 @@ CSS Custom Properties power dark mode toggles, multi-tenant white-label branding
 
 ## 🧭 Navigation
 
-[← Previous](30-animations.md) | [CSS Home](00-README.md) | [Next →](32-functions.md)
+[← Previous](30-animations.html) | [CSS Home](./) | [Next →](32-functions.html)
+
 

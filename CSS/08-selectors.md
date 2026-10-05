@@ -148,9 +148,9 @@ Developers build UI component systems (like Bootstrap or Tailwind) using class s
 
 ## 🔗 Related Topics
 
-- [Specificity, Cascade & Inheritance](09-specificity.md)
-- [Pseudo-classes](24-pseudo-classes.md)
-- [Advanced Selectors (`:is()`, `:where()`, `:has()`)](39-advanced-selectors.md)
+- [Specificity, Cascade & Inheritance](09-specificity.html)
+- [Pseudo-classes](24-pseudo-classes.html)
+- [Advanced Selectors (`:is()`, `:where()`, `:has()`)](39-advanced-selectors.html)
 
 ## ✅ Remember
 
@@ -160,5 +160,6 @@ Developers build UI component systems (like Bootstrap or Tailwind) using class s
 
 ## 🧭 Navigation
 
-[← Previous](07-css-comments.md) | [CSS Home](00-README.md) | [Next →](09-specificity.md)
+[← Previous](07-css-comments.html) | [CSS Home](./) | [Next →](09-specificity.html)
+
 

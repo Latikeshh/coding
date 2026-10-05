@@ -194,9 +194,9 @@ Flexbox navbars form the header foundation for SaaS landing pages, documentation
 
 ## 🔗 Related Topics
 
-- [Positioning & `z-index`](18-positioning.md)
-- [Flexbox Layout](20-flexbox.md)
-- [CSS Mini Projects](38-mini-projects.md)
+- [Positioning & `z-index`](18-positioning.html)
+- [Flexbox Layout](20-flexbox.html)
+- [CSS Mini Projects](38-mini-projects.html)
 
 ## ✅ Remember
 
@@ -206,5 +206,6 @@ Flexbox navbars form the header foundation for SaaS landing pages, documentation
 
 ## 🧭 Navigation
 
-[← Previous](36-card-layout.md) | [CSS Home](00-README.md) | [Next →](38-mini-projects.md)
+[← Previous](36-card-layout.html) | [CSS Home](./) | [Next →](38-mini-projects.html)
+
 

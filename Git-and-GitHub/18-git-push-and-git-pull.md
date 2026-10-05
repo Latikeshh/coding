@@ -124,11 +124,12 @@ Explain in your own words why Git rejects `git push` if your teammate pushed new
 
 ## 🔗 Related Topics
 
-- [Remote Repositories](17-remote-repositories-and-remotes.md)
-- [Remote Tracking & Fetching](19-git-fetch-and-remote-branches.md)
-- [Introduction to GitHub](20-introduction-to-github.md)
+- [Remote Repositories](17-remote-repositories-and-remotes.html)
+- [Remote Tracking & Fetching](19-git-fetch-and-remote-branches.html)
+- [Introduction to GitHub](20-introduction-to-github.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Remotes](17-remote-repositories-and-remotes.md) | [Next: Fetching →](19-git-fetch-and-remote-branches.md)
+[← Home](./) | [← Previous: Remotes](17-remote-repositories-and-remotes.html) | [Next: Fetching →](19-git-fetch-and-remote-branches.html)
+
 

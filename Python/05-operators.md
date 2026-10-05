@@ -111,9 +111,10 @@ Write an expression using `% 2 == 0` that checks whether a given number is even,
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Conditionals](06-conditionals.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Conditionals](06-conditionals.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Input and Output](04-input-output.md) | [Next: Conditionals →](06-conditionals.md)
+[← Python Home](./) | [← Previous: Input and Output](04-input-output.html) | [Next: Conditionals →](06-conditionals.html)
+

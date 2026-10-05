@@ -143,9 +143,10 @@ Write a program that calculates student test percentage from `48` marks out of `
 
 ## 🔗 Related Topics
 
-- [Java Program Structure](02-java-program-structure.md)
-- [Input and Output](04-input-and-output.md)
+- [Java Program Structure](02-java-program-structure.html)
+- [Input and Output](04-input-and-output.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Program Structure](02-java-program-structure.md) | [Next: Input and Output →](04-input-and-output.md)
+[← Java Home](./) | [← Previous: Program Structure](02-java-program-structure.html) | [Next: Input and Output →](04-input-and-output.html)
+

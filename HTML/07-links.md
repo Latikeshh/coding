@@ -115,9 +115,9 @@ Every website uses links for global navigation bars, breadcrumbs, social media l
 
 ## 🔗 Related Topics
 
-- [Text Formatting](06-text-formatting.md)
-- [Images](08-images.md)
-- [Buttons](13-buttons.md)
+- [Text Formatting](06-text-formatting.html)
+- [Images](08-images.html)
+- [Buttons](13-buttons.html)
 
 ## 💡 Remember
 
@@ -127,5 +127,6 @@ Every website uses links for global navigation bars, breadcrumbs, social media l
 
 ## 🧭 Navigation
 
-[← Previous: Text Formatting](06-text-formatting.md) | [HTML Home](00-README.md) | [Next: Images →](08-images.md)
+[← Previous: Text Formatting](06-text-formatting.html) | [HTML Home](./) | [Next: Images →](08-images.html)
+
 

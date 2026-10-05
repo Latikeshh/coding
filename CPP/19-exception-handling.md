@@ -156,11 +156,12 @@ Write a bank withdrawal function `withdrawMoney(double balance, double amount)` 
 
 ## 🔗 Related Topics
 
-- [Input & Output in C++](04-input-output.md)
-- [File I/O Streams](20-file-streams.md)
+- [Input & Output in C++](04-input-output.html)
+- [File I/O Streams](20-file-streams.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Lambdas](18-lambdas.md) | [Next: File Streams →](20-file-streams.md)
+[← C++ Home](./) | [← Previous: Lambdas](18-lambdas.html) | [Next: File Streams →](20-file-streams.html)
+

@@ -88,10 +88,11 @@ Given frequent queries filtering by `status` and ordering by `created_at`, propo
 
 ## Related Topics
 
-- [Views](21-views.md)
-- [Transactions & ACID](23-transactions.md)
+- [Views](21-views.html)
+- [Transactions & ACID](23-transactions.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Views](21-views.md) | [Next: Transactions →](23-transactions.md)
+[← SQL Home](./) | [← Previous: Views](21-views.html) | [Next: Transactions →](23-transactions.html)
+
 

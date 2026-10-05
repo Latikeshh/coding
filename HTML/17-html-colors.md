@@ -96,8 +96,8 @@ All professional websites use consistent color systems (HEX, RGB, RGBA) defined 
 
 ## 🔗 Related Topics
 
-- [Div and Span](14-div-and-span.md)
-- [Accessibility Basics](24-accessibility-basics.md)
+- [Div and Span](14-div-and-span.html)
+- [Accessibility Basics](24-accessibility-basics.html)
 
 ## 💡 Remember
 
@@ -107,5 +107,6 @@ All professional websites use consistent color systems (HEX, RGB, RGBA) defined 
 
 ## 🧭 Navigation
 
-[← Previous: Comments](16-html-comments.md) | [HTML Home](00-README.md) | [Next: Entities →](18-html-entities.md)
+[← Previous: Comments](16-html-comments.html) | [HTML Home](./) | [Next: Entities →](18-html-entities.html)
+
 

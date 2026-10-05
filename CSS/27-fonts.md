@@ -158,8 +158,8 @@ Modern web design systems host self-hosted `.woff2` font files using `@font-face
 
 ## 🔗 Related Topics
 
-- [Text Styling & Typography](26-text-styling.md)
-- [CSS Functions (`clamp()`)](32-functions.md)
+- [Text Styling & Typography](26-text-styling.html)
+- [CSS Functions (`clamp()`)](32-functions.html)
 
 ## ✅ Remember
 
@@ -169,5 +169,6 @@ Modern web design systems host self-hosted `.woff2` font files using `@font-face
 
 ## 🧭 Navigation
 
-[← Previous](26-text-styling.md) | [CSS Home](00-README.md) | [Next →](28-transitions.md)
+[← Previous](26-text-styling.html) | [CSS Home](./) | [Next →](28-transitions.html)
+
 

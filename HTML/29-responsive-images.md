@@ -119,8 +119,8 @@ E-commerce stores, news publishers, and photography portals use responsive image
 
 ## 🔗 Related Topics
 
-- [Images](08-images.md)
-- [Modern HTML5 Features](23-html5-features.md)
+- [Images](08-images.html)
+- [Modern HTML5 Features](23-html5-features.html)
 
 ## 💡 Remember
 
@@ -131,5 +131,6 @@ E-commerce stores, news publishers, and photography portals use responsive image
 
 ## 🧭 Navigation
 
-[← Previous: Advanced Form Controls](28-advanced-form-controls.md) | [HTML Home](00-README.md) | [Next: Interactive Elements →](30-interactive-elements.md)
+[← Previous: Advanced Form Controls](28-advanced-form-controls.html) | [HTML Home](./) | [Next: Interactive Elements →](30-interactive-elements.html)
+
 

@@ -85,5 +85,6 @@ HTML gives structure, CSS gives style, and JavaScript gives life and interactivi
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: JS Setup](01-setup-js.md) | [Next: Variables →](03-variables.md)
+[← JS Home](./) | [← Previous: JS Setup](01-setup-js.html) | [Next: Variables →](03-variables.html)
+
 

@@ -149,9 +149,10 @@ Build a currency converter CLI that asks for an amount in USD ($) and converts i
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Exceptions and Validation](18-exceptions-and-validation.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Exceptions and Validation](18-exceptions-and-validation.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Variables](03-variables-and-data-types.md) | [Next: Operators and Expressions →](05-operators-and-expressions.md)
+[← Java Home](./) | [← Previous: Variables](03-variables-and-data-types.html) | [Next: Operators and Expressions →](05-operators-and-expressions.html)
+

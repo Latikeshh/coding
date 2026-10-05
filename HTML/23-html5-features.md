@@ -130,9 +130,9 @@ All modern web forms utilize built-in HTML5 validation attributes alongside serv
 
 ## 🔗 Related Topics
 
-- [Input Types](12-input-types.md)
-- [Semantic HTML](22-semantic-html.md)
-- [Advanced Form Controls](28-advanced-form-controls.md)
+- [Input Types](12-input-types.html)
+- [Semantic HTML](22-semantic-html.html)
+- [Advanced Form Controls](28-advanced-form-controls.html)
 
 ## 💡 Remember
 
@@ -142,5 +142,6 @@ All modern web forms utilize built-in HTML5 validation attributes alongside serv
 
 ## 🧭 Navigation
 
-[← Previous: Semantic HTML](22-semantic-html.md) | [HTML Home](00-README.md) | [Next: Accessibility Basics →](24-accessibility-basics.md)
+[← Previous: Semantic HTML](22-semantic-html.html) | [HTML Home](./) | [Next: Accessibility Basics →](24-accessibility-basics.html)
+
 

@@ -149,11 +149,12 @@ Edit `hello.yml` to add a second step that prints the current date and time usin
 
 ## 🔗 Related Topics
 
-- [Introduction to GitHub](20-introduction-to-github.md)
-- [Free Hosting with GitHub Pages](24-github-pages-and-hosting.md)
-- [Security Best Practices](29-git-best-practices-and-security.md)
+- [Introduction to GitHub](20-introduction-to-github.html)
+- [Free Hosting with GitHub Pages](24-github-pages-and-hosting.html)
+- [Security Best Practices](29-git-best-practices-and-security.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Tags & Releases](25-git-tags-and-releases.md) | [Next: Git Aliases & Shortcuts →](27-git-aliases-and-shortcuts.md)
+[← Home](./) | [← Previous: Tags & Releases](25-git-tags-and-releases.html) | [Next: Git Aliases & Shortcuts →](27-git-aliases-and-shortcuts.html)
+
 

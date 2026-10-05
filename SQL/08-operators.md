@@ -125,10 +125,11 @@ Write a query to select all items whose category is NOT IN `'Kitchen'` or `'Furn
 
 ## 🔗 Related Topics
 
-- [Filtering Data with `WHERE`](07-where.md)
-- [Sorting & Limiting Results](09-order-by-and-limit.md)
+- [Filtering Data with `WHERE`](07-where.html)
+- [Sorting & Limiting Results](09-order-by-and-limit.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Filtering with WHERE](07-where.md) | [Next: Sorting & Limiting Results →](09-order-by-and-limit.md)
+[← SQL Home](./) | [← Previous: Filtering with WHERE](07-where.html) | [Next: Sorting & Limiting Results →](09-order-by-and-limit.html)
+
 

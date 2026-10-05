@@ -102,9 +102,9 @@ HTML forms the core content layer of every single web application, mobile web vi
 
 ## 🔗 Related Topics
 
-- [Set Up VS Code for HTML](01-setup-vs-code.md)
-- [HTML Document Structure & Metadata](03-html-document-structure.md)
-- [Headings](04-headings.md)
+- [Set Up VS Code for HTML](01-setup-vs-code.html)
+- [HTML Document Structure & Metadata](03-html-document-structure.html)
+- [Headings](04-headings.html)
 
 ## 💡 Remember
 
@@ -114,5 +114,6 @@ HTML forms the core content layer of every single web application, mobile web vi
 
 ## 🧭 Navigation
 
-[← Previous: VS Code Setup](01-setup-vs-code.md) | [HTML Home](00-README.md) | [Next: Document Structure →](03-html-document-structure.md)
+[← Previous: VS Code Setup](01-setup-vs-code.html) | [HTML Home](./) | [Next: Document Structure →](03-html-document-structure.html)
+
 

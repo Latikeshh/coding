@@ -120,10 +120,11 @@ Given a list of temperatures in Celsius `celsius = [0, 12, 25, 34, 40]`, write a
 
 ## 🔗 Related Topics
 
-- [Lists](09-lists.md)
-- [Dictionaries](12-dictionaries.md)
-- [Iterators and Generators](20-iterators-and-generators.md)
+- [Lists](09-lists.html)
+- [Dictionaries](12-dictionaries.html)
+- [Iterators and Generators](20-iterators-and-generators.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Strings](13-strings.md) | [Next: Advanced Functions →](15-functions-advanced.md)
+[← Python Home](./) | [← Previous: Strings](13-strings.html) | [Next: Advanced Functions →](15-functions-advanced.html)
+

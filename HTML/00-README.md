@@ -47,38 +47,38 @@ HTML webpage cha paya ani structure tayar karte, jase ki headings, text, links, 
 
 | # | Topic | Level | Link |
 |---|---|---|---|
-| 01 | Set Up VS Code for HTML | 🟢 Beginner | [Open lesson](01-setup-vs-code.md) |
-| 02 | Introduction to HTML | 🟢 Beginner | [Open lesson](02-introduction.md) |
-| 03 | HTML Document Structure & Metadata | 🟢 Beginner | [Open lesson](03-html-document-structure.md) |
-| 04 | Headings (`<h1>` to `<h6>`) | 🟢 Beginner | [Open lesson](04-headings.md) |
-| 05 | Paragraphs (`<p>`) | 🟢 Beginner | [Open lesson](05-paragraphs.md) |
-| 06 | Text Formatting (`<strong>`, `<em>`, `<b>`, `<i>`, etc.) | 🟢 Beginner | [Open lesson](06-text-formatting.md) |
-| 07 | Links & Anchors (`<a>`, `href`, relative & absolute) | 🟢 Beginner | [Open lesson](07-links.md) |
-| 08 | Images, `<figure>`, & `<picture>` | 🟢 Beginner | [Open lesson](08-images.md) |
-| 09 | Lists (`<ul>`, `<ol>`, `<dl>`) | 🟢 Beginner | [Open lesson](09-lists.md) |
-| 10 | Tables (`<table>`, `<thead>`, `<tbody>`, `<caption>`) | 🟢 Beginner | [Open lesson](10-tables.md) |
-| 11 | Forms & Labels (`<form>`, `<label>`, `action`, `method`) | 🟢 Beginner | [Open lesson](11-forms.md) |
-| 12 | Input Types (`text`, `email`, `password`, `date`, etc.) | 🟢 Beginner | [Open lesson](12-input-types.md) |
-| 13 | Buttons (`<button type="submit">`, `<button type="button">`) | 🟢 Beginner | [Open lesson](13-buttons.md) |
-| 14 | Generic Containers (`<div>` and `<span>`) | 🟡 Intermediate | [Open lesson](14-div-and-span.md) |
-| 15 | HTML Attributes (`id`, `class`, `title`, global attributes) | 🟢 Beginner | [Open lesson](15-html-attributes.md) |
-| 16 | HTML Comments (`<!-- -->`) | 🟢 Beginner | [Open lesson](16-html-comments.md) |
-| 17 | HTML & CSS Colors (HEX, RGB, HSL, Contrast) | 🟢 Beginner | [Open lesson](17-html-colors.md) |
-| 18 | HTML Entities (`&lt;`, `&gt;`, `&amp;`, `&copy;`) | 🟢 Beginner | [Open lesson](18-html-entities.md) |
-| 19 | Audio (`<audio>`, `<source>`, transcripts) | 🟡 Intermediate | [Open lesson](19-audio.md) |
-| 20 | Video (`<video>`, `<source>`, `<track>`) | 🟡 Intermediate | [Open lesson](20-video.md) |
-| 21 | Inline Frames (`<iframe>`, `title`, security) | 🟡 Intermediate | [Open lesson](21-iframes.md) |
-| 22 | Semantic HTML (`<header>`, `<nav>`, `<main>`, `<article>`, etc.) | 🟡 Intermediate | [Open lesson](22-semantic-html.md) |
-| 23 | Modern HTML5 Features & Built-in Validation | 🟡 Intermediate | [Open lesson](23-html5-features.md) |
-| 24 | Web Accessibility (a11y) & HTML Validation | 🟡 Intermediate | [Open lesson](24-accessibility-basics.md) |
-| 25 | HTML Mini Projects | 🟡 Intermediate | [Open lesson](25-mini-projects.md) |
-| 26 | History & Standards of HTML | 🟡 Intermediate | [Open lesson](26-html-history.md) |
-| 27 | Meta Tags & Head Metadata | 🟡 Intermediate | [Open lesson](27-meta-tags.md) |
-| 28 | Advanced Form Controls & HTML Validation | 🟡 Intermediate | [Open lesson](28-advanced-form-controls.md) |
-| 29 | Responsive Images & Art Direction (`<picture>`, `srcset`, `sizes`, `loading="lazy"`) | 🟡 Intermediate | [Open lesson](29-responsive-images.md) |
-| 30 | Interactive HTML5 Elements (`<details>`, `<summary>`, `<dialog>`, `<progress>`, `<meter>`, `<template>`) | 🟡 Intermediate | [Open lesson](30-interactive-elements.md) |
-| 31 | Global Attributes & Custom Data Attributes (`data-*`, `tabindex`, `contenteditable`) | 🟡 Intermediate | [Open lesson](31-global-and-data-attributes.md) |
-| 32 | HTML SEO & Open Graph Metadata | 🟡 Intermediate | [Open lesson](32-html-seo-and-open-graph.md) |
+| 01 | Set Up VS Code for HTML | 🟢 Beginner | [Open lesson](01-setup-vs-code.html) |
+| 02 | Introduction to HTML | 🟢 Beginner | [Open lesson](02-introduction.html) |
+| 03 | HTML Document Structure & Metadata | 🟢 Beginner | [Open lesson](03-html-document-structure.html) |
+| 04 | Headings (`<h1>` to `<h6>`) | 🟢 Beginner | [Open lesson](04-headings.html) |
+| 05 | Paragraphs (`<p>`) | 🟢 Beginner | [Open lesson](05-paragraphs.html) |
+| 06 | Text Formatting (`<strong>`, `<em>`, `<b>`, `<i>`, etc.) | 🟢 Beginner | [Open lesson](06-text-formatting.html) |
+| 07 | Links & Anchors (`<a>`, `href`, relative & absolute) | 🟢 Beginner | [Open lesson](07-links.html) |
+| 08 | Images, `<figure>`, & `<picture>` | 🟢 Beginner | [Open lesson](08-images.html) |
+| 09 | Lists (`<ul>`, `<ol>`, `<dl>`) | 🟢 Beginner | [Open lesson](09-lists.html) |
+| 10 | Tables (`<table>`, `<thead>`, `<tbody>`, `<caption>`) | 🟢 Beginner | [Open lesson](10-tables.html) |
+| 11 | Forms & Labels (`<form>`, `<label>`, `action`, `method`) | 🟢 Beginner | [Open lesson](11-forms.html) |
+| 12 | Input Types (`text`, `email`, `password`, `date`, etc.) | 🟢 Beginner | [Open lesson](12-input-types.html) |
+| 13 | Buttons (`<button type="submit">`, `<button type="button">`) | 🟢 Beginner | [Open lesson](13-buttons.html) |
+| 14 | Generic Containers (`<div>` and `<span>`) | 🟡 Intermediate | [Open lesson](14-div-and-span.html) |
+| 15 | HTML Attributes (`id`, `class`, `title`, global attributes) | 🟢 Beginner | [Open lesson](15-html-attributes.html) |
+| 16 | HTML Comments (`<!-- -->`) | 🟢 Beginner | [Open lesson](16-html-comments.html) |
+| 17 | HTML & CSS Colors (HEX, RGB, HSL, Contrast) | 🟢 Beginner | [Open lesson](17-html-colors.html) |
+| 18 | HTML Entities (`&lt;`, `&gt;`, `&amp;`, `&copy;`) | 🟢 Beginner | [Open lesson](18-html-entities.html) |
+| 19 | Audio (`<audio>`, `<source>`, transcripts) | 🟡 Intermediate | [Open lesson](19-audio.html) |
+| 20 | Video (`<video>`, `<source>`, `<track>`) | 🟡 Intermediate | [Open lesson](20-video.html) |
+| 21 | Inline Frames (`<iframe>`, `title`, security) | 🟡 Intermediate | [Open lesson](21-iframes.html) |
+| 22 | Semantic HTML (`<header>`, `<nav>`, `<main>`, `<article>`, etc.) | 🟡 Intermediate | [Open lesson](22-semantic-html.html) |
+| 23 | Modern HTML5 Features & Built-in Validation | 🟡 Intermediate | [Open lesson](23-html5-features.html) |
+| 24 | Web Accessibility (a11y) & HTML Validation | 🟡 Intermediate | [Open lesson](24-accessibility-basics.html) |
+| 25 | HTML Mini Projects | 🟡 Intermediate | [Open lesson](25-mini-projects.html) |
+| 26 | History & Standards of HTML | 🟡 Intermediate | [Open lesson](26-html-history.html) |
+| 27 | Meta Tags & Head Metadata | 🟡 Intermediate | [Open lesson](27-meta-tags.html) |
+| 28 | Advanced Form Controls & HTML Validation | 🟡 Intermediate | [Open lesson](28-advanced-form-controls.html) |
+| 29 | Responsive Images & Art Direction (`<picture>`, `srcset`, `sizes`, `loading="lazy"`) | 🟡 Intermediate | [Open lesson](29-responsive-images.html) |
+| 30 | Interactive HTML5 Elements (`<details>`, `<summary>`, `<dialog>`, `<progress>`, `<meter>`, `<template>`) | 🟡 Intermediate | [Open lesson](30-interactive-elements.html) |
+| 31 | Global Attributes & Custom Data Attributes (`data-*`, `tabindex`, `contenteditable`) | 🟡 Intermediate | [Open lesson](31-global-and-data-attributes.html) |
+| 32 | HTML SEO & Open Graph Metadata | 🟡 Intermediate | [Open lesson](32-html-seo-and-open-graph.html) |
 
 ---
 
@@ -106,5 +106,6 @@ HTML webpage cha paya ani structure tayar karte, jase ki headings, text, links, 
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-vs-code.md)
+[← Repository Home](../) | [Start with Lesson 01 →](01-setup-vs-code.html)
+
 

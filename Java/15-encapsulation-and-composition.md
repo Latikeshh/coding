@@ -196,9 +196,10 @@ Build a `Library` class that contains a `List<Book>` using composition and provi
 
 ## 🔗 Related Topics
 
-- [Classes and Objects](14-classes-and-objects.md)
-- [Inheritance and Polymorphism](16-inheritance-and-polymorphism.md)
+- [Classes and Objects](14-classes-and-objects.html)
+- [Inheritance and Polymorphism](16-inheritance-and-polymorphism.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Classes and Objects](14-classes-and-objects.md) | [Next: Inheritance and Polymorphism →](16-inheritance-and-polymorphism.md)
+[← Java Home](./) | [← Previous: Classes and Objects](14-classes-and-objects.html) | [Next: Inheritance and Polymorphism →](16-inheritance-and-polymorphism.html)
+

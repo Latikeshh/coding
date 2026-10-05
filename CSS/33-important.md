@@ -100,8 +100,8 @@ The paragraph text renders in **red** because `.status-message { color: red !imp
 
 ## 🔗 Related Topics
 
-- [Specificity, Cascade & Inheritance](09-specificity.md)
-- [The `:where()` & `:is()` Pseudo-classes](39-advanced-selectors.md)
+- [Specificity, Cascade & Inheritance](09-specificity.html)
+- [The `:where()` & `:is()` Pseudo-classes](39-advanced-selectors.html)
 
 ## ✅ Remember
 
@@ -112,5 +112,6 @@ The paragraph text renders in **red** because `.status-message { color: red !imp
 
 ## 🧭 Navigation
 
-[← Previous](32-functions.md) | [CSS Home](00-README.md) | [Next →](34-devtools.md)
+[← Previous](32-functions.html) | [CSS Home](./) | [Next →](34-devtools.html)
+
 

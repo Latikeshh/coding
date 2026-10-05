@@ -135,9 +135,10 @@ Write a program that takes two customer interest sets and finds interests presen
 
 ## 🔗 Related Topics
 
-- [Lists](09-lists.md)
-- [Dictionaries](12-dictionaries.md)
+- [Lists](09-lists.html)
+- [Dictionaries](12-dictionaries.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Tuples](10-tuples.md) | [Next: Dictionaries →](12-dictionaries.md)
+[← Python Home](./) | [← Previous: Tuples](10-tuples.html) | [Next: Dictionaries →](12-dictionaries.html)
+

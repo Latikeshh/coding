@@ -119,9 +119,10 @@ Export your virtual environment packages into `requirements.txt`, deactivate the
 
 ## 🔗 Related Topics
 
-- [Project Structure and Best Practices](30-project-structure-and-best-practices.md)
-- [Capstones & Mini Projects](31-mini-projects.md)
+- [Project Structure and Best Practices](30-project-structure-and-best-practices.html)
+- [Capstones & Mini Projects](31-mini-projects.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Testing and Debugging](28-testing-and-debugging.md) | [Next: Project Structure →](30-project-structure-and-best-practices.md)
+[← Python Home](./) | [← Previous: Testing and Debugging](28-testing-and-debugging.html) | [Next: Project Structure →](30-project-structure-and-best-practices.html)
+

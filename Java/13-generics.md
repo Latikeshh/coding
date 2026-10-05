@@ -165,9 +165,10 @@ Write a generic method `<T> void swapArrayElements(T[] array, int index1, int in
 
 ## 🔗 Related Topics
 
-- [Collections](11-collections.md)
-- [Classes and Objects](14-classes-and-objects.md)
+- [Collections](11-collections.html)
+- [Classes and Objects](14-classes-and-objects.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Enums and Records](12-enums-and-records.md) | [Next: Classes and Objects →](14-classes-and-objects.md)
+[← Java Home](./) | [← Previous: Enums and Records](12-enums-and-records.html) | [Next: Classes and Objects →](14-classes-and-objects.html)
+

@@ -152,11 +152,12 @@ Write a Student Grade Exporter program that reads a list of student names and sc
 
 ## 🔗 Related Topics
 
-- [Input & Output in C++](04-input-output.md)
-- [Exception Handling](19-exception-handling.md)
+- [Input & Output in C++](04-input-output.html)
+- [Exception Handling](19-exception-handling.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Exception Handling](19-exception-handling.md) | [Next: Namespaces & Modern C++ →](21-namespaces-and-modern-cpp.md)
+[← C++ Home](./) | [← Previous: Exception Handling](19-exception-handling.html) | [Next: Namespaces & Modern C++ →](21-namespaces-and-modern-cpp.html)
+

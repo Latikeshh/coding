@@ -130,9 +130,9 @@ Every modern responsive framework (Bootstrap, Tailwind, Grid systems) uses `max-
 
 ## 🔗 Related Topics
 
-- [CSS Units (`px`, `rem`, `em`, `%`, `vw`, `vh`)](11-css-units.md)
-- [The CSS Box Model](16-box-model.md)
-- [Responsive Web Design Principles](22-responsive-design.md)
+- [CSS Units (`px`, `rem`, `em`, `%`, `vw`, `vh`)](11-css-units.html)
+- [The CSS Box Model](16-box-model.html)
+- [Responsive Web Design Principles](22-responsive-design.html)
 
 ## ✅ Remember
 
@@ -142,5 +142,6 @@ Every modern responsive framework (Bootstrap, Tailwind, Grid systems) uses `max-
 
 ## 🧭 Navigation
 
-[← Previous](09-specificity.md) | [CSS Home](00-README.md) | [Next →](11-css-units.md)
+[← Previous](09-specificity.html) | [CSS Home](./) | [Next →](11-css-units.html)
+
 

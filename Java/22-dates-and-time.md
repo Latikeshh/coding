@@ -127,9 +127,10 @@ Write a program that takes two timestamp strings and calculates the total durati
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Testing and Debugging](23-testing-and-debugging.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Testing and Debugging](23-testing-and-debugging.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Lambdas and Streams](21-lambdas-and-streams.md) | [Next: Testing and Debugging →](23-testing-and-debugging.md)
+[← Java Home](./) | [← Previous: Lambdas and Streams](21-lambdas-and-streams.html) | [Next: Testing and Debugging →](23-testing-and-debugging.html)
+

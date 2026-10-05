@@ -179,11 +179,12 @@ Input the user's menu choice and execute the selected action using a starting ba
 
 ## 🔗 Related Topics
 
-- [Operators](05-operators.md)
-- [Loops](07-loops.md)
-- [Functions](08-functions.md)
+- [Operators](05-operators.html)
+- [Loops](07-loops.html)
+- [Functions](08-functions.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Operators](05-operators.md) | [Next: Loops →](07-loops.md)
+[← C Home](./) | [← Previous: Operators](05-operators.html) | [Next: Loops →](07-loops.html)
+
 

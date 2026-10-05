@@ -143,9 +143,10 @@ Write a program that takes a list of words `["apple", "banana", "apple", "cherry
 
 ## 🔗 Related Topics
 
-- [Sets](11-sets.md)
-- [List Comprehensions](14-list-comprehensions.md)
+- [Sets](11-sets.html)
+- [List Comprehensions](14-list-comprehensions.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Sets](11-sets.md) | [Next: Strings →](13-strings.md)
+[← Python Home](./) | [← Previous: Sets](11-sets.html) | [Next: Strings →](13-strings.html)
+

@@ -124,8 +124,8 @@ Financial reports, sports scoreboards, airline flight schedules, e-commerce pric
 
 ## 🔗 Related Topics
 
-- [Lists](09-lists.md)
-- [Accessibility Basics](24-accessibility-basics.md)
+- [Lists](09-lists.html)
+- [Accessibility Basics](24-accessibility-basics.html)
 
 ## 💡 Remember
 
@@ -135,5 +135,6 @@ Financial reports, sports scoreboards, airline flight schedules, e-commerce pric
 
 ## 🧭 Navigation
 
-[← Previous: Lists](09-lists.md) | [HTML Home](00-README.md) | [Next: Forms →](11-forms.md)
+[← Previous: Lists](09-lists.html) | [HTML Home](./) | [Next: Forms →](11-forms.html)
+
 

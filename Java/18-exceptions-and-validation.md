@@ -175,9 +175,10 @@ Create a custom exception `InvalidEmailException` and write a validation method 
 
 ## 🔗 Related Topics
 
-- [Input and Output](04-input-and-output.md)
-- [File Input and Output](20-file-input-and-output.md)
+- [Input and Output](04-input-and-output.html)
+- [File Input and Output](20-file-input-and-output.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Interfaces](17-interfaces-and-abstract-classes.md) | [Next: Packages and Project Organization →](19-packages-and-project-organization.md)
+[← Java Home](./) | [← Previous: Interfaces](17-interfaces-and-abstract-classes.html) | [Next: Packages and Project Organization →](19-packages-and-project-organization.html)
+

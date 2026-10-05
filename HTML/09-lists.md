@@ -149,9 +149,9 @@ Lists form the underlying structural foundation of navigation menus, article tab
 
 ## 🔗 Related Topics
 
-- [Headings](04-headings.md)
-- [Tables](10-tables.md)
-- [Semantic HTML](22-semantic-html.md)
+- [Headings](04-headings.html)
+- [Tables](10-tables.html)
+- [Semantic HTML](22-semantic-html.html)
 
 ## 💡 Remember
 
@@ -161,5 +161,6 @@ Lists form the underlying structural foundation of navigation menus, article tab
 
 ## 🧭 Navigation
 
-[← Previous: Images](08-images.md) | [HTML Home](00-README.md) | [Next: Tables →](10-tables.md)
+[← Previous: Images](08-images.html) | [HTML Home](./) | [Next: Tables →](10-tables.html)
+
 

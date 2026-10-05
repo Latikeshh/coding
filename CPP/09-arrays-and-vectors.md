@@ -151,11 +151,12 @@ Write a program that inputs numbers from a user one by one into a `std::vector<i
 
 ## 🔗 Related Topics
 
-- [Loops in C++](07-loops.md)
-- [STL Containers](15-stl-containers.md)
+- [Loops in C++](07-loops.html)
+- [STL Containers](15-stl-containers.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Functions](08-functions.md) | [Next: Classes & OOP →](10-classes-and-oops.md)
+[← C++ Home](./) | [← Previous: Functions](08-functions.html) | [Next: Classes & OOP →](10-classes-and-oops.html)
+

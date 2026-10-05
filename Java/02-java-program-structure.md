@@ -124,9 +124,10 @@ Create a program `SystemDiagnostic` that prints your operating system name, Java
 
 ## 🔗 Related Topics
 
-- [Set Up Java](01-setup-java.md)
-- [Variables and Data Types](03-variables-and-data-types.md)
+- [Set Up Java](01-setup-java.html)
+- [Variables and Data Types](03-variables-and-data-types.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Set Up Java](01-setup-java.md) | [Next: Variables and Data Types →](03-variables-and-data-types.md)
+[← Java Home](./) | [← Previous: Set Up Java](01-setup-java.html) | [Next: Variables and Data Types →](03-variables-and-data-types.html)
+

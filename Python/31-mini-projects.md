@@ -195,4 +195,5 @@ Security Rating    : VERY STRONG
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Project Structure](30-project-structure-and-best-practices.md)
+[← Python Home](./) | [← Previous: Project Structure](30-project-structure-and-best-practices.html)
+

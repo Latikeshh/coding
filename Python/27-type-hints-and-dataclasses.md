@@ -132,9 +132,10 @@ Create a `@dataclass(frozen=True)` named `GeoPoint` with `latitude: float` and `
 
 ## 🔗 Related Topics
 
-- [Object-Oriented Programming](19-object-oriented-programming.md)
-- [Project Structure](30-project-structure-and-best-practices.md)
+- [Object-Oriented Programming](19-object-oriented-programming.html)
+- [Project Structure](30-project-structure-and-best-practices.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Working with CSV](26-working-with-csv.md) | [Next: Testing and Debugging →](28-testing-and-debugging.md)
+[← Python Home](./) | [← Previous: Working with CSV](26-working-with-csv.html) | [Next: Testing and Debugging →](28-testing-and-debugging.html)
+

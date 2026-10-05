@@ -160,9 +160,10 @@ Create an abstract class `DatabaseConnector` with an abstract `connect()` method
 
 ## 🔗 Related Topics
 
-- [Inheritance and Polymorphism](16-inheritance-and-polymorphism.md)
-- [Testing and Debugging](23-testing-and-debugging.md)
+- [Inheritance and Polymorphism](16-inheritance-and-polymorphism.html)
+- [Testing and Debugging](23-testing-and-debugging.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Inheritance](16-inheritance-and-polymorphism.md) | [Next: Exceptions and Validation →](18-exceptions-and-validation.md)
+[← Java Home](./) | [← Previous: Inheritance](16-inheritance-and-polymorphism.html) | [Next: Exceptions and Validation →](18-exceptions-and-validation.html)
+

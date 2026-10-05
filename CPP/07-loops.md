@@ -169,11 +169,12 @@ Write a program that uses a loop to prompt the user to guess a secret passcode n
 
 ## 🔗 Related Topics
 
-- [Conditionals in C++](06-conditionals.md)
-- [Arrays & Vectors](09-arrays-and-vectors.md)
+- [Conditionals in C++](06-conditionals.html)
+- [Arrays & Vectors](09-arrays-and-vectors.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Conditionals](06-conditionals.md) | [Next: Functions →](08-functions.md)
+[← C++ Home](./) | [← Previous: Conditionals](06-conditionals.html) | [Next: Functions →](08-functions.html)
+

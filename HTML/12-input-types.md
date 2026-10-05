@@ -132,9 +132,9 @@ Every web application uses tailored input types to gather accurate, validated da
 
 ## 🔗 Related Topics
 
-- [Forms](11-forms.md)
-- [Buttons](13-buttons.md)
-- [Advanced Form Controls](28-advanced-form-controls.md)
+- [Forms](11-forms.html)
+- [Buttons](13-buttons.html)
+- [Advanced Form Controls](28-advanced-form-controls.html)
 
 ## 💡 Remember
 
@@ -144,5 +144,6 @@ Every web application uses tailored input types to gather accurate, validated da
 
 ## 🧭 Navigation
 
-[← Previous: Forms](11-forms.md) | [HTML Home](00-README.md) | [Next: Buttons →](13-buttons.md)
+[← Previous: Forms](11-forms.html) | [HTML Home](./) | [Next: Buttons →](13-buttons.html)
+
 

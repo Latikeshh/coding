@@ -159,9 +159,9 @@ Positioning powers essential UI patterns: fixed header bars, notification badges
 
 ## 🔗 Related Topics
 
-- [Display Property](17-display.md)
-- [Flexbox Layout](20-flexbox.md)
-- [CSS Grid Layout](21-grid.md)
+- [Display Property](17-display.html)
+- [Flexbox Layout](20-flexbox.html)
+- [CSS Grid Layout](21-grid.html)
 
 ## ✅ Remember
 
@@ -172,5 +172,6 @@ Positioning powers essential UI patterns: fixed header bars, notification badges
 
 ## 🧭 Navigation
 
-[← Previous](17-display.md) | [CSS Home](00-README.md) | [Next →](19-float-and-clear.md)
+[← Previous](17-display.html) | [CSS Home](./) | [Next →](19-float-and-clear.html)
+
 

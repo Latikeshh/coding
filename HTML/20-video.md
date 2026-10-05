@@ -102,8 +102,8 @@ E-learning portals, news websites, product landing pages, and portfolio sites us
 
 ## 🔗 Related Topics
 
-- [Audio](19-audio.md)
-- [Iframes](21-iframes.md)
+- [Audio](19-audio.html)
+- [Iframes](21-iframes.html)
 
 ## 💡 Remember
 
@@ -114,5 +114,6 @@ E-learning portals, news websites, product landing pages, and portfolio sites us
 
 ## 🧭 Navigation
 
-[← Previous: Audio](19-audio.md) | [HTML Home](00-README.md) | [Next: Iframes →](21-iframes.md)
+[← Previous: Audio](19-audio.html) | [HTML Home](./) | [Next: Iframes →](21-iframes.html)
+
 

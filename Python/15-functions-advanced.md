@@ -148,9 +148,10 @@ Write a function `build_user_profile(first_name, last_name, **attributes)` that 
 
 ## 🔗 Related Topics
 
-- [Functions Basics](08-functions.md)
-- [Decorators](21-decorators.md)
+- [Functions Basics](08-functions.html)
+- [Decorators](21-decorators.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: List Comprehensions](14-list-comprehensions.md) | [Next: Modules and Packages →](16-modules-and-packages.md)
+[← Python Home](./) | [← Previous: List Comprehensions](14-list-comprehensions.html) | [Next: Modules and Packages →](16-modules-and-packages.html)
+

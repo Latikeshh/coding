@@ -564,11 +564,12 @@ Extend Project 3 by adding a `deleteRecord(Database *db, int id)` function that 
 
 ## 🔗 Related Topics
 
-- [Dynamic Memory Allocation](13-dynamic-memory-allocation.md)
-- [Structures](14-structures.md)
-- [File Handling](17-file-handling.md)
+- [Dynamic Memory Allocation](13-dynamic-memory-allocation.html)
+- [Structures](14-structures.html)
+- [File Handling](17-file-handling.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Error Handling](22-error-handling.md)
+[← C Home](./) | [← Previous: Error Handling](22-error-handling.html)
+
 

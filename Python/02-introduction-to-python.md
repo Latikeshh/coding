@@ -108,9 +108,10 @@ Write a Python script that calculates the area of a rectangle with `length = 12`
 
 ## 🔗 Related Topics
 
-- [Set Up Python](01-setup-python.md)
-- [Variables and Data Types](03-variables-and-data-types.md)
+- [Set Up Python](01-setup-python.html)
+- [Variables and Data Types](03-variables-and-data-types.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Set Up Python](01-setup-python.md) | [Next: Variables and Data Types →](03-variables-and-data-types.md)
+[← Python Home](./) | [← Previous: Set Up Python](01-setup-python.html) | [Next: Variables and Data Types →](03-variables-and-data-types.html)
+

@@ -100,10 +100,11 @@ Write one query that returns total, average, and number of known sale amounts fo
 
 ## Related Topics
 
-- [GROUP BY & HAVING](14-group-by-and-having.md)
-- [SQL Data Types & NULL Values](04-data-types-and-null.md)
+- [GROUP BY & HAVING](14-group-by-and-having.html)
+- [SQL Data Types & NULL Values](04-data-types-and-null.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Primary Keys & Foreign Keys](12-primary-and-foreign-keys.md) | [Next: GROUP BY & HAVING →](14-group-by-and-having.md)
+[← SQL Home](./) | [← Previous: Primary Keys & Foreign Keys](12-primary-and-foreign-keys.html) | [Next: GROUP BY & HAVING →](14-group-by-and-having.html)
+
 

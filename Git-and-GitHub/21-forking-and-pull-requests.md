@@ -124,11 +124,12 @@ Run `git remote -v` inside your cloned fork and configure `upstream` link refere
 
 ## 🔗 Related Topics
 
-- [Introduction to GitHub](20-introduction-to-github.md)
-- [SSH Keys & Authentication](22-ssh-keys-and-github-authentication.md)
-- [GitHub Issues & Project Boards](23-github-issues-and-project-boards.md)
+- [Introduction to GitHub](20-introduction-to-github.html)
+- [SSH Keys & Authentication](22-ssh-keys-and-github-authentication.html)
+- [GitHub Issues & Project Boards](23-github-issues-and-project-boards.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: GitHub Intro](20-introduction-to-github.md) | [Next: SSH Authentication →](22-ssh-keys-and-github-authentication.md)
+[← Home](./) | [← Previous: GitHub Intro](20-introduction-to-github.html) | [Next: SSH Authentication →](22-ssh-keys-and-github-authentication.html)
+
 

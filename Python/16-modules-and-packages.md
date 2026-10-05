@@ -136,9 +136,10 @@ Create a custom module file `string_utils.py` containing a function `reverse_and
 
 ## 🔗 Related Topics
 
-- [Functions Basics](08-functions.md)
-- [Virtual Environments and Pip](29-virtual-environments-and-pip.md)
+- [Functions Basics](08-functions.html)
+- [Virtual Environments and Pip](29-virtual-environments-and-pip.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Advanced Functions](15-functions-advanced.md) | [Next: File Handling →](17-file-handling.md)
+[← Python Home](./) | [← Previous: Advanced Functions](15-functions-advanced.html) | [Next: File Handling →](17-file-handling.html)
+

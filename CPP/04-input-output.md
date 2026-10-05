@@ -133,11 +133,12 @@ Create an interactive receipt calculator: Ask for item name (full line), item pr
 
 ## 🔗 Related Topics
 
-- [Variables & Data Types](03-variables-and-data-types.md)
-- [Operators in C++](05-operators.md)
+- [Variables & Data Types](03-variables-and-data-types.html)
+- [Operators in C++](05-operators.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Variables](03-variables-and-data-types.md) | [Next: Operators →](05-operators.md)
+[← C++ Home](./) | [← Previous: Variables](03-variables-and-data-types.html) | [Next: Operators →](05-operators.html)
+

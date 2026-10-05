@@ -176,8 +176,8 @@ Designers use `text-decoration: none` to strip default underlines from links, ad
 
 ## 🔗 Related Topics
 
-- [Web Fonts & `@font-face`](27-fonts.md)
-- [CSS Functions (`clamp()`)](32-functions.md)
+- [Web Fonts & `@font-face`](27-fonts.html)
+- [CSS Functions (`clamp()`)](32-functions.html)
 
 ## ✅ Remember
 
@@ -187,5 +187,6 @@ Designers use `text-decoration: none` to strip default underlines from links, ad
 
 ## 🧭 Navigation
 
-[← Previous](25-pseudo-elements.md) | [CSS Home](00-README.md) | [Next →](27-fonts.md)
+[← Previous](25-pseudo-elements.html) | [CSS Home](./) | [Next →](27-fonts.html)
+
 

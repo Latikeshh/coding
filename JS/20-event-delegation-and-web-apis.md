@@ -97,5 +97,6 @@ Use Event Delegation for dynamic lists to keep memory lightweight and code simpl
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: DOM Manipulation](19-dom-manipulation.md) | [Next: Web Storage →](21-web-storage.md)
+[← JS Home](./) | [← Previous: DOM Manipulation](19-dom-manipulation.html) | [Next: Web Storage →](21-web-storage.html)
+
 

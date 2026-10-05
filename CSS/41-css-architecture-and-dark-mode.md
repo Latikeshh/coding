@@ -231,9 +231,9 @@ Major tech companies (GitHub, Twitter/X, Slack, Stripe) structure design systems
 
 ## 🔗 Related Topics
 
-- [CSS Variables (Custom Properties)](31-variables.md)
-- [Media Queries & Container Queries](23-media-queries.md)
-- [Overflow & Visibility](42-overflow-and-visibility.md)
+- [CSS Variables (Custom Properties)](31-variables.html)
+- [Media Queries & Container Queries](23-media-queries.html)
+- [Overflow & Visibility](42-overflow-and-visibility.html)
 
 ## ✅ Remember
 
@@ -243,5 +243,6 @@ Major tech companies (GitHub, Twitter/X, Slack, Stripe) structure design systems
 
 ## 🧭 Navigation
 
-[← Previous](40-modern-css-features.md) | [CSS Home](00-README.md) | [Next →](42-overflow-and-visibility.md)
+[← Previous](40-modern-css-features.html) | [CSS Home](./) | [Next →](42-overflow-and-visibility.html)
+
 

@@ -132,11 +132,12 @@ Create a folder named `temp-cache/` and a file inside it `temp-cache/cache.txt`.
 
 ## 🔗 Related Topics
 
-- [Viewing History](07-viewing-history-and-git-log.md)
-- [Inspecting Changes with Git Diff](09-git-diff-and-inspecting-changes.md)
-- [Security Best Practices](29-git-best-practices-and-security.md)
+- [Viewing History](07-viewing-history-and-git-log.html)
+- [Inspecting Changes with Git Diff](09-git-diff-and-inspecting-changes.html)
+- [Security Best Practices](29-git-best-practices-and-security.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Viewing History](07-viewing-history-and-git-log.md) | [Next: Git Diff →](09-git-diff-and-inspecting-changes.md)
+[← Home](./) | [← Previous: Viewing History](07-viewing-history-and-git-log.html) | [Next: Git Diff →](09-git-diff-and-inspecting-changes.html)
+
 

@@ -26,31 +26,31 @@ JavaScript is the programming language of the Web. It brings web pages to life b
 
 | # | Topic | Level | Link |
 |---|---|---|---|
-| 01 | Set Up JavaScript Environment | 🟢 Beginner | [Open lesson](01-setup-js.md) |
-| 02 | Introduction to JavaScript | 🟢 Beginner | [Open lesson](02-introduction-to-js.md) |
-| 03 | Variables (`let`, `const`, `var`) | 🟢 Beginner | [Open lesson](03-variables.md) |
-| 04 | Data Types & String Methods | 🟢 Beginner | [Open lesson](04-data-types.md) |
-| 05 | Operators in JavaScript | 🟢 Beginner | [Open lesson](05-operators.md) |
-| 06 | Conditionals (`if`, `switch`, Ternary) | 🟢 Beginner | [Open lesson](06-conditionals.md) |
-| 07 | Loops (`for`, `while`, `for...of`, `for...in`) | 🟢 Beginner | [Open lesson](07-loops.md) |
-| 08 | Functions in JavaScript | 🟢 Beginner | [Open lesson](08-functions.md) |
-| 09 | Arrays & Essential Methods | 🟡 Intermediate | [Open lesson](09-arrays.md) |
-| 10 | Objects, `Map`, `Set`, `Date` & RegExp | 🟡 Intermediate | [Open lesson](10-objects.md) |
-| 11 | Scope, Hoisting & Temporal Dead Zone (TDZ) | 🟡 Intermediate | [Open lesson](11-scope-and-hoisting.md) |
-| 12 | Modern ES6+ Features | 🟡 Intermediate | [Open lesson](12-es6-features.md) |
-| 13 | Advanced Array Methods (`map`, `filter`, `reduce`) | 🟡 Intermediate | [Open lesson](13-advanced-array-methods.md) |
-| 14 | Higher-Order Functions & Closures | 🔴 Advanced | [Open lesson](14-closures-and-callbacks.md) |
-| 15 | Asynchronous JS, Promises & Async/Await | 🔴 Advanced | [Open lesson](15-promises-and-async-await.md) |
-| 16 | Fetch API & Working with JSON | 🔴 Advanced | [Open lesson](16-fetch-api-and-json.md) |
-| 17 | Prototypes, `this` Keyword & Binding | 🔴 Advanced | [Open lesson](17-prototypes-and-this.md) |
-| 18 | ES6 Classes & Object-Oriented JS | 🔴 Advanced | [Open lesson](18-classes-and-oop.md) |
-| 19 | DOM Selection & Manipulation | 🟡 Intermediate | [Open lesson](19-dom-manipulation.md) |
-| 20 | Event Bubbling, Delegation & Web APIs | 🔴 Advanced | [Open lesson](20-event-delegation-and-web-apis.md) |
-| 21 | Web Storage (`localStorage` & `sessionStorage`) | 🟡 Intermediate | [Open lesson](21-web-storage.md) |
-| 22 | Error Handling (`try...catch...finally`) | 🟡 Intermediate | [Open lesson](22-error-handling.md) |
-| 23 | JS Modules (`import` / `export`) | 🟡 Intermediate | [Open lesson](23-modules.md) |
-| 24 | Comprehensive JS Mini Projects | 🔴 Advanced | [Open lesson](24-mini-projects.md) |
-| 25 | Practical JavaScript Debugging in DevTools | 🟡 Intermediate | [Open lesson](25-javascript-debugging.md) |
+| 01 | Set Up JavaScript Environment | 🟢 Beginner | [Open lesson](01-setup-js.html) |
+| 02 | Introduction to JavaScript | 🟢 Beginner | [Open lesson](02-introduction-to-js.html) |
+| 03 | Variables (`let`, `const`, `var`) | 🟢 Beginner | [Open lesson](03-variables.html) |
+| 04 | Data Types & String Methods | 🟢 Beginner | [Open lesson](04-data-types.html) |
+| 05 | Operators in JavaScript | 🟢 Beginner | [Open lesson](05-operators.html) |
+| 06 | Conditionals (`if`, `switch`, Ternary) | 🟢 Beginner | [Open lesson](06-conditionals.html) |
+| 07 | Loops (`for`, `while`, `for...of`, `for...in`) | 🟢 Beginner | [Open lesson](07-loops.html) |
+| 08 | Functions in JavaScript | 🟢 Beginner | [Open lesson](08-functions.html) |
+| 09 | Arrays & Essential Methods | 🟡 Intermediate | [Open lesson](09-arrays.html) |
+| 10 | Objects, `Map`, `Set`, `Date` & RegExp | 🟡 Intermediate | [Open lesson](10-objects.html) |
+| 11 | Scope, Hoisting & Temporal Dead Zone (TDZ) | 🟡 Intermediate | [Open lesson](11-scope-and-hoisting.html) |
+| 12 | Modern ES6+ Features | 🟡 Intermediate | [Open lesson](12-es6-features.html) |
+| 13 | Advanced Array Methods (`map`, `filter`, `reduce`) | 🟡 Intermediate | [Open lesson](13-advanced-array-methods.html) |
+| 14 | Higher-Order Functions & Closures | 🔴 Advanced | [Open lesson](14-closures-and-callbacks.html) |
+| 15 | Asynchronous JS, Promises & Async/Await | 🔴 Advanced | [Open lesson](15-promises-and-async-await.html) |
+| 16 | Fetch API & Working with JSON | 🔴 Advanced | [Open lesson](16-fetch-api-and-json.html) |
+| 17 | Prototypes, `this` Keyword & Binding | 🔴 Advanced | [Open lesson](17-prototypes-and-this.html) |
+| 18 | ES6 Classes & Object-Oriented JS | 🔴 Advanced | [Open lesson](18-classes-and-oop.html) |
+| 19 | DOM Selection & Manipulation | 🟡 Intermediate | [Open lesson](19-dom-manipulation.html) |
+| 20 | Event Bubbling, Delegation & Web APIs | 🔴 Advanced | [Open lesson](20-event-delegation-and-web-apis.html) |
+| 21 | Web Storage (`localStorage` & `sessionStorage`) | 🟡 Intermediate | [Open lesson](21-web-storage.html) |
+| 22 | Error Handling (`try...catch...finally`) | 🟡 Intermediate | [Open lesson](22-error-handling.html) |
+| 23 | JS Modules (`import` / `export`) | 🟡 Intermediate | [Open lesson](23-modules.html) |
+| 24 | Comprehensive JS Mini Projects | 🔴 Advanced | [Open lesson](24-mini-projects.html) |
+| 25 | Practical JavaScript Debugging in DevTools | 🟡 Intermediate | [Open lesson](25-javascript-debugging.html) |
 
 ## 🎯 Suggested Learning Flow
 
@@ -79,5 +79,6 @@ For each lesson:
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-js.md)
+[← Repository Home](../) | [Start with Lesson 01 →](01-setup-js.html)
+
 

@@ -162,9 +162,10 @@ Create a static import statement for `java.util.Collections.sort` and use it dir
 
 ## 🔗 Related Topics
 
-- [Classes and Objects](14-classes-and-objects.md)
-- [Build Tools and Mini Projects](24-build-tools-and-mini-projects.md)
+- [Classes and Objects](14-classes-and-objects.html)
+- [Build Tools and Mini Projects](24-build-tools-and-mini-projects.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Exceptions](18-exceptions-and-validation.md) | [Next: File Input and Output →](20-file-input-and-output.md)
+[← Java Home](./) | [← Previous: Exceptions](18-exceptions-and-validation.html) | [Next: File Input and Output →](20-file-input-and-output.html)
+

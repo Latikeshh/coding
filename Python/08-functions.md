@@ -145,10 +145,11 @@ Write a function `convert_temperature(celsius)` that returns two values in a tup
 
 ## 🔗 Related Topics
 
-- [Conditionals](06-conditionals.md)
-- [Lists](09-lists.md)
-- [Advanced Functions](15-functions-advanced.md)
+- [Conditionals](06-conditionals.html)
+- [Lists](09-lists.html)
+- [Advanced Functions](15-functions-advanced.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Lists →](09-lists.md)
+[← Python Home](./) | [← Previous: Loops](07-loops.html) | [Next: Lists →](09-lists.html)
+

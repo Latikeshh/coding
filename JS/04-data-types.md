@@ -110,5 +110,6 @@ Primitives are compared by value, while Objects and Arrays are compared by memor
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Variables](03-variables.md) | [Next: Operators →](05-operators.md)
+[← JS Home](./) | [← Previous: Variables](03-variables.html) | [Next: Operators →](05-operators.html)
+
 

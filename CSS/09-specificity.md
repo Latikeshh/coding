@@ -131,9 +131,9 @@ Modern CSS methodology (like BEM architecture or utility classes) keeps selector
 
 ## 🔗 Related Topics
 
-- [Basic Selectors](08-selectors.md)
-- [The `!important` Rule](33-important.md)
-- [Advanced Selectors](39-advanced-selectors.md)
+- [Basic Selectors](08-selectors.html)
+- [The `!important` Rule](33-important.html)
+- [Advanced Selectors](39-advanced-selectors.html)
 
 ## ✅ Remember
 
@@ -143,5 +143,6 @@ Modern CSS methodology (like BEM architecture or utility classes) keeps selector
 
 ## 🧭 Navigation
 
-[← Previous](08-selectors.md) | [CSS Home](00-README.md) | [Next →](10-width-and-height.md)
+[← Previous](08-selectors.html) | [CSS Home](./) | [Next →](10-width-and-height.html)
+
 

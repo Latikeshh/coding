@@ -136,8 +136,8 @@ Modern web applications use `data-*` attributes for filtering lists, storing UI 
 
 ## 🔗 Related Topics
 
-- [HTML Attributes](15-html-attributes.md)
-- [Div and Span](14-div-and-span.md)
+- [HTML Attributes](15-html-attributes.html)
+- [Div and Span](14-div-and-span.html)
 
 ## 💡 Remember
 
@@ -148,5 +148,6 @@ Modern web applications use `data-*` attributes for filtering lists, storing UI 
 
 ## 🧭 Navigation
 
-[← Previous: Interactive Elements](30-interactive-elements.md) | [HTML Home](00-README.md) | [Next: HTML SEO & Open Graph →](32-html-seo-and-open-graph.md)
+[← Previous: Interactive Elements](30-interactive-elements.html) | [HTML Home](./) | [Next: HTML SEO & Open Graph →](32-html-seo-and-open-graph.html)
+
 

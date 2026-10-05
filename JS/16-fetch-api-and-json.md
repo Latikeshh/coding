@@ -120,5 +120,6 @@ Check `response.ok` before calling `response.json()` to handle HTTP errors clean
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Promises & Async/Await](15-promises-and-async-await.md) | [Next: Prototypes & `this` →](17-prototypes-and-this.md)
+[← JS Home](./) | [← Previous: Promises & Async/Await](15-promises-and-async-await.html) | [Next: Prototypes & `this` →](17-prototypes-and-this.html)
+
 

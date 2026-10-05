@@ -131,5 +131,6 @@ Use `Object` for fixed structured records, `Set` for deduplication, `Map` when k
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Arrays](09-arrays.md) | [Next: Scope & Hoisting →](11-scope-and-hoisting.md)
+[← JS Home](./) | [← Previous: Arrays](09-arrays.html) | [Next: Scope & Hoisting →](11-scope-and-hoisting.html)
+
 

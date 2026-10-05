@@ -137,8 +137,8 @@ Transforms power smooth 60 FPS UI animations: 3D card flips, off-canvas mobile m
 
 ## 🔗 Related Topics
 
-- [CSS Transitions](28-transitions.md)
-- [CSS Animations (`@keyframes`)](30-animations.md)
+- [CSS Transitions](28-transitions.html)
+- [CSS Animations (`@keyframes`)](30-animations.html)
 
 ## ✅ Remember
 
@@ -148,5 +148,6 @@ Transforms power smooth 60 FPS UI animations: 3D card flips, off-canvas mobile m
 
 ## 🧭 Navigation
 
-[← Previous](28-transitions.md) | [CSS Home](00-README.md) | [Next →](30-animations.md)
+[← Previous](28-transitions.html) | [CSS Home](./) | [Next →](30-animations.html)
+
 

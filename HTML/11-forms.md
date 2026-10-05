@@ -126,9 +126,9 @@ All major web platforms rely on HTML forms for authentication, user profiles, ch
 
 ## 🔗 Related Topics
 
-- [Input Types](12-input-types.md)
-- [Buttons](13-buttons.md)
-- [Advanced Form Controls](28-advanced-form-controls.md)
+- [Input Types](12-input-types.html)
+- [Buttons](13-buttons.html)
+- [Advanced Form Controls](28-advanced-form-controls.html)
 
 ## 💡 Remember
 
@@ -138,5 +138,6 @@ All major web platforms rely on HTML forms for authentication, user profiles, ch
 
 ## 🧭 Navigation
 
-[← Previous: Tables](10-tables.md) | [HTML Home](00-README.md) | [Next: Input Types →](12-input-types.md)
+[← Previous: Tables](10-tables.html) | [HTML Home](./) | [Next: Input Types →](12-input-types.html)
+
 

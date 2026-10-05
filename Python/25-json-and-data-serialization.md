@@ -131,9 +131,10 @@ Write a program that reads a JSON string `{"items": [10, 20, 30], "status": "ok"
 
 ## 🔗 Related Topics
 
-- [File Handling](17-file-handling.md)
-- [Working with CSV](26-working-with-csv.md)
+- [File Handling](17-file-handling.html)
+- [Working with CSV](26-working-with-csv.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Datetime](24-datetime.md) | [Next: Working with CSV →](26-working-with-csv.md)
+[← Python Home](./) | [← Previous: Datetime](24-datetime.html) | [Next: Working with CSV →](26-working-with-csv.html)
+

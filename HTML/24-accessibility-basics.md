@@ -120,9 +120,9 @@ Government portals, educational institutions, enterprise web applications, and g
 
 ## 🔗 Related Topics
 
-- [Headings](04-headings.md)
-- [Forms](11-forms.md)
-- [Semantic HTML](22-semantic-html.md)
+- [Headings](04-headings.html)
+- [Forms](11-forms.html)
+- [Semantic HTML](22-semantic-html.html)
 
 ## 💡 Remember
 
@@ -133,5 +133,6 @@ Government portals, educational institutions, enterprise web applications, and g
 
 ## 🧭 Navigation
 
-[← Previous: HTML5 Features](23-html5-features.md) | [HTML Home](00-README.md) | [Next: Mini Projects →](25-mini-projects.md)
+[← Previous: HTML5 Features](23-html5-features.html) | [HTML Home](./) | [Next: Mini Projects →](25-mini-projects.html)
+
 

@@ -126,11 +126,12 @@ Run `git log --oneline` after squashing and verify that the two small commits we
 
 ## 🔗 Related Topics
 
-- [Branching Basics](12-branching-basics.md)
-- [Merging Branches](13-merging-branches.md)
-- [Handling Merge Conflicts](14-handling-merge-conflicts.md)
+- [Branching Basics](12-branching-basics.html)
+- [Merging Branches](13-merging-branches.html)
+- [Handling Merge Conflicts](14-handling-merge-conflicts.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Conflicts](14-handling-merge-conflicts.md) | [Next: Git Stash →](16-git-stash.md)
+[← Home](./) | [← Previous: Conflicts](14-handling-merge-conflicts.html) | [Next: Git Stash →](16-git-stash.html)
+
 

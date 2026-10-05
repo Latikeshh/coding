@@ -138,11 +138,12 @@ Push your tag to GitHub using `git push origin v1.0.0` (or `git push origin --ta
 
 ## 🔗 Related Topics
 
-- [Viewing History](07-viewing-history-and-git-log.md)
-- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.md)
-- [GitHub Actions & CI/CD Basics](26-github-actions-and-ci-cd-basics.md)
+- [Viewing History](07-viewing-history-and-git-log.html)
+- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.html)
+- [GitHub Actions & CI/CD Basics](26-github-actions-and-ci-cd-basics.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: GitHub Pages](24-github-pages-and-hosting.md) | [Next: GitHub Actions →](26-github-actions-and-ci-cd-basics.md)
+[← Home](./) | [← Previous: GitHub Pages](24-github-pages-and-hosting.html) | [Next: GitHub Actions →](26-github-actions-and-ci-cd-basics.html)
+
 

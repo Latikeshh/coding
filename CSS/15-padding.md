@@ -144,9 +144,9 @@ Mobile accessibility guidelines (WCAG) require interactive buttons to have a min
 
 ## 🔗 Related Topics
 
-- [Margins & Margin Collapse](14-margins.md)
-- [The CSS Box Model](16-box-model.md)
-- [Styling Forms & Inputs](35-forms-and-inputs.md)
+- [Margins & Margin Collapse](14-margins.html)
+- [The CSS Box Model](16-box-model.html)
+- [Styling Forms & Inputs](35-forms-and-inputs.html)
 
 ## ✅ Remember
 
@@ -156,5 +156,6 @@ Mobile accessibility guidelines (WCAG) require interactive buttons to have a min
 
 ## 🧭 Navigation
 
-[← Previous](14-margins.md) | [CSS Home](00-README.md) | [Next →](16-box-model.md)
+[← Previous](14-margins.html) | [CSS Home](./) | [Next →](16-box-model.html)
+
 

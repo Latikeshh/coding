@@ -114,8 +114,8 @@ Professional software engineers, frontend developers, and UI/UX designers across
 
 ## 🔗 Related Topics
 
-- [Introduction to HTML](02-introduction.md)
-- [HTML Document Structure & Metadata](03-html-document-structure.md)
+- [Introduction to HTML](02-introduction.html)
+- [HTML Document Structure & Metadata](03-html-document-structure.html)
 
 ## 💡 Remember
 
@@ -125,5 +125,6 @@ Professional software engineers, frontend developers, and UI/UX designers across
 
 ## 🧭 Navigation
 
-[HTML Home](00-README.md) | [Next: Introduction to HTML →](02-introduction.md)
+[HTML Home](./) | [Next: Introduction to HTML →](02-introduction.html)
+
 

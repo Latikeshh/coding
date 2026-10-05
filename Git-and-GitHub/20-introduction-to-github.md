@@ -113,11 +113,12 @@ Refresh your GitHub repository web page in your browser and verify that your com
 
 ## 🔗 Related Topics
 
-- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.md)
-- [Forking & Pull Requests](21-forking-and-pull-requests.md)
-- [Free Hosting with GitHub Pages](24-github-pages-and-hosting.md)
+- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.html)
+- [Forking & Pull Requests](21-forking-and-pull-requests.html)
+- [Free Hosting with GitHub Pages](24-github-pages-and-hosting.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Fetching](19-git-fetch-and-remote-branches.md) | [Next: Forking & Pull Requests →](21-forking-and-pull-requests.md)
+[← Home](./) | [← Previous: Fetching](19-git-fetch-and-remote-branches.html) | [Next: Forking & Pull Requests →](21-forking-and-pull-requests.html)
+
 

@@ -157,9 +157,9 @@ CSS `@keyframes` power infinite loading spinners, pulsing live-status badges, sk
 
 ## 🔗 Related Topics
 
-- [CSS Transitions](28-transitions.md)
-- [CSS Transforms (2D & 3D)](29-transforms.md)
-- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.md)
+- [CSS Transitions](28-transitions.html)
+- [CSS Transforms (2D & 3D)](29-transforms.html)
+- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.html)
 
 ## ✅ Remember
 
@@ -169,5 +169,6 @@ CSS `@keyframes` power infinite loading spinners, pulsing live-status badges, sk
 
 ## 🧭 Navigation
 
-[← Previous](29-transforms.md) | [CSS Home](00-README.md) | [Next →](31-variables.md)
+[← Previous](29-transforms.html) | [CSS Home](./) | [Next →](31-variables.html)
+
 

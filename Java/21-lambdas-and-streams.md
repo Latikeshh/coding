@@ -158,9 +158,10 @@ Write a stream pipeline that reads a list of customer names, filters names start
 
 ## 🔗 Related Topics
 
-- [Collections](11-collections.md)
-- [Enums and Records](12-enums-and-records.md)
+- [Collections](11-collections.html)
+- [Enums and Records](12-enums-and-records.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: File Input and Output](20-file-input-and-output.md) | [Next: Dates and Time →](22-dates-and-time.md)
+[← Java Home](./) | [← Previous: File Input and Output](20-file-input-and-output.html) | [Next: Dates and Time →](22-dates-and-time.html)
+

@@ -139,9 +139,10 @@ Create a `BankAccount` class with private attribute `__balance`, and provide `de
 
 ## 🔗 Related Topics
 
-- [Functions Advanced](15-functions-advanced.md)
-- [Decorators](21-decorators.md)
+- [Functions Advanced](15-functions-advanced.html)
+- [Decorators](21-decorators.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Exception Handling](18-exception-handling.md) | [Next: Iterators and Generators →](20-iterators-and-generators.md)
+[← Python Home](./) | [← Previous: Exception Handling](18-exception-handling.html) | [Next: Iterators and Generators →](20-iterators-and-generators.html)
+

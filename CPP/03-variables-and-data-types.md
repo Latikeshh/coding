@@ -139,11 +139,12 @@ Write a program that stores a bank account holder's name, account balance, and a
 
 ## 🔗 Related Topics
 
-- [Input & Output in C++](04-input-output.md)
-- [Operators in C++](05-operators.md)
+- [Input & Output in C++](04-input-output.html)
+- [Operators in C++](05-operators.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Introduction](02-introduction-to-cpp.md) | [Next: Input & Output →](04-input-output.md)
+[← C++ Home](./) | [← Previous: Introduction](02-introduction-to-cpp.html) | [Next: Input & Output →](04-input-output.html)
+

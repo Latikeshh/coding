@@ -95,10 +95,11 @@ Describe checks an application should perform before committing a money transfer
 
 ## Related Topics
 
-- [Indexes & Query Performance](22-indexes-and-performance.md)
-- [Stored Procedures & Functions](27-stored-procedures.md)
+- [Indexes & Query Performance](22-indexes-and-performance.html)
+- [Stored Procedures & Functions](27-stored-procedures.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Indexes & Performance](22-indexes-and-performance.md) | [Next: Common Table Expressions →](24-ctes.md)
+[← SQL Home](./) | [← Previous: Indexes & Performance](22-indexes-and-performance.html) | [Next: Common Table Expressions →](24-ctes.html)
+
 

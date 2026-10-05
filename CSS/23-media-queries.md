@@ -194,8 +194,8 @@ Media queries format mobile navigation drawers, while Container Queries allow de
 
 ## 🔗 Related Topics
 
-- [Responsive Web Design Principles](22-responsive-design.md)
-- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.md)
+- [Responsive Web Design Principles](22-responsive-design.html)
+- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.html)
 
 ## ✅ Remember
 
@@ -205,5 +205,6 @@ Media queries format mobile navigation drawers, while Container Queries allow de
 
 ## 🧭 Navigation
 
-[← Previous](22-responsive-design.md) | [CSS Home](00-README.md) | [Next →](24-pseudo-classes.md)
+[← Previous](22-responsive-design.html) | [CSS Home](./) | [Next →](24-pseudo-classes.html)
+
 

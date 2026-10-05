@@ -108,9 +108,9 @@ E-commerce checkout pages, web application dashboards, form submissions, and UI 
 
 ## 🔗 Related Topics
 
-- [Links](07-links.md)
-- [Forms](11-forms.md)
-- [Input Types](12-input-types.md)
+- [Links](07-links.html)
+- [Forms](11-forms.html)
+- [Input Types](12-input-types.html)
 
 ## 💡 Remember
 
@@ -120,5 +120,6 @@ E-commerce checkout pages, web application dashboards, form submissions, and UI 
 
 ## 🧭 Navigation
 
-[← Previous: Input Types](12-input-types.md) | [HTML Home](00-README.md) | [Next: Generic Containers →](14-div-and-span.md)
+[← Previous: Input Types](12-input-types.html) | [HTML Home](./) | [Next: Generic Containers →](14-div-and-span.html)
+
 

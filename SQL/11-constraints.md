@@ -116,10 +116,11 @@ Create an `inventory` table with a primary key, a unique required SKU, a require
 
 ## Related Topics
 
-- [Primary Keys & Foreign Keys](12-primary-and-foreign-keys.md)
-- [Database & Table Basics](03-databases-and-tables.md)
+- [Primary Keys & Foreign Keys](12-primary-and-foreign-keys.html)
+- [Database & Table Basics](03-databases-and-tables.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: UPDATE & DELETE](10-update-and-delete.md) | [Next: Primary Keys & Foreign Keys →](12-primary-and-foreign-keys.md)
+[← SQL Home](./) | [← Previous: UPDATE & DELETE](10-update-and-delete.html) | [Next: Primary Keys & Foreign Keys →](12-primary-and-foreign-keys.html)
+
 

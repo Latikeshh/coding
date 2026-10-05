@@ -157,11 +157,12 @@ Write a function `isPrime(int n)` that returns `true` if $n$ is a prime number a
 
 ## 🔗 Related Topics
 
-- [Variables & Data Types](03-variables-and-data-types.md)
-- [Arrays & Vectors](09-arrays-and-vectors.md)
+- [Variables & Data Types](03-variables-and-data-types.html)
+- [Arrays & Vectors](09-arrays-and-vectors.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Arrays & Vectors →](09-arrays-and-vectors.md)
+[← C++ Home](./) | [← Previous: Loops](07-loops.html) | [Next: Arrays & Vectors →](09-arrays-and-vectors.html)
+

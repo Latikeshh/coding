@@ -159,9 +159,9 @@ The universal `* { box-sizing: border-box; }` rule is included at the top of eve
 
 ## 🔗 Related Topics
 
-- [Borders, Border Radius & Box Shadows](13-borders.md)
-- [Margins & Margin Collapse](14-margins.md)
-- [Padding & Spacing](15-padding.md)
+- [Borders, Border Radius & Box Shadows](13-borders.html)
+- [Margins & Margin Collapse](14-margins.html)
+- [Padding & Spacing](15-padding.html)
 
 ## ✅ Remember
 
@@ -171,5 +171,6 @@ The universal `* { box-sizing: border-box; }` rule is included at the top of eve
 
 ## 🧭 Navigation
 
-[← Previous](15-padding.md) | [CSS Home](00-README.md) | [Next →](17-display.md)
+[← Previous](15-padding.html) | [CSS Home](./) | [Next →](17-display.html)
+
 

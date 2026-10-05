@@ -44,5 +44,6 @@ Unlike earlier decades where HTML had rigid, static version numbers (like HTML 2
 
 ## 🧭 Navigation
 
-[← Previous: Mini Projects](25-mini-projects.md) | [HTML Home](00-README.md) | [Next: Meta Tags →](27-meta-tags.md)
+[← Previous: Mini Projects](25-mini-projects.html) | [HTML Home](./) | [Next: Meta Tags →](27-meta-tags.html)
+
 

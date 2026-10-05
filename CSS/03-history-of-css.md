@@ -94,9 +94,9 @@ Modern web standards managed by W3C working groups ensure that CSS code written 
 
 ## 🔗 Related Topics
 
-- [Introduction to CSS](02-introduction-to-css.md)
-- [Types of CSS](04-types-of-css.md)
-- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.md)
+- [Introduction to CSS](02-introduction-to-css.html)
+- [Types of CSS](04-types-of-css.html)
+- [CSS Architecture & Dark Mode](41-css-architecture-and-dark-mode.html)
 
 ## ✅ Remember
 
@@ -106,5 +106,6 @@ Modern web standards managed by W3C working groups ensure that CSS code written 
 
 ## 🧭 Navigation
 
-[← Previous](02-introduction-to-css.md) | [CSS Home](00-README.md) | [Next →](04-types-of-css.md)
+[← Previous](02-introduction-to-css.html) | [CSS Home](./) | [Next →](04-types-of-css.html)
+
 

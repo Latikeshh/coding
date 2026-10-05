@@ -110,10 +110,11 @@ Write a query to retrieve staff who are either in `'Engineering'` or `'Marketing
 
 ## 🔗 Related Topics
 
-- [`SELECT` – Reading Data](06-select.md)
-- [Operators in SQL](08-operators.md)
+- [`SELECT` – Reading Data](06-select.html)
+- [Operators in SQL](08-operators.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: SELECT – Reading Data](06-select.md) | [Next: Operators in SQL →](08-operators.md)
+[← SQL Home](./) | [← Previous: SELECT – Reading Data](06-select.html) | [Next: Operators in SQL →](08-operators.html)
+
 

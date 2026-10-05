@@ -35,36 +35,36 @@ Git is the world's most popular distributed version control system, and GitHub i
 
 | # | Topic | Level | Link |
 |---|---|---|---|
-| 01 | Introduction to Version Control & Git | 🟢 Beginner | [Open lesson](01-introduction-to-version-control.md) |
-| 02 | Git Installation & Environment Setup | 🟢 Beginner | [Open lesson](02-installation-and-setup.md) |
-| 03 | Git Configuration (`git config`) | 🟢 Beginner | [Open lesson](03-git-configuration.md) |
-| 04 | Initializing a Repository (`git init`) | 🟢 Beginner | [Open lesson](04-initializing-a-repository.md) |
-| 05 | Git File States & The 3 Trees | 🟢 Beginner | [Open lesson](05-git-file-states-and-lifecycle.md) |
-| 06 | Staging & Committing Changes (`git add`, `git commit`) | 🟢 Beginner | [Open lesson](06-staging-and-committing.md) |
-| 07 | Viewing History (`git log`, `git status`) | 🟢 Beginner | [Open lesson](07-viewing-history-and-git-log.md) |
-| 08 | Ignoring Files (`.gitignore`) | 🟢 Beginner | [Open lesson](08-ignoring-files-with-gitignore.md) |
-| 09 | Inspecting Changes (`git diff`) | 🟢 Beginner | [Open lesson](09-git-diff-and-inspecting-changes.md) |
-| 10 | Undoing Local Changes (`git restore`) | 🟢 Beginner | [Open lesson](10-undoing-changes-and-git-restore.md) |
-| 11 | Undoing Commits (`git reset`, `git revert`) | 🟡 Intermediate | [Open lesson](11-git-reset-and-git-revert.md) |
-| 12 | Branching Basics (`git branch`, `git switch`) | 🟢 Beginner | [Open lesson](12-branching-basics.md) |
-| 13 | Merging Branches (`git merge`) | 🟡 Intermediate | [Open lesson](13-merging-branches.md) |
-| 14 | Handling Merge Conflicts Step-by-Step | 🟡 Intermediate | [Open lesson](14-handling-merge-conflicts.md) |
-| 15 | Git Rebase (`git rebase`) | 🔴 Advanced | [Open lesson](15-git-rebase.md) |
-| 16 | Git Stash (`git stash`) | 🟡 Intermediate | [Open lesson](16-git-stash.md) |
-| 17 | Remote Repositories (`git remote`) | 🟢 Beginner | [Open lesson](17-remote-repositories-and-remotes.md) |
-| 18 | Syncing Remotes (`git push`, `git pull`) | 🟢 Beginner | [Open lesson](18-git-push-and-git-pull.md) |
-| 19 | Remote Tracking & Fetching (`git fetch`) | 🟡 Intermediate | [Open lesson](19-git-fetch-and-remote-branches.md) |
-| 20 | Introduction to GitHub Platform | 🟢 Beginner | [Open lesson](20-introduction-to-github.md) |
-| 21 | Forking & Pull Requests (PRs) | 🟡 Intermediate | [Open lesson](21-forking-and-pull-requests.md) |
-| 22 | SSH Keys & GitHub Authentication | 🟡 Intermediate | [Open lesson](22-ssh-keys-and-github-authentication.md) |
-| 23 | GitHub Issues, Projects & Discussions | 🟡 Intermediate | [Open lesson](23-github-issues-and-project-boards.md) |
-| 24 | Free Hosting with GitHub Pages | 🟢 Beginner | [Open lesson](24-github-pages-and-hosting.md) |
-| 25 | Git Tags & GitHub Releases | 🟡 Intermediate | [Open lesson](25-git-tags-and-releases.md) |
-| 26 | GitHub Actions & CI/CD Automation Basics | 🔴 Advanced | [Open lesson](26-github-actions-and-ci-cd-basics.md) |
-| 27 | Terminal Productivity & Git Aliases | 🟡 Intermediate | [Open lesson](27-git-aliases-and-shortcuts.md) |
-| 28 | Industry Workflows (GitFlow & Trunk-Based) | 🔴 Advanced | [Open lesson](28-git-workflows-gitflow-and-trunk-based.md) |
-| 29 | Security Best Practices & Secret Protection | 🔴 Advanced | [Open lesson](29-git-best-practices-and-security.md) |
-| 30 | Practical Team Workflows & Capstone Projects | 🔴 Advanced | [Open lesson](30-practical-projects-and-workflows.md) |
+| 01 | Introduction to Version Control & Git | 🟢 Beginner | [Open lesson](01-introduction-to-version-control.html) |
+| 02 | Git Installation & Environment Setup | 🟢 Beginner | [Open lesson](02-installation-and-setup.html) |
+| 03 | Git Configuration (`git config`) | 🟢 Beginner | [Open lesson](03-git-configuration.html) |
+| 04 | Initializing a Repository (`git init`) | 🟢 Beginner | [Open lesson](04-initializing-a-repository.html) |
+| 05 | Git File States & The 3 Trees | 🟢 Beginner | [Open lesson](05-git-file-states-and-lifecycle.html) |
+| 06 | Staging & Committing Changes (`git add`, `git commit`) | 🟢 Beginner | [Open lesson](06-staging-and-committing.html) |
+| 07 | Viewing History (`git log`, `git status`) | 🟢 Beginner | [Open lesson](07-viewing-history-and-git-log.html) |
+| 08 | Ignoring Files (`.gitignore`) | 🟢 Beginner | [Open lesson](08-ignoring-files-with-gitignore.html) |
+| 09 | Inspecting Changes (`git diff`) | 🟢 Beginner | [Open lesson](09-git-diff-and-inspecting-changes.html) |
+| 10 | Undoing Local Changes (`git restore`) | 🟢 Beginner | [Open lesson](10-undoing-changes-and-git-restore.html) |
+| 11 | Undoing Commits (`git reset`, `git revert`) | 🟡 Intermediate | [Open lesson](11-git-reset-and-git-revert.html) |
+| 12 | Branching Basics (`git branch`, `git switch`) | 🟢 Beginner | [Open lesson](12-branching-basics.html) |
+| 13 | Merging Branches (`git merge`) | 🟡 Intermediate | [Open lesson](13-merging-branches.html) |
+| 14 | Handling Merge Conflicts Step-by-Step | 🟡 Intermediate | [Open lesson](14-handling-merge-conflicts.html) |
+| 15 | Git Rebase (`git rebase`) | 🔴 Advanced | [Open lesson](15-git-rebase.html) |
+| 16 | Git Stash (`git stash`) | 🟡 Intermediate | [Open lesson](16-git-stash.html) |
+| 17 | Remote Repositories (`git remote`) | 🟢 Beginner | [Open lesson](17-remote-repositories-and-remotes.html) |
+| 18 | Syncing Remotes (`git push`, `git pull`) | 🟢 Beginner | [Open lesson](18-git-push-and-git-pull.html) |
+| 19 | Remote Tracking & Fetching (`git fetch`) | 🟡 Intermediate | [Open lesson](19-git-fetch-and-remote-branches.html) |
+| 20 | Introduction to GitHub Platform | 🟢 Beginner | [Open lesson](20-introduction-to-github.html) |
+| 21 | Forking & Pull Requests (PRs) | 🟡 Intermediate | [Open lesson](21-forking-and-pull-requests.html) |
+| 22 | SSH Keys & GitHub Authentication | 🟡 Intermediate | [Open lesson](22-ssh-keys-and-github-authentication.html) |
+| 23 | GitHub Issues, Projects & Discussions | 🟡 Intermediate | [Open lesson](23-github-issues-and-project-boards.html) |
+| 24 | Free Hosting with GitHub Pages | 🟢 Beginner | [Open lesson](24-github-pages-and-hosting.html) |
+| 25 | Git Tags & GitHub Releases | 🟡 Intermediate | [Open lesson](25-git-tags-and-releases.html) |
+| 26 | GitHub Actions & CI/CD Automation Basics | 🔴 Advanced | [Open lesson](26-github-actions-and-ci-cd-basics.html) |
+| 27 | Terminal Productivity & Git Aliases | 🟡 Intermediate | [Open lesson](27-git-aliases-and-shortcuts.html) |
+| 28 | Industry Workflows (GitFlow & Trunk-Based) | 🔴 Advanced | [Open lesson](28-git-workflows-gitflow-and-trunk-based.html) |
+| 29 | Security Best Practices & Secret Protection | 🔴 Advanced | [Open lesson](29-git-best-practices-and-security.html) |
+| 30 | Practical Team Workflows & Capstone Projects | 🔴 Advanced | [Open lesson](30-practical-projects-and-workflows.html) |
 
 ---
 
@@ -119,5 +119,6 @@ Git is the world's most popular distributed version control system, and GitHub i
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-introduction-to-version-control.md)
+[← Repository Home](../) | [Start with Lesson 01 →](01-introduction-to-version-control.html)
+
 

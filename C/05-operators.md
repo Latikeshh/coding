@@ -155,11 +155,12 @@ Write a program that takes a total number of seconds (e.g. `3800` seconds) and c
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Input and Output](04-input-output.md)
-- [Conditionals](06-conditionals.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Input and Output](04-input-output.html)
+- [Conditionals](06-conditionals.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Input/Output](04-input-output.md) | [Next: Conditionals →](06-conditionals.md)
+[← C Home](./) | [← Previous: Input/Output](04-input-output.html) | [Next: Conditionals →](06-conditionals.html)
+
 

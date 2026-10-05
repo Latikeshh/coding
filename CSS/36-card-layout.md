@@ -186,9 +186,9 @@ Card components are the primary UI building blocks for e-commerce product grids 
 
 ## 🔗 Related Topics
 
-- [Borders, Border Radius & Box Shadows](13-borders.md)
-- [CSS Grid Layout](21-grid.md)
-- [Modern CSS Features (`object-fit`)](40-modern-css-features.md)
+- [Borders, Border Radius & Box Shadows](13-borders.html)
+- [CSS Grid Layout](21-grid.html)
+- [Modern CSS Features (`object-fit`)](40-modern-css-features.html)
 
 ## ✅ Remember
 
@@ -198,5 +198,6 @@ Card components are the primary UI building blocks for e-commerce product grids 
 
 ## 🧭 Navigation
 
-[← Previous](35-forms-and-inputs.md) | [CSS Home](00-README.md) | [Next →](37-navigation-bars.md)
+[← Previous](35-forms-and-inputs.html) | [CSS Home](./) | [Next →](37-navigation-bars.html)
+
 

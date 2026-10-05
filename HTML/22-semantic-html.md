@@ -127,9 +127,9 @@ All modern websites and web applications use semantic HTML5 tags for clean archi
 
 ## 🔗 Related Topics
 
-- [Div and Span](14-div-and-span.md)
-- [Modern HTML5 Features](23-html5-features.md)
-- [Accessibility Basics](24-accessibility-basics.md)
+- [Div and Span](14-div-and-span.html)
+- [Modern HTML5 Features](23-html5-features.html)
+- [Accessibility Basics](24-accessibility-basics.html)
 
 ## 💡 Remember
 
@@ -139,5 +139,6 @@ All modern websites and web applications use semantic HTML5 tags for clean archi
 
 ## 🧭 Navigation
 
-[← Previous: Iframes](21-iframes.md) | [HTML Home](00-README.md) | [Next: HTML5 Features →](23-html5-features.md)
+[← Previous: Iframes](21-iframes.html) | [HTML Home](./) | [Next: HTML5 Features →](23-html5-features.html)
+
 

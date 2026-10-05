@@ -170,11 +170,12 @@ Write a mini calculator using a `switch` statement that inputs 2 numbers and an 
 
 ## 🔗 Related Topics
 
-- [Operators in C++](05-operators.md)
-- [Loops in C++](07-loops.md)
+- [Operators in C++](05-operators.html)
+- [Loops in C++](07-loops.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Operators](05-operators.md) | [Next: Loops →](07-loops.md)
+[← C++ Home](./) | [← Previous: Operators](05-operators.html) | [Next: Loops →](07-loops.html)
+

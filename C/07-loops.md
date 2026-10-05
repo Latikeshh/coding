@@ -179,11 +179,12 @@ Write a program using nested `for` loops to print a multiplication table grid fo
 
 ## 🔗 Related Topics
 
-- [Conditionals](06-conditionals.md)
-- [Functions](08-functions.md)
-- [Arrays](09-arrays.md)
+- [Conditionals](06-conditionals.html)
+- [Functions](08-functions.html)
+- [Arrays](09-arrays.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Conditionals](06-conditionals.md) | [Next: Functions →](08-functions.md)
+[← C Home](./) | [← Previous: Conditionals](06-conditionals.html) | [Next: Functions →](08-functions.html)
+
 

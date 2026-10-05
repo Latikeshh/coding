@@ -490,13 +490,14 @@ ORDER BY s.student_name;
 
 ## 🔗 Related Topics
 
-- [Primary Keys & Foreign Keys](12-primary-and-foreign-keys.md)
-- [GROUP BY & HAVING](14-group-by-and-having.md)
-- [Subqueries & Nested Queries](18-subqueries.md)
-- [Set Operations: UNION & EXCEPT](19-set-operations.md)
+- [Primary Keys & Foreign Keys](12-primary-and-foreign-keys.html)
+- [GROUP BY & HAVING](14-group-by-and-having.html)
+- [Subqueries & Nested Queries](18-subqueries.html)
+- [Set Operations: UNION & EXCEPT](19-set-operations.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: GROUP BY & HAVING](14-group-by-and-having.md) | [Next: SQL Functions →](16-sql-functions.md)
+[← SQL Home](./) | [← Previous: GROUP BY & HAVING](14-group-by-and-having.html) | [Next: SQL Functions →](16-sql-functions.html)
+

@@ -122,9 +122,10 @@ Write a program that takes a birthdate string `"2000-05-15"`, parses it with `.s
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Testing and Debugging](28-testing-and-debugging.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Testing and Debugging](28-testing-and-debugging.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Regular Expressions](23-regular-expressions.md) | [Next: JSON and Data Serialization →](25-json-and-data-serialization.md)
+[← Python Home](./) | [← Previous: Regular Expressions](23-regular-expressions.html) | [Next: JSON and Data Serialization →](25-json-and-data-serialization.html)
+

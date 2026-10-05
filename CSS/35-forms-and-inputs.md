@@ -216,9 +216,9 @@ E-commerce checkout forms and login modals use custom CSS form styling, floating
 
 ## 🔗 Related Topics
 
-- [Pseudo-classes](24-pseudo-classes.md)
-- [Pseudo-elements](25-pseudo-elements.md)
-- [CSS Mini Projects](38-mini-projects.md)
+- [Pseudo-classes](24-pseudo-classes.html)
+- [Pseudo-elements](25-pseudo-elements.html)
+- [CSS Mini Projects](38-mini-projects.html)
 
 ## ✅ Remember
 
@@ -228,5 +228,6 @@ E-commerce checkout forms and login modals use custom CSS form styling, floating
 
 ## 🧭 Navigation
 
-[← Previous](34-devtools.md) | [CSS Home](00-README.md) | [Next →](36-card-layout.md)
+[← Previous](34-devtools.html) | [CSS Home](./) | [Next →](36-card-layout.html)
+
 

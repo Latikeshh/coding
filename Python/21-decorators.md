@@ -143,9 +143,10 @@ Write a decorator `@repeat_three_times` that executes the target function 3 time
 
 ## 🔗 Related Topics
 
-- [Functions Advanced](15-functions-advanced.md)
-- [Iterators and Generators](20-iterators-and-generators.md)
+- [Functions Advanced](15-functions-advanced.html)
+- [Iterators and Generators](20-iterators-and-generators.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Iterators and Generators](20-iterators-and-generators.md) | [Next: Lambda, Map, Filter, Reduce →](22-lambda-map-filter-reduce.md)
+[← Python Home](./) | [← Previous: Iterators and Generators](20-iterators-and-generators.html) | [Next: Lambda, Map, Filter, Reduce →](22-lambda-map-filter-reduce.html)
+

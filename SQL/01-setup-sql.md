@@ -83,10 +83,11 @@ Write a query that displays two columns: `ProductName` containing `'Laptop'` and
 
 ## 🔗 Related Topics
 
-- [Introduction to SQL & Databases](02-introduction-to-sql.md)
-- [Database & Table Basics](03-databases-and-tables.md)
+- [Introduction to SQL & Databases](02-introduction-to-sql.html)
+- [Database & Table Basics](03-databases-and-tables.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [Next: Introduction to SQL & Databases →](02-introduction-to-sql.md)
+[← SQL Home](./) | [Next: Introduction to SQL & Databases →](02-introduction-to-sql.html)
+
 

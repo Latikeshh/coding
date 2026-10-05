@@ -168,9 +168,9 @@ All modern websites (news platforms, e-commerce stores, social media dashboards)
 
 ## 🔗 Related Topics
 
-- [CSS Units (`px`, `rem`, `em`, `%`, `vw`, `vh`)](11-css-units.md)
-- [Flexbox Layout](20-flexbox.md)
-- [Media Queries & Container Queries](23-media-queries.md)
+- [CSS Units (`px`, `rem`, `em`, `%`, `vw`, `vh`)](11-css-units.html)
+- [Flexbox Layout](20-flexbox.html)
+- [Media Queries & Container Queries](23-media-queries.html)
 
 ## ✅ Remember
 
@@ -180,5 +180,6 @@ All modern websites (news platforms, e-commerce stores, social media dashboards)
 
 ## 🧭 Navigation
 
-[← Previous](21-grid.md) | [CSS Home](00-README.md) | [Next →](23-media-queries.md)
+[← Previous](21-grid.html) | [CSS Home](./) | [Next →](23-media-queries.html)
+
 

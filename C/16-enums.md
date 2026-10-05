@@ -159,11 +159,12 @@ Write a program defining an `enum UserRole { ROLE_GUEST, ROLE_USER, ROLE_ADMIN }
 
 ## 🔗 Related Topics
 
-- [Conditionals](06-conditionals.md)
-- [Structures](14-structures.md)
-- [Unions and Bit Fields](15-unions-and-bit-fields.md)
+- [Conditionals](06-conditionals.html)
+- [Structures](14-structures.html)
+- [Unions and Bit Fields](15-unions-and-bit-fields.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Unions](15-unions-and-bit-fields.md) | [Next: File Handling →](17-file-handling.md)
+[← C Home](./) | [← Previous: Unions](15-unions-and-bit-fields.html) | [Next: File Handling →](17-file-handling.html)
+
 

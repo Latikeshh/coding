@@ -103,11 +103,12 @@ Write down 3 major benefits of a **Distributed** Version Control System over a *
 
 ## 🔗 Related Topics
 
-- [Installation & Setup](02-installation-and-setup.md)
-- [Git Configuration](03-git-configuration.md)
-- [Initializing a Repository](04-initializing-a-repository.md)
+- [Installation & Setup](02-installation-and-setup.html)
+- [Git Configuration](03-git-configuration.html)
+- [Initializing a Repository](04-initializing-a-repository.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [Next: Installation & Setup →](02-installation-and-setup.md)
+[← Home](./) | [Next: Installation & Setup →](02-installation-and-setup.html)
+
 

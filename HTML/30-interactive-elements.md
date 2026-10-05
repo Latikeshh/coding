@@ -135,8 +135,8 @@ FAQ sections, dashboard metrics, download progress indicators, terms-of-service 
 
 ## 🔗 Related Topics
 
-- [Semantic HTML](22-semantic-html.md)
-- [Modern HTML5 Features](23-html5-features.md)
+- [Semantic HTML](22-semantic-html.html)
+- [Modern HTML5 Features](23-html5-features.html)
 
 ## 💡 Remember
 
@@ -147,5 +147,6 @@ FAQ sections, dashboard metrics, download progress indicators, terms-of-service 
 
 ## 🧭 Navigation
 
-[← Previous: Responsive Images](29-responsive-images.md) | [HTML Home](00-README.md) | [Next: Global & Data Attributes →](31-global-and-data-attributes.md)
+[← Previous: Responsive Images](29-responsive-images.html) | [HTML Home](./) | [Next: Global & Data Attributes →](31-global-and-data-attributes.html)
+
 

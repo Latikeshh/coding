@@ -134,11 +134,12 @@ Open `README.md`, resolve the conflict manually, remove all conflict markers (`<
 
 ## 🔗 Related Topics
 
-- [Merging Branches](13-merging-branches.md)
-- [Git Rebase](15-git-rebase.md)
-- [Git Stash](16-git-stash.md)
+- [Merging Branches](13-merging-branches.html)
+- [Git Rebase](15-git-rebase.html)
+- [Git Stash](16-git-stash.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Merging](13-merging-branches.md) | [Next: Git Rebase →](15-git-rebase.md)
+[← Home](./) | [← Previous: Merging](13-merging-branches.html) | [Next: Git Rebase →](15-git-rebase.html)
+
 

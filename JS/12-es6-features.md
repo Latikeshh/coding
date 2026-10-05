@@ -121,5 +121,6 @@ Use destructuring for cleaner parameter handling, spread for immutable state cop
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Scope & Hoisting](11-scope-and-hoisting.md) | [Next: Advanced Array Methods →](13-advanced-array-methods.md)
+[← JS Home](./) | [← Previous: Scope & Hoisting](11-scope-and-hoisting.html) | [Next: Advanced Array Methods →](13-advanced-array-methods.html)
+
 

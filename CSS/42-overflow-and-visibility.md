@@ -122,9 +122,9 @@ A card box with a capped height of 180px. Because the text paragraphs exceed 180
 
 ## 🔗 Related Topics
 
-- [Display Property](17-display.md)
-- [Positioning, z-index & Stacking Context](18-positioning.md)
-- [Card Layout Components](36-card-layout.md)
+- [Display Property](17-display.html)
+- [Positioning, z-index & Stacking Context](18-positioning.html)
+- [Card Layout Components](36-card-layout.html)
 
 ## ✅ Remember
 
@@ -134,5 +134,6 @@ A card box with a capped height of 180px. Because the text paragraphs exceed 180
 
 ## 🧭 Navigation
 
-[← Previous](41-css-architecture-and-dark-mode.md) | [CSS Home](00-README.md) | [Next →](43-css-lists-and-tables.md)
+[← Previous](41-css-architecture-and-dark-mode.html) | [CSS Home](./) | [Next →](43-css-lists-and-tables.html)
+
 

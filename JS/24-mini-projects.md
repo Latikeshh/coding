@@ -129,5 +129,6 @@ Aapn shiklele sarv JS concepts ektra karun practical interactive apps banva.
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: JS Modules](23-modules.md) | [Next: JavaScript Debugging →](25-javascript-debugging.md)
+[← JS Home](./) | [← Previous: JS Modules](23-modules.html) | [Next: JavaScript Debugging →](25-javascript-debugging.html)
+
 

@@ -137,11 +137,12 @@ Write a program that inputs a temperature in Celsius from the user, validates th
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Operators](05-operators.md)
-- [Conditionals](06-conditionals.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Operators](05-operators.html)
+- [Conditionals](06-conditionals.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Variables](03-variables-and-data-types.md) | [Next: Operators →](05-operators.md)
+[← C Home](./) | [← Previous: Variables](03-variables-and-data-types.html) | [Next: Operators →](05-operators.html)
+
 

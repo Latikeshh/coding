@@ -117,5 +117,6 @@ Block scope prevents variable collisions in loops, module functions, and compone
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Objects](10-objects.md) | [Next: Modern ES6+ Features →](12-es6-features.md)
+[← JS Home](./) | [← Previous: Objects](10-objects.html) | [Next: Modern ES6+ Features →](12-es6-features.html)
+
 

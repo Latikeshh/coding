@@ -101,10 +101,11 @@ Add product categories and build a report of monthly revenue by category. Define
 
 ## Related Topics
 
-- [Database Relationships & Normalization](20-normalization.md)
-- [Indexes & Query Performance](22-indexes-and-performance.md)
+- [Database Relationships & Normalization](20-normalization.html)
+- [Indexes & Query Performance](22-indexes-and-performance.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: SQL Security](29-sql-security.md) | [SQL Home →](00-README.md)
+[← SQL Home](./) | [← Previous: SQL Security](29-sql-security.html) | [SQL Home →](./)
+
 

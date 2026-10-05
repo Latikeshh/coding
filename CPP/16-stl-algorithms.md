@@ -155,11 +155,12 @@ Write a program that uses `std::remove_if` and vector `.erase()` (Erase-Remove I
 
 ## 🔗 Related Topics
 
-- [STL Containers](15-stl-containers.md)
-- [Lambda Expressions](18-lambdas.md)
+- [STL Containers](15-stl-containers.html)
+- [Lambda Expressions](18-lambdas.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: STL Containers](15-stl-containers.md) | [Next: Templates →](17-templates.md)
+[← C++ Home](./) | [← Previous: STL Containers](15-stl-containers.html) | [Next: Templates →](17-templates.html)
+

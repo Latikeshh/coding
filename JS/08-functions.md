@@ -110,5 +110,6 @@ Keep functions focused on a single responsibility. Master Arrow functions as the
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Arrays →](09-arrays.md)
+[← JS Home](./) | [← Previous: Loops](07-loops.html) | [Next: Arrays →](09-arrays.html)
+
 

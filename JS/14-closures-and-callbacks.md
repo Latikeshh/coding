@@ -114,5 +114,6 @@ Closure = A function + its lexical environment reference.
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Array Methods](13-advanced-array-methods.md) | [Next: Promises & Async/Await →](15-promises-and-async-await.md)
+[← JS Home](./) | [← Previous: Array Methods](13-advanced-array-methods.html) | [Next: Promises & Async/Await →](15-promises-and-async-await.html)
+
 

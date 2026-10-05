@@ -151,11 +151,12 @@ Write a program named `banner.cpp` that prints a 3-line banner welcoming yoursel
 
 ## 🔗 Related Topics
 
-- [Introduction to C++](02-introduction-to-cpp.md)
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Input and Output](04-input-output.md)
+- [Introduction to C++](02-introduction-to-cpp.html)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Input and Output](04-input-output.html)
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [Next: Introduction to C++ →](02-introduction-to-cpp.md)
+[← C++ Home](./) | [Next: Introduction to C++ →](02-introduction-to-cpp.html)
+
 

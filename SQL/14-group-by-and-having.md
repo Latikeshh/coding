@@ -50,7 +50,7 @@ The database excludes rows with unknown amounts, groups remaining rows by region
 
 ## Output
 
-Using the sample rows from [Aggregate Functions](13-aggregate-functions.md), the `West` group has revenue `200.00` and is returned; `East` has no known amount and is excluded.
+Using the sample rows from [Aggregate Functions](13-aggregate-functions.html), the `West` group has revenue `200.00` and is returned; `East` has no known amount and is excluded.
 
 ## Another Practical Example
 
@@ -88,10 +88,11 @@ Using an `orders` table, return each customer with total completed-order value, 
 
 ## Related Topics
 
-- [Aggregate Functions](13-aggregate-functions.md)
-- [SQL Joins](15-joins.md)
+- [Aggregate Functions](13-aggregate-functions.html)
+- [SQL Joins](15-joins.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Aggregate Functions](13-aggregate-functions.md) | [Next: SQL Joins →](15-joins.md)
+[← SQL Home](./) | [← Previous: Aggregate Functions](13-aggregate-functions.html) | [Next: SQL Joins →](15-joins.html)
+
 

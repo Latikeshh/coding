@@ -82,10 +82,11 @@ Design (do not assume portable syntax for) a routine that marks an order paid on
 
 ## Related Topics
 
-- [Transactions & ACID](23-transactions.md)
-- [Triggers](28-triggers.md)
+- [Transactions & ACID](23-transactions.html)
+- [Triggers](28-triggers.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Window Functions](26-window-functions.md) | [Next: Triggers →](28-triggers.md)
+[← SQL Home](./) | [← Previous: Window Functions](26-window-functions.html) | [Next: Triggers →](28-triggers.html)
+
 

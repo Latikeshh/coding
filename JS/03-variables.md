@@ -108,5 +108,6 @@ Default to `const` for all variable declarations. Switch to `let` only when you 
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Introduction](02-introduction-to-js.md) | [Next: Data Types →](04-data-types.md)
+[← JS Home](./) | [← Previous: Introduction](02-introduction-to-js.html) | [Next: Data Types →](04-data-types.html)
+
 

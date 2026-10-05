@@ -151,11 +151,12 @@ Create a configuration manager that reads settings by key (e.g. `"theme"`, `"fon
 
 ## 🔗 Related Topics
 
-- [Functions in C++](08-functions.md)
-- [Move Semantics](22-move-semantics.md)
+- [Functions in C++](08-functions.html)
+- [Move Semantics](22-move-semantics.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: File Streams](20-file-streams.md) | [Next: Move Semantics →](22-move-semantics.md)
+[← C++ Home](./) | [← Previous: File Streams](20-file-streams.html) | [Next: Move Semantics →](22-move-semantics.html)
+

@@ -220,12 +220,13 @@ Write a query that displays product name, price rounded up to the nearest whole 
 
 ## 🔗 Related Topics
 
-- [SQL Joins](15-joins.md)
-- [Conditional Logic with CASE](17-case-expressions.md)
-- [Window Functions](26-window-functions.md)
+- [SQL Joins](15-joins.html)
+- [Conditional Logic with CASE](17-case-expressions.html)
+- [Window Functions](26-window-functions.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: SQL Joins](15-joins.md) | [Next: CASE Expressions →](17-case-expressions.md)
+[← SQL Home](./) | [← Previous: SQL Joins](15-joins.html) | [Next: CASE Expressions →](17-case-expressions.html)
+

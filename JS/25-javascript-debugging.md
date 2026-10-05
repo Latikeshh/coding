@@ -98,5 +98,6 @@ Breakpoints let you pause execution and inspect variables live in memory without
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Mini Projects](24-mini-projects.md)
+[← JS Home](./) | [← Previous: Mini Projects](24-mini-projects.html)
+
 

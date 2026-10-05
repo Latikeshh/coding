@@ -175,11 +175,12 @@ Create an `Employee` base class with a virtual `calculatePay()` method. Inherit 
 
 ## 🔗 Related Topics
 
-- [Classes & Objects](10-classes-and-oops.md)
-- [Smart Pointers](14-smart-pointers.md)
+- [Classes & Objects](10-classes-and-oops.html)
+- [Smart Pointers](14-smart-pointers.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Constructors](11-constructors-and-destructors.md) | [Next: Operator Overloading →](13-operator-overloading.md)
+[← C++ Home](./) | [← Previous: Constructors](11-constructors-and-destructors.html) | [Next: Operator Overloading →](13-operator-overloading.html)
+

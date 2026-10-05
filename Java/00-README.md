@@ -33,30 +33,30 @@ Java is a high-performance, object-oriented, strongly-typed programming language
 
 | # | Topic | Level | Link |
 |---|---|---|---|
-| 01 | Set Up Java Development Environment | 🟢 Beginner | [Open lesson](01-setup-java.md) |
-| 02 | Java Program Structure | 🟢 Beginner | [Open lesson](02-java-program-structure.md) |
-| 03 | Variables and Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.md) |
-| 04 | Input and Output in Java | 🟢 Beginner | [Open lesson](04-input-and-output.md) |
-| 05 | Operators and Expressions | 🟢 Beginner | [Open lesson](05-operators-and-expressions.md) |
-| 06 | Conditional Decision Making in Java | 🟢 Beginner | [Open lesson](06-conditionals.md) |
-| 07 | Loops in Java | 🟢 Beginner | [Open lesson](07-loops.md) |
-| 08 | Methods in Java | 🟢 Beginner | [Open lesson](08-methods.md) |
-| 09 | Arrays in Java | 🟢 Beginner | [Open lesson](09-arrays.md) |
-| 10 | Strings in Java | 🟡 Intermediate | [Open lesson](10-strings.md) |
-| 11 | Java Collections Framework | 🟡 Intermediate | [Open lesson](11-collections.md) |
-| 12 | Enums and Records in Java | 🟡 Intermediate | [Open lesson](12-enums-and-records.md) |
-| 13 | Generics in Java | 🟡 Intermediate | [Open lesson](13-generics.md) |
-| 14 | Classes and Objects in Java | 🟢 Beginner | [Open lesson](14-classes-and-objects.md) |
-| 15 | Encapsulation and Composition | 🟡 Intermediate | [Open lesson](15-encapsulation-and-composition.md) |
-| 16 | Inheritance and Polymorphism | 🔴 Advanced | [Open lesson](16-inheritance-and-polymorphism.md) |
-| 17 | Interfaces and Abstract Classes | 🔴 Advanced | [Open lesson](17-interfaces-and-abstract-classes.md) |
-| 18 | Exceptions and Validation | 🟡 Intermediate | [Open lesson](18-exceptions-and-validation.md) |
-| 19 | Packages and Project Organization | 🟡 Intermediate | [Open lesson](19-packages-and-project-organization.md) |
-| 20 | File Input and Output in Java | 🔴 Advanced | [Open lesson](20-file-input-and-output.md) |
-| 21 | Lambdas and Streams in Java | 🔴 Advanced | [Open lesson](21-lambdas-and-streams.md) |
-| 22 | Modern Date and Time API | 🟡 Intermediate | [Open lesson](22-dates-and-time.md) |
-| 23 | Testing and Debugging in Java | 🟡 Intermediate | [Open lesson](23-testing-and-debugging.md) |
-| 24 | Build Tools and Mini Projects | 🔴 Advanced | [Open lesson](24-build-tools-and-mini-projects.md) |
+| 01 | Set Up Java Development Environment | 🟢 Beginner | [Open lesson](01-setup-java.html) |
+| 02 | Java Program Structure | 🟢 Beginner | [Open lesson](02-java-program-structure.html) |
+| 03 | Variables and Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.html) |
+| 04 | Input and Output in Java | 🟢 Beginner | [Open lesson](04-input-and-output.html) |
+| 05 | Operators and Expressions | 🟢 Beginner | [Open lesson](05-operators-and-expressions.html) |
+| 06 | Conditional Decision Making in Java | 🟢 Beginner | [Open lesson](06-conditionals.html) |
+| 07 | Loops in Java | 🟢 Beginner | [Open lesson](07-loops.html) |
+| 08 | Methods in Java | 🟢 Beginner | [Open lesson](08-methods.html) |
+| 09 | Arrays in Java | 🟢 Beginner | [Open lesson](09-arrays.html) |
+| 10 | Strings in Java | 🟡 Intermediate | [Open lesson](10-strings.html) |
+| 11 | Java Collections Framework | 🟡 Intermediate | [Open lesson](11-collections.html) |
+| 12 | Enums and Records in Java | 🟡 Intermediate | [Open lesson](12-enums-and-records.html) |
+| 13 | Generics in Java | 🟡 Intermediate | [Open lesson](13-generics.html) |
+| 14 | Classes and Objects in Java | 🟢 Beginner | [Open lesson](14-classes-and-objects.html) |
+| 15 | Encapsulation and Composition | 🟡 Intermediate | [Open lesson](15-encapsulation-and-composition.html) |
+| 16 | Inheritance and Polymorphism | 🔴 Advanced | [Open lesson](16-inheritance-and-polymorphism.html) |
+| 17 | Interfaces and Abstract Classes | 🔴 Advanced | [Open lesson](17-interfaces-and-abstract-classes.html) |
+| 18 | Exceptions and Validation | 🟡 Intermediate | [Open lesson](18-exceptions-and-validation.html) |
+| 19 | Packages and Project Organization | 🟡 Intermediate | [Open lesson](19-packages-and-project-organization.html) |
+| 20 | File Input and Output in Java | 🔴 Advanced | [Open lesson](20-file-input-and-output.html) |
+| 21 | Lambdas and Streams in Java | 🔴 Advanced | [Open lesson](21-lambdas-and-streams.html) |
+| 22 | Modern Date and Time API | 🟡 Intermediate | [Open lesson](22-dates-and-time.html) |
+| 23 | Testing and Debugging in Java | 🟡 Intermediate | [Open lesson](23-testing-and-debugging.html) |
+| 24 | Build Tools and Mini Projects | 🔴 Advanced | [Open lesson](24-build-tools-and-mini-projects.html) |
 
 ## 🎯 Suggested Learning Flow
 
@@ -92,4 +92,5 @@ Java is a high-performance, object-oriented, strongly-typed programming language
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-java.md)
+[← Repository Home](../) | [Start with Lesson 01 →](01-setup-java.html)
+

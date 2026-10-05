@@ -116,11 +116,12 @@ Run `git help init` in your terminal and observe how Git opens the official docu
 
 ## 🔗 Related Topics
 
-- [Introduction to Version Control](01-introduction-to-version-control.md)
-- [Git Configuration](03-git-configuration.md)
-- [Initializing a Repository](04-initializing-a-repository.md)
+- [Introduction to Version Control](01-introduction-to-version-control.html)
+- [Git Configuration](03-git-configuration.html)
+- [Initializing a Repository](04-initializing-a-repository.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Introduction](01-introduction-to-version-control.md) | [Next: Git Configuration →](03-git-configuration.md)
+[← Home](./) | [← Previous: Introduction](01-introduction-to-version-control.html) | [Next: Git Configuration →](03-git-configuration.html)
+
 

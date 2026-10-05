@@ -141,9 +141,10 @@ Write a unit test for a `BankAccount` class verifying that withdrawing an amount
 
 ## 🔗 Related Topics
 
-- [Exception Handling](18-exception-handling.md)
-- [Project Structure](30-project-structure-and-best-practices.md)
+- [Exception Handling](18-exception-handling.html)
+- [Project Structure](30-project-structure-and-best-practices.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Type Hints and Dataclasses](27-type-hints-and-dataclasses.md) | [Next: Virtual Environments and Pip →](29-virtual-environments-and-pip.md)
+[← Python Home](./) | [← Previous: Type Hints and Dataclasses](27-type-hints-and-dataclasses.html) | [Next: Virtual Environments and Pip →](29-virtual-environments-and-pip.html)
+

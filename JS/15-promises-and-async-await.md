@@ -111,5 +111,6 @@ Always wrap `await` calls in `try...catch` blocks for robust error handling.
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Closures](14-closures-and-callbacks.md) | [Next: Fetch API & JSON →](16-fetch-api-and-json.md)
+[← JS Home](./) | [← Previous: Closures](14-closures-and-callbacks.html) | [Next: Fetch API & JSON →](16-fetch-api-and-json.html)
+
 

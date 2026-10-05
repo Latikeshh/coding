@@ -156,9 +156,9 @@ CSS Grid powers complex web application dashboards (sidebar + main content + hea
 
 ## 🔗 Related Topics
 
-- [Flexbox Layout](20-flexbox.md)
-- [Responsive Web Design Principles](22-responsive-design.md)
-- [Card Layout Components](36-card-layout.md)
+- [Flexbox Layout](20-flexbox.html)
+- [Responsive Web Design Principles](22-responsive-design.html)
+- [Card Layout Components](36-card-layout.html)
 
 ## ✅ Remember
 
@@ -168,5 +168,6 @@ CSS Grid powers complex web application dashboards (sidebar + main content + hea
 
 ## 🧭 Navigation
 
-[← Previous](20-flexbox.md) | [CSS Home](00-README.md) | [Next →](22-responsive-design.md)
+[← Previous](20-flexbox.html) | [CSS Home](./) | [Next →](22-responsive-design.html)
+
 

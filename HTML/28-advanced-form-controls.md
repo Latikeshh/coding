@@ -138,9 +138,9 @@ E-commerce checkout forms, job application portals, hotel booking platforms, and
 
 ## 🔗 Related Topics
 
-- [Forms](11-forms.md)
-- [Input Types](12-input-types.md)
-- [Modern HTML5 Features](23-html5-features.md)
+- [Forms](11-forms.html)
+- [Input Types](12-input-types.html)
+- [Modern HTML5 Features](23-html5-features.html)
 
 ## 💡 Remember
 
@@ -151,5 +151,6 @@ E-commerce checkout forms, job application portals, hotel booking platforms, and
 
 ## 🧭 Navigation
 
-[← Previous: Meta Tags](27-meta-tags.md) | [HTML Home](00-README.md) | [Next: Responsive Images →](29-responsive-images.md)
+[← Previous: Meta Tags](27-meta-tags.html) | [HTML Home](./) | [Next: Responsive Images →](29-responsive-images.html)
+
 

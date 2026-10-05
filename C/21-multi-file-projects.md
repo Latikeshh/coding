@@ -237,11 +237,12 @@ Build a multi-file student grade project:
 
 ## 🔗 Related Topics
 
-- [Functions](08-functions.md)
-- [Structures](14-structures.md)
-- [Preprocessor and Macros](18-preprocessor-and-macros.md)
+- [Functions](08-functions.html)
+- [Structures](14-structures.html)
+- [Preprocessor and Macros](18-preprocessor-and-macros.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: CLI Arguments](20-command-line-arguments.md) | [Next: Error Handling →](22-error-handling.md)
+[← C Home](./) | [← Previous: CLI Arguments](20-command-line-arguments.html) | [Next: Error Handling →](22-error-handling.html)
+
 

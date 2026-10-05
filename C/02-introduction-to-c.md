@@ -119,11 +119,12 @@ Write a program that uses multiple `printf` statements to print a 5-line banner 
 
 ## 🔗 Related Topics
 
-- [Set Up C Environment](01-setup-c.md)
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Input and Output](04-input-output.md)
+- [Set Up C Environment](01-setup-c.html)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Input and Output](04-input-output.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: C Setup](01-setup-c.md) | [Next: Variables & Data Types →](03-variables-and-data-types.md)
+[← C Home](./) | [← Previous: C Setup](01-setup-c.html) | [Next: Variables & Data Types →](03-variables-and-data-types.html)
+
 

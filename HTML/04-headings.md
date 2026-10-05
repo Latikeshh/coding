@@ -112,9 +112,9 @@ All major websites (blogs, news outlets, e-commerce stores) use structured headi
 
 ## 🔗 Related Topics
 
-- [Document Structure](03-html-document-structure.md)
-- [Paragraphs](05-paragraphs.md)
-- [Text Formatting](06-text-formatting.md)
+- [Document Structure](03-html-document-structure.html)
+- [Paragraphs](05-paragraphs.html)
+- [Text Formatting](06-text-formatting.html)
 
 ## 💡 Remember
 
@@ -124,5 +124,6 @@ All major websites (blogs, news outlets, e-commerce stores) use structured headi
 
 ## 🧭 Navigation
 
-[← Previous: Document Structure](03-html-document-structure.md) | [HTML Home](00-README.md) | [Next: Paragraphs →](05-paragraphs.md)
+[← Previous: Document Structure](03-html-document-structure.html) | [HTML Home](./) | [Next: Paragraphs →](05-paragraphs.html)
+
 

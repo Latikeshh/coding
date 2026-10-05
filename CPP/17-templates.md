@@ -149,11 +149,12 @@ Implement a custom generic `Stack<T>` class template backed by `std::vector<T>` 
 
 ## 🔗 Related Topics
 
-- [Functions in C++](08-functions.md)
-- [Classes & OOP](10-classes-and-oops.md)
+- [Functions in C++](08-functions.html)
+- [Classes & OOP](10-classes-and-oops.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: STL Algorithms](16-stl-algorithms.md) | [Next: Lambdas →](18-lambdas.md)
+[← C++ Home](./) | [← Previous: STL Algorithms](16-stl-algorithms.html) | [Next: Lambdas →](18-lambdas.html)
+

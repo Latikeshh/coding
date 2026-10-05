@@ -155,9 +155,9 @@ Pseudo-elements power CSS-only icons, custom checkboxes/radios, animated underli
 
 ## 🔗 Related Topics
 
-- [Pseudo-classes](24-pseudo-classes.md)
-- [CSS Transitions](28-transitions.md)
-- [CSS Transforms (2D & 3D)](29-transforms.md)
+- [Pseudo-classes](24-pseudo-classes.html)
+- [CSS Transitions](28-transitions.html)
+- [CSS Transforms (2D & 3D)](29-transforms.html)
 
 ## ✅ Remember
 
@@ -167,5 +167,6 @@ Pseudo-elements power CSS-only icons, custom checkboxes/radios, animated underli
 
 ## 🧭 Navigation
 
-[← Previous](24-pseudo-classes.md) | [CSS Home](00-README.md) | [Next →](26-text-styling.md)
+[← Previous](24-pseudo-classes.html) | [CSS Home](./) | [Next →](26-text-styling.html)
+
 

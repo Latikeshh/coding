@@ -172,10 +172,11 @@ Write a tagged union structure `typedef struct { int type; union { int i; float 
 
 ## 🔗 Related Topics
 
-- [Structures](14-structures.md)
-- [Enumerations](16-enums.md)
+- [Structures](14-structures.html)
+- [Enumerations](16-enums.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Structures](14-structures.md) | [Next: Enumerations →](16-enums.md)
+[← C Home](./) | [← Previous: Structures](14-structures.html) | [Next: Enumerations →](16-enums.html)
+
 

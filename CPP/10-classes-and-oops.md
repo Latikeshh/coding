@@ -167,11 +167,12 @@ Design a `Rectangle` class with private members `length` and `width`. Include me
 
 ## 🔗 Related Topics
 
-- [Constructors & Destructors](11-constructors-and-destructors.md)
-- [Inheritance & Polymorphism](12-inheritance-and-polymorphism.md)
+- [Constructors & Destructors](11-constructors-and-destructors.html)
+- [Inheritance & Polymorphism](12-inheritance-and-polymorphism.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Arrays & Vectors](09-arrays-and-vectors.md) | [Next: Constructors & Destructors →](11-constructors-and-destructors.md)
+[← C++ Home](./) | [← Previous: Arrays & Vectors](09-arrays-and-vectors.html) | [Next: Constructors & Destructors →](11-constructors-and-destructors.html)
+

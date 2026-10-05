@@ -104,8 +104,8 @@ E-commerce sites, technical blogs, news platforms, and documentation portals use
 
 ## 🔗 Related Topics
 
-- [Paragraphs](05-paragraphs.md)
-- [HTML Entities](18-html-entities.md)
+- [Paragraphs](05-paragraphs.html)
+- [HTML Entities](18-html-entities.html)
 
 ## 💡 Remember
 
@@ -116,5 +116,6 @@ E-commerce sites, technical blogs, news platforms, and documentation portals use
 
 ## 🧭 Navigation
 
-[← Previous: Paragraphs](05-paragraphs.md) | [HTML Home](00-README.md) | [Next: Links →](07-links.md)
+[← Previous: Paragraphs](05-paragraphs.html) | [HTML Home](./) | [Next: Links →](07-links.html)
+
 

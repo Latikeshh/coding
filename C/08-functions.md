@@ -159,11 +159,12 @@ Write a function `void getMaxMin(int a, int b, int *max, int *min)` that takes t
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Pointers Basics](10-pointers-basics.md)
-- [Storage Classes](19-storage-classes.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Pointers Basics](10-pointers-basics.html)
+- [Storage Classes](19-storage-classes.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Arrays →](09-arrays.md)
+[← C Home](./) | [← Previous: Loops](07-loops.html) | [Next: Arrays →](09-arrays.html)
+
 

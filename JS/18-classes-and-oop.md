@@ -105,5 +105,6 @@ Use `class` for OOP design, `#` for private fields, `extends` for inheritance, a
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Prototypes & this](17-prototypes-and-this.md) | [Next: DOM Selection →](19-dom-manipulation.md)
+[← JS Home](./) | [← Previous: Prototypes & this](17-prototypes-and-this.html) | [Next: DOM Selection →](19-dom-manipulation.html)
+
 

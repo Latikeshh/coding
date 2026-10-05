@@ -162,11 +162,12 @@ Implement a `TreeNode` class where a parent node owns its children using `std::v
 
 ## 🔗 Related Topics
 
-- [Constructors & Destructors](11-constructors-and-destructors.md)
-- [Inheritance & Polymorphism](12-inheritance-and-polymorphism.md)
+- [Constructors & Destructors](11-constructors-and-destructors.html)
+- [Inheritance & Polymorphism](12-inheritance-and-polymorphism.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Operator Overloading](13-operator-overloading.md) | [Next: STL Containers →](15-stl-containers.md)
+[← C++ Home](./) | [← Previous: Operator Overloading](13-operator-overloading.html) | [Next: STL Containers →](15-stl-containers.html)
+

@@ -127,9 +127,9 @@ All e-commerce stores, news portals, blogs, and marketing websites rely on HTML 
 
 ## 🔗 Related Topics
 
-- [Document Structure](03-html-document-structure.md)
-- [Semantic HTML](22-semantic-html.md)
-- [Meta Tags & Head Metadata](27-meta-tags.md)
+- [Document Structure](03-html-document-structure.html)
+- [Semantic HTML](22-semantic-html.html)
+- [Meta Tags & Head Metadata](27-meta-tags.html)
 
 ## 💡 Remember
 
@@ -140,5 +140,6 @@ All e-commerce stores, news portals, blogs, and marketing websites rely on HTML 
 
 ## 🧭 Navigation
 
-[← Previous: Global Attributes](31-global-and-data-attributes.md) | [HTML Home](00-README.md)
+[← Previous: Global Attributes](31-global-and-data-attributes.html) | [HTML Home](./)
+
 

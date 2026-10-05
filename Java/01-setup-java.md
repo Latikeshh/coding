@@ -121,9 +121,10 @@ Write a program that prints a 3-line receipt showing an item name, quantity, pri
 
 ## 🔗 Related Topics
 
-- [Java Program Structure](02-java-program-structure.md)
-- [Variables and Data Types](03-variables-and-data-types.md)
+- [Java Program Structure](02-java-program-structure.html)
+- [Variables and Data Types](03-variables-and-data-types.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [Next: Java Program Structure →](02-java-program-structure.md)
+[← Java Home](./) | [Next: Java Program Structure →](02-java-program-structure.html)
+

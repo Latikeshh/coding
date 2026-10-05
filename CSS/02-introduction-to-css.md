@@ -128,9 +128,9 @@ Every modern site (Google, YouTube, Amazon, Wikipedia) uses CSS to format brandi
 
 ## 🔗 Related Topics
 
-- [Set Up CSS Environment](01-setup-css.md)
-- [History & Standards of CSS](03-history-of-css.md)
-- [CSS Syntax & Rules](06-css-syntax.md)
+- [Set Up CSS Environment](01-setup-css.html)
+- [History & Standards of CSS](03-history-of-css.html)
+- [CSS Syntax & Rules](06-css-syntax.html)
 
 ## ✅ Remember
 
@@ -140,5 +140,6 @@ Every modern site (Google, YouTube, Amazon, Wikipedia) uses CSS to format brandi
 
 ## 🧭 Navigation
 
-[← Previous](01-setup-css.md) | [CSS Home](00-README.md) | [Next →](03-history-of-css.md)
+[← Previous](01-setup-css.html) | [CSS Home](./) | [Next →](03-history-of-css.html)
+
 

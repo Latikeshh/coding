@@ -173,5 +173,6 @@ If you can successfully complete all 3 capstone workflows, you possess complete 
 
 ## 🔗 Master Navigation
 
-[← Home](00-README.md) | [← Previous: Security](29-git-best-practices-and-security.md)
+[← Home](./) | [← Previous: Security](29-git-best-practices-and-security.html)
+
 

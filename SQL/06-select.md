@@ -130,10 +130,11 @@ Write a `SELECT` query that calculates an employee's daily pay assuming 22 worki
 
 ## 🔗 Related Topics
 
-- [`INSERT` – Adding Data](05-insert.md)
-- [Filtering Data with `WHERE`](07-where.md)
+- [`INSERT` – Adding Data](05-insert.html)
+- [Filtering Data with `WHERE`](07-where.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: INSERT – Adding Data](05-insert.md) | [Next: Filtering Data with WHERE →](07-where.md)
+[← SQL Home](./) | [← Previous: INSERT – Adding Data](05-insert.html) | [Next: Filtering Data with WHERE →](07-where.html)
+
 

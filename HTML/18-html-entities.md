@@ -102,8 +102,8 @@ Tech documentation sites, code tutorial portals, e-commerce stores, and website 
 
 ## 🔗 Related Topics
 
-- [Text Formatting](06-text-formatting.md)
-- [Colors](17-html-colors.md)
+- [Text Formatting](06-text-formatting.html)
+- [Colors](17-html-colors.html)
 
 ## 💡 Remember
 
@@ -115,5 +115,6 @@ Tech documentation sites, code tutorial portals, e-commerce stores, and website 
 
 ## 🧭 Navigation
 
-[← Previous: Colors](17-html-colors.md) | [HTML Home](00-README.md) | [Next: Audio →](19-audio.md)
+[← Previous: Colors](17-html-colors.html) | [HTML Home](./) | [Next: Audio →](19-audio.html)
+
 

@@ -91,5 +91,6 @@ Use `defer` when linking external scripts in `<head>` so your web page loads qui
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [Next: Introduction to JavaScript →](02-introduction-to-js.md)
+[← JS Home](./) | [Next: Introduction to JavaScript →](02-introduction-to-js.html)
+
 

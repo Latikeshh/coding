@@ -108,5 +108,6 @@ Use named exports for utility libraries and default exports for main component o
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Error Handling](22-error-handling.md) | [Next: Comprehensive Mini Projects →](24-mini-projects.md)
+[← JS Home](./) | [← Previous: Error Handling](22-error-handling.html) | [Next: Comprehensive Mini Projects →](24-mini-projects.html)
+
 

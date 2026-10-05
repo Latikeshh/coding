@@ -142,9 +142,9 @@ Modern web design systems use `clamp()` for fluid responsive typography and flui
 
 ## 🔗 Related Topics
 
-- [CSS Units (`px`, `rem`, `em`, `%`, `vw`, `vh`)](11-css-units.md)
-- [CSS Variables (Custom Properties)](31-variables.md)
-- [Modern CSS Features](40-modern-css-features.md)
+- [CSS Units (`px`, `rem`, `em`, `%`, `vw`, `vh`)](11-css-units.html)
+- [CSS Variables (Custom Properties)](31-variables.html)
+- [Modern CSS Features](40-modern-css-features.html)
 
 ## ✅ Remember
 
@@ -154,5 +154,6 @@ Modern web design systems use `clamp()` for fluid responsive typography and flui
 
 ## 🧭 Navigation
 
-[← Previous](31-variables.md) | [CSS Home](00-README.md) | [Next →](33-important.md)
+[← Previous](31-variables.html) | [CSS Home](./) | [Next →](33-important.html)
+
 

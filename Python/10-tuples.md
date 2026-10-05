@@ -125,9 +125,10 @@ Write a function `get_circle_metrics(radius)` that returns a tuple containing ar
 
 ## 🔗 Related Topics
 
-- [Lists](09-lists.md)
-- [Dictionaries](12-dictionaries.md)
+- [Lists](09-lists.html)
+- [Dictionaries](12-dictionaries.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Lists](09-lists.md) | [Next: Sets →](11-sets.md)
+[← Python Home](./) | [← Previous: Lists](09-lists.html) | [Next: Sets →](11-sets.html)
+

@@ -116,11 +116,12 @@ Run `git remote add test-remote https://github.com/test/repo.git`, then rename `
 
 ## 🔗 Related Topics
 
-- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.md)
-- [Remote Tracking & Fetching](19-git-fetch-and-remote-branches.md)
-- [Introduction to GitHub](20-introduction-to-github.md)
+- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.html)
+- [Remote Tracking & Fetching](19-git-fetch-and-remote-branches.html)
+- [Introduction to GitHub](20-introduction-to-github.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Stash](16-git-stash.md) | [Next: Push & Pull →](18-git-push-and-git-pull.md)
+[← Home](./) | [← Previous: Stash](16-git-stash.html) | [Next: Push & Pull →](18-git-push-and-git-pull.html)
+
 

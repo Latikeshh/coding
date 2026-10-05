@@ -99,10 +99,11 @@ Write a CTE that finds each department's average salary, then return only depart
 
 ## Related Topics
 
-- [Subqueries & Nested Queries](18-subqueries.md)
-- [Recursive CTEs](25-recursive-ctes.md)
+- [Subqueries & Nested Queries](18-subqueries.html)
+- [Recursive CTEs](25-recursive-ctes.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Transactions](23-transactions.md) | [Next: Recursive CTEs →](25-recursive-ctes.md)
+[← SQL Home](./) | [← Previous: Transactions](23-transactions.html) | [Next: Recursive CTEs →](25-recursive-ctes.html)
+
 

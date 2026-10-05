@@ -127,11 +127,12 @@ Run `git log --oneline --graph --all` after merging to visually inspect how the 
 
 ## 🔗 Related Topics
 
-- [Branching Basics](12-branching-basics.md)
-- [Handling Merge Conflicts](14-handling-merge-conflicts.md)
-- [Git Rebase](15-git-rebase.md)
+- [Branching Basics](12-branching-basics.html)
+- [Handling Merge Conflicts](14-handling-merge-conflicts.html)
+- [Git Rebase](15-git-rebase.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Branching](12-branching-basics.md) | [Next: Merge Conflicts →](14-handling-merge-conflicts.md)
+[← Home](./) | [← Previous: Branching](12-branching-basics.html) | [Next: Merge Conflicts →](14-handling-merge-conflicts.html)
+
 

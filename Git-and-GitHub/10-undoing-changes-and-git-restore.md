@@ -115,11 +115,12 @@ Modify `README.md`, stage it with `git add README.md`, and then use `git restore
 
 ## 🔗 Related Topics
 
-- [Git Diff & Inspecting Changes](09-git-diff-and-inspecting-changes.md)
-- [Undoing Commits with Git Reset & Revert](11-git-reset-and-git-revert.md)
-- [Git Stash](16-git-stash.md)
+- [Git Diff & Inspecting Changes](09-git-diff-and-inspecting-changes.html)
+- [Undoing Commits with Git Reset & Revert](11-git-reset-and-git-revert.html)
+- [Git Stash](16-git-stash.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Git Diff](09-git-diff-and-inspecting-changes.md) | [Next: Reset & Revert →](11-git-reset-and-git-revert.md)
+[← Home](./) | [← Previous: Git Diff](09-git-diff-and-inspecting-changes.html) | [Next: Reset & Revert →](11-git-reset-and-git-revert.html)
+
 

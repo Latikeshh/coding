@@ -89,10 +89,11 @@ Create a view that groups orders by customer and displays each total; explain wh
 
 ## Related Topics
 
-- [SQL Joins](15-joins.md)
-- [Indexes & Query Performance](22-indexes-and-performance.md)
+- [SQL Joins](15-joins.html)
+- [Indexes & Query Performance](22-indexes-and-performance.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Normalization](20-normalization.md) | [Next: Indexes & Performance →](22-indexes-and-performance.md)
+[← SQL Home](./) | [← Previous: Normalization](20-normalization.html) | [Next: Indexes & Performance →](22-indexes-and-performance.html)
+
 

@@ -30,29 +30,29 @@ C++ is a high-performance, object-oriented, systems-level programming language u
 
 | # | Topic | Level | Link |
 |---|---|---|---|
-| 01 | Set Up C++ Environment | 🟢 Beginner | [Open lesson](01-setup-cpp.md) |
-| 02 | Introduction to C++ | 🟢 Beginner | [Open lesson](02-introduction-to-cpp.md) |
-| 03 | Variables & Primitive Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.md) |
-| 04 | Input & Output (`std::cout`, `std::cin`, `getline`) | 🟢 Beginner | [Open lesson](04-input-output.md) |
-| 05 | Operators | 🟢 Beginner | [Open lesson](05-operators.md) |
-| 06 | Conditionals (`if`, `else`, `switch`) | 🟢 Beginner | [Open lesson](06-conditionals.md) |
-| 07 | Loops & Range-Based For | 🟢 Beginner | [Open lesson](07-loops.md) |
-| 08 | Functions, Default Arguments & References | 🟢 Beginner | [Open lesson](08-functions.md) |
-| 09 | Arrays & Dynamic Vectors (`std::vector`) | 🟡 Intermediate | [Open lesson](09-arrays-and-vectors.md) |
-| 10 | Classes & Objects (OOP Basics) | 🟡 Intermediate | [Open lesson](10-classes-and-oops.md) |
-| 11 | Constructors, Destructors & RAII | 🟡 Intermediate | [Open lesson](11-constructors-and-destructors.md) |
-| 12 | Inheritance & Polymorphism (`virtual`, `override`) | 🔴 Advanced | [Open lesson](12-inheritance-and-polymorphism.md) |
-| 13 | Operator Overloading | 🔴 Advanced | [Open lesson](13-operator-overloading.md) |
-| 14 | Smart Pointers (`unique_ptr`, `shared_ptr`) | 🔴 Advanced | [Open lesson](14-smart-pointers.md) |
-| 15 | STL Containers (`map`, `set`, `unordered_map`) | 🟡 Intermediate | [Open lesson](15-stl-containers.md) |
-| 16 | STL Algorithms & Iterators | 🟡 Intermediate | [Open lesson](16-stl-algorithms.md) |
-| 17 | Generic Programming & Templates | 🔴 Advanced | [Open lesson](17-templates.md) |
-| 18 | Lambdas & Function Objects | 🔴 Advanced | [Open lesson](18-lambdas.md) |
-| 19 | Exception Handling (`try`, `catch`, `throw`) | 🟡 Intermediate | [Open lesson](19-exception-handling.md) |
-| 20 | File Streams (`ifstream`, `ofstream`) | 🟡 Intermediate | [Open lesson](20-file-streams.md) |
-| 21 | Namespaces & Modern C++ (C++11 to C++20) | 🔴 Advanced | [Open lesson](21-namespaces-and-modern-cpp.md) |
-| 22 | Move Semantics & Rvalue References (`&&`) | 🔴 Advanced | [Open lesson](22-move-semantics.md) |
-| 23 | Comprehensive C++ Mini Projects | 🔴 Advanced | [Open lesson](23-mini-projects.md) |
+| 01 | Set Up C++ Environment | 🟢 Beginner | [Open lesson](01-setup-cpp.html) |
+| 02 | Introduction to C++ | 🟢 Beginner | [Open lesson](02-introduction-to-cpp.html) |
+| 03 | Variables & Primitive Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.html) |
+| 04 | Input & Output (`std::cout`, `std::cin`, `getline`) | 🟢 Beginner | [Open lesson](04-input-output.html) |
+| 05 | Operators | 🟢 Beginner | [Open lesson](05-operators.html) |
+| 06 | Conditionals (`if`, `else`, `switch`) | 🟢 Beginner | [Open lesson](06-conditionals.html) |
+| 07 | Loops & Range-Based For | 🟢 Beginner | [Open lesson](07-loops.html) |
+| 08 | Functions, Default Arguments & References | 🟢 Beginner | [Open lesson](08-functions.html) |
+| 09 | Arrays & Dynamic Vectors (`std::vector`) | 🟡 Intermediate | [Open lesson](09-arrays-and-vectors.html) |
+| 10 | Classes & Objects (OOP Basics) | 🟡 Intermediate | [Open lesson](10-classes-and-oops.html) |
+| 11 | Constructors, Destructors & RAII | 🟡 Intermediate | [Open lesson](11-constructors-and-destructors.html) |
+| 12 | Inheritance & Polymorphism (`virtual`, `override`) | 🔴 Advanced | [Open lesson](12-inheritance-and-polymorphism.html) |
+| 13 | Operator Overloading | 🔴 Advanced | [Open lesson](13-operator-overloading.html) |
+| 14 | Smart Pointers (`unique_ptr`, `shared_ptr`) | 🔴 Advanced | [Open lesson](14-smart-pointers.html) |
+| 15 | STL Containers (`map`, `set`, `unordered_map`) | 🟡 Intermediate | [Open lesson](15-stl-containers.html) |
+| 16 | STL Algorithms & Iterators | 🟡 Intermediate | [Open lesson](16-stl-algorithms.html) |
+| 17 | Generic Programming & Templates | 🔴 Advanced | [Open lesson](17-templates.html) |
+| 18 | Lambdas & Function Objects | 🔴 Advanced | [Open lesson](18-lambdas.html) |
+| 19 | Exception Handling (`try`, `catch`, `throw`) | 🟡 Intermediate | [Open lesson](19-exception-handling.html) |
+| 20 | File Streams (`ifstream`, `ofstream`) | 🟡 Intermediate | [Open lesson](20-file-streams.html) |
+| 21 | Namespaces & Modern C++ (C++11 to C++20) | 🔴 Advanced | [Open lesson](21-namespaces-and-modern-cpp.html) |
+| 22 | Move Semantics & Rvalue References (`&&`) | 🔴 Advanced | [Open lesson](22-move-semantics.html) |
+| 23 | Comprehensive C++ Mini Projects | 🔴 Advanced | [Open lesson](23-mini-projects.html) |
 
 ## 🎯 Suggested Learning Flow
 
@@ -76,5 +76,6 @@ C++ is a high-performance, object-oriented, systems-level programming language u
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-cpp.md)
+[← Repository Home](../) | [Start with Lesson 01 →](01-setup-cpp.html)
+
 

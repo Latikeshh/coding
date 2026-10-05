@@ -146,11 +146,12 @@ Write a program that uses `sizeof` to display the memory sizes of `short`, `int`
 
 ## 🔗 Related Topics
 
-- [Set Up C Environment](01-setup-c.md)
-- [Input and Output](04-input-output.md)
-- [Operators](05-operators.md)
+- [Set Up C Environment](01-setup-c.html)
+- [Input and Output](04-input-output.html)
+- [Operators](05-operators.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Introduction](02-introduction-to-c.md) | [Next: Input & Output →](04-input-output.md)
+[← C Home](./) | [← Previous: Introduction](02-introduction-to-c.html) | [Next: Input & Output →](04-input-output.html)
+
 

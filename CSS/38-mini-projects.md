@@ -383,5 +383,6 @@ p {
 
 ## 🧭 Navigation
 
-[← Previous](37-navigation-bars.md) | [CSS Home](00-README.md) | [Next →](39-advanced-selectors.md)
+[← Previous](37-navigation-bars.html) | [CSS Home](./) | [Next →](39-advanced-selectors.html)
+
 

@@ -29,29 +29,29 @@ C is a high-performance, system-level programming language that powers operating
 
 | # | Topic | Level | Link |
 |---|---|---|---|
-| 01 | Set Up C Environment | 🟢 Beginner | [Open lesson](01-setup-c.md) |
-| 02 | Introduction to C | 🟢 Beginner | [Open lesson](02-introduction-to-c.md) |
-| 03 | Variables & Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.md) |
-| 04 | Input & Output (`printf`, `scanf`, `fgets`) | 🟢 Beginner | [Open lesson](04-input-output.md) |
-| 05 | Operators in C | 🟢 Beginner | [Open lesson](05-operators.md) |
-| 06 | Conditionals (`if`, `else`, `switch`) | 🟢 Beginner | [Open lesson](06-conditionals.md) |
-| 07 | Loops (`for`, `while`, `do-while`) | 🟢 Beginner | [Open lesson](07-loops.md) |
-| 08 | Functions & Scope | 🟢 Beginner | [Open lesson](08-functions.md) |
-| 09 | Arrays & Multidimensional Arrays | 🟡 Intermediate | [Open lesson](09-arrays.md) |
-| 10 | Pointers Basics & Memory Addresses | 🟡 Intermediate | [Open lesson](10-pointers-basics.md) |
-| 11 | Advanced Pointers & Pointer Arithmetic | 🔴 Advanced | [Open lesson](11-advanced-pointers.md) |
-| 12 | Strings in C (`<string.h>`) | 🟡 Intermediate | [Open lesson](12-strings.md) |
-| 13 | Dynamic Memory Allocation (`malloc`, `free`) | 🔴 Advanced | [Open lesson](13-dynamic-memory-allocation.md) |
-| 14 | Structures (`struct`) & `typedef` | 🟡 Intermediate | [Open lesson](14-structures.md) |
-| 15 | Unions & Bit Fields | 🔴 Advanced | [Open lesson](15-unions-and-bit-fields.md) |
-| 16 | Enumerations (`enum`) | 🟡 Intermediate | [Open lesson](16-enums.md) |
-| 17 | File Handling (`fopen`, `fread`, `fwrite`) | 🔴 Advanced | [Open lesson](17-file-handling.md) |
-| 18 | C Preprocessor & Macros (`#define`, `#ifdef`) | 🟡 Intermediate | [Open lesson](18-preprocessor-and-macros.md) |
-| 19 | Storage Classes & Qualifiers (`static`, `extern`) | 🔴 Advanced | [Open lesson](19-storage-classes.md) |
-| 20 | Command Line Arguments (`argc`, `argv`) | 🟡 Intermediate | [Open lesson](20-command-line-arguments.md) |
-| 21 | Multi-file Projects & Header Files (`.h`) | 🔴 Advanced | [Open lesson](21-multi-file-projects.md) |
-| 22 | Error Handling & Debugging (`errno`, `perror`) | 🔴 Advanced | [Open lesson](22-error-handling.md) |
-| 23 | Comprehensive C Mini Projects | 🔴 Advanced | [Open lesson](23-mini-projects.md) |
+| 01 | Set Up C Environment | 🟢 Beginner | [Open lesson](01-setup-c.html) |
+| 02 | Introduction to C | 🟢 Beginner | [Open lesson](02-introduction-to-c.html) |
+| 03 | Variables & Data Types | 🟢 Beginner | [Open lesson](03-variables-and-data-types.html) |
+| 04 | Input & Output (`printf`, `scanf`, `fgets`) | 🟢 Beginner | [Open lesson](04-input-output.html) |
+| 05 | Operators in C | 🟢 Beginner | [Open lesson](05-operators.html) |
+| 06 | Conditionals (`if`, `else`, `switch`) | 🟢 Beginner | [Open lesson](06-conditionals.html) |
+| 07 | Loops (`for`, `while`, `do-while`) | 🟢 Beginner | [Open lesson](07-loops.html) |
+| 08 | Functions & Scope | 🟢 Beginner | [Open lesson](08-functions.html) |
+| 09 | Arrays & Multidimensional Arrays | 🟡 Intermediate | [Open lesson](09-arrays.html) |
+| 10 | Pointers Basics & Memory Addresses | 🟡 Intermediate | [Open lesson](10-pointers-basics.html) |
+| 11 | Advanced Pointers & Pointer Arithmetic | 🔴 Advanced | [Open lesson](11-advanced-pointers.html) |
+| 12 | Strings in C (`<string.h>`) | 🟡 Intermediate | [Open lesson](12-strings.html) |
+| 13 | Dynamic Memory Allocation (`malloc`, `free`) | 🔴 Advanced | [Open lesson](13-dynamic-memory-allocation.html) |
+| 14 | Structures (`struct`) & `typedef` | 🟡 Intermediate | [Open lesson](14-structures.html) |
+| 15 | Unions & Bit Fields | 🔴 Advanced | [Open lesson](15-unions-and-bit-fields.html) |
+| 16 | Enumerations (`enum`) | 🟡 Intermediate | [Open lesson](16-enums.html) |
+| 17 | File Handling (`fopen`, `fread`, `fwrite`) | 🔴 Advanced | [Open lesson](17-file-handling.html) |
+| 18 | C Preprocessor & Macros (`#define`, `#ifdef`) | 🟡 Intermediate | [Open lesson](18-preprocessor-and-macros.html) |
+| 19 | Storage Classes & Qualifiers (`static`, `extern`) | 🔴 Advanced | [Open lesson](19-storage-classes.html) |
+| 20 | Command Line Arguments (`argc`, `argv`) | 🟡 Intermediate | [Open lesson](20-command-line-arguments.html) |
+| 21 | Multi-file Projects & Header Files (`.h`) | 🔴 Advanced | [Open lesson](21-multi-file-projects.html) |
+| 22 | Error Handling & Debugging (`errno`, `perror`) | 🔴 Advanced | [Open lesson](22-error-handling.html) |
+| 23 | Comprehensive C Mini Projects | 🔴 Advanced | [Open lesson](23-mini-projects.html) |
 
 ## 🎯 Suggested Learning Flow
 
@@ -76,5 +76,6 @@ C is a high-performance, system-level programming language that powers operating
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-c.md)
+[← Repository Home](../) | [Start with Lesson 01 →](01-setup-c.html)
+
 

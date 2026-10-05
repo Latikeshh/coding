@@ -146,9 +146,10 @@ Write a program that uses bitwise AND `&` to check whether a given integer is ev
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Conditionals](06-conditionals.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Conditionals](06-conditionals.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Input and Output](04-input-and-output.md) | [Next: Conditionals →](06-conditionals.md)
+[← Java Home](./) | [← Previous: Input and Output](04-input-and-output.html) | [Next: Conditionals →](06-conditionals.html)
+

@@ -146,11 +146,12 @@ Write a program that uses `std::remove_if` and a lambda expression to strip all 
 
 ## 🔗 Related Topics
 
-- [STL Algorithms](16-stl-algorithms.md)
-- [Functions in C++](08-functions.md)
+- [STL Algorithms](16-stl-algorithms.html)
+- [Functions in C++](08-functions.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Templates](17-templates.md) | [Next: Exception Handling →](19-exception-handling.md)
+[← C++ Home](./) | [← Previous: Templates](17-templates.html) | [Next: Exception Handling →](19-exception-handling.html)
+

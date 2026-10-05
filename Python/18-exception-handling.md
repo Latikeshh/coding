@@ -161,9 +161,10 @@ Create a custom exception `InvalidEmailError` and write a function `validate_ema
 
 ## 🔗 Related Topics
 
-- [File Handling](17-file-handling.md)
-- [Testing and Debugging](28-testing-and-debugging.md)
+- [File Handling](17-file-handling.html)
+- [Testing and Debugging](28-testing-and-debugging.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: File Handling](17-file-handling.md) | [Next: Object-Oriented Programming →](19-object-oriented-programming.md)
+[← Python Home](./) | [← Previous: File Handling](17-file-handling.html) | [Next: Object-Oriented Programming →](19-object-oriented-programming.html)
+

@@ -119,11 +119,12 @@ Run `git diff --stat` on a modified file and note down how many insertions (`+`)
 
 ## 🔗 Related Topics
 
-- [Viewing History](07-viewing-history-and-git-log.md)
-- [Undoing Local Changes with Git Restore](10-undoing-changes-and-git-restore.md)
-- [Handling Merge Conflicts](14-handling-merge-conflicts.md)
+- [Viewing History](07-viewing-history-and-git-log.html)
+- [Undoing Local Changes with Git Restore](10-undoing-changes-and-git-restore.html)
+- [Handling Merge Conflicts](14-handling-merge-conflicts.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Gitignore](08-ignoring-files-with-gitignore.md) | [Next: Undoing Changes →](10-undoing-changes-and-git-restore.md)
+[← Home](./) | [← Previous: Gitignore](08-ignoring-files-with-gitignore.html) | [Next: Undoing Changes →](10-undoing-changes-and-git-restore.html)
+
 

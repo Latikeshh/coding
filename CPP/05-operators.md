@@ -153,11 +153,12 @@ Write a C++ script that inputs a student's exam score (0 to 100) and uses a tern
 
 ## 🔗 Related Topics
 
-- [Variables & Data Types](03-variables-and-data-types.md)
-- [Conditionals in C++](06-conditionals.md)
+- [Variables & Data Types](03-variables-and-data-types.html)
+- [Conditionals in C++](06-conditionals.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Input/Output](04-input-output.md) | [Next: Conditionals →](06-conditionals.md)
+[← C++ Home](./) | [← Previous: Input/Output](04-input-output.html) | [Next: Conditionals →](06-conditionals.html)
+

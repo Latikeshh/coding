@@ -127,9 +127,10 @@ Write a function `extract_hashtags(text)` using `re.findall()` that extracts all
 
 ## 🔗 Related Topics
 
-- [Strings](13-strings.md)
-- [Exception Handling](18-exception-handling.md)
+- [Strings](13-strings.html)
+- [Exception Handling](18-exception-handling.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Lambda, Map, Filter, Reduce](22-lambda-map-filter-reduce.md) | [Next: Datetime →](24-datetime.md)
+[← Python Home](./) | [← Previous: Lambda, Map, Filter, Reduce](22-lambda-map-filter-reduce.html) | [Next: Datetime →](24-datetime.html)
+

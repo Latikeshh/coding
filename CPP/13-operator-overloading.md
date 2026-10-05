@@ -145,11 +145,12 @@ Create a `Money` class representing currency (`rupees, paise`). Overload `+`, `-
 
 ## 🔗 Related Topics
 
-- [Classes & Objects](10-classes-and-oops.md)
-- [Stream I/O in C++](04-input-output.md)
+- [Classes & Objects](10-classes-and-oops.html)
+- [Stream I/O in C++](04-input-output.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Inheritance](12-inheritance-and-polymorphism.md) | [Next: Smart Pointers →](14-smart-pointers.md)
+[← C++ Home](./) | [← Previous: Inheritance](12-inheritance-and-polymorphism.html) | [Next: Smart Pointers →](14-smart-pointers.html)
+

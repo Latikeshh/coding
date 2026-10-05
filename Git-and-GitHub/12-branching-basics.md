@@ -127,11 +127,12 @@ Switch back to `feature-signup` using `git switch feature-signup` and verify wit
 
 ## 🔗 Related Topics
 
-- [Merging Branches](13-merging-branches.md)
-- [Handling Merge Conflicts](14-handling-merge-conflicts.md)
-- [Git Rebase](15-git-rebase.md)
+- [Merging Branches](13-merging-branches.html)
+- [Handling Merge Conflicts](14-handling-merge-conflicts.html)
+- [Git Rebase](15-git-rebase.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Reset & Revert](11-git-reset-and-git-revert.md) | [Next: Merging Branches →](13-merging-branches.md)
+[← Home](./) | [← Previous: Reset & Revert](11-git-reset-and-git-revert.html) | [Next: Merging Branches →](13-merging-branches.html)
+
 

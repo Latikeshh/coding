@@ -121,5 +121,6 @@ Use `for...of` for Array values and `for...in` for Object property keys.
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Conditionals](06-conditionals.md) | [Next: Functions →](08-functions.md)
+[← JS Home](./) | [← Previous: Conditionals](06-conditionals.html) | [Next: Functions →](08-functions.html)
+
 

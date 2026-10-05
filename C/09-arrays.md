@@ -199,11 +199,12 @@ Write a program that takes a 3x3 matrix of integers, calculates the sum of eleme
 
 ## 🔗 Related Topics
 
-- [Loops](07-loops.md)
-- [Functions](08-functions.md)
-- [Pointers Basics](10-pointers-basics.md)
+- [Loops](07-loops.html)
+- [Functions](08-functions.html)
+- [Pointers Basics](10-pointers-basics.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Functions](08-functions.md) | [Next: Pointers Basics →](10-pointers-basics.md)
+[← C Home](./) | [← Previous: Functions](08-functions.html) | [Next: Pointers Basics →](10-pointers-basics.html)
+
 

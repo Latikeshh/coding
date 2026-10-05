@@ -138,11 +138,12 @@ Run `git stash list` after popping your stash and confirm that `stash@{0}` was a
 
 ## 🔗 Related Topics
 
-- [Undoing Local Changes with Git Restore](10-undoing-changes-and-git-restore.md)
-- [Branching Basics](12-branching-basics.md)
-- [Git Rebase](15-git-rebase.md)
+- [Undoing Local Changes with Git Restore](10-undoing-changes-and-git-restore.html)
+- [Branching Basics](12-branching-basics.html)
+- [Git Rebase](15-git-rebase.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Rebase](15-git-rebase.md) | [Next: Remote Repositories →](17-remote-repositories-and-remotes.md)
+[← Home](./) | [← Previous: Rebase](15-git-rebase.html) | [Next: Remote Repositories →](17-remote-repositories-and-remotes.html)
+
 

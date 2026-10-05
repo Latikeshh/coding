@@ -129,11 +129,12 @@ Write a program that prints 3 advantages of C++ formatted as bullet points on se
 
 ## 🔗 Related Topics
 
-- [Setup C++ Development Environment](01-setup-cpp.md)
-- [Variables & Data Types](03-variables-and-data-types.md)
+- [Setup C++ Development Environment](01-setup-cpp.html)
+- [Variables & Data Types](03-variables-and-data-types.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Setup](01-setup-cpp.md) | [Next: Variables & Data Types →](03-variables-and-data-types.md)
+[← C++ Home](./) | [← Previous: Setup](01-setup-cpp.html) | [Next: Variables & Data Types →](03-variables-and-data-types.html)
+

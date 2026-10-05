@@ -161,11 +161,12 @@ Write a program that prompts the user for a filename, opens it using `fopen()`, 
 
 ## 🔗 Related Topics
 
-- [File Handling](17-file-handling.md)
-- [Dynamic Memory Allocation](13-dynamic-memory-allocation.md)
-- [Command Line Arguments](20-command-line-arguments.md)
+- [File Handling](17-file-handling.html)
+- [Dynamic Memory Allocation](13-dynamic-memory-allocation.html)
+- [Command Line Arguments](20-command-line-arguments.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Multi-file Projects](21-multi-file-projects.md) | [Next: Mini Projects →](23-mini-projects.md)
+[← C Home](./) | [← Previous: Multi-file Projects](21-multi-file-projects.html) | [Next: Mini Projects →](23-mini-projects.html)
+
 

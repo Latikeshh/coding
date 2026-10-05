@@ -88,10 +88,11 @@ Categorize the following commands as DDL, DML, or DQL: `INSERT`, `CREATE TABLE`,
 
 ## 🔗 Related Topics
 
-- [Set Up SQL Environment](01-setup-sql.md)
-- [Database & Table Basics](03-databases-and-tables.md)
+- [Set Up SQL Environment](01-setup-sql.html)
+- [Database & Table Basics](03-databases-and-tables.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: SQL Setup](01-setup-sql.md) | [Next: Database & Table Basics →](03-databases-and-tables.md)
+[← SQL Home](./) | [← Previous: SQL Setup](01-setup-sql.html) | [Next: Database & Table Basics →](03-databases-and-tables.html)
+
 

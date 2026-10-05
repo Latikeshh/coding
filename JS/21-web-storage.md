@@ -94,5 +94,6 @@ Use `localStorage` for long-term user preferences and `sessionStorage` for tempo
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Event Delegation](20-event-delegation-and-web-apis.md) | [Next: Error Handling →](22-error-handling.md)
+[← JS Home](./) | [← Previous: Event Delegation](20-event-delegation-and-web-apis.html) | [Next: Error Handling →](22-error-handling.html)
+
 

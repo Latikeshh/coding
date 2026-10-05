@@ -136,11 +136,12 @@ Set up the custom `git lg` alias in your terminal using the command provided in 
 
 ## 🔗 Related Topics
 
-- [Git Configuration](03-git-configuration.md)
-- [Viewing History](07-viewing-history-and-git-log.md)
-- [Industry Workflows](28-git-workflows-gitflow-and-trunk-based.md)
+- [Git Configuration](03-git-configuration.html)
+- [Viewing History](07-viewing-history-and-git-log.html)
+- [Industry Workflows](28-git-workflows-gitflow-and-trunk-based.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: GitHub Actions](26-github-actions-and-ci-cd-basics.md) | [Next: Git Workflows →](28-git-workflows-gitflow-and-trunk-based.md)
+[← Home](./) | [← Previous: GitHub Actions](26-github-actions-and-ci-cd-basics.html) | [Next: Git Workflows →](28-git-workflows-gitflow-and-trunk-based.html)
+
 

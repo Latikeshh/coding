@@ -176,11 +176,12 @@ Write a program that dynamically allocates memory for a string of 50 characters,
 
 ## 🔗 Related Topics
 
-- [Pointers Basics](10-pointers-basics.md)
-- [Advanced Pointers](11-advanced-pointers.md)
-- [Structures](14-structures.md)
+- [Pointers Basics](10-pointers-basics.html)
+- [Advanced Pointers](11-advanced-pointers.html)
+- [Structures](14-structures.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Strings](12-strings.md) | [Next: Structures →](14-structures.md)
+[← C Home](./) | [← Previous: Strings](12-strings.html) | [Next: Structures →](14-structures.html)
+
 

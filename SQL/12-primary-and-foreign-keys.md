@@ -96,10 +96,11 @@ Design tables for departments and employees, ensuring each employee references a
 
 ## Related Topics
 
-- [SQL Constraints](11-constraints.md)
-- [Database Relationships & Normalization](20-normalization.md)
+- [SQL Constraints](11-constraints.html)
+- [Database Relationships & Normalization](20-normalization.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: SQL Constraints](11-constraints.md) | [Next: Aggregate Functions →](13-aggregate-functions.md)
+[← SQL Home](./) | [← Previous: SQL Constraints](11-constraints.html) | [Next: Aggregate Functions →](13-aggregate-functions.html)
+
 

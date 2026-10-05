@@ -133,9 +133,10 @@ Write a program that uses `for...else` to check whether a given integer is a Pri
 
 ## 🔗 Related Topics
 
-- [Conditionals](06-conditionals.md)
-- [Lists](09-lists.md)
+- [Conditionals](06-conditionals.html)
+- [Lists](09-lists.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Conditionals](06-conditionals.md) | [Next: Functions →](08-functions.md)
+[← Python Home](./) | [← Previous: Conditionals](06-conditionals.html) | [Next: Functions →](08-functions.html)
+

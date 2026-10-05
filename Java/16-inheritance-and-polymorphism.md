@@ -175,9 +175,10 @@ Write a method `processSalaries(List<Employee> staff)` that polymorphically calc
 
 ## 🔗 Related Topics
 
-- [Encapsulation and Composition](15-encapsulation-and-composition.md)
-- [Interfaces and Abstract Classes](17-interfaces-and-abstract-classes.md)
+- [Encapsulation and Composition](15-encapsulation-and-composition.html)
+- [Interfaces and Abstract Classes](17-interfaces-and-abstract-classes.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Encapsulation](15-encapsulation-and-composition.md) | [Next: Interfaces and Abstract Classes →](17-interfaces-and-abstract-classes.md)
+[← Java Home](./) | [← Previous: Encapsulation](15-encapsulation-and-composition.html) | [Next: Interfaces and Abstract Classes →](17-interfaces-and-abstract-classes.html)
+

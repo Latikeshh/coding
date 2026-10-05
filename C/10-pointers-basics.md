@@ -167,11 +167,12 @@ Write a function `void doubleValue(int *val)` that doubles the value of an integ
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Functions](08-functions.md)
-- [Advanced Pointers](11-advanced-pointers.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Functions](08-functions.html)
+- [Advanced Pointers](11-advanced-pointers.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Arrays](09-arrays.md) | [Next: Advanced Pointers →](11-advanced-pointers.md)
+[← C Home](./) | [← Previous: Arrays](09-arrays.html) | [Next: Advanced Pointers →](11-advanced-pointers.html)
+
 

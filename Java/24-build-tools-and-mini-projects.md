@@ -181,9 +181,10 @@ Build a Student Marksheet Analyzer CLI that reads student records from a CSV fil
 
 ## 🔗 Related Topics
 
-- [File Input and Output](20-file-input-and-output.md)
-- [Testing and Debugging](23-testing-and-debugging.md)
+- [File Input and Output](20-file-input-and-output.html)
+- [Testing and Debugging](23-testing-and-debugging.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Testing and Debugging](23-testing-and-debugging.md)
+[← Java Home](./) | [← Previous: Testing and Debugging](23-testing-and-debugging.html)
+

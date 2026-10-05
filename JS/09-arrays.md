@@ -95,5 +95,6 @@ Arrays are zero-indexed (`0` to `length - 1`). Use `slice()` when you want a cop
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: Functions](08-functions.md) | [Next: Objects →](10-objects.md)
+[← JS Home](./) | [← Previous: Functions](08-functions.html) | [Next: Objects →](10-objects.html)
+
 

@@ -115,11 +115,12 @@ Explain why revoking / invalidating a leaked API key on your cloud provider dash
 
 ## 🔗 Related Topics
 
-- [Ignoring Files with Gitignore](08-ignoring-files-with-gitignore.md)
-- [SSH Keys & Authentication](22-ssh-keys-and-github-authentication.md)
-- [GitHub Actions Basics](26-github-actions-and-ci-cd-basics.md)
+- [Ignoring Files with Gitignore](08-ignoring-files-with-gitignore.html)
+- [SSH Keys & Authentication](22-ssh-keys-and-github-authentication.html)
+- [GitHub Actions Basics](26-github-actions-and-ci-cd-basics.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Workflows](28-git-workflows-gitflow-and-trunk-based.md) | [Next: Capstone Projects →](30-practical-projects-and-workflows.md)
+[← Home](./) | [← Previous: Workflows](28-git-workflows-gitflow-and-trunk-based.html) | [Next: Capstone Projects →](30-practical-projects-and-workflows.html)
+
 

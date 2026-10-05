@@ -102,11 +102,12 @@ Make a edit in your local project, commit with message `Add footer links (Fixes 
 
 ## 🔗 Related Topics
 
-- [Introduction to GitHub](20-introduction-to-github.md)
-- [Forking & Pull Requests](21-forking-and-pull-requests.md)
-- [GitHub Actions Basics](26-github-actions-and-ci-cd-basics.md)
+- [Introduction to GitHub](20-introduction-to-github.html)
+- [Forking & Pull Requests](21-forking-and-pull-requests.html)
+- [GitHub Actions Basics](26-github-actions-and-ci-cd-basics.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: SSH Keys](22-ssh-keys-and-github-authentication.md) | [Next: GitHub Pages →](24-github-pages-and-hosting.md)
+[← Home](./) | [← Previous: SSH Keys](22-ssh-keys-and-github-authentication.html) | [Next: GitHub Pages →](24-github-pages-and-hosting.html)
+
 

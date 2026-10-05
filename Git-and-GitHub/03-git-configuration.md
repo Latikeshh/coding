@@ -126,11 +126,12 @@ Run `git config --list --show-origin` in your terminal and identify the exact fi
 
 ## 🔗 Related Topics
 
-- [Installation & Setup](02-installation-and-setup.md)
-- [Initializing a Repository](04-initializing-a-repository.md)
-- [SSH Keys & Authentication](22-ssh-keys-and-github-authentication.md)
+- [Installation & Setup](02-installation-and-setup.html)
+- [Initializing a Repository](04-initializing-a-repository.html)
+- [SSH Keys & Authentication](22-ssh-keys-and-github-authentication.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Setup](02-installation-and-setup.md) | [Next: Initializing Repository →](04-initializing-a-repository.md)
+[← Home](./) | [← Previous: Setup](02-installation-and-setup.html) | [Next: Initializing Repository →](04-initializing-a-repository.html)
+
 

@@ -158,9 +158,10 @@ Write a JUnit test verifying that a custom string reverse method returns `""` wh
 
 ## 🔗 Related Topics
 
-- [Exceptions and Validation](18-exceptions-and-validation.md)
-- [Build Tools and Mini Projects](24-build-tools-and-mini-projects.md)
+- [Exceptions and Validation](18-exceptions-and-validation.html)
+- [Build Tools and Mini Projects](24-build-tools-and-mini-projects.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Dates and Time](22-dates-and-time.md) | [Next: Build Tools and Mini Projects →](24-build-tools-and-mini-projects.md)
+[← Java Home](./) | [← Previous: Dates and Time](22-dates-and-time.html) | [Next: Build Tools and Mini Projects →](24-build-tools-and-mini-projects.html)
+

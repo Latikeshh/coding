@@ -116,9 +116,9 @@ Every professional website on the internet includes boilerplate metadata to ensu
 
 ## 🔗 Related Topics
 
-- [Introduction to HTML](02-introduction.md)
-- [Headings](04-headings.md)
-- [Meta Tags & Head Metadata](27-meta-tags.md)
+- [Introduction to HTML](02-introduction.html)
+- [Headings](04-headings.html)
+- [Meta Tags & Head Metadata](27-meta-tags.html)
 
 ## 💡 Remember
 
@@ -128,5 +128,6 @@ Every professional website on the internet includes boilerplate metadata to ensu
 
 ## 🧭 Navigation
 
-[← Previous: Introduction](02-introduction.md) | [HTML Home](00-README.md) | [Next: Headings →](04-headings.md)
+[← Previous: Introduction](02-introduction.html) | [HTML Home](./) | [Next: Headings →](04-headings.html)
+
 

@@ -154,11 +154,12 @@ Write a program with a `const double CONVERSION_RATE = 83.50;` (USD to INR). Wri
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Functions](08-functions.md)
-- [Multi-file Projects](21-multi-file-projects.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Functions](08-functions.html)
+- [Multi-file Projects](21-multi-file-projects.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Preprocessor](18-preprocessor-and-macros.md) | [Next: CLI Arguments →](20-command-line-arguments.md)
+[← C Home](./) | [← Previous: Preprocessor](18-preprocessor-and-macros.html) | [Next: CLI Arguments →](20-command-line-arguments.html)
+
 

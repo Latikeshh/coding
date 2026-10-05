@@ -128,9 +128,9 @@ Converting `<a>` anchor elements into `display: inline-block` or `display: flex`
 
 ## 🔗 Related Topics
 
-- [Generic Containers (`<div>` and `<span>`)](14-div-and-span.md)
-- [Flexbox Layout](20-flexbox.md)
-- [CSS Grid Layout](21-grid.md)
+- [Generic Containers (`<div>` and `<span>`)](14-div-and-span.html)
+- [Flexbox Layout](20-flexbox.html)
+- [CSS Grid Layout](21-grid.html)
 
 ## ✅ Remember
 
@@ -141,5 +141,6 @@ Converting `<a>` anchor elements into `display: inline-block` or `display: flex`
 
 ## 🧭 Navigation
 
-[← Previous](16-box-model.md) | [CSS Home](00-README.md) | [Next →](18-positioning.md)
+[← Previous](16-box-model.html) | [CSS Home](./) | [Next →](18-positioning.html)
+
 

@@ -114,11 +114,12 @@ Commit `test.txt` again. Now run `git revert HEAD` and inspect `git log --onelin
 
 ## 🔗 Related Topics
 
-- [Undoing Local Changes with Git Restore](10-undoing-changes-and-git-restore.md)
-- [Branching Basics](12-branching-basics.md)
-- [Merging Branches](13-merging-branches.md)
+- [Undoing Local Changes with Git Restore](10-undoing-changes-and-git-restore.html)
+- [Branching Basics](12-branching-basics.html)
+- [Merging Branches](13-merging-branches.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Restore](10-undoing-changes-and-git-restore.md) | [Next: Branching Basics →](12-branching-basics.md)
+[← Home](./) | [← Previous: Restore](10-undoing-changes-and-git-restore.html) | [Next: Branching Basics →](12-branching-basics.html)
+
 

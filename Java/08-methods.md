@@ -163,10 +163,11 @@ Write a static method `calculateCompoundInterest(double principal, double rate, 
 
 ## 🔗 Related Topics
 
-- [Loops](07-loops.md)
-- [Arrays](09-arrays.md)
-- [Classes and Objects](14-classes-and-objects.md)
+- [Loops](07-loops.html)
+- [Arrays](09-arrays.html)
+- [Classes and Objects](14-classes-and-objects.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Loops](07-loops.md) | [Next: Arrays →](09-arrays.md)
+[← Java Home](./) | [← Previous: Loops](07-loops.html) | [Next: Arrays →](09-arrays.html)
+

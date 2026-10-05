@@ -118,10 +118,11 @@ Write a query using `COALESCE` that displays a lead's phone number or the string
 
 ## 🔗 Related Topics
 
-- [Database & Table Basics](03-databases-and-tables.md)
-- [`INSERT` – Adding Data](05-insert.md)
+- [Database & Table Basics](03-databases-and-tables.html)
+- [`INSERT` – Adding Data](05-insert.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Database & Table Basics](03-databases-and-tables.md) | [Next: INSERT – Adding Data →](05-insert.md)
+[← SQL Home](./) | [← Previous: Database & Table Basics](03-databases-and-tables.html) | [Next: INSERT – Adding Data →](05-insert.html)
+
 

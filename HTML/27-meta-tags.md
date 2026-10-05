@@ -138,8 +138,8 @@ All professional websites, e-commerce stores, and blog platforms use `<meta>` ta
 
 ## 🔗 Related Topics
 
-- [Document Structure](03-html-document-structure.md)
-- [HTML SEO & Open Graph Metadata](32-html-seo-and-open-graph.md)
+- [Document Structure](03-html-document-structure.html)
+- [HTML SEO & Open Graph Metadata](32-html-seo-and-open-graph.html)
 
 ## 💡 Remember
 
@@ -149,5 +149,6 @@ All professional websites, e-commerce stores, and blog platforms use `<meta>` ta
 
 ## 🧭 Navigation
 
-[← Previous: HTML History](26-html-history.md) | [HTML Home](00-README.md) | [Next: Advanced Form Controls →](28-advanced-form-controls.md)
+[← Previous: HTML History](26-html-history.html) | [HTML Home](./) | [Next: Advanced Form Controls →](28-advanced-form-controls.html)
+
 

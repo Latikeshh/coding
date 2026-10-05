@@ -134,9 +134,9 @@ Floats remain useful in editorial blogs, news sites, and digital magazines for w
 
 ## 🔗 Related Topics
 
-- [Display Property](17-display.md)
-- [Flexbox Layout](20-flexbox.md)
-- [CSS Grid Layout](21-grid.md)
+- [Display Property](17-display.html)
+- [Flexbox Layout](20-flexbox.html)
+- [CSS Grid Layout](21-grid.html)
 
 ## ✅ Remember
 
@@ -146,5 +146,6 @@ Floats remain useful in editorial blogs, news sites, and digital magazines for w
 
 ## 🧭 Navigation
 
-[← Previous](18-positioning.md) | [CSS Home](00-README.md) | [Next →](20-flexbox.md)
+[← Previous](18-positioning.html) | [CSS Home](./) | [Next →](20-flexbox.html)
+
 

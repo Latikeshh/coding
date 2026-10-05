@@ -94,10 +94,11 @@ Design an audit trigger for changes to an order's status. Decide whether to reco
 
 ## Related Topics
 
-- [Stored Procedures & Functions](27-stored-procedures.md)
-- [SQL Constraints](11-constraints.md)
+- [Stored Procedures & Functions](27-stored-procedures.html)
+- [SQL Constraints](11-constraints.html)
 
 ## Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Stored Procedures](27-stored-procedures.md) | [Next: SQL Security →](29-sql-security.md)
+[← SQL Home](./) | [← Previous: Stored Procedures](27-stored-procedures.html) | [Next: SQL Security →](29-sql-security.html)
+
 

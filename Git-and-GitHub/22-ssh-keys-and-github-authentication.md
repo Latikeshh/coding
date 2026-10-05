@@ -118,11 +118,12 @@ Add your SSH Public Key to your GitHub Settings and verify successful authentica
 
 ## 🔗 Related Topics
 
-- [Remote Repositories](17-remote-repositories-and-remotes.md)
-- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.md)
-- [Security Best Practices](29-git-best-practices-and-security.md)
+- [Remote Repositories](17-remote-repositories-and-remotes.html)
+- [Syncing Remotes with Push & Pull](18-git-push-and-git-pull.html)
+- [Security Best Practices](29-git-best-practices-and-security.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Forking & PRs](21-forking-and-pull-requests.md) | [Next: GitHub Issues & Projects →](23-github-issues-and-project-boards.md)
+[← Home](./) | [← Previous: Forking & PRs](21-forking-and-pull-requests.html) | [Next: GitHub Issues & Projects →](23-github-issues-and-project-boards.html)
+
 

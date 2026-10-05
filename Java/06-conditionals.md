@@ -132,9 +132,10 @@ Write a program that takes an integer month (1 to 12) and uses a modern `switch`
 
 ## 🔗 Related Topics
 
-- [Operators and Expressions](05-operators-and-expressions.md)
-- [Loops](07-loops.md)
+- [Operators and Expressions](05-operators-and-expressions.html)
+- [Loops](07-loops.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Operators](05-operators-and-expressions.md) | [Next: Loops →](07-loops.md)
+[← Java Home](./) | [← Previous: Operators](05-operators-and-expressions.html) | [Next: Loops →](07-loops.html)
+

@@ -121,9 +121,10 @@ Write a program that takes an input year and checks whether it is a Leap Year (d
 
 ## 🔗 Related Topics
 
-- [Operators and Expressions](05-operators.md)
-- [Loops](07-loops.md)
+- [Operators and Expressions](05-operators.html)
+- [Loops](07-loops.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Operators](05-operators.md) | [Next: Loops →](07-loops.md)
+[← Python Home](./) | [← Previous: Operators](05-operators.html) | [Next: Loops →](07-loops.html)
+

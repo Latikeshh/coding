@@ -100,8 +100,8 @@ Podcast platforms, language learning apps, music streaming services, and online 
 
 ## 🔗 Related Topics
 
-- [Video](20-video.md)
-- [Iframes](21-iframes.md)
+- [Video](20-video.html)
+- [Iframes](21-iframes.html)
 
 ## 💡 Remember
 
@@ -111,5 +111,6 @@ Podcast platforms, language learning apps, music streaming services, and online 
 
 ## 🧭 Navigation
 
-[← Previous: Entities](18-html-entities.md) | [HTML Home](00-README.md) | [Next: Video →](20-video.md)
+[← Previous: Entities](18-html-entities.html) | [HTML Home](./) | [Next: Video →](20-video.html)
+
 

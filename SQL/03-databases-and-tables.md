@@ -93,10 +93,11 @@ Write an `ALTER TABLE` statement that adds an `email` column of type `VARCHAR(15
 
 ## 🔗 Related Topics
 
-- [SQL Data Types & NULL Values](04-data-types-and-null.md)
-- [`INSERT` – Adding Data](05-insert.md)
+- [SQL Data Types & NULL Values](04-data-types-and-null.html)
+- [`INSERT` – Adding Data](05-insert.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Introduction to SQL](02-introduction-to-sql.md) | [Next: SQL Data Types & NULL →](04-data-types-and-null.md)
+[← SQL Home](./) | [← Previous: Introduction to SQL](02-introduction-to-sql.html) | [Next: SQL Data Types & NULL →](04-data-types-and-null.html)
+
 

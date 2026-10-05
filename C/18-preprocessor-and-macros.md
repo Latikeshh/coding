@@ -160,10 +160,11 @@ Write a macro `#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))`. Test i
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Multi-file Projects](21-multi-file-projects.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Multi-file Projects](21-multi-file-projects.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: File Handling](17-file-handling.md) | [Next: Storage Classes →](19-storage-classes.md)
+[← C Home](./) | [← Previous: File Handling](17-file-handling.html) | [Next: Storage Classes →](19-storage-classes.html)
+
 

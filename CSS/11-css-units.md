@@ -144,9 +144,9 @@ Modern web design systems (like Tailwind CSS) use `rem` for all spacing scales (
 
 ## 🔗 Related Topics
 
-- [Width and Height](10-width-and-height.md)
-- [Responsive Web Design Principles](22-responsive-design.md)
-- [CSS Functions (`calc()`, `clamp()`)](32-functions.md)
+- [Width and Height](10-width-and-height.html)
+- [Responsive Web Design Principles](22-responsive-design.html)
+- [CSS Functions (`calc()`, `clamp()`)](32-functions.html)
 
 ## ✅ Remember
 
@@ -156,5 +156,6 @@ Modern web design systems (like Tailwind CSS) use `rem` for all spacing scales (
 
 ## 🧭 Navigation
 
-[← Previous](10-width-and-height.md) | [CSS Home](00-README.md) | [Next →](12-backgrounds.md)
+[← Previous](10-width-and-height.html) | [CSS Home](./) | [Next →](12-backgrounds.html)
+
 

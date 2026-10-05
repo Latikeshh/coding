@@ -139,9 +139,10 @@ Build a currency converter script that asks the user for an amount in USD ($) an
 
 ## 🔗 Related Topics
 
-- [Variables and Data Types](03-variables-and-data-types.md)
-- [Exception Handling](18-exception-handling.md)
+- [Variables and Data Types](03-variables-and-data-types.html)
+- [Exception Handling](18-exception-handling.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Variables](03-variables-and-data-types.md) | [Next: Operators and Expressions →](05-operators.md)
+[← Python Home](./) | [← Previous: Variables](03-variables-and-data-types.html) | [Next: Operators and Expressions →](05-operators.html)
+

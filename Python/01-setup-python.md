@@ -95,9 +95,10 @@ Write a Python script that prints three lines: a greeting message, your primary 
 
 ## 🔗 Related Topics
 
-- [Introduction to Python](02-introduction-to-python.md)
-- [Variables and Data Types](03-variables-and-data-types.md)
+- [Introduction to Python](02-introduction-to-python.html)
+- [Variables and Data Types](03-variables-and-data-types.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [Next: Introduction to Python →](02-introduction-to-python.md)
+[← Python Home](./) | [Next: Introduction to Python →](02-introduction-to-python.html)
+

@@ -124,11 +124,12 @@ Edit `README.md` to add a second line `Author: Your Name`. Run `git status`, sta
 
 ## 🔗 Related Topics
 
-- [Git File States & Lifecycle](05-git-file-states-and-lifecycle.md)
-- [Viewing History](07-viewing-history-and-git-log.md)
-- [Ignoring Files](08-ignoring-files-with-gitignore.md)
+- [Git File States & Lifecycle](05-git-file-states-and-lifecycle.html)
+- [Viewing History](07-viewing-history-and-git-log.html)
+- [Ignoring Files](08-ignoring-files-with-gitignore.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: File States](05-git-file-states-and-lifecycle.md) | [Next: Viewing History →](07-viewing-history-and-git-log.md)
+[← Home](./) | [← Previous: File States](05-git-file-states-and-lifecycle.html) | [Next: Viewing History →](07-viewing-history-and-git-log.html)
+
 

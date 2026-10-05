@@ -171,9 +171,9 @@ Material Design and modern web interfaces use structured `box-shadow` elevation 
 
 ## 🔗 Related Topics
 
-- [The CSS Box Model](16-box-model.md)
-- [CSS Transitions](28-transitions.md)
-- [Card Layout Components](36-card-layout.md)
+- [The CSS Box Model](16-box-model.html)
+- [CSS Transitions](28-transitions.html)
+- [Card Layout Components](36-card-layout.html)
 
 ## ✅ Remember
 
@@ -183,5 +183,6 @@ Material Design and modern web interfaces use structured `box-shadow` elevation 
 
 ## 🧭 Navigation
 
-[← Previous](12-backgrounds.md) | [CSS Home](00-README.md) | [Next →](14-margins.md)
+[← Previous](12-backgrounds.html) | [CSS Home](./) | [Next →](14-margins.html)
+
 

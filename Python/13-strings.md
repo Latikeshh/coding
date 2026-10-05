@@ -116,9 +116,10 @@ Write a program that takes a sentence string and counts how many times the word 
 
 ## 🔗 Related Topics
 
-- [Input and Output](04-input-output.md)
-- [List Comprehensions](14-list-comprehensions.md)
+- [Input and Output](04-input-output.html)
+- [List Comprehensions](14-list-comprehensions.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Dictionaries](12-dictionaries.md) | [Next: List Comprehensions →](14-list-comprehensions.md)
+[← Python Home](./) | [← Previous: Dictionaries](12-dictionaries.html) | [Next: List Comprehensions →](14-list-comprehensions.html)
+

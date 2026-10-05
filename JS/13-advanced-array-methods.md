@@ -91,5 +91,6 @@ Method chaining (`.filter().map().reduce()`) allows powerful, clean, single-stat
 
 ## 🧭 Navigation
 
-[← JS Home](00-README.md) | [← Previous: ES6 Features](12-es6-features.md) | [Next: Closures & Callbacks →](14-closures-and-callbacks.md)
+[← JS Home](./) | [← Previous: ES6 Features](12-es6-features.html) | [Next: Closures & Callbacks →](14-closures-and-callbacks.html)
+
 

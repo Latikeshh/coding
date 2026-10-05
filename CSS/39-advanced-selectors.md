@@ -160,9 +160,9 @@ Add `:has(input:focus)` to a form container: `.form-group:has(input:focus) { bac
 
 ## 🔗 Related Topics
 
-- [Basic Selectors](08-selectors.md)
-- [Specificity, Cascade & Inheritance](09-specificity.md)
-- [Modern CSS Features](40-modern-css-features.md)
+- [Basic Selectors](08-selectors.html)
+- [Specificity, Cascade & Inheritance](09-specificity.html)
+- [Modern CSS Features](40-modern-css-features.html)
 
 ## ✅ Remember
 
@@ -172,5 +172,6 @@ Add `:has(input:focus)` to a form container: `.form-group:has(input:focus) { bac
 
 ## 🧭 Navigation
 
-[← Previous](38-mini-projects.md) | [CSS Home](00-README.md) | [Next →](40-modern-css-features.md)
+[← Previous](38-mini-projects.html) | [CSS Home](./) | [Next →](40-modern-css-features.html)
+
 

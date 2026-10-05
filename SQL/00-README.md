@@ -37,36 +37,36 @@ SQL (Structured Query Language) is the standard language used to communicate wit
 
 | #  | Topic                                           | Level           | Link                                          |
 | -- | ----------------------------------------------- | --------------- | --------------------------------------------- |
-| 01 | Set Up SQL Environment                          | 🟢 Beginner     | [Open lesson](01-setup-sql.md)                |
-| 02 | Introduction to SQL & Databases                 | 🟢 Beginner     | [Open lesson](02-introduction-to-sql.md)      |
-| 03 | Database & Table Basics                         | 🟢 Beginner     | [Open lesson](03-databases-and-tables.md)     |
-| 04 | SQL Data Types & NULL Values                    | 🟢 Beginner     | [Open lesson](04-data-types-and-null.md)      |
-| 05 | `INSERT` – Adding Data                          | 🟢 Beginner     | [Open lesson](05-insert.md)                   |
-| 06 | `SELECT` – Reading Data                         | 🟢 Beginner     | [Open lesson](06-select.md)                   |
-| 07 | Filtering Data with `WHERE`                     | 🟢 Beginner     | [Open lesson](07-where.md)                    |
-| 08 | Operators in SQL                                | 🟢 Beginner     | [Open lesson](08-operators.md)                |
-| 09 | Sorting & Limiting Results                      | 🟢 Beginner     | [Open lesson](09-order-by-and-limit.md)       |
-| 10 | `UPDATE` & `DELETE`                             | 🟢 Beginner     | [Open lesson](10-update-and-delete.md)        |
-| 11 | SQL Constraints                                 | 🟡 Intermediate | [Open lesson](11-constraints.md)              |
-| 12 | Primary Keys & Foreign Keys                     | 🟡 Intermediate | [Open lesson](12-primary-and-foreign-keys.md) |
-| 13 | Aggregate Functions                             | 🟡 Intermediate | [Open lesson](13-aggregate-functions.md)      |
-| 14 | `GROUP BY` & `HAVING`                           | 🟡 Intermediate | [Open lesson](14-group-by-and-having.md)      |
-| 15 | SQL Joins                                       | 🟡 Intermediate | [Open lesson](15-joins.md)                    |
-| 16 | SQL String, Numeric & Date Functions            | 🟡 Intermediate | [Open lesson](16-sql-functions.md)            |
-| 17 | Conditional Logic with `CASE`                   | 🟡 Intermediate | [Open lesson](17-case-expressions.md)         |
-| 18 | Subqueries & Nested Queries                     | 🟡 Intermediate | [Open lesson](18-subqueries.md)               |
-| 19 | Set Operations (`UNION`, `INTERSECT`, `EXCEPT`) | 🟡 Intermediate | [Open lesson](19-set-operations.md)           |
-| 20 | Database Relationships & Normalization          | 🟡 Intermediate | [Open lesson](20-normalization.md)            |
-| 21 | Views & Virtual Tables                          | 🟡 Intermediate | [Open lesson](21-views.md)                    |
-| 22 | Indexes & Query Performance                     | 🔴 Advanced     | [Open lesson](22-indexes-and-performance.md)  |
-| 23 | Transactions & ACID                             | 🔴 Advanced     | [Open lesson](23-transactions.md)             |
-| 24 | Common Table Expressions (CTEs)                 | 🔴 Advanced     | [Open lesson](24-ctes.md)                     |
-| 25 | Recursive CTEs                                  | 🔴 Advanced     | [Open lesson](25-recursive-ctes.md)           |
-| 26 | Window Functions                                | 🔴 Advanced     | [Open lesson](26-window-functions.md)         |
-| 27 | Stored Procedures & Functions                   | 🔴 Advanced     | [Open lesson](27-stored-procedures.md)        |
-| 28 | Triggers                                        | 🔴 Advanced     | [Open lesson](28-triggers.md)                 |
-| 29 | SQL Security & Permissions                      | 🔴 Advanced     | [Open lesson](29-sql-security.md)             |
-| 30 | Practical SQL Projects                          | 🔴 Advanced     | [Open lesson](30-sql-projects.md)             |
+| 01 | Set Up SQL Environment                          | 🟢 Beginner     | [Open lesson](01-setup-sql.html)                |
+| 02 | Introduction to SQL & Databases                 | 🟢 Beginner     | [Open lesson](02-introduction-to-sql.html)      |
+| 03 | Database & Table Basics                         | 🟢 Beginner     | [Open lesson](03-databases-and-tables.html)     |
+| 04 | SQL Data Types & NULL Values                    | 🟢 Beginner     | [Open lesson](04-data-types-and-null.html)      |
+| 05 | `INSERT` – Adding Data                          | 🟢 Beginner     | [Open lesson](05-insert.html)                   |
+| 06 | `SELECT` – Reading Data                         | 🟢 Beginner     | [Open lesson](06-select.html)                   |
+| 07 | Filtering Data with `WHERE`                     | 🟢 Beginner     | [Open lesson](07-where.html)                    |
+| 08 | Operators in SQL                                | 🟢 Beginner     | [Open lesson](08-operators.html)                |
+| 09 | Sorting & Limiting Results                      | 🟢 Beginner     | [Open lesson](09-order-by-and-limit.html)       |
+| 10 | `UPDATE` & `DELETE`                             | 🟢 Beginner     | [Open lesson](10-update-and-delete.html)        |
+| 11 | SQL Constraints                                 | 🟡 Intermediate | [Open lesson](11-constraints.html)              |
+| 12 | Primary Keys & Foreign Keys                     | 🟡 Intermediate | [Open lesson](12-primary-and-foreign-keys.html) |
+| 13 | Aggregate Functions                             | 🟡 Intermediate | [Open lesson](13-aggregate-functions.html)      |
+| 14 | `GROUP BY` & `HAVING`                           | 🟡 Intermediate | [Open lesson](14-group-by-and-having.html)      |
+| 15 | SQL Joins                                       | 🟡 Intermediate | [Open lesson](15-joins.html)                    |
+| 16 | SQL String, Numeric & Date Functions            | 🟡 Intermediate | [Open lesson](16-sql-functions.html)            |
+| 17 | Conditional Logic with `CASE`                   | 🟡 Intermediate | [Open lesson](17-case-expressions.html)         |
+| 18 | Subqueries & Nested Queries                     | 🟡 Intermediate | [Open lesson](18-subqueries.html)               |
+| 19 | Set Operations (`UNION`, `INTERSECT`, `EXCEPT`) | 🟡 Intermediate | [Open lesson](19-set-operations.html)           |
+| 20 | Database Relationships & Normalization          | 🟡 Intermediate | [Open lesson](20-normalization.html)            |
+| 21 | Views & Virtual Tables                          | 🟡 Intermediate | [Open lesson](21-views.html)                    |
+| 22 | Indexes & Query Performance                     | 🔴 Advanced     | [Open lesson](22-indexes-and-performance.html)  |
+| 23 | Transactions & ACID                             | 🔴 Advanced     | [Open lesson](23-transactions.html)             |
+| 24 | Common Table Expressions (CTEs)                 | 🔴 Advanced     | [Open lesson](24-ctes.html)                     |
+| 25 | Recursive CTEs                                  | 🔴 Advanced     | [Open lesson](25-recursive-ctes.html)           |
+| 26 | Window Functions                                | 🔴 Advanced     | [Open lesson](26-window-functions.html)         |
+| 27 | Stored Procedures & Functions                   | 🔴 Advanced     | [Open lesson](27-stored-procedures.html)        |
+| 28 | Triggers                                        | 🔴 Advanced     | [Open lesson](28-triggers.html)                 |
+| 29 | SQL Security & Permissions                      | 🔴 Advanced     | [Open lesson](29-sql-security.html)             |
+| 30 | Practical SQL Projects                          | 🔴 Advanced     | [Open lesson](30-sql-projects.html)             |
 
 ## 🎯 Suggested Learning Flow
 
@@ -124,5 +124,6 @@ You can practice SQL using:
 
 ## 🧭 Navigation
 
-[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-sql.md)
+[← Repository Home](../) | [Start with Lesson 01 →](01-setup-sql.html)
+
 

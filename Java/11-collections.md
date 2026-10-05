@@ -160,9 +160,10 @@ Write a program that takes a text sentence string and uses a `Map<String, Intege
 
 ## 🔗 Related Topics
 
-- [Arrays](09-arrays.md)
-- [Generics](13-generics.md)
+- [Arrays](09-arrays.html)
+- [Generics](13-generics.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Strings](10-strings.md) | [Next: Enums and Records →](12-enums-and-records.md)
+[← Java Home](./) | [← Previous: Strings](10-strings.html) | [Next: Enums and Records →](12-enums-and-records.html)
+

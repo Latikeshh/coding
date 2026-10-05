@@ -154,9 +154,10 @@ Create an `Enum` representing `Currency` (`USD`, `EUR`, `INR`) with conversion r
 
 ## 🔗 Related Topics
 
-- [Classes and Objects](14-classes-and-objects.md)
-- [Collections](11-collections.md)
+- [Classes and Objects](14-classes-and-objects.html)
+- [Collections](11-collections.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Collections](11-collections.md) | [Next: Generics →](13-generics.md)
+[← Java Home](./) | [← Previous: Collections](11-collections.html) | [Next: Generics →](13-generics.html)
+

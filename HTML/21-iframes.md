@@ -104,8 +104,8 @@ Contact pages embed Google Maps, blog articles embed YouTube videos, and e-comme
 
 ## 🔗 Related Topics
 
-- [Video](20-video.md)
-- [Accessibility Basics](24-accessibility-basics.md)
+- [Video](20-video.html)
+- [Accessibility Basics](24-accessibility-basics.html)
 
 ## 💡 Remember
 
@@ -115,5 +115,6 @@ Contact pages embed Google Maps, blog articles embed YouTube videos, and e-comme
 
 ## 🧭 Navigation
 
-[← Previous: Video](20-video.md) | [HTML Home](00-README.md) | [Next: Semantic HTML →](22-semantic-html.md)
+[← Previous: Video](20-video.html) | [HTML Home](./) | [Next: Semantic HTML →](22-semantic-html.html)
+
 

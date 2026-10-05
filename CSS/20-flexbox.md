@@ -178,9 +178,9 @@ Flexbox is used in almost every web application for navigation bars, card lists,
 
 ## 🔗 Related Topics
 
-- [Display Property](17-display.md)
-- [CSS Grid Layout](21-grid.md)
-- [Navigation Bar Components](37-navigation-bars.md)
+- [Display Property](17-display.html)
+- [CSS Grid Layout](21-grid.html)
+- [Navigation Bar Components](37-navigation-bars.html)
 
 ## ✅ Remember
 
@@ -190,5 +190,6 @@ Flexbox is used in almost every web application for navigation bars, card lists,
 
 ## 🧭 Navigation
 
-[← Previous](19-float-and-clear.md) | [CSS Home](00-README.md) | [Next →](21-grid.md)
+[← Previous](19-float-and-clear.html) | [CSS Home](./) | [Next →](21-grid.html)
+
 

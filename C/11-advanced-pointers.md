@@ -192,11 +192,12 @@ Write a generic function `void printGeneric(void *data, char type)` that checks 
 
 ## 🔗 Related Topics
 
-- [Pointers Basics](10-pointers-basics.md)
-- [Dynamic Memory Allocation](13-dynamic-memory-allocation.md)
-- [Structures](14-structures.md)
+- [Pointers Basics](10-pointers-basics.html)
+- [Dynamic Memory Allocation](13-dynamic-memory-allocation.html)
+- [Structures](14-structures.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Pointers Basics](10-pointers-basics.md) | [Next: Strings →](12-strings.md)
+[← C Home](./) | [← Previous: Pointers Basics](10-pointers-basics.html) | [Next: Strings →](12-strings.html)
+
 

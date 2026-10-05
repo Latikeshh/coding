@@ -128,9 +128,10 @@ Write a program that reads a CSV file containing employee salaries, calculates t
 
 ## 🔗 Related Topics
 
-- [File Handling](17-file-handling.md)
-- [JSON Data Serialization](25-json-and-data-serialization.md)
+- [File Handling](17-file-handling.html)
+- [JSON Data Serialization](25-json-and-data-serialization.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: JSON Data Serialization](25-json-and-data-serialization.md) | [Next: Type Hints and Dataclasses →](27-type-hints-and-dataclasses.md)
+[← Python Home](./) | [← Previous: JSON Data Serialization](25-json-and-data-serialization.html) | [Next: Type Hints and Dataclasses →](27-type-hints-and-dataclasses.html)
+

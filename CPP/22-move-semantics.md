@@ -168,11 +168,12 @@ Write a custom `String` class with a custom move constructor. Demonstrate moving
 
 ## 🔗 Related Topics
 
-- [Smart Pointers](14-smart-pointers.md)
-- [Classes & OOP](10-classes-and-oops.md)
+- [Smart Pointers](14-smart-pointers.html)
+- [Classes & OOP](10-classes-and-oops.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Modern C++](21-namespaces-and-modern-cpp.md) | [Next: Mini Projects →](23-mini-projects.md)
+[← C++ Home](./) | [← Previous: Modern C++](21-namespaces-and-modern-cpp.html) | [Next: Mini Projects →](23-mini-projects.html)
+

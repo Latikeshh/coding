@@ -112,8 +112,8 @@ Professional developers use External CSS combined with build tools or modular st
 
 ## 🔗 Related Topics
 
-- [How to Add CSS](05-how-to-add-css.md)
-- [Specificity, Cascade & Inheritance](09-specificity.md)
+- [How to Add CSS](05-how-to-add-css.html)
+- [Specificity, Cascade & Inheritance](09-specificity.html)
 
 ## ✅ Remember
 
@@ -123,5 +123,6 @@ Professional developers use External CSS combined with build tools or modular st
 
 ## 🧭 Navigation
 
-[← Previous](03-history-of-css.md) | [CSS Home](00-README.md) | [Next →](05-how-to-add-css.md)
+[← Previous](03-history-of-css.html) | [CSS Home](./) | [Next →](05-how-to-add-css.html)
+
 

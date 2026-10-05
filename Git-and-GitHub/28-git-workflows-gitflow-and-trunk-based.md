@@ -117,11 +117,12 @@ Write down the 3 steps required in GitFlow to deliver an emergency bug fix for a
 
 ## 🔗 Related Topics
 
-- [Branching Basics](12-branching-basics.md)
-- [Merging Branches](13-merging-branches.md)
-- [GitHub Actions & CI/CD Basics](26-github-actions-and-ci-cd-basics.md)
+- [Branching Basics](12-branching-basics.html)
+- [Merging Branches](13-merging-branches.html)
+- [GitHub Actions & CI/CD Basics](26-github-actions-and-ci-cd-basics.html)
 
 ## 🧭 Navigation
 
-[← Home](00-README.md) | [← Previous: Aliases](27-git-aliases-and-shortcuts.md) | [Next: Best Practices & Security →](29-git-best-practices-and-security.md)
+[← Home](./) | [← Previous: Aliases](27-git-aliases-and-shortcuts.html) | [Next: Best Practices & Security →](29-git-best-practices-and-security.html)
+
 

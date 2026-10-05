@@ -136,9 +136,9 @@ Developers use `margin: 0 auto` to center main layout wrapper containers (`.cont
 
 ## 🔗 Related Topics
 
-- [Width and Height](10-width-and-height.md)
-- [Padding & Spacing](15-padding.md)
-- [The CSS Box Model](16-box-model.md)
+- [Width and Height](10-width-and-height.html)
+- [Padding & Spacing](15-padding.html)
+- [The CSS Box Model](16-box-model.html)
 
 ## ✅ Remember
 
@@ -148,5 +148,6 @@ Developers use `margin: 0 auto` to center main layout wrapper containers (`.cont
 
 ## 🧭 Navigation
 
-[← Previous](13-borders.md) | [CSS Home](00-README.md) | [Next →](15-padding.md)
+[← Previous](13-borders.html) | [CSS Home](./) | [Next →](15-padding.html)
+
 

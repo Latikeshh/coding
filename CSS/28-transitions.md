@@ -150,9 +150,9 @@ Transitions format button hover states, navigation link underlines, card elevati
 
 ## 🔗 Related Topics
 
-- [Pseudo-classes](24-pseudo-classes.md)
-- [CSS Transforms (2D & 3D)](29-transforms.md)
-- [CSS Animations (`@keyframes`)](30-animations.md)
+- [Pseudo-classes](24-pseudo-classes.html)
+- [CSS Transforms (2D & 3D)](29-transforms.html)
+- [CSS Animations (`@keyframes`)](30-animations.html)
 
 ## ✅ Remember
 
@@ -162,5 +162,6 @@ Transitions format button hover states, navigation link underlines, card elevati
 
 ## 🧭 Navigation
 
-[← Previous](27-fonts.md) | [CSS Home](00-README.md) | [Next →](29-transforms.md)
+[← Previous](27-fonts.html) | [CSS Home](./) | [Next →](29-transforms.html)
+
 

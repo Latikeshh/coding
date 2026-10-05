@@ -125,9 +125,9 @@ Professional web developers use DevTools daily to inspect layout bugs, test mobi
 
 ## 🔗 Related Topics
 
-- [Specificty, Cascade & Inheritance](09-specificity.md)
-- [The CSS Box Model](16-box-model.md)
-- [Responsive Web Design Principles](22-responsive-design.md)
+- [Specificty, Cascade & Inheritance](09-specificity.html)
+- [The CSS Box Model](16-box-model.html)
+- [Responsive Web Design Principles](22-responsive-design.html)
 
 ## ✅ Remember
 
@@ -137,5 +137,6 @@ Professional web developers use DevTools daily to inspect layout bugs, test mobi
 
 ## 🧭 Navigation
 
-[← Previous](33-important.md) | [CSS Home](00-README.md) | [Next →](35-forms-and-inputs.md)
+[← Previous](33-important.html) | [CSS Home](./) | [Next →](35-forms-and-inputs.html)
+
 

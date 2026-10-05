@@ -205,12 +205,13 @@ Write a query that displays each employee's salary alongside the **highest salar
 
 ## 🔗 Related Topics
 
-- [GROUP BY & HAVING](14-group-by-and-having.md)
-- [Common Table Expressions (CTEs)](24-ctes.md)
-- [Subqueries & Nested Queries](18-subqueries.md)
+- [GROUP BY & HAVING](14-group-by-and-having.html)
+- [Common Table Expressions (CTEs)](24-ctes.html)
+- [Subqueries & Nested Queries](18-subqueries.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](00-README.md) | [← Previous: Recursive CTEs](25-recursive-ctes.md) | [Next: Stored Procedures →](27-stored-procedures.md)
+[← SQL Home](./) | [← Previous: Recursive CTEs](25-recursive-ctes.html) | [Next: Stored Procedures →](27-stored-procedures.html)
+

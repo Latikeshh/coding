@@ -130,9 +130,10 @@ Write a program that takes a list with duplicate numbers `[10, 20, 10, 30, 20, 4
 
 ## 🔗 Related Topics
 
-- [Tuples](10-tuples.md)
-- [List Comprehensions](14-list-comprehensions.md)
+- [Tuples](10-tuples.html)
+- [List Comprehensions](14-list-comprehensions.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Functions](08-functions.md) | [Next: Tuples →](10-tuples.md)
+[← Python Home](./) | [← Previous: Functions](08-functions.html) | [Next: Tuples →](10-tuples.html)
+

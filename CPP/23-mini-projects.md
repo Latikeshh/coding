@@ -227,12 +227,13 @@ Acc #102 | Holder: Priya Patel | Balance: $3000
 
 ## 🔗 Related Topics
 
-- [Classes & Objects](10-classes-and-oops.md)
-- [Smart Pointers](14-smart-pointers.md)
-- [File Streams](20-file-streams.md)
+- [Classes & Objects](10-classes-and-oops.html)
+- [Smart Pointers](14-smart-pointers.html)
+- [File Streams](20-file-streams.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← C++ Home](00-README.md) | [← Previous: Move Semantics](22-move-semantics.md)
+[← C++ Home](./) | [← Previous: Move Semantics](22-move-semantics.html)
+

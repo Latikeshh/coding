@@ -120,9 +120,10 @@ Write a program that declares a floating-point temperature in Fahrenheit `temp_f
 
 ## 🔗 Related Topics
 
-- [Input and Output](04-input-output.md)
-- [Operators and Expressions](05-operators.md)
+- [Input and Output](04-input-output.html)
+- [Operators and Expressions](05-operators.html)
 
 ## 🧭 Navigation
 
-[← Python Home](00-README.md) | [← Previous: Introduction to Python](02-introduction-to-python.md) | [Next: Input and Output →](04-input-output.md)
+[← Python Home](./) | [← Previous: Introduction to Python](02-introduction-to-python.html) | [Next: Input and Output →](04-input-output.html)
+

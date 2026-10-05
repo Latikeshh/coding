@@ -146,9 +146,10 @@ Write a program using nested `for` loops that prints a 5-by-5 multiplication gri
 
 ## 🔗 Related Topics
 
-- [Conditionals](06-conditionals.md)
-- [Arrays](09-arrays.md)
+- [Conditionals](06-conditionals.html)
+- [Arrays](09-arrays.html)
 
 ## 🧭 Navigation
 
-[← Java Home](00-README.md) | [← Previous: Conditionals](06-conditionals.md) | [Next: Methods →](08-methods.md)
+[← Java Home](./) | [← Previous: Conditionals](06-conditionals.html) | [Next: Methods →](08-methods.html)
+

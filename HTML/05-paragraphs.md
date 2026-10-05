@@ -92,8 +92,8 @@ Every blog post, news article, documentation page, and web application uses `<p>
 
 ## 🔗 Related Topics
 
-- [Headings](04-headings.md)
-- [Text Formatting](06-text-formatting.md)
+- [Headings](04-headings.html)
+- [Text Formatting](06-text-formatting.html)
 
 ## 💡 Remember
 
@@ -103,5 +103,6 @@ Every blog post, news article, documentation page, and web application uses `<p>
 
 ## 🧭 Navigation
 
-[← Previous: Headings](04-headings.md) | [HTML Home](00-README.md) | [Next: Text Formatting →](06-text-formatting.md)
+[← Previous: Headings](04-headings.html) | [HTML Home](./) | [Next: Text Formatting →](06-text-formatting.html)
+
 

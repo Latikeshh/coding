@@ -180,11 +180,12 @@ Write a CLI program named `greet` that accepts optional flag `--uppercase` or `-
 
 ## 🔗 Related Topics
 
-- [Input and Output](04-input-output.md)
-- [Strings](12-strings.md)
-- [Error Handling](22-error-handling.md)
+- [Input and Output](04-input-output.html)
+- [Strings](12-strings.html)
+- [Error Handling](22-error-handling.html)
 
 ## 🧭 Navigation
 
-[← C Home](00-README.md) | [← Previous: Storage Classes](19-storage-classes.md) | [Next: Multi-file Projects →](21-multi-file-projects.md)
+[← C Home](./) | [← Previous: Storage Classes](19-storage-classes.html) | [Next: Multi-file Projects →](21-multi-file-projects.html)
+
 

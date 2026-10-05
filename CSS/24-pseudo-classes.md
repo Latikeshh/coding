@@ -173,9 +173,9 @@ Pseudo-classes power interactive navigation hover states, zebra-striped data tab
 
 ## 🔗 Related Topics
 
-- [Basic Selectors](08-selectors.md)
-- [Pseudo-elements](25-pseudo-elements.md)
-- [Advanced Selectors](39-advanced-selectors.md)
+- [Basic Selectors](08-selectors.html)
+- [Pseudo-elements](25-pseudo-elements.html)
+- [Advanced Selectors](39-advanced-selectors.html)
 
 ## ✅ Remember
 
@@ -185,5 +185,6 @@ Pseudo-classes power interactive navigation hover states, zebra-striped data tab
 
 ## 🧭 Navigation
 
-[← Previous](23-media-queries.md) | [CSS Home](00-README.md) | [Next →](25-pseudo-elements.md)
+[← Previous](23-media-queries.html) | [CSS Home](./) | [Next →](25-pseudo-elements.html)
+
 
