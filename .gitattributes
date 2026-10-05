@@ -1,1 +1,2 @@
 *.md linguist-language=Markdown linguist-detectable
+*.* linguist-language=Markdown linguist-detectable

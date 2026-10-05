@@ -9,6 +9,9 @@
 
     <!-- Custom Unified Stylesheet for Learn Coding -->
     <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=' | append: site.github.build_revision | relative_url }}">
+    <script>
+      window.SITE_BASE_URL = "{{ '' | relative_url }}";
+    </script>
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -70,6 +73,16 @@
               <span class="brand-tagline">Multilingual Developer Hub</span>
             </div>
           </a>
+
+          <!-- Smart Search Container -->
+          <div class="search-container" id="search-container">
+            <div class="search-input-wrapper">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="search-input" class="search-input" placeholder="Search 260+ lessons..." autocomplete="off" aria-label="Search lessons">
+              <kbd class="search-shortcut" id="search-shortcut">Ctrl+K</kbd>
+            </div>
+            <div class="search-results" id="search-results"></div>
+          </div>
         </div>
 
         <nav class="sidebar-nav">
@@ -171,5 +184,7 @@
         }
       });
     </script>
+    <!-- Smart Search Engine Script -->
+    <script src="{{ '/assets/js/search.js?v=' | append: site.github.build_revision | relative_url }}"></script>
   </body>
 </html>
