@@ -253,6 +253,24 @@ We welcome open-source contributions from developers, learners, and educators wo
 
 ---
 
+## 🌐 Official Documentation & Authoritative References
+
+To help learners explore original language specifications, standards, and vendor documentation, every curriculum track aligns with official developer references:
+
+| Track / Technology | Official Reference & Documentation Link |
+| :--- | :--- |
+| 🐍 **Python 3** | [Python 3 Official Documentation & Standard Library](https://docs.python.org/3/) |
+| ☕ **Java (SE JDK 25)** | [Oracle Java SE JDK Official Documentation](https://docs.oracle.com/en/java/) |
+| 🌐 **HTML5 & Web** | [MDN Web Docs — HTML Specification](https://developer.mozilla.org/en-US/docs/Web/HTML) |
+| 🎨 **CSS3 & Layouts** | [MDN Web Docs — CSS Grid & Flexbox Reference](https://developer.mozilla.org/en-US/docs/Web/CSS) |
+| ⚙️ **C Language (ISO C11)** | [ISO C Standard Reference (cppreference.com)](https://en.cppreference.com/w/c) |
+| 🚀 **C++ (ISO C++20)** | [Modern ISO C++ Reference (cppreference.com)](https://en.cppreference.com/w/cpp) |
+| ⚡ **JavaScript (ES6+)** | [MDN Web Docs — JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| 🗄️ **SQL Databases** | [PostgreSQL Documentation](https://www.postgresql.org/docs/) \| [MySQL Reference Manual](https://dev.mysql.com/doc/) |
+| 🔀 **Git & GitHub** | [Git Official Reference Manual](https://git-scm.com/doc) \| [GitHub Docs](https://docs.github.com) |
+
+---
+
 ## 🧭 Quick Track Links
 
 * ⚙️ [C Systems Path]({{ '/C/' | relative_url }})

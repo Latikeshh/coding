@@ -6,6 +6,8 @@ permalink: /LICENSE.html
 
 # 📜 Open Source License (MIT License)
 
+> ℹ️ **Scope**: This open-source license applies to all source code examples (C, C++, Python, Java, JavaScript, HTML, CSS, SQL), web templates, interactive search scripts, and educational documentation in this repository.
+
 **Copyright (c) 2026 Latikesh Marathe**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
