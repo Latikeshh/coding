@@ -1,6 +1,12 @@
-MIT License
+---
+layout: default
+title: "Open Source License"
+permalink: /LICENSE.html
+---
 
-Copyright (c) 2026 Latikesh Marathe
+# 📜 Open Source License (MIT License)
+
+**Copyright (c) 2026 Latikesh Marathe**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
