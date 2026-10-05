@@ -134,9 +134,9 @@ This repository was created and is actively maintained by:
 
 ### Curriculum Contributors
 
-| Contributor | Profile | Contribution |
-|---|---|---|
-| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](Python/) and [Java](Java/) learning paths. |
+| Contributor          | Profile | Contribution |
+|----------------------|---|---|
+| **Prathamesh Misar** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](Python/) and [Java](Java/) learning paths. |
 
 ---
 
