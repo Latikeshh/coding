@@ -96,7 +96,7 @@
 
             <div class="course-nav-header">
               <div class="course-header-title-group">
-                <span class="course-header-title">{{ course_data.title | escape }}</span>
+                <span class="course-header-title">{{ course_data.title }}</span>
               </div>
               <span class="course-header-badge">{{ course_data.lessons | size }} Lessons</span>
             </div>
@@ -119,7 +119,7 @@
                 <li class="nav-item">
                   <a href="{{ lesson_target_url | relative_url }}" class="nav-link {% if is_lesson_active %}active{% endif %}">
                     <span class="nav-bullet">•</span>
-                    <span class="nav-title">{{ lesson.title | escape }}</span>
+                    <span class="nav-title">{{ lesson.title }}</span>
                   </a>
                 </li>
               {% endfor %}
@@ -137,7 +137,7 @@
                 <li class="nav-item">
                   <a href="{{ item.url | relative_url }}" class="nav-link {% if is_active %}active{% endif %}">
                     <span class="nav-icon">{{ item.icon }}</span>
-                    <span class="nav-title">{{ item.title | escape }}</span>
+                    <span class="nav-title">{{ item.title}}</span>
                     {% if item.count %}
                       <span class="nav-badge">{{ item.count }}</span>
                     {% endif %}
