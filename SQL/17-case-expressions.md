@@ -3,105 +3,188 @@ layout: default
 title: "17 case expressions"
 ---
 
-# Conditional Logic with CASE
+# 🔀 Conditional Logic with CASE Expressions in SQL
 
 > 🟡 Intermediate
 
-## Definition
+## 📖 Definition
 
-A `CASE` expression evaluates conditions and returns a value for the first matching branch. It is an expression, so it can appear in a `SELECT`, `ORDER BY`, or other expression context.
+The SQL **`CASE` expression** is a versatile control-flow construct that evaluates a sequence of boolean conditions and returns a specific scalar value when the first condition evaluates to `TRUE`. It serves as SQL's built-in `if-then-else` statement and can be embedded seamlessly within `SELECT`, `WHERE`, `GROUP BY`, `ORDER BY`, and `UPDATE` statements.
 
-## Hindi Explanation
+---
 
-`CASE` conditions ko kram se check karta hai aur pehli true condition ka result deta hai. Koi condition match na ho to `ELSE` ka result aata hai; `ELSE` na ho to result `NULL` hota hai.
+## 🌐 Multilingual Explanation
 
-## Marathi Explanation
+### English
+`CASE` evaluates conditions sequentially from top to bottom. It returns the result corresponding to the first `WHEN` condition that evaluates to `TRUE`. If no condition matches, it returns the value specified in the optional `ELSE` clause. If `ELSE` is omitted and no conditions match, `CASE` returns `NULL`.
 
-`CASE` conditions kramane tapasato aani pahilya true condition cha result deto. Kahi condition julali nahi aani `ELSE` nasel tar result `NULL` hoto.
+### Hindi (Roman Script)
+`CASE` statement SQL ka `if-else` hai. Yeh conditions ko upar se neeche sequence mein check karta hai. Pehli `TRUE` condition ka result return hota hai. Agar koi condition match nahi hoti, toh `ELSE` ka value aata hai. Agar `ELSE` na likha ho, toh `NULL` return hota hai.
 
-## Why Use It?
+### Marathi (Roman Script)
+`CASE` mhanje SQL madhil `if-else` logic. He conditions varun khali kramane tapasate. Pahili `TRUE` condition milalyas tyacha result milto. Kahi match na jhalyas `ELSE` cha result deto. Jar `ELSE` lihile nasael tar `NULL` result milto.
 
-Use `CASE` to derive labels, bucket values, or apply conditional calculations within a query.
+### Hinglish
+SQL queries ke andar conditional logic apply karne ke liye `CASE` use karte hain. Jab aapko data ko categorize karna ho (jaise salary high/medium/low label karna) ya conditional aggregation karna ho (`SUM` with condition), `CASE` output columns derive karta hai.
 
-## Syntax
+---
+
+## 🤔 Why Do We Use It?
+
+1. **Dynamic Data Categorization**: Transform numeric values or status codes into human-readable business categories (e.g. Credit score $\rightarrow$ Excellent / Good / Poor).
+2. **Conditional Aggregations**: Perform conditional counting or summing within aggregate functions (`SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END)`).
+3. **Custom Sorting in ORDER BY**: Force specific rows to appear first or last in search result sets regardless of alphabetical order.
+4. **Conditional Data Updates**: Apply variable discount rates or price adjustments in `UPDATE` statements.
+
+---
+
+## 📝 Syntax & Types of CASE Expressions
+
+SQL supports two distinct forms of `CASE` expressions:
+
+### Type 1: Searched CASE Expression (Most Flexible & Powerful)
+Evaluates complex boolean expressions (`>`, `<`, `AND`, `OR`, `IS NULL`):
 
 ```sql
 CASE
-    WHEN condition THEN result
-    WHEN another_condition THEN another_result
-    ELSE fallback_result
+    WHEN condition_1 THEN result_1
+    WHEN condition_2 THEN result_2
+    WHEN condition_3 THEN result_3
+    ELSE default_result
 END
 ```
 
-## Example
+### Type 2: Simple CASE Expression (Value Comparison)
+Compares a single expression directly against a list of candidate literal values:
 
 ```sql
-SELECT order_id, total,
+CASE target_expression
+    WHEN value_1 THEN result_1
+    WHEN value_2 THEN result_2
+    ELSE default_result
+END
+```
+
+---
+
+## 💡 Practical Production Examples
+
+### Example 1: Categorizing Customer Order Sizes (Searched CASE)
+
+```sql
+SELECT 
+    order_id, 
+    customer_id,
+    total_amount,
     CASE
-        WHEN total >= 500 THEN 'Large'
-        WHEN total >= 100 THEN 'Medium'
-        ELSE 'Small'
-    END AS order_size
-FROM orders;
+        WHEN total_amount >= 1000.00 THEN 'VIP Tier'
+        WHEN total_amount >= 500.00  THEN 'Gold Tier'
+        WHEN total_amount >= 100.00  THEN 'Silver Tier'
+        ELSE 'Standard Tier'
+    END AS customer_tier
+FROM orders
+ORDER BY total_amount DESC;
 ```
 
-## Code Breakdown
+#### Expected Query Output:
 
-Conditions are considered in order. A total of 600 matches `Large`; a total of 150 matches `Medium`; all remaining values, including NULL totals for which comparisons are unknown, reach `ELSE`.
+| order_id | customer_id | total_amount | customer_tier |
+| :---: | :---: | :---: | :---: |
+| 1042 | C881 | 1250.00 | VIP Tier |
+| 1089 | C412 | 680.00 | Gold Tier |
+| 1015 | C203 | 250.00 | Silver Tier |
+| 1092 | C119 | 45.00 | Standard Tier |
 
-## Output
+---
 
-| order_id | total | order_size |
-|---:|---:|---|
-| 1 | 600.00 | Large |
-| 2 | 150.00 | Medium |
-| 3 | 40.00 | Small |
+### Example 2: Conditional Aggregation (Pivot-style Financial Metrics)
 
-## Another Practical Example
+Calculate total revenue separated by payment method in a single summary row:
 
 ```sql
-SELECT status,
-    CASE status
-        WHEN 'paid' THEN 'Complete'
-        WHEN 'pending' THEN 'In progress'
-        ELSE 'Needs review'
-    END AS status_label
-FROM orders;
+SELECT 
+    COUNT(order_id) AS total_orders,
+    SUM(CASE WHEN payment_method = 'Credit Card' THEN amount ELSE 0 END) AS card_revenue,
+    SUM(CASE WHEN payment_method = 'UPI' THEN amount ELSE 0 END) AS upi_revenue,
+    SUM(CASE WHEN payment_method = 'COD' THEN amount ELSE 0 END) AS cod_revenue
+FROM transactions;
 ```
 
-This is a simple `CASE`, comparing one expression to candidate values.
+---
 
-## Common Mistakes
+### Example 3: Custom Sorting in ORDER BY Clause
 
-- Forgetting `END`.
-- Assuming later `WHEN` branches are checked after an earlier match.
-- Returning incompatible data types in branches; engines may coerce types differently.
-- Assuming NULL comparisons match a `WHEN column = NULL` condition; use `IS NULL`.
+Display critical pending tickets at the top, followed by open, and lastly closed tickets:
 
-## Important Notes
+```sql
+SELECT ticket_id, subject, status, created_at
+FROM support_tickets
+ORDER BY 
+    CASE status
+        WHEN 'CRITICAL' THEN 1
+        WHEN 'OPEN'     THEN 2
+        WHEN 'PENDING'  THEN 3
+        WHEN 'CLOSED'   THEN 4
+        ELSE 5
+    END,
+    created_at DESC;
+```
 
-`CASE` returns one value per input row and is not a control-flow statement that runs separate SQL commands. Include `ELSE` when an explicit fallback is important.
+---
 
-## Real-World Usage
+### Example 4: Conditional Bulk UPDATE Statement
 
-Classify orders by size, label account states, or calculate conditional fees and reporting categories.
+Apply dynamic salary raises based on employee performance ratings:
 
-## Try It Yourself
+```sql
+UPDATE employees
+SET salary = salary * 
+    CASE performance_rating
+        WHEN 5 THEN 1.15  -- 15% raise
+        WHEN 4 THEN 1.10  -- 10% raise
+        WHEN 3 THEN 1.05  -- 5% raise
+        ELSE 1.00         -- No raise
+    END
+WHERE department_id = 10;
+```
 
-1. Label scores of at least 90 as `A`, at least 75 as `B`, and the rest as `Other`.
-2. Return `Unknown` for NULL status values.
+---
 
-## Mini Challenge
+## ⚠️ Common Mistakes & Pitfalls
 
-Create a query that labels a product `Low stock` when quantity is below 10 and `In stock` otherwise, with an explicit label for unknown quantity.
+- **Forgetting `END` Keyword**: Every `CASE` block MUST terminate with `END`. Leaving out `END` causes a syntax error.
+- **Incompatible Branch Data Types**: All `THEN` and `ELSE` branches MUST return compatible data types (e.g. returning a string in one branch and an integer in another causes type coercion errors).
+- **Evaluating `NULL` with Simple CASE**: Writing `WHEN NULL` in a simple `CASE` will always fail because `NULL = NULL` is unknown. Use searched `CASE` with `WHEN column IS NULL`.
+- **Branch Evaluation Order**: `CASE` stops checking conditions at the **first matching `TRUE` branch**. Place specific conditions before general ones.
 
-## Related Topics
+---
 
-- [SQL Functions](16-sql-functions.html)
-- [GROUP BY & HAVING](14-group-by-and-having.html)
+## 🧪 Try It Yourself & Practice Exercises
 
-## Navigation
+1. Write a query on an `employees` table that categorizes staff into age brackets: `'Junior'` (< 25), `'Mid-Level'` (25–40), and `'Senior'` (> 40).
+2. Write a `SELECT` statement that calculates total pass vs fail counts from an `exams` table using conditional `SUM(CASE ...)`.
+
+---
+
+## 🎯 Mini Challenge
+
+Create a query on a `products` table displaying `product_name`, `stock_quantity`, and a dynamic label `stock_status`:
+- `Out of Stock` if `stock_quantity = 0`
+- `Critical Reorder` if `stock_quantity < 10`
+- `Low Stock` if `stock_quantity` is between 10 and 30
+- `Adequate Stock` for all other quantities
+- Handle `NULL` quantities gracefully as `Unknown Status`.
+
+---
+
+## 🔗 Related Topics
+
+- [SQL Built-in Functions](16-sql-functions.html)
+- [GROUP BY & HAVING Clauses](14-group-by-and-having.html)
+- [Subqueries & Nested Queries](18-subqueries.html)
+
+---
+
+## 🧭 Navigation
 
 [← SQL Home](./) | [← Previous: SQL Functions](16-sql-functions.html) | [Next: Subqueries →](18-subqueries.html)
-
-

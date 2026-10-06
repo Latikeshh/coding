@@ -214,10 +214,13 @@ For beginners entering software development, we recommend following this progres
 
 If you find this repository helpful, support the project by starring it and sharing it with fellow learners:
 
-- [⭐ Star on GitHub](https://github.com/Latikeshh/coding/stargazers)
-- [🔀 Fork Repository](https://github.com/Latikeshh/coding/network/members)
-- [💼 Share on LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)
-- [💬 Share on WhatsApp](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding)
+| Platform | Action / Link | Description |
+| :--- | :---: | :--- |
+| ⭐ **GitHub Stars** | [![GitHub Stars](https://img.shields.io/github/stars/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/stargazers) | Star the repository on GitHub |
+| 🔀 **GitHub Forks** | [![GitHub Forks](https://img.shields.io/github/forks/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/network/members) | Fork and contribute to the repository |
+| 💼 **LinkedIn** | [![Share on LinkedIn](https://img.shields.io/badge/Share_on_LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding) | Share with professional network |
+| 💬 **WhatsApp** | [![Share on WhatsApp](https://img.shields.io/badge/Share_on_WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding) | Share with student study groups |
+| ✈️ **Telegram** | [![Share on Telegram](https://img.shields.io/badge/Share_on_Telegram-26A5E4?style=flat&logo=telegram&logoColor=white)](https://t.me/share/url?url=https://github.com/Latikeshh/coding&text=Check%20out%20this%20free%20multilingual%20programming%20resource!) | Forward to developer channels |
 
 ---
 
@@ -271,14 +274,16 @@ To help learners explore original language specifications, standards, and vendor
 
 ---
 
-## 🧭 Quick Track Links
+## 🧭 Quick Track Links & Navigation
 
-* ⚙️ [C Systems Path]({{ '/C/' | relative_url }})
-* 🚀 [C++ Systems Path]({{ '/CPP/' | relative_url }})
-* 🌐 [HTML Learning Path]({{ '/HTML/' | relative_url }})
-* 🎨 [CSS Learning Path]({{ '/CSS/' | relative_url }})
-* ⚡ [JavaScript Path]({{ '/JS/' | relative_url }})
-* 🐍 [Python Learning Path]({{ '/Python/' | relative_url }})
-* ☕ [Java Learning Path]({{ '/Java/' | relative_url }})
-* 🗄️ [SQL Database Path]({{ '/SQL/' | relative_url }})
-* 🔀 [Git & GitHub Path]({{ '/Git-and-GitHub/' | relative_url }})
+| Technology Track | Total Lessons | Level Range | Direct Path Link |
+| :--- | :---: | :---: | :--- |
+| 🐍 **Python 3** | 31 Lessons | Beginner → Practical | [Explore Python Path]({{ '/Python/' | relative_url }}) |
+| ☕ **Java (SE JDK 25)** | 24 Lessons | Beginner → Practical | [Explore Java Path]({{ '/Java/' | relative_url }}) |
+| 🌐 **HTML5** | 32 Lessons | Beginner → Web | [Explore HTML Path]({{ '/HTML/' | relative_url }}) |
+| 🎨 **CSS3** | 43 Lessons | Beginner → Advanced | [Explore CSS Path]({{ '/CSS/' | relative_url }}) |
+| 🔀 **Git & GitHub** | 30 Lessons | Beginner → DevOps | [Explore Git & GitHub Path]({{ '/Git-and-GitHub/' | relative_url }}) |
+| ⚙️ **C Language** | 23 Lessons | Beginner → Systems | [Explore C Systems Path]({{ '/C/' | relative_url }}) |
+| ⚡ **JavaScript (ES6+)** | 25 Lessons | Beginner → Advanced | [Explore JavaScript Path]({{ '/JS/' | relative_url }}) |
+| 🚀 **C++ (ISO C++20)** | 23 Lessons | Beginner → Systems | [Explore C++ Path]({{ '/CPP/' | relative_url }}) |
+| 🗄️ **SQL Database** | 30 Lessons | Beginner → Databases | [Explore SQL Path]({{ '/SQL/' | relative_url }}) |

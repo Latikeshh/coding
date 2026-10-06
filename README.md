@@ -28,13 +28,13 @@ This repository eliminates artificial complexity, outdated practices, and superf
 
 If you find this repository helpful, support the project by starring it and sharing it with fellow learners:
 
-[![GitHub Stars](https://img.shields.io/github/stars/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/network/members)
-
-### Spread the Word:
-[![Share on LinkedIn](https://img.shields.io/badge/Share_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)
-[![Share on WhatsApp](https://img.shields.io/badge/Share_on_WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding)
-[![Share on Telegram](https://img.shields.io/badge/Share_on_Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/share/url?url=https://github.com/Latikeshh/coding&text=Check%20out%20this%20free%20multilingual%20programming%20resource!)
+| Platform | Action / Link | Description |
+| :--- | :---: | :--- |
+| ⭐ **GitHub Stars** | [![GitHub Stars](https://img.shields.io/github/stars/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/stargazers) | Star the repository on GitHub |
+| 🔀 **GitHub Forks** | [![GitHub Forks](https://img.shields.io/github/forks/Latikeshh/coding?style=social)](https://github.com/Latikeshh/coding/network/members) | Fork and contribute to the repository |
+| 💼 **LinkedIn** | [![Share on LinkedIn](https://img.shields.io/badge/Share_on_LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding) | Share with professional network |
+| 💬 **WhatsApp** | [![Share on WhatsApp](https://img.shields.io/badge/Share_on_WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding) | Share with student study groups |
+| ✈️ **Telegram** | [![Share on Telegram](https://img.shields.io/badge/Share_on_Telegram-26A5E4?style=flat&logo=telegram&logoColor=white)](https://t.me/share/url?url=https://github.com/Latikeshh/coding&text=Check%20out%20this%20free%20multilingual%20programming%20resource!) | Forward to developer channels |
 
 ---
 
@@ -158,14 +158,16 @@ To help learners explore original language specifications, standards, and vendor
 
 ---
 
-## 🧭 Navigation Quick Links
+## 🧭 Quick Track Links & Navigation
 
-- 🌐 [HTML Learning Path](HTML/)
-- 🎨 [CSS Learning Path](CSS/)
-- 🔀 [Git & GitHub Path](Git-and-GitHub/)
-- ⚙️ [C Systems Path](C/)
-- ⚡ [JavaScript Path](JS/)
-- 🚀 [C++ Systems Path](CPP/)
-- 🐍 [Python Learning Path](Python/)
-- ☕ [Java Learning Path](Java/)
-- 🗄️ [SQL Learning Path](SQL/)
+| Technology Track | Total Lessons | Level Range | Direct Path Link |
+| :--- | :---: | :---: | :--- |
+| 🐍 **Python 3** | 31 Lessons | Beginner → Practical | [Explore Python Path](Python/) |
+| ☕ **Java (SE JDK 25)** | 24 Lessons | Beginner → Practical | [Explore Java Path](Java/) |
+| 🌐 **HTML5** | 32 Lessons | Beginner → Web | [Explore HTML Path](HTML/) |
+| 🎨 **CSS3** | 43 Lessons | Beginner → Advanced | [Explore CSS Path](CSS/) |
+| 🔀 **Git & GitHub** | 30 Lessons | Beginner → DevOps | [Explore Git & GitHub Path](Git-and-GitHub/) |
+| ⚙️ **C Language** | 23 Lessons | Beginner → Systems | [Explore C Systems Path](C/) |
+| ⚡ **JavaScript (ES6+)** | 25 Lessons | Beginner → Advanced | [Explore JavaScript Path](JS/) |
+| 🚀 **C++ (ISO C++20)** | 23 Lessons | Beginner → Systems | [Explore C++ Path](CPP/) |
+| 🗄️ **SQL Database** | 30 Lessons | Beginner → Databases | [Explore SQL Path](SQL/) |

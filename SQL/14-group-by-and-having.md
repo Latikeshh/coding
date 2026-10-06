@@ -3,96 +3,165 @@ layout: default
 title: "14 group by and having"
 ---
 
-# GROUP BY & HAVING
+# 📊 GROUP BY & HAVING Clauses in SQL
 
 > 🟡 Intermediate
 
-## Definition
+## 📖 Definition
 
-`GROUP BY` partitions rows into groups that share values, allowing aggregates to be calculated per group. `HAVING` filters those groups after aggregation; `WHERE` filters input rows before grouping.
+The **`GROUP BY` clause** collapses rows sharing identical values in specified columns into summary rows. It is paired with aggregate functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`) to compute metrics per group. The **`HAVING` clause** filters these summarized groups after aggregation has taken place, serving as the `WHERE` clause for grouped data.
 
-## Hindi Explanation
+---
 
-`GROUP BY` milte-julte values wali rows ko group karta hai. `WHERE` grouping se pehle rows chunta hai, jabki `HAVING` aggregate banne ke baad groups ko filter karta hai.
+## 🌐 Multilingual Explanation
 
-## Marathi Explanation
+### English
+`GROUP BY` partitions individual dataset records into distinct buckets based on shared column values. The key distinction between `WHERE` and `HAVING` lies in **when** they filter:
+- `WHERE` filters individual raw rows **BEFORE** grouping occurs.
+- `HAVING` filters aggregated group records **AFTER** grouping and calculation occur.
 
-`GROUP BY` saman values aslelya rows che groups karto. `WHERE` grouping purvi rows nivadto, tar `HAVING` aggregate zalyanantar groups filter karto.
+### Hindi (Roman Script)
+`GROUP BY` milte-julte column values wali rows ko ek jagah group karke aggregate numbers (jaise total sum ya average) calculate karta hai. `WHERE` aur `HAVING` mein antar yeh hai: `WHERE` grouping hone se pehle raw rows ko filter karta hai, jabki `HAVING` grouping aur aggregation ke baad final groups ko filter karta hai.
 
-## Why Use Them?
+### Marathi (Roman Script)
+`GROUP BY` saman values aslelya rows cha ek group tayar karto aani summary values (SUM, AVG, COUNT) dakhavato. `WHERE` grouping honyapurvi raw rows filter karto, tar `HAVING` grouping zalyanantar tayar jhalelya summary groups la filter karto.
 
-Grouping turns detailed records into useful summaries, such as revenue by region or orders per customer.
+### Hinglish
+Data ko department-wise, city-wise, ya category-wise summarize karne ke liye `GROUP BY` use hota hai. Agar aapko aggregate result par filter lagana ho (jaise "sirf wahi departments dikhao jinki total sales > 50,000 hai"), toh aap `WHERE` nahi balki `HAVING` clause use karoge.
 
-## Syntax
+---
+
+## ⚡ SQL Query Logical Execution Order
+
+Understanding the internal execution sequence of a SQL query clarifies why `WHERE` cannot filter aggregate results:
+
+```text
+1. FROM        ──► Locate target tables & perform JOINs
+2. WHERE       ──► Filter individual raw rows BEFORE grouping
+3. GROUP BY    ──► Partition remaining rows into distinct groups
+4. HAVING      ──► Filter aggregate summary groups
+5. SELECT      ──► Compute expressions & select final output columns
+6. DISTINCT    ──► Remove duplicate rows
+7. ORDER BY    ──► Sort output rows
+8. LIMIT       ──► Restrict maximum number of output rows
+```
+
+---
+
+## 📝 Syntax & Structure
 
 ```sql
-SELECT grouping_column, aggregate_function(value_column)
+SELECT 
+    group_column_1,
+    group_column_2,
+    COUNT(*) AS total_count,
+    SUM(numeric_column) AS total_sum
 FROM table_name
-WHERE row_condition
-GROUP BY grouping_column
-HAVING group_condition;
+WHERE raw_row_condition
+GROUP BY group_column_1, group_column_2
+HAVING aggregate_condition
+ORDER BY total_sum DESC;
 ```
 
-## Example
+---
+
+## 💡 Practical Production Examples
+
+### Example 1: Multi-Column GROUP BY with HAVING Clause
+
+Calculate order counts and revenue per department and year, displaying only active departments generating over $10,000:
 
 ```sql
-SELECT region, SUM(amount) AS revenue
-FROM sales
-WHERE amount IS NOT NULL
-GROUP BY region
-HAVING SUM(amount) >= 100
-ORDER BY revenue DESC;
+SELECT 
+    department_name,
+    EXTRACT(YEAR FROM order_date) AS order_year,
+    COUNT(order_id) AS total_orders,
+    SUM(order_total) AS gross_revenue
+FROM sales_records
+WHERE status = 'COMPLETED' -- Step 1: Filter raw rows BEFORE grouping
+GROUP BY department_name, EXTRACT(YEAR FROM order_date) -- Step 2: Group rows
+HAVING SUM(order_total) >= 10000.00 -- Step 3: Filter aggregate summary groups
+ORDER BY gross_revenue DESC;
 ```
 
-## Code Breakdown
+#### Expected Query Output:
 
-The database excludes rows with unknown amounts, groups remaining rows by region, calculates each group's revenue, keeps groups with revenue of at least 100, and sorts the result. `WHERE` cannot normally refer to an aggregate result because aggregation has not happened yet.
+| department_name | order_year | total_orders | gross_revenue |
+| :--- | :---: | :---: | :---: |
+| Electronics | 2025 | 142 | 48500.00 |
+| Furniture | 2025 | 68 | 22400.00 |
+| Apparel | 2025 | 210 | 15800.00 |
 
-## Output
+---
 
-Using the sample rows from [Aggregate Functions](13-aggregate-functions.html), the `West` group has revenue `200.00` and is returned; `East` has no known amount and is excluded.
+### Example 2: Finding Customers with High Order Frequency
 
-## Another Practical Example
+Find customers who have placed 5 or more orders:
 
 ```sql
-SELECT customer_id, COUNT(*) AS order_count
+SELECT 
+    customer_id,
+    COUNT(order_id) AS order_count,
+    ROUND(AVG(total_amount), 2) AS avg_order_value
 FROM orders
 GROUP BY customer_id
-HAVING COUNT(*) >= 3;
+HAVING COUNT(order_id) >= 5
+ORDER BY order_count DESC;
 ```
 
-This returns customer groups with at least three orders.
+---
 
-## Common Mistakes
+### Example 3: Department Salary Audit with WHERE vs HAVING
 
-- Putting aggregate conditions in `WHERE` instead of `HAVING`.
-- Selecting a non-aggregated column that is not grouped. Database rules differ, and permissive behavior can produce unclear results.
-- Assuming groups appear in a particular order without `ORDER BY`.
+Filter out low-ranking interns before grouping, then return departments with an average salary exceeding $75,000:
 
-## Important Notes
+```sql
+SELECT 
+    department_id,
+    COUNT(emp_id) AS total_staff,
+    ROUND(AVG(salary), 2) AS average_salary
+FROM employees
+WHERE job_title != 'Intern' -- Exclude interns before calculation
+GROUP BY department_id
+HAVING AVG(salary) > 75000.00
+ORDER BY average_salary DESC;
+```
 
-In portable queries, select only grouping expressions and aggregate expressions. Some databases allow grouping by a select-list alias or ordinal, but this is not uniformly portable.
+---
 
-## Real-World Usage
+## ⚠️ Common Mistakes & Strict ANSI SQL Rules
 
-Build monthly sales reports, count support tickets by status, and find customers whose purchase totals exceed a threshold.
+- **Using Aggregate Functions in `WHERE`**: Writing `WHERE SUM(amount) > 100` throws a syntax error (`An aggregate may not appear in the WHERE clause`). Use `HAVING SUM(amount) > 100`.
+- **`ONLY_FULL_GROUP_BY` Rule Violation**: Every non-aggregated column in the `SELECT` list MUST be included in the `GROUP BY` clause. Selecting `SELECT dept_id, emp_name, AVG(salary)` without grouping by `emp_name` causes errors in standard SQL databases (PostgreSQL, Oracle, MySQL 8.0+).
+- **Confusing `WHERE` and `HAVING`**: Using `HAVING status = 'ACTIVE'` works but degrades performance because it groups unnecessary inactive rows first before filtering them out. Always put raw row conditions in `WHERE`.
 
-## Try It Yourself
+---
 
-1. Count employees in each department.
-2. Show only departments with more than five employees.
+## 🧪 Try It Yourself & Practice Exercises
 
-## Mini Challenge
+1. Write a query on a `students` table counting total students per `grade_level`.
+2. Modify the query to display only grade levels that have more than 30 students.
 
-Using an `orders` table, return each customer with total completed-order value, keeping totals above 500. State which row condition belongs in `WHERE` and which aggregate condition belongs in `HAVING`.
+---
 
-## Related Topics
+## 🎯 Mini Challenge
+
+Using an `e_commerce_orders` table containing `customer_id`, `order_status`, `item_count`, and `total_price`:
+- Filter for completed orders (`order_status = 'DELIVERED'`).
+- Group by `customer_id`.
+- Display `customer_id`, total items purchased, and total spend.
+- Keep only customers whose total spend exceeds $500.00 AND who bought at least 10 items in total.
+
+---
+
+## 🔗 Related Topics
 
 - [Aggregate Functions](13-aggregate-functions.html)
-- [SQL Joins](15-joins.html)
+- [SQL Joins & Relationships](15-joins.html)
+- [SQL Window Functions](26-window-functions.html)
 
-## Navigation
+---
+
+## 🧭 Navigation
 
 [← SQL Home](./) | [← Previous: Aggregate Functions](13-aggregate-functions.html) | [Next: SQL Joins →](15-joins.html)
-
-
