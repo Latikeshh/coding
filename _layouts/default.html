@@ -7,7 +7,10 @@
 
     {% seo %}
 
-    <!-- Custom Unified Stylesheet for Learn Coding -->
+    <!-- Modular Stylesheets for Learn Coding -->
+    <link rel="stylesheet" href="{{ '/assets/css/base.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/layout.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/components.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=' | append: site.github.build_revision | relative_url }}">
     <script>
       window.SITE_BASE_URL = "{{ '' | relative_url }}";
@@ -171,17 +174,49 @@
         var sidebar = document.getElementById('sidebar');
         var overlay = document.getElementById('sidebar-overlay');
 
+        function openSidebar() {
+          sidebar.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+          sidebar.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
         function toggleSidebar() {
-          sidebar.classList.toggle('active');
-          overlay.classList.toggle('active');
+          if (sidebar.classList.contains('active')) {
+            closeSidebar();
+          } else {
+            openSidebar();
+          }
         }
 
         if (toggleBtn) {
           toggleBtn.addEventListener('click', toggleSidebar);
         }
         if (overlay) {
-          overlay.addEventListener('click', toggleSidebar);
+          overlay.addEventListener('click', closeSidebar);
         }
+
+        // Close sidebar on link click in mobile view
+        var navLinks = sidebar ? sidebar.querySelectorAll('a') : [];
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 868) {
+              closeSidebar();
+            }
+          });
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+            closeSidebar();
+          }
+        });
       });
     </script>
     <!-- Smart Search & Contributor Engine Scripts -->
