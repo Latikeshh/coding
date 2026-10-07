@@ -381,8 +381,36 @@ p {
 
 ---
 
+## 🔎 Practice: Check the Hero Before Reusing It
+
+### English
+
+After completing Project 2, test the behavior as well as the appearance:
+
+1. Narrow the viewport to 320 CSS pixels and increase the text size. Check whether the heading and action links fit or wrap without being clipped.
+2. Use Tab and Shift+Tab to move between the links. Keep a visible focus indicator; a hover effect alone does not show keyboard focus.
+3. Activate both links with Enter. The snippet uses `#projects` and `#contact`, but does not include those sections. Add matching section IDs or replace the links with real destinations before publishing.
+4. Write down the change you made and the result you observed. Repeat these checks after placing the hero into a larger page.
+
+For an optional worked comparison, the [PagePatch free hero example](https://github.com/l-portet/pagepatch-free-hero) includes `before.html`, `hero.html`, and an explanation of five changes. Download the free sample ZIP linked in its README, unzip it, and open the two HTML files locally; no account, payment, or build step is required. Compare the fixed-width layout and removed focus outline in `before.html` with the fluid layout and explicit focus styling in `hero.html`. Use the before page only as a deliberately flawed exercise.
+
+### Hindi (Roman Script)
+
+Project 2 ke baad chhoti screen aur bade text par heading aur links jaanchein. Tab aur Shift+Tab se focus dekhein, phir Enter se dono links kholein. `#projects` aur `#contact` ke liye sahi section IDs jodein ya asli URLs dein. Har badlav ka nateeja likhein. Upar diya gaya muft example pehle aur baad ke layout ki tulna ke liye hai.
+
+### Marathi (Roman Script)
+
+Project 2 nantar lahan screen ani mothya majkuravar heading ani links tapasa. Tab ani Shift+Tab vaprun focus paha, mag Enter dabun donhi links ughada. `#projects` ani `#contact` sathi yogya section IDs joda kinva khare URLs dya. Pratyek badalacha parinam liha. Varil mofat udaharan aadhi ani nantarchya layout chi tulana karnyasathi aahe.
+
+### Hinglish
+
+Hero ko sirf dekhna kaafi nahi: narrow viewport, larger text aur keyboard se test karo. Link ka label aur destination match hona chahiye. Missing sections add karo, focus visible rakho, aur apne changes ke results note karo. Optional free example se before/after behavior compare kar sakte ho.
+
+**Disclosure:** This exercise and the linked example are AI-generated. The example describes a fictional product and is not an accessibility certification or evidence of improved conversions. PagePatch also sells a separate optional kit; the linked repository discloses that affiliation and includes the free sample's reuse licence. No purchase is needed for this exercise.
+
+---
+
 ## 🧭 Navigation
 
 [← Previous](37-navigation-bars.html) | [CSS Home](./) | [Next →](39-advanced-selectors.html)
-
 
