@@ -6,21 +6,31 @@ permalink: /CONTRIBUTORS.html
 
 # 🌟 Contributors Hall of Fame
 
+[![GitHub Contributors](https://img.shields.io/github/contributors/Latikeshh/coding?style=for-the-badge&color=2563eb&logo=github)](https://github.com/Latikeshh/coding/graphs/contributors)
+
 Thank you to all the amazing people who have contributed to **Coding**! 🎉
 
 This repository is built by and for the global developer community. Every contribution—whether it's creating a new lesson, adding code examples, fixing typos, or improving multilingual translations—helps thousands of learners worldwide.
 
 ---
 
-## ⚡ Dynamic Contributor Grid
+## ⚡ Real-Time Dynamic Contributor Cards
 
-Below is the real-time list of all GitHub contributors who have submitted commits to this repository. This avatar grid updates automatically as new Pull Requests are merged!
+The interactive list below is automatically populated directly from the **GitHub REST API**. It dynamically calculates the contributor count, fetches user avatars, and lists total commits in real time without any manual updates!
+
+<div id="dynamic-contributor-cards">
+  <p style="color: #94a3b8;">Loading live contributor statistics from GitHub API...</p>
+</div>
+
+---
+
+## 🖼️ Dynamic Contributor Avatar Grid
 
 <a href="https://github.com/Latikeshh/coding/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Latikeshh/coding" alt="Coding Contributors" />
+  <img src="https://contrib.rocks/image?repo=Latikeshh/coding" alt="Coding Contributors Avatar Grid" />
 </a>
 
-*(Click the image above to view full commit statistics on GitHub)*
+*(Click the grid above to view detailed commit graphs and additions on GitHub)*
 
 ---
 
@@ -50,3 +60,6 @@ Want to see your name and GitHub avatar featured on this page?
 4. Once your PR is reviewed and merged, your GitHub avatar will automatically appear in the **Dynamic Contributor Grid** above!
 
 Thank you for helping make **Coding** the ultimate free, open-source programming resource for everyone! 🚀
+
+<!-- Script to power dynamic contributor cards -->
+<script src="{{ '/assets/js/contributors.js?v=' | append: site.github.build_revision | relative_url }}"></script>
