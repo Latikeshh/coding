@@ -25,7 +25,7 @@ main:
   - title: Python
     url: "/Python/"
     icon: "🐍"
-    count: "31 Lessons"
+    count: "32 Lessons"
   - title: Java
     url: "/Java/"
     icon: "☕"

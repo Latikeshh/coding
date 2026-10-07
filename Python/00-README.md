@@ -61,6 +61,7 @@ Python is a high-level, dynamically-typed, general-purpose programming language 
 | 29 | Virtual Environments and Package Management | 🟡 Intermediate | [Open lesson](29-virtual-environments-and-pip.html) |
 | 30 | Project Structure and PEP 8 Best Practices | 🟡 Intermediate | [Open lesson](30-project-structure-and-best-practices.html) |
 | 31 | Capstone Python Mini Projects | 🔴 Advanced | [Open lesson](31-mini-projects.html) |
+| 32 | Asynchronous Programming (`asyncio`, `async` & `await`) | 🔴 Advanced | [Open lesson](32-asynchronous-programming-asyncio.html) |
 
 ## 🎯 Suggested Learning Flow
 

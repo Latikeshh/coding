@@ -86,7 +86,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
         <span class="card-icon">🐍</span>
         <h3 class="card-title">Python</h3>
       </div>
-      <span class="card-badge">31 Lessons</span>
+      <span class="card-badge">32 Lessons</span>
     </div>
     <p class="card-desc">Python 3 Fundamentals, Data Structures, OOP, Decorators, Iterators, File Handling, Testing & Projects.</p>
     <span class="card-link-text">Explore Python Track →</span>
@@ -282,7 +282,7 @@ To help learners explore original language specifications, standards, and vendor
 
 | Technology Track | Total Lessons | Level Range | Direct Path Link |
 | :--- | :---: | :---: | :--- |
-| 🐍 **Python 3** | 31 Lessons | Beginner → Practical | [Explore Python Path]({{ '/Python/' | relative_url }}) |
+| 🐍 **Python 3** | 32 Lessons | Beginner → Practical | [Explore Python Path]({{ '/Python/' | relative_url }}) |
 | ☕ **Java (SE JDK 25)** | 24 Lessons | Beginner → Practical | [Explore Java Path]({{ '/Java/' | relative_url }}) |
 | 🌐 **HTML5** | 32 Lessons | Beginner → Web | [Explore HTML Path]({{ '/HTML/' | relative_url }}) |
 | 🎨 **CSS3** | 43 Lessons | Beginner → Advanced | [Explore CSS Path]({{ '/CSS/' | relative_url }}) |

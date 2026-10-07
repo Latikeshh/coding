@@ -68,9 +68,9 @@ coding/
 │   ├── 00-README.md       # C++ Master Syllabus & Systems OOP Path
 │   ├── 01-setup-cpp.md
 │   └── ... [02 to 23]
-├── 🐍 Python/             # 31 Lessons: Python 3, Data Structures, Decorators, Generators, Type Hints & Testing
+├── 🐍 Python/             # 32 Lessons: Python 3, Data Structures, Decorators, Generators, AsyncIO, Type Hints & Testing
 │   ├── 00-README.md       # Python Master Syllabus & Learning Path
-│   └── ... [01 to 31]
+│   └── ... [01 to 32]
 ├── ☕ Java/               # 24 Lessons: General Java SE (JDK 25), OOP, Collections, Streams, Lambdas & Testing
 │   ├── 00-README.md       # Java Master Syllabus & Learning Path
 │   └── ... [01 to 24]
@@ -85,7 +85,7 @@ coding/
 
 | Track | Total Lessons | Level Range | Key Concepts Covered | Quick Link |
 |---|---|---|---|---|
-| 🐍 **Python** | 31 Lessons | Beginner → Practical | Python 3 fundamentals, collections, functions, OOP, files, testing, projects | [Explore Python](Python/) |
+| 🐍 **Python** | 32 Lessons | Beginner → Practical | Python 3 fundamentals, collections, functions, OOP, asyncio, files, testing, projects | [Explore Python](Python/) |
 | ☕ **Java** | 24 Lessons | Beginner → Practical | General Java SE (JDK 25), types, control flow, collections, OOP, streams, lambdas, testing, projects | [Explore Java](Java/) |
 | 🌐 **HTML** | 32 Lessons | Beginner → Intermediate | Document Structure, Semantic HTML5, Forms & Validations, Audio/Video, Accessibility (ARIA), Meta Tags, Open Graph & SEO | [Explore HTML](HTML/) |
 | 🎨 **CSS** | 43 Lessons | Beginner → Advanced | Specificity, Box Model, Flexbox, CSS Grid, Media Queries, Transitions, Keyframe Animations, Custom Properties (Variables), Dark Mode & Architecture | [Explore CSS](CSS/) |
@@ -166,7 +166,7 @@ To help learners explore original language specifications, standards, and vendor
 
 | Technology Track | Total Lessons | Level Range | Direct Path Link |
 | :--- | :---: | :---: | :--- |
-| 🐍 **Python 3** | 31 Lessons | Beginner → Practical | [Explore Python Path](Python/) |
+| 🐍 **Python 3** | 32 Lessons | Beginner → Practical | [Explore Python Path](Python/) |
 | ☕ **Java (SE JDK 25)** | 24 Lessons | Beginner → Practical | [Explore Java Path](Java/) |
 | 🌐 **HTML5** | 32 Lessons | Beginner → Web | [Explore HTML Path](HTML/) |
 | 🎨 **CSS3** | 43 Lessons | Beginner → Advanced | [Explore CSS Path](CSS/) |

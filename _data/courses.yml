@@ -577,6 +577,9 @@ Python:
     - file: "31-mini-projects.md"
       title: "Capstone Python Mini Projects"
       url: "/Python/31-mini-projects.html"
+    - file: "32-asynchronous-programming-asyncio.md"
+      title: "Asynchronous Programming in Python (asyncio, async & await)"
+      url: "/Python/32-asynchronous-programming-asyncio.html"
 Java:
   title: "Java"
   icon: "Java"

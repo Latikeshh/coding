@@ -195,5 +195,5 @@ Security Rating    : VERY STRONG
 
 ## 🧭 Navigation
 
-[← Python Home](./) | [← Previous: Project Structure](30-project-structure-and-best-practices.html)
+[← Python Home](./) | [← Previous: Project Structure](30-project-structure-and-best-practices.html) | [Next: Asynchronous Programming →](32-asynchronous-programming-asyncio.html)
 
