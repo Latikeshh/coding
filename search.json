@@ -15,7 +15,7 @@ layout: null
         "course": {{ course_title | jsonify }},
         "course_id": {{ course_id | jsonify }},
         "file": {{ lesson.file | jsonify }},
-        "url": {{ target_url | relative_url }}
+        "url": {{ target_url | relative_url | jsonify }}
       }
     {% endfor %}
   {% endfor %}

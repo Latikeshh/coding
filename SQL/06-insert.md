@@ -114,10 +114,10 @@ Write a single multi-row `INSERT` query that adds 2 new products into a `product
 ## 🔗 Related Topics
 
 - [SQL Data Types & NULL Values](04-data-types-and-null.html)
-- [`SELECT` – Reading Data](06-select.html)
+- [`SELECT` – Reading Data](07-select.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: Data Types & NULL](04-data-types-and-null.html) | [Next: SELECT – Reading Data →](06-select.html)
+[← SQL Home](./) | [← Previous: Data Types & NULL](04-data-types-and-null.html) | [Next: SELECT – Reading Data →](07-select.html)
 
 

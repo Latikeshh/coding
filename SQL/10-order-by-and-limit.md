@@ -124,11 +124,11 @@ Write a query to display the 2nd highest spending customer from the `customers` 
 
 ## 🔗 Related Topics
 
-- [Operators in SQL](08-operators.html)
-- [`UPDATE` & `DELETE`](10-update-and-delete.html)
+- [Operators in SQL](09-operators.html)
+- [`UPDATE` & `DELETE`](11-update-and-delete.html)
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: Operators in SQL](08-operators.html) | [Next: UPDATE & DELETE →](10-update-and-delete.html)
+[← SQL Home](./) | [← Previous: Operators in SQL](09-operators.html) | [Next: UPDATE & DELETE →](11-update-and-delete.html)
 
 
