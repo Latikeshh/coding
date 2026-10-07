@@ -51,11 +51,31 @@ Think of C++ code as a blueprint for a high-speed sports car. The C++ compiler (
 
 #### Option B: Using Dev-C++ IDE (All-in-One Beginner IDE for Windows)
 **Dev-C++** (such as **Embarcadero Dev-C++**) is a popular, lightweight standalone IDE for Windows that includes a bundled MinGW GCC/G++ compiler suite.
-1. Download the **Embarcadero Dev-C++** installer from official GitHub releases or SourceForge.
-2. Run the `.exe` setup installer. It automatically installs both the Dev-C++ editor and the bundled MinGW `g++` compiler.
-3. Open Dev-C++ -> Click **File -> New -> Source File** (or press `Ctrl + N`).
-4. Write your C++ code and save the file with a `.cpp` extension (e.g. `main.cpp`).
-5. Press **`F11`** (or click **Execute -> Compile & Run**) to automatically compile and execute your C++ code in a console window.
+
+##### 📥 Step-by-Step Installation & Usage:
+1. Download the **Embarcadero Dev-C++** setup installer from official GitHub releases or SourceForge.
+2. Run the `.exe` setup installer. It automatically installs both the Dev-C++ code editor and the bundled MinGW `g++` compiler.
+3. Open Dev-C++ $\rightarrow$ Click **File $\rightarrow$ New $\rightarrow$ Source File** (or press `Ctrl + N`).
+4. Write your C++ code and save the file with a **`.cpp` extension** (e.g. `main.cpp`).
+5. Press **`F11`** (or click **Execute $\rightarrow$ Compile & Run**) to compile and execute your C++ code in a console window.
+
+##### ⚙️ How to Enable C++17 / C++20 Standard in Dev-C++:
+To enable modern ISO C++17 or C++20 standard rules in Dev-C++:
+1. Go to top menu: **Tools $\rightarrow$ Compiler Options**.
+2. Select **Settings** tab $\rightarrow$ **Code Generation**.
+3. Under **Language Standard (-std)**, select **ISO C++20** (`-std=c++20`) or **ISO C++17** (`-std=c++17`).
+4. Click **OK** to save.
+
+##### ⌨️ Dev-C++ Keyboard Shortcuts Quick Reference:
+
+| Shortcut | Action | Description |
+| :---: | :--- | :--- |
+| **`Ctrl + N`** | New File | Creates a new blank source file |
+| **`Ctrl + S`** | Save File | Saves current code file (save as `.cpp`) |
+| **`F9`** | Compile | Compiles C++ code and checks for syntax errors |
+| **`F10`** | Run | Runs the compiled binary executable |
+| **`F11`** | Compile & Run | Compiles and executes C++ code in one click |
+| **`Ctrl + F9`** | Rebuild All | Cleans and re-compiles all project files |
 
 ### 2. Linux (Ubuntu / Debian / Fedora)
 Open terminal and install build tools:
@@ -158,5 +178,4 @@ Write a program named `banner.cpp` that prints a 3-line banner welcoming yoursel
 ## 🧭 Navigation
 
 [← C++ Home](./) | [Next: Introduction to C++ →](02-introduction-to-cpp.html)
-
 
