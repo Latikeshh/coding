@@ -125,10 +125,6 @@ We welcome open-source contributions from developers, learners, and educators wo
 
 ## 👥 Creator & Contributors
 
-### 🌟 Contributor Hall of Fame
-View all community members and developers who have contributed to this project:
-👉 **[View Full Contributors Hall of Fame (CONTRIBUTORS.md)](CONTRIBUTORS.md)**
-
 ### 👨‍💻 Created & Maintained By
 This repository was created and is actively maintained by:
 
@@ -136,11 +132,9 @@ This repository was created and is actively maintained by:
 |---|---|---|
 | **Latikesh Marathe** | [@Latikeshh](https://github.com/Latikeshh) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-Latikesh_Marathe-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/latikesh-marathe-966218374) |
 
-### Curriculum Contributors
-
-| Contributor          | Profile | Contribution |
-|----------------------|---|---|
-| **Prathamesh Misar** | [@git-pratham](https://github.com/git-pratham) | Added the [Python](Python/) and [Java](Java/) learning paths. |
+### 🌟 Dynamic Contributor Hall of Fame
+View real-time commit statistics, avatars, and contributions for all open-source contributors:
+👉 **[View Full Contributors Hall of Fame (CONTRIBUTORS.md)](CONTRIBUTORS.md)**
 
 ---
 
