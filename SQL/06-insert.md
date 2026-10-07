@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "05 insert"
+title: "06 insert"
 ---
 
 # `INSERT` – Adding Data to Tables

@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "24 ctes"
+title: "23 ctes"
 ---
 
 # 🔗 Common Table Expressions (CTEs) & WITH Clause in SQL

@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "10 update and delete"
+title: "11 update and delete"
 ---
 
 # `UPDATE` & `DELETE` – Modifying Data

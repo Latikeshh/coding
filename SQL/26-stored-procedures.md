@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "27 stored procedures"
+title: "26 stored procedures"
 ---
 
 # Stored Procedures & Functions

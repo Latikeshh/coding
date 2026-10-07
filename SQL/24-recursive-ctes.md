@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "25 recursive ctes"
+title: "24 recursive ctes"
 ---
 
 # Recursive CTEs

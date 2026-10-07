@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "14 group by and having"
+title: "13 group by and having"
 ---
 
 # 📊 GROUP BY & HAVING Clauses in SQL

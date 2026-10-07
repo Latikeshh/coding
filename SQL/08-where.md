@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "07 where"
+title: "08 where"
 ---
 
 # Filtering Data with `WHERE`

@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "16 sql functions"
+title: "15 sql functions"
 ---
 
 # SQL Built-in Functions: String, Numeric, Date & NULL Handling

@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "15 joins"
+title: "14 joins"
 ---
 
 # SQL Joins & Table Relationships

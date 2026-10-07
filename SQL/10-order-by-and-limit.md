@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "09 order by and limit"
+title: "10 order by and limit"
 ---
 
 # Sorting & Limiting Results (`ORDER BY`, `LIMIT`)

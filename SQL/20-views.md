@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "21 views"
+title: "20 views"
 ---
 
 # 👁️ Views & Virtual Tables in SQL

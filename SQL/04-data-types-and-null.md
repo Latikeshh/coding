@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: "04 data types and null"
 ---

@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "08 operators"
+title: "09 operators"
 ---
 
 # Operators in SQL

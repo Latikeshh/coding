@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: "03 databases and tables"
 ---

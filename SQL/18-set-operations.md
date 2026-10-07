@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "19 set operations"
+title: "18 set operations"
 ---
 
 # Set Operations: UNION, UNION ALL, INTERSECT & EXCEPT

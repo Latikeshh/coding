@@ -74,7 +74,7 @@ coding/
 ├── ☕ Java/               # 24 Lessons: General Java SE (JDK 25), OOP, Collections, Streams, Lambdas & Testing
 │   ├── 00-README.md       # Java Master Syllabus & Learning Path
 │   └── ... [01 to 24]
-└── 🗄️ SQL/                # 30 Lessons: Relational DBs, CRUD, Joins, Aggregations, CTEs, Views & Transactions
+└── 🗄️ SQL/                # 30 Lessons: Relational DBs, Keys, CRUD, Joins, Aggregations, CTEs, Views, JSON & Transactions
     ├── 00-README.md       # SQL Master Syllabus & Learning Path
     └── ... [01 to 30]
 ```
@@ -93,7 +93,7 @@ coding/
 | ⚙️ **C** | 23 Lessons | Beginner → Systems | ISO C11, Input/Output (`fgets`), Pointer Arithmetic, Dynamic Memory Allocation (`malloc`/`free`), Structs, Unions, File I/O, Header Guards & Persistent Binary Database Engine | [Explore C](C/) |
 | ⚡ **JavaScript** | 25 Lessons | Beginner → Advanced | Modern ES6+, Scoping & Hoisting, Closures, Promises, `async`/`await`, Fetch API, Prototypes, ES6 Classes, DOM Selection/Events & Web Storage | [Explore JS](JS/) |
 | 🚀 **C++** | 23 Lessons | Beginner → Advanced Systems | ISO C++17/20, References, Modern OOP, Operator Overloading, Smart Pointers (`unique_ptr`/`shared_ptr`), STL Containers & Algorithms, Templates, Exceptions, Lambda Expressions & Move Semantics | [Explore C++](CPP/) |
-| 🗄️ **SQL** | 30 Lessons | Beginner → Advanced | Relational Databases, CRUD, Joins, Aggregations, Subqueries, CTEs, Window Functions, Views & Transactions | [Explore SQL](SQL/) |
+| 🗄️ **SQL** | 30 Lessons | Beginner → Advanced | Relational Databases, Keys, CRUD, Joins, Aggregations, Subqueries, CTEs, Window Functions, Views, JSON & Transactions | [Explore SQL](SQL/) |
 
 ---
 

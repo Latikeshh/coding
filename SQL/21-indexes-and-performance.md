@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "22 indexes and performance"
+title: "21 indexes and performance"
 ---
 
 # Indexes & Query Performance

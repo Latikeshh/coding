@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: "02 introduction to sql"
 ---

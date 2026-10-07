@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "18 subqueries"
+title: "17 subqueries"
 ---
 
 # Subqueries & Nested Queries

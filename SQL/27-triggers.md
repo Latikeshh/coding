@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "28 triggers"
+title: "27 triggers"
 ---
 
 # Triggers

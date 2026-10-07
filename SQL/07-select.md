@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "06 select"
+title: "07 select"
 ---
 
 # `SELECT` – Reading Data

@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "23 transactions"
+title: "22 transactions"
 ---
 
 # Transactions & ACID

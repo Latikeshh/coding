@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "17 case expressions"
+title: "16 case expressions"
 ---
 
 # 🔀 Conditional Logic with CASE Expressions in SQL

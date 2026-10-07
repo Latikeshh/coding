@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "26 window functions"
+title: "25 window functions"
 ---
 
 # SQL Window Functions: OVER, PARTITION BY & Framing

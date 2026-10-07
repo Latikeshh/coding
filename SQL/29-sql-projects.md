@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "30 sql projects"
+title: "29 sql projects"
 ---
 
 # Practical SQL Projects

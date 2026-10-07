@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "20 normalization"
+title: "19 normalization"
 ---
 
 # Database Relationships & Normalization

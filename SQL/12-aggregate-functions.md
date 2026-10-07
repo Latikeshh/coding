@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "13 aggregate functions"
+title: "12 aggregate functions"
 ---
 
 # 📈 SQL Aggregate Functions (COUNT, SUM, AVG, MIN, MAX)

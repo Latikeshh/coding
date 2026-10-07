@@ -1,6 +1,6 @@
-﻿---
+---
 layout: default
-title: "29 sql security"
+title: "28 sql security"
 ---
 
 # SQL Security & Permissions
