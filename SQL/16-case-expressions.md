@@ -179,12 +179,12 @@ Create a query on a `products` table displaying `product_name`, `stock_quantity`
 
 ## 🔗 Related Topics
 
-- [SQL Built-in Functions](16-sql-functions.html)
-- [GROUP BY & HAVING Clauses](14-group-by-and-having.html)
-- [Subqueries & Nested Queries](18-subqueries.html)
+- [SQL Built-in Functions](15-sql-functions.html)
+- [GROUP BY & HAVING Clauses](13-group-by-and-having.html)
+- [Subqueries & Nested Queries](17-subqueries.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: SQL Functions](16-sql-functions.html) | [Next: Subqueries →](18-subqueries.html)
+[← SQL Home](./) | [← Previous: SQL Functions](15-sql-functions.html) | [Next: Subqueries →](17-subqueries.html)

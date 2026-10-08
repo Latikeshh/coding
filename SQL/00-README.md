@@ -4,126 +4,85 @@ title: "SQL Master Syllabus"
 permalink: /SQL/
 ---
 
-# ⚡ Learn SQL
+# ⚡ Learn SQL Database & Querying
 
-SQL (Structured Query Language) is the standard language used to communicate with relational databases. It lets you create databases and tables, store and retrieve data, filter and sort records, combine data from multiple tables, modify records, and perform powerful data analysis.
+SQL (Structured Query Language) is the global standard language for relational database management systems. It enables software engineers, data analysts, and backend developers to design database schemas, enforce relational integrity via Primary and Foreign Keys, write efficient data queries, perform complex multi-table joins, build analytical reports, and optimize performance.
 
-> 🟢 **Beginner to Advanced:** Start with database fundamentals and basic queries, master filtering, sorting, grouping, and joins, then move into subqueries, functions, views, indexes, transactions, constraints, normalization, and advanced SQL techniques.
+> 🟢 **Beginner to Advanced:** Start with database setup and table design, master Primary/Foreign Keys and CRUD operations, learn advanced filtering, grouping, and multi-table Joins, then build advanced analytical queries using Subqueries, CTEs, Window Functions, Views, Indexes, Transactions, JSON Data, and Stored Procedures.
+
+---
 
 ## 📖 What You Will Learn
 
-* What databases and relational databases are
-* SQL syntax, statements, keywords, and comments
-* Creating and managing databases and tables
-* Inserting, reading, updating, and deleting data
-* Filtering data using `WHERE`, `AND`, `OR`, `NOT`, and `BETWEEN`
-* Sorting and limiting query results with `ORDER BY` and `LIMIT`
-* SQL data types and NULL values
-* Aggregate functions such as `COUNT`, `SUM`, `AVG`, `MIN`, and `MAX`
-* Grouping data using `GROUP BY` and filtering groups with `HAVING`
-* Combining data using `INNER`, `LEFT`, `RIGHT`, and `FULL` joins
-* Primary keys, foreign keys, unique constraints, and other constraints
-* Subqueries and correlated subqueries
-* SQL functions, expressions, and conditional logic
-* Views, indexes, and database optimization concepts
-* Transactions, `COMMIT`, `ROLLBACK`, and ACID properties
-* Database normalization and relational design
-* Common Table Expressions (CTEs) and recursive queries
-* Window functions and advanced data analysis
-* Stored procedures, triggers, and database automation
-* Practical SQL projects and real-world database queries
+- Relational database architecture, DBMS components, and SQL execution order
+- Creating databases and tables with `CREATE DATABASE` and `CREATE TABLE`
+- Data types (`INT`, `VARCHAR`, `DECIMAL`, `DATE`, `TIMESTAMP`) and `NULL` handling
+- Enforcing schema integrity using `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, `UNIQUE`, `CHECK`, and `DEFAULT`
+- Inserting records into parent and child tables safely using `INSERT INTO`
+- Reading, querying, filtering, and sorting records with `SELECT`, `WHERE`, `ORDER BY`, and `LIMIT`
+- Multi-condition logical operators (`AND`, `OR`, `NOT`, `BETWEEN`, `IN`, `LIKE`)
+- Modifying and removing table records safely with `UPDATE` and `DELETE`
+- Aggregate functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`) and handling `NULL`s with `COALESCE`
+- Summarizing data using `GROUP BY` and filtering aggregated groups using `HAVING`
+- Combining relational data using `INNER`, `LEFT`, `RIGHT`, `FULL`, and `CROSS` joins
+- Built-in string, numeric, date/time, and type-conversion functions
+- Conditional logic with `CASE` expressions in `SELECT`, `ORDER BY`, and aggregations
+- Modular query design using Subqueries, CTEs (`WITH` clause), and Recursive CTEs
+- Set operations (`UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT`)
+- Database normalization standards (1NF, 2NF, 3NF) and ER relationship design
+- Creating Virtual Views and Materialized Views for reporting and security abstraction
+- B-Tree Indexes, query execution plans (`EXPLAIN ANALYZE`), and query optimization
+- Transaction management (`BEGIN`, `COMMIT`, `ROLLBACK`) and ACID properties
+- Advanced analytical queries using SQL Window Functions (`OVER`, `PARTITION BY`, `ROW_NUMBER`, `RANK`)
+- Working with `JSON` and `JSONB` semi-structured data inside relational database columns
+- Database automation using Stored Procedures, Functions, Triggers, and Security Grants
+- Real-world capstone SQL projects and database administration scripts
 
-## 📚 Lessons
+---
 
-| #  | Topic                                           | Level           | Link                                          |
-| -- | ----------------------------------------------- | --------------- | --------------------------------------------- |
-| 01 | Set Up SQL Environment                          | 🟢 Beginner     | [Open lesson](01-setup-sql.html)                |
-| 02 | Introduction to SQL & Databases                 | 🟢 Beginner     | [Open lesson](02-introduction-to-sql.html)      |
-| 03 | Database & Table Basics                         | 🟢 Beginner     | [Open lesson](03-databases-and-tables.html)     |
-| 04 | SQL Data Types & NULL Values                    | 🟢 Beginner     | [Open lesson](04-data-types-and-null.html)      |
-| 05 | `INSERT` – Adding Data                          | 🟢 Beginner     | [Open lesson](05-insert.html)                   |
-| 06 | `SELECT` – Reading Data                         | 🟢 Beginner     | [Open lesson](06-select.html)                   |
-| 07 | Filtering Data with `WHERE`                     | 🟢 Beginner     | [Open lesson](07-where.html)                    |
-| 08 | Operators in SQL                                | 🟢 Beginner     | [Open lesson](08-operators.html)                |
-| 09 | Sorting & Limiting Results                      | 🟢 Beginner     | [Open lesson](09-order-by-and-limit.html)       |
-| 10 | `UPDATE` & `DELETE`                             | 🟢 Beginner     | [Open lesson](10-update-and-delete.html)        |
-| 11 | SQL Constraints                                 | 🟡 Intermediate | [Open lesson](11-constraints.html)              |
-| 12 | Primary Keys & Foreign Keys                     | 🟡 Intermediate | [Open lesson](12-primary-and-foreign-keys.html) |
-| 13 | Aggregate Functions                             | 🟡 Intermediate | [Open lesson](13-aggregate-functions.html)      |
-| 14 | `GROUP BY` & `HAVING`                           | 🟡 Intermediate | [Open lesson](14-group-by-and-having.html)      |
-| 15 | SQL Joins                                       | 🟡 Intermediate | [Open lesson](15-joins.html)                    |
-| 16 | SQL String, Numeric & Date Functions            | 🟡 Intermediate | [Open lesson](16-sql-functions.html)            |
-| 17 | Conditional Logic with `CASE`                   | 🟡 Intermediate | [Open lesson](17-case-expressions.html)         |
-| 18 | Subqueries & Nested Queries                     | 🟡 Intermediate | [Open lesson](18-subqueries.html)               |
-| 19 | Set Operations (`UNION`, `INTERSECT`, `EXCEPT`) | 🟡 Intermediate | [Open lesson](19-set-operations.html)           |
-| 20 | Database Relationships & Normalization          | 🟡 Intermediate | [Open lesson](20-normalization.html)            |
-| 21 | Views & Virtual Tables                          | 🟡 Intermediate | [Open lesson](21-views.html)                    |
-| 22 | Indexes & Query Performance                     | 🔴 Advanced     | [Open lesson](22-indexes-and-performance.html)  |
-| 23 | Transactions & ACID                             | 🔴 Advanced     | [Open lesson](23-transactions.html)             |
-| 24 | Common Table Expressions (CTEs)                 | 🔴 Advanced     | [Open lesson](24-ctes.html)                     |
-| 25 | Recursive CTEs                                  | 🔴 Advanced     | [Open lesson](25-recursive-ctes.html)           |
-| 26 | Window Functions                                | 🔴 Advanced     | [Open lesson](26-window-functions.html)         |
-| 27 | Stored Procedures & Functions                   | 🔴 Advanced     | [Open lesson](27-stored-procedures.html)        |
-| 28 | Triggers                                        | 🔴 Advanced     | [Open lesson](28-triggers.html)                 |
-| 29 | SQL Security & Permissions                      | 🔴 Advanced     | [Open lesson](29-sql-security.html)             |
-| 30 | Practical SQL Projects                          | 🔴 Advanced     | [Open lesson](30-sql-projects.html)             |
+## 📚 Complete Lesson Index
+
+| # | Topic | Level | Link |
+| :---: | :--- | :---: | :--- |
+| **01** | Set Up SQL Environment | 🟢 Beginner | [Open lesson](01-setup-sql.html) |
+| **02** | Introduction to SQL & Databases | 🟢 Beginner | [Open lesson](02-introduction-to-sql.html) |
+| **03** | Database & Table Basics (`CREATE`, `ALTER`, `DROP`) | 🟢 Beginner | [Open lesson](03-databases-and-tables.html) |
+| **04** | SQL Data Types & NULL Values | 🟢 Beginner | [Open lesson](04-data-types-and-null.html) |
+| **05** | Database Keys (Primary, Foreign, Composite, Candidate & Surrogate Keys) | 🟢 Beginner | [Open lesson](05-keys.html) |
+| **06** | `INSERT` – Adding Data to Tables with Keys | 🟢 Beginner | [Open lesson](06-insert.html) |
+| **07** | `SELECT` – Reading & Querying Data | 🟢 Beginner | [Open lesson](07-select.html) |
+| **08** | Filtering Data with `WHERE` | 🟢 Beginner | [Open lesson](08-where.html) |
+| **09** | Operators in SQL | 🟢 Beginner | [Open lesson](09-operators.html) |
+| **10** | Sorting & Limiting Results (`ORDER BY`, `LIMIT`) | 🟢 Beginner | [Open lesson](10-order-by-and-limit.html) |
+| **11** | `UPDATE` & `DELETE` – Modifying Data | 🟢 Beginner | [Open lesson](11-update-and-delete.html) |
+| **12** | Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`) | 🟡 Intermediate | [Open lesson](12-aggregate-functions.html) |
+| **13** | `GROUP BY` & `HAVING` Clauses | 🟡 Intermediate | [Open lesson](13-group-by-and-having.html) |
+| **14** | SQL Joins & Table Relationships | 🟡 Intermediate | [Open lesson](14-joins.html) |
+| **15** | SQL Built-in String, Numeric & Date Functions | 🟡 Intermediate | [Open lesson](15-sql-functions.html) |
+| **16** | Conditional Logic with `CASE` | 🟡 Intermediate | [Open lesson](16-case-expressions.html) |
+| **17** | Subqueries & Nested Queries | 🟡 Intermediate | [Open lesson](17-subqueries.html) |
+| **18** | Set Operations (`UNION`, `INTERSECT`, `EXCEPT`) | 🟡 Intermediate | [Open lesson](18-set-operations.html) |
+| **19** | Database Relationships & Normalization (1NF–3NF) | 🟡 Intermediate | [Open lesson](19-normalization.html) |
+| **20** | Views & Virtual Tables | 🟡 Intermediate | [Open lesson](20-views.html) |
+| **21** | Indexes & Query Performance (`EXPLAIN`) | 🔴 Advanced | [Open lesson](21-indexes-and-performance.html) |
+| **22** | Transactions & ACID Properties | 🔴 Advanced | [Open lesson](22-transactions.html) |
+| **23** | Common Table Expressions (CTEs) | 🔴 Advanced | [Open lesson](23-ctes.html) |
+| **24** | Recursive CTEs & Hierarchical Data | 🔴 Advanced | [Open lesson](24-recursive-ctes.html) |
+| **25** | SQL Window Functions (`OVER`, `PARTITION BY`) | 🔴 Advanced | [Open lesson](25-window-functions.html) |
+| **26** | Stored Procedures & Functions | 🔴 Advanced | [Open lesson](26-stored-procedures.html) |
+| **27** | Triggers & Automated Events | 🔴 Advanced | [Open lesson](27-triggers.html) |
+| **28** | SQL Security, Roles & Permissions | 🔴 Advanced | [Open lesson](28-sql-security.html) |
+| **29** | Working with JSON Data in Relational SQL (`JSON` & `JSONB`) | 🔴 Advanced | [Open lesson](29-json-data-in-sql.html) |
+| **30** | Practical SQL Capstone Projects | 🔴 Advanced | [Open lesson](30-sql-projects.html) |
+
+---
 
 ## 🎯 Suggested Learning Flow
 
-`01–04 SQL & Database Fundamentals` → `05–10 CRUD & Query Basics` → `11–15 Constraints, Keys & Joins` → `16–20 Functions, Subqueries & Database Design` → `21–23 Views, Indexes & Transactions` → `24–26 CTEs & Advanced Queries` → `27–29 Procedures, Triggers & Security` → `30 Practical Projects`
+`01–05 Database Design & Keys` $\rightarrow$ `06–11 CRUD Operations & Query Filtering` $\rightarrow$ `12–14 Aggregation & Joins` $\rightarrow$ `15–19 Functions, Subqueries & Normalization` $\rightarrow$ `20–22 Views, Indexes & Transactions` $\rightarrow$ `23–25 CTEs & Window Functions` $\rightarrow$ `26–29 JSON Data, Procedures, Triggers & Security` $\rightarrow$ `30 Capstone Projects`
 
-## 🧪 Practice Routine
-
-For each lesson:
-
-1. Read the explanation and study the SQL examples.
-2. Run every query using your SQL environment.
-3. Create your own database and tables instead of only copying examples.
-4. Insert different types of data and experiment with the queries.
-5. Change conditions, joins, functions, and values to observe the results.
-6. Test edge cases such as `NULL`, duplicate values, and empty results.
-7. Solve the **Try It Yourself** and **Mini Challenge** tasks.
-8. Review the generated result and understand why the query produced it.
-
-## 🗄️ Recommended SQL Environments
-
-You can practice SQL using:
-
-* MySQL
-* PostgreSQL
-* SQLite
-* Microsoft SQL Server
-* MariaDB
-* Oracle Database
-* Online SQL playgrounds
-
-> ⚠️ SQL syntax can vary between database systems. Most fundamental SQL concepts are shared, but features such as date functions, `LIMIT`, stored procedures, and some advanced syntax may differ between MySQL, PostgreSQL, SQL Server, Oracle, and SQLite.
-
-## ✅ Progress Checklist
-
-* [ ] I understand what SQL and relational databases are.
-* [ ] I can create databases and tables.
-* [ ] I understand SQL data types and `NULL`.
-* [ ] I can insert, select, update, and delete records.
-* [ ] I can filter and sort query results.
-* [ ] I understand primary keys and foreign keys.
-* [ ] I can use SQL constraints correctly.
-* [ ] I can use aggregate functions such as `COUNT`, `SUM`, and `AVG`.
-* [ ] I can group data using `GROUP BY` and `HAVING`.
-* [ ] I understand and can use different types of joins.
-* [ ] I can write subqueries and nested queries.
-* [ ] I understand database relationships and normalization.
-* [ ] I can create and use views.
-* [ ] I understand indexes and basic query optimization.
-* [ ] I understand transactions, `COMMIT`, `ROLLBACK`, and ACID.
-* [ ] I can write CTEs and recursive queries.
-* [ ] I can use window functions for advanced data analysis.
-* [ ] I understand stored procedures and triggers.
-* [ ] I understand basic database security and permissions.
-* [ ] I have built practical SQL projects using real-world datasets.
+---
 
 ## 🧭 Navigation
 
-[← Repository Home](../) | [Start with Lesson 01 →](01-setup-sql.html)
-
-
+[← Repository Home](../README.md) | [Start with Lesson 01 →](01-setup-sql.html)

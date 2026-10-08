@@ -156,12 +156,12 @@ Using an `e_commerce_orders` table containing `customer_id`, `order_status`, `it
 
 ## 🔗 Related Topics
 
-- [Aggregate Functions](13-aggregate-functions.html)
-- [SQL Joins & Relationships](15-joins.html)
-- [SQL Window Functions](26-window-functions.html)
+- [Aggregate Functions](12-aggregate-functions.html)
+- [SQL Joins & Relationships](14-joins.html)
+- [SQL Window Functions](25-window-functions.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: Aggregate Functions](13-aggregate-functions.html) | [Next: SQL Joins →](15-joins.html)
+[← SQL Home](./) | [← Previous: Aggregate Functions](12-aggregate-functions.html) | [Next: SQL Joins →](14-joins.html)

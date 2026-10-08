@@ -217,13 +217,13 @@ Write a query that retrieves all products that have been cataloged in `products`
 
 ## 🔗 Related Topics
 
-- [SQL Joins](15-joins.html)
-- [Subqueries & Nested Queries](18-subqueries.html)
-- [Common Table Expressions (CTEs)](24-ctes.html)
+- [SQL Joins](14-joins.html)
+- [Subqueries & Nested Queries](17-subqueries.html)
+- [Common Table Expressions (CTEs)](23-ctes.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: Subqueries](18-subqueries.html) | [Next: Normalization →](20-normalization.html)
+[← SQL Home](./) | [← Previous: Subqueries](17-subqueries.html) | [Next: Normalization →](19-normalization.html)
 

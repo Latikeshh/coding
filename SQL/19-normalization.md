@@ -90,11 +90,11 @@ A table stores `order_id`, `product_id`, `product_name`, `quantity`, and `produc
 
 ## Related Topics
 
-- [Primary Keys & Foreign Keys](12-primary-and-foreign-keys.html)
-- [SQL Constraints](11-constraints.html)
+- [Primary Keys & Foreign Keys](05-keys.html)
+- [SQL Constraints](05-keys.html)
 
 ## Navigation
 
-[← SQL Home](./) | [← Previous: Set Operations](19-set-operations.html) | [Next: Views →](21-views.html)
+[← SQL Home](./) | [← Previous: Set Operations](18-set-operations.html) | [Next: Views →](20-views.html)
 
 

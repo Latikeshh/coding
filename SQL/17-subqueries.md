@@ -246,13 +246,13 @@ Write a query to find all orders whose total order amount is greater than the av
 
 ## 🔗 Related Topics
 
-- [SQL Joins](15-joins.html)
-- [Set Operations: UNION & EXCEPT](19-set-operations.html)
-- [Common Table Expressions (CTEs)](24-ctes.html)
+- [SQL Joins](14-joins.html)
+- [Set Operations: UNION & EXCEPT](18-set-operations.html)
+- [Common Table Expressions (CTEs)](23-ctes.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: CASE Expressions](17-case-expressions.html) | [Next: Set Operations →](19-set-operations.html)
+[← SQL Home](./) | [← Previous: CASE Expressions](16-case-expressions.html) | [Next: Set Operations →](18-set-operations.html)
 

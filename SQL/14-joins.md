@@ -503,14 +503,14 @@ ORDER BY s.student_name;
 
 ## 🔗 Related Topics
 
-- [Primary Keys & Foreign Keys](12-primary-and-foreign-keys.html)
-- [GROUP BY & HAVING](14-group-by-and-having.html)
-- [Subqueries & Nested Queries](18-subqueries.html)
-- [Set Operations: UNION & EXCEPT](19-set-operations.html)
+- [Primary Keys & Foreign Keys](05-keys.html)
+- [GROUP BY & HAVING](13-group-by-and-having.html)
+- [Subqueries & Nested Queries](17-subqueries.html)
+- [Set Operations: UNION & EXCEPT](18-set-operations.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: GROUP BY & HAVING](14-group-by-and-having.html) | [Next: SQL Functions →](16-sql-functions.html)
+[← SQL Home](./) | [← Previous: GROUP BY & HAVING](13-group-by-and-having.html) | [Next: SQL Functions →](15-sql-functions.html)
 

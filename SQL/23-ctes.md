@@ -176,12 +176,12 @@ Write a query using CTEs that finds each department's total payroll expenditure,
 
 ## 🔗 Related Topics
 
-- [Subqueries & Nested Queries](18-subqueries.html)
-- [Recursive CTEs & Hierarchical Queries](25-recursive-ctes.html)
-- [SQL Window Functions](26-window-functions.html)
+- [Subqueries & Nested Queries](17-subqueries.html)
+- [Recursive CTEs & Hierarchical Queries](24-recursive-ctes.html)
+- [SQL Window Functions](25-window-functions.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: Transactions](23-transactions.html) | [Next: Recursive CTEs →](25-recursive-ctes.html)
+[← SQL Home](./) | [← Previous: Transactions](22-transactions.html) | [Next: Recursive CTEs →](24-recursive-ctes.html)

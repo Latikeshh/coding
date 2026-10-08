@@ -94,11 +94,11 @@ Adapt the example to list all descendants of a chosen department node and explai
 
 ## Related Topics
 
-- [Common Table Expressions](24-ctes.html)
-- [SQL Joins](15-joins.html)
+- [Common Table Expressions](23-ctes.html)
+- [SQL Joins](14-joins.html)
 
 ## Navigation
 
-[← SQL Home](./) | [← Previous: Common Table Expressions](24-ctes.html) | [Next: Window Functions →](26-window-functions.html)
+[← SQL Home](./) | [← Previous: Common Table Expressions](23-ctes.html) | [Next: Window Functions →](25-window-functions.html)
 
 

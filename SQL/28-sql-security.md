@@ -81,11 +81,11 @@ For an app with product browsing and order placement, list the minimum read/writ
 
 ## Related Topics
 
-- [Stored Procedures & Functions](27-stored-procedures.html)
-- [Transactions & ACID](23-transactions.html)
+- [Stored Procedures & Functions](26-stored-procedures.html)
+- [Transactions & ACID](22-transactions.html)
 
 ## Navigation
 
-[← SQL Home](./) | [← Previous: Triggers](28-triggers.html) | [Next: SQL Projects →](30-sql-projects.html)
+[← SQL Home](./) | [← Previous: Triggers](27-triggers.html) | [Next: SQL Projects →](30-sql-projects.html)
 
 

@@ -150,12 +150,12 @@ Create a view named `department_salary_stats` that calculates `department_id`, t
 
 ## 🔗 Related Topics
 
-- [SQL Joins & Relationships](15-joins.html)
-- [Indexes & Query Performance](22-indexes-and-performance.html)
-- [Common Table Expressions (CTEs)](24-ctes.html)
+- [SQL Joins & Relationships](14-joins.html)
+- [Indexes & Query Performance](21-indexes-and-performance.html)
+- [Common Table Expressions (CTEs)](23-ctes.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: Normalization](20-normalization.html) | [Next: Indexes & Performance →](22-indexes-and-performance.html)
+[← SQL Home](./) | [← Previous: Normalization](19-normalization.html) | [Next: Indexes & Performance →](21-indexes-and-performance.html)

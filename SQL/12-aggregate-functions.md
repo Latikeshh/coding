@@ -132,12 +132,12 @@ Write a single query on a `sales` table for the `'West'` region that returns:
 
 ## 🔗 Related Topics
 
-- [GROUP BY & HAVING Clauses](14-group-by-and-having.html)
+- [GROUP BY & HAVING Clauses](13-group-by-and-having.html)
 - [SQL Data Types & NULL Values](04-data-types-and-null.html)
-- [SQL Window Functions](26-window-functions.html)
+- [SQL Window Functions](25-window-functions.html)
 
 ---
 
 ## 🧭 Navigation
 
-[← SQL Home](./) | [← Previous: Primary Keys & Foreign Keys](12-primary-and-foreign-keys.html) | [Next: GROUP BY & HAVING →](14-group-by-and-having.html)
+[← SQL Home](./) | [← Previous: Primary Keys & Foreign Keys](05-keys.html) | [Next: GROUP BY & HAVING →](13-group-by-and-having.html)
