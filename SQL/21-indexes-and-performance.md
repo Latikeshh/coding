@@ -48,16 +48,18 @@ In SQL:
 
 ## 4. Types of Indexes
 
-SQL databases support several index structures designed for different workload patterns:
+SQL databases support several distinct index structures optimized for different data types and query patterns:
 
-| Index Type | Structure / Behavior | Best Used For |
-| :--- | :--- | :--- |
-| **Single-Column Index** | Index created on a single table column. | Frequent equality filters on 1 column (`WHERE user_id = 5`). |
-| **Composite (Multi-Column) Index** | Index spanning 2 or more columns in a specific order. | Multi-filter queries (`WHERE country = 'IN' AND city = 'Mumbai'`). |
-| **Unique Index** | Enforces row uniqueness while indexing column values. | Natural unique identifiers (`email`, `username`, `ssn`). |
-| **Clustered Index** | Physical storage order of table data on disk (Primary Key). | Primary Key lookups and range scans. Exactly 1 per table. |
-| **Non-Clustered Index** | Separate index structure pointing back to primary key/ROWID. | Secondary lookups on non-primary key columns. |
-| **Full-Text Index** | Tokenized index for text searching (`MATCH AGAINST`). | Searching long text/VARCHAR columns for keywords. |
+| Index Type | Underlying Data Structure | Key Characteristics & Behavior | Primary Use Cases |
+| :--- | :--- | :--- | :--- |
+| **Primary Index (Primary Key)** | B-Tree / Clustered Index | Determines physical storage order of rows on disk. Automatically created on `PRIMARY KEY`. Exactly 1 per table. | Primary Key point lookups and range scans. |
+| **Secondary Index** | B-Tree / Non-Clustered | Separate index structure pointing back to the Clustered Primary Key / Row ID. | Lookups on non-primary key columns (`WHERE last_name = 'Smith'`). |
+| **Unique Index** | B-Tree | Guarantees value uniqueness across table rows while providing fast search lookups. | Unique business attributes (`email`, `ssn`, `username`). |
+| **Composite (Multi-Column) Index** | B-Tree | Indexes multiple columns together in a specific sequence (follows Leftmost Prefix Rule). | Multi-column filter queries (`WHERE country = 'IN' AND city = 'Mumbai'`). |
+| **Spatial Index** | R-Tree / MBR | Indexes multi-dimensional geographic spatial data (GPS coordinates, latitude/longitude). | GIS queries, location distance, boundaries (`POINT`, `POLYGON`, `GEOMETRY`). |
+| **Full-Text Index** | Inverted Index / Token Matrix | Parses long text into words/tokens for natural language keyword searching. | Searching articles, comments, product descriptions (`MATCH() AGAINST()`). |
+| **Hash Index** | Hash Table | Uses key-value hash functions. Extremely fast `O(1)` lookup for exact equality (`=`). | Memory tables and key-value lookups (Does NOT support `<`, `>`, `ORDER BY`). |
+| **B-Tree Index** | Self-Balancing Tree | Default universal index structure. Supports `=`, `>`, `<`, `>=`, `<=`, `BETWEEN`, and `LIKE 'prefix%'`. | General-purpose SQL querying on scalar columns. |
 
 ---
 
@@ -76,6 +78,16 @@ CREATE UNIQUE INDEX index_name ON table_name (column_name);
 ### Composite (Multi-Column) Index
 ```sql
 CREATE INDEX index_name ON table_name (column_1, column_2, column_3);
+```
+
+### Spatial Index (MySQL / PostgreSQL GIS)
+```sql
+CREATE SPATIAL INDEX index_name ON table_name (spatial_column);
+```
+
+### Full-Text Index
+```sql
+CREATE FULLTEXT INDEX index_name ON table_name (text_column_1, text_column_2);
 ```
 
 ---
@@ -101,6 +113,22 @@ ON e_commerce_users (email);
 -- 3. Create a Single-Column Index on last_name for frequent search filtering
 CREATE INDEX idx_users_lastname 
 ON e_commerce_users (last_name);
+
+-- 4. Create a Spatial Index on GPS coordinates for a delivery app
+CREATE TABLE delivery_hubs (
+    hub_id INT PRIMARY KEY AUTO_INCREMENT,
+    hub_name VARCHAR(100) NOT NULL,
+    location POINT NOT NULL SRID 0, -- Spatial POINT data type
+    SPATIAL INDEX idx_hub_location (location) -- R-Tree Spatial Index
+);
+
+-- 5. Create a Full-Text Index on product reviews
+CREATE TABLE product_reviews (
+    review_id INT PRIMARY KEY AUTO_INCREMENT,
+    review_title VARCHAR(200),
+    review_text TEXT,
+    FULLTEXT INDEX idx_ft_reviews (review_title, review_text) -- Inverted Full-Text Index
+);
 ```
 
 ---
