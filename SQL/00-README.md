@@ -79,7 +79,7 @@ SQL (Structured Query Language) is the global standard language for relational d
 
 ## 🎯 Suggested Learning Flow
 
-`01–05 Database Design & Keys` $\rightarrow$ `06–11 CRUD Operations & Query Filtering` $\rightarrow$ `12–14 Aggregation & Joins` $\rightarrow$ `15–19 Functions, Subqueries & Normalization` $\rightarrow$ `20–22 Views, Indexes & Transactions` $\rightarrow$ `23–25 CTEs & Window Functions` $\rightarrow$ `26–29 JSON Data, Procedures, Triggers & Security` $\rightarrow$ `30 Capstone Projects`
+`01–05 Database Design & Keys` → `06–11 CRUD Operations & Query Filtering` → `12–14 Aggregation & Joins` → `15–19 Functions, Subqueries & Normalization` → `20–22 Views, Indexes & Transactions` → `23–25 CTEs & Window Functions` → `26–29 JSON Data, Procedures, Triggers & Security` → `30 Capstone Projects`
 
 ---
 
