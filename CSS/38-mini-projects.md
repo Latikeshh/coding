@@ -394,17 +394,80 @@ After completing Project 2, test the behavior as well as the appearance:
 
 For an optional worked comparison, the [PagePatch free hero example](https://github.com/l-portet/pagepatch-free-hero) includes `before.html`, `hero.html`, and an explanation of five changes. Download the free sample ZIP linked in its README, unzip it, and open the two HTML files locally; no account, payment, or build step is required. Compare the fixed-width layout and removed focus outline in `before.html` with the fluid layout and explicit focus styling in `hero.html`. Use the before page only as a deliberately flawed exercise.
 
+#### Repair walkthrough for Project 2
+
+Use a separate `index.html` and `hero-style.css` for Project 2; do not combine its `.btn` rules with Project 1. Keep the viewport meta tag and the existing `border-box` rule.
+
+**1. Make the failure easy to reproduce.** In a temporary copy, replace the heading with `SuperLongPortfolioHeadingWithoutSpaces` and the first link label with `Explore all of my responsive interface projects`. Try a 320 CSS-pixel viewport. Long content can expose sizing problems that short placeholder text hides. Do not use `overflow-x: hidden` to conceal the problem.
+
+**2. Append this CSS after the existing Project 2 rules.**
+
+```css
+.hero-content {
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.hero-actions .btn {
+  max-width: 100%;
+  font-size: 1rem;
+}
+
+.hero-actions .btn:focus-visible {
+  outline: 3px solid #f8fafc;
+  outline-offset: 4px;
+}
+
+.practice-target {
+  padding: 40px 20px;
+  overflow-wrap: anywhere;
+}
+```
+
+`min-width: 0` lets the flex child shrink. `overflow-wrap: anywhere` gives otherwise unbreakable text a wrapping opportunity; the existing `max-width: 750px` still caps the content width. The link's `1rem` size follows the root font size instead of staying at 16px. The focus rule provides an explicit keyboard indicator without removing the browser's fallback outline. Read the [MDN wrapping reference](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap) and [focus-visible reference](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) for details.
+
+**3. Give the two existing links destinations.** Insert these practice sections after the hero section and before `</body>`:
+
+```html
+<section class="practice-target" id="projects" aria-labelledby="projects-title">
+  <h2 id="projects-title">Practice projects</h2>
+  <p>Replace this placeholder with your actual projects before publishing.</p>
+</section>
+<section class="practice-target" id="contact" aria-labelledby="contact-title">
+  <h2 id="contact-title">Contact placeholder</h2>
+  <p>This exercise does not send messages. Add a real contact method before publishing.</p>
+</section>
+```
+
+**4. Compare and record the behavior.** Keep the temporary long text while testing, then restore your own verified copy.
+
+| Check | Expected observation after the repair |
+|---|---|
+| 320, 768, and 1280 CSS-pixel viewport widths | Heading and link labels wrap within the page; no horizontal page scrolling is needed. |
+| Temporarily add `html { font-size: 200%; }` in DevTools | Rem-sized text grows, both links remain readable, and the layout can grow vertically. Remove the temporary rule afterward. This is a root-font test, not a browser-zoom test. |
+| Tab, then Tab, then Shift+Tab | Focus moves between the two action links; the pale outline is visible against the dark hero. |
+| Enter on each action link | The URL fragment changes to `#projects` or `#contact` and the corresponding section is reached. |
+
+Also check actual browser zoom separately. Record browser, viewport, change, and observed result; these checks are a starting point, not an accessibility audit or a conversion claim. Related lessons: [Box Model](16-box-model.html), [Flexbox](20-flexbox.html), and [Pseudo-classes](24-pseudo-classes.html).
+
 ### Hindi (Roman Script)
 
 Project 2 ke baad chhoti screen aur bade text par heading aur links jaanchein. Tab aur Shift+Tab se focus dekhein, phir Enter se dono links kholein. `#projects` aur `#contact` ke liye sahi section IDs jodein ya asli URLs dein. Har badlav ka nateeja likhein. Upar diya gaya muft example pehle aur baad ke layout ki tulna ke liye hai.
+
+Repair ke liye Project 2 ki files alag rakhein. Lambi heading aur link label se dikkat dohrayein, phir upar diya CSS aakhir mein jodein. `min-width: 0` aur `overflow-wrap: anywhere` text ko sametne mein madad karte hain; `1rem` root font size ke saath badhta hai. Dono placeholder sections `</body>` se pehle jodein. 320, 768 aur 1280px par layout, bade root font par text, aur keyboard se focus aur links jaanchein. DevTools ka 200% root-font test browser zoom se alag hai. Asli browser zoom bhi jaanchein aur prakashit karne se pehle placeholders badlein.
 
 ### Marathi (Roman Script)
 
 Project 2 nantar lahan screen ani mothya majkuravar heading ani links tapasa. Tab ani Shift+Tab vaprun focus paha, mag Enter dabun donhi links ughada. `#projects` ani `#contact` sathi yogya section IDs joda kinva khare URLs dya. Pratyek badalacha parinam liha. Varil mofat udaharan aadhi ani nantarchya layout chi tulana karnyasathi aahe.
 
+Repair sathi Project 2 chya files veglya theva. Lamb heading ani link label vaprun adchan punha paha, mag varil CSS shevati joda. `min-width: 0` ani `overflow-wrap: anywhere` mule majkur lahan jaget basu shakto; `1rem` root font size sobat vadhato. Donhi placeholder sections `</body>` chya aadhi joda. 320, 768 ani 1280px var layout, mothya root font var majkur, ani keyboard vaprun focus va links tapasa. DevTools madhil 200% root-font chachani browser zoom peksha vegli aahe. Khara browser zoom suddha tapasa ani prakashit karnyapurvi placeholders badla.
+
 ### Hinglish
 
 Hero ko sirf dekhna kaafi nahi: narrow viewport, larger text aur keyboard se test karo. Link ka label aur destination match hona chahiye. Missing sections add karo, focus visible rakho, aur apne changes ke results note karo. Optional free example se before/after behavior compare kar sakte ho.
+
+Project 2 ko separate files mein rakho. Long heading aur CTA label se stress test karo, CSS patch ko existing rules ke baad paste karo, aur destination sections body ke end mein add karo. Root font ko temporary 200% karke wrapping aur rem-sized text check karo; isse actual browser zoom test replace nahi hota. Tab, Shift+Tab aur Enter ke results note karo, temporary test rule hatao, aur publish karne se pehle placeholder content replace karo.
 
 **Disclosure:** This exercise and the linked example are AI-generated. The example describes a fictional product and is not an accessibility certification or evidence of improved conversions. PagePatch also sells a separate optional kit; the linked repository discloses that affiliation and includes the free sample's reuse licence. No purchase is needed for this exercise.
 
