@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Up Java - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Set Up Java Development Environment</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Setting up the <strong>Java Development Environment</strong> involves installing the <strong>Java Development Kit (JDK)</strong>, configuring system environment variables (<code>JAVA_HOME</code> and <code>PATH</code>), understanding how the <strong>Java Virtual Machine (JVM)</strong> executes bytecode, and running Java programs using the command-line compiler (<code>javac</code>) or interactive shell (<code>jshell</code>).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Java code likhne aur chalane ke liye aapko JDK install karna hota hai. <code>javac</code> compiler Java source code (<code>.java</code>) ko platform-independent Bytecode (<code>.class</code>) mein convert karta hai, aur <strong>JVM (Java Virtual Machine)</strong> us bytecode ko aapke operating system par run karta hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Java program tayar karnyasathi JDK install karave lagte. <code>javac</code> compiler <code>.java</code> file cha Bytecode (<code>.class</code>) tayar karto, aani <strong>JVM</strong> tya bytecode la machine varti run karto.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Java follows the famous <strong>"Write Once, Run Anywhere" (WORA)</strong> philosophy. Because Java code compiles into universal JVM Bytecode rather than native machine assembly, a Java program compiled on Windows can run without modification on Linux, macOS, or cloud servers.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of the <strong>JDK</strong> as a complete carpenter's workshop. The <strong>Compiler (<code>javac</code>)</strong> is like a blueprint translator that converts your sketch into a standardized machine blueprint (Bytecode). The <strong>JVM</strong> is the automated construction robot that reads that blueprint and physically builds the output on any OS.</p>
+
+<h2>⚙️ The Java Architecture Triad</h2>
+
+<p>1. <strong>JDK (Java Development Kit):</strong> The full software development kit containing the compiler (<code>javac</code>), archiver (<code>jar</code>), execution tools (<code>java</code>), and development libraries.</p>
+<p>2. <strong>JRE (Java Runtime Environment):</strong> The runtime package containing the JVM and standard core class libraries needed to run compiled Java applications.</p>
+<p>3. <strong>JVM (Java Virtual Machine):</strong> The virtual execution engine that interprets or JIT-compiles Bytecode into native machine instructions at runtime and manages automated memory cleanup (<strong>Garbage Collection</strong>).</p>
+
+<pre><code class="language-text">+-------------------------------------------------------+
+
+<table>
+<p>  <thead><tr><th>JDK (Java Development Kit)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>+-------------------------------------------------+</td></tr></p>
+<p>    <tr><td></td><td>JRE (Java Runtime Environment)</td><td></td></tr></p>
+<p>    <tr><td></td><td>+-------------------+  +--------------------+</td><td></td></tr></p>
+<p>    <tr><td></td><td></td><td>JVM (Virtual Engine)</td><td></td><td>Core Libraries</td><td></td><td></td></tr></p>
+<p>    <tr><td></td><td>+-------------------+  +--------------------+</td><td></td></tr></p>
+<p>    <tr><td>+-------------------------------------------------+</td></tr></p>
+<p>    <tr><td>Compiler (javac), Debugger (jdb), JShell, Tools</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------------------------------------------------+</code></pre></p>
+
+<h2>📝 Setting Up JDK & Environment Variables</h2>
+
+<h3>Step 1: Install JDK</h3>
+<p>Download JDK 25 or an LTS release (such as Eclipse Temurin / OpenJDK) from <a href="https://adoptium.net/">adoptium.net</a>.</p>
+
+<h3>Step 2: Configure Environment Variables</h3>
+<ul>
+<p>  <li><strong><code>JAVA_HOME</code>:</strong> Set to your JDK installation directory (e.g., <code>C:\Program Files\Java\jdk-25</code> on Windows or <code>/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home</code> on macOS).</li></p>
+<p>  <li><strong><code>PATH</code>:</strong> Append <code>%JAVA_HOME%\bin</code> (Windows) or <code>$JAVA_HOME/bin</code> (Linux/macOS).</li></p>
+<p></ul></p>
+
+<h3>Step 3: Verify Installation in Terminal</h3>
+<pre><code class="language-bash">java -version
+<p>javac -version</p>
+<p>jshell --version</code></pre></p>
+
+<h2>💡 Complete Example: Writing, Compiling & Executing</h2>
+
+<p>Create a file named <code>HelloJava.java</code>:</p>
+
+<pre><code class="language-java">public class HelloJava {
+<p>    public static void main(String[] args) {</p>
+<p>        System.out.println(&quot;Hello, Welcome to General Java SE Programming!&quot;);</p>
+<p>        System.out.println(&quot;JDK Version Reference: 25&quot;);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h3>Compilation & Execution Commands:</h3>
+
+<pre><code class="language-bash"># 1. Compile source code into Bytecode (creates HelloJava.class)
+<p>javac HelloJava.java</p>
+
+<h1>2. Execute compiled class on the JVM (do NOT append .class extension)</h1>
+<p>java HelloJava</p>
+
+<h1>3. Single-File Direct Launch (Java 11+)</h1>
+<p>java HelloJava.java</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Hello, Welcome to General Java SE Programming!
+<p>JDK Version Reference: 25</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Filename Mismatch:</strong> If a class is declared <code>public class HelloJava</code>, the file <strong>MUST</strong> be saved as <code>HelloJava.java</code> (case-sensitive!).</li></p>
+<p>  <li><strong>Appending <code>.class</code> when running:</strong> Executing <code>java HelloJava.class</code> will throw a <code>ClassNotFoundException</code>. Run <code>java HelloJava</code>.</li></p>
+<p>  <li><strong>Case Sensitivity:</strong> Writing <code>system.out.println</code> or <code>string</code> instead of <code>System</code> and <code>String</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always compile with strict warnings enabled during development to catch potential runtime bugs early.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>General Java powers enterprise backend microservices (Spring Boot), high-frequency trading platforms, desktop financial tools, build automation engines (Gradle/Maven), and big-data processing clusters (Apache Spark/Hadoop).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Open your terminal or <code>jshell</code>.</p>
+<p>2. Evaluate <code>25 * 4</code> in <code>jshell</code> and exit using <code>/exit</code>.</p>
+<p>3. Create a Java class that prints your name, target project goal, and current year.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that prints a 3-line receipt showing an item name, quantity, price, and calculated total cost using <code>System.out.println()</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="02-java-program-structure.html">Java Program Structure</a></li></p>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="02-java-program-structure.html">Next: Java Program Structure →</a></p>
+
+
+  </div>
+</body>
+</html>

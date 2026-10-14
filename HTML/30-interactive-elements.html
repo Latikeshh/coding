@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30 interactive elements - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Interactive HTML5 Elements (<code><details></code>, <code><summary></code>, <code><dialog></code>, <code><progress></code>, <code><meter></code>, <code><template></code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Modern HTML provides built-in interactive elements—including <strong><code><details></code></strong>, <strong><code><summary></code></strong>, <strong><code><dialog></code></strong>, <strong><code><progress></code></strong>, <strong><code><meter></code></strong>, and <strong><code><template></code></strong>—that create native interactive user interfaces (accordions, modal popups, progress bars, measurement gauges, and reusable content templates) without requiring third-party JavaScript libraries.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Interactive elements like <code><details></code>/<code><summary></code> (accordions), <code><dialog></code> (modals), <code><progress></code> (progress bars), <code><meter></code> (gauges), and <code><template></code> (reusable HTML snippets) provide native browser UI components.</p>
+
+<h3>Hindi</h3>
+<p>Interactive elements (<code><details></code>/<code><summary></code> accordion, <code><dialog></code> modal popup, <code><progress></code> loading bar, <code><meter></code> gauge, <code><template></code>) native browser UI components create karte hain.</p>
+
+<h3>Marathi</h3>
+<p>Interactive elements (<code><details></code>/<code><summary></code> accordion, <code><dialog></code> modal popup, <code><progress></code> loading bar, <code><meter></code> gauge, <code><template></code>) native browser UI components tayar kartat.</p>
+
+<h2>🤔 Why Do We Use Interactive Elements?</h2>
+
+<p>Before these native tags, creating collapsible accordions, modal dialog popups, or progress bars required custom JavaScript and complex ARIA accessibility overrides. Native interactive HTML elements provide accessible, keyboard-navigable UI components out of the box.</p>
+
+<h2>🧱 Interactive Elements Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Element</th><th>Purpose & Description</th><th>Code Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code><details></code></strong></td><td>Native collapsible accordion container. Toggles visibility when clicked.</td><td><code><details>...</details></code></td></tr></p>
+<p>    <tr><td><strong><code><summary></code></strong></td><td>Clickable header phrase inside <code><details></code>.</td><td><code><summary>View FAQs</summary></code></td></tr></p>
+<p>    <tr><td><strong><code><dialog></code></strong></td><td>Native popup modal or dialog box (<code>dialog.showModal()</code>).</td><td><code><dialog id="my-modal">...</dialog></code></td></tr></p>
+<p>    <tr><td><strong><code><progress></code></strong></td><td>Visual progress bar displaying task completion (<code>0.0</code> to <code>1.0</code> or <code>0</code> to <code>100</code>).</td><td><code><progress value="70" max="100"></code></td></tr></p>
+<p>    <tr><td><strong><code><meter></code></strong></td><td>Visual scalar measurement gauge within a known range (disk space, temperature, score).</td><td><code><meter value="8" min="0" max="10"></code></td></tr></p>
+<p>    <tr><td><strong><code><template></code></strong></td><td>Holds hidden client-side HTML markup intended to be cloned and inserted via JavaScript.</td><td><code><template id="card-tpl">...</template></code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Interactive Elements Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Interactive Components Demo&lt;/h1&gt;</p>
+
+<p>  &lt;!-- 1. Collapsible Accordion Widget --&gt;</p>
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;</p>
+<p>    </p>
+<p>    &lt;details open&gt;</p>
+<p>      &lt;summary&gt;What is HTML5?&lt;/summary&gt;</p>
+<p>      &lt;p&gt;HTML5 is the modern markup standard for structuring web pages and application content.&lt;/p&gt;</p>
+<p>    &lt;/details&gt;</p>
+
+<p>    &lt;details&gt;</p>
+<p>      &lt;summary&gt;Is JavaScript required for details and summary?&lt;/summary&gt;</p>
+<p>      &lt;p&gt;No! The details and summary accordion works natively in all modern web browsers without any JavaScript.&lt;/p&gt;</p>
+<p>    &lt;/details&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>  &lt;br&gt;</p>
+
+<p>  &lt;!-- 2. Progress Bar and Meter Gauge --&gt;</p>
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;System Status &amp;amp; Progress&lt;/h2&gt;</p>
+
+<p>    &lt;p&gt;</p>
+<p>      Course Completion: </p>
+<p>      &lt;progress value=&quot;75&quot; max=&quot;100&quot;&gt;&lt;/progress&gt; 75%</p>
+<p>    &lt;/p&gt;</p>
+
+<p>    &lt;p&gt;</p>
+<p>      Server Storage Usage: </p>
+<p>      &lt;meter value=&quot;85&quot; min=&quot;0&quot; max=&quot;100&quot; low=&quot;30&quot; high=&quot;80&quot; optimum=&quot;50&quot;&gt;&lt;/meter&gt; 85 GB / 100 GB</p>
+<p>    &lt;/p&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>  &lt;br&gt;</p>
+
+<p>  &lt;!-- 3. Native Dialog Modal --&gt;</p>
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;Modal Dialog Demonstration&lt;/h2&gt;</p>
+<p>    &lt;button type=&quot;button&quot; onclick=&quot;document.getElementById(&#39;demo-modal&#39;).showModal()&quot;&gt;Open Dialog&lt;/button&gt;</p>
+
+<p>    &lt;dialog id=&quot;demo-modal&quot;&gt;</p>
+<p>      &lt;h3&gt;Terms &amp;amp; Conditions&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Please read and accept our privacy policy terms to continue.&lt;/p&gt;</p>
+<p>      &lt;form method=&quot;dialog&quot;&gt;</p>
+<p>        &lt;button type=&quot;submit&quot;&gt;Accept &amp;amp; Close&lt;/button&gt;</p>
+<p>      &lt;/form&gt;</p>
+<p>    &lt;/dialog&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>  &lt;!-- 4. Hidden Reusable Template --&gt;</p>
+<p>  &lt;template id=&quot;user-card-template&quot;&gt;</p>
+<p>    &lt;div class=&quot;user-card&quot;&gt;</p>
+<p>      &lt;h4 class=&quot;user-name&quot;&gt;User Name&lt;/h4&gt;</p>
+<p>      &lt;p class=&quot;user-role&quot;&gt;User Role&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/template&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>Native collapsible FAQ accordions that expand and collapse when clicked.</li></p>
+<p>  <li>A visual progress bar displaying 75% completion.</li></p>
+<p>  <li>A visual meter gauge indicating server storage usage.</li></p>
+<p>  <li>An <strong>Open Dialog</strong> button that opens a native popup modal (<code><dialog></code>) with a close button.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code><details></code> accordion section with a <code><summary></code> title and hidden content.</p>
+<p>2. Add the <code>open</code> attribute to make one <code><details></code> expanded by default.</p>
+<p>3. Add a <code><progress></code> bar (<code>value="50" max="100"</code>) and a <code><meter></code> gauge.</p>
+<p>4. Experiment with a <code><dialog></code> element and <code>dialog.showModal()</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Confusing <code><progress></code> and <code><meter></code>:</strong> Use <code><progress></code> for completion progress (loading, upload state). Use <code><meter></code> for static measurements within a range (disk space, test score).</li></p>
+<p>  <li><strong>Forgetting <code><summary></code> inside <code><details></code>:</strong> Without <code><summary></code>, browsers display a generic "Details" header label.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>FAQ sections, dashboard metrics, download progress indicators, terms-of-service modals, and dynamic JavaScript templating use native interactive HTML elements for clean, lightweight performance.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="22-semantic-html.html">Semantic HTML</a></li></p>
+<p>  <li><a href="23-html5-features.html">Modern HTML5 Features</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><details></code> + <code><summary></code> = Native collapsible accordion (no JS required).</li></p>
+<p>  <li><code><dialog></code> = Native modal popup window.</li></p>
+<p>  <li><code><progress></code> = Task completion bar.</li></p>
+<p>  <li><code><meter></code> = Range measurement gauge.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="29-responsive-images.html">← Previous: Responsive Images</a> | <a href="./">HTML Home</a> | <a href="31-global-and-data-attributes.html">Next: Global & Data Attributes →</a></p>
+
+
+
+  </div>
+</body>
+</html>

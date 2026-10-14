@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 modules - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>📦 JavaScript Modules (ESM <code>import</code> / <code>export</code> & CommonJS)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>JavaScript Modules (ES Modules / ESM)</strong> are self-contained, scoped files that encapsulate code (variables, functions, classes, and objects) and selectively expose specific parts using <code>export</code> directives. Other JavaScript files load these exported entities using <code>import</code> directives.</p>
+
+<p>---</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Before ES Modules (ES6 in 2015), JavaScript lacked a native module system, relying on global scope pollution or script tags. ES Modules provide static file scoping, strict mode execution by default, tree-shaking support, and clean code organization across frontend frameworks (React, Vue) and Node.js backend servers.</p>
+
+<h3>Hindi (Roman Script)</h3>
+<p>Large JavaScript applications ko modular aur manageable banane ke liye code ko multiple reusable <code>.js</code> files mein divide kiya jata hai. Ek file se functions ya variables share karne ke liye <code>export</code> aur dusri file mein use karne ke liye <code>import</code> use karte hain. HTML mein <code><script type="module" src="..."></code> likhna zaroori hai.</p>
+
+<h3>Marathi (Roman Script)</h3>
+<p>Large web applications madhye code vargikrut (modular) thevnyasathi ES Modules cha wapar hoto. Eka file madhun components dhenyasathi <code>export</code> aani ghenyasathi <code>import</code> cha wapar kela jato. ESM ne global variable conflict sanpasto.</p>
+
+<h3>Hinglish</h3>
+<p>Modern frontend libraries (React, Next.js, Vue) aur backend (Node.js) ESM modules par depend karte hain. Modules ke do main types hote hain: <strong>Named Exports</strong> (multiple per file) aur <strong>Default Export</strong> (sirf 1 per file). Module scripts automated strict mode (<code>"use strict"</code>) mein chalte hain.</p>
+
+<p>---</p>
+
+<h2>📝 Named Exports vs Default Exports</h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th>Named Exports (<code>export const x = 1;</code>)</th><th>Default Export (<code>export default class App {}</code>)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Quantity Per File</strong></td><td>Unlimited named exports per module.</td><td><strong>Only 1</strong> default export per module.</td></tr></p>
+<p>    <tr><td><strong>Import Syntax</strong></td><td>Must use curly braces <code>{ x, y }</code>.</td><td>Imported WITHOUT curly braces (<code>import App</code>).</td></tr></p>
+<p>    <tr><td><strong>Import Naming</strong></td><td>Must match exact exported identifier name.</td><td>Can be assigned any local alias name when importing.</td></tr></p>
+<p>    <tr><td><strong>Renaming Syntax</strong></td><td><code>import { x as myX } from './mod.js'</code></td><td><code>import CustomName from './mod.js'</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Production Examples</h2>
+
+<h3>Example 1: Creating Utility Module (<code>mathUtils.js</code>)</h3>
+
+<pre><code class="language-js">// mathUtils.js - Utility Module
+
+<p>// 1. Named Exports</p>
+<p>export const PI = 3.14159265359;</p>
+<p>export const E = 2.71828182845;</p>
+
+<p>export function add(a, b) {</p>
+<p>  return a + b;</p>
+<p>}</p>
+
+<p>export function multiply(a, b) {</p>
+<p>  return a * b;</p>
+<p>}</p>
+
+<p>// Renamed Export</p>
+<p>function internalSecret() {</p>
+<p>  return &quot;Secret Key&quot;;</p>
+<p>}</p>
+<p>export { internalSecret as getApiKey };</p>
+
+<p>// 2. Default Export (Single main entity)</p>
+<p>export default class Calculator {</p>
+<p>  constructor(initialValue = 0) {</p>
+<p>    this.value = initialValue;</p>
+<p>  }</p>
+
+<p>  square() {</p>
+<p>    this.value = this.value * this.value;</p>
+<p>    return this.value;</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h3>Example 2: Importing and Consuming Modules (<code>app.js</code>)</h3>
+
+<pre><code class="language-js">// app.js - Main Application Entry Point
+
+<p>// Importing Default Export alongside Named Exports</p>
+<p>import Calculator, { add, multiply, PI, getApiKey } from &#39;./mathUtils.js&#39;;</p>
+
+<p>// Import All Named Exports as a Namespace Object</p>
+<p>import * as MathLib from &#39;./mathUtils.js&#39;;</p>
+
+<p>console.log(&quot;PI Constant:&quot;, PI); // 3.14159265359</p>
+<p>console.log(&quot;Addition:&quot;, add(15, 30)); // 45</p>
+<p>console.log(&quot;Multiplication:&quot;, multiply(6, 7)); // 42</p>
+<p>console.log(&quot;API Key:&quot;, getApiKey()); // &quot;Secret Key&quot;</p>
+
+<p>const calc = new Calculator(5);</p>
+<p>console.log(&quot;Square Value:&quot;, calc.square()); // 25</p>
+
+<p>console.log(&quot;Access via Namespace Object:&quot;, MathLib.E); // 2.71828182845</code></pre></p>
+
+<p>---</p>
+
+<h3>Example 3: Dynamic Module Import for Performance (<code>import()</code>)</h3>
+
+<p>Load heavy modules asynchronously on-demand (Code Splitting):</p>
+
+<pre><code class="language-js">const analyticsBtn = document.querySelector(&quot;#load-analytics-btn&quot;);
+
+<p>analyticsBtn.addEventListener(&quot;click&quot;, async () =&gt; {</p>
+<p>  try {</p>
+<p>    // Dynamic import loads the module script over the network only when clicked</p>
+<p>    const analyticsModule = await import(&#39;./analytics.js&#39;);</p>
+<p>    analyticsModule.trackEvent(&quot;BUTTON_CLICKED&quot;, { user: &quot;Rohan&quot; });</p>
+<p>  } catch (error) {</p>
+<p>    console.error(&quot;Failed to dynamically load analytics module:&quot;, error);</p>
+<p>  }</p>
+<p>});</code></pre></p>
+
+<p>---</p>
+
+<h3>Example 4: Connecting ES Modules in HTML</h3>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;ES Modules Demo&lt;/title&gt;</p>
+<p>  &lt;!-- IMPORTANT: type=&quot;module&quot; is REQUIRED for ES module script loading --&gt;</p>
+<p>  &lt;script type=&quot;module&quot; src=&quot;app.js&quot;&gt;&lt;/script&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h1&gt;Check Developer Console (F12) for Execution Output&lt;/h1&gt;</p>
+<p>  &lt;button id=&quot;load-analytics-btn&quot;&gt;Load Analytics&lt;/button&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h2>🆚 ES Modules (ESM) vs CommonJS (CJS) in Node.js</h2>
+
+<table>
+<p>  <thead><tr><th>Module System</th><th>Syntax</th><th>Execution Environment</th><th>Loading Behavior</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>ES Modules (ESM)</strong></td><td><code>import x from './x.js'</code> / <code>export default</code></td><td>Modern Browsers, Node.js (with <code>"type": "module"</code>)</td><td>Asynchronous, Static parsing</td></tr></p>
+<p>    <tr><td><strong>CommonJS (CJS)</strong></td><td><code>const x = require('./x')</code> / <code>module.exports</code></td><td>Legacy Node.js backend default</td><td>Synchronous, Dynamic runtime loading</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & Pitfalls</h2>
+
+<ul>
+<p>  <li><strong>Missing <code>type="module"</code> in HTML</strong>: Including <code><script src="app.js"></script></code> without <code>type="module"</code> throws <code>Uncaught SyntaxError: Cannot use import statement outside a module</code>.</li></p>
+<p>  <li><strong>Forgetting File Extension in Browsers</strong>: Modern browser ESM spec requires explicit file extensions in relative path imports (<code>import { add } from './mathUtils.js';</code> — specifying <code>.js</code> is required!).</li></p>
+<p>  <li><strong>Multiple Default Exports</strong>: Attempting to include <code>export default</code> twice in a single module file causes a compilation syntax error.</li></p>
+<p>  <li><strong>CORS Errors when Running via <code>file://</code></strong>: Opening HTML files directly from local disk via <code>file:///</code> blocks ESM fetching due to CORS security policies. Always run local module projects via a local web server (e.g. VS Code Live Server or <code>npx serve</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself & Practice Exercises</h2>
+
+<p>1. Create a module <code>stringUtils.js</code> with a named export function <code>capitalize(str)</code> and default export function <code>reverse(str)</code>.</p>
+<p>2. Create an <code>index.js</code> file importing both functions and testing them with sample strings.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a modular weather dashboard structure:</p>
+<ul>
+<p>  <li><code>api.js</code>: Exports an async function <code>fetchWeatherData(city)</code> returning mock temperature data.</li></p>
+<p>  <li><code>ui.js</code>: Exports a function <code>renderWeatherCard(city, temp)</code> that updates a DOM element.</li></p>
+<p>  <li><code>app.js</code>: Imports <code>fetchWeatherData</code> and <code>renderWeatherCard</code> and connects them to a button click event handler.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-functions.html">Functions, Scope & Higher-Order Functions</a></li></p>
+<p>  <li><a href="15-promises-and-async-await.html">Asynchronous JS, Promises & Async/Await</a></li></p>
+<p>  <li><a href="16-fetch-api-and-json.html">Fetch API & Working with JSON</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="22-error-handling.html">← Previous: Error Handling</a> | <a href="24-mini-projects.html">Next: Comprehensive Mini Projects →</a></p>
+
+  </div>
+</body>
+</html>

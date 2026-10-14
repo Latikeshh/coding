@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 recursive ctes - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🔄 Recursive CTEs in SQL</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Recursive CTE</strong> (Common Table Expression) is a self-referencing temporary result set defined using the <strong><code>WITH RECURSIVE</code></strong> clause. It is used to traverse hierarchical or network graph data structures—such as organizational org charts, multi-level category trees, folder file systems, and bill-of-material assemblies—where the depth of the hierarchy is not known in advance.</p>
+
+<p>A Recursive CTE is composed of four mandatory components:</p>
+<p>1. <strong>Anchor Member:</strong> The initial non-recursive query that produces the base result set (e.g., the top-level CEO node at <code>depth = 0</code>).</p>
+<p>2. <strong><code>UNION ALL</code> Operator:</strong> The set operator that combines the anchor rows with the results of subsequent recursive iterations.</p>
+<p>3. <strong>Recursive Member:</strong> An inner query that references the CTE name itself, joining the CTE result set back to the source table to fetch the next level of child records while incrementing a <code>depth</code> counter (<code>depth + 1</code>).</p>
+<p>4. <strong>Termination Condition:</strong> A stopping condition that terminates recursion when the recursive query produces no new rows or hits a system depth limit.</p>
+
+<blockquote><p>🌐 <strong>MySQL Version Requirement:</strong> <code>WITH RECURSIVE</code> syntax requires <strong>MySQL 8.0 or later</strong> (or MariaDB 10.2.2+). Earlier MySQL versions (v5.7 and older) do not support recursive CTEs.</p></blockquote>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p><strong>Recursive CTE</strong> ek aisi temporary query hoti hai jo apne aap ko baar-baar repeat (call) karti hai jab tak saari hierarchical rows process na ho jaayein. Iska use flexible depth waale parent-child relationship ko traverse karne ke liye kiya jata hai (jaise CEO se lekar junior developer tak ki company org chart). Isme <strong>Anchor Member</strong> (shuruaati root record), <strong><code>UNION ALL</code></strong>, aur <strong>Recursive Member</strong> (jo CTE ko dobara join karke agla level nikalta hai) hote hain. Recursion tab rukta hai jab recursive member ko aage koi nayi child row nahi milti.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p><strong>Recursive CTE</strong> mhanje swatachya result la parat parat call karnari query, ji parent-child hierarchy kiva tree structure traverse karnyasathi vaparli jate. <code>WITH RECURSIVE</code> cha wapar karun <strong>Anchor Member</strong> (suruvaticha root record) aani <strong>Recursive Member</strong> (pudil star shodhnari query) <strong><code>UNION ALL</code></strong> dware ekatra kele jatat. Jevha recursive query la navin child rows milat nahit, tevha recursion apohap thambte.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Standard SQL queries using traditional <code>JOIN</code>s can only query fixed-depth relationships (e.g., joining <code>employees</code> to <code>managers</code> once handles 1 level). If an organizational tree or folder structure has an unknown number of nested levels (3 levels deep, 10 levels deep, or 50 levels deep), static <code>JOIN</code>s fail.</p>
+
+<p>Recursive CTEs solve this problem by iteratively discovering and building parent-child relationships until the entire tree is traversed.</p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Family Tree Ancestry Search</h2>
+
+<p>Think of a Recursive CTE as tracing a <strong>Family Tree</strong>:</p>
+
+<ul>
+<p>  <li><strong>Anchor Member:</strong> You start by listing yourself (Generation 0).</li></p>
+<p>  <li><strong><code>UNION ALL</code>:</strong> Combining generation levels.</li></p>
+<p>  <li><strong>Recursive Step:</strong> Looking up the parents of everyone found in the previous step (Generation 1: Parents, Generation 2: Grandparents, Generation 3: Great-Grandparents).</li></p>
+<p>  <li><strong>Termination:</strong> The search automatically stops when no older ancestor records exist in the family database.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🏗️ Reproducible Employee Hierarchy Dataset</h2>
+
+<p>Let's create an <code>employees</code> table representing a 4-level organizational hierarchy:</p>
+
+<pre><code class="language-sql">-- 1. Drop table if exists for safe re-runs
+<p>DROP TABLE IF EXISTS employees;</p>
+
+<p>-- 2. Create Employees Table Schema</p>
+<p>CREATE TABLE employees (</p>
+<p>    employee_id INT PRIMARY KEY,</p>
+<p>    employee_name VARCHAR(50) NOT NULL,</p>
+<p>    job_title VARCHAR(50) NOT NULL,</p>
+<p>    manager_id INT, -- Nullable Foreign Key referencing the manager&#39;s employee_id</p>
+<p>    FOREIGN KEY (manager_id) REFERENCES employees(employee_id)</p>
+<p>);</p>
+
+<p>-- 3. Insert 4-level organizational hierarchy</p>
+<p>INSERT INTO employees (employee_id, employee_name, job_title, manager_id)</p>
+<p>VALUES</p>
+<p>    (1, &#39;Vikram Aditya&#39;, &#39;CEO&#39;, NULL),            -- Level 0 (Top Boss)</p>
+<p>    (2, &#39;Suresh Sharma&#39;, &#39;VP Tech&#39;, 1),            -- Level 1 (Reports to Vikram)</p>
+<p>    (3, &#39;Rohan Verma&#39;, &#39;VP Sales&#39;, 1),             -- Level 1 (Reports to Vikram)</p>
+<p>    (4, &#39;Ananya Roy&#39;, &#39;Tech Lead&#39;, 2),             -- Level 2 (Reports to Suresh)</p>
+<p>    (5, &#39;Amit Kumar&#39;, &#39;Senior Dev&#39;, 4),             -- Level 3 (Reports to Ananya)</p>
+<p>    (6, &#39;Priya Singh&#39;, &#39;Sales Manager&#39;, 3);        -- Level 2 (Reports to Rohan)</code></pre></p>
+
+<pre><code class="language-text">                        [1] Vikram Aditya (CEO)
+<p>                               │</p>
+<p>            ┌──────────────────┴──────────────────┐</p>
+<p>            ▼                                     ▼</p>
+<p>  [2] Suresh Sharma (VP Tech)           [3] Rohan Verma (VP Sales)</p>
+<p>            │                                     │</p>
+<p>            ▼                                     ▼</p>
+<p>  [4] Ananya Roy (Tech Lead)            [6] Priya Singh (Sales Mgr)</p>
+<p>            │</p>
+<p>            ▼</p>
+<p>  [5] Amit Kumar (Senior Dev)</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Step-by-Step Recursive CTE Query & Walkthrough</h2>
+
+<p>Let's write a complete, runnable MySQL 8.0+ recursive CTE query to traverse the organizational chart starting from the CEO (<code>employee_id = 1</code>):</p>
+
+<pre><code class="language-sql">WITH RECURSIVE employee_hierarchy AS (
+<p>    -- Anchor Member: Select top-level CEO (depth 0)</p>
+<p>    SELECT</p>
+<p>        employee_id,</p>
+<p>        manager_id,</p>
+<p>        employee_name,</p>
+<p>        job_title,</p>
+<p>        0 AS depth</p>
+<p>    FROM employees</p>
+<p>    WHERE employee_id = 1</p>
+
+<p>    UNION ALL</p>
+
+<p>    -- Recursive Member: Join base table to previous iteration&#39;s CTE result</p>
+<p>    SELECT</p>
+<p>        e.employee_id,</p>
+<p>        e.manager_id,</p>
+<p>        e.employee_name,</p>
+<p>        e.job_title,</p>
+<p>        eh.depth + 1</p>
+<p>    FROM employees AS e</p>
+<p>    INNER JOIN employee_hierarchy AS eh</p>
+<p>        ON e.manager_id = eh.employee_id</p>
+<p>)</p>
+<p>SELECT</p>
+<p>    employee_id,</p>
+<p>    manager_id,</p>
+<p>    employee_name,</p>
+<p>    job_title,</p>
+<p>    depth</p>
+<p>FROM employee_hierarchy</p>
+<p>ORDER BY depth, employee_id;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+------------+---------------+---------------+-------+
+<table>
+<p>  <thead><tr><th>employee_id</th><th>manager_id</th><th>employee_name</th><th>job_title</th><th>depth</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+------------+---------------+---------------+-------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>NULL</th><th>Vikram Aditya</th><th>CEO</th><th>0</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>1</td><td>Suresh Sharma</td><td>VP Tech</td><td>1</td></tr></p>
+<p>    <tr><td>3</td><td>1</td><td>Rohan Verma</td><td>VP Sales</td><td>1</td></tr></p>
+<p>    <tr><td>4</td><td>2</td><td>Ananya Roy</td><td>Tech Lead</td><td>2</td></tr></p>
+<p>    <tr><td>6</td><td>3</td><td>Priya Singh</td><td>Sales Manager</td><td>2</td></tr></p>
+<p>    <tr><td>5</td><td>4</td><td>Amit Kumar</td><td>Senior Dev</td><td>3</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+------------+---------------+---------------+-------+</code></pre></p>
+
+<h3>🔍 Step-by-Step Execution Breakdown:</h3>
+<ul>
+<p>  <li><strong>Iteration 0 (Anchor):</strong> Evaluates <code>WHERE employee_id = 1</code>. Returns <strong>Vikram Aditya</strong> at <code>depth = 0</code>.</li></p>
+<p>  <li><strong>Iteration 1 (Recursive):</strong> Joins <code>employees</code> where <code>manager_id</code> matches Iteration 0 (<code>employee_id = 1</code>). Returns <strong>Suresh Sharma</strong> and <strong>Rohan Verma</strong> at <code>depth = 1</code>.</li></p>
+<p>  <li><strong>Iteration 2 (Recursive):</strong> Joins <code>employees</code> where <code>manager_id</code> matches Iteration 1 (<code>employee_id = 2</code> or <code>3</code>). Returns <strong>Ananya Roy</strong> and <strong>Priya Singh</strong> at <code>depth = 2</code>.</li></p>
+<p>  <li><strong>Iteration 3 (Recursive):</strong> Joins <code>employees</code> where <code>manager_id</code> matches Iteration 2 (<code>employee_id = 4</code> or <code>6</code>). Returns <strong>Amit Kumar</strong> at <code>depth = 3</code>.</li></p>
+<p>  <li><strong>Iteration 4 (Termination):</strong> Searches for employees whose <code>manager_id = 5</code> (Amit Kumar). Returns <strong>0 rows</strong>. Recursion halts!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛑 Maximum Depth Safeguard & System Limits</h2>
+
+<p>To prevent accidental runaway queries on deep trees, restrict recursion by applying a <code>depth</code> condition in the recursive member:</p>
+
+<pre><code class="language-sql">WITH RECURSIVE employee_hierarchy AS (
+<p>    SELECT employee_id, manager_id, employee_name, 0 AS depth</p>
+<p>    FROM employees WHERE employee_id = 1</p>
+
+<p>    UNION ALL</p>
+
+<p>    SELECT e.employee_id, e.manager_id, e.employee_name, eh.depth + 1</p>
+<p>    FROM employees AS e</p>
+<p>    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id</p>
+<p>    WHERE eh.depth &lt; 2 -- Stops recursion after depth 2</p>
+<p>)</p>
+<p>SELECT * FROM employee_hierarchy;</code></pre></p>
+
+<blockquote><p>⚙️ <strong>MySQL <code>cte_max_recursion_depth</code> System Variable:</strong></p></blockquote>
+<blockquote><p>By default, MySQL limits recursive CTE iterations to <strong>1,000 steps</strong>. If a query exceeds 1,000 iterations, MySQL halts execution with <code>ERROR 3636 (HY000): Recursive query aborted after 1001 iterations</code>. You can adjust this session limit using:</p></blockquote>
+<blockquote><p><code>SET SESSION cte_max_recursion_depth = 5000;</code></p></blockquote>
+
+<p>---</p>
+
+<h2>🔄 Cycle Detection & Safe Path Traversal</h2>
+
+<p>If invalid parent-child data is inserted (e.g. Employee A's manager is B, B's manager is C, and C's manager is set to A), a <strong>circular cycle</strong> is formed!</p>
+
+<pre><code class="language-text">[Employee 1] ──► [Employee 2] ──► [Employee 3] ──► (Points back to 1!)</code></pre>
+
+<h3>Why Foreign Keys Do Not Prevent Cycles:</h3>
+<p>A Foreign Key constraint only verifies that the referenced <code>manager_id</code> exists in the <code>employees</code> table—it does <strong>not</strong> check whether that manager is a descendant!</p>
+
+<h3>Safe Path-Tracking Cycle Prevention in MySQL 8.0+:</h3>
+<p>In MySQL, prevent cycles by building a string path column (<code>/1/2/3/</code>) and verifying that the candidate child ID is not already present in the path using <code>INSTR()</code>:</p>
+
+<pre><code class="language-sql">WITH RECURSIVE safe_hierarchy AS (
+<p>    -- Anchor Member: Initialize path string</p>
+<p>    SELECT</p>
+<p>        employee_id,</p>
+<p>        manager_id,</p>
+<p>        employee_name,</p>
+<p>        0 AS depth,</p>
+<p>        CAST(CONCAT(&#39;/&#39;, employee_id, &#39;/&#39;) AS CHAR(500)) AS node_path</p>
+<p>    FROM employees</p>
+<p>    WHERE employee_id = 1</p>
+
+<p>    UNION ALL</p>
+
+<p>    -- Recursive Member: Prevent cycle by checking path string</p>
+<p>    SELECT</p>
+<p>        e.employee_id,</p>
+<p>        e.manager_id,</p>
+<p>        e.employee_name,</p>
+<p>        sh.depth + 1,</p>
+<p>        CAST(CONCAT(sh.node_path, e.employee_id, &#39;/&#39;) AS CHAR(500))</p>
+<p>    FROM employees AS e</p>
+<p>    INNER JOIN safe_hierarchy AS sh</p>
+<p>        ON e.manager_id = sh.employee_id</p>
+<p>    -- Cycle Prevention Check: Ensure employee_id is NOT in current node_path</p>
+<p>    WHERE INSTR(sh.node_path, CONCAT(&#39;/&#39;, e.employee_id, &#39;/&#39;)) = 0</p>
+<p>)</p>
+<p>SELECT employee_id, manager_id, employee_name, depth, node_path</p>
+<p>FROM safe_hierarchy;</code></pre></p>
+
+<blockquote><p>📌 <strong>Why <code>CAST(... AS CHAR(500))</code> is Required:</strong> In MySQL recursive CTEs, the data type and character length of strings in the recursive member must match the anchor member. <code>CAST(... AS CHAR(500))</code> explicitly allocates sufficient string buffer memory to prevent path string truncation.</p></blockquote>
+<blockquote><p>📌 <strong>Why Delimiters <code>/1/2/</code> are Essential:</strong> Enclosing IDs in slashes (<code>/1/2/10/</code>) ensures exact integer ID matching and avoids partial substring matching errors (e.g. preventing ID <code>2</code> from falsely matching <code>20</code>).</p></blockquote>
+
+<p>---</p>
+
+<h2>🔢 Generating Numeric Sequences using Recursive CTEs</h2>
+
+<p>You can use a recursive CTE to generate a table of sequential numbers on the fly (e.g. for generating missing calendar dates or series numbers):</p>
+
+<pre><code class="language-sql">-- Generate integers from 1 to 10
+<p>WITH RECURSIVE number_sequence AS (</p>
+<p>    -- Anchor Member: Starting number</p>
+<p>    SELECT 1 AS num</p>
+
+<p>    UNION ALL</p>
+
+<p>    -- Recursive Member: Increment by 1</p>
+<p>    SELECT num + 1</p>
+<p>    FROM number_sequence</p>
+<p>    WHERE num &lt; 10 -- Termination condition</p>
+<p>)</p>
+<p>SELECT num FROM number_sequence;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-----+
+<table>
+<p>  <thead><tr><th>num</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----+</p>
+<table>
+<p>  <thead><tr><th>1</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td></tr></p>
+<p>    <tr><td>...</td></tr></p>
+<p>    <tr><td>10</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----+</code></pre></p>
+
+<p>---</p>
+
+<h2>📊 <code>UNION</code> vs <code>UNION ALL</code> in Recursive CTEs</h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th><code>UNION ALL</code> (Standard Choice)</th><th><code>UNION</code> (Deduplicating)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Duplicate Rows</strong></td><td>Retains all generated rows across iterations.</td><td>Filters out duplicate identical rows across iterations.</td></tr></p>
+<p>    <tr><td><strong>Performance</strong></td><td><strong>High Performance</strong> (no hash deduplication overhead).</td><td><strong>Slower</strong> (requires sorting/hashing to remove duplicate rows).</td></tr></p>
+<p>    <tr><td><strong>Cycle Prevention</strong></td><td>Does <strong>not</strong> stop cycles if changing columns (like <code>depth</code>) differ.</td><td>Stops duplicate identical rows, but fails if <code>depth</code> varies.</td></tr></p>
+<p>    <tr><td><strong>Recommendation</strong></td><td><strong>Always use <code>UNION ALL</code></strong> for tree hierarchies.</td><td>Use only when genuine row-level deduplication is intended.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error Message / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1146 (42000): Table 'cte_name' doesn't exist</code></strong></td><td>Forgetting the mandatory <strong><code>RECURSIVE</code></strong> keyword (<code>WITH cte_name AS ...</code>).</td><td>Always write <code>WITH RECURSIVE cte_name AS ...</code>.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 3636 (HY000): Recursive query aborted after 1001 iterations</code></strong></td><td>Runaway infinite loop caused by data cycles or missing <code>WHERE</code> termination logic.</td><td>Check data for circular manager loops or add path tracking (<code>INSTR</code>). Increase <code>cte_max_recursion_depth</code> if depth is legitimately >1000.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1406 (22001): Data too long for column</code></strong></td><td>Path string concatenation exceeding anchor column width.</td><td>Wrap anchor path expression in <code>CAST(CONCAT(...) AS CHAR(500))</code>.</td></tr></p>
+<p>    <tr><td><strong>Type Mismatch Between Anchor and Recursive Members</strong></td><td>Anchor returns <code>INT</code> while recursive member returns <code>DECIMAL</code> or <code>VARCHAR</code>.</td><td>Use <code>CAST()</code> in anchor member to align column data types across <code>UNION ALL</code>.</td></tr></p>
+<p>    <tr><td><strong>Sorting Misconception (<code>ORDER BY depth</code>)</strong></td><td>Assuming <code>ORDER BY depth</code> outputs a tree branch view.</td><td><code>ORDER BY depth</code> groups by hierarchy level. For tree branch order, sort by <code>node_path</code>.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>Organizational Reporting:</strong> Displaying full manager-to-employee reporting chains.</li></p>
+<p>  <li><strong>E-Commerce Category Breadcrumbs:</strong> Generating multi-level product category paths (<code>Electronics > Computers > Laptops > Gaming Laptops</code>).</li></p>
+<p>  <li><strong>File Systems:</strong> Calculating total storage size of nested directories and subfolders.</li></p>
+<p>  <li><strong>Bill-of-Materials (BOM):</strong> Exploding complex manufactured assemblies into raw component parts lists.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Structured Practice Exercises</h2>
+
+<p>Follow these 5 progressive exercises using the <code>employees</code> table schema above:</p>
+
+<h3>Exercise 1: Hand-Tracing Anchor & Iteration 1</h3>
+<p>Identify which employee records are returned in the Anchor Member and Iteration 1 when starting from CEO <code>employee_id = 1</code>.</p>
+
+<h3>Exercise 2: Sub-Tree Hierarchy Search</h3>
+<p>Write a recursive CTE that lists all direct and indirect report employees under <strong>Suresh Sharma</strong> (<code>employee_id = 2</code>).</p>
+
+<h3>Exercise 3: Depth-Limited Search</h3>
+<p>Modify the employee hierarchy query to return only employees up to <strong>depth 1</strong> (<code>WHERE eh.depth < 2</code>).</p>
+
+<h3>Exercise 4: Calendar Date Series Generation</h3>
+<p>Write a recursive CTE that generates a sequence of 7 consecutive calendar dates starting from <code>'2026-10-10'</code>.</p>
+
+<h3>Exercise 5: Cycle-Safe Path Traversal</h3>
+<p>Explain why <code>INSTR(node_path, CONCAT('/', employee_id, '/')) = 0</code> prevents infinite loops when processing circular graph data.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge: E-Commerce Category Breadcrumb Paths</h2>
+
+<p>1. Create a <code>categories</code> table schema:</p>
+<ul>
+<p>  <li><code>category_id</code> (INT, Primary Key)</li></p>
+<p>  <li><code>category_name</code> (VARCHAR 50, NOT NULL)</li></p>
+<p>  <li><code>parent_id</code> (INT — Nullable FK referencing <code>category_id</code>)</li></p>
+<p></ul></p>
+<p>2. Insert sample categories:</p>
+<ul>
+<p>  <li>ID 1: <code>'Electronics'</code>, Parent <code>NULL</code></li></p>
+<p>  <li>ID 2: <code>'Computers'</code>, Parent <code>1</code></li></p>
+<p>  <li>ID 3: <code>'Laptops'</code>, Parent <code>2</code></li></p>
+<p>  <li>ID 4: <code>'Gaming Laptops'</code>, Parent <code>3</code></li></p>
+<p></ul></p>
+<p>3. Write a recursive CTE starting from <code>'Electronics'</code> (<code>category_id = 1</code>) that projects:</p>
+<ul>
+<p>  <li><code>category_id</code></li></p>
+<p>  <li><code>category_name</code></li></p>
+<p>  <li><code>depth</code></li></p>
+<p>  <li><code>breadcrumb_path</code> (e.g. <code>'Electronics > Computers > Laptops > Gaming Laptops'</code>)</li></p>
+<p></ul></p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<ul>
+<p>  <li><strong>Anchor (Level 0):</strong> <code>1 | Vikram Aditya | CEO</code></li></p>
+<p>  <li><strong>Iteration 1 (Level 1):</strong> <code>2 | Suresh Sharma</code> and <code>3 | Rohan Verma</code></li></p>
+<p></ul></p>
+
+<p>#### Exercise 2 Solution:</p>
+<pre><code class="language-sql">WITH RECURSIVE suresh_team AS (
+<p>    SELECT employee_id, manager_id, employee_name, job_title, 0 AS depth</p>
+<p>    FROM employees WHERE employee_id = 2 -- Starting at Suresh</p>
+
+<p>    UNION ALL</p>
+
+<p>    SELECT e.employee_id, e.manager_id, e.employee_name, e.job_title, st.depth + 1</p>
+<p>    FROM employees AS e</p>
+<p>    INNER JOIN suresh_team AS st ON e.manager_id = st.employee_id</p>
+<p>)</p>
+<p>SELECT * FROM suresh_team ORDER BY depth;</p>
+<p>-- Output: Suresh (0), Ananya (1), Amit (2)</code></pre></p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">WITH RECURSIVE employee_hierarchy AS (
+<p>    SELECT employee_id, manager_id, employee_name, 0 AS depth</p>
+<p>    FROM employees WHERE employee_id = 1</p>
+
+<p>    UNION ALL</p>
+
+<p>    SELECT e.employee_id, e.manager_id, e.employee_name, eh.depth + 1</p>
+<p>    FROM employees AS e</p>
+<p>    INNER JOIN employee_hierarchy AS eh ON e.manager_id = eh.employee_id</p>
+<p>    WHERE eh.depth &lt; 1 -- Limits output to depth 0 and 1</p>
+<p>)</p>
+<p>SELECT * FROM employee_hierarchy;</code></pre></p>
+
+<p>#### Exercise 4 Solution:</p>
+<pre><code class="language-sql">WITH RECURSIVE date_series AS (
+<p>    SELECT CAST(&#39;2026-10-10&#39; AS DATE) AS log_date</p>
+<p>    UNION ALL</p>
+<p>    SELECT DATE_ADD(log_date, INTERVAL 1 DAY)</p>
+<p>    FROM date_series</p>
+<p>    WHERE log_date &lt; &#39;2026-10-16&#39;</p>
+<p>)</p>
+<p>SELECT log_date FROM date_series;</code></pre></p>
+
+<p>#### Exercise 5 Solution:</p>
+<ul>
+<p>  <li><code>INSTR()</code> checks if <code>CONCAT('/', employee_id, '/')</code> is already embedded inside <code>node_path</code>. If found (result $>0$), the candidate employee has already been visited in the current path, so the condition evaluates to <code>FALSE</code> and halts infinite looping.</li></p>
+<p></ul></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">-- Step 1: Create categories table schema
+<p>CREATE TABLE IF NOT EXISTS categories (</p>
+<p>    category_id INT PRIMARY KEY,</p>
+<p>    category_name VARCHAR(50) NOT NULL,</p>
+<p>    parent_id INT,</p>
+<p>    FOREIGN KEY (parent_id) REFERENCES categories(category_id)</p>
+<p>);</p>
+
+<p>-- Step 2: Insert category hierarchy</p>
+<p>INSERT INTO categories (category_id, category_name, parent_id)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Electronics&#39;, NULL),</p>
+<p>    (2, &#39;Computers&#39;, 1),</p>
+<p>    (3, &#39;Laptops&#39;, 2),</p>
+<p>    (4, &#39;Gaming Laptops&#39;, 3);</p>
+
+<p>-- Step 3: Execute Recursive CTE for category breadcrumb paths</p>
+<p>WITH RECURSIVE category_tree AS (</p>
+<p>    -- Anchor Member</p>
+<p>    SELECT </p>
+<p>        category_id,</p>
+<p>        category_name,</p>
+<p>        0 AS depth,</p>
+<p>        CAST(category_name AS CHAR(500)) AS breadcrumb_path</p>
+<p>    FROM categories</p>
+<p>    WHERE category_id = 1</p>
+
+<p>    UNION ALL</p>
+
+<p>    -- Recursive Member</p>
+<p>    SELECT </p>
+<p>        c.category_id,</p>
+<p>        c.category_name,</p>
+<p>        ct.depth + 1,</p>
+<p>        CAST(CONCAT(ct.breadcrumb_path, &#39; &gt; &#39;, c.category_name) AS CHAR(500))</p>
+<p>    FROM categories AS c</p>
+<p>    INNER JOIN category_tree AS ct ON c.parent_id = ct.category_id</p>
+<p>)</p>
+<p>SELECT category_id, category_name, depth, breadcrumb_path</p>
+<p>FROM category_tree</p>
+<p>ORDER BY depth;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+-------------+----------------+-------+----------------------------------------------------+
+<table>
+<p>  <thead><tr><th>category_id</th><th>category_name</th><th>depth</th><th>breadcrumb_path</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------------+-------+----------------------------------------------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Electronics</th><th>0</th><th>Electronics</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Computers</td><td>1</td><td>Electronics &gt; Computers</td></tr></p>
+<p>    <tr><td>3</td><td>Laptops</td><td>2</td><td>Electronics &gt; Computers &gt; Laptops</td></tr></p>
+<p>    <tr><td>4</td><td>Gaming Laptops</td><td>3</td><td>Electronics &gt; Computers &gt; Laptops &gt; Gaming Laptops</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------------+-------+----------------------------------------------------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-joins.html">SQL Joins & Table Relationships</a></li></p>
+<p>  <li><a href="23-ctes.html">Common Table Expressions (Non-Recursive CTEs)</a></li></p>
+<p>  <li><a href="25-window-functions.html">SQL Window Functions</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="23-ctes.html">← Previous: Common Table Expressions</a> | <a href="./">SQL Home</a> | <a href="25-window-functions.html">Next: Window Functions →</a></p>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 conditionals - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Conditionals in JavaScript (<code>if</code>, <code>switch</code>, Ternary)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Conditional statements</strong> direct the flow of execution in a program based on whether specified expressions evaluate to <code>true</code> or <code>false</code>.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Conditionals ka use decision-making ke liye hota hai. Jab humein alag-alag conditions ke basis par alag-alag code execution karwana hota hai, tab hum <code>if</code>, <code>else if</code>, <code>else</code>, <code>switch</code>, aur Ternary operator ka use karte hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Conditionals cha wapar nirnay ghenyasathi (decision making) kela jato. Condition <code>true</code> ahe ki <code>false</code> yavrun konta code block run hoiil he tharle jate.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Real-world applications adapt based on data—for example, showing "Welcome Admin" if the user is an admin, or "Access Denied" if they are logged out.</p>
+
+<h2>🧠 Truthy and Falsy Values</h2>
+
+<p>In JavaScript, every value evaluates to either <code>true</code> or <code>false</code> when placed in a boolean context.</p>
+
+<h3>The 6 Falsy Values in JavaScript:</h3>
+<p>1. <code>false</code></p>
+<p>2. <code>0</code> (and <code>-0</code>, <code>0n</code>)</p>
+<p>3. <code>""</code> (empty string)</p>
+<p>4. <code>null</code></p>
+<p>5. <code>undefined</code></p>
+<p>6. <code>NaN</code> (Not a Number)</p>
+
+<p>*Everything else is <strong>Truthy</strong>* (including <code>"0"</code>, <code>"false"</code>, <code>[]</code>, <code>{}</code>).</p>
+
+<h2>📝 Syntax & Conditional Types</h2>
+
+<h3>1. <code>if...else if...else</code></h3>
+<pre><code class="language-js">let mark = 82;
+
+<p>if (mark &gt;= 90) {</p>
+<p>  console.log(&quot;Grade: A+&quot;);</p>
+<p>} else if (mark &gt;= 75) {</p>
+<p>  console.log(&quot;Grade: A&quot;);</p>
+<p>} else if (mark &gt;= 50) {</p>
+<p>  console.log(&quot;Grade: B&quot;);</p>
+<p>} else {</p>
+<p>  console.log(&quot;Grade: F&quot;);</p>
+<p>}</code></pre></p>
+
+<h3>2. Ternary Operator (<code>condition ? expressionIfTrue : expressionIfFalse</code>)</h3>
+<pre><code class="language-js">let userAge = 20;
+<p>let accessStatus = (userAge &gt;= 18) ? &quot;Allowed&quot; : &quot;Denied&quot;;</p>
+<p>console.log(accessStatus); // &quot;Allowed&quot;</code></pre></p>
+
+<h3>3. <code>switch</code> Statement (Best for checking fixed discrete values)</h3>
+<pre><code class="language-js">let dayNumber = 3;
+
+<p>switch (dayNumber) {</p>
+<p>  case 1:</p>
+<p>    console.log(&quot;Monday&quot;);</p>
+<p>    break;</p>
+<p>  case 2:</p>
+<p>    console.log(&quot;Tuesday&quot;);</p>
+<p>    break;</p>
+<p>  case 3:</p>
+<p>    console.log(&quot;Wednesday&quot;);</p>
+<p>    break;</p>
+<p>  default:</p>
+<p>    console.log(&quot;Other Day&quot;);</p>
+<p>}</code></pre></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">const cartTotal = 1200;
+<p>const isVIPMember = true;</p>
+<p>let discountPercent = 0;</p>
+
+<p>if (isVIPMember) {</p>
+<p>  discountPercent = 20;</p>
+<p>} else if (cartTotal &gt;= 1000) {</p>
+<p>  discountPercent = 10;</p>
+<p>} else {</p>
+<p>  discountPercent = 0;</p>
+<p>}</p>
+
+<p>let finalAmount = cartTotal - (cartTotal * (discountPercent / 100));</p>
+<p>console.log(<code>Discount Applied: ${discountPercent}%</code>);</p>
+<p>console.log(<code>Final Payable Amount: ₹${finalAmount}</code>);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Discount Applied: 20%
+<p>Final Payable Amount: ₹960</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write an <code>if...else</code> statement that checks if a given number is even or odd using <code>% 2 === 0</code>.</p>
+<p>2. Rewrite it using a single-line Ternary operator.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting <code>break;</code> statements in a <code>switch</code> block, causing execution to "fall through" into subsequent cases.</li></p>
+<p>  <li>Confusing single <code>=</code> (assignment) with <code>===</code> (comparison) inside an <code>if</code> statement condition.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Role-based authorization checks, form validation logic, checkout discounts, and light/dark theme toggles.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Use <code>if...else</code> for range checks, <code>switch</code> for multiple fixed values, and Ternary for simple binary choices.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="05-operators.html">← Previous: Operators</a> | <a href="07-loops.html">Next: Loops →</a></p>
+
+
+
+  </div>
+</body>
+</html>

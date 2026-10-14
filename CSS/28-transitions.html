@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28 transitions - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Transitions</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Transitions</strong> create smooth property change animations over a specified duration when an element switches between states (such as <code>:hover</code>, <code>:focus</code>, <code>:active</code>, or class changes).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>transition</code> smoothly animates CSS state changes (<code>transition: property duration timing-function delay</code>).</p>
+
+<h3>Hindi</h3>
+<p><code>transition</code> state badalne par (jaise mouse hover karne par) badlaav ko turant jhatke se hone ke bajaye dheere aur smooth banata hai.</p>
+
+<h3>Marathi</h3>
+<p><code>transition</code> mule honare badal achanak na hota tappya-tappyane smooth distat.</p>
+
+<h2>🤔 Why Do We Use Transitions?</h2>
+
+<p>Without transitions, when a user hovers over a button, its color snaps instantly from blue to red in 0 milliseconds, feeling harsh and unrefined. Adding a 0.2s transition turns instant jumps into fluid visual feedback.</p>
+
+<h2>📝 Syntax & Shorthand Breakdown</h2>
+
+<pre><code class="language-css">/* Shorthand: transition: property duration timing-function delay; */
+<p>.button {</p>
+<p>  transition: background-color 0.3s ease, transform 0.2s ease;</p>
+<p>}</code></pre></p>
+
+<table>
+<p>  <thead><tr><th>Property Sub-component</th><th>Purpose</th><th>Values / Examples</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>transition-property</code></td><td>Specific CSS property to animate</td><td><code>background-color</code>, <code>transform</code>, <code>opacity</code>, <code>all</code></td></tr></p>
+<p>    <tr><td><code>transition-duration</code></td><td>Time duration of transition animation</td><td><code>0.3s</code>, <code>300ms</code></td></tr></p>
+<p>    <tr><td><code>transition-timing-function</code></td><td>Speed curve calculation</td><td><code>ease</code>, <code>linear</code>, <code>ease-in</code>, <code>ease-out</code>, <code>cubic-bezier()</code></td></tr></p>
+<p>    <tr><td><code>transition-delay</code></td><td>Wait time before animation starts</td><td><code>0.1s</code>, <code>0s</code> (Default)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>[!TIP]</p></blockquote>
+<blockquote><p><strong>Performance Best Practice:</strong> Only animate <code>opacity</code> and <code>transform</code> properties! Animating <code>width</code>, <code>height</code>, <code>margin</code>, or <code>padding</code> forces layout recalculations (reflow) on every frame.</p></blockquote>
+
+<h2>💻 Examples</h2>
+
+<pre><code class="language-css">/* Smooth Elevating Card on Hover */
+<p>.card {</p>
+<p>  background-color: #ffffff;</p>
+<p>  border-radius: 8px;</p>
+<p>  box-shadow: 0 2px 8px rgba(0,0,0,0.08);</p>
+<p>  /* Declare transition on BASE class, NOT on :hover state! */</p>
+<p>  transition: transform 0.3s ease, box-shadow 0.3s ease;</p>
+<p>}</p>
+
+<p>.card:hover {</p>
+<p>  transform: translateY(-5px);</p>
+<p>  box-shadow: 0 8px 20px rgba(0,0,0,0.15);</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Transitions Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;h2&gt;Interactive UI Button&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Hover over the button below to observe smooth property transitions.&lt;/p&gt;</p>
+<p>    &lt;button class=&quot;btn&quot;&gt;Hover Me&lt;/button&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  min-height: 100vh;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  padding: 30px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  text-align: center;</p>
+<p>  max-width: 350px;</p>
+<p>}</p>
+
+<p>.btn {</p>
+<p>  background-color: #2563eb;</p>
+<p>  color: white;</p>
+<p>  border: none;</p>
+<p>  padding: 12px 24px;</p>
+<p>  font-size: 16px;</p>
+<p>  border-radius: 6px;</p>
+<p>  cursor: pointer;</p>
+<p>  /* Declare transition on base rule so it animates both IN and OUT */</p>
+<p>  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;</p>
+<p>}</p>
+
+<p>.btn:hover {</p>
+<p>  background-color: #1d4ed8;</p>
+<p>  transform: translateY(-2px);</p>
+<p>  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);</p>
+<p>}</p>
+
+<p>.btn:active {</p>
+<p>  transform: translateY(0);</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>When hovering over the button, its background color darkens smoothly over <code>0.3s</code>, lifts up by <code>2px</code>, and projects a blue shadow. When the mouse leaves, it smoothly transitions back to its original resting state.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Move the <code>transition</code> property line from <code>.btn</code> into <code>.btn:hover</code>.</p>
+<p>2. Notice what happens: the hover-in animates smoothly, but when your mouse leaves, the button snaps back instantly without an animation! (Always put <code>transition</code> on the base selector rule).</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Placing <code>transition</code> inside <code>:hover</code> selector:</strong> Causes the transition to animate on hover-in, but snap back abruptly on mouse-out. Place <code>transition</code> on the base class selector.</li></p>
+<p>  <li><strong>Using <code>transition: all</code> indiscriminately:</strong> Can cause unintended transitions on layout properties like <code>width</code> or <code>height</code> during window resizing. Specify exact properties: <code>transition: transform 0.2s, opacity 0.2s;</code>.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Transitions format button hover states, navigation link underlines, card elevation shadows, dropdown menu toggles, and modal backdrop fade-ins.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="24-pseudo-classes.html">Pseudo-classes</a></li></p>
+<p>  <li><a href="29-transforms.html">CSS Transforms (2D & 3D)</a></li></p>
+<p>  <li><a href="30-animations.html">CSS Animations (<code>@keyframes</code>)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Declare <code>transition</code> on the base element selector (not on <code>:hover</code>).</li></p>
+<p>  <li>Animate high-performance properties: <code>transform</code> and <code>opacity</code>.</li></p>
+<p>  <li>Syntax: <code>transition: property duration timing-function;</code>.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="27-fonts.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="29-transforms.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

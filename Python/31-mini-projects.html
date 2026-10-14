@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Projects - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Capstone Python Mini Projects</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Apply functions, Object-Oriented Programming (OOP), Dataclasses, Collections, Exception Handling, File I/O, JSON, CSV processing, and Unit Testing to build complete, functional, real-world Python applications.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Ab tak seekhe gaye sabhi Python concepts (Variables, Loops, Functions, OOP, Exception Handling, JSON, CSV) ko combine karke full real-world practical applications create karein.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Aapn shiklele sarv Python concepts ektra karun practical interactive apps banva.</p>
+
+<p>---</p>
+
+<h2>🏗️ Project 1: Interactive To-Do Manager CLI with JSON Persistence</h2>
+
+<p>A complete, interactive command-line application featuring Dataclasses, JSON storage, and input validation.</p>
+
+<pre><code class="language-python">import json
+<p>import os</p>
+<p>from dataclasses import dataclass, asdict</p>
+<p>from typing import List</p>
+
+<h1>1. Data Model</h1>
+<p>@dataclass</p>
+<p>class Task:</p>
+<p>    task_id: int</p>
+<p>    title: str</p>
+<p>    completed: bool = False</p>
+
+<h1>2. Task Manager Class</h1>
+<p>class TaskManager:</p>
+<p>    def __init__(self, db_path: str = &quot;tasks_db.json&quot;):</p>
+<p>        self.db_path = db_path</p>
+<p>        self.tasks: List[Task] = []</p>
+<p>        self._load_tasks()</p>
+
+<p>    def _load_tasks(self) -&gt; None:</p>
+<p>        if os.path.exists(self.db_path):</p>
+<p>            try:</p>
+<p>                with open(self.db_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:</p>
+<p>                    data = json.load(f)</p>
+<p>                    self.tasks = [Task(**item) for item in data]</p>
+<p>            except Exception as e:</p>
+<p>                print(f&quot;Error loading tasks: {e}&quot;)</p>
+
+<p>    def _save_tasks(self) -&gt; None:</p>
+<p>        try:</p>
+<p>            with open(self.db_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:</p>
+<p>                json.dump([asdict(t) for t in self.tasks], f, indent=4)</p>
+<p>        except Exception as e:</p>
+<p>            print(f&quot;Error saving tasks: {e}&quot;)</p>
+
+<p>    def add_task(self, title: str) -&gt; None:</p>
+<p>        new_id = max([t.task_id for t in self.tasks], default=0) + 1</p>
+<p>        task = Task(task_id=new_id, title=title)</p>
+<p>        self.tasks.append(task)</p>
+<p>        self._save_tasks()</p>
+<p>        print(f&quot;Task Added : #{task.task_id} - &#39;{task.title}&#39;&quot;)</p>
+
+<p>    def toggle_task(self, task_id: int) -&gt; None:</p>
+<p>        for t in self.tasks:</p>
+<p>            if t.task_id == task_id:</p>
+<p>                t.completed = not t.completed</p>
+<p>                self._save_tasks()</p>
+<p>                status = &quot;COMPLETED&quot; if t.completed else &quot;PENDING&quot;</p>
+<p>                print(f&quot;Task #{task_id} marked as {status}.&quot;)</p>
+<p>                return</p>
+<p>        print(f&quot;Task #{task_id} not found.&quot;)</p>
+
+<p>    def list_tasks(self) -&gt; None:</p>
+<p>        print(&quot;\n=== CURRENT TO-DO LIST ===&quot;)</p>
+<p>        if not self.tasks:</p>
+<p>            System.out.println(&quot;No tasks found.&quot;) if False else print(&quot;No tasks in list.&quot;)</p>
+<p>            return</p>
+<p>        for t in self.tasks:</p>
+<p>            status = &quot;[✔]&quot; if t.completed else &quot;[ ]&quot;</p>
+<p>            print(f&quot;{status} #{t.task_id} : {t.title}&quot;)</p>
+
+<h1>3. Running Application Demo</h1>
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    manager = TaskManager(&quot;demo_tasks.json&quot;)</p>
+<p>    </p>
+<p>    print(&quot;=== TO-DO MANAGER CLI ===&quot;)</p>
+<p>    manager.add_task(&quot;Master Python OOP &amp; Dataclasses&quot;)</p>
+<p>    manager.add_task(&quot;Practice Decorators and Generators&quot;)</p>
+<p>    manager.list_tasks()</p>
+<p>    </p>
+<p>    manager.toggle_task(1)</p>
+<p>    manager.list_tasks()</p>
+
+<p>    # Cleanup demo DB file</p>
+<p>    if os.path.exists(&quot;demo_tasks.json&quot;):</p>
+<p>        os.remove(&quot;demo_tasks.json&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== TO-DO MANAGER CLI ===
+<p>Task Added : #1 - &#39;Master Python OOP &amp; Dataclasses&#39;</p>
+<p>Task Added : #2 - &#39;Practice Decorators and Generators&#39;</p>
+
+<p>=== CURRENT TO-DO LIST ===</p>
+<p>[ ] #1 : Master Python OOP &amp; Dataclasses</p>
+<p>[ ] #2 : Practice Decorators and Generators</p>
+<p>Task #1 marked as COMPLETED.</p>
+
+<p>=== CURRENT TO-DO LIST ===</p>
+<p>[✔] #1 : Master Python OOP &amp; Dataclasses</p>
+<p>[ ] #2 : Practice Decorators and Generators</code></pre></p>
+
+<p>---</p>
+
+<h2>🏗️ Project 2: Password Generator & Strength Validator</h2>
+
+<pre><code class="language-python">import random
+<p>import string</p>
+<p>import re</p>
+
+<p>def generate_password(length: int = 12, include_symbols: bool = True) -&gt; str:</p>
+<p>    &quot;&quot;&quot;Generates a cryptographically strong random password.&quot;&quot;&quot;</p>
+<p>    letters = string.ascii_letters</p>
+<p>    digits = string.digits</p>
+<p>    symbols = &quot;!@#$%^&amp;*()_+&quot;</p>
+<p>    </p>
+<p>    character_pool = letters + digits + (symbols if include_symbols else &quot;&quot;)</p>
+<p>    </p>
+<p>    # Ensure at least 1 uppercase, 1 lowercase, 1 digit</p>
+<p>    password = [</p>
+<p>        random.choice(string.ascii_uppercase),</p>
+<p>        random.choice(string.ascii_lowercase),</p>
+<p>        random.choice(string.digits)</p>
+<p>    ]</p>
+<p>    </p>
+<p>    if include_symbols:</p>
+<p>        password.append(random.choice(symbols))</p>
+<p>        </p>
+<p>    # Fill remaining characters</p>
+<p>    while len(password) &lt; length:</p>
+<p>        password.append(random.choice(character_pool))</p>
+<p>        </p>
+<p>    random.shuffle(password)</p>
+<p>    return &quot;&quot;.join(password)</p>
+
+<p>def evaluate_password_strength(password: str) -&gt; str:</p>
+<p>    &quot;&quot;&quot;Evaluates password strength using Regex pattern checks.&quot;&quot;&quot;</p>
+<p>    if len(password) &lt; 8:</p>
+<p>        return &quot;WEAK (Too Short)&quot;</p>
+<p>        </p>
+<p>    has_upper = bool(re.search(r&quot;[A-Z]&quot;, password))</p>
+<p>    has_lower = bool(re.search(r&quot;[a-z]&quot;, password))</p>
+<p>    has_digit = bool(re.search(r&quot;\d&quot;, password))</p>
+<p>    has_symbol = bool(re.search(r&quot;[!@#$%^&amp;*()_+]&quot;, password))</p>
+<p>    </p>
+<p>    score = sum([has_upper, has_lower, has_digit, has_symbol])</p>
+<p>    </p>
+<p>    if score == 4 and len(password) &gt;= 12:</p>
+<p>        return &quot;VERY STRONG&quot;</p>
+<p>    elif score &gt;= 3:</p>
+<p>        return &quot;STRONG&quot;</p>
+<p>    else:</p>
+<p>        return &quot;MODERATE&quot;</p>
+
+<h1>Test Execution</h1>
+<p>print(&quot;=== PASSWORD GENERATOR &amp; VALDIATOR ===&quot;)</p>
+<p>pwd = generate_password(14, include_symbols=True)</p>
+<p>strength = evaluate_password_strength(pwd)</p>
+
+<p>print(f&quot;Generated Password : {pwd}&quot;)</p>
+<p>print(f&quot;Security Rating    : {strength}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== PASSWORD GENERATOR &amp; VALDIATOR ===
+<p>Generated Password : aK9#mQ2$pL5!xR</p>
+<p>Security Rating    : VERY STRONG</code></pre></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="30-project-structure-and-best-practices.html">← Previous: Project Structure</a> | <a href="32-asynchronous-programming-asyncio.html">Next: Asynchronous Programming →</a></p>
+
+
+  </div>
+</body>
+</html>

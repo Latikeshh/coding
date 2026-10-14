@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 width and height - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Width and Height (<code>min-width</code>, <code>max-width</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>width</code></strong> and <strong><code>height</code></strong> properties define the dimensions of block-level and inline-block HTML elements. <strong><code>min-width</code></strong>, <strong><code>max-width</code></strong>, <strong><code>min-height</code></strong>, and <strong><code>max-height</code></strong> set responsive lower and upper size constraints.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>width</code> and <code>height</code> set element dimensions. Use <code>max-width: 100%</code> or <code>max-width: 1200px</code> with <code>margin: 0 auto</code> for responsive layouts that adapt gracefully to smaller mobile screens.</p>
+
+<h3>Hindi</h3>
+<p><code>width</code> (chaudaai) aur <code>height</code> (oonchaai) element ka size decide karte hain. Mobile layouts ke liye <code>max-width</code> ka use karein taaki element screen se bahar na jaaye.</p>
+
+<h3>Marathi</h3>
+<p><code>width</code> ani <code>height</code> mule box chi lambi ani rundi tharte. Mobile var layout vyavasthit disnyasathi <code>max-width</code> vaprava.</p>
+
+<h2>🤔 Why Do We Need Dimension Constraints?</h2>
+
+<p>Hardcoding fixed pixel widths (like <code>width: 800px</code>) causes website boxes to overflow smaller mobile screens (375px), forcing unpleasant horizontal scrollbars. Using <code>max-width</code> allows elements to shrink on mobile while capping their growth on wide desktop monitors.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Imagine an expandable suitcase:</p>
+<ul>
+<p>  <li><code>width: 100%</code>: Expands to fill whatever room is available.</li></p>
+<p>  <li><code>max-width: 500px</code>: Expands freely on mobile, but stops expanding once it reaches 500 pixels wide on desktop monitors.</li></p>
+<p>  <li><code>min-height: 200px</code>: Reserves at least 200 pixels height, but allows growing taller if extra content is added inside.</li></p>
+<p></ul></p>
+
+<h2>📝 Dimension Properties Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Behavior</th><th>Responsive Usage Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>width</code></td><td>Sets fixed or relative element width</td><td><code>width: 100%;</code></td></tr></p>
+<p>    <tr><td><code>max-width</code></td><td>Prevents element from exceeding maximum width</td><td><code>max-width: 1200px;</code></td></tr></p>
+<p>    <tr><td><code>min-width</code></td><td>Guarantees minimum width threshold</td><td><code>min-width: 250px;</code></td></tr></p>
+<p>    <tr><td><code>height</code></td><td>Sets element height (<code>auto</code> recommended for text boxes)</td><td><code>height: 300px;</code></td></tr></p>
+<p>    <tr><td><code>max-height</code></td><td>Limits maximum vertical expansion</td><td><code>max-height: 500px; overflow-y: auto;</code></td></tr></p>
+<p>    <tr><td><code>min-height</code></td><td>Ensures minimum vertical height</td><td><code>min-height: 100vh;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<pre><code class="language-css">/* Responsive container pattern */
+<p>.container {</p>
+<p>  width: 100%;           /* Spans full width on mobile screens */</p>
+<p>  max-width: 1140px;     /* Caps width at 1140px on large desktop monitors */</p>
+<p>  margin: 0 auto;        /* Horizontally centers container on page */</p>
+<p>}</p>
+
+<p>/* Full-viewport hero banner */</p>
+<p>.hero-section {</p>
+<p>  width: 100%;</p>
+<p>  min-height: 100vh;     /* Fills at least 100% of the viewport height */</p>
+<p>  background-color: #1a1a1a;</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Width and Height Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;responsive-card&quot;&gt;</p>
+<p>    &lt;h2&gt;Responsive Width Card&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Resize your browser window. On wide screens, this card stops growing at 500px. On small mobile screens, it shrinks smoothly without causing horizontal scrolling.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f0f2f5;</p>
+<p>  padding: 20px;</p>
+<p>}</p>
+
+<p>.responsive-card {</p>
+<p>  width: 100%;</p>
+<p>  max-width: 500px;</p>
+<p>  min-height: 150px;</p>
+<p>  margin: 40px auto;</p>
+<p>  padding: 25px;</p>
+<p>  background-color: #ffffff;</p>
+<p>  border-radius: 10px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.1);</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  color: #1a73e8;</p>
+<p>  margin-top: 0;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A clean white card component centered horizontally. When you narrow your browser viewport down to mobile width (320px), the card contracts smoothly to <code>100%</code> viewport width instead of breaking off screen.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Change <code>max-width: 500px</code> to <code>width: 800px</code> in <code>style.css</code>.</p>
+<p>2. Shrink your browser window below 800px and observe how horizontal scrollbars appear!</p>
+<p>3. Switch back to <code>max-width: 800px; width: 100%;</code> to fix the layout.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Hardcoding fixed <code>height</code> on text containers:</strong> Setting <code>height: 100px</code> on a text card causes text overflow when font sizes change or content grows. Use <code>min-height</code> or <code>height: auto</code> instead.</li></p>
+<p>  <li><strong>Using fixed pixel widths for main page containers:</strong> Writing <code>width: 1200px</code> breaks mobile responsiveness.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Every modern responsive framework (Bootstrap, Tailwind, Grid systems) uses <code>max-width</code> paired with <code>width: 100%</code> and <code>margin: 0 auto</code> to build centered page wrappers that adapt seamlessly to mobile devices.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="11-css-units.html">CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>)</a></li></p>
+<p>  <li><a href="16-box-model.html">The CSS Box Model</a></li></p>
+<p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Prefer <code>max-width</code> over fixed <code>width</code> for responsive layouts.</li></p>
+<p>  <li>Use <code>min-height</code> rather than fixed <code>height</code> for text containers.</li></p>
+<p>  <li>Pair <code>width: 100%; max-width: 1200px; margin: 0 auto;</code> to create centered responsive layout wrappers.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="09-specificity.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="11-css-units.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classes and Objects - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Classes and Objects in Java</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In Java's Object-Oriented Programming (OOP) model:</p>
+<ul>
+<p>  <li>A <strong>Class</strong> is an abstract blueprint, template, or user-defined data type that defines fields (state) and methods (behavior).</li></p>
+<p>  <li>An <strong>Object</strong> is a concrete instance of a class allocated in Heap memory using the <code>new</code> keyword.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Class ek blueprint/design hoti hai, aur Object us blueprint se bana ek actual instance hota hai jo Heap memory mein jagah leta hai. Fields object ka State (data) hold karte hain aur Methods object ka Behavior (logic) define karte hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Class mhanje blueprint aani Object mhanje Heap memory madhye tayar jalele instance.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Procedural programming stores data and functions separately, leading to fragmented code. Object-Oriented design packages state (data variables) and behavior (methods) together into self-contained objects that mirror real-world entities.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a <strong>Class</strong> as an architectural blueprint for a sports car. The blueprint specifies variables (<code>color</code>, <code>maxSpeed</code>) and methods (<code>accelerate()</code>, <code>brake()</code>). An <strong>Object</strong> is the actual physical car built from that blueprint. You can build 1,000 distinct cars (objects) from one single blueprint.</p>
+
+<h2>📝 1. Instance vs Static Members</h2>
+
+<ul>
+<p>  <li><strong>Instance Fields/Methods:</strong> Belong to a specific object instance. Every object has its own separate copy of instance variables.</li></p>
+<p>  <li><strong>Static Fields/Methods:</strong> Belong to the <strong>Class itself</strong>. Shared globally across all object instances (<code>ClassName.staticMethod()</code>).</li></p>
+<p></ul></p>
+
+<h2>📝 2. Constructors & Initializer Blocks</h2>
+
+<p>Constructors are special methods invoked automatically during object instantiation via <code>new</code> to initialize instance fields.</p>
+
+<ul>
+<p>  <li><strong>Default Constructor:</strong> Provided automatically by compiler if no constructor is written.</li></p>
+<p>  <li><strong>Parameterized Constructor:</strong> Accepts custom arguments.</li></p>
+<p>  <li><strong>Constructor Chaining (<code>this(...)</code>):</strong> Calling one constructor from another inside the same class.</li></p>
+<p>  <li><strong>Static Initializer Block (<code>static { ... }</code>):</strong> Runs <strong>ONCE</strong> when the class is first loaded into JVM memory.</li></p>
+<p></ul></p>
+
+<pre><code class="language-java">public class Car {
+<p>    private String model; // Instance field</p>
+<p>    private static int totalCarsManufactured = 0; // Static field</p>
+
+<p>    // Static Initializer</p>
+<p>    static {</p>
+<p>        System.out.println(&quot;Car Class Loaded in JVM.&quot;);</p>
+<p>    }</p>
+
+<p>    // Parameterized Constructor</p>
+<p>    public Car(String model) {</p>
+<p>        this.model = model;</p>
+<p>        totalCarsManufactured++;</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>🧠 3. Memory Model: Stack vs Heap</h2>
+
+<ul>
+<p>  <li><strong>Stack Memory:</strong> Stores short-lived local variables and method call frames. Holds object reference pointers.</li></p>
+<p>  <li><strong>Heap Memory:</strong> Stores actual object instances created with <code>new</code>. Garbage Collection automatically reclaims unreachable heap memory objects.</li></p>
+<p></ul></p>
+
+<pre><code class="language-text">STACK MEMORY                     HEAP MEMORY
+<p>+-----------------------+        +-----------------------------------+</p>
+
+<table>
+<p>  <thead><tr><th>main() frame</th><th></th><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>account1 reference ----------&gt;</td><td>BankAccount Object Instance #1</td></tr></p>
+<p>    <tr><td>account2 reference ----------&gt;</td><td>BankAccount Object Instance #2</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------------------+        +-----------------------------------+</code></pre></p>
+
+<h2>💡 Complete Example: Bank Account Management Engine</h2>
+
+<pre><code class="language-java">public class BankAccount {
+<p>    // Instance Fields (State)</p>
+<p>    private final String accountNumber;</p>
+<p>    private final String accountHolder;</p>
+<p>    private double balance;</p>
+
+<p>    // Static Class Field</p>
+<p>    private static double interestRate = 4.5; // Shared across all accounts</p>
+
+<p>    // Constructor Chaining</p>
+<p>    public BankAccount(String accountNumber, String accountHolder) {</p>
+<p>        this(accountNumber, accountHolder, 0.0); // Chaining to 3-arg constructor</p>
+<p>    }</p>
+
+<p>    public BankAccount(String accountNumber, String accountHolder, double initialBalance) {</p>
+<p>        this.accountNumber = accountNumber;</p>
+<p>        this.accountHolder = accountHolder;</p>
+<p>        this.balance = Math.max(0.0, initialBalance);</p>
+<p>    }</p>
+
+<p>    // Instance Methods (Behavior)</p>
+<p>    public void deposit(double amount) {</p>
+<p>        if (amount &gt; 0) {</p>
+<p>            balance += amount;</p>
+<p>            System.out.printf(&quot;Deposited ₹%.2f. New Balance: ₹%.2f%n&quot;, amount, balance);</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public boolean withdraw(double amount) {</p>
+<p>        if (amount &gt; 0 &amp;&amp; balance &gt;= amount) {</p>
+<p>            balance -= amount;</p>
+<p>            System.out.printf(&quot;Withdrew ₹%.2f. Remaining Balance: ₹%.2f%n&quot;, amount, balance);</p>
+<p>            return true;</p>
+<p>        }</p>
+<p>        System.out.println(&quot;Withdrawal Failed: Insufficient funds or invalid amount.&quot;);</p>
+<p>        return false;</p>
+<p>    }</p>
+
+<p>    // Static Utility Method</p>
+<p>    public static void setInterestRate(double newRate) {</p>
+<p>        if (newRate &gt;= 0) {</p>
+<p>            interestRate = newRate;</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public void displayAccountInfo() {</p>
+<p>        System.out.printf(&quot;Acc #%s | Holder: %s | Balance: ₹%.2f | Interest: %.1f%%%n&quot;,</p>
+<p>                accountNumber, accountHolder, balance, interestRate);</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        BankAccount acc1 = new BankAccount(&quot;ACC-101&quot;, &quot;Aarav Sharma&quot;, 10000.00);</p>
+<p>        BankAccount acc2 = new BankAccount(&quot;ACC-102&quot;, &quot;Priya Verma&quot;, 5000.00);</p>
+
+<p>        acc1.deposit(2500.00);</p>
+<p>        acc2.withdraw(1500.00);</p>
+
+<p>        // Updating static interest rate affects all instances!</p>
+<p>        BankAccount.setInterestRate(5.0);</p>
+
+<p>        System.out.println(&quot;\n--- FINAL ACCOUNT STATES ---&quot;);</p>
+<p>        acc1.displayAccountInfo();</p>
+<p>        acc2.displayAccountInfo();</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Deposited ₹2500.00. New Balance: ₹12500.00
+<p>Withdrew ₹1500.00. Remaining Balance: ₹3500.00</p>
+
+<p>--- FINAL ACCOUNT STATES ---</p>
+<p>Acc #ACC-101 | Holder: Aarav Sharma | Balance: ₹12500.00 | Interest: 5.0%</p>
+<p>Acc #ACC-102 | Holder: Priya Verma | Balance: ₹3500.00 | Interest: 5.0%</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Invoking instance methods on a <code>null</code> reference variable, triggering a <code>NullPointerException</code>.</li></p>
+<p>  <li>Accessing instance variables directly inside a <code>static</code> method without an object instance (<code>static</code> contexts cannot access <code>this</code>).</li></p>
+<p>  <li>Forgetting to write <code>this.</code> when parameter names match instance field names (shadowing!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always initialize instance fields inside constructors to maintain valid class invariants before any methods are called on the object.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Domain modeling across software applications: User entities, Product catalogs, Order records, Shopping carts, and Database entities.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Book</code> class with <code>title</code>, <code>author</code>, <code>price</code>, and a method <code>getDetails()</code>.</p>
+<p>2. Instantiate two distinct <code>Book</code> objects and display their details.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Add a static variable <code>totalBooksCreated</code> to the <code>Book</code> class that increments automatically every time any constructor is called.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-methods.html">Methods</a></li></p>
+<p>  <li><a href="15-encapsulation-and-composition.html">Encapsulation and Composition</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="13-generics.html">← Previous: Generics</a> | <a href="15-encapsulation-and-composition.html">Next: Encapsulation and Composition →</a></p>
+
+
+  </div>
+</body>
+</html>

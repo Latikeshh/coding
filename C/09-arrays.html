@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 arrays - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Arrays in C</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>array</strong> is a fixed-size, contiguous sequence of elements of the same data type stored sequentially in computer memory. Individual elements are accessed using zero-based indices (<code>0</code> to <code>size - 1</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Arrays store multiple values of the same type in consecutive memory locations. In C, array indexing starts at <code>0</code>. Arrays decay into pointers when passed to functions, meaning array sizes cannot be calculated inside functions using <code>sizeof</code> and must be passed as an explicit parameter. Arrays cannot automatically resize.</p>
+
+<h3>Hindi</h3>
+<p>Array ek hi data type ke multiple elements ko consecutive memory locations mein store karta hai. C mein array indexing <code>0</code> se shuru hoti hai. Function mein array paas karne par woh pointer mein decay ho jata hai, isliye function ke andar size alag se paas karna zaroori hai. Array ka size fixed hota hai.</p>
+
+<h3>Marathi</h3>
+<p>Array ekach data type che anek values salag memory madhye sathavato. Indexing <code>0</code> pasun shuru hote. Function madhye array dilyas to pointer banato, mhanun array cha size veglach paas karava lagto. Array cha size badalta yet nahi.</p>
+
+<h3>Hinglish</h3>
+<p>Array contiguous memory allocation follow karta hai. Element access karne ke liye index <code>0</code> se <code>size - 1</code> tak hota hai. Valid bounds ke bahar access karne par garbage value milti hai ya Segmentation Fault crash ho jata hai. Arrays fixed size ke hote hain aur dynamic resize nahi ho sakte.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>If you need to store test scores for 50 students, declaring 50 individual variables (<code>score1</code>, <code>score2</code>, ... <code>score50</code>) is impossible to maintain. An array <code>int scores[50]</code> lets you store, loop through, search, and sort all 50 scores in a few clean lines of code.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of an array as a row of connected post office boxes numbered starting from <code>0</code>.</p>
+<ul>
+<p>  <li>The <strong>Array Name</strong> (<code>marks</code>) is the street address.</li></p>
+<p>  <li>The <strong>Index</strong> (<code>[0]</code>, <code>[1]</code>, <code>[2]</code>) is the box number written on the door.</li></p>
+<p>  <li>All boxes in the row must hold the same type of items (e.g. integer scores).</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & Initialization</h2>
+
+<pre><code class="language-c">// 1. Declaration without initialization (contains garbage values!)
+<p>int prices[5];</p>
+
+<p>// 2. Explicit initialization</p>
+<p>int scores[5] = {88, 92, 79, 95, 84};</p>
+
+<p>// 3. Partial zero-initialization (sets ALL elements to 0)</p>
+<p>int totals[100] = {0};</p>
+
+<p>// 4. Inferred size initialization</p>
+<p>char vowels[] = {&#39;a&#39;, &#39;e&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;}; // Compiler infers size = 5</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a comprehensive student score analyzer demonstrating 1D arrays, 2D arrays (subject matrix), passing arrays to functions, linear search, and bubble sort:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>// Function Prototypes - Size MUST be passed as an explicit parameter!</p>
+<p>void printArray(const int arr[], int size);</p>
+<p>double calculateAverage(const int arr[], int size);</p>
+<p>int linearSearch(const int arr[], int size, int target);</p>
+<p>void bubbleSort(int arr[], int size);</p>
+
+<p>int main(void) {</p>
+<p>    // 1. 1D Array of Student Marks</p>
+<p>    int studentMarks[6] = {78, 92, 85, 64, 95, 88};</p>
+<p>    int count = sizeof(studentMarks) / sizeof(studentMarks[0]); // 24 / 4 = 6 elements</p>
+
+<p>    printf(&quot;--- 1D ARRAY MARKS REPORT ---\n&quot;);</p>
+<p>    printf(&quot;Original Marks: &quot;);</p>
+<p>    printArray(studentMarks, count);</p>
+
+<p>    double avg = calculateAverage(studentMarks, count);</p>
+<p>    printf(&quot;Class Average : %.2lf\n&quot;, avg);</p>
+
+<p>    // 2. Searching in Array</p>
+<p>    int targetScore = 85;</p>
+<p>    int foundIndex = linearSearch(studentMarks, count, targetScore);</p>
+<p>    if (foundIndex != -1) {</p>
+<p>        printf(&quot;Score %d found at Index [%d]\n&quot;, targetScore, foundIndex);</p>
+<p>    } else {</p>
+<p>        printf(&quot;Score %d not found in records.\n&quot;, targetScore);</p>
+<p>    }</p>
+
+<p>    // 3. Sorting Array in ascending order</p>
+<p>    bubbleSort(studentMarks, count);</p>
+<p>    printf(&quot;Sorted Marks  : &quot;);</p>
+<p>    printArray(studentMarks, count);</p>
+
+<p>    // 4. 2D Array: Student Marks across 3 Subjects</p>
+<p>    printf(&quot;\n--- 2D ARRAY: STUDENT SUBJECT MATRIX ---\n&quot;);</p>
+<p>    // 3 Students, 2 Subjects each</p>
+<p>    int markMatrix[3][2] = {</p>
+<p>        {85, 90}, // Student 1: Math, Science</p>
+<p>        {78, 82}, // Student 2: Math, Science</p>
+<p>        {92, 95}  // Student 3: Math, Science</p>
+<p>    };</p>
+
+<p>    for (int student = 0; student &lt; 3; student++) {</p>
+<p>        int studentTotal = 0;</p>
+<p>        for (int subject = 0; subject &lt; 2; subject++) {</p>
+<p>            studentTotal += markMatrix[student][subject];</p>
+<p>        }</p>
+<p>        printf(&quot;Student %d Total: %d / 200\n&quot;, student + 1, studentTotal);</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</p>
+
+<p>// --- FUNCTION DEFINITIONS ---</p>
+
+<p>// Array parameter decays to pointer (const int *arr)</p>
+<p>void printArray(const int arr[], int size) {</p>
+<p>    for (int i = 0; i &lt; size; i++) {</p>
+<p>        printf(&quot;%d &quot;, arr[i]);</p>
+<p>    }</p>
+<p>    printf(&quot;\n&quot;);</p>
+<p>}</p>
+
+<p>double calculateAverage(const int arr[], int size) {</p>
+<p>    int sum = 0;</p>
+<p>    for (int i = 0; i &lt; size; i++) {</p>
+<p>        sum += arr[i];</p>
+<p>    }</p>
+<p>    return (double)sum / size;</p>
+<p>}</p>
+
+<p>int linearSearch(const int arr[], int size, int target) {</p>
+<p>    for (int i = 0; i &lt; size; i++) {</p>
+<p>        if (arr[i] == target) {</p>
+<p>            return i; // Return matching index</p>
+<p>        }</p>
+<p>    }</p>
+<p>    return -1; // Target not found</p>
+<p>}</p>
+
+<p>void bubbleSort(int arr[], int size) {</p>
+<p>    for (int i = 0; i &lt; size - 1; i++) {</p>
+<p>        for (int j = 0; j &lt; size - i - 1; j++) {</p>
+<p>            if (arr[j] &gt; arr[j + 1]) {</p>
+<p>                // Swap adjacent elements</p>
+<p>                int temp = arr[j];</p>
+<p>                arr[j] = arr[j + 1];</p>
+<p>                arr[j + 1] = temp;</p>
+<p>            }</p>
+<p>        }</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>sizeof(studentMarks) / sizeof(studentMarks[0])</code>: Calculates total element count in caller scope (<code>24 bytes total / 4 bytes per int = 6 elements</code>).</li></p>
+<p>  <li><strong>Array Decay in Functions:</strong> When passing <code>studentMarks</code> to <code>printArray(studentMarks, count)</code>, C converts <code>studentMarks</code> to a pointer to its first element (<code>int *</code>). Inside <code>printArray</code>, <code>sizeof(arr)</code> returns pointer size (8 bytes on 64-bit), NOT array size! Thus, array size <strong>must</strong> be passed as an explicit second argument.</li></p>
+<p>  <li><strong>2D Arrays:</strong> <code>markMatrix[3][2]</code> allocates 3 rows and 2 columns in row-major contiguous memory.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1D ARRAY MARKS REPORT ---
+<p>Original Marks: 78 92 85 64 95 88 </p>
+<p>Class Average : 83.67</p>
+<p>Score 85 found at Index [2]</p>
+<p>Sorted Marks  : 64 78 85 88 92 95 </p>
+
+<p>--- 2D ARRAY: STUDENT SUBJECT MATRIX ---</p>
+<p>Student 1 Total: 175 / 200</p>
+<p>Student 2 Total: 160 / 200</p>
+<p>Student 3 Total: 187 / 200</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Buffer Overflow / Out-of-Bounds Indexing:</strong> Accessing <code>arr[6]</code> in an array declared as <code>int arr[6]</code> (valid indices are <code>0</code> to <code>5</code>). C does NOT perform runtime array bounds checking! Accessing out-of-bounds indices corrupts memory or causes Segmentation Faults.</li></p>
+<p>  <li><strong>Trying to Resize Arrays:</strong> Arrays in C have fixed stack memory allocated at declaration time. You cannot "append" elements beyond declared capacity. Use Dynamic Memory Allocation (<code>malloc</code>/<code>realloc</code>) for dynamic resizing.</li></p>
+<p>  <li><strong>Comparing Arrays with <code>==</code>:</strong> Writing <code>if (arr1 == arr2)</code> compares memory addresses of the two arrays, NOT their contents! Use a loop to compare element by element.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always pass <code>const</code> qualifier for array parameters that should NOT be modified by the function (e.g., <code>void printArray(const int arr[], int size)</code>).</li></p>
+<p>  <li>Always keep track of array capacity vs actual filled element count.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Arrays store game grid boards, matrix transformations in graphics shaders, audio signal samples, network buffer queues, and lookup tables.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an integer array of 5 product prices.</p>
+<p>2. Write a loop to find and print the maximum price in the array.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a 3x3 matrix of integers, calculates the sum of elements on its main diagonal (<code>matrix[i][i]</code>), and prints the result.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="07-loops.html">Loops</a></li></p>
+<p>  <li><a href="08-functions.html">Functions</a></li></p>
+<p>  <li><a href="10-pointers-basics.html">Pointers Basics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="08-functions.html">← Previous: Functions</a> | <a href="10-pointers-basics.html">Next: Pointers Basics →</a></p>
+
+
+
+  </div>
+</body>
+</html>

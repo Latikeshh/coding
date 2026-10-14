@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 forms - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Forms (<code><form></code>, <code><label></code>, <code>action</code>, <code>method</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An HTML <strong><code><form></code></strong> collects user input (names, emails, passwords, search terms, uploaded files, or feedback messages) and submits it to a web server or JavaScript handler for processing.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Forms use <code><form></code> with controls like <code><label></code>, <code><input></code>, <code><textarea></code>, <code><select></code>, and <code><button></code>. Always associate <code><label for="id"></code> with <code><input id="id"></code> for accessibility.</p>
+
+<h3>Hindi</h3>
+<p>Forms user data collect karne ke liye hote hain. <code><form></code> container mein <code><label></code>, <code><input></code>, <code><textarea></code>, <code><select></code>, aur <code><button></code> hote hain. Accessibility ke liye <code><label for="id"></code> ko <code><input id="id"></code> se connect karein.</p>
+
+<h3>Marathi</h3>
+<p>Forms user kadun mahiti gola karanyasathi vapartat. Accessibility sathi <code><label for="id"></code> la <code><input id="id"></code> shi match kara, ani form <code>action</code> ani <code>method</code> server submission tharavtat.</p>
+
+<h2>🤔 Why Do We Use Forms?</h2>
+
+<p>Forms are the primary interactive mechanism enabling user engagement on the web—logins, user registrations, search query inputs, checkout payments, online surveys, and contact messages.</p>
+
+<h2>🧱 Essential Form Attributes</h2>
+
+<p>The <code><form></code> tag uses key attributes to control data transmission:</p>
+
+<p>1. <strong><code>action="URL"</code>:</strong> Specifies the backend server URL or endpoint where submitted form data will be processed.</p>
+<p>2. <strong><code>method="GET|POST"</code>:</strong> Specifies the HTTP method used to send data:</p>
+<ul>
+<p>  <li><strong><code>GET</code>:</strong> Appends form data directly to the URL address bar in query strings (<code>?search=books</code>). Used for search boxes and filters. <strong>Never use GET for sensitive passwords!</strong></li></p>
+<p>  <li><strong><code>POST</code>:</strong> Transmits form data inside the HTTP request body. Used for logins, registration forms, file uploads, and sensitive transactions.</li></p>
+<p></ul></p>
+<p>3. <strong><code>name="fieldname"</code>:</strong> The key name assigned to an input value when transmitted to the server.</p>
+
+<h2>🔑 Primary Form Controls</h2>
+
+<ul>
+<p>  <li><strong><code><label></code>:</strong> Describes what information is requested in an input control. Clicking a label automatically focuses the corresponding input box.</li></p>
+<p>  <li><strong><code><input></code>:</strong> Versatile input control (text, password, email, checkbox, radio, date, etc.).</li></p>
+<p>  <li><strong><code><textarea></code>:</strong> Multi-line text entry field for longer comments or messages.</li></p>
+<p>  <li><strong><code><select></code> & <code><option></code>:</strong> Dropdown selection menu.</li></p>
+<p>  <li><strong><code><fieldset></code> & <code><legend></code>:</strong> Groups related form controls with a visual border and caption title.</li></p>
+<p>  <li><strong><code><button type="submit"></code>:</strong> Triggers form submission.</li></p>
+<p></ul></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Student Registration Form&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Student Workshop Registration&lt;/h1&gt;</p>
+
+<p>  &lt;form action=&quot;/submit-registration&quot; method=&quot;POST&quot;&gt;</p>
+
+<p>    &lt;fieldset&gt;</p>
+<p>      &lt;legend&gt;Personal Details&lt;/legend&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;full-name&quot;&gt;Full Name:&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;input id=&quot;full-name&quot; type=&quot;text&quot; name=&quot;fullName&quot; required placeholder=&quot;e.g. Latikesh Sharma&quot;&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;user-email&quot;&gt;Email Address:&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;input id=&quot;user-email&quot; type=&quot;email&quot; name=&quot;userEmail&quot; required placeholder=&quot;name@domain.com&quot;&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;course-select&quot;&gt;Select Course Track:&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;select id=&quot;course-select&quot; name=&quot;course&quot; required&gt;</p>
+<p>          &lt;option value=&quot;&quot;&gt;-- Choose a Course --&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;web-dev&quot;&gt;Web Development&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;data-science&quot;&gt;Data Science&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;cyber-security&quot;&gt;Cyber Security&lt;/option&gt;</p>
+<p>        &lt;/select&gt;</p>
+<p>      &lt;/p&gt;</p>
+<p>    &lt;/fieldset&gt;</p>
+
+<p>    &lt;fieldset&gt;</p>
+<p>      &lt;legend&gt;Additional Remarks&lt;/legend&gt;</p>
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;user-message&quot;&gt;Learning Goals:&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;textarea id=&quot;user-message&quot; name=&quot;notes&quot; rows=&quot;4&quot; cols=&quot;50&quot; placeholder=&quot;Tell us about your learning goals...&quot;&gt;&lt;/textarea&gt;</p>
+<p>      &lt;/p&gt;</p>
+<p>    &lt;/fieldset&gt;</p>
+
+<p>    &lt;p&gt;</p>
+<p>      &lt;button type=&quot;submit&quot;&gt;Submit Registration&lt;/button&gt;</p>
+<p>      &lt;button type=&quot;reset&quot;&gt;Clear Form&lt;/button&gt;</p>
+<p>    &lt;/p&gt;</p>
+
+<p>  &lt;/form&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A grouped registration form displaying input fields for full name, validated email address, course dropdown menu, multi-line text area, and submit/reset buttons.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a contact form containing <code>action="/contact"</code> and <code>method="POST"</code>.</p>
+<p>2. Add name and email input fields paired with <code><label></code> tags.</p>
+<p>3. Add a <code><select></code> dropdown for subject categories.</p>
+<p>4. Add a <code><textarea></code> for message text and a <code><button type="submit"></code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting the <code>for</code> and <code>id</code> connection:</strong> Writing <code><label>Name</label><input type="text"></code> prevents screen readers from associating the label with the input field.</li></p>
+<p>  <li><strong>Forgetting the <code>name</code> attribute:</strong> Input controls without a <code>name</code> attribute are ignored and <strong>not submitted</strong> to the server!</li></p>
+<p>  <li><strong>Using <code>method="GET"</code> for passwords:</strong> Exposes sensitive password strings in the browser address bar.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All major web platforms rely on HTML forms for authentication, user profiles, checkout forms, search bars, and user settings.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="12-input-types.html">Input Types</a></li></p>
+<p>  <li><a href="13-buttons.html">Buttons</a></li></p>
+<p>  <li><a href="28-advanced-form-controls.html">Advanced Form Controls</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><label for="id"></code> must match <code><input id="id"></code>.</li></p>
+<p>  <li>Always provide a <code>name</code> attribute on input fields.</li></p>
+<p>  <li>Use <code>method="POST"</code> for sensitive or modifying actions.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="10-tables.html">← Previous: Tables</a> | <a href="./">HTML Home</a> | <a href="12-input-types.html">Next: Input Types →</a></p>
+
+
+
+  </div>
+</body>
+</html>

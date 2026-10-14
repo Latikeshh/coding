@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 staging and committing - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Staging & Committing Changes (<code>git add</code>, <code>git commit</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Staging</strong> (<code>git add</code>) is the process of marking modified or untracked files to be included in the next commit snapshot. <strong>Committing</strong> (<code>git commit</code>) takes all currently staged changes and saves them permanently into the Git repository database as an immutable version snapshot accompanied by a commit message and author metadata.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git add</code> stages changes from your Working Directory into the Staging Area (Index). <code>git commit -m "message"</code> records those staged changes permanently in the local repository database. Good commit messages follow imperative mood conventions (e.g. "Add login validation" rather than "Added login validation").</p>
+
+<h3>Hindi</h3>
+<p><code>git add</code> aapke changed files ko Staging Area mein add karta hai. <code>git commit -m "message"</code> un staged changes ka permanent snapshot database mein save kar deta hai. Commit message hamesha clear aur meaningful hona chahiye.</p>
+
+<h3>Marathi</h3>
+<p><code>git add</code> cha vapar badalalele files Staging Area madhye taknyasathi hoto. <code>git commit -m "message"</code> mhadhyamane staged files cha permanent snapshot repository madhye save hoto.</p>
+
+<h3>Hinglish</h3>
+<p><code>git add .</code> se saare modified aur new files Staging Area mein add ho jaate hain. Iske baad <code>git commit -m "Your Commit Message"</code> se repository mein permanent save point ban jata hai. Pehle <code>git add</code> karna zaroori hai, tabhi <code>git commit</code> kaam karega.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Commits serve as time-travel checkpoints in your codebase. If a new feature introduces a critical bug, you can compare or revert back to previous commits instantly.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of staging and committing like taking a photo with a camera:</p>
+<p>1. <strong><code>git add</code>:</strong> Arranging people in front of the camera lens, getting everyone to pose (<strong>Staging</strong>).</p>
+<p>2. <strong><code>git commit</code>:</strong> Clicking the shutter button to snap the permanent photo (<strong>Commit</strong>).</p>
+
+<h2>📝 Key Commands & Syntax</h2>
+
+<h3>1. Staging Commands (<code>git add</code>)</h3>
+<pre><code class="language-bash"># Stage a single specific file
+<p>git add index.html</p>
+
+<h1>Stage multiple specific files</h1>
+<p>git add style.css app.js</p>
+
+<h1>Stage ALL modified and untracked files in current directory and subdirectories</h1>
+<p>git add .</code></pre></p>
+
+<h3>2. Committing Commands (<code>git commit</code>)</h3>
+<pre><code class="language-bash"># Commit staged changes with an inline commit message
+<p>git commit -m &quot;Add responsive navigation header&quot;</p>
+
+<h1>Stage all tracked modified files AND commit in one step (Skips untracked files!)</h1>
+<p>git commit -am &quot;Update button styling&quot;</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a complete terminal workflow for staging and committing a new user authentication feature:</p>
+
+<pre><code class="language-bash"># 1. Create feature files
+<p>echo &quot;function login() {}&quot; &gt; auth.js</p>
+<p>echo &quot;.login-btn { color: red; }&quot; &gt; auth.css</p>
+
+<h1>2. Check untracked status</h1>
+<p>git status</p>
+
+<h1>3. Stage all new files</h1>
+<p>git add .</p>
+
+<h1>4. Confirm files are in Staging Area</h1>
+<p>git status</p>
+
+<h1>5. Commit staged changes with meaningful message</h1>
+<p>git commit -m &quot;Implement user authentication login layout&quot;</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git add .</code>: The dot <code>.</code> represents current directory. Adds all new, modified, and deleted files in the working directory tree to Staging.</li></p>
+<p>  <li><code>git commit</code>: Takes staged files and seals them into a new commit object in <code>.git/objects/</code>.</li></p>
+<p>  <li><code>-m "Message"</code>: Inline flag supplying the commit message without opening an interactive text editor.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git commit -m &quot;Implement user authentication login layout&quot;
+<p>[main a1b2c3d] Implement user authentication login layout</p>
+<p> 2 files changed, 2 insertions(+)</p>
+<p> create mode 100644 auth.css</p>
+<p> create mode 100644 auth.js</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Vague Commit Messages:</strong> Writing meaningless messages like <code>"fixed"</code>, <code>"asdf"</code>, <code>"wip"</code>, or <code>"changes"</code>. A good commit message explains WHAT was done and WHY.</li></p>
+<p>  <li><strong>Committing Sensitive Secrets:</strong> Staging files containing passwords, API keys, or <code>.env</code> files into commits. Once committed, secrets remain in Git history even if deleted in later commits!</li></p>
+<p>  <li><strong>Huge Monolithic Commits:</strong> Grouping 10 completely unrelated features or bug fixes into a single massive commit instead of making small, atomic commits.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Best Practices for Commit Messages</h2>
+
+<p>1. <strong>Keep Summary Line Under 50 Characters.</strong></p>
+<p>2. <strong>Use Imperative Mood:</strong> Write <code>"Fix header bug"</code> instead of <code>"Fixed header bug"</code> or <code>"Fixes header bug"</code>.</p>
+<p>3. <strong>Commit Atomic Changes:</strong> One logical task per commit.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Professional software teams require atomic commits with clear messages so team members can review code changes easily in Pull Requests.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Inside your <code>git-practice</code> folder, create a file named <code>README.md</code> containing <code># My Practice Project</code>.</p>
+<p>2. Stage <code>README.md</code> using <code>git add README.md</code>.</p>
+<p>3. Commit <code>README.md</code> using <code>git commit -m "Add project README file"</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Edit <code>README.md</code> to add a second line <code>Author: Your Name</code>. Run <code>git status</code>, stage the modified file, and commit it with message <code>"Update README author details"</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-git-file-states-and-lifecycle.html">Git File States & Lifecycle</a></li></p>
+<p>  <li><a href="07-viewing-history-and-git-log.html">Viewing History</a></li></p>
+<p>  <li><a href="08-ignoring-files-with-gitignore.html">Ignoring Files</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="05-git-file-states-and-lifecycle.html">← Previous: File States</a> | <a href="07-viewing-history-and-git-log.html">Next: Viewing History →</a></p>
+
+
+
+  </div>
+</body>
+</html>

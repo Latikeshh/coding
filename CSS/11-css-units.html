@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 css units - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Units</strong> specify measurement values for properties like <code>font-size</code>, <code>width</code>, <code>height</code>, <code>margin</code>, and <code>padding</code>. Units are categorized into <strong>Absolute Units</strong> (fixed measurements like <code>px</code>) and <strong>Relative Units</strong> (dynamic measurements like <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>) that scale based on browser defaults or parent containers.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>px</code> is a fixed absolute unit. <code>rem</code> is relative to the root <code><html></code> font size (default <code>1rem = 16px</code>). <code>%</code> is relative to parent container dimensions. <code>vw</code>/<code>vh</code> are relative to 1% of viewport width/height.</p>
+
+<h3>Hindi</h3>
+<p><code>px</code> fixed absolute unit hai. <code>rem</code> root <code><html></code> font size ke hisaab se badalta hai. <code>%</code> parent element ke size aur <code>vw</code>/<code>vh</code> viewport (screen) size ke hisaab se badalte hain.</p>
+
+<h3>Marathi</h3>
+<p><code>px</code> fixed unit aahe. <code>rem</code> root font var ani <code>%</code> parent box chya akara var avlambun aste.</p>
+
+<h2>🤔 Why Are Relative Units Essential?</h2>
+
+<p>If you set all font sizes in fixed <code>px</code> (pixels), users with visual impairments who increase their browser default font size in accessibility settings will find your text stuck at small fixed sizes. Using relative units like <code>rem</code> respects user accessibility preferences and ensures responsive scaling across screens.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of measurements:</p>
+<ul>
+<p>  <li><strong><code>px</code> (Pixel):</strong> Like a fixed wooden ruler marked in millimeters. It never expands or shrinks regardless of environment.</li></p>
+<p>  <li><strong><code>rem</code> (Root EM):</strong> Like a rubber band relative to the house foundation (<code><html></code> root size). Change the foundation, and all <code>rem</code> measurements scale proportionally.</li></p>
+<p>  <li><strong><code>vw</code> / <code>vh</code> (Viewport Width/Height):</strong> Like a percentage of the window glass size.</li></p>
+<p></ul></p>
+
+<h2>📚 CSS Units Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Unit Type</th><th>Unit Name</th><th>Reference Base</th><th>Best Used For</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Absolute</strong></td><td><code>px</code> (Pixels)</td><td>Fixed screen hardware pixels (<code>1px</code>)</td><td>Borders (<code>1px solid</code>), small precise shadows</td></tr></p>
+<p>    <tr><td><strong>Relative</strong></td><td><code>rem</code> (Root EM)</td><td>Relative to <code><html></code> root font size (<code>1rem = 16px</code> default)</td><td><strong>Typography, Padding, Margins, Component Sizing</strong></td></tr></p>
+<p>    <tr><td><strong>Relative</strong></td><td><code>em</code></td><td>Relative to parent element font size</td><td>Sub-component elements that must scale with local font size</td></tr></p>
+<p>    <tr><td><strong>Relative</strong></td><td><code>%</code> (Percent)</td><td>Relative to parent container's dimensions</td><td>Responsive column widths, container wrappers</td></tr></p>
+<p>    <tr><td><strong>Relative</strong></td><td><code>vw</code> (Viewport Width)</td><td>1% of total browser window width</td><td>Hero section banners, fluid typography</td></tr></p>
+<p>    <tr><td><strong>Relative</strong></td><td><code>vh</code> (Viewport Height)</td><td>1% of total browser window height</td><td>Full-screen hero sections (<code>min-height: 100vh</code>)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Code Examples</h2>
+
+<pre><code class="language-css">/* Setting root font size explicitly (Optional, browser defaults to 16px) */
+<p>html {</p>
+<p>  font-size: 16px; </p>
+<p>}</p>
+
+<p>/* Typography using rem */</p>
+<p>h1 {</p>
+<p>  font-size: 2.25rem; /* 2.25 * 16px = 36px */</p>
+<p>  margin-bottom: 1rem; /* 16px */</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  font-size: 1rem;    /* 16px */</p>
+<p>  line-height: 1.5;</p>
+<p>}</p>
+
+<p>/* Responsive container using % and vh */</p>
+<p>.hero-banner {</p>
+<p>  width: 90%;          /* 90% of parent width */</p>
+<p>  min-height: 80vh;    /* 80% of current browser window height */</p>
+<p>  padding: 2rem;       /* 32px */</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Units Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;h2&gt;Accessible Typography (<code>rem</code>)&lt;/h2&gt;</p>
+<p>    &lt;p&gt;This component uses &lt;code&gt;rem&lt;/code&gt; for font sizes and padding, ensuring that if a user changes their browser font scale settings, the component scales gracefully.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f4f6f8;</p>
+<p>  margin: 0;</p>
+<p>  padding: 2rem;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  width: 100%;</p>
+<p>  max-width: 35rem; /* 35 * 16px = 560px */</p>
+<p>  margin: 0 auto;</p>
+<p>  padding: 1.5rem; /* 24px */</p>
+<p>  background-color: #ffffff;</p>
+<p>  border-radius: 0.5rem; /* 8px */</p>
+<p>  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.08);</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  font-size: 1.5rem; /* 24px */</p>
+<p>  color: #0056b3;</p>
+<p>  margin-top: 0;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  font-size: 1rem; /* 16px */</p>
+<p>  color: #333333;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A clean card container scaled proportionally using <code>rem</code> units. If you increase your browser's default font size from <code>16px</code> to <code>20px</code> in settings, the card font size, padding, and maximum width scale up harmoniously.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Open your browser settings (<code>Settings → Appearance → Font size</code>) and change default font size from <strong>Medium (16px)</strong> to <strong>Very Large (24px)</strong>.</p>
+<p>2. Observe how pages built with <code>rem</code> scale up text cleanly while fixed <code>px</code> pages stay tiny and unreadable!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using <code>px</code> for body typography:</strong> Hardcoding <code>font-size: 14px</code> on <code>body</code> overrides user accessibility settings. Use <code>rem</code> for typography.</li></p>
+<p>  <li><strong>Confusing <code>rem</code> with <code>em</code>:</strong> <code>rem</code> is always relative to the root <code><html></code> font size, whereas <code>em</code> compounds relative to its immediate parent font size (which can lead to unintended shrinking or growing when nested).</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Modern web design systems (like Tailwind CSS) use <code>rem</code> for all spacing scales (<code>p-4</code> = <code>1rem</code>, <code>m-6</code> = <code>1.5rem</code>) and typography to ensure complete accessibility compliance (WCAG).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-width-and-height.html">Width and Height</a></li></p>
+<p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
+<p>  <li><a href="32-functions.html">CSS Functions (<code>calc()</code>, <code>clamp()</code>)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>rem</code> for typography, padding, margins, and component sizing.</li></p>
+<p>  <li>Use <code>%</code>, <code>vw</code>, and <code>vh</code> for responsive layouts.</li></p>
+<p>  <li>Use <code>px</code> sparingly for thin borders (<code>1px solid</code>) or fixed subtle box shadows.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="10-width-and-height.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="12-backgrounds.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

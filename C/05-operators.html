@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 operators - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Operators in C</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>operator</strong> is a symbol that tells the C compiler to perform specific mathematical, relational, bitwise, or logical transformations on data values called <strong>operands</strong>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>C provides rich operators for arithmetic, comparisons, logical evaluation, assignment, and bitwise manipulation. In C integer division (<code>int / int</code>), fractional decimal parts are truncated (dropped). Explicit type casting (e.g. <code>(double)a / b</code>) is required to preserve decimal precision.</p>
+
+<h3>Hindi</h3>
+<p>C mein alag-alag kaam karne ke liye operators hote hain. Arithmetic, relational, logical, assignment aur bitwise operators isme shamil hain. Two integers ko divide karne par integer division hota hai (<code>5 / 2 = 2</code>). Decimal value pane ke liye type casting <code>(double)a / b</code> zaroori hai.</p>
+
+<h3>Marathi</h3>
+<p>C madhye vegvegale calculations sathi operators vaparale jatat. Arithmetic, relational, logical, assignment aani bitwise operators hi tyanchi prakar aahet. Don integers cha bhagakar nehmi integer milto (<code>5 / 2 = 2</code>). Decimal uttarasathi type casting <code>(double)a / b</code> kareve lagte.</p>
+
+<h3>Hinglish</h3>
+<p>Operators data variables par operations perform karte hain. Logical comparison ke liye <code>==</code> aur assignment ke liye <code>=</code> use hota hai. Integer division fractional values drop kar deta hai (<code>15 / 4 = 3</code>), isliye exact answer ke liye <code>(float)15 / 4</code> cast karna padta hai.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Operators are the building blocks of algorithms. They calculate total prices, compare user scores, verify access permissions, evaluate complex formulas, and manipulate hardware register flags.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<ul>
+<p>  <li><strong>Arithmetic Operators:</strong> Perform math like addition (<code>+</code>) or subtraction (<code>-</code>).</li></p>
+<p>  <li><strong>Relational Operators:</strong> Ask questions like "Is <code>a</code> equal to <code>b</code>?" (<code>a == b</code>) or "Is <code>a</code> greater?" (<code>a > b</code>). The answer is always <code>1</code> (<code>true</code>) or <code>0</code> (<code>false</code>).</li></p>
+<p>  <li><strong>Logical Operators:</strong> Combine multiple conditions like "Is user logged in AND is admin?" (<code>isLoggedIn && isAdmin</code>).</li></p>
+<p></ul></p>
+
+<h2>📝 Operator Categories in C</h2>
+
+<h3>1. Arithmetic Operators</h3>
+
+<table>
+<p>  <thead><tr><th>Operator</th><th>Name</th><th>Example</th><th>Result (<code>a=10, b=3</code>)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>+</code></td><td>Addition</td><td><code>a + b</code></td><td><code>13</code></td></tr></p>
+<p>    <tr><td><code>-</code></td><td>Subtraction</td><td><code>a - b</code></td><td><code>7</code></td></tr></p>
+<p>    <tr><td><code>*</code></td><td>Multiplication</td><td><code>a * b</code></td><td><code>30</code></td></tr></p>
+<p>    <tr><td><code>/</code></td><td>Division</td><td><code>a / b</code></td><td><code>3</code> (Integer division drops <code>.333</code>!)</td></tr></p>
+<p>    <tr><td><code>%</code></td><td>Modulus (Remainder)</td><td><code>a % b</code></td><td><code>1</code> (10 divided by 3 leaves remainder 1)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h3>2. Relational & Equality Operators</h3>
+
+<table>
+<p>  <thead><tr><th>Operator</th><th>Name</th><th>Example</th><th>Evaluation</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>==</code></td><td>Equal To</td><td><code>a == b</code></td><td><code>0</code> (<code>false</code>)</td></tr></p>
+<p>    <tr><td><code>!=</code></td><td>Not Equal To</td><td><code>a != b</code></td><td><code>1</code> (<code>true</code>)</td></tr></p>
+<p>    <tr><td><code>></code></td><td>Greater Than</td><td><code>a > b</code></td><td><code>1</code> (<code>true</code>)</td></tr></p>
+<p>    <tr><td><code><</code></td><td>Less Than</td><td><code>a < b</code></td><td><code>0</code> (<code>false</code>)</td></tr></p>
+<p>    <tr><td><code>>=</code></td><td>Greater Than or Equal</td><td><code>a >= 10</code></td><td><code>1</code> (<code>true</code>)</td></tr></p>
+<p>    <tr><td><code><=</code></td><td>Less Than or Equal</td><td><code>b <= 2</code></td><td><code>0</code> (<code>false</code>)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h3>3. Logical Operators</h3>
+
+<table>
+<p>  <thead><tr><th>Operator</th><th>Name</th><th>Meaning</th><th>Result</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>&&</code></td><td>Logical AND</td><td>Returns <code>1</code> only if <strong>both</strong> conditions are <code>true</code></td><td><code>(10 > 5 && 3 < 5)</code> -> <code>1</code></td></tr></p>
+<p>    <tr><td><code>\</td><td>\</td><td></code></td><td>Logical OR</td><td>Returns <code>1</code> if <strong>at least one</strong> condition is <code>true</code></td><td><code>(10 < 5 \</td><td>\</td><td>3 < 5)</code> -> <code>1</code></td></tr></p>
+<p>    <tr><td><code>!</code></td><td>Logical NOT</td><td>Inverts boolean truth value (<code>!1</code> -> <code>0</code>, <code>!0</code> -> <code>1</code>)</td><td><code>!(10 == 10)</code> -> <code>0</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h3>4. Increment & Decrement Operators</h3>
+<ul>
+<p>  <li><strong>Prefix (<code>++x</code> / <code>--x</code>):</strong> Increments/decrements the variable *before* evaluating the expression.</li></p>
+<p>  <li><strong>Postfix (<code>x++</code> / <code>x--</code>):</strong> Evaluates expression using current value *first*, then increments/decrements.</li></p>
+<p></ul></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a store checkout calculation script demonstrating arithmetic, ternary, assignment, and bitwise operators:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>int main(void) {</p>
+<p>    int item1Price = 450;</p>
+<p>    int item2Price = 350;</p>
+<p>    int quantity1 = 2;</p>
+<p>    int quantity2 = 1;</p>
+
+<p>    // 1. Arithmetic calculations</p>
+<p>    int rawTotal = (item1Price * quantity1) + (item2Price * quantity2); // (900 + 350) = 1250</p>
+
+<p>    // 2. Integer division vs Type Casting</p>
+<p>    int totalItems = quantity1 + quantity2; // 3</p>
+<p>    int intAverage = rawTotal / totalItems; // 1250 / 3 = 416 (truncated)</p>
+<p>    double exactAverage = (double)rawTotal / totalItems; // 416.6667</p>
+
+<p>    // 3. Ternary Operator (Condition ? trueValue : falseValue)</p>
+<p>    double discountPercentage = (rawTotal &gt;= 1000) ? 10.0 : 0.0;</p>
+<p>    double discountAmount = rawTotal * (discountPercentage / 100.0);</p>
+<p>    double finalBill = rawTotal - discountAmount;</p>
+
+<p>    // 4. Increment and Compound Assignment</p>
+<p>    int invoiceNumber = 1001;</p>
+<p>    invoiceNumber++; // invoiceNumber becomes 1002</p>
+
+<p>    printf(&quot;--- STORE RECEIPT (Invoice #%d) ---\n&quot;, invoiceNumber);</p>
+<p>    printf(&quot;Raw Total Cost    : $%d\n&quot;, rawTotal);</p>
+<p>    printf(&quot;Average/Item (int): $%d\n&quot;, intAverage);</p>
+<p>    printf(&quot;Average/Item (exact): $%.2lf\n&quot;, exactAverage);</p>
+<p>    printf(&quot;Discount Applied  : %.0lf%%\n&quot;, discountPercentage);</p>
+<p>    printf(&quot;Discount Amount   : $%.2lf\n&quot;, discountAmount);</p>
+<p>    printf(&quot;Final Bill Amount : $%.2lf\n&quot;, finalBill);</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>rawTotal / totalItems</code>: Performs integer division (<code>1250 / 3</code>), truncating the decimal portion resulting in <code>416</code>.</li></p>
+<p>  <li><code>(double)rawTotal / totalItems</code>: Typecasts <code>rawTotal</code> to a <code>double</code> before division, forcing C to perform double-precision floating-point division resulting in <code>416.666667</code>.</li></p>
+<p>  <li><code>(rawTotal >= 1000) ? 10.0 : 0.0</code>: Ternary operator checks if <code>rawTotal</code> is at least 1000. If <code>1</code> (<code>true</code>), returns <code>10.0</code>; otherwise returns <code>0.0</code>.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- STORE RECEIPT (Invoice #1002) ---
+<p>Raw Total Cost    : $1250</p>
+<p>Average/Item (int): $416</p>
+<p>Average/Item (exact): $416.67</p>
+<p>Discount Applied  : 10%</p>
+<p>Discount Amount   : $125.00</p>
+<p>Final Bill Amount : $1125.00</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Confusing <code>=</code> and <code>==</code>:</strong> Using <code>=</code> (assignment) inside an <code>if</code> condition like <code>if (status = 5)</code> assigns <code>5</code> to <code>status</code> and always evaluates to <code>true</code>! Always use <code>==</code> for comparison: <code>if (status == 5)</code>.</li></p>
+<p>  <li><strong>Bitwise vs Logical Operators:</strong> Confusing single <code>&</code> or <code>|</code> (bitwise AND / OR operating on individual bit positions) with <code>&&</code> or <code>||</code> (logical boolean evaluation).</li></p>
+<p>  <li><strong>Modulus on Floating Point Numbers:</strong> The <code>%</code> operator only works with integer data types (<code>int</code>, <code>char</code>, <code>short</code>, <code>long</code>). Using <code>%</code> with <code>float</code> or <code>double</code> causes compilation errors (use <code>fmod()</code> from <code><math.h></code> instead).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Precedence Rules</h2>
+
+<p>1. Parentheses <code>()</code> have the highest precedence. Always use parentheses in complex formulas to make evaluation order explicit!</p>
+<p>2. Multiplication/Division <code>* / %</code> execute before Addition/Subtraction <code>+ -</code>.</p>
+<p>3. Relational operators <code>< <= > >=</code> execute before Equality <code>== !=</code>.</p>
+<p>4. Logical AND <code>&&</code> executes before Logical OR <code>||</code>.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Bitwise operators (<code>&</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code><<</code>, <code>>></code>) are used heavily in embedded systems to read hardware sensor registers, pack networking protocol headers, perform cryptography, and optimize graphics routines.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare two <code>int</code> variables: <code>a = 17</code> and <code>b = 5</code>.</p>
+<p>2. Print results for <code>a + b</code>, <code>a - b</code>, <code>a * b</code>, <code>a / b</code> (integer division), <code>(double)a / b</code> (casted division), and <code>a % b</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a total number of seconds (e.g. <code>3800</code> seconds) and converts it into Hours, Minutes, and Remaining Seconds using <code>/</code> and <code>%</code> operators (<code>1 hour = 3600s</code>, <code>1 min = 60s</code>).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="04-input-output.html">← Previous: Input/Output</a> | <a href="06-conditionals.html">Next: Conditionals →</a></p>
+
+
+
+  </div>
+</body>
+</html>

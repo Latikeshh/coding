@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Handling - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>File Handling in Python</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>File Handling</strong> allows Python programs to create, read, update, write, and append data files on disk storage. Python provides the <strong><code>open()</code></strong> built-in function and the <strong><code>with</code> context manager</strong> (<code>with open(...) as file:</code>) which guarantees that files are automatically closed when operations complete, even if errors occur.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Disk par stored files ko read aur write karne ke liye File Handling ka use hota hai. Hamesha <strong><code>with open(...) as file:</code></strong> Context Manager ka use karein—isse file operations complete hone par file automatically close ho jaati hai, jisse memory/resource leaks nahi hote.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>File madhun data vachnyasathi aani lihinyasathi <code>open()</code> function vaparatat. Automatic file close honyasathi <code>with open(...) as file:</code> cha wapar kara.</p>
+
+<h2>📝 1. File Access Modes</h2>
+
+<table>
+<p>  <thead><tr><th>Mode</th><th>Meaning</th><th>What It Does</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>'r'</code></td><td>Read (Default)</td><td>Opens file for reading. Raises <code>FileNotFoundError</code> if file is missing.</td></tr></p>
+<p>    <tr><td><code>'w'</code></td><td>Write</td><td>Opens file for writing. <strong>Truncates (overwrites)</strong> file if it exists, creates if missing!</td></tr></p>
+<p>    <tr><td><code>'a'</code></td><td>Append</td><td>Opens file for appending. Preserves existing content and appends at the end.</td></tr></p>
+<p>    <tr><td><code>'r+'</code></td><td>Read/Write</td><td>Opens file for both reading and writing.</td></tr></p>
+<p>    <tr><td><code>'b'</code></td><td>Binary</td><td>Appended for binary files (<code>'rb'</code>, <code>'wb'</code>) like images, PDFs, or audio files.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. File Reading Methods</h2>
+
+<ul>
+<p>  <li><code>file.read()</code>: Reads entire file content as a single string.</li></p>
+<p>  <li><code>file.readline()</code>: Reads a single line from the file.</li></p>
+<p>  <li><code>file.readlines()</code>: Reads all lines into a list of strings (<code>['line1\n', 'line2\n']</code>).</li></p>
+<p>  <li><strong>Iterating File Directly (Best Memory Practice):</strong> Streams line by line without loading the entire file into memory!</li></p>
+<p></ul></p>
+
+<pre><code class="language-python"># Memory-Efficient Line-by-Line Iteration
+<p>with open(&quot;large_file.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    for line in file:</p>
+<p>        print(line.strip()) # Process each line</code></pre></p>
+
+<h2>💡 Complete Example: Writing & Reading Application Logs</h2>
+
+<pre><code class="language-python">import os
+
+<p>log_file_path = &quot;app_activity.log&quot;</p>
+
+<p>print(&quot;=== FILE HANDLING DEMO ===&quot;)</p>
+
+<h1>1. Writing / Appending to Log File using Context Manager</h1>
+<p>log_entries = [</p>
+<p>    &quot;USER_LOGIN: User &#39;Aarav&#39; logged in successfully.&quot;,</p>
+<p>    &quot;DB_QUERY: Fetched 25 records from &#39;users&#39; table.&quot;,</p>
+<p>    &quot;USER_LOGOUT: User &#39;Aarav&#39; logged out.&quot;</p>
+<p>]</p>
+
+<h1>Append entries to file</h1>
+<p>with open(log_file_path, &quot;a&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    for entry in log_entries:</p>
+<p>        file.write(entry + &quot;\n&quot;)</p>
+<p>        </p>
+<p>print(f&quot;Appended {len(log_entries)} log entries to &#39;{log_file_path}&#39;.&quot;)</p>
+
+<h1>2. Reading and Parsing Logs Line-by-Line</h1>
+<p>print(&quot;\n--- READING LOG FILE CONTENT ---&quot;)</p>
+
+<p>if os.path.exists(log_file_path):</p>
+<p>    with open(log_file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>        for line_num, line in enumerate(file, start=1):</p>
+<p>            print(f&quot;Line #{line_num}: {line.strip()}&quot;)</p>
+<p>            </p>
+<p>    # Cleanup log file after demo</p>
+<p>    os.remove(log_file_path)</p>
+<p>    print(f&quot;\nCleaned up demo file &#39;{log_file_path}&#39;.&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== FILE HANDLING DEMO ===
+<p>Appended 3 log entries to &#39;app_activity.log&#39;.</p>
+
+<p>--- READING LOG FILE CONTENT ---</p>
+<p>Line #1: USER_LOGIN: User &#39;Aarav&#39; logged in successfully.</p>
+<p>Line #2: DB_QUERY: Fetched 25 records from &#39;users&#39; table.</p>
+<p>Line #3: USER_LOGOUT: User &#39;Aarav&#39; logged out.</p>
+
+<p>Cleaned up demo file &#39;app_activity.log&#39;.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Opening files with <code>f = open('file.txt')</code> without using <code>with open()</code>, which leaves unclosed file handles open and causes resource leaks!</li></p>
+<p>  <li>Opening an existing file in <code>'w'</code> (write) mode when you intended to append (<code>'a'</code>), causing all previous content to be <strong>permanently wiped out</strong>!</li></p>
+<p>  <li>Forgetting to specify <code>encoding="utf-8"</code>, causing platform-dependent encoding crashes when reading non-ASCII characters on Windows.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always use <code>encoding="utf-8"</code> explicitly when calling <code>open()</code> to guarantee cross-platform text rendering consistency across Windows, macOS, and Linux.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Writing application log files, saving configuration settings, processing CSV/JSON data files, generating text reports, and reading database dumps.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a script that creates a file <code>notes.txt</code> and writes 3 lines into it.</p>
+<p>2. Read <code>notes.txt</code> using <code>with open()</code> and print the total number of lines present.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that reads a text file, counts how many times the word <code>"python"</code> appears in the file (case-insensitive), and prints the count.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="26-working-with-csv.html">Working with CSV</a></li></p>
+<p>  <li><a href="25-json-and-data-serialization.html">JSON Data Serialization</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="16-modules-and-packages.html">← Previous: Modules and Packages</a> | <a href="18-exception-handling.html">Next: Exception Handling →</a></p>
+
+
+  </div>
+</body>
+</html>

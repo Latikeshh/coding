@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 promises and async await - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Asynchronous JS, Promises & Async/Await</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>JavaScript is single-threaded. To prevent time-consuming operations (API calls, timers, file I/O) from freezing the user interface, JavaScript handles them asynchronously using the <strong>Event Loop</strong>, <strong>Promises</strong>, and <strong><code>async</code>/<code>await</code></strong> syntax.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>JavaScript single-threaded hai, isliye heavy background operations (jaise network requests ya delay timers) asynchronous way mein handal hote hain. <code>Promise</code> ek future value represent karta hai (<code>Pending</code>, <code>Fulfilled</code>, <code>Rejected</code>). Modern <code>async/await</code> syntax asynchronous code ko synchronous ki tarah clean aur readable banati hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>JavaScript eka veli ekach kaam karu shakte (single-threaded). Network requests mule app freeze hou naye mhanun Asynchronous JS cha wapar kela jato. <code>async/await</code> mule promises waaparnya sathi sopa code lihita yeto.</p>
+
+<h2>🧠 The 3 States of a Promise</h2>
+
+<p>1. <strong>Pending:</strong> Initial state, operation in progress.</p>
+<p>2. <strong>Fulfilled (<code>resolve</code>):</strong> Operation completed successfully.</p>
+<p>3. <strong>Rejected (<code>reject</code>):</strong> Operation failed with an error.</p>
+
+<h2>📝 Syntax Comparison</h2>
+
+<h3>1. Traditional Promises (<code>.then()</code> / <code>.catch()</code>)</h3>
+<pre><code class="language-js">function fetchUserData() {
+<p>  return new Promise((resolve, reject) =&gt; {</p>
+<p>    setTimeout(() =&gt; {</p>
+<p>      let isConnected = true;</p>
+<p>      if (isConnected) {</p>
+<p>        resolve({ id: 1, name: &quot;Vikram&quot; });</p>
+<p>      } else {</p>
+<p>        reject(&quot;Database connection failed!&quot;);</p>
+<p>      }</p>
+<p>    }, 1000);</p>
+<p>  });</p>
+<p>}</p>
+
+<p>fetchUserData()</p>
+<p>  .then(data =&gt; console.log(&quot;User Loaded:&quot;, data.name))</p>
+<p>  .catch(err =&gt; console.error(&quot;Error:&quot;, err))</p>
+<p>  .finally(() =&gt; console.log(&quot;Fetch attempt ended.&quot;));</code></pre></p>
+
+<h3>2. Modern <code>async</code> / <code>await</code> Syntax</h3>
+<p><code>async</code> functions automatically return a Promise. The <code>await</code> keyword pauses function execution until the promise settles.</p>
+
+<pre><code class="language-js">async function getUser() {
+<p>  try {</p>
+<p>    console.log(&quot;Fetching user...&quot;);</p>
+<p>    const user = await fetchUserData();</p>
+<p>    console.log(&quot;User Name:&quot;, user.name);</p>
+<p>  } catch (error) {</p>
+<p>    console.error(&quot;Caught error:&quot;, error);</p>
+<p>  } finally {</p>
+<p>    console.log(&quot;Cleanup completed.&quot;);</p>
+<p>  }</p>
+<p>}</p>
+
+<p>getUser();</code></pre></p>
+
+<h3>3. Parallel Async Execution (<code>Promise.all</code>)</h3>
+<p>Runs multiple asynchronous operations simultaneously for maximum performance.</p>
+
+<pre><code class="language-js">const promiseA = new Promise(res =&gt; setTimeout(() =&gt; res(&quot;Data A&quot;), 500));
+<p>const promiseB = new Promise(res =&gt; setTimeout(() =&gt; res(&quot;Data B&quot;), 1000));</p>
+
+<p>async function fetchAll() {</p>
+<p>  const [resA, resB] = await Promise.all([promiseA, promiseB]);</p>
+<p>  console.log(&quot;Both completed:&quot;, resA, resB);</p>
+<p>}</p>
+<p>fetchAll();</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Fetching user...
+<p>(1 second delay)</p>
+<p>User Name: Vikram</p>
+<p>Cleanup completed.</p>
+<p>Both completed: Data A Data B</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a function <code>delay(ms)</code> that returns a Promise resolving after <code>ms</code> milliseconds.</p>
+<p>2. Use <code>await delay(2000)</code> inside an <code>async</code> function to simulate a 2-second loading timer.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Believing <code>async</code>/<code>await</code> makes JavaScript multi-threaded or truly synchronous. It is non-blocking syntax built on Promises!</li></p>
+<p>  <li>Forgetting <code>try...catch</code> around <code>await</code> calls, causing uncaught promise rejection errors.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Fetching REST API data, querying databases, handling file uploads, set timeouts, and smooth user loading spinners.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Always wrap <code>await</code> calls in <code>try...catch</code> blocks for robust error handling.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="14-closures-and-callbacks.html">← Previous: Closures</a> | <a href="16-fetch-api-and-json.html">Next: Fetch API & JSON →</a></p>
+
+
+
+  </div>
+</body>
+</html>

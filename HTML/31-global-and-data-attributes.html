@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>31 global and data attributes - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Global Attributes & Custom Data Attributes (<code>data-*</code>, <code>tabindex</code>, <code>contenteditable</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Global Attributes</strong> are attributes that can be applied to <strong>ANY</strong> HTML element. Custom **<code>data-*</code> attributes** allow developers to store custom application data directly inside HTML elements, which can be easily accessed by CSS and JavaScript.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>dir</code>, <code>hidden</code>, <code>tabindex</code>, <code>contenteditable</code>, <code>spellcheck</code>) apply to any element. Custom <code>data-*</code> attributes store custom application data for JavaScript.</p>
+
+<h3>Hindi</h3>
+<p>Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>dir</code>, <code>hidden</code>, <code>tabindex</code>, <code>contenteditable</code>) kisi bhi HTML element par apply hote hain. Custom <code>data-*</code> attributes JavaScript ke liye custom data store karte hain.</p>
+
+<h3>Marathi</h3>
+<p>Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>dir</code>, <code>hidden</code>, <code>tabindex</code>, <code>contenteditable</code>) kontyahi HTML element var laagu hotat. Custom <code>data-*</code> attributes JavaScript sathi custom data store kartat.</p>
+
+<h2>🤔 Why Do We Use Global & Data Attributes?</h2>
+
+<p>Global attributes control element accessibility, focus order (<code>tabindex</code>), inline text editing (<code>contenteditable</code>), and element visibility (<code>hidden</code>). Custom <code>data-*</code> attributes bridge HTML markup with JavaScript interactivity without cluttering CSS class names.</p>
+
+<h2>🧱 Key Global Attributes Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Global Attribute</th><th>Description & Functionality</th><th>Code Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>id</code></strong></td><td>Unique identifier for a single element on a page.</td><td><code><div id="unique-card"></code></td></tr></p>
+<p>    <tr><td><strong><code>class</code></strong></td><td>Reusable space-separated class names for CSS styling.</td><td><code><div class="card shadow"></code></td></tr></p>
+<p>    <tr><td><strong><code>title</code></strong></td><td>Advisory hover tooltip text displayed on mouse hover.</td><td><code><span title="Tooltip text">Hover me</span></code></td></tr></p>
+<p>    <tr><td><strong><code>lang</code></strong></td><td>Specifies element language (<code>en</code>, <code>hi</code>, <code>mr</code>, <code>fr</code>).</td><td><code><p lang="fr">Bonjour</p></code></td></tr></p>
+<p>    <tr><td><strong><code>dir</code></strong></td><td>Specifies text direction (<code>ltr</code> left-to-right, <code>rtl</code> right-to-left).</td><td><code><p dir="rtl">...</p></code></td></tr></p>
+<p>    <tr><td><strong><code>hidden</code></strong></td><td>Hides element from visual layout and screen readers.</td><td><code><p hidden>Secret text</p></code></td></tr></p>
+<p>    <tr><td><strong><code>tabindex</code></strong></td><td>Controls keyboard focus order (<code>tabindex="0"</code> adds to tab order; <code>tabindex="-1"</code> allows JS focus).</td><td><code><div tabindex="0">Focusable div</div></code></td></tr></p>
+<p>    <tr><td><strong><code>contenteditable</code></strong></td><td>Makes element text content directly editable by users in the browser (<code>"true"</td><td>"false"</code>).</td><td><code><div contenteditable="true">Edit text</div></code></td></tr></p>
+<p>    <tr><td><strong><code>spellcheck</code></strong></td><td>Enables browser spellchecking on editable elements (<code>"true"</td><td>"false"</code>).</td><td><code><div spellcheck="true">...</div></code></td></tr></p>
+<p>    <tr><td><strong><code>draggable</code></strong></td><td>Enables HTML5 drag-and-drop capability (<code>"true"</td><td>"false"</code>).</td><td><code><div draggable="true">Drag me</div></code></td></tr></p>
+<p>    <tr><td>**<code>data-*</code>**</td><td>Custom data attributes storing state or values for JS (<code>data-user-id</code>, <code>data-category</code>).</td><td><code><button data-user-id="101"></code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🔑 Custom <code>data-*</code> Attributes in Detail</h2>
+
+<p>Custom data attributes must start with <code>data-</code> followed by lowercase attribute names (e.g. <code>data-user-id</code>, <code>data-status</code>, <code>data-price</code>):</p>
+
+<pre><code class="language-html">&lt;article 
+<p>  class=&quot;product-item&quot; </p>
+<p>  data-id=&quot;p-99&quot; </p>
+<p>  data-category=&quot;electronics&quot; </p>
+<p>  data-price=&quot;299&quot; </p>
+<p>  data-in-stock=&quot;true&quot;&gt;</p>
+<p>  &lt;h3&gt;Wireless Headphones&lt;/h3&gt;</p>
+<p>&lt;/article&gt;</code></pre></p>
+
+<p>In JavaScript, you can read these values instantly via the element's <code>.dataset</code> object:</p>
+<pre><code class="language-js">const item = document.querySelector(&#39;.product-item&#39;);
+<p>console.log(item.dataset.category); // Outputs: &quot;electronics&quot;</p>
+<p>console.log(item.dataset.price);    // Outputs: &quot;299&quot;</code></pre></p>
+
+<p>In CSS, you can target elements based on data attributes:</p>
+<pre><code class="language-css">article[data-in-stock=&quot;true&quot;] {
+<p>  border-left: 4px solid green;</p>
+<p>}</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Global and Data Attributes Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Global Attributes Demonstration&lt;/h1&gt;</p>
+
+<p>  &lt;!-- Content Editable Notes Block --&gt;</p>
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;Editable Notes Block&lt;/h2&gt;</p>
+<p>    &lt;div contenteditable=&quot;true&quot; spellcheck=&quot;true&quot; style=&quot;border: 1px solid #ccc; padding: 10px;&quot;&gt;</p>
+<p>      Click inside this box to edit text directly in your browser!</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>  &lt;br&gt;</p>
+
+<p>  &lt;!-- Product Item using custom data-* attributes --&gt;</p>
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;Product Filter Target&lt;/h2&gt;</p>
+<p>    &lt;div </p>
+<p>      id=&quot;product-card-1&quot; </p>
+<p>      class=&quot;card product-card&quot; </p>
+<p>      title=&quot;Hover for product details&quot; </p>
+<p>      tabindex=&quot;0&quot; </p>
+<p>      data-product-id=&quot;101&quot; </p>
+<p>      data-category=&quot;gadgets&quot; </p>
+<p>      data-discount=&quot;20&quot;&gt;</p>
+<p>      &lt;h3&gt;Smart Watch Model X&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Custom data attributes store product ID (101) and discount (20%) for JavaScript.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>An interactive, editable text box where visitors can type directly on screen.</li></p>
+<p>  <li>A focusable product card containing tooltip descriptions, keyboard tabbing capabilities, and stored <code>data-*</code> attributes for JavaScript processing.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code><div></code> with <code>contenteditable="true"</code> and <code>spellcheck="true"</code>.</p>
+<p>2. Create three list items (<code><li></code>) holding custom attributes <code>data-category="fruits"</code> and <code>data-price="10"</code>.</p>
+<p>3. Test keyboard navigation using <code>tabindex="0"</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>**Using uppercase letters in <code>data-*</code> names:<strong> <code>data-userID</code> is converted to lowercase <code>dataset.userid</code> in JavaScript, causing bug confusion. Use lowercase hyphens <code>data-user-id</code>.</li></p>
+<p>  <li></strong>Using positive <code>tabindex</code> values (e.g. <code>tabindex="4"</code>):** Disrupts natural document keyboard navigation order.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Modern web applications use <code>data-*</code> attributes for filtering lists, storing UI modal states, tracking analytics click events, and configuring frontend JavaScript widgets.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-html-attributes.html">HTML Attributes</a></li></p>
+<p>  <li><a href="14-div-and-span.html">Div and Span</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Global attributes apply to ALL HTML elements.</li></p>
+<p>  <li><code>contenteditable="true"</code> makes text editable in the browser.</li></p>
+<p>  <li>Use <code>data-*</code> attributes to store custom data for JavaScript (<code>element.dataset</code>).</li></p>
+<p>  <li>Avoid positive <code>tabindex</code> values.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="30-interactive-elements.html">← Previous: Interactive Elements</a> | <a href="./">HTML Home</a> | <a href="32-html-seo-and-open-graph.html">Next: HTML SEO & Open Graph →</a></p>
+
+
+
+  </div>
+</body>
+</html>

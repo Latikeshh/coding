@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 mini projects - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Comprehensive C Mini Projects</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>This lesson presents <strong>Comprehensive C Mini Projects</strong> designed to synthesize all core C concepts — control flow, functions, pointers, dynamic memory allocation (<code>malloc</code>/<code>free</code>), structures (<code>struct</code>), file I/O (<code>FILE*</code>), error handling (<code>errno</code>), and modular architecture — into production-grade functional software.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Mini projects bridge theoretical C knowledge with real-world software development. By building applications of increasing complexity (Beginner: Menu-driven banking calculator, Intermediate: Inventory management system with struct arrays, Advanced: Persistent binary file database with dynamic memory allocation), learners gain practical muscle memory for low-level memory safety, file persistence, and robust error handling.</p>
+
+<h3>Hindi</h3>
+<p>Mini projects C concepts ko practical software mein badalte hain. Teen alag difficulty levels ke projects (Beginner: Menu-driven calculator, Intermediate: Struct array inventory system, Advanced: Persistent binary file database with dynamic heap memory) ke zariye pointer safety, memory management, aur file handling ki strong practice hoti hai.</p>
+
+<h3>Marathi</h3>
+<p>Mini projects mule shiklele C concepts kharya software madhye vaparta yetat. Teen difficulty levels (Beginner, Intermediate, Advanced) chya projects dware pointers, dynamic memory allocation (<code>malloc</code>/<code>free</code>), aani binary file handling chi changli practice hote.</p>
+
+<h3>Hinglish</h3>
+<p>Mini projects real C programming skills test karte hain. Beginner level par interactive console CLI logic, Intermediate level par structured record management, aur Advanced level par Heap memory allocation + binary file disk persistence synthesize hoti hai.</p>
+
+<p>---</p>
+
+<h2>🟢 PROJECT 1 (Beginner): Interactive Banking ATM Manager</h2>
+
+<h3>🎯 Goal</h3>
+<p>Build an interactive menu-driven CLI banking console that manages account balance, processes deposits and withdrawals with input validation, and enforces daily withdrawal limits.</p>
+
+<h3>🧠 Concepts Used</h3>
+<ul>
+<p>  <li>Input / Output (<code>printf</code>, <code>scanf</code>)</li></p>
+<p>  <li>Conditionals (<code>if-else</code>, <code>switch</code>)</li></p>
+<p>  <li>Loops (<code>do-while</code> menu loop)</li></p>
+<p>  <li>Functions & Pointers (<code>pass-by-address</code>)</li></p>
+<p></ul></p>
+
+<h3>📝 Requirements</h3>
+<p>1. Display a menu with 4 choices: Check Balance, Deposit, Withdraw, Exit.</p>
+<p>2. Validate deposit/withdrawal inputs (reject negative or zero values).</p>
+<p>3. Reject withdrawals exceeding available account balance.</p>
+<p>4. Keep running until the user selects choice <code>4</code> (Exit).</p>
+
+<h3>💡 Complete Code Solution</h3>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>// Function Prototypes</p>
+<p>void displayMenu(void);</p>
+<p>void checkBalance(double balance);</p>
+<p>void deposit(double *balance);</p>
+<p>void withdraw(double *balance);</p>
+
+<p>int main(void) {</p>
+<p>    double accountBalance = 1000.00; // Starting initial balance</p>
+<p>    int choice = 0;</p>
+
+<p>    printf(&quot;=========================================\n&quot;);</p>
+<p>    printf(&quot;     WELCOME TO APEX BANK ATM SYSTEM     \n&quot;);</p>
+<p>    printf(&quot;=========================================\n&quot;);</p>
+
+<p>    do {</p>
+<p>        displayMenu();</p>
+<p>        printf(&quot;Enter your choice (1-4): &quot;);</p>
+<p>        if (scanf(&quot;%d&quot;, &amp;choice) != 1) {</p>
+<p>            printf(&quot;Error: Invalid numeric input! Exiting program.\n&quot;);</p>
+<p>            break;</p>
+<p>        }</p>
+
+<p>        switch (choice) {</p>
+<p>            case 1:</p>
+<p>                checkBalance(accountBalance);</p>
+<p>                break;</p>
+<p>            case 2:</p>
+<p>                deposit(&amp;accountBalance); // Pass address to modify balance</p>
+<p>                break;</p>
+<p>            case 3:</p>
+<p>                withdraw(&amp;accountBalance);</p>
+<p>                break;</p>
+<p>            case 4:</p>
+<p>                printf(&quot;\nThank you for banking with Apex Bank. Goodbye!\n&quot;);</p>
+<p>                break;</p>
+<p>            default:</p>
+<p>                printf(&quot;\nError: Invalid choice! Please select an option between 1 and 4.\n&quot;);</p>
+<p>                break;</p>
+<p>        }</p>
+<p>    } while (choice != 4);</p>
+
+<p>    return 0;</p>
+<p>}</p>
+
+<p>void displayMenu(void) {</p>
+<p>    printf(&quot;\n---------------- MENU ----------------\n&quot;);</p>
+<p>    printf(&quot;1. Check Account Balance\n&quot;);</p>
+<p>    printf(&quot;2. Deposit Money\n&quot;);</p>
+<p>    printf(&quot;3. Withdraw Money\n&quot;);</p>
+<p>    printf(&quot;4. Exit\n&quot;);</p>
+<p>    printf(&quot;--------------------------------------\n&quot;);</p>
+<p>}</p>
+
+<p>void checkBalance(double balance) {</p>
+<p>    printf(&quot;\n[BALANCE ENQUIRY] Current Balance: $%.2lf\n&quot;, balance);</p>
+<p>}</p>
+
+<p>void deposit(double *balance) {</p>
+<p>    double amount = 0.0;</p>
+<p>    printf(&quot;\nEnter deposit amount ($): &quot;);</p>
+<p>    if (scanf(&quot;%lf&quot;, &amp;amount) == 1 &amp;&amp; amount &gt; 0) {</p>
+<p>        *balance += amount;</p>
+<p>        printf(&quot;Success: $%.2lf deposited. New Balance: $%.2lf\n&quot;, amount, *balance);</p>
+<p>    } else {</p>
+<p>        printf(&quot;Error: Invalid deposit amount!\n&quot;);</p>
+<p>    }</p>
+<p>}</p>
+
+<p>void withdraw(double *balance) {</p>
+<p>    double amount = 0.0;</p>
+<p>    printf(&quot;\nEnter withdrawal amount ($): &quot;);</p>
+<p>    if (scanf(&quot;%lf&quot;, &amp;amount) == 1 &amp;&amp; amount &gt; 0) {</p>
+<p>        if (amount &lt;= *balance) {</p>
+<p>            *balance -= amount;</p>
+<p>            printf(&quot;Success: $%.2lf withdrawn. Remaining Balance: $%.2lf\n&quot;, amount, *balance);</p>
+<p>        } else {</p>
+<p>            printf(&quot;Error: Insufficient funds! Current Balance is $%.2lf\n&quot;, *balance);</p>
+<p>        }</p>
+<p>    } else {</p>
+<p>        printf(&quot;Error: Invalid withdrawal amount!\n&quot;);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🟡 PROJECT 2 (Intermediate): Student Record Management System</h2>
+
+<h3>🎯 Goal</h3>
+<p>Build a structured Student Management System that manages student records using arrays of structures, calculates grade point averages (GPA), sorts students by GPA, and searches for students by ID.</p>
+
+<h3>🧠 Concepts Used</h3>
+<ul>
+<p>  <li>Structures & <code>typedef</code> (<code>struct Student</code>)</li></p>
+<p>  <li>Arrays of Structs</li></p>
+<p>  <li>Functions & Pointers</li></p>
+<p>  <li>Sorting & Searching Algorithms (Bubble Sort, Linear Search)</li></p>
+<p>  <li>String Manipulation (<code>fgets</code>, <code>strcspn</code>)</li></p>
+<p></ul></p>
+
+<h3>📝 Requirements</h3>
+<p>1. Define a <code>Student</code> struct with fields: <code>id</code> (<code>int</code>), <code>name</code> (<code>char[40]</code>), <code>gpa</code> (<code>float</code>).</p>
+<p>2. Implement functions to Add Student, Display All Students, Search Student by ID, and Sort Students by GPA descending.</p>
+<p>3. Validate student inputs.</p>
+
+<h3>💡 Complete Code Solution</h3>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;string.h&gt;</p>
+
+<p>#define MAX_STUDENTS 50</p>
+
+<p>typedef struct {</p>
+<p>    int id;</p>
+<p>    char name[40];</p>
+<p>    float gpa;</p>
+<p>} Student;</p>
+
+<p>// Function Prototypes</p>
+<p>void addStudent(Student database[], int *count);</p>
+<p>void displayAll(const Student database[], int count);</p>
+<p>void searchStudent(const Student database[], int count, int searchId);</p>
+<p>void sortByGPA(Student database[], int count);</p>
+
+<p>int main(void) {</p>
+<p>    Student database[MAX_STUDENTS];</p>
+<p>    int count = 0;</p>
+<p>    int choice = 0;</p>
+
+<p>    do {</p>
+<p>        printf(&quot;\n=== STUDENT RECORD MANAGEMENT SYSTEM ===\n&quot;);</p>
+<p>        printf(&quot;1. Add New Student\n&quot;);</p>
+<p>        printf(&quot;2. Display All Students\n&quot;);</p>
+<p>        printf(&quot;3. Search Student by ID\n&quot;);</p>
+<p>        printf(&quot;4. Sort Students by GPA (Descending)\n&quot;);</p>
+<p>        printf(&quot;5. Exit\n&quot;);</p>
+<p>        printf(&quot;Choose option: &quot;);</p>
+
+<p>        if (scanf(&quot;%d&quot;, &amp;choice) != 1) break;</p>
+<p>        while (getchar() != &#39;\n&#39;); // Clear input buffer</p>
+
+<p>        switch (choice) {</p>
+<p>            case 1:</p>
+<p>                addStudent(database, &amp;count);</p>
+<p>                break;</p>
+<p>            case 2:</p>
+<p>                displayAll(database, count);</p>
+<p>                break;</p>
+<p>            case 3: {</p>
+<p>                int searchId;</p>
+<p>                printf(&quot;Enter Student ID to search: &quot;);</p>
+<p>                scanf(&quot;%d&quot;, &amp;searchId);</p>
+<p>                searchStudent(database, count, searchId);</p>
+<p>                break;</p>
+<p>            }</p>
+<p>            case 4:</p>
+<p>                sortByGPA(database, count);</p>
+<p>                printf(&quot;Database sorted successfully by GPA!\n&quot;);</p>
+<p>                displayAll(database, count);</p>
+<p>                break;</p>
+<p>            case 5:</p>
+<p>                printf(&quot;Exiting Student Record System.\n&quot;);</p>
+<p>                break;</p>
+<p>            default:</p>
+<p>                printf(&quot;Invalid choice!\n&quot;);</p>
+<p>                break;</p>
+<p>        }</p>
+<p>    } while (choice != 5);</p>
+
+<p>    return 0;</p>
+<p>}</p>
+
+<p>void addStudent(Student database[], int *count) {</p>
+<p>    if (*count &gt;= MAX_STUDENTS) {</p>
+<p>        printf(&quot;Error: Database capacity reached (%d students max)!\n&quot;, MAX_STUDENTS);</p>
+<p>        return;</p>
+<p>    }</p>
+
+<p>    Student s;</p>
+<p>    printf(&quot;\nEnter Student ID: &quot;);</p>
+<p>    scanf(&quot;%d&quot;, &amp;s.id);</p>
+<p>    while (getchar() != &#39;\n&#39;); // Clear newline</p>
+
+<p>    printf(&quot;Enter Student Full Name: &quot;);</p>
+<p>    if (fgets(s.name, sizeof(s.name), stdin) != NULL) {</p>
+<p>        s.name[strcspn(s.name, &quot;\n&quot;)] = &#39;\0&#39;; // Strip newline</p>
+<p>    }</p>
+
+<p>    printf(&quot;Enter Student GPA (0.0 - 4.0): &quot;);</p>
+<p>    scanf(&quot;%f&quot;, &amp;s.gpa);</p>
+
+<p>    database[*count] = s;</p>
+<p>    (*count)++;</p>
+<p>    printf(&quot;Success: Student &#39;%s&#39; added successfully!\n&quot;, s.name);</p>
+<p>}</p>
+
+<p>void displayAll(const Student database[], int count) {</p>
+<p>    if (count == 0) {</p>
+<p>        printf(&quot;\nNo student records found in database.\n&quot;);</p>
+<p>        return;</p>
+<p>    }</p>
+
+<p>    printf(&quot;\n%-10s | %-25s | %-8s\n&quot;, &quot;ID&quot;, &quot;Name&quot;, &quot;GPA&quot;);</p>
+<p>    printf(&quot;--------------------------------------------------\n&quot;);</p>
+<p>    for (int i = 0; i &lt; count; i++) {</p>
+<p>        printf(&quot;%-10d | %-25s | %-8.2f\n&quot;, database[i].id, database[i].name, database[i].gpa);</p>
+<p>    }</p>
+<p>}</p>
+
+<p>void searchStudent(const Student database[], int count, int searchId) {</p>
+<p>    for (int i = 0; i &lt; count; i++) {</p>
+<p>        if (database[i].id == searchId) {</p>
+<p>            printf(&quot;\nStudent Found: ID #%d | Name: %s | GPA: %.2f\n&quot;,</p>
+<p>                   database[i].id, database[i].name, database[i].gpa);</p>
+<p>            return;</p>
+<p>        }</p>
+<p>    }</p>
+<p>    printf(&quot;\nStudent with ID #%d not found.\n&quot;, searchId);</p>
+<p>}</p>
+
+<p>void sortByGPA(Student database[], int count) {</p>
+<p>    for (int i = 0; i &lt; count - 1; i++) {</p>
+<p>        for (int j = 0; j &lt; count - i - 1; j++) {</p>
+<p>            if (database[j].gpa &lt; database[j + 1].gpa) { // Descending</p>
+<p>                Student temp = database[j];</p>
+<p>                database[j] = database[j + 1];</p>
+<p>                database[j + 1] = temp;</p>
+<p>            }</p>
+<p>        }</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔴 PROJECT 3 (Advanced): Persistent Binary File Database Engine with Dynamic Heap Resizing</h2>
+
+<h3>🎯 Goal</h3>
+<p>Build a high-performance <strong>Persistent Binary File Database Engine</strong> in C that dynamically allocates memory on the Heap (<code>malloc</code>/<code>realloc</code>), resizes capacity automatically when full, serializes struct data directly to disk as binary files (<code>fwrite</code>/<code>fread</code>), and restores database state seamlessly across application restarts.</p>
+
+<h3>🧠 Concepts Used</h3>
+<ul>
+<p>  <li>Dynamic Memory Allocation (<code>malloc</code>, <code>realloc</code>, <code>free</code>)</li></p>
+<p>  <li>Binary File Persistence (<code>fopen</code>, <code>fwrite</code>, <code>fread</code>, <code>fclose</code>)</li></p>
+<p>  <li>Pointers & Structs (<code>typedef struct</code>, arrow <code>-></code> operator)</li></p>
+<p>  <li>Error Handling (<code>errno</code>, <code>perror</code>)</li></p>
+<p>  <li>Defensive Heap Guardrails (checking <code>NULL</code>, safe <code>realloc</code> temp pointer pattern)</li></p>
+<p></ul></p>
+
+<h3>📝 Requirements</h3>
+<p>1. Store records in a dynamic array allocated on the Heap.</p>
+<p>2. Automatically expand Heap memory capacity using <code>realloc</code> when database limit is reached.</p>
+<p>3. Automatically load existing records from binary file <code>students.bin</code> at program startup.</p>
+<p>4. Automatically save records to <code>students.bin</code> upon user command or application exit.</p>
+<p>5. Safely deallocate Heap memory (<code>free</code>) without memory leaks.</p>
+
+<h3>💡 Complete Code Solution</h3>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include &lt;errno.h&gt;</p>
+
+<p>#define DB_FILE &quot;students.bin&quot;</p>
+
+<p>typedef struct {</p>
+<p>    int id;</p>
+<p>    char name[40];</p>
+<p>    double gpa;</p>
+<p>} StudentRecord;</p>
+
+<p>typedef struct {</p>
+<p>    StudentRecord *records; // Dynamic array pointer on Heap</p>
+<p>    int count;             // Number of active records</p>
+<p>    int capacity;          // Current allocated capacity</p>
+<p>} Database;</p>
+
+<p>// Function Prototypes</p>
+<p>Database* initDatabase(int initialCapacity);</p>
+<p>void freeDatabase(Database *db);</p>
+<p>int addRecord(Database *db, int id, const char *name, double gpa);</p>
+<p>void listRecords(const Database *db);</p>
+<p>int saveToDisk(const Database *db, const char *filename);</p>
+<p>int loadFromDisk(Database *db, const char *filename);</p>
+
+<p>int main(void) {</p>
+<p>    printf(&quot;=====================================================\n&quot;);</p>
+<p>    printf(&quot;   PERSISTENT BINARY FILE DATABASE ENGINE (ISO C11)  \n&quot;);</p>
+<p>    printf(&quot;=====================================================\n&quot;);</p>
+
+<p>    // 1. Initialize Heap Memory Database</p>
+<p>    Database *db = initDatabase(2); // Start with small capacity = 2 to test dynamic expansion</p>
+<p>    if (db == NULL) {</p>
+<p>        fprintf(stderr, &quot;Fatal: Failed to initialize database!\n&quot;);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    // 2. Load Existing Binary Records from Disk if file exists</p>
+<p>    printf(&quot;\nAttempting to load existing binary records from &#39;%s&#39;...\n&quot;, DB_FILE);</p>
+<p>    if (loadFromDisk(db, DB_FILE)) {</p>
+<p>        printf(&quot;Database restored successfully from disk! Loaded %d record(s).\n&quot;, db-&gt;count);</p>
+<p>    } else {</p>
+<p>        printf(&quot;No existing database file found. Starting fresh database.\n&quot;);</p>
+<p>    }</p>
+
+<p>    // Display loaded state</p>
+<p>    listRecords(db);</p>
+
+<p>    // 3. Adding New Records (Triggers dynamic realloc expansion!)</p>
+<p>    printf(&quot;\nAdding new records to database...\n&quot;);</p>
+<p>    addRecord(db, 101, &quot;Priya Sharma&quot;, 3.92);</p>
+<p>    addRecord(db, 102, &quot;Rohan Gupta&quot;, 3.75);</p>
+<p>    addRecord(db, 103, &quot;Ananya Verma&quot;, 3.88); // Triggers realloc expansion beyond initial capacity = 2</p>
+
+<p>    // Display updated state</p>
+<p>    listRecords(db);</p>
+
+<p>    // 4. Persisting Updated State to Disk</p>
+<p>    printf(&quot;\nPersisting database to binary file &#39;%s&#39;...\n&quot;, DB_FILE);</p>
+<p>    if (saveToDisk(db, DB_FILE)) {</p>
+<p>        printf(&quot;Database successfully saved to disk!\n&quot;);</p>
+<p>    } else {</p>
+<p>        fprintf(stderr, &quot;Error: Failed to save database to disk!\n&quot;);</p>
+<p>    }</p>
+
+<p>    // 5. Clean Heap Memory Deallocation</p>
+<p>    freeDatabase(db);</p>
+<p>    printf(&quot;\nDatabase memory cleaned up cleanly. Program terminated normally.\n&quot;);</p>
+
+<p>    return 0;</p>
+<p>}</p>
+
+<p>// --- DATABASE ENGINE FUNCTION DEFINITIONS ---</p>
+
+<p>Database* initDatabase(int initialCapacity) {</p>
+<p>    Database *db = malloc(sizeof *db);</p>
+<p>    if (db == NULL) return NULL;</p>
+
+<p>    db-&gt;capacity = (initialCapacity &gt; 0) ? initialCapacity : 4;</p>
+<p>    db-&gt;count = 0;</p>
+<p>    </p>
+<p>    // Allocate Heap array for records</p>
+<p>    db-&gt;records = malloc((size_t)db-&gt;capacity * sizeof *(db-&gt;records));</p>
+<p>    if (db-&gt;records == NULL) {</p>
+<p>        free(db);</p>
+<p>        return NULL;</p>
+<p>    }</p>
+
+<p>    return db;</p>
+<p>}</p>
+
+<p>void freeDatabase(Database *db) {</p>
+<p>    if (db != NULL) {</p>
+<p>        if (db-&gt;records != NULL) {</p>
+<p>            free(db-&gt;records);</p>
+<p>            db-&gt;records = NULL;</p>
+<p>        }</p>
+<p>        free(db);</p>
+<p>    }</p>
+<p>}</p>
+
+<p>int addRecord(Database *db, int id, const char *name, double gpa) {</p>
+<p>    if (db == NULL || db-&gt;records == NULL) return 0;</p>
+
+<p>    // Check if dynamic array capacity expansion is needed</p>
+<p>    if (db-&gt;count &gt;= db-&gt;capacity) {</p>
+<p>        int newCapacity = db-&gt;capacity * 2; // Double capacity</p>
+<p>        </p>
+<p>        // SAFE REALLOC PATTERN with temporary pointer</p>
+<p>        StudentRecord *temp = realloc(db-&gt;records, (size_t)newCapacity * sizeof *temp);</p>
+<p>        if (temp == NULL) {</p>
+<p>            perror(&quot;Reallocation failure&quot;);</p>
+<p>            return 0; // Addition failed, original memory preserved</p>
+<p>        }</p>
+<p>        </p>
+<p>        db-&gt;records = temp;</p>
+<p>        db-&gt;capacity = newCapacity;</p>
+<p>        printf(&quot;[ENGINE] Heap capacity expanded dynamically to %d slots.\n&quot;, newCapacity);</p>
+<p>    }</p>
+
+<p>    // Populate new record</p>
+<p>    StudentRecord *rec = &amp;db-&gt;records[db-&gt;count];</p>
+<p>    rec-&gt;id = id;</p>
+<p>    strncpy(rec-&gt;name, name, sizeof(rec-&gt;name) - 1);</p>
+<p>    rec-&gt;name[sizeof(rec-&gt;name) - 1] = &#39;\0&#39;;</p>
+<p>    rec-&gt;gpa = gpa;</p>
+
+<p>    db-&gt;count++;</p>
+<p>    return 1; // Record added successfully</p>
+<p>}</p>
+
+<p>void listRecords(const Database *db) {</p>
+<p>    if (db == NULL || db-&gt;count == 0) {</p>
+<p>        printf(&quot;\n[DATABASE EMPTY] No records to display.\n&quot;);</p>
+<p>        return;</p>
+<p>    }</p>
+
+<p>    printf(&quot;\n---------------- DATABASE RECORDS (%d / %d slots) ----------------\n&quot;, db-&gt;count, db-&gt;capacity);</p>
+<p>    printf(&quot;%-8s | %-25s | %-6s\n&quot;, &quot;ID&quot;, &quot;Name&quot;, &quot;GPA&quot;);</p>
+<p>    printf(&quot;------------------------------------------------------------------\n&quot;);</p>
+<p>    for (int i = 0; i &lt; db-&gt;count; i++) {</p>
+<p>        printf(&quot;%-8d | %-25s | %-6.2lf\n&quot;, db-&gt;records[i].id, db-&gt;records[i].name, db-&gt;records[i].gpa);</p>
+<p>    }</p>
+<p>    printf(&quot;------------------------------------------------------------------\n&quot;);</p>
+<p>}</p>
+
+<p>int saveToDisk(const Database *db, const char *filename) {</p>
+<p>    if (db == NULL || filename == NULL) return 0;</p>
+
+<p>    FILE *fp = fopen(filename, &quot;wb&quot;); // Binary write mode</p>
+<p>    if (fp == NULL) {</p>
+<p>        perror(&quot;Save to disk failed&quot;);</p>
+<p>        return 0;</p>
+<p>    }</p>
+
+<p>    // Write record count first</p>
+<p>    if (fwrite(&amp;db-&gt;count, sizeof(int), 1, fp) != 1) {</p>
+<p>        fclose(fp);</p>
+<p>        return 0;</p>
+<p>    }</p>
+
+<p>    // Write all record structures in single contiguous binary block</p>
+<p>    if (db-&gt;count &gt; 0) {</p>
+<p>        size_t written = fwrite(db-&gt;records, sizeof(StudentRecord), (size_t)db-&gt;count, fp);</p>
+<p>        if (written != (size_t)db-&gt;count) {</p>
+<p>            fclose(fp);</p>
+<p>            return 0;</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    fclose(fp);</p>
+<p>    return 1; // Success</p>
+<p>}</p>
+
+<p>int loadFromDisk(Database *db, const char *filename) {</p>
+<p>    if (db == NULL || filename == NULL) return 0;</p>
+
+<p>    FILE *fp = fopen(filename, &quot;rb&quot;); // Binary read mode</p>
+<p>    if (fp == NULL) return 0; // File does not exist yet</p>
+
+<p>    int recordCount = 0;</p>
+<p>    if (fread(&amp;recordCount, sizeof(int), 1, fp) != 1 || recordCount &lt;= 0) {</p>
+<p>        fclose(fp);</p>
+<p>        return 0;</p>
+<p>    }</p>
+
+<p>    // Ensure database capacity can hold loaded records</p>
+<p>    if (recordCount &gt; db-&gt;capacity) {</p>
+<p>        StudentRecord *temp = realloc(db-&gt;records, (size_t)recordCount * sizeof *temp);</p>
+<p>        if (temp == NULL) {</p>
+<p>            fclose(fp);</p>
+<p>            return 0;</p>
+<p>        }</p>
+<p>        db-&gt;records = temp;</p>
+<p>        db-&gt;capacity = recordCount;</p>
+<p>    }</p>
+
+<p>    // Read binary records directly into Heap array</p>
+<p>    size_t readCount = fread(db-&gt;records, sizeof(StudentRecord), (size_t)recordCount, fp);</p>
+<p>    fclose(fp);</p>
+
+<p>    if (readCount == (size_t)recordCount) {</p>
+<p>        db-&gt;count = recordCount;</p>
+<p>        return 1; // Load success</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>Database* initDatabase(...)</code>: Allocates both the outer <code>Database</code> handle structure and the inner <code>StudentRecord</code> dynamic array on the Heap using <code>malloc</code>.</li></p>
+<p>  <li><code>addRecord(...)</code>: Detects when <code>db->count >= db->capacity</code>, dynamically doubles the allocation capacity using safe <code>realloc</code>, and assigns the expanded memory back to <code>db->records</code>.</li></p>
+<p>  <li><code>saveToDisk(...)</code> & <code>loadFromDisk(...)</code>: Serializes the entire dynamic array of structs directly to a binary file <code>students.bin</code> on disk using contiguous <code>fwrite</code> and <code>fread</code> operations.</li></p>
+<p>  <li><code>freeDatabase(...)</code>: Explicitly deallocates inner array memory <code>free(db->records)</code> first, then deallocates outer structure <code>free(db)</code>.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=====================================================
+<p>   PERSISTENT BINARY FILE DATABASE ENGINE (ISO C11)  </p>
+<p>=====================================================</p>
+
+<p>Attempting to load existing binary records from &#39;students.bin&#39;...</p>
+<p>No existing database file found. Starting fresh database.</p>
+
+<p>[DATABASE EMPTY] No records to display.</p>
+
+<p>Adding new records to database...</p>
+<p>[ENGINE] Heap capacity expanded dynamically to 4 slots.</p>
+
+<p>---------------- DATABASE RECORDS (3 / 4 slots) ----------------</p>
+<p>ID       | Name                      | GPA   </p>
+<p>------------------------------------------------------------------</p>
+<p>101      | Priya Sharma              | 3.92  </p>
+<p>102      | Rohan Gupta               | 3.75  </p>
+<p>103      | Ananya Verma              | 3.88  </p>
+<p>------------------------------------------------------------------</p>
+
+<p>Persisting database to binary file &#39;students.bin&#39;...</p>
+<p>Database successfully saved to disk!</p>
+
+<p>Database memory cleaned up cleanly. Program terminated normally.</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Compile and run Project 3 once. Notice that 3 records are saved to <code>students.bin</code>.</p>
+<p>2. Run Project 3 a second time. Notice that it restores the 3 existing records from <code>students.bin</code> at startup before adding new records!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Extend Project 3 by adding a <code>deleteRecord(Database *db, int id)</code> function that searches for a student by ID, removes their record by shifting adjacent elements left, decreases <code>db->count</code>, and persists the updated records to disk.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-dynamic-memory-allocation.html">Dynamic Memory Allocation</a></li></p>
+<p>  <li><a href="14-structures.html">Structures</a></li></p>
+<p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="22-error-handling.html">← Previous: Error Handling</a></p>
+
+
+
+  </div>
+</body>
+</html>

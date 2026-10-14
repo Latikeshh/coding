@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>39 advanced selectors - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Advanced Selectors (<code>:is()</code>, <code>:where()</code>, <code>:has()</code>, Combinators)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Advanced CSS Selectors</strong> allow targeting HTML elements based on complex relationships, attribute matching (<code>[attr="val"]</code>), combinators (<code>></code>, <code>+</code>, <code>~</code>), and modern functional pseudo-classes:</p>
+<ul>
+<p>  <li><strong><code>:is()</code>:</strong> Matches any selector in a list with normal specificity.</li></p>
+<p>  <li><strong><code>:where()</code>:</strong> Matches any selector in a list with <strong>zero specificity (<code>0,0,0,0</code>)</strong>.</li></p>
+<p>  <li><strong><code>:has()</code>:</strong> The <strong>"parent selector"</strong> in CSS that styles an element based on its descendant children or condition.</li></p>
+<p></ul></p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Combinators (<code>></code>, <code>+</code>, <code>~</code>) target child, sibling, and descendant relationships. <code>:is()</code> groups selectors cleanly. <code>:where()</code> groups selectors with 0 specificity. <code>:has()</code> is the powerful parent selector that styles parents based on child presence.</p>
+
+<h3>Hindi</h3>
+<p>Combinators tags ke aapas ke rishton (Child, Sibling) ko target karte hain. <code>:is()</code> aur <code>:where()</code> code ko chhota karte hain. <code>:has()</code> pehla "parent selector" hai jo child element ke hone par parent ko style karta hai.</p>
+
+<h3>Marathi</h3>
+<p>Combinators ani <code>:is()</code>, <code>:where()</code>, <code>:has()</code> sarakhe modern selectors kami code madhye advance design targeting karnyasaathi vaparle jaatat.</p>
+
+<h2>📚 Combinators Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Combinator</th><th>Name</th><th>Description</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>A B</code></td><td>Descendant Selector</td><td>Matches any <code>B</code> inside <code>A</code> (at any depth)</td><td><code>.card p { color: blue; }</code></td></tr></p>
+<p>    <tr><td><code>A > B</code></td><td>Direct Child Selector</td><td>Matches <code>B</code> that is an <strong>immediate direct child</strong> of <code>A</code></td><td><code>ul > li { list-style: none; }</code></td></tr></p>
+<p>    <tr><td><code>A + B</code></td><td>Adjacent Sibling</td><td>Matches <code>B</code> that is immediately after <code>A</code></td><td><code>h2 + p { font-size: 1.2rem; }</code></td></tr></p>
+<p>    <tr><td><code>A ~ B</code></td><td>General Sibling</td><td>Matches all <code>B</code> elements following <code>A</code></td><td><code>h2 ~ p { color: gray; }</code></td></tr></p>
+<p>    <tr><td><code>[attr="val"]</code></td><td>Attribute Selector</td><td>Matches elements with specific attribute value</td><td><code>input[type="email"] { border-color: blue; }</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🚀 Modern Functional Pseudo-classes</h2>
+
+<h3>1. <code>:is()</code> vs. <code>:where()</code></h3>
+<p>Both group multiple selectors into a single line, reducing repetitive code:</p>
+
+<pre><code class="language-css">/* Old Repetitive Code */
+<p>header h1, header h2, header h3, footer h1, footer h2, footer h3 {</p>
+<p>  color: #1e293b;</p>
+<p>}</p>
+
+<p>/* Modern Clean Code with :is() */</p>
+<p>:is(header, footer) :is(h1, h2, h3) {</p>
+<p>  color: #1e293b; /* Retains highest matching specificity */</p>
+<p>}</p>
+
+<p>/* Zero Specificity with :where() */</p>
+<p>:where(header, footer) :is(h1, h2, h3) {</p>
+<p>  color: #1e293b; /* Specificity is 0,0,0,0! Extremely easy to override elsewhere */</p>
+<p>}</code></pre></p>
+
+<h3>2. The Game-Changing Parent Selector: <code>:has()</code></h3>
+<p><code>:has()</code> selects an element if any selector passed to it matches inside or after the element:</p>
+
+<pre><code class="language-css">/* Style card parent container ONLY if it contains an image */
+<p>.card:has(img) {</p>
+<p>  grid-column: span 2;</p>
+<p>}</p>
+
+<p>/* Style form label ONLY if the input inside is invalid */</p>
+<p>.form-group:has(input:invalid) {</p>
+<p>  border-left: 4px solid #ef4444;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Advanced Selectors Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card-grid&quot;&gt;</p>
+<p>    &lt;!-- Card 1: Plain Text --&gt;</p>
+<p>    &lt;div class=&quot;card&quot;&gt;</p>
+<p>      &lt;h3&gt;Plain Text Card&lt;/h3&gt;</p>
+<p>      &lt;p&gt;This card contains text only.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+
+<p>    &lt;!-- Card 2: Contains Image --&gt;</p>
+<p>    &lt;div class=&quot;card&quot;&gt;</p>
+<p>      &lt;img src=&quot;https://via.placeholder.com/300x120&quot; alt=&quot;Card Graphic&quot;&gt;</p>
+<p>      &lt;h3&gt;Image Feature Card&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Targeted via .card:has(img) parent selector!&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 30px;</p>
+<p>}</p>
+
+<p>.card-grid {</p>
+<p>  display: grid;</p>
+<p>  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p>  gap: 20px;</p>
+<p>  max-width: 800px;</p>
+<p>  margin: 0 auto;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  padding: 20px;</p>
+<p>  border-radius: 8px;</p>
+<p>  border: 1px solid #e5e7eb;</p>
+<p>}</p>
+
+<p>/* :has() Parent Selector: Styles card ONLY if it contains an &lt;img&gt; */</p>
+<p>.card:has(img) {</p>
+<p>  border: 2px solid #2563eb;</p>
+<p>  background-color: #eff6ff;</p>
+<p>}</p>
+
+<p>/* Direct Child Selector for images inside card */</p>
+<p>.card &gt; img {</p>
+<p>  width: 100%;</p>
+<p>  border-radius: 6px;</p>
+<p>  margin-bottom: 10px;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>Card 2 automatically receives a blue border and soft blue background tint because the <code>:has(img)</code> parent selector detected an <code><img></code> tag inside it!</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Add <code>:has(input:focus)</code> to a form container: <code>.form-group:has(input:focus) { background-color: #f0fdf4; }</code> and watch the form field parent container highlight when focused!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Confusing <code>:is()</code> and <code>:where()</code> specificity:</strong> <code>:is()</code> takes the specificity of its highest weighting argument, whereas <code>:where()</code> always has a specificity score of <code>0,0,0,0</code>.</li></p>
+<p>  <li><strong>Using direct child <code>></code> when descendant space is intended:</strong> <code>ul > li</code> only targets immediate children.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p><code>:has()</code> eliminates the need for JavaScript class-toggling scripts when styling parent cards based on child states (like checked checkboxes, invalid inputs, or active thumbnails).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-selectors.html">Basic Selectors</a></li></p>
+<p>  <li><a href="09-specificity.html">Specificity, Cascade & Inheritance</a></li></p>
+<p>  <li><a href="40-modern-css-features.html">Modern CSS Features</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li><code>A > B</code> = Direct child only; <code>A + B</code> = Next immediate sibling.</li></p>
+<p>  <li><code>:is()</code> groups selectors cleanly; <code>:where()</code> groups selectors with zero specificity.</li></p>
+<p>  <li><code>:has()</code> is the native CSS parent selector.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="38-mini-projects.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="40-modern-css-features.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

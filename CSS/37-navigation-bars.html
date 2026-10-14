@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>37 navigation bars - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Navigation Bar Components</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Navigation Bar (Navbar)</strong> is a core user interface component positioned at the top of a webpage that contains brand logos, primary navigation links, search bars, and call-to-action buttons aligned horizontally using Flexbox (<code>display: flex</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Build responsive navbars using <code>display: flex</code> with <code>justify-content: space-between</code> and <code>align-items: center</code>.</p>
+
+<h3>Hindi</h3>
+<p>Navbar banane ke liye Flexbox (<code>display: flex</code>) ka use karein. Logo ko left side aur links ko right side align karne ke liye <code>justify-content: space-between</code> ka use hota hai.</p>
+
+<h3>Marathi</h3>
+<p>Navigation bar sathi Flexbox layout vaprun <code>space-between</code> mule brand logo ani links yogya antaravar align hotat.</p>
+
+<h2>🤔 Why Are Navbars Critical?</h2>
+
+<p>The navigation bar is the first UI element visitors interact with when arriving on a site. A well-designed navbar communicates brand identity and enables users to explore key site pages effortlessly.</p>
+
+<h2>🧱 Standard Navbar Flexbox Layout Pattern</h2>
+
+<pre><code class="language-text">+-------------------------------------------------------------------+
+
+<table>
+<p>  <thead><tr><th>[BRAND LOGO]            [Link 1]  [Link 2]  [Link 3]   [CTA BTN]</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------------------------------------------------------------+</p>
+
+<p>| &lt;------------------- justify-content: space-between ------------&gt; |</code></pre></p>
+
+<h2>📝 Syntax & CSS Pattern</h2>
+
+<pre><code class="language-css">.navbar {
+<p>  display: flex;</p>
+<p>  justify-content: space-between; /* Spaces logo to left, menu to right */</p>
+<p>  align-items: center;            /* Aligns items vertically in center */</p>
+<p>  padding: 1rem 2rem;</p>
+<p>  background-color: #111827;</p>
+<p>  color: #ffffff;</p>
+<p>  position: sticky;</p>
+<p>  top: 0;</p>
+<p>  z-index: 1000; /* Stays above body content during scroll */</p>
+<p>}</p>
+
+<p>.nav-menu {</p>
+<p>  display: flex;</p>
+<p>  gap: 1.5rem;                   /* Equal spacing between link items */</p>
+<p>  list-style: none;</p>
+<p>  margin: 0;</p>
+<p>  padding: 0;</p>
+<p>}</p>
+
+<p>.nav-link {</p>
+<p>  color: #d1d5db;</p>
+<p>  text-decoration: none;</p>
+<p>  font-weight: 500;</p>
+<p>  transition: color 0.2s ease;</p>
+<p>}</p>
+
+<p>.nav-link:hover {</p>
+<p>  color: #ffffff;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Navbar Component Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;!-- Sticky Flexbox Navbar --&gt;</p>
+<p>  &lt;nav class=&quot;navbar&quot;&gt;</p>
+<p>    &lt;a href=&quot;#&quot; class=&quot;brand-logo&quot;&gt;DevPortal&lt;/a&gt;</p>
+<p>    &lt;ul class=&quot;nav-links&quot;&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Courses&lt;/a&gt;&lt;/li&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Docs&lt;/a&gt;&lt;/li&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;nav-link&quot;&gt;Community&lt;/a&gt;&lt;/li&gt;</p>
+<p>    &lt;/ul&gt;</p>
+<p>    &lt;a href=&quot;#&quot; class=&quot;btn-cta&quot;&gt;Get Started&lt;/a&gt;</p>
+<p>  &lt;/nav&gt;</p>
+
+<p>  &lt;main class=&quot;content&quot;&gt;</p>
+<p>    &lt;h2&gt;Page Content&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Scroll down to test the sticky navigation bar staying pinned to the top of the browser viewport.&lt;/p&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  margin: 0;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  min-height: 150vh; /* Extra height to test sticky navbar scrolling */</p>
+<p>}</p>
+
+<p>.navbar {</p>
+<p>  display: flex;</p>
+<p>  justify-content: space-between;</p>
+<p>  align-items: center;</p>
+<p>  padding: 15px 30px;</p>
+<p>  background-color: #0f172a;</p>
+<p>  position: sticky;</p>
+<p>  top: 0;</p>
+<p>  z-index: 1000;</p>
+<p>  box-shadow: 0 2px 10px rgba(0,0,0,0.1);</p>
+<p>}</p>
+
+<p>.brand-logo {</p>
+<p>  font-size: 1.25rem;</p>
+<p>  font-weight: bold;</p>
+<p>  color: #38bdf8;</p>
+<p>  text-decoration: none;</p>
+<p>}</p>
+
+<p>.nav-links {</p>
+<p>  display: flex;</p>
+<p>  gap: 24px;</p>
+<p>  list-style: none;</p>
+<p>  margin: 0;</p>
+<p>  padding: 0;</p>
+<p>}</p>
+
+<p>.nav-link {</p>
+<p>  color: #94a3b8;</p>
+<p>  text-decoration: none;</p>
+<p>  font-size: 15px;</p>
+<p>  font-weight: 500;</p>
+<p>  transition: color 0.2s;</p>
+<p>}</p>
+
+<p>.nav-link:hover {</p>
+<p>  color: #ffffff;</p>
+<p>}</p>
+
+<p>.btn-cta {</p>
+<p>  background-color: #0284c7;</p>
+<p>  color: white;</p>
+<p>  text-decoration: none;</p>
+<p>  padding: 8px 18px;</p>
+<p>  border-radius: 6px;</p>
+<p>  font-weight: bold;</p>
+<p>  font-size: 14px;</p>
+<p>  transition: background-color 0.2s;</p>
+<p>}</p>
+
+<p>.btn-cta:hover {</p>
+<p>  background-color: #0369a1;</p>
+<p>}</p>
+
+<p>.content {</p>
+<p>  padding: 40px 30px;</p>
+<p>  max-width: 800px;</p>
+<p>  margin: 0 auto;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A dark, modern navigation bar with logo on the left, navigation links centered with <code>24px</code> gaps, a CTA button on the right, and sticky positioning pinned to the top of the browser window during scroll.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add <code>@media (max-width: 640px) { .nav-links { display: none; } }</code> to hide navigation links on small mobile screens.</p>
+<p>2. Observe how the navbar layout automatically adjusts using Flexbox!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>align-items: center</code>:</strong> Causes logo text, link list items, and buttons to stretch vertically or misalign along the top edge.</li></p>
+<p>  <li><strong>Forgetting <code>position: sticky; top: 0;</code> requires <code>top</code> value:</strong> <code>position: sticky</code> will NOT stick unless an explicit threshold (e.g. <code>top: 0</code>) is specified.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Flexbox navbars form the header foundation for SaaS landing pages, documentation platforms (like MDN), news portals, and e-commerce applications.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="18-positioning.html">Positioning & <code>z-index</code></a></li></p>
+<p>  <li><a href="20-flexbox.html">Flexbox Layout</a></li></p>
+<p>  <li><a href="38-mini-projects.html">CSS Mini Projects</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>display: flex; justify-content: space-between; align-items: center;</code> on the navbar parent.</li></p>
+<p>  <li>Use <code>display: flex; gap: 20px;</code> on the link list <code><ul></code>.</li></p>
+<p>  <li>Use <code>position: sticky; top: 0; z-index: 1000;</code> for sticky header bars.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="36-card-layout.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="38-mini-projects.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

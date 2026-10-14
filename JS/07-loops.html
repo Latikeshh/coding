@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 loops - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Loops in JavaScript (<code>for</code>, <code>while</code>, <code>for...of</code>, <code>for...in</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Loops</strong> repeat a block of code automatically as long as a specified condition evaluates to <code>true</code>. JavaScript supports <code>for</code>, <code>while</code>, <code>do...while</code>, <code>for...of</code> (for arrays/strings), and <code>for...in</code> (for object properties).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Loops ka use kisi code block ko bar-bar execute karne ke liye hota hai jab tak specified condition true rehti hai. Array items iterate karne ke liye <code>for...of</code> aur object properties ke liye <code>for...in</code> best hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Loops mule ekach code block punha punha run kela jaat. Condition <code>true</code> asel toparyant loop firto. Array iterate karnya sathi <code>for...of</code> waparala jato.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Instead of writing <code>console.log()</code> 100 times manually, a loop can iterate through thousands of database items or render UI lists in milliseconds.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<ul>
+<p>  <li><strong>Standard <code>for</code> loop:</strong> Ideal when you know the exact number of times you want to repeat an action. It automatically handles initialization, condition checking, and counter increments in a single line.</li></p>
+<p>  <li><strong><code>while</code> loop:</strong> Used when you want to repeat actions based on an ongoing condition rather than a fixed count. It checks the condition before every iteration and stops when the condition becomes false.</li></p>
+<p>  <li><strong><code>do...while</code> loop:</strong> Similar to a <code>while</code> loop, but with a guarantee that the code block will execute at least once. It checks the condition after running the code rather than before.</li></p>
+<p>  <li><strong><code>for...of</code> loop:</strong> Specifically designed for modern JavaScript to easily loop through items in lists, arrays, or text strings. It directly gives you the value of each item without needing index numbers.</li></p>
+<p>  <li><strong><code>for...in</code> loop:</strong> Used to inspect all the property keys or names inside an object. It lets you examine the labels or keys attached to data objects rather than list values.</li></p>
+<p></ul></p>
+
+<h2>📝 Loop Types & Syntax</h2>
+
+<h3>1. Standard <code>for</code> Loop</h3>
+<pre><code class="language-js">for (let i = 1; i &lt;= 5; i++) {
+<p>  console.log(&quot;Iteration:&quot;, i);</p>
+<p>}</code></pre></p>
+
+<h3>2. <code>while</code> Loop (Runs while condition is true)</h3>
+<pre><code class="language-js">let count = 3;
+<p>while (count &gt; 0) {</p>
+<p>  console.log(&quot;Countdown:&quot;, count);</p>
+<p>  count--;</p>
+<p>}</code></pre></p>
+
+<h3>3. <code>do...while</code> Loop (Guaranteed to run at least ONCE)</h3>
+<pre><code class="language-js">let num = 10;
+<p>do {</p>
+<p>  console.log(&quot;Runs once even if condition is false!&quot;);</p>
+<p>} while (num &lt; 5);</code></pre></p>
+
+<h3>4. <code>for...of</code> Loop (Iterates over Values in iterable arrays or strings)</h3>
+<pre><code class="language-js">const colors = [&quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;];
+<p>for (const color of colors) {</p>
+<p>  console.log(&quot;Color:&quot;, color);</p>
+<p>}</code></pre></p>
+
+<h3>5. <code>for...in</code> Loop (Iterates over Keys/Properties in objects)</h3>
+<pre><code class="language-js">const car = { brand: &quot;Toyota&quot;, model: &quot;Corolla&quot;, year: 2022 };
+<p>for (const key in car) {</p>
+<p>  console.log(<code>${key}: ${car[key]}</code>);</p>
+<p>}</code></pre></p>
+
+<h2>🧠 <code>break</code> vs <code>continue</code></h2>
+
+<ul>
+<p>  <li><code>break</code>: Exits the loop immediately.</li></p>
+<p>  <li><code>continue</code>: Skips the rest of the current iteration and moves to the next one.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">// Processing test scores
+<p>const testScores = [45, 88, 92, 30, 76];</p>
+<p>let passingCount = 0;</p>
+
+<p>for (let i = 0; i &lt; testScores.length; i++) {</p>
+<p>  if (testScores[i] &lt; 50) {</p>
+<p>    continue; // Skip failing score from passing count</p>
+<p>  }</p>
+<p>  passingCount++;</p>
+<p>}</p>
+
+<p>console.log(<code>Total Students Passed: ${passingCount} / ${testScores.length}</code>);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Total Students Passed: 3 / 5</code></pre>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a <code>for</code> loop that prints even numbers from <code>2</code> to <code>20</code>.</p>
+<p>2. Use a <code>for...of</code> loop to iterate through an array of your top 3 favorite movies.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to increment counter variable in <code>while</code> loops, causing an <strong>Infinite Loop</strong> that freezes the browser!</li></p>
+<p>  <li>Using <code>for...in</code> on arrays instead of <code>for...of</code> (<code>for...in</code> returns array indices as strings instead of element values).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Rendering lists of items on web pages, calculating order totals, searching through datasets, and retrying network connections.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Use <code>for...of</code> for Array values and <code>for...in</code> for Object property keys.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="06-conditionals.html">← Previous: Conditionals</a> | <a href="08-functions.html">Next: Functions →</a></p>
+
+
+
+  </div>
+</body>
+</html>

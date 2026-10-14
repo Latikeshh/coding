@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datetime - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Working with Dates and Time in Python (<code>datetime</code> Module)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>datetime</code></strong> standard library module provides classes (<code>date</code>, <code>time</code>, <code>datetime</code>, <code>timedelta</code>, <code>timezone</code>) for parsing, formatting, calculating, and manipulating calendar dates, clock times, durations, and time zone timestamps.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Date aur Time tracking ke liye <code>datetime</code> module ka use hota hai. Current date-time ke liye <code>datetime.now()</code>, date differences calculate karne ke liye <code>timedelta</code>, date ko string mein format karne ke liye <code>.strftime()</code>, aur string ko date mein parse karne ke liye <code>.strptime()</code> ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Date aani time sathi <code>datetime</code> module vaparatat. Formatting sathi <code>.strftime()</code> aani String parsing sathi <code>.strptime()</code> cha wapar kela jato.</p>
+
+<h2>📝 1. Core <code>datetime</code> Classes</h2>
+
+<ul>
+<p>  <li><strong><code>date(year, month, day)</code>:</strong> Models calendar date (Year, Month, Day).</li></p>
+<p>  <li><strong><code>time(hour, minute, second)</code>:</strong> Models clock time.</li></p>
+<p>  <li><strong><code>datetime(year, month, day, hour, minute)</code>:</strong> Combines date and time.</li></p>
+<p>  <li><strong><code>timedelta(days, seconds, ...)</code>:</strong> Represents duration difference between two dates or times.</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">from datetime import datetime, date, timedelta
+
+<p>now = datetime.now() # Current date and time</p>
+<p>today = date.today() # Current date only</p>
+
+<h1>Adding 14 days duration using timedelta</h1>
+<p>due_date = today + timedelta(days=14)</code></pre></p>
+
+<h2>📝 2. Formatting (<code>strftime</code>) & Parsing (<code>strptime</code>)</h2>
+
+<ul>
+<p>  <li><strong><code>strftime(format)</code>:</strong> Converts datetime object -> Formatted String (<strong>"String Format Time"</strong>).</li></p>
+<p>  <li><strong><code>strptime(string, format)</code>:</strong> Parses String -> datetime object (<strong>"String Parse Time"</strong>).</li></p>
+<p></ul></p>
+
+<h3>Common Directive Codes:</h3>
+<ul>
+<p>  <li><code>%Y</code>: 4-digit year (e.g. <code>2026</code>)</li></p>
+<p>  <li><code>%m</code>: 2-digit month (<code>01</code>-<code>12</code>)</li></p>
+<p>  <li><code>%d</code>: 2-digit day (<code>01</code>-<code>31</code>)</li></p>
+<p>  <li><code>%H</code>: 24-hour hour (<code>00</code>-<code>23</code>)</li></p>
+<p>  <li><code>%M</code>: Minute (<code>00</code>-<code>59</code>)</li></p>
+<p>  <li><code>%S</code>: Second (<code>00</code>-<code>59</code>)</li></p>
+<p>  <li><code>%A</code>: Full weekday name (<code>Sunday</code>)</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">now = datetime.now()
+<p>formatted_str = now.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)</p>
+
+<h1>Parsing</h1>
+<p>date_obj = datetime.strptime(&quot;2026-10-04&quot;, &quot;%Y-%m-%d&quot;)</code></pre></p>
+
+<h2>💡 Complete Example: Subscription Due Date & Duration Tracker</h2>
+
+<pre><code class="language-python">from datetime import datetime, date, timedelta
+
+<p>print(&quot;=== SUBSCRIPTION RENEWAL ENGINE ===&quot;)</p>
+
+<h1>1. Current Date</h1>
+<p>today = date.today()</p>
+<p>subscription_start = date(2026, 10, 1)</p>
+
+<h1>2. Calculating Expiration Date (30 Days Validity)</h1>
+<p>subscription_validity = timedelta(days=30)</p>
+<p>expiration_date = subscription_start + subscription_validity</p>
+
+<h1>3. Calculating Remaining Days</h1>
+<p>days_remaining = (expiration_date - today).days</p>
+
+<h1>4. Custom Formatting with strftime</h1>
+<p>formatter = &quot;%d-%b-%Y (%A)&quot;</p>
+
+<p>print(f&quot;Start Date     : {subscription_start.strftime(formatter)}&quot;)</p>
+<p>print(f&quot;Today&#39;s Date   : {today.strftime(formatter)}&quot;)</p>
+<p>print(f&quot;Expiration Date: {expiration_date.strftime(formatter)}&quot;)</p>
+<p>print(f&quot;Status         : {days_remaining} Days Remaining&quot;)</p>
+
+<p>if days_remaining &lt;= 5:</p>
+<p>    print(&quot;WARNING        : Subscription renewal due soon!&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== SUBSCRIPTION RENEWAL ENGINE ===
+<p>Start Date     : 01-Oct-2026 (Thursday)</p>
+<p>Today&#39;s Date   : 04-Oct-2026 (Sunday)</p>
+<p>Expiration Date: 31-Oct-2026 (Saturday)</p>
+<p>Status         : 27 Days Remaining</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Confusing <code>strftime()</code> (format object to string) with <code>strptime()</code> (parse string to object).</li></p>
+<p>  <li>Adding or subtracting integers directly from dates (<code>today + 5</code> causes a <code>TypeError</code>; use <code>today + timedelta(days=5)</code>!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>For global multi-region applications, work with UTC timestamps using <code>datetime.now(timezone.utc)</code> or explicit timezone libraries (<code>zoneinfo</code> in Python 3.9+) to avoid daylight saving time bugs.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Subscription renewal calculations, audit log timestamps, scheduling tasks, SLA expiration timers, and calendar applications.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Print today's date formatted as <code>"Day Month Year"</code> (e.g. <code>"04 October 2026"</code>).</p>
+<p>2. Calculate the date 100 days from today using <code>timedelta(days=100)</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a birthdate string <code>"2000-05-15"</code>, parses it with <code>.strptime()</code>, and calculates the total age in years relative to today.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="28-testing-and-debugging.html">Testing and Debugging</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="23-regular-expressions.html">← Previous: Regular Expressions</a> | <a href="25-json-and-data-serialization.html">Next: JSON and Data Serialization →</a></p>
+
+
+  </div>
+</body>
+</html>

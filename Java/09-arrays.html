@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Arrays in Java</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Array</strong> is a fixed-size, zero-indexed reference data structure stored in heap memory that holds a contiguous collection of elements of the <strong>same data type</strong>. Arrays can store primitive values or object references.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Array same data type ki values ko continuous memory mein store karta hai. Array ki size fixed hoti hai jo creation ke waqt decide hoti hai (<code>new int[5]</code>). Indexing <code>0</code> se shuru hoti hai (<code>array[0]</code>). Array size badhane ke liye Collections (<code>ArrayList</code>) ka use kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Array madhye ekach data type che multiple elements sequential memory madhye sathavle jatat. Array chi size badalta yet nahi. Index <code>0</code> pasun suru hoto.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Instead of declaring 50 separate variables for 50 student test scores (<code>score1</code>, <code>score2</code>, ...), an array lets you store all 50 scores under a single variable name (<code>int[] scores = new int[50];</code>) and process them using loops.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of an array as an egg carton with numbered slots from <code>0</code> to <code>N-1</code>. You can place eggs (values) into specific slot numbers, but once manufactured, the carton size cannot expand or shrink.</p>
+
+<h2>📝 1. Array Declarations & Memory Allocation</h2>
+
+<pre><code class="language-java">// Declaration &amp; Memory Allocation (elements initialized to default 0)
+<p>int[] numbers = new int[5];</p>
+
+<p>// Direct Literal Initialization</p>
+<p>int[] scores = {85, 92, 78, 64, 90};</p>
+
+<p>// Accessing &amp; Modifying Elements</p>
+<p>scores[0] = 88; // Replaces first element</p>
+<p>System.out.println(&quot;Array Length : &quot; + scores.length); // 5 (.length is a property, NOT a method!)</code></pre></p>
+
+<h2>📝 2. Multidimensional Arrays (Matrices & Jagged Arrays)</h2>
+
+<p>A 2D array is an "array of arrays":</p>
+
+<pre><code class="language-java">// 2D Matrix (3 rows, 3 columns)
+<p>int[][] matrix = {</p>
+<p>    {1, 2, 3},</p>
+<p>    {4, 5, 6},</p>
+<p>    {7, 8, 9}</p>
+<p>};</p>
+
+<p>// Jagged Array (Rows have different lengths)</p>
+<p>int[][] jagged = new int[2][];</p>
+<p>jagged[0] = new int[3]; // Row 0 has 3 columns</p>
+<p>jagged[1] = new int[5]; // Row 1 has 5 columns</code></pre></p>
+
+<h2>📝 3. Essential Utility Methods (<code>java.util.Arrays</code>)</h2>
+
+<ul>
+<p>  <li><code>Arrays.toString(array)</code>: Converts 1D array to formatted string <code>"[1, 2, 3]"</code>.</li></p>
+<p>  <li><code>Arrays.deepToString(2dArray)</code>: Converts multidimensional array to string.</li></p>
+<p>  <li><code>Arrays.sort(array)</code>: Sorts array elements in ascending order in-place.</li></p>
+<p>  <li><code>Arrays.binarySearch(sortedArray, key)</code>: Fast binary search (requires array to be sorted first!).</li></p>
+<p>  <li><code>Arrays.copyOf(array, newLength)</code>: Creates a new resized copy of the array.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: Student Score Analytics Engine</h2>
+
+<pre><code class="language-java">import java.util.Arrays;
+
+<p>public class ScoreAnalytics {</p>
+<p>    public static void main(String[] args) {</p>
+<p>        int[] testScores = {78, 92, 45, 88, 63, 95, 52};</p>
+
+<p>        System.out.println(&quot;Original Scores : &quot; + Arrays.toString(testScores));</p>
+
+<p>        // 1. Calculate Sum &amp; Average</p>
+<p>        int totalSum = 0;</p>
+<p>        int maxScore = testScores[0];</p>
+<p>        int minScore = testScores[0];</p>
+
+<p>        for (int score : testScores) {</p>
+<p>            totalSum += score;</p>
+<p>            if (score &gt; maxScore) maxScore = score;</p>
+<p>            if (score &lt; minScore) minScore = score;</p>
+<p>        }</p>
+
+<p>        double averageScore = (double) totalSum / testScores.length;</p>
+
+<p>        // 2. Sorting the array in-place</p>
+<p>        int[] sortedScores = Arrays.copyOf(testScores, testScores.length);</p>
+<p>        Arrays.sort(sortedScores);</p>
+
+<p>        // 3. Binary Search for target score</p>
+<p>        int searchTarget = 88;</p>
+<p>        int targetIndex = Arrays.binarySearch(sortedScores, searchTarget);</p>
+
+<p>        System.out.printf(&quot;Total Marks     : %d%n&quot;, totalSum);</p>
+<p>        System.out.printf(&quot;Average Score   : %.2f%n&quot;, averageScore);</p>
+<p>        System.out.printf(&quot;Highest Score   : %d%n&quot;, maxScore);</p>
+<p>        System.out.printf(&quot;Lowest Score    : %d%n&quot;, minScore);</p>
+<p>        System.out.println(&quot;Sorted Scores   : &quot; + Arrays.toString(sortedScores));</p>
+<p>        System.out.printf(&quot;Target (%d) Index: %d%n&quot;, searchTarget, targetIndex);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Original Scores : [78, 92, 45, 88, 63, 95, 52]
+<p>Total Marks     : 513</p>
+<p>Average Score   : 73.29</p>
+<p>Highest Score   : 95</p>
+<p>Lowest Score    : 45</p>
+<p>Sorted Scores   : [45, 52, 63, 78, 88, 92, 95]</p>
+<p>Target (88) Index: 4</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong><code>ArrayIndexOutOfBoundsException</code>:</strong> Attempting to access <code>array[array.length]</code>. Valid indices are <code>0</code> to <code>length - 1</code>!</li></p>
+<p>  <li><strong>Confusing <code>.length</code> with <code>.length()</code>:</strong> Arrays use property <code>arr.length</code>, while <code>String</code> uses method <code>str.length()</code>.</li></p>
+<p>  <li><strong>Calling <code>Arrays.binarySearch()</code> on an unsorted array</strong>, which leads to undefined search results!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Array variables hold object references. Writing <code>int[] copy = original;</code> creates an alias to the <strong>same underlying array</strong> in heap memory. To create a separate independent clone, use <code>Arrays.copyOf()</code> or <code>.clone()</code>.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Low-level audio buffer processing, matrix math in graphics/gaming, pixel grid manipulation in image processing, and data packet buffers in network drivers.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an array of 5 product prices. Calculate and print the average price.</p>
+<p>2. Sort the prices in ascending order using <code>Arrays.sort()</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes an integer array and reverses its elements in-place without creating a second array (using two-pointer swapping).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-methods.html">Methods</a></li></p>
+<p>  <li><a href="11-collections.html">Collections</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="08-methods.html">← Previous: Methods</a> | <a href="10-strings.html">Next: Strings →</a></p>
+
+
+  </div>
+</body>
+</html>

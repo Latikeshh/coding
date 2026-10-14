@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Comprehensions - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>List Comprehensions in Python</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>List Comprehension</strong> is a concise, expressive Pythonic construct used to create a new list by transforming or filtering elements from an existing iterable in a single line of code.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>List Comprehension ek chhota aur fast tareeqa hai nayi list banane ka. traditional <code>for</code> loop aur <code>append()</code> likhne ke bajaye aap ek hi line mein transformation aur filtering kar sakte hain: <code>[expression for item in list if condition]</code>.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>List Comprehension mule <code>for</code> loop peksha ekach line madhye navin list tayar karta yete.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Traditional <code>for</code> loops require 4 to 5 lines of boilerplate code (creating empty list, loop header, <code>if</code> condition, <code>.append()</code>). List comprehensions reduce boilerplate to a single readable line and execute faster at the CPython bytecode level.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a list comprehension as a factory conveyor belt fitted with an automated filter and paint sprayer. As raw items pass along the belt (<code>for item in iterable</code>), the filter selector (<code>if condition</code>) discards flawed items, and the sprayer (<code>expression</code>) instantly modifies the remaining items before dropping them into a new collection box.</p>
+
+<h2>📝 1. Syntax Blueprint</h2>
+
+<pre><code class="language-text">new_list = [expression for item in iterable if condition]</code></pre>
+
+<pre><code class="language-python">numbers = [1, 2, 3, 4, 5, 6]
+
+<h1>Traditional For Loop (4 lines)</h1>
+<p>evens_traditional = []</p>
+<p>for n in numbers:</p>
+<p>    if n % 2 == 0:</p>
+<p>        evens_traditional.append(n * 2)</p>
+
+<h1>List Comprehension (1 line!)</h1>
+<p>evens_comprehension = [n * 2 for n in numbers if n % 2 == 0]</code></pre></p>
+
+<h2>📝 2. Set and Dictionary Comprehensions</h2>
+
+<p>The same comprehension syntax applies to Sets <code>{}</code> and Dictionaries <code>{k: v}</code>:</p>
+
+<pre><code class="language-python"># Set Comprehension (Deduplicates transformed items)
+<p>unique_lengths = {len(word) for word in [&quot;apple&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;fig&quot;]}</p>
+
+<h1>Dictionary Comprehension</h1>
+<p>word_lengths = {word: len(word) for word in [&quot;python&quot;, &quot;java&quot;, &quot;sql&quot;]}</p>
+<h1>Result: {&quot;python&quot;: 6, &quot;java&quot;: 4, &quot;sql&quot;: 3}</code></pre></h1>
+
+<h2>💡 Complete Example: E-Commerce Product Filter & Discounting</h2>
+
+<pre><code class="language-python"># E-Commerce Product Filter Pipeline
+
+<p>products = [</p>
+<p>    {&quot;name&quot;: &quot;Gaming Laptop&quot;, &quot;price&quot;: 75000.00, &quot;in_stock&quot;: True},</p>
+<p>    {&quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;price&quot;: 1200.00, &quot;in_stock&quot;: True},</p>
+<p>    {&quot;name&quot;: &quot;Desk Lamp&quot;, &quot;price&quot;: 800.00, &quot;in_stock&quot;: False}, # Out of stock</p>
+<p>    {&quot;name&quot;: &quot;Mechanical Keyboard&quot;, &quot;price&quot;: 4500.00, &quot;in_stock&quot;: True}</p>
+<p>]</p>
+
+<p>print(&quot;=== PRODUCT COMPREHENSION PIPELINE ===&quot;)</p>
+
+<h1>1. Filter in-stock products and apply 10% discount to prices</h1>
+<p>discounted_prices = [p[&quot;price&quot;] * 0.90 for p in products if p[&quot;in_stock&quot;]]</p>
+
+<h1>2. Extract product names in uppercase for in-stock items costing &gt; ₹1,000</h1>
+<p>premium_items = [p[&quot;name&quot;].upper() for p in products if p[&quot;in_stock&quot;] and p[&quot;price&quot;] &gt; 1000]</p>
+
+<h1>3. Dictionary Comprehension: Mapping product names to discounted prices</h1>
+<p>price_map = {p[&quot;name&quot;]: p[&quot;price&quot;] * 0.90 for p in products if p[&quot;in_stock&quot;]}</p>
+
+<p>print(&quot;Discounted Prices :&quot;, discounted_prices)</p>
+<p>print(&quot;Premium Items     :&quot;, premium_items)</p>
+<p>print(&quot;Discount Price Map:&quot;, price_map)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== PRODUCT COMPREHENSION PIPELINE ===
+<p>Discounted Prices : [67500.0, 1080.0, 4050.0]</p>
+<p>Premium Items     : [&#39;GAMING LAPTOP&#39;, &#39;WIRELESS MOUSE&#39;, &#39;MECHANICAL KEYBOARD&#39;]</p>
+<p>Discount Price Map: {&#39;Gaming Laptop&#39;: 67500.0, &#39;Wireless Mouse&#39;: 1080.0, &#39;Mechanical Keyboard&#39;: 4050.0}</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Writing overly complex nested list comprehensions with multiple <code>for</code> loops and <code>if...else</code> logic that becomes unreadable. If a comprehension spans more than 2 lines, convert it back to a standard <code>for</code> loop!</li></p>
+<p>  <li>Confusing the <code>if</code> filter placement (placed at the end) with <code>if...else</code> ternary expressions (placed before the <code>for</code> clause: <code>[x if x > 0 else 0 for x in items]</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>If you are dealing with <strong>massive datasets</strong> with millions of items, do not build huge list comprehensions in memory—use a <strong>Generator Expression</strong> <code>(x for x in huge_iterable)</code> to stream items lazily one by one!</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data transformation in Pandas/data science pipelines, parsing CSV rows, filtering database search results, and transforming REST API payloads.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Given <code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>, write a list comprehension to square only odd numbers.</p>
+<p>2. Given <code>words = ["hello", "world", "python"]</code>, create a list of capitalized strings <code>["HELLO", "WORLD", "PYTHON"]</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Given a list of temperatures in Celsius <code>celsius = [0, 12, 25, 34, 40]</code>, write a single-line comprehension that converts them to Fahrenheit <code>(c * 9/5) + 32</code> for temperatures above <code>20°C</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-lists.html">Lists</a></li></p>
+<p>  <li><a href="12-dictionaries.html">Dictionaries</a></li></p>
+<p>  <li><a href="20-iterators-and-generators.html">Iterators and Generators</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="13-strings.html">← Previous: Strings</a> | <a href="15-functions-advanced.html">Next: Advanced Functions →</a></p>
+
+
+  </div>
+</body>
+</html>

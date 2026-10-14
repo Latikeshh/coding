@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>38 mini projects - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Mini Projects</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>CSS Mini Projects combine foundational and intermediate CSS concepts—selectors, Box Model, Flexbox, Grid, custom properties (variables), media queries, transitions, transforms, and UI component patterns—into complete, real-world web application interfaces.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Practice CSS by building complete real-world projects: a Responsive Pricing Table Card Grid, a Personal Portfolio Hero Section, and an Accessible Dark Theme UI Card.</p>
+
+<h3>Hindi</h3>
+<p>Seekhi hui sabhi CSS properties ki practice ke liye teen practical mini projects (Pricing Card Grid, Portfolio Hero Section, aur Dark Mode UI) banayein.</p>
+
+<h3>Marathi</h3>
+<p>Shikleysaathi sarav CSS properties cha sarav karnyasaathi teen lahan projects (Pricing Table, Portfolio Hero Section) banva.</p>
+
+<p>---</p>
+
+<h2>🏗️ Project 1: Responsive 3-Column Pricing Table Grid</h2>
+
+<p>A multi-tiered SaaS pricing table utilizing CSS Grid, Flexbox, hover transforms, and badges:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Pricing Table Grid Project&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header class=&quot;pricing-header&quot;&gt;</p>
+<p>    &lt;h1&gt;Simple, Transparent Pricing&lt;/h1&gt;</p>
+<p>    &lt;p&gt;Choose the learning plan that fits your coding goals.&lt;/p&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;main class=&quot;pricing-grid&quot;&gt;</p>
+
+<p>    &lt;!-- Starter Plan Card --&gt;</p>
+<p>    &lt;div class=&quot;pricing-card&quot;&gt;</p>
+<p>      &lt;h3 class=&quot;plan-name&quot;&gt;Starter&lt;/h3&gt;</p>
+<p>      &lt;div class=&quot;price&quot;&gt;$19&lt;span&gt;/mo&lt;/span&gt;&lt;/div&gt;</p>
+<p>      &lt;p class=&quot;plan-desc&quot;&gt;Perfect for beginners starting web development.&lt;/p&gt;</p>
+<p>      &lt;ul class=&quot;features-list&quot;&gt;</p>
+<p>        &lt;li&gt;✓ HTML5 &amp;amp; CSS3 Curriculum&lt;/li&gt;</p>
+<p>        &lt;li&gt;✓ Community Forum Access&lt;/li&gt;</p>
+<p>        &lt;li&gt;✓ 10 Practice Exercises&lt;/li&gt;</p>
+<p>      &lt;/ul&gt;</p>
+<p>      &lt;button class=&quot;btn btn-outline&quot;&gt;Choose Starter&lt;/button&gt;</p>
+<p>    &lt;/div&gt;</p>
+
+<p>    &lt;!-- Pro Featured Plan Card --&gt;</p>
+<p>    &lt;div class=&quot;pricing-card featured&quot;&gt;</p>
+<p>      &lt;span class=&quot;badge&quot;&gt;MOST POPULAR&lt;/span&gt;</p>
+<p>      &lt;h3 class=&quot;plan-name&quot;&gt;Pro Developer&lt;/h3&gt;</p>
+<p>      &lt;div class=&quot;price&quot;&gt;$49&lt;span&gt;/mo&lt;/span&gt;&lt;/div&gt;</p>
+<p>      &lt;p class=&quot;plan-desc&quot;&gt;For serious learners building fullstack projects.&lt;/p&gt;</p>
+<p>      &lt;ul class=&quot;features-list&quot;&gt;</p>
+<p>        &lt;li&gt;✓ All Starter Features&lt;/li&gt;</p>
+<p>        &lt;li&gt;✓ JavaScript &amp;amp; React Masterclass&lt;/li&gt;</p>
+<p>        &lt;li&gt;✓ 1-on-1 Code Reviews&lt;/li&gt;</p>
+<p>        &lt;li&gt;✓ Certificate of Completion&lt;/li&gt;</p>
+<p>      &lt;/ul&gt;</p>
+<p>      &lt;button class=&quot;btn btn-primary&quot;&gt;Get Pro Access&lt;/button&gt;</p>
+<p>    &lt;/div&gt;</p>
+
+<p>    &lt;!-- Enterprise Plan Card --&gt;</p>
+<p>    &lt;div class=&quot;pricing-card&quot;&gt;</p>
+<p>      &lt;h3 class=&quot;plan-name&quot;&gt;Enterprise&lt;/h3&gt;</p>
+<p>      &lt;div class=&quot;price&quot;&gt;$99&lt;span&gt;/mo&lt;/span&gt;&lt;/div&gt;</p>
+<p>      &lt;p class=&quot;plan-desc&quot;&gt;For teams and coding bootcamp groups.&lt;/p&gt;</p>
+<p>      &lt;ul class=&quot;features-list&quot;&gt;</p>
+<p>        &lt;li&gt;✓ All Pro Features&lt;/li&gt;</p>
+<p>        &lt;li&gt;✓ Team Analytics Dashboard&lt;/li&gt;</p>
+<p>        &lt;li&gt;✓ Dedicated Mentor Support&lt;/li&gt;</p>
+<p>      &lt;/ul&gt;</p>
+<p>      &lt;button class=&quot;btn btn-outline&quot;&gt;Contact Sales&lt;/button&gt;</p>
+<p>    &lt;/div&gt;</p>
+
+<p>  &lt;/main&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>*, *::before, *::after {</p>
+<p>  box-sizing: border-box;</p>
+<p>  margin: 0;</p>
+<p>  padding: 0;</p>
+<p>}</p>
+
+<p>:root {</p>
+<p>  --primary-blue: #2563eb;</p>
+<p>  --primary-dark: #1d4ed8;</p>
+<p>  --bg-page: #f8fafc;</p>
+<p>  --text-dark: #0f172a;</p>
+<p>  --text-muted: #64748b;</p>
+<p>  --card-bg: #ffffff;</p>
+<p>}</p>
+
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: var(--bg-page);</p>
+<p>  color: var(--text-dark);</p>
+<p>  padding: 40px 20px;</p>
+<p>}</p>
+
+<p>.pricing-header {</p>
+<p>  text-align: center;</p>
+<p>  max-width: 600px;</p>
+<p>  margin: 0 auto 40px auto;</p>
+<p>}</p>
+
+<p>.pricing-header h1 {</p>
+<p>  font-size: 2.25rem;</p>
+<p>  margin-bottom: 10px;</p>
+<p>  color: var(--text-dark);</p>
+<p>}</p>
+
+<p>.pricing-header p {</p>
+<p>  color: var(--text-muted);</p>
+<p>  font-size: 1.1rem;</p>
+<p>}</p>
+
+<p>/* 2D Auto-responsive Grid Layout */</p>
+<p>.pricing-grid {</p>
+<p>  display: grid;</p>
+<p>  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));</p>
+<p>  gap: 30px;</p>
+<p>  max-width: 1100px;</p>
+<p>  margin: 0 auto;</p>
+<p>  align-items: center;</p>
+<p>}</p>
+
+<p>.pricing-card {</p>
+<p>  background: var(--card-bg);</p>
+<p>  border: 1px solid #e2e8f0;</p>
+<p>  border-radius: 16px;</p>
+<p>  padding: 35px 25px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.05);</p>
+<p>  display: flex;</p>
+<p>  flex-direction: column;</p>
+<p>  position: relative;</p>
+<p>  transition: transform 0.3s ease, box-shadow 0.3s ease;</p>
+<p>}</p>
+
+<p>.pricing-card:hover {</p>
+<p>  transform: translateY(-6px);</p>
+<p>  box-shadow: 0 12px 24px rgba(0,0,0,0.1);</p>
+<p>}</p>
+
+<p>/* Featured Card Highlight */</p>
+<p>.pricing-card.featured {</p>
+<p>  border: 2px solid var(--primary-blue);</p>
+<p>  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);</p>
+<p>}</p>
+
+<p>.badge {</p>
+<p>  position: absolute;</p>
+<p>  top: -12px;</p>
+<p>  left: 50%;</p>
+<p>  transform: translateX(-50%);</p>
+<p>  background-color: var(--primary-blue);</p>
+<p>  color: white;</p>
+<p>  font-size: 11px;</p>
+<p>  font-weight: bold;</p>
+<p>  padding: 4px 12px;</p>
+<p>  border-radius: 12px;</p>
+<p>  letter-spacing: 0.05em;</p>
+<p>}</p>
+
+<p>.plan-name {</p>
+<p>  font-size: 1.25rem;</p>
+<p>  margin-bottom: 15px;</p>
+<p>}</p>
+
+<p>.price {</p>
+<p>  font-size: 2.5rem;</p>
+<p>  font-weight: bold;</p>
+<p>  color: var(--text-dark);</p>
+<p>  margin-bottom: 10px;</p>
+<p>}</p>
+
+<p>.price span {</p>
+<p>  font-size: 1rem;</p>
+<p>  color: var(--text-muted);</p>
+<p>  font-weight: normal;</p>
+<p>}</p>
+
+<p>.plan-desc {</p>
+<p>  color: var(--text-muted);</p>
+<p>  font-size: 14px;</p>
+<p>  margin-bottom: 25px;</p>
+<p>  line-height: 1.5;</p>
+<p>}</p>
+
+<p>.features-list {</p>
+<p>  list-style: none;</p>
+<p>  margin-bottom: 30px;</p>
+<p>  flex-grow: 1; /* Pushes button to bottom */</p>
+<p>}</p>
+
+<p>.features-list li {</p>
+<p>  padding: 8px 0;</p>
+<p>  border-bottom: 1px solid #f1f5f9;</p>
+<p>  font-size: 14px;</p>
+<p>  color: #334155;</p>
+<p>}</p>
+
+<p>.btn {</p>
+<p>  width: 100%;</p>
+<p>  padding: 12px;</p>
+<p>  border-radius: 8px;</p>
+<p>  font-size: 15px;</p>
+<p>  font-weight: bold;</p>
+<p>  cursor: pointer;</p>
+<p>  transition: background-color 0.2s, border-color 0.2s;</p>
+<p>}</p>
+
+<p>.btn-primary {</p>
+<p>  background-color: var(--primary-blue);</p>
+<p>  color: white;</p>
+<p>  border: none;</p>
+<p>}</p>
+
+<p>.btn-primary:hover {</p>
+<p>  background-color: var(--primary-dark);</p>
+<p>}</p>
+
+<p>.btn-outline {</p>
+<p>  background-color: transparent;</p>
+<p>  color: var(--primary-blue);</p>
+<p>  border: 1px solid var(--primary-blue);</p>
+<p>}</p>
+
+<p>.btn-outline:hover {</p>
+<p>  background-color: #eff6ff;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🏗️ Project 2: Developer Portfolio Hero Section</h2>
+
+<p>A responsive portfolio hero section utilizing Flexbox alignment, CSS variables, and fluid typography:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Portfolio Hero Section Project&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;hero-style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;section class=&quot;hero-container&quot;&gt;</p>
+<p>    &lt;div class=&quot;hero-content&quot;&gt;</p>
+<p>      &lt;span class=&quot;status-pill&quot;&gt;AVAILABLE FOR HIRE&lt;/span&gt;</p>
+<p>      &lt;h1&gt;Building Clean &amp;amp; Accessible Web Experiences&lt;/h1&gt;</p>
+<p>      &lt;p&gt;I am Alex Kumar, a Frontend Engineer specializing in responsive HTML5, CSS3, and JavaScript development.&lt;/p&gt;</p>
+<p>      &lt;div class=&quot;hero-actions&quot;&gt;</p>
+<p>        &lt;a href=&quot;#projects&quot; class=&quot;btn btn-main&quot;&gt;View My Work&lt;/a&gt;</p>
+<p>        &lt;a href=&quot;#contact&quot; class=&quot;btn btn-secondary&quot;&gt;Contact Me&lt;/a&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* hero-style.css */
+<p>*, *::before, *::after {</p>
+<p>  box-sizing: border-box;</p>
+<p>}</p>
+
+<p>body {</p>
+<p>  margin: 0;</p>
+<p>  font-family: &#39;Segoe UI&#39;, Arial, sans-serif;</p>
+<p>  background-color: #0f172a;</p>
+<p>  color: #f8fafc;</p>
+<p>}</p>
+
+<p>.hero-container {</p>
+<p>  min-height: 85vh;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  padding: 40px 20px;</p>
+<p>  background: radial-gradient(circle at top right, #1e293b, #0f172a);</p>
+<p>}</p>
+
+<p>.hero-content {</p>
+<p>  max-width: 750px;</p>
+<p>  text-align: center;</p>
+<p>}</p>
+
+<p>.status-pill {</p>
+<p>  display: inline-block;</p>
+<p>  background-color: rgba(56, 189, 248, 0.1);</p>
+<p>  color: #38bdf8;</p>
+<p>  border: 1px solid rgba(56, 189, 248, 0.3);</p>
+<p>  padding: 6px 14px;</p>
+<p>  border-radius: 20px;</p>
+<p>  font-size: 12px;</p>
+<p>  font-weight: bold;</p>
+<p>  letter-spacing: 0.08em;</p>
+<p>  margin-bottom: 20px;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  /* Fluid responsive typography with clamp() */</p>
+<p>  font-size: clamp(2rem, 5vw, 3.5rem);</p>
+<p>  line-height: 1.2;</p>
+<p>  margin-bottom: 20px;</p>
+<p>  color: #ffffff;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  font-size: 1.125rem;</p>
+<p>  color: #94a3b8;</p>
+<p>  line-height: 1.6;</p>
+<p>  margin-bottom: 30px;</p>
+<p>}</p>
+
+<p>.hero-actions {</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  gap: 15px;</p>
+<p>  flex-wrap: wrap;</p>
+<p>}</p>
+
+<p>.btn {</p>
+<p>  padding: 12px 28px;</p>
+<p>  border-radius: 8px;</p>
+<p>  text-decoration: none;</p>
+<p>  font-weight: bold;</p>
+<p>  font-size: 16px;</p>
+<p>  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;</p>
+<p>}</p>
+
+<p>.btn:hover {</p>
+<p>  transform: translateY(-2px);</p>
+<p>}</p>
+
+<p>.btn-main {</p>
+<p>  background-color: #0284c7;</p>
+<p>  color: white;</p>
+<p>  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);</p>
+<p>}</p>
+
+<p>.btn-main:hover {</p>
+<p>  background-color: #0369a1;</p>
+<p>}</p>
+
+<p>.btn-secondary {</p>
+<p>  background-color: #1e293b;</p>
+<p>  color: #e2e8f0;</p>
+<p>  border: 1px solid #334155;</p>
+<p>}</p>
+
+<p>.btn-secondary:hover {</p>
+<p>  background-color: #334155;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔎 Practice: Check the Hero Before Reusing It</h2>
+
+<h3>English</h3>
+
+<p>After completing Project 2, test the behavior as well as the appearance:</p>
+
+<p>1. Narrow the viewport to 320 CSS pixels and increase the text size. Check whether the heading and action links fit or wrap without being clipped.</p>
+<p>2. Use Tab and Shift+Tab to move between the links. Keep a visible focus indicator; a hover effect alone does not show keyboard focus.</p>
+<p>3. Activate both links with Enter. The snippet uses <code>#projects</code> and <code>#contact</code>, but does not include those sections. Add matching section IDs or replace the links with real destinations before publishing.</p>
+<p>4. Write down the change you made and the result you observed. Repeat these checks after placing the hero into a larger page.</p>
+
+<p>For an optional worked comparison, the <a href="https://github.com/l-portet/pagepatch-free-hero">PagePatch free hero example</a> includes <code>before.html</code>, <code>hero.html</code>, and an explanation of five changes. Download the free sample ZIP linked in its README, unzip it, and open the two HTML files locally; no account, payment, or build step is required. Compare the fixed-width layout and removed focus outline in <code>before.html</code> with the fluid layout and explicit focus styling in <code>hero.html</code>. Use the before page only as a deliberately flawed exercise.</p>
+
+<h4>Repair walkthrough for Project 2</h4>
+
+<p>Use a separate <code>index.html</code> and <code>hero-style.css</code> for Project 2; do not combine its <code>.btn</code> rules with Project 1. Keep the viewport meta tag and the existing <code>border-box</code> rule.</p>
+
+<p><strong>1. Make the failure easy to reproduce.</strong> In a temporary copy, replace the heading with <code>SuperLongPortfolioHeadingWithoutSpaces</code> and the first link label with <code>Explore all of my responsive interface projects</code>. Try a 320 CSS-pixel viewport. Long content can expose sizing problems that short placeholder text hides. Do not use <code>overflow-x: hidden</code> to conceal the problem.</p>
+
+<p><strong>2. Append this CSS after the existing Project 2 rules.</strong></p>
+
+<pre><code class="language-css">.hero-content {
+<p>  width: 100%;</p>
+<p>  min-width: 0;</p>
+<p>  overflow-wrap: anywhere;</p>
+<p>}</p>
+
+<p>.hero-actions .btn {</p>
+<p>  max-width: 100%;</p>
+<p>  font-size: 1rem;</p>
+<p>}</p>
+
+<p>.hero-actions .btn:focus-visible {</p>
+<p>  outline: 3px solid #f8fafc;</p>
+<p>  outline-offset: 4px;</p>
+<p>}</p>
+
+<p>.practice-target {</p>
+<p>  padding: 40px 20px;</p>
+<p>  overflow-wrap: anywhere;</p>
+<p>}</code></pre></p>
+
+<p><code>min-width: 0</code> lets the flex child shrink. <code>overflow-wrap: anywhere</code> gives otherwise unbreakable text a wrapping opportunity; the existing <code>max-width: 750px</code> still caps the content width. The link's <code>1rem</code> size follows the root font size instead of staying at 16px. The focus rule provides an explicit keyboard indicator without removing the browser's fallback outline. Read the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap">MDN wrapping reference</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">focus-visible reference</a> for details.</p>
+
+<p><strong>3. Give the two existing links destinations.</strong> Insert these practice sections after the hero section and before <code></body></code>:</p>
+
+<pre><code class="language-html">&lt;section class=&quot;practice-target&quot; id=&quot;projects&quot; aria-labelledby=&quot;projects-title&quot;&gt;
+<p>  &lt;h2 id=&quot;projects-title&quot;&gt;Practice projects&lt;/h2&gt;</p>
+<p>  &lt;p&gt;Replace this placeholder with your actual projects before publishing.&lt;/p&gt;</p>
+<p>&lt;/section&gt;</p>
+<p>&lt;section class=&quot;practice-target&quot; id=&quot;contact&quot; aria-labelledby=&quot;contact-title&quot;&gt;</p>
+<p>  &lt;h2 id=&quot;contact-title&quot;&gt;Contact placeholder&lt;/h2&gt;</p>
+<p>  &lt;p&gt;This exercise does not send messages. Add a real contact method before publishing.&lt;/p&gt;</p>
+<p>&lt;/section&gt;</code></pre></p>
+
+<p><strong>4. Compare and record the behavior.</strong> Keep the temporary long text while testing, then restore your own verified copy.</p>
+
+<table>
+<p>  <thead><tr><th>Check</th><th>Expected observation after the repair</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>320, 768, and 1280 CSS-pixel viewport widths</td><td>Heading and link labels wrap within the page; no horizontal page scrolling is needed.</td></tr></p>
+<p>    <tr><td>Temporarily add <code>html { font-size: 200%; }</code> in DevTools</td><td>Rem-sized text grows, both links remain readable, and the layout can grow vertically. Remove the temporary rule afterward. This is a root-font test, not a browser-zoom test.</td></tr></p>
+<p>    <tr><td>Tab, then Tab, then Shift+Tab</td><td>Focus moves between the two action links; the pale outline is visible against the dark hero.</td></tr></p>
+<p>    <tr><td>Enter on each action link</td><td>The URL fragment changes to <code>#projects</code> or <code>#contact</code> and the corresponding section is reached.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>Also check actual browser zoom separately. Record browser, viewport, change, and observed result; these checks are a starting point, not an accessibility audit or a conversion claim. Related lessons: <a href="16-box-model.html">Box Model</a>, <a href="20-flexbox.html">Flexbox</a>, and <a href="24-pseudo-classes.html">Pseudo-classes</a>.</p>
+
+<h3>Hindi (Roman Script)</h3>
+
+<p>Project 2 ke baad chhoti screen aur bade text par heading aur links jaanchein. Tab aur Shift+Tab se focus dekhein, phir Enter se dono links kholein. <code>#projects</code> aur <code>#contact</code> ke liye sahi section IDs jodein ya asli URLs dein. Har badlav ka nateeja likhein. Upar diya gaya muft example pehle aur baad ke layout ki tulna ke liye hai.</p>
+
+<p>Repair ke liye Project 2 ki files alag rakhein. Lambi heading aur link label se dikkat dohrayein, phir upar diya CSS aakhir mein jodein. <code>min-width: 0</code> aur <code>overflow-wrap: anywhere</code> text ko sametne mein madad karte hain; <code>1rem</code> root font size ke saath badhta hai. Dono placeholder sections <code></body></code> se pehle jodein. 320, 768 aur 1280px par layout, bade root font par text, aur keyboard se focus aur links jaanchein. DevTools ka 200% root-font test browser zoom se alag hai. Asli browser zoom bhi jaanchein aur prakashit karne se pehle placeholders badlein.</p>
+
+<h3>Marathi (Roman Script)</h3>
+
+<p>Project 2 nantar lahan screen ani mothya majkuravar heading ani links tapasa. Tab ani Shift+Tab vaprun focus paha, mag Enter dabun donhi links ughada. <code>#projects</code> ani <code>#contact</code> sathi yogya section IDs joda kinva khare URLs dya. Pratyek badalacha parinam liha. Varil mofat udaharan aadhi ani nantarchya layout chi tulana karnyasathi aahe.</p>
+
+<p>Repair sathi Project 2 chya files veglya theva. Lamb heading ani link label vaprun adchan punha paha, mag varil CSS shevati joda. <code>min-width: 0</code> ani <code>overflow-wrap: anywhere</code> mule majkur lahan jaget basu shakto; <code>1rem</code> root font size sobat vadhato. Donhi placeholder sections <code></body></code> chya aadhi joda. 320, 768 ani 1280px var layout, mothya root font var majkur, ani keyboard vaprun focus va links tapasa. DevTools madhil 200% root-font chachani browser zoom peksha vegli aahe. Khara browser zoom suddha tapasa ani prakashit karnyapurvi placeholders badla.</p>
+
+<h3>Hinglish</h3>
+
+<p>Hero ko sirf dekhna kaafi nahi: narrow viewport, larger text aur keyboard se test karo. Link ka label aur destination match hona chahiye. Missing sections add karo, focus visible rakho, aur apne changes ke results note karo. Optional free example se before/after behavior compare kar sakte ho.</p>
+
+<p>Project 2 ko separate files mein rakho. Long heading aur CTA label se stress test karo, CSS patch ko existing rules ke baad paste karo, aur destination sections body ke end mein add karo. Root font ko temporary 200% karke wrapping aur rem-sized text check karo; isse actual browser zoom test replace nahi hota. Tab, Shift+Tab aur Enter ke results note karo, temporary test rule hatao, aur publish karne se pehle placeholder content replace karo.</p>
+
+<p><strong>Disclosure:</strong> This exercise and the linked example are AI-generated. The example describes a fictional product and is not an accessibility certification or evidence of improved conversions. PagePatch also sells a separate optional kit; the linked repository discloses that affiliation and includes the free sample's reuse licence. No purchase is needed for this exercise.</p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="37-navigation-bars.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="39-advanced-selectors.html">Next →</a></p>
+
+
+  </div>
+</body>
+</html>

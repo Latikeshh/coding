@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 multi file projects - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Multi-file Projects & Header Files (<code>.h</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Production C software is organized into <strong>Multi-file Projects</strong> consisting of <strong>Header Files</strong> (<code>.h</code> containing type definitions, macros, and function prototypes) and <strong>Source Files</strong> (<code>.c</code> containing actual function implementations). This separates interface declarations from implementation code, enabling modular software development and faster incremental compilation.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Multi-file architecture divides code into header files (<code>.h</code>) and implementation files (<code>.c</code>). Header files contain function prototypes, structure definitions, and Header Guards (<code>#ifndef</code>). Source files contain function definitions and include matching headers via <code>#include "header.h"</code>. The compiler compiles <code>.c</code> files into object files (<code>.o</code> or <code>.obj</code>) and the linker combines them into an executable binary.</p>
+
+<h3>Hindi</h3>
+<p>Bade C projects ko modular banane ke liye Header Files (<code>.h</code>) aur Source Files (<code>.c</code>) mein toda jata hai. Header files mein function prototypes, structs aur Header Guards (<code>#ifndef</code>) hote hain. Implementation <code>.c</code> files mein hota hai. Sabhi <code>.c</code> files ko ek sath compile karke linker executable binary file banata hai (<code>gcc main.c bank.c -o app</code>).</p>
+
+<h3>Marathi</h3>
+<p>Mothe C projects sope karanyasathi Header Files (<code>.h</code>) aani Source Files (<code>.c</code>) vaparale jatat. Header file madhye function prototypes, structs aani Header Guards asatat. Implementation <code>.c</code> file madhye hote. System sarv <code>.c</code> files compile karun link karte.</p>
+
+<h3>Hinglish</h3>
+<p>Clean software architecture ke liye interface declaration <code>.h</code> file mein rakhein aur actual business logic <code>.c</code> file mein. Multiple inclusions rokne ke liye <code>.h</code> file mein Header Guards <code>#ifndef BANK_H</code> zaroori hain. Project compile karne ke liye command: <code>gcc -Wall -Wextra -std=c11 main.c bank.c -o app</code>.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Putting 50,000 lines of code into a single <code>main.c</code> file makes teamwork impossible, causes git merge conflicts, and forces the compiler to recompile the entire project even when changing a single line. Multi-file modularity fixes all these issues.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a multi-file project like a restaurant:</p>
+<ul>
+<p>  <li><strong>Header File (<code>bank.h</code>):</strong> The printed menu given to customers. It lists dish names and prices (<strong>Function Prototypes</strong>), but doesn't cook the food.</li></p>
+<p>  <li><strong>Source File (<code>bank.c</code>):</strong> The kitchen where chefs actually prepare the food (<strong>Function Definitions</strong>).</li></p>
+<p>  <li><strong>Driver File (<code>main.c</code>):</strong> The dining manager who orders dishes from the menu (<strong>Function Calls</strong>).</li></p>
+<p></ul></p>
+
+<h2>📝 Multi-file Project Architecture & Header Guards</h2>
+
+<h3>1. Header File Guard Pattern (<code>bank.h</code>)</h3>
+<pre><code class="language-c">#ifndef BANK_H
+<p>#define BANK_H</p>
+
+<p>// Function prototypes &amp; struct definitions</p>
+<p>typedef struct {</p>
+<p>    int accountNumber;</p>
+<p>    double balance;</p>
+<p>} Account;</p>
+
+<p>void depositMoney(Account *acc, double amount);</p>
+<p>void printAccount(const Account *acc);</p>
+
+<p>#endif // BANK_H</code></pre></p>
+
+<h3>2. Implementation File (<code>bank.c</code>)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &quot;bank.h&quot; // Include matching header</p>
+
+<p>void depositMoney(Account *acc, double amount) {</p>
+<p>    if (acc != NULL &amp;&amp; amount &gt; 0) {</p>
+<p>        acc-&gt;balance += amount;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>void printAccount(const Account *acc) {</p>
+<p>    printf(&quot;Account #%d | Balance: $%.2lf\n&quot;, acc-&gt;accountNumber, acc-&gt;balance);</p>
+<p>}</code></pre></p>
+
+<h3>3. Main Driver File (<code>main.c</code>)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &quot;bank.h&quot;</p>
+
+<p>int main(void) {</p>
+<p>    Account acc1 = {8801, 1000.00};</p>
+<p>    depositMoney(&amp;acc1, 500.00);</p>
+<p>    printAccount(&amp;acc1);</p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>💡 Practical Project Example</h2>
+
+<p>Here is a multi-file compilation project layout.</p>
+
+<h3>File 1: <code>bank.h</code> (Header Interface)</h3>
+<pre><code class="language-c">#ifndef BANK_H
+<p>#define BANK_H</p>
+
+<p>typedef struct {</p>
+<p>    int id;</p>
+<p>    char name[40];</p>
+<p>    double balance;</p>
+<p>} BankAccount;</p>
+
+<p>// Function Prototypes</p>
+<p>void initAccount(BankAccount *acc, int id, const char *name, double initialDeposit);</p>
+<p>int withdraw(BankAccount *acc, double amount);</p>
+<p>void displayAccount(const BankAccount *acc);</p>
+
+<p>#endif // BANK_H</code></pre></p>
+
+<h3>File 2: <code>bank.c</code> (Implementation Source)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;string.h&gt;</p>
+<p>#include &quot;bank.h&quot;</p>
+
+<p>void initAccount(BankAccount *acc, int id, const char *name, double initialDeposit) {</p>
+<p>    if (acc != NULL) {</p>
+<p>        acc-&gt;id = id;</p>
+<p>        strncpy(acc-&gt;name, name, sizeof(acc-&gt;name) - 1);</p>
+<p>        acc-&gt;name[sizeof(acc-&gt;name) - 1] = &#39;\0&#39;;</p>
+<p>        acc-&gt;balance = (initialDeposit &gt;= 0) ? initialDeposit : 0.0;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>int withdraw(BankAccount *acc, double amount) {</p>
+<p>    if (acc != NULL &amp;&amp; amount &gt; 0 &amp;&amp; acc-&gt;balance &gt;= amount) {</p>
+<p>        acc-&gt;balance -= amount;</p>
+<p>        return 1; // Withdrawal successful</p>
+<p>    }</p>
+<p>    return 0; // Withdrawal failed (insufficient funds)</p>
+<p>}</p>
+
+<p>void displayAccount(const BankAccount *acc) {</p>
+<p>    if (acc != NULL) {</p>
+<p>        printf(&quot;ID: #%d | Name: %-15s | Balance: $%.2lf\n&quot;, acc-&gt;id, acc-&gt;name, acc-&gt;balance);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h3>File 3: <code>main.c</code> (Driver Application)</h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &quot;bank.h&quot;</p>
+
+<p>int main(void) {</p>
+<p>    BankAccount userAcc;</p>
+
+<p>    printf(&quot;--- MODULAR BANKING SYSTEM ---\n&quot;);</p>
+<p>    initAccount(&amp;userAcc, 501, &quot;Vikram Seth&quot;, 2500.00);</p>
+<p>    displayAccount(&amp;userAcc);</p>
+
+<p>    printf(&quot;\nAttempting withdrawal of $500.00...\n&quot;);</p>
+<p>    if (withdraw(&amp;userAcc, 500.00)) {</p>
+<p>        printf(&quot;Withdrawal approved!\n&quot;);</p>
+<p>    } else {</p>
+<p>        printf(&quot;Withdrawal declined due to insufficient funds.\n&quot;);</p>
+<p>    }</p>
+
+<p>    displayAccount(&amp;userAcc);</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h3>Compiling Multi-file Projects via GCC Command Line</h3>
+<pre><code class="language-bash"># Compile all C source files together into a single executable binary
+<p>gcc -Wall -Wextra -std=c11 main.c bank.c -o banking_app</p>
+
+<h1>Run Executable:</h1>
+<p>./banking_app</code></pre></p>
+
+<h2>🔍 Code Breakdown & Linking Process</h2>
+
+<p>1. <strong>Preprocessing:</strong> <code>#include "bank.h"</code> in both <code>main.c</code> and <code>bank.c</code> copies the contents of <code>bank.h</code> into the translation unit before compilation.</p>
+<p>2. <strong>Compilation:</strong> <code>gcc -c main.c</code> and <code>gcc -c bank.c</code> compile <code>.c</code> source files independently into machine object code files <code>main.o</code> and <code>bank.o</code>.</p>
+<p>3. <strong>Linking:</strong> The <strong>Linker</strong> binds function calls in <code>main.o</code> (like <code>withdraw()</code>) to their matching function definition memory addresses inside <code>bank.o</code>, creating the final <code>banking_app</code> binary.</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- MODULAR BANKING SYSTEM ---
+<p>ID: #501 | Name: Vikram Seth    | Balance: $2500.00</p>
+
+<p>Attempting withdrawal of $500.00...</p>
+<p>Withdrawal approved!</p>
+<p>ID: #501 | Name: Vikram Seth    | Balance: $2000.00</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Including <code>.c</code> Files Instead of <code>.h</code> Files:</strong> Writing <code>#include "bank.c"</code> in <code>main.c</code>. Including source files directly causes duplicate symbol definition errors during linking! Always <code>#include</code> header files (<code>.h</code>), never <code>.c</code> files.</li></p>
+<p>  <li><strong>Missing Header Guards:</strong> Forgetting <code>#ifndef BANK_H</code> in header files. If multiple source files include <code>bank.h</code>, the compiler sees duplicate struct definitions and throws compilation errors.</li></p>
+<p>  <li><strong>Forgetting to Pass All <code>.c</code> Files to GCC:</strong> Running <code>gcc main.c -o app</code> without including <code>bank.c</code> causes Linker errors (<code>undefined reference to 'withdraw'</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Simple Makefile for Multi-file Build Automation</h2>
+
+<p>A <strong>Makefile</strong> automates compiling multi-file projects so you don't have to type long <code>gcc</code> commands manually:</p>
+
+<p>``<code>makefile</p>
+<h1>Makefile</h1>
+<p>CC = gcc</p>
+<p>CFLAGS = -Wall -Wextra -std=c11</p>
+
+<p>all: banking_app</p>
+
+<p>banking_app: main.o bank.o</p>
+<p>	$(CC) $(CFLAGS) main.o bank.o -o banking_app</p>
+
+<p>main.o: main.c bank.h</p>
+<p>	$(CC) $(CFLAGS) -c main.c</p>
+
+<p>bank.o: bank.c bank.h</p>
+<p>	$(CC) $(CFLAGS) -c bank.c</p>
+
+<p>clean:</p>
+<p>	rm -f *.o banking_app</p>
+<p></code>`<code></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Every major C library (OpenGL, SQLite, GTK, Linux Kernel drivers) uses multi-file architecture with public </code>.h<code> header interface files and hidden </code>.c<code> source implementations.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a </code>math_utils.h<code> header file containing prototype </code>int square(int x);<code>.</p>
+<p>2. Create </code>math_utils.c<code> with the definition.</p>
+<p>3. Create </code>main.c<code> that includes </code>math_utils.h<code>, calls </code>square(5)<code>, and print the result. Compile all files together.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Build a multi-file student grade project:</p>
+<ul>
+<p>  <li></code>student.h<code>: Contains </code>typedef struct Student<code> and function prototypes.</li></p>
+<p>  <li></code>student.c<code>: Contains functions to initialize student and calculate letter grade.</li></p>
+<p>  <li></code>main.c`: Tests creating multiple students and printing their final report.</li></p>
+<p></ul></p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-functions.html">Functions</a></li></p>
+<p>  <li><a href="14-structures.html">Structures</a></li></p>
+<p>  <li><a href="18-preprocessor-and-macros.html">Preprocessor and Macros</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="20-command-line-arguments.html">← Previous: CLI Arguments</a> | <a href="22-error-handling.html">Next: Error Handling →</a></p>
+
+
+
+  </div>
+</body>
+</html>

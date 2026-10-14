@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 error handling - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Error Handling & Debugging (<code>errno</code>, <code>perror</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>C does <strong>not</strong> possess built-in high-level exception handling constructs (such as <code>try-catch</code> blocks found in Java or C++). <strong>Error Handling</strong> in C relies on checking function return values, evaluating global system error codes declared in <code><errno.h></code>, and printing human-readable diagnostics using <code>perror()</code> and <code>strerror()</code>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>C handles runtime errors using explicit function return values (e.g. returning <code>NULL</code>, <code>-1</code>, or <code>0</code> for success). When system calls or standard C library functions fail, they set the global integer variable <code>errno</code> declared in <code><errno.h></code>. <code>perror("msg")</code> prints a custom descriptive message followed by the system error string corresponding to <code>errno</code>. <code>strerror(errno)</code> from <code><string.h></code> returns the error message string directly.</p>
+
+<h3>Hindi</h3>
+<p>C mein <code>try-catch</code> exception handling nahi hoti. Errors ko handle karne ke liye functions return status values (jaise <code>NULL</code> ya <code>-1</code>) check karte hain. Jab koi system call fail hota hai toh woh <code><errno.h></code> ke global variable <code>errno</code> mein error code set karta hai. <code>perror("msg")</code> human-readable system error message print karta hai. <code>strerror(errno)</code> error description string return karta hai.</p>
+
+<h3>Marathi</h3>
+<p>C madhye <code>try-catch</code> sarkhe exception mechanisms nasatat. Function cha return value (jase <code>NULL</code> kiva <code>-1</code>) pahun error samajhto. System call fail jhalyas <code><errno.h></code> madhil <code>errno</code> variable madhye error code sathavla jato. Error cha arth samjhanysathi <code>perror()</code> kiva <code>strerror(errno)</code> vaparatat.</p>
+
+<h3>Hinglish</h3>
+<p>C language defensive programming strategy follow karti hai. Standard functions (<code>fopen</code>, <code>malloc</code>, <code>scanf</code>) ka return value hamesha validate karein. Failing system calls <code>errno</code> set karte hain. Diagnostic errors console par print karne ke liye <code>perror("Error Description")</code> use karo. Compilation warnings catch karne ke liye <code>-Wall -Wextra</code> flags use karo.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Production applications operate in unpredictable real-world environments: files may be missing, network connections may drop, disk drives may run out of space, and memory allocations may fail. Without error handling, software crashes unexpectedly or causes silent data corruption.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of C error handling like driving a car with dashboard warning lights:</p>
+<ul>
+<p>  <li>Every system function (<code>fopen</code>, <code>malloc</code>) checks its engine status and returns a status flag (<code>0</code> for green, <code>1</code> or <code>NULL</code> for red warning).</li></p>
+<p>  <li>If something breaks, the system sets an error code in <code>errno</code> (like a OBD diagnostic error code <code>EACCES</code> for permission denied).</li></p>
+<p>  <li>Calling <code>perror("File Error")</code> decodes the numerical error code into plain English for the driver to read on screen.</li></p>
+<p></ul></p>
+
+<h2>📝 Key Error Handling Functions & Identifiers</h2>
+
+<table>
+<p>  <thead><tr><th>Function / Identifier</th><th>Header File</th><th>Purpose</th><th>Example / Notes</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>errno</code></td><td><code><errno.h></code></td><td>Global integer variable holding last system error code</td><td>Set by failed library functions (<code>ENOENT</code>, <code>EACCES</code>)</td></tr></p>
+<p>    <tr><td><code>perror(const char *s)</code></td><td><code><stdio.h></code></td><td>Prints custom string <code>s</code> followed by system error text</td><td><code>perror("File open failed")</code></td></tr></p>
+<p>    <tr><td><code>strerror(int errnum)</code></td><td><code><string.h></code></td><td>Returns string pointer for a given <code>errno</code> integer</td><td><code>printf("Error: %s\n", strerror(errno))</code></td></tr></p>
+<p>    <tr><td><code>EXIT_SUCCESS</code></td><td><code><stdlib.h></code></td><td>Macro integer constant representing clean exit (<code>0</code>)</td><td><code>return EXIT_SUCCESS;</code></td></tr></p>
+<p>    <tr><td><code>EXIT_FAILURE</code></td><td><code><stdlib.h></code></td><td>Macro integer constant representing error exit (<code>1</code>)</td><td><code>return EXIT_FAILURE;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical file processor program demonstrating explicit return status checking, <code>errno</code> inspection, <code>perror()</code>, and <code>strerror()</code> error reporting:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;errno.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+
+<p>// Function with explicit error code return convention</p>
+<p>// Returns 0 for success, non-zero error code for failure</p>
+<p>int processDataFile(const char *filepath) {</p>
+<p>    errno = 0; // Reset global errno before operation</p>
+
+<p>    FILE *fp = fopen(filepath, &quot;r&quot;);</p>
+<p>    if (fp == NULL) {</p>
+<p>        // 1. Logging system error using perror</p>
+<p>        perror(&quot;perror report [processDataFile]&quot;);</p>
+
+<p>        // 2. Logging specific system error string using strerror(errno)</p>
+<p>        fprintf(stderr, &quot;strerror report: Failed to open &#39;%s&#39; - Code %d: %s\n&quot;,</p>
+<p>                filepath, errno, strerror(errno));</p>
+
+<p>        // 3. Inspecting specific errno constants</p>
+<p>        if (errno == ENOENT) {</p>
+<p>            fprintf(stderr, &quot;Diagnostic: File does not exist on disk.\n&quot;);</p>
+<p>        } else if (errno == EACCES) {</p>
+<p>            fprintf(stderr, &quot;Diagnostic: Permission denied to access file.\n&quot;);</p>
+<p>        }</p>
+
+<p>        return EXIT_FAILURE;</p>
+<p>    }</p>
+
+<p>    printf(&quot;File &#39;%s&#39; opened successfully! Processing contents...\n&quot;, filepath);</p>
+<p>    fclose(fp);</p>
+<p>    return EXIT_SUCCESS;</p>
+<p>}</p>
+
+<p>int main(void) {</p>
+<p>    printf(&quot;--- C ERROR HANDLING DEMONSTRATION ---\n&quot;);</p>
+
+<p>    // 1. Attempting to open a non-existent file</p>
+<p>    printf(&quot;1. Testing Non-Existent File Path:\n&quot;);</p>
+<p>    int status1 = processDataFile(&quot;non_existent_file_999.txt&quot;);</p>
+<p>    printf(&quot;Operation Status Code: %d\n\n&quot;, status1);</p>
+
+<p>    // 2. Dynamic Memory Allocation Error Handling</p>
+<p>    printf(&quot;2. Testing Heap Memory Allocation Error Handling:\n&quot;);</p>
+<p>    size_t hugeSize = (size_t)-1; // Attempt to allocate impossibly huge size (e.g. 18 Exabytes)</p>
+<p>    </p>
+<p>    int *hugeBuffer = malloc(hugeSize);</p>
+<p>    if (hugeBuffer == NULL) {</p>
+<p>        perror(&quot;perror report [malloc failure]&quot;);</p>
+<p>        fprintf(stderr, &quot;strerror report: Heap allocation failed - %s\n&quot;, strerror(errno));</p>
+<p>    } else {</p>
+<p>        free(hugeBuffer);</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>errno = 0;</code>: Resets global error code variable before making system library calls.</li></p>
+<p>  <li><code>if (fp == NULL)</code>: Standard C idiom for detecting file opening failures.</li></p>
+<p>  <li><code>perror("perror report")</code>: Automatically looks up the current integer value in <code>errno</code> and prints <code>perror report: No such file or directory</code> directly to standard error stream (<code>stderr</code>).</li></p>
+<p>  <li><code>strerror(errno)</code>: Returns a pointer to the human-readable string describing <code>errno</code> (<code>"No such file or directory"</code> or <code>"Cannot allocate memory"</code>).</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- C ERROR HANDLING DEMONSTRATION ---
+<p>1. Testing Non-Existent File Path:</p>
+<p>perror report [processDataFile]: No such file or directory</p>
+<p>strerror report: Failed to open &#39;non_existent_file_999.txt&#39; - Code 2: No such file or directory</p>
+<p>Diagnostic: File does not exist on disk.</p>
+<p>Operation Status Code: 1</p>
+
+<p>2. Testing Heap Memory Allocation Error Handling:</p>
+<p>perror report [malloc failure]: Cannot allocate memory</p>
+<p>strerror report: Heap allocation failed - Cannot allocate memory</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Ignoring Return Values:</strong> Assuming functions like <code>fopen()</code>, <code>malloc()</code>, or <code>scanf()</code> will always succeed without checking return values. If <code>malloc</code> fails and returns <code>NULL</code>, accessing <code>ptr[0]</code> immediately crashes the program!</li></p>
+<p>  <li><strong>Checking <code>errno</code> Without Checking Return Value:</strong> Reading <code>errno</code> when a library function succeeded. Many C library functions do NOT reset <code>errno</code> to <code>0</code> on success, so <code>errno</code> may hold leftover error numbers from previous failed operations! Only inspect <code>errno</code> after a function explicitly returns an error status.</li></p>
+<p>  <li><strong>Printing Error Logs to <code>stdout</code> instead of <code>stderr</code>:</strong> Printing error diagnostics using <code>printf()</code> instead of standard error stream <code>fprintf(stderr, ...)</code> or <code>perror()</code>. Using <code>stderr</code> ensures error logs are captured cleanly even when standard output is redirected in shell scripts.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Defensive Programming & Compiler Debug Flags</h2>
+
+<p>Always compile with strict warning flags enabled during development to let the compiler catch potential bugs, uninitialized variables, format specifier mismatches, and dead code:</p>
+
+<pre><code class="language-bash"># Enable strict compiler warnings
+<p>gcc -Wall -Wextra -Wpedantic -std=c11 program.c -o program</code></pre></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Error handling powers industrial operating systems, financial database transactions, cloud microservices, aerospace navigation control systems, and embedded network daemons.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function <code>double safeDivide(double num, double den, int *errCode)</code> that sets <code>*errCode = 1</code> if <code>den == 0.0</code> and returns <code>0.0</code>; otherwise sets <code>*errCode = 0</code> and returns division result.</p>
+<p>2. Test it in <code>main()</code> with division by zero.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that prompts the user for a filename, opens it using <code>fopen()</code>, reads its contents line by line, and uses <code>errno</code> and <code>perror()</code> to handle and log errors if the file is missing or unreadable.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
+<p>  <li><a href="13-dynamic-memory-allocation.html">Dynamic Memory Allocation</a></li></p>
+<p>  <li><a href="20-command-line-arguments.html">Command Line Arguments</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="21-multi-file-projects.html">← Previous: Multi-file Projects</a> | <a href="23-mini-projects.html">Next: Mini Projects →</a></p>
+
+
+
+  </div>
+</body>
+</html>

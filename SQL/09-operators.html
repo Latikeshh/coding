@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 operators - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Operators in SQL</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>SQL Operators</strong> are reserved keywords and mathematical symbols used in SQL statements (primarily in <code>WHERE</code> clauses and <code>SELECT</code> lists) to perform comparison checks, arithmetic calculations, logical evaluations, inclusive range matching, list membership tests, and wildcard pattern searching.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>SQL mein data compare karne, calculations karne, aur complex filtering ke liye <strong>Operators</strong> ka use hota hai:</p>
+<ul>
+<p>  <li><strong>Comparison Operators:</strong> <code>=</code>, <code><></code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code> (values compare karne ke liye).</li></p>
+<p>  <li><strong>Logical Operators:</strong> <code>AND</code>, <code>OR</code>, <code>NOT</code> (multiple conditions combine karne ke liye).</li></p>
+<p>  <li><strong>Arithmetic Operators:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (math calculations ke liye).</li></p>
+<p>  <li><strong>Range & Membership:</strong> <code>BETWEEN</code> (inclusive range) aur <code>IN</code> (list option search).</li></p>
+<p>  <li><strong>Pattern Matching:</strong> <code>LIKE</code> (wildcards <code>%</code> aur <code>_</code> ke saath text search karne ke liye).</li></p>
+<p>  <li><strong>NULL Checks:</strong> <code>IS NULL</code> aur <code>IS NOT NULL</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Data filtering aani calculations sathi <strong>SQL Operators</strong> vaparatat:</p>
+<ul>
+<p>  <li><strong>Comparison Operators:</strong> <code>=</code>, <code><></code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code> (values nividnyasathi).</li></p>
+<p>  <li><strong>Logical Operators:</strong> <code>AND</code>, <code>OR</code>, <code>NOT</code> (ekahun adhik conditions ekatra karnyasathi).</li></p>
+<p>  <li><strong>Arithmetic Operators:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (ganitiya kriyansathi).</li></p>
+<p>  <li><strong>Range & Membership:</strong> <code>BETWEEN</code> (range madhil data) aani <code>IN</code> (yadi madhil data).</li></p>
+<p>  <li><strong>Pattern Matching:</strong> <code>LIKE</code> (<code>%</code> aani <code>_</code> wildcards cha wapar karun text shodhnyasathi).</li></p>
+<p>  <li><strong>NULL Checks:</strong> <code>IS NULL</code> aani <code>IS NOT NULL</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Without operators, database queries would be limited to fetching entire uncalculated, unfiltered tables. Operators allow you to:</p>
+
+<ul>
+<p>  <li>Build dynamic, real-world business logic (e.g., finding items priced under $50 with active stock).</li></p>
+<p>  <li>Calculate totals, discounts, taxes, and margins on the fly without modifying raw table data.</li></p>
+<p>  <li>Search for partial keywords typed by users in search bars (<code>LIKE '%keyboard%'</code>).</li></p>
+<p>  <li>Filter records across multiple allowed category options using <code>IN ('Electronics', 'Furniture')</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: The E-Commerce Search Toolbox</h2>
+
+<p>Think of SQL Operators as the <strong>Filtering & Calculation Toolbox on an E-Commerce Website</strong>:</p>
+
+<pre><code class="language-text">┌───────────────────────────┬──────────────────────────────────────────────────────┐
+<p>│ E-Commerce UI Widget      │ SQL Operator Equivalent                              │</p>
+<p>├───────────────────────────┼──────────────────────────────────────────────────────┤</p>
+<p>│ Price Threshold Slider    │ Comparison: WHERE price &lt;= 5000.00                   │</p>
+<p>│ Price Range Selection     │ Range: WHERE price BETWEEN 1000.00 AND 15000.00      │</p>
+<p>│ Multi-Category Checkboxes │ Membership: WHERE category IN (&#39;Electronics&#39;, &#39;Books&#39;)│</p>
+<p>│ Search Bar Keyword Input  │ Pattern: WHERE item_name LIKE &#39;%Wireless%&#39;          │</p>
+<p>│ Discounted Price Tag      │ Arithmetic: SELECT price * 0.85 AS sale_price        │</p>
+<p>└───────────────────────────┴──────────────────────────────────────────────────────┘</code></pre></p>
+
+<p>---</p>
+
+<h2>🔢 1. Comparison Operators</h2>
+
+<p>Comparison operators compare two scalar values and return a boolean truth value (<code>TRUE</code>, <code>FALSE</code>, or <code>UNKNOWN</code>):</p>
+
+<table>
+<p>  <thead><tr><th>Operator</th><th>Standard / Dialect</th><th>Meaning</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>=</code></strong></td><td>ISO Standard</td><td>Equal to</td><td><code>WHERE price = 1200.00</code></td></tr></p>
+<p>    <tr><td><strong><code><></code></strong></td><td>ISO Standard</td><td>Not equal to (Standard SQL)</td><td><code>WHERE category <> 'Kitchen'</code></td></tr></p>
+<p>    <tr><td><strong><code>!=</code></strong></td><td>Supported in MySQL / Postgres</td><td>Not equal to (Popular non-standard alias)</td><td><code>WHERE category != 'Kitchen'</code></td></tr></p>
+<p>    <tr><td><strong><code>></code></strong></td><td>ISO Standard</td><td>Greater than</td><td><code>WHERE stock_quantity > 20</code></td></tr></p>
+<p>    <tr><td><strong><code><</code></strong></td><td>ISO Standard</td><td>Less than</td><td><code>WHERE price < 1000.00</code></td></tr></p>
+<p>    <tr><td><strong><code>>=</code></strong></td><td>ISO Standard</td><td>Greater than or equal to</td><td><code>WHERE price >= 4500.00</code></td></tr></p>
+<p>    <tr><td><strong><code><=</code></strong></td><td>ISO Standard</td><td>Less than or equal to</td><td><code>WHERE stock_quantity <= 15</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🔀 2. Logical Operators & Precedence (<code>AND</code>, <code>OR</code>, <code>NOT</code>)</h2>
+
+<p>Logical operators combine or invert boolean comparison expressions:</p>
+
+<ul>
+<p>  <li><strong><code>AND</code>:</strong> Returns <code>TRUE</code> only if <strong>all</strong> combined conditions evaluate to <code>TRUE</code>.</li></p>
+<p>  <li><strong><code>OR</code>:</strong> Returns <code>TRUE</code> if <strong>at least one</strong> condition evaluates to <code>TRUE</code>.</li></p>
+<p>  <li><strong><code>NOT</code>:</strong> Inverts the truth state of a condition (<code>TRUE</code> becomes <code>FALSE</code>).</li></p>
+<p></ul></p>
+
+<blockquote><p>🚨 <strong>Precedence Reminder:</strong> <code>AND</code> has higher execution precedence than <code>OR</code>. Always use parentheses <code>()</code> to enforce exact evaluation logic when combining <code>AND</code> and <code>OR</code> conditions!</p></blockquote>
+<blockquote><p>> Example: <code>WHERE (category = 'Electronics' OR category = 'Furniture') AND price < 10000.00</code></p></blockquote>
+
+<p>---</p>
+
+<h2>➕ 3. Arithmetic Operators</h2>
+
+<p>Arithmetic operators perform mathematical calculations directly inside <code>SELECT</code> lists or <code>WHERE</code> clauses:</p>
+
+<table>
+<p>  <thead><tr><th>Operator</th><th>Operation</th><th>Example Calculation</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>+</code></strong></td><td>Addition</td><td><code>SELECT price + 50.00 AS price_with_shipping</code></td></tr></p>
+<p>    <tr><td><strong><code>-</code></strong></td><td>Subtraction</td><td><code>SELECT price - 100.00 AS discounted_price</code></td></tr></p>
+<p>    <tr><td>**<code>*</code>**</td><td>Multiplication</td><td><code>SELECT price * stock_quantity AS total_inventory_value</code></td></tr></p>
+<p>    <tr><td><strong><code>/</code></strong></td><td>Division</td><td><code>SELECT price / 2 AS half_price</code></td></tr></p>
+<p>    <tr><td><strong><code>%</code></strong> / <strong><code>MOD</code></strong></td><td>Modulus (Remainder)</td><td><code>SELECT stock_quantity % 10 AS remaining_units</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>📌 <strong>Important Rule:</strong> Arithmetic expressions evaluated in a <code>SELECT</code> statement create dynamic result columns in memory. They do <strong>not</strong> permanently alter the raw numeric values stored in database tables on disk!</p></blockquote>
+
+<p>---</p>
+
+<h2>🎯 4. Range & Membership Operators: <code>BETWEEN</code> and <code>IN</code></h2>
+
+<h3>A. Range Operator (<code>BETWEEN min AND max</code>)</h3>
+<p>Filters values within a specified boundary range, <strong>inclusive of both minimum and maximum endpoints</strong>:</p>
+
+<pre><code class="language-sql">SELECT item_name, price
+<p>FROM store_inventory</p>
+<p>WHERE price BETWEEN 1000.00 AND 15000.00;</p>
+<p>-- Inclusive: Matches items priced at exactly 1000.00, 15000.00, and everything in between!</code></pre></p>
+
+<h3>B. List Membership Operator (<code>IN (value1, value2, ...)</code>)</h3>
+<p>Matches a column value against a discrete list of allowed choices:</p>
+
+<pre><code class="language-sql">SELECT item_name, category
+<p>FROM store_inventory</p>
+<p>WHERE category IN (&#39;Electronics&#39;, &#39;Furniture&#39;);</p>
+<p>-- Equivalent to: WHERE category = &#39;Electronics&#39; OR category = &#39;Furniture&#39;</code></pre></p>
+
+<h3>C. Exclusion Operator (<code>NOT IN (value1, value2, ...)</code>)</h3>
+<p>Excludes matching list items from the result set:</p>
+
+<pre><code class="language-sql">SELECT item_name, category
+<p>FROM store_inventory</p>
+<p>WHERE category NOT IN (&#39;Kitchen&#39;, &#39;Furniture&#39;);</code></pre></p>
+
+<blockquote><p>⚠️ <strong>Critical <code>NULL</code> Caveat for <code>NOT IN</code>:</strong></p></blockquote>
+<blockquote><p>If a list inside <code>NOT IN (val1, val2, NULL)</code> contains a <code>NULL</code> value, any comparison <code>col != NULL</code> yields <code>UNKNOWN</code>, causing <code>NOT IN</code> to <strong>return 0 rows</strong> for non-matching items!</p></blockquote>
+<blockquote><p>- *Safer Pattern:* Ensure the excluded column is <code>NOT NULL</code> or explicitly filter out <code>NULL</code> values: <code>WHERE category NOT IN ('Kitchen', 'Furniture') AND category IS NOT NULL</code>.</p></blockquote>
+
+<p>---</p>
+
+<h2>🔍 5. Pattern Matching Operator (<code>LIKE</code> with Wildcards)</h2>
+
+<p>The <code>LIKE</code> operator performs pattern matching against string text using wildcards:</p>
+
+<ul>
+<p>  <li><strong><code>%</code> Wildcard:</strong> Matches <strong>zero or more</strong> characters.</li></p>
+<p>  <li><strong><code>_</code> Wildcard:</strong> Matches <strong>exactly one</strong> character.</li></p>
+<p></ul></p>
+
+<pre><code class="language-sql">-- 1. Matches text starting with &#39;Wireless&#39; (&#39;Wireless Mouse&#39;, &#39;Wireless Earbuds&#39;)
+<p>SELECT item_name FROM store_inventory WHERE item_name LIKE &#39;Wireless%&#39;;</p>
+
+<p>-- 2. Matches text ending with &#39;Cable&#39; (&#39;USB-C Cable&#39;, &#39;HDMI Cable&#39;)</p>
+<p>SELECT item_name FROM store_inventory WHERE item_name LIKE &#39;%Cable&#39;;</p>
+
+<p>-- 3. Matches text containing &#39;Keyboard&#39; anywhere (&#39;Mechanical Keyboard&#39;, &#39;Gaming Keyboard&#39;)</p>
+<p>SELECT item_name FROM store_inventory WHERE item_name LIKE &#39;%Keyboard%&#39;;</p>
+
+<p>-- 4. Single character wildcard &#39;_&#39; (e.g. &#39;M_use&#39; matches &#39;Mouse&#39;)</p>
+<p>SELECT item_name FROM store_inventory WHERE item_name LIKE &#39;M_use%&#39;;</code></pre></p>
+
+<blockquote><p>🌐 <strong>Collation Note:</strong> In MySQL (with default collations like <code>utf8mb4_0900_ai_ci</code>), <code>LIKE</code> text pattern matching is <strong>case-insensitive</strong> by default (<code>'wireless%'</code> matches <code>'Wireless Mouse'</code>).</p></blockquote>
+
+<p>---</p>
+
+<h2>❓ 6. NULL Checking Operators (<code>IS NULL</code>, <code>IS NOT NULL</code>)</h2>
+
+<p>As covered in Topics 4 and 8, <code>NULL</code> signifies missing or unrecorded information. Because comparing <code>col = NULL</code> or <code>col <> NULL</code> evaluates to <code>UNKNOWN</code> (returning 0 rows), you must use <strong><code>IS NULL</code></strong> or <strong><code>IS NOT NULL</code></strong>:</p>
+
+<pre><code class="language-sql">-- ✅ Correct NULL check syntax:
+<p>SELECT * FROM store_inventory WHERE category IS NULL;</p>
+<p>SELECT * FROM store_inventory WHERE category IS NOT NULL;</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Complete Practical Workflow & Inventory Example</h2>
+
+<p>Let's execute a complete, runnable MySQL-compatible workflow creating a <code>store_inventory</code> table and testing arithmetic calculations, range searches, set membership, and wildcard pattern matching.</p>
+
+<pre><code class="language-sql">-- 1. Create store_inventory table schema
+<p>CREATE TABLE IF NOT EXISTS store_inventory (</p>
+<p>    item_id INT PRIMARY KEY,</p>
+<p>    item_name VARCHAR(100) NOT NULL,</p>
+<p>    category VARCHAR(50) NOT NULL,</p>
+<p>    price DECIMAL(10, 2) NOT NULL,</p>
+<p>    stock_quantity INT NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample inventory records using explicit column syntax</p>
+<p>INSERT INTO store_inventory (item_id, item_name, category, price, stock_quantity)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Gaming Laptop&#39;, &#39;Electronics&#39;, 75000.00, 15),</p>
+<p>    (2, &#39;Wireless Mouse&#39;, &#39;Electronics&#39;, 1200.00, 50),</p>
+<p>    (3, &#39;Mechanical Keyboard&#39;, &#39;Electronics&#39;, 4500.00, 25),</p>
+<p>    (4, &#39;Ergonomic Chair&#39;, &#39;Furniture&#39;, 12500.00, 8),</p>
+<p>    (5, &#39;Coffee Mug&#39;, &#39;Kitchen&#39;, 350.00, 100),</p>
+<p>    (6, &#39;USB-C Cable&#39;, &#39;Electronics&#39;, 499.00, 0);</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 1: Range Searching Using <code>BETWEEN 1000 AND 15000</code></h3>
+
+<pre><code class="language-sql">SELECT item_name, price
+<p>FROM store_inventory</p>
+<p>WHERE price BETWEEN 1000.00 AND 15000.00;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+---------------------+----------+
+<table>
+<p>  <thead><tr><th>item_name</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+----------+</p>
+<table>
+<p>  <thead><tr><th>Wireless Mouse</th><th>1200.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Mechanical Keyboard</td><td>4500.00</td></tr></p>
+<p>    <tr><td>Ergonomic Chair</td><td>12500.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+----------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 2: Set Membership Search Using <code>IN ('Electronics', 'Furniture')</code></h3>
+
+<pre><code class="language-sql">SELECT item_name, category, price
+<p>FROM store_inventory</p>
+<p>WHERE category IN (&#39;Electronics&#39;, &#39;Furniture&#39;);</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+---------------------+-------------+----------+
+<table>
+<p>  <thead><tr><th>item_name</th><th>category</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+-------------+----------+</p>
+<table>
+<p>  <thead><tr><th>Gaming Laptop</th><th>Electronics</th><th>75000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Wireless Mouse</td><td>Electronics</td><td>1200.00</td></tr></p>
+<p>    <tr><td>Mechanical Keyboard</td><td>Electronics</td><td>4500.00</td></tr></p>
+<p>    <tr><td>Ergonomic Chair</td><td>Furniture</td><td>12500.00</td></tr></p>
+<p>    <tr><td>USB-C Cable</td><td>Electronics</td><td>499.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+-------------+----------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 3: Pattern Matching with <code>LIKE 'Wireless%' OR LIKE '%Cable'</code></h3>
+
+<pre><code class="language-sql">SELECT item_name, price
+<p>FROM store_inventory</p>
+<p>WHERE item_name LIKE &#39;Wireless%&#39; OR item_name LIKE &#39;%Cable&#39;;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+----------------+---------+
+<table>
+<p>  <thead><tr><th>item_name</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+---------+</p>
+<table>
+<p>  <thead><tr><th>Wireless Mouse</th><th>1200.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>USB-C Cable</td><td>499.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+---------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 4: Arithmetic Total Inventory Valuation (<code>price * stock_quantity</code>)</h3>
+
+<pre><code class="language-sql">SELECT 
+<p>    item_name,</p>
+<p>    price,</p>
+<p>    stock_quantity,</p>
+<p>    price * stock_quantity AS inventory_valuation</p>
+<p>FROM store_inventory;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+---------------------+----------+----------------+---------------------+
+<table>
+<p>  <thead><tr><th>item_name</th><th>price</th><th>stock_quantity</th><th>inventory_valuation</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+----------+----------------+---------------------+</p>
+<table>
+<p>  <thead><tr><th>Gaming Laptop</th><th>75000.00</th><th>15</th><th>1125000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Wireless Mouse</td><td>1200.00</td><td>50</td><td>60000.00</td></tr></p>
+<p>    <tr><td>Mechanical Keyboard</td><td>4500.00</td><td>25</td><td>112500.00</td></tr></p>
+<p>    <tr><td>Ergonomic Chair</td><td>12500.00</td><td>8</td><td>100000.00</td></tr></p>
+<p>    <tr><td>Coffee Mug</td><td>350.00</td><td>100</td><td>35000.00</td></tr></p>
+<p>    <tr><td>USB-C Cable</td><td>499.00</td><td>0</td><td>0.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+----------+----------------+---------------------+</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Using <code>=</code> Instead of <code>LIKE</code> with Wildcards</strong></td><td>Writing <code>WHERE item_name = 'Wireless%'</code> searches for the literal string <code>'Wireless%'</code>.</td><td>Use the <code>LIKE</code> operator when using <code>%</code> or <code>_</code> wildcards: <code>WHERE item_name LIKE 'Wireless%'</code>.</td></tr></p>
+<p>    <tr><td><strong>Assuming <code>BETWEEN</code> Excludes Boundaries</strong></td><td>Assuming <code>BETWEEN 1000 AND 5000</code> excludes 1000 or 5000.</td><td>Remember that <code>BETWEEN</code> is <strong>inclusive</strong> of both minimum and maximum boundary endpoints.</td></tr></p>
+<p>    <tr><td><strong><code>NOT IN</code> List Containing <code>NULL</code> Values</strong></td><td>Using <code>WHERE col NOT IN ('A', 'B', NULL)</code> returns 0 rows.</td><td>Avoid <code>NULL</code> values inside <code>NOT IN</code> lists or explicitly filter <code>AND col IS NOT NULL</code>.</td></tr></p>
+<p>    <tr><td><strong>Forgetting Logical Precedence (<code>AND</code> vs <code>OR</code>)</strong></td><td>Combining <code>AND</code> and <code>OR</code> without parentheses alters intended logic.</td><td>Wrap grouped conditions in explicit parentheses: <code>(cond1 OR cond2) AND cond3</code>.</td></tr></p>
+<p>    <tr><td><strong>Using <code>= NULL</code> Instead of <code>IS NULL</code></strong></td><td>Comparing <code>col = NULL</code> yields <code>UNKNOWN</code> (returning 0 rows).</td><td>Always use <code>IS NULL</code> or <code>IS NOT NULL</code> for missing data checks.</td></tr></p>
+<p>    <tr><td><strong>Expecting Arithmetic to Update Stored Records</strong></td><td>Expecting <code>SELECT price * 0.90</code> to change database values on disk.</td><td>Use <code>UPDATE store_inventory SET price = price * 0.90;</code> to alter table records permanently.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Search Engines:</strong> Combining <code>LIKE '%search_term%'</code> with category filters <code>IN (...)</code> and price sliders <code>BETWEEN min AND max</code>.</li></p>
+<p>  <li><strong>Financial Accounting:</strong> Running <code>SELECT SUM(amount * tax_rate) FROM transactions</code> to calculate monthly tax liabilities dynamically.</li></p>
+<p>  <li><strong>Inventory Logistics:</strong> Querying <code>WHERE stock_quantity <= reorder_level</code> to trigger automated restocking alerts.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Range Filtering</h3>
+<p>Write an SQL query to select all inventory items whose <code>stock_quantity</code> is <strong>between <code>10</code> and <code>50</code></strong>, inclusive.</p>
+
+<h3>Exercise 2: Wildcard Search</h3>
+<p>Write a query to find all inventory item names that contain the word <code>'Keyboard'</code> using the <code>LIKE</code> operator with wildcards.</p>
+
+<h3>Exercise 3: Arithmetic Discount Calculation</h3>
+<p>Write a query displaying <code>item_name</code>, <code>price</code>, and a calculated discounted price column (<code>price * 0.85</code>) aliased as <code>sale_price</code> for all items in the <code>'Electronics'</code> category.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write an SQL query to find all inventory items whose category is <strong>neither</strong> <code>'Kitchen'</code> <strong>nor</strong> <code>'Furniture'</code> <strong>AND</strong> whose price is less than <code>50000.00</code>.</p>
+
+<p>Enforce explicit evaluation grouping using parentheses <code>()</code>.</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">SELECT item_name, stock_quantity 
+<p>FROM store_inventory </p>
+<p>WHERE stock_quantity BETWEEN 10 AND 50;</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<pre><code class="language-sql">SELECT item_name, price 
+<p>FROM store_inventory </p>
+<p>WHERE item_name LIKE &#39;%Keyboard%&#39;;</code></pre></p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">SELECT item_name, price, price * 0.85 AS sale_price 
+<p>FROM store_inventory </p>
+<p>WHERE category = &#39;Electronics&#39;;</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">SELECT item_name, category, price
+<p>FROM store_inventory</p>
+<p>WHERE (category NOT IN (&#39;Kitchen&#39;, &#39;Furniture&#39;))</p>
+<p>  AND price &lt; 50000.00;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+---------------------+-------------+---------+
+<table>
+<p>  <thead><tr><th>item_name</th><th>category</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+-------------+---------+</p>
+<table>
+<p>  <thead><tr><th>Wireless Mouse</th><th>Electronics</th><th>1200.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Mechanical Keyboard</td><td>Electronics</td><td>4500.00</td></tr></p>
+<p>    <tr><td>USB-C Cable</td><td>Electronics</td><td>499.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+-------------+---------+</code></pre></p>
+
+<p>*(Note: <code>Gaming Laptop</code> is excluded because its price <code>75000.00</code> exceeds <code>50000.00</code>).*</p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
+<p>  <li><a href="08-where.html">Filtering Data with <code>WHERE</code></a></li></p>
+<p>  <li><a href="10-order-by-and-limit.html">Sorting & Limiting Results (<code>ORDER BY</code>, <code>LIMIT</code>)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="08-where.html">← Previous: Filtering with WHERE</a> | <a href="./">SQL Home</a> | <a href="10-order-by-and-limit.html">Next: Sorting & Limiting Results →</a></p>
+
+  </div>
+</body>
+</html>

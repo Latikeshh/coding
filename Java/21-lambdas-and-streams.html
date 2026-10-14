@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lambdas and Streams - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Lambdas and Streams in Java</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Lambda Expression:</strong> A concise, anonymous function syntax <code>(parameters) -> { body }</code> introduced in Java 8 that implements a Functional Interface (<code>@FunctionalInterface</code>).</li></p>
+<p>  <li><strong>Stream API (<code>java.util.stream</code>):</strong> A declarative, functional processing pipeline for filtering, mapping, sorting, aggregating, and collecting sequences of elements from data sources (like Collections or Arrays).</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Lambda expressions code ko short aur readable banati hain. <strong>Stream API</strong> data collections par declarative functional processing (jaise <code>.filter()</code>, <code>.map()</code>, <code>.sorted()</code>, <code>.collect()</code>) karne ke liye use hoti hai, bina manual <code>for</code> loops likhe.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Lambda mhanje lahan anonymous function. Stream API mulamajhi collections varti <code>.filter()</code>, <code>.map()</code>, <code>.collect()</code> sarkhya declarative kriya karta yetat.</p>
+
+<h2>📝 1. Core Built-In Functional Interfaces</h2>
+
+<p>Java provides 4 primary built-in functional interfaces in <code>java.util.function</code>:</p>
+
+<table>
+<p>  <thead><tr><th>Interface</th><th>Method Signature</th><th>Purpose</th><th>Example Lambda</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>Predicate<T></code></td><td><code>boolean test(T t)</code></td><td>Evaluates a condition</td><td><code>x -> x > 50</code></td></tr></p>
+<p>    <tr><td><code>Function<T, R></code></td><td><code>R apply(T t)</code></td><td>Transforms input <code>T</code> to output <code>R</code></td><td><code>s -> s.length()</code></td></tr></p>
+<p>    <tr><td><code>Consumer<T></code></td><td><code>void accept(T t)</code></td><td>Consumes input (no return)</td><td><code>x -> System.out.println(x)</code></td></tr></p>
+<p>    <tr><td><code>Supplier<T></code></td><td><code>T get()</code></td><td>Generates/supplies a value</td><td><code>() -> Math.random()</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Method References (<code>Class::method</code>)</h2>
+
+<p>Shorthand syntax for lambdas that simply pass arguments directly to an existing method:</p>
+
+<ul>
+<p>  <li><code>String::toUpperCase</code> (Replaces <code>s -> s.toUpperCase()</code>)</li></p>
+<p>  <li><code>System.out::println</code> (Replaces <code>x -> System.out.println(x)</code>)</li></p>
+<p>  <li><code>Integer::parseInt</code> (Replaces <code>str -> Integer.parseInt(str)</code>)</li></p>
+<p></ul></p>
+
+<h2>📝 3. Stream Processing Pipeline Pipeline</h2>
+
+<p>A Stream pipeline consists of 3 stages:</p>
+
+<p>1. <strong>Source:</strong> <code>list.stream()</code></p>
+<p>2. <strong>Intermediate Operations (Lazy):</strong> <code>.filter()</code>, <code>.map()</code>, <code>.sorted()</code>, <code>.distinct()</code>, <code>.limit()</code></p>
+<p>3. <strong>Terminal Operation (Eager Trigger):</strong> <code>.collect()</code>, <code>.reduce()</code>, <code>.count()</code>, <code>.forEach()</code>, <code>.anyMatch()</code></p>
+
+<pre><code class="language-text">Collection Data Source
+<p>         │</p>
+<p>         ▼</p>
+<p>  stream()</p>
+<p>         │</p>
+<p>         ▼</p>
+<p>.filter(p -&gt; p.isStock())  &lt;-- Intermediate Operation (Lazy)</p>
+<p>         │</p>
+<p>         ▼</p>
+<p>  .map(p -&gt; p.getPrice())  &lt;-- Intermediate Operation (Lazy)</p>
+<p>         │</p>
+<p>         ▼</p>
+<p> .collect(toList())        &lt;-- Terminal Operation (Executes Pipeline!)</code></pre></p>
+
+<h2>💡 Complete Example: Employee Salary Analytics with Streams</h2>
+
+<pre><code class="language-java">import java.util.*;
+<p>import java.util.stream.Collectors;</p>
+
+<p>public class StreamMaster {</p>
+
+<p>    record Employee(int id, String name, String department, double salary) {}</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        List&lt;Employee&gt; employees = List.of(</p>
+<p>            new Employee(101, &quot;Aarav Sharma&quot;, &quot;Engineering&quot;, 95000.00),</p>
+<p>            new Employee(102, &quot;Sneha Kapoor&quot;, &quot;Marketing&quot;, 65000.00),</p>
+<p>            new Employee(103, &quot;Rahul Verma&quot;, &quot;Engineering&quot;, 85000.00),</p>
+<p>            new Employee(104, &quot;Priya Nair&quot;, &quot;HR&quot;, 55000.00),</p>
+<p>            new Employee(105, &quot;Kiran Deshmukh&quot;, &quot;Engineering&quot;, 110000.00)</p>
+<p>        );</p>
+
+<p>        System.out.println(&quot;=== STREAM PROCESSING PIPELINE ===&quot;);</p>
+
+<p>        // 1. Filter Engineering employees earning &gt; 80,000 &amp; Extract Names</p>
+<p>        List&lt;String&gt; highPaidEngineers = employees.stream()</p>
+<p>                .filter(e -&gt; e.department().equals(&quot;Engineering&quot;))</p>
+<p>                .filter(e -&gt; e.salary() &gt; 80000.00)</p>
+<p>                .map(Employee::name)</p>
+<p>                .sorted()</p>
+<p>                .toList(); // Java 16+ Stream.toList()</p>
+
+<p>        System.out.println(&quot;High Paid Engineers : &quot; + highPaidEngineers);</p>
+
+<p>        // 2. Aggregate Total Salary Expense for Engineering</p>
+<p>        double totalEngSalary = employees.stream()</p>
+<p>                .filter(e -&gt; e.department().equals(&quot;Engineering&quot;))</p>
+<p>                .mapToDouble(Employee::salary) // Primitive DoubleStream</p>
+<p>                .sum();</p>
+
+<p>        System.out.printf(&quot;Total Engineering Payroll : ₹%.2f%n&quot;, totalEngSalary);</p>
+
+<p>        // 3. Group Employees by Department</p>
+<p>        Map&lt;String, List&lt;Employee&gt;&gt; employeesByDept = employees.stream()</p>
+<p>                .collect(Collectors.groupingBy(Employee::department));</p>
+
+<p>        System.out.println(&quot;\n--- Employees Grouped By Department ---&quot;);</p>
+<p>        employeesByDept.forEach((dept, empList) -&gt; {</p>
+<p>            System.out.println(&quot;Department: &quot; + dept);</p>
+<p>            empList.forEach(e -&gt; System.out.println(&quot;   - &quot; + e.name() + &quot; (₹&quot; + e.salary() + &quot;)&quot;));</p>
+<p>        });</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== STREAM PROCESSING PIPELINE ===
+<p>High Paid Engineers : [Aarav Sharma, Kiran Deshmukh, Rahul Verma]</p>
+<p>Total Engineering Payroll : ₹290000.00</p>
+
+<p>--- Employees Grouped By Department ---</p>
+<p>Department: HR</p>
+<ul>
+<p>  <li>Priya Nair (₹55000.0)</li></p>
+<p></ul></p>
+<p>Department: Marketing</p>
+<ul>
+<p>  <li>Sneha Kapoor (₹65000.0)</li></p>
+<p></ul></p>
+<p>Department: Engineering</p>
+<ul>
+<p>  <li>Aarav Sharma (₹95000.0)</li></p>
+<p>  <li>Rahul Verma (₹85000.0)</li></p>
+<p>  <li>Kiran Deshmukh (₹110000.0)</code></pre></li></p>
+<p></ul></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Reusing a Stream object after a terminal operation has already been executed (<code>IllegalStateException: stream has already been operated upon or closed</code>).</li></p>
+<p>  <li>Forgetting a Terminal Operation (like <code>.collect()</code> or <code>.sum()</code>). Intermediate stream operations are <strong>lazy</strong> and will NOT execute unless triggered by a terminal operation!</li></p>
+<p>  <li>Mutating shared external state variables inside stream lambda operations. Streams must remain pure and side-effect free.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Use Primitive Streams (<code>IntStream</code>, <code>LongStream</code>, <code>DoubleStream</code>) when performing heavy numerical aggregations to avoid performance overhead from Wrapper Object Autoboxing.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Filtering REST API query datasets, calculating financial order totals, mapping database entity models to DTOs, and grouping data for analytical reporting.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a list of numbers <code>List.of(12, 45, 8, 23, 76, 19)</code>.</p>
+<p>2. Filter numbers greater than <code>20</code>, double each number using <code>.map()</code>, and collect the result into a new list.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a stream pipeline that reads a list of customer names, filters names starting with <code>'A'</code>, converts them to uppercase, joins them with <code>, </code> using <code>Collectors.joining(", ")</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="11-collections.html">Collections</a></li></p>
+<p>  <li><a href="12-enums-and-records.html">Enums and Records</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="20-file-input-and-output.html">← Previous: File Input and Output</a> | <a href="22-dates-and-time.html">Next: Dates and Time →</a></p>
+
+
+  </div>
+</body>
+</html>

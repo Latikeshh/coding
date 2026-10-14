@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 file handling - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>File Handling (<code>fopen</code>, <code>fread</code>, <code>fwrite</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>File Handling</strong> in C allows programs to create, read, update, and delete files on disk storage. Using stream pointers (<code>FILE*</code>) declared in <code><stdio.h></code>, data can be persisted across program executions in either <strong>Text</strong> or <strong>Binary</strong> formats.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>C file handling manages file streams via <code>FILE*</code> pointers. Use <code>fopen()</code> with mode strings (<code>"r"</code>, <code>"w"</code>, <code>"a"</code>, <code>"rb"</code>, <code>"wb"</code>) to open files. Always verify that the file pointer is non-null (<code>fp != NULL</code>) before reading or writing. Use <code>fprintf</code>/<code>fgets</code> for text files and <code>fread</code>/<code>fwrite</code> for binary files. Always close file streams with <code>fclose()</code>.</p>
+
+<h3>Hindi</h3>
+<p>C mein file handling disk storage par data permanent save karne ke liye <code>FILE*</code> stream pointer ka upyog karti hai. File kholne ke liye <code>fopen(filename, mode)</code> use karein. Operation shuru karne se pehle <code>if (fp == NULL)</code> check karna zaroori hai. Text file ke liye <code>fprintf</code>/<code>fgets</code> aur binary data ke liye <code>fread</code>/<code>fwrite</code> use karein. Operation ke baad <code>fclose(fp)</code> karna zaroori hai.</p>
+
+<h3>Marathi</h3>
+<p>Disk var data kayamswapi sathavanyasathi C madhye <code>FILE*</code> stream pointer vaparla jato. File ughadnyasathi <code>fopen(filename, mode)</code> vaparatat. File open jhali ki nahi he pahanyasathi <code>fp != NULL</code> check kareve. Text sathi <code>fprintf</code>/<code>fgets</code> aani binary sathi <code>fread</code>/<code>fwrite</code> vaparatat. Kam jhalyavar <code>fclose(fp)</code> kareve.</p>
+
+<h3>Hinglish</h3>
+<p>Program execution close hone ke baad bhi data save rakhne ke liye file handling use hoti hai. Text files human-readable text store karti hain jabki Binary files (<code>.bin</code>, <code>.dat</code>) raw struct bytes as-is disk par write karti hain. <code>fseek()</code> aur <code>ftell()</code> file pointer location navigate karte hain.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>RAM memory is volatile; when a program closes or computer restarts, all variable data in memory is erased. File handling persists user accounts, application settings, transaction logs, and databases directly to disk storage.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>FILE*</code> as a bookmark in a book on disk:</p>
+<ul>
+<p>  <li><code>fopen()</code> opens the book and places the bookmark at the beginning or end.</li></p>
+<p>  <li><code>fprintf()</code> / <code>fputs()</code> writes text onto the page at the bookmark position.</li></p>
+<p>  <li><code>fgets()</code> / <code>fread()</code> reads text from the page.</li></p>
+<p>  <li><code>fclose()</code> closes the book and saves changes to the bookshelf.</li></p>
+<p></ul></p>
+
+<h2>📝 File Opening Modes</h2>
+
+<table>
+<p>  <thead><tr><th>Mode</th><th>Purpose</th><th>Creates New File?</th><th>Truncates (Overwrites) Existing File?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>"r"</code></td><td>Read text file</td><td>No (returns <code>NULL</code> if missing)</td><td>No</td></tr></p>
+<p>    <tr><td><code>"w"</code></td><td>Write text file</td><td>Yes</td><td>Yes (Erases existing content!)</td></tr></p>
+<p>    <tr><td><code>"a"</code></td><td>Append text at end</td><td>Yes</td><td>No (Appends to existing content)</td></tr></p>
+<p>    <tr><td><code>"r+"</code></td><td>Read and Write text</td><td>No</td><td>No</td></tr></p>
+<p>    <tr><td><code>"w+"</code></td><td>Read and Write text</td><td>Yes</td><td>Yes</td></tr></p>
+<p>    <tr><td><code>"rb"</code></td><td>Read binary file</td><td>No</td><td>No</td></tr></p>
+<p>    <tr><td><code>"wb"</code></td><td>Write binary file</td><td>Yes</td><td>Yes</td></tr></p>
+<p>    <tr><td><code>"ab"</code></td><td>Append binary file</td><td>Yes</td><td>No</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical file handling program demonstrating text file generation, safe reading with <code>fgets</code>, binary record serialization with <code>fwrite</code>/<code>fread</code>, and file positioning with <code>fseek</code>/<code>ftell</code>:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;stdlib.h&gt;</p>
+
+<p>typedef struct {</p>
+<p>    int id;</p>
+<p>    char name[30];</p>
+<p>    double balance;</p>
+<p>} AccountRecord;</p>
+
+<p>int main(void) {</p>
+<p>    // ==========================================</p>
+<p>    // 1. TEXT FILE OPERATIONS (Writing &amp; Reading)</p>
+<p>    // ==========================================</p>
+<p>    printf(&quot;--- 1. TEXT FILE WRITING &amp; READING ---\n&quot;);</p>
+<p>    FILE *textFp = fopen(&quot;audit_log.txt&quot;, &quot;w&quot;);</p>
+<p>    if (textFp == NULL) {</p>
+<p>        perror(&quot;Error opening text file for writing&quot;);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    fprintf(textFp, &quot;LOG_EVENT: User #101 Logged In\n&quot;);</p>
+<p>    fprintf(textFp, &quot;LOG_EVENT: Transferred $250.00\n&quot;);</p>
+<p>    fclose(textFp);</p>
+<p>    printf(&quot;Text file &#39;audit_log.txt&#39; written and closed successfully.\n&quot;);</p>
+
+<p>    // Reading text file line by line</p>
+<p>    textFp = fopen(&quot;audit_log.txt&quot;, &quot;r&quot;);</p>
+<p>    if (textFp == NULL) {</p>
+<p>        perror(&quot;Error opening text file for reading&quot;);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    char buffer[100];</p>
+<p>    printf(&quot;Reading &#39;audit_log.txt&#39; contents:\n&quot;);</p>
+<p>    while (fgets(buffer, sizeof(buffer), textFp) != NULL) {</p>
+<p>        printf(&quot; -&gt; %s&quot;, buffer);</p>
+<p>    }</p>
+<p>    fclose(textFp);</p>
+
+<p>    // ==========================================</p>
+<p>    // 2. BINARY FILE OPERATIONS (fwrite &amp; fread)</p>
+<p>    // ==========================================</p>
+<p>    printf(&quot;\n--- 2. BINARY FILE STRUCT SERIALIZATION ---\n&quot;);</p>
+<p>    AccountRecord recordOut = {1001, &quot;Amit Patel&quot;, 12500.75};</p>
+
+<p>    FILE *binFp = fopen(&quot;accounts.bin&quot;, &quot;wb&quot;);</p>
+<p>    if (binFp == NULL) {</p>
+<p>        perror(&quot;Error opening binary file for writing&quot;);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    // Write binary struct to disk</p>
+<p>    size_t written = fwrite(&amp;recordOut, sizeof(AccountRecord), 1, binFp);</p>
+<p>    if (written == 1) {</p>
+<p>        printf(&quot;Binary record written successfully to &#39;accounts.bin&#39;.\n&quot;);</p>
+<p>    }</p>
+<p>    fclose(binFp);</p>
+
+<p>    // Reading binary record back from disk</p>
+<p>    AccountRecord recordIn = {0};</p>
+<p>    binFp = fopen(&quot;accounts.bin&quot;, &quot;rb&quot;);</p>
+<p>    if (binFp == NULL) {</p>
+<p>        perror(&quot;Error opening binary file for reading&quot;);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    // File positioning: Check file size using fseek and ftell</p>
+<p>    fseek(binFp, 0, SEEK_END);</p>
+<p>    long fileSize = ftell(binFp);</p>
+<p>    rewind(binFp); // Reset file position back to beginning</p>
+<p>    printf(&quot;Binary File Size: %ld bytes\n&quot;, fileSize);</p>
+
+<p>    size_t readCount = fread(&amp;recordIn, sizeof(AccountRecord), 1, binFp);</p>
+<p>    if (readCount == 1) {</p>
+<p>        printf(&quot;Restored Account: ID #%d | Name: %s | Balance: $%.2lf\n&quot;,</p>
+<p>               recordIn.id, recordIn.name, recordIn.balance);</p>
+<p>    }</p>
+<p>    fclose(binFp);</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>fopen("audit_log.txt", "w")</code>: Opens file in write mode. If file does not exist, it creates it. If file exists, mode <code>"w"</code> truncates (wipes) previous contents.</li></p>
+<p>  <li><code>fwrite(&recordOut, sizeof(AccountRecord), 1, binFp)</code>: Writes raw memory bytes of <code>recordOut</code> directly to disk in binary format.</li></p>
+<p>  <li><code>fread(&recordIn, sizeof(AccountRecord), 1, binFp)</code>: Reads exact raw byte layout directly from binary file back into <code>recordIn</code> struct memory.</li></p>
+<p>  <li><code>fseek(fp, 0, SEEK_END); ftell(fp)</code>: <code>fseek</code> moves cursor to end of file (<code>SEEK_END</code>), and <code>ftell</code> returns current byte position, calculating total file size. <code>rewind(fp)</code> moves cursor back to byte 0.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. TEXT FILE WRITING &amp; READING ---
+<p>Text file &#39;audit_log.txt&#39; written and closed successfully.</p>
+<p>Reading &#39;audit_log.txt&#39; contents:</p>
+<p> -&gt; LOG_EVENT: User #101 Logged In</p>
+<p> -&gt; LOG_EVENT: Transferred $250.00</p>
+
+<p>--- 2. BINARY FILE STRUCT SERIALIZATION ---</p>
+<p>Binary record written successfully to &#39;accounts.bin&#39;.</p>
+<p>Binary File Size: 48 bytes (size depends on struct alignment)</p>
+<p>Restored Account: ID #1001 | Name: Amit Patel | Balance: $12500.75</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>NULL</code> Checks on <code>fopen()</code>:</strong> Reading or writing through a <code>FILE*</code> pointer when <code>fopen()</code> failed (returns <code>NULL</code>) crashes immediately with a Segmentation Fault.</li></p>
+<p>  <li><strong>Forgetting to Call <code>fclose()</code>:</strong> Failing to close files leaves data buffered in RAM memory, causing missing/corrupted file output on disk or resource leaks.</li></p>
+<p>  <li><strong>Using <code>feof()</code> incorrectly in loops:</strong> Writing <code>while (!feof(fp))</code> causes the loop to run one extra time because <code>feof()</code> only returns <code>true</code> AFTER a read operation attempts to read past EOF! Always test function return values (<code>while (fgets(...) != NULL)</code> or <code>while (fread(...) == 1)</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always check <code>if (fp == NULL)</code> and print descriptive error diagnostics using <code>perror("Description")</code>.</li></p>
+<p>  <li>When storing sensitive application data or binary structs across different platforms/compilers, be mindful that binary struct field alignment padding may vary across architectures.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>File handling builds database storage engines (SQLite, BerkeleyDB), log file rotators, game save files, image file decoders (BMP/PNG parsers), and configuration managers.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a program that opens a text file <code>notes.txt</code> in append mode (<code>"a"</code>).</p>
+<p>2. Append a line of text entered by the user, close the file, and then read and display all lines from <code>notes.txt</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that copies a binary file (e.g. an image file or <code>.bin</code> file) from <code>source.bin</code> to <code>destination.bin</code> using a byte buffer and <code>fread</code>/<code>fwrite</code> loops until <code>EOF</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
+<p>  <li><a href="14-structures.html">Structures</a></li></p>
+<p>  <li><a href="22-error-handling.html">Error Handling</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="16-enums.html">← Previous: Enumerations</a> | <a href="18-preprocessor-and-macros.html">Next: Preprocessor →</a></p>
+
+
+
+  </div>
+</body>
+</html>

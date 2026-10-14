@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 keys - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🔑 SQL Keys & Database Integrity</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In a Relational Database Management System (RDBMS), a <strong>SQL Key</strong> is a single column or combination of columns used to uniquely identify individual table rows, construct relationships between parent and child tables, and enforce data integrity rules.</p>
+
+<p>Without keys, relational databases would degenerate into unstructured spreadsheets containing duplicate records, invalid references, and orphaned data rows.</p>
+
+<blockquote><p>💡 <strong>Design Concepts vs SQL Keywords:</strong> Terms like *Candidate Key*, *Alternate Key*, *Super Key*, *Surrogate Key*, and *Natural Key* are <strong>relational database design concepts</strong> rather than explicit SQL commands. In SQL statements, you implement these design concepts using constraints like <code>PRIMARY KEY</code>, <code>UNIQUE</code>, <code>FOREIGN KEY</code>, and <code>AUTO_INCREMENT</code>.</p></blockquote>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Relational database mein <strong>Keys</strong> har row ko uniquely identify karne aur tables ke beech rishta (relationship) banane ke liye zaroori hote hain. <strong>Primary Key</strong> ek unique identifier hai jo kabhi <code>NULL</code> nahi ho sakta. <strong>Foreign Key</strong> ek child table ko parent table ki Primary Key se link karti hai taaki invalid IDs enter na ho sakein. Concept jaise Candidate Key aur Alternate Key database design samajhne ke liye hote hain, jabki SQL mein hum <code>PRIMARY KEY</code>, <code>UNIQUE</code>, aur <code>FOREIGN KEY</code> constraints ka use karte hain.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Relational database madhye <strong>Keys</strong> mhanje pratyek row la vegli olakh (unique identity) denari aani don tables madhye sambandh tayar karnari paddhat ahe. <strong>Primary Key</strong> mule pratyek record unique rahto aani to kunitahik <code>NULL</code> rahu shakat nahi. <strong>Foreign Key</strong> mule child table ha parent table sobat jodla jato, jyamule chukicha data enter hot nahi. Candidate Key kiva Alternate Key he database design che mahatvache bhag ahet.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Keys are the foundational building blocks of relational database design because they enforce:</p>
+
+<ul>
+<p>  <li><strong>Entity Integrity:</strong> Ensures every record in a table has a unique, non-NULL primary identifier.</li></p>
+<p>  <li><strong>Referential Integrity:</strong> Guarantees that relationships between tables remain valid (e.g., stopping an order from referencing a customer ID that does not exist).</li></p>
+<p>  <li><strong>Data Deduplication:</strong> Prevents duplicate rows from being inserted into the database.</li></p>
+<p>  <li><strong>High-Performance Querying:</strong> Serves as the default underlying index structure for fast point lookups and table <code>JOIN</code> operations.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: University Student System</h2>
+
+<p>Imagine a <strong>University Administration Office</strong>:</p>
+
+<ul>
+<p>  <li><strong>Student Roll Number (<code>student_id</code>):</strong> Primary Key $\rightarrow$ Uniquely identifies you. No two students share the same Roll Number, and every student must have one.</li></p>
+<p>  <li><strong>Email & Passport Number:</strong> Candidate / Alternate Keys $\rightarrow$ Both uniquely identify you, but the university chose Roll Number as your main Primary Key. The others are enforced using <code>UNIQUE</code> constraints.</li></p>
+<p>  <li><strong>Library Card Record (<code>student_id</code>):</strong> Foreign Key $\rightarrow$ Links your library borrow log back to your official Student Roll Number in the main registry.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔑 Key Types Comparison Matrix</h2>
+
+<p>Below is a complete breakdown of all 8 relational key concepts:</p>
+
+<table>
+<p>  <thead><tr><th>Key Type</th><th>Design Concept or SQL Keyword?</th><th>Purpose & Uniqueness Rules</th><th>Realistic Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Primary Key</strong></td><td><strong>SQL Keyword</strong> (<code>PRIMARY KEY</code>)</td><td>Uniquely identifies each row. Must be <code>UNIQUE</code> and <code>NOT NULL</code>. Exactly 1 Primary Key constraint per table.</td><td><code>student_id INT PRIMARY KEY</code></td></tr></p>
+<p>    <tr><td><strong>Foreign Key</strong></td><td><strong>SQL Keyword</strong> (<code>FOREIGN KEY</code>)</td><td>References a Primary Key in a parent table to enforce referential integrity between child and parent.</td><td><code>dept_id</code> in <code>employees</code> referencing <code>dept_id</code> in <code>departments</code></td></tr></p>
+<p>    <tr><td><strong>Super Key</strong></td><td>Design Concept</td><td>Any set of columns that uniquely identifies a row (including sets with redundant extra columns).</td><td><code>{emp_id}</code>, <code>{emp_id, first_name}</code>, <code>{emp_id, email}</code></td></tr></p>
+<p>    <tr><td><strong>Candidate Key</strong></td><td>Design Concept</td><td>A minimal Super Key with no unnecessary extra columns. Eligible to become Primary Key.</td><td><code>{emp_id}</code>, <code>{email}</code>, <code>{vehicle_vin}</code></td></tr></p>
+<p>    <tr><td><strong>Alternate Key</strong></td><td>Design Concept</td><td>Candidate Keys that were <strong>not</strong> selected as the Primary Key. Enforced in SQL using <code>UNIQUE</code>.</td><td><code>email VARCHAR(100) UNIQUE</code></td></tr></p>
+<p>    <tr><td><strong>Composite Key</strong></td><td>SQL Constraint / Design</td><td>A key formed by combining 2 or more columns when a single column is not unique alone.</td><td><code>PRIMARY KEY (student_id, course_id)</code></td></tr></p>
+<p>    <tr><td><strong>Surrogate Key</strong></td><td>SQL Feature (<code>AUTO_INCREMENT</code>)</td><td>A system-generated artificial integer key with no real-world business meaning.</td><td><code>id INT AUTO_INCREMENT</code></td></tr></p>
+<p>    <tr><td><strong>Natural Key</strong></td><td>Design Concept</td><td>A unique key formed from a real-world business attribute with domain meaning.</td><td>Vehicle VIN (<code>vin VARCHAR(17)</code>), Product ISBN (<code>isbn CHAR(13)</code>)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>1. Primary Keys (<code>PRIMARY KEY</code>)</h2>
+
+<p>A <strong>Primary Key</strong> is the primary unique identifier for a table. It strictly enforces two rules:</p>
+<p>1. Every value must be <strong>unique</strong>.</p>
+<p>2. No value can ever be <strong><code>NULL</code></strong>.</p>
+
+<pre><code class="language-sql">-- Creating a table with a Primary Key
+<p>CREATE TABLE students (</p>
+<p>    student_id INT PRIMARY KEY,</p>
+<p>    student_name VARCHAR(100) NOT NULL</p>
+<p>);</p>
+
+<p>-- Valid Inserts:</p>
+<p>INSERT INTO students (student_id, student_name) VALUES (101, &#39;Rahul&#39;);</p>
+<p>INSERT INTO students (student_id, student_name) VALUES (102, &#39;Priya&#39;);</code></pre></p>
+
+<h3>🚫 Why Primary Key Rules Reject Invalid Inserts:</h3>
+
+<pre><code class="language-sql">-- ❌ Error 1: Duplicate Primary Key value (101 already exists)
+<p>INSERT INTO students (student_id, student_name) VALUES (101, &#39;Amit&#39;);</p>
+<p>-- ERROR 1062 (23000): Duplicate entry &#39;101&#39; for key &#39;PRIMARY&#39;</p>
+
+<p>-- ❌ Error 2: Primary Key cannot be NULL</p>
+<p>INSERT INTO students (student_id, student_name) VALUES (NULL, &#39;Neha&#39;);</p>
+<p>-- ERROR 1048 (23000): Column &#39;student_id&#39; cannot be null</code></pre></p>
+
+<blockquote><p>📌 <strong>Important Constraint Rule:</strong> A table can have <strong>only ONE Primary Key constraint</strong>. However, that single constraint can be placed on a single column OR span multiple columns (Composite Primary Key).</p></blockquote>
+
+<p>---</p>
+
+<h2>2. Foreign Keys & Referential Integrity</h2>
+
+<p>A <strong>Foreign Key</strong> is a column (or combination of columns) in a <strong>child table</strong> that references a <strong>Primary Key</strong> (or Unique Key) in a <strong>parent table</strong>.</p>
+
+<h3>Parent-Child Table Setup:</h3>
+
+<p>To create a Foreign Key relationship, the <strong>parent table must be created FIRST</strong>:</p>
+
+<pre><code class="language-sql">-- 1. PARENT TABLE (Created First)
+<p>CREATE TABLE departments (</p>
+<p>    dept_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    dept_name VARCHAR(50) NOT NULL UNIQUE</p>
+<p>);</p>
+
+<p>-- 2. CHILD TABLE (Created Second, referencing departments)</p>
+<p>CREATE TABLE employees (</p>
+<p>    emp_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    dept_id INT, -- Foreign Key column (Nullable)</p>
+<p>    </p>
+<p>    CONSTRAINT fk_emp_dept</p>
+<p>        FOREIGN KEY (dept_id)</p>
+<p>        REFERENCES departments(dept_id)</p>
+<p>);</code></pre></p>
+
+<h3>How Referential Integrity Works:</h3>
+
+<pre><code class="language-sql">-- Step A: Insert valid departments into parent table
+<p>INSERT INTO departments (dept_id, dept_name) VALUES (10, &#39;Engineering&#39;), (20, &#39;Design&#39;);</p>
+
+<p>-- Step B: Valid Child Insert (dept_id 10 exists in parent table)</p>
+<p>INSERT INTO employees (first_name, dept_id) VALUES (&#39;Rahul&#39;, 10);</p>
+
+<p>-- Step C: Valid Child Insert with NULL (Represents an unassigned employee)</p>
+<p>INSERT INTO employees (first_name, dept_id) VALUES (&#39;Priya&#39;, NULL);</p>
+
+<p>-- ❌ Step D: INVALID Child Insert (dept_id 999 DOES NOT exist in departments!)</p>
+<p>INSERT INTO employees (first_name, dept_id) VALUES (&#39;Amit&#39;, 999);</p>
+<p>-- ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails</code></pre></p>
+
+<blockquote><p>🌐 <strong>Data Type Compatibility Rule:</strong> The Foreign Key column in the child table (<code>dept_id INT</code>) must have a data type compatible with the referenced Primary Key column in the parent table (<code>dept_id INT</code>).</p></blockquote>
+
+<p>---</p>
+
+<h2>3. Referential Actions: <code>ON DELETE</code> & <code>ON UPDATE</code></h2>
+
+<p>When a record in the parent table (<code>departments</code>) is deleted or updated, what should happen to the corresponding records in the child table (<code>employees</code>)? You specify this using referential actions:</p>
+
+<pre><code class="language-sql">CREATE TABLE employees (
+<p>    emp_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    dept_id INT,</p>
+<p>    </p>
+<p>    CONSTRAINT fk_emp_dept</p>
+<p>        FOREIGN KEY (dept_id)</p>
+<p>        REFERENCES departments(dept_id)</p>
+<p>        ON DELETE SET NULL</p>
+<p>        ON UPDATE CASCADE</p>
+<p>);</code></pre></p>
+
+<h3>Referential Action Behaviors:</h3>
+
+<ul>
+<p>  <li><strong><code>ON DELETE RESTRICT</code> / <code>NO ACTION</code> (Default):</strong> Prevents deletion of a parent record if matching child records exist. Attempts to delete <code>dept_id = 10</code> while Rahul is assigned to it will throw an error.</li></p>
+<p>  <li><strong><code>ON DELETE CASCADE</code>:</strong> Deleting a parent record automatically deletes <strong>all</strong> matching child records. *(Use with caution: deleting department 10 deletes all employees in department 10!)*</li></p>
+<p>  <li><strong><code>ON DELETE SET NULL</code>:</strong> Deleting a parent record sets the child <code>dept_id</code> column to <code>NULL</code> for all affected employees. *(Requires <code>dept_id</code> to be a nullable column!)*</li></p>
+<p>  <li><strong><code>ON UPDATE CASCADE</code>:</strong> Updating <code>dept_id</code> in the parent table automatically updates all corresponding <code>dept_id</code> values in the child table.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>4. Composite Keys</h2>
+
+<p>A <strong>Composite Key</strong> is a key constructed by combining <strong>two or more columns</strong> to guarantee uniqueness when no single column is unique on its own.</p>
+
+<h3>Practical Example: Course Enrollments</h3>
+
+<p>In a university, a student can enroll in multiple courses, and a course contains multiple students. Neither <code>student_id</code> nor <code>course_id</code> is unique individually in the enrollment table, but the <strong>combination <code>(student_id, course_id)</code> is unique</strong>.</p>
+
+<pre><code class="language-sql">-- Parent Table 1
+<p>CREATE TABLE students_list (</p>
+<p>    student_id INT PRIMARY KEY,</p>
+<p>    student_name VARCHAR(100) NOT NULL</p>
+<p>);</p>
+
+<p>-- Parent Table 2</p>
+<p>CREATE TABLE courses_list (</p>
+<p>    course_id INT PRIMARY KEY,</p>
+<p>    course_name VARCHAR(100) NOT NULL</p>
+<p>);</p>
+
+<p>-- Child Table with Composite Primary Key</p>
+<p>CREATE TABLE course_enrollments (</p>
+<p>    student_id INT NOT NULL,</p>
+<p>    course_id INT NOT NULL,</p>
+<p>    enrollment_date DATE DEFAULT (CURRENT_DATE),</p>
+<p>    </p>
+<p>    -- Composite Primary Key spanning student_id AND course_id</p>
+<p>    PRIMARY KEY (student_id, course_id),</p>
+<p>    </p>
+<p>    FOREIGN KEY (student_id) REFERENCES students_list(student_id),</p>
+<p>    FOREIGN KEY (course_id) REFERENCES courses_list(course_id)</p>
+<p>);</code></pre></p>
+
+<h3>Valid vs Duplicate Composite Inserts:</h3>
+
+<pre><code class="language-sql">-- Valid Inserts:
+<p>INSERT INTO course_enrollments (student_id, course_id) VALUES (1, 101); -- Student 1 in Course 101</p>
+<p>INSERT INTO course_enrollments (student_id, course_id) VALUES (1, 102); -- Student 1 in Course 102 (Allowed!)</p>
+<p>INSERT INTO course_enrollments (student_id, course_id) VALUES (2, 101); -- Student 2 in Course 101 (Allowed!)</p>
+
+<p>-- ❌ Duplicate Insert Error (Student 1 is ALREADY enrolled in Course 101):</p>
+<p>INSERT INTO course_enrollments (student_id, course_id) VALUES (1, 101);</p>
+<p>-- ERROR 1062 (23000): Duplicate entry &#39;1-101&#39; for key &#39;PRIMARY&#39;</code></pre></p>
+
+<p>---</p>
+
+<h2>5. Candidate, Alternate, and Super Keys</h2>
+
+<p>Let's examine how key selection works during database design for an <code>employees</code> table containing: <code>emp_id</code>, <code>email</code>, <code>vehicle_vin</code>, <code>first_name</code>, and <code>salary</code>.</p>
+
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+<p>│                           SUPER KEYS                                        │</p>
+<p>│  {emp_id}, {email}, {vehicle_vin}, {emp_id, first_name}, {email, salary}... │</p>
+<p>│                                                                             │</p>
+<p>│   ┌─────────────────────────────────────────────────────────────────────┐   │</p>
+<p>│   │                    CANDIDATE KEYS                                   │   │</p>
+<p>│   │               {emp_id}, {email}, {vehicle_vin}                      │   │</p>
+<p>│   │                                                                     │   │</p>
+<p>│   │   ┌──────────────────────────┐   ┌──────────────────────────────┐   │   │</p>
+<p>│   │   │       PRIMARY KEY        │   │        ALTERNATE KEYS        │   │   │</p>
+<p>│   │   │        {emp_id}          │   │  {email}, {vehicle_vin}      │   │   │</p>
+<p>│   │   └──────────────────────────┘   └──────────────────────────────┘   │   │</p>
+<p>│   └─────────────────────────────────────────────────────────────────────┘   │</p>
+<p>└─────────────────────────────────────────────────────────────────────────────┘</code></pre></p>
+
+<p>1. <strong>Super Key:</strong> Any combination of columns that uniquely identifies a row. <code>{emp_id, first_name}</code> is a Super Key because <code>emp_id</code> makes the set unique, even though <code>first_name</code> is redundant.</p>
+<p>2. <strong>Candidate Key:</strong> A minimal Super Key with zero redundant columns. In this table, <code>{emp_id}</code>, <code>{email}</code>, and <code>{vehicle_vin}</code> are all Candidate Keys.</p>
+<p>3. <strong>Primary Key:</strong> The single Candidate Key chosen by the database architect as the main identifier (<code>emp_id</code>).</p>
+<p>4. <strong>Alternate Key:</strong> Candidate Keys that were <strong>not</strong> chosen as the Primary Key (<code>email</code> and <code>vehicle_vin</code>). In SQL, Alternate Keys are enforced using <code>UNIQUE</code> constraints.</p>
+
+<pre><code class="language-sql">CREATE TABLE staff (
+<p>    emp_id INT PRIMARY KEY,                  -- Chosen Primary Key</p>
+<p>    email VARCHAR(100) NOT NULL UNIQUE,       -- Alternate Key 1 (Enforced via UNIQUE)</p>
+<p>    vehicle_vin CHAR(17) UNIQUE,             -- Alternate Key 2 (Enforced via UNIQUE)</p>
+<p>    first_name VARCHAR(50) NOT NULL</p>
+<p>);</code></pre></p>
+
+<p>---</p>
+
+<h2>6. Surrogate Keys vs Natural Keys</h2>
+
+<ul>
+<p>  <li><strong>Surrogate Key:</strong> An artificially generated numeric key (e.g., <code>id INT AUTO_INCREMENT</code>) created by the database engine. It carries no real-world business meaning.</li></p>
+<p>  <li><strong>Natural Key:</strong> A key formed from a real-world business attribute (e.g., Vehicle VIN <code>vehicle_vin CHAR(17)</code>, Product ISBN <code>isbn CHAR(13)</code>).</li></p>
+<p></ul></p>
+
+<pre><code class="language-sql">-- Surrogate Key Example (Recommended for stability and join performance)
+<p>CREATE TABLE orders (</p>
+<p>    order_id INT PRIMARY KEY AUTO_INCREMENT, -- Surrogate Key</p>
+<p>    order_date DATE NOT NULL</p>
+<p>);</code></pre></p>
+
+<blockquote><p>⚠️ <strong>Why Natural Keys like Email or Phone Numbers can be problematic:</strong> Real-world business attributes like email addresses or phone numbers can change when a user updates their account. Changing a Primary Key value requires updating every Foreign Key in all child tables! Using a Surrogate Key (<code>AUTO_INCREMENT</code>) keeps Primary Keys stable and immutable.</p></blockquote>
+
+<blockquote><p>🌐 <strong>Engine Note on <code>AUTO_INCREMENT</code>:</strong> <code>AUTO_INCREMENT</code> is MySQL/MariaDB syntax. <strong>PostgreSQL</strong> uses <code>SERIAL</code> or <code>GENERATED ALWAYS AS IDENTITY</code>. <strong>SQLite</strong> uses <code>AUTOINCREMENT</code>.</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Complete E-Commerce Schema (Mini Challenge Solution)</h2>
+
+<p>Here is a 4-table coherent E-Commerce schema built in correct dependency order:</p>
+
+<pre><code class="language-sql">-- 1. Parent Table 1: Customers
+<p>CREATE TABLE customers (</p>
+<p>    customer_id INT PRIMARY KEY AUTO_INCREMENT, -- Surrogate Primary Key</p>
+<p>    full_name VARCHAR(100) NOT NULL,</p>
+<p>    email VARCHAR(100) NOT NULL UNIQUE          -- Alternate Key (UNIQUE)</p>
+<p>);</p>
+
+<p>-- 2. Parent Table 2: Products</p>
+<p>CREATE TABLE products (</p>
+<p>    product_id INT PRIMARY KEY AUTO_INCREMENT,  -- Surrogate Primary Key</p>
+<p>    product_name VARCHAR(100) NOT NULL,</p>
+<p>    price DECIMAL(10, 2) NOT NULL CHECK (price &gt; 0) -- Positive price constraint</p>
+<p>);</p>
+
+<p>-- 3. Parent Table 3 (Child of Customers): Orders</p>
+<p>CREATE TABLE orders (</p>
+<p>    order_id INT PRIMARY KEY AUTO_INCREMENT,    -- Surrogate Primary Key</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    order_date DATE DEFAULT (CURRENT_DATE),</p>
+<p>    </p>
+<p>    CONSTRAINT fk_orders_customer</p>
+<p>        FOREIGN KEY (customer_id)</p>
+<p>        REFERENCES customers(customer_id)</p>
+<p>        ON DELETE RESTRICT</p>
+<p>);</p>
+
+<p>-- 4. Child Table (Child of Orders and Products): Order Items</p>
+<p>CREATE TABLE order_items (</p>
+<p>    order_id INT NOT NULL,</p>
+<p>    product_id INT NOT NULL,</p>
+<p>    quantity INT NOT NULL CHECK (quantity &gt; 0),</p>
+<p>    unit_price DECIMAL(10, 2) NOT NULL,</p>
+<p>    </p>
+<p>    -- Composite Primary Key preventing duplicate product line-items in same order</p>
+<p>    PRIMARY KEY (order_id, product_id),</p>
+<p>    </p>
+<p>    CONSTRAINT fk_items_order</p>
+<p>        FOREIGN KEY (order_id)</p>
+<p>        REFERENCES orders(order_id)</p>
+<p>        ON DELETE CASCADE,</p>
+<p>        </p>
+<p>    CONSTRAINT fk_items_product</p>
+<p>        FOREIGN KEY (product_id)</p>
+<p>        REFERENCES products(product_id)</p>
+<p>        ON DELETE RESTRICT</p>
+<p>);</code></pre></p>
+
+<blockquote><p>💡 <strong>Understanding the Composite Primary Key <code>(order_id, product_id)</code>:</strong> This composite primary key ensures that product #501 can appear only once per order #1001. If the same product is ordered multiple times, its <code>quantity</code> column is updated rather than adding duplicate rows.</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Corrective Action</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1215 (HY000): Cannot add foreign key constraint</code></strong></td><td>Parent table does not exist, or column data types do not match (<code>INT</code> vs <code>BIGINT</code>).</td><td>Create parent table first and ensure FK and PK columns have identical data types.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1452 (23000): Cannot add or update a child row</code></strong></td><td>Attempting to insert a child record with a Foreign Key ID that does not exist in parent table.</td><td>Insert valid parent records before inserting child rows referencing them.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1062 (23000): Duplicate entry for key 'PRIMARY'</code></strong></td><td>Attempting to insert a duplicate Primary Key value.</td><td>Use <code>AUTO_INCREMENT</code> or ensure inserted Primary Key integers are unique.</td></tr></p>
+<p>    <tr><td><strong>Volatile Natural Primary Keys</strong></td><td>Using <code>email</code> or <code>phone_number</code> as Primary Keys.</td><td>Use a Surrogate Key (<code>id INT AUTO_INCREMENT</code>) as Primary Key and add a <code>UNIQUE</code> constraint to <code>email</code>.</td></tr></p>
+<p>    <tr><td><strong>Creating Child Tables First</strong></td><td>Writing <code>CREATE TABLE orders</code> referencing <code>customers</code> before <code>customers</code> exists.</td><td>Execute <code>CREATE TABLE</code> for parent tables first before creating child tables.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Databases:</strong> Connects <code>customers</code> $\rightarrow$ <code>orders</code> $\rightarrow$ <code>order_items</code> $\rightarrow$ <code>products</code> using Primary and Foreign Keys to maintain exact transaction integrity.</li></p>
+<p>  <li><strong>Financial Banking Systems:</strong> Uses <code>ON DELETE RESTRICT</code> on account foreign keys to prevent accounts with active transactions or balances from being accidentally deleted.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Surrogate Primary Key Creation</h3>
+<p>Write a <code>CREATE TABLE</code> statement for a <code>categories</code> table with a surrogate primary key <code>category_id</code> (<code>AUTO_INCREMENT</code>) and a unique <code>category_name</code> column.</p>
+
+<h3>Exercise 2: Composite Primary Key Design</h3>
+<p>Write a <code>CREATE TABLE</code> statement for a <code>student_grades</code> table with a composite primary key formed by <code>student_id</code> and <code>exam_id</code>, along with a <code>score DECIMAL(5,2)</code> column.</p>
+
+<h3>Exercise 3: Foreign Key Violation Scenario</h3>
+<p>Given a <code>departments</code> parent table containing <code>dept_id</code> values <code>10</code> and <code>20</code>, explain what happens when you execute:</p>
+
+<pre><code class="language-sql">INSERT INTO employees (first_name, dept_id) VALUES (&#39;Rohan&#39;, 50);</code></pre>
+
+<h3>Exercise 4: Identify Key Types</h3>
+<p>Look at a <code>vehicles</code> table with columns: <code>id</code>, <code>vin</code>, <code>license_plate</code>, <code>color</code>, <code>model</code>.</p>
+<p>1. Which column is best suited as a <strong>Surrogate Primary Key</strong>?</p>
+<p>2. Which columns are <strong>Candidate / Alternate Keys</strong>?</p>
+<p>3. Is <code>{id, model}</code> a valid <strong>Super Key</strong>? Explain why.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Design an SQL schema with 2 tables: <code>publishers</code> and <code>books</code>.</p>
+<p>1. <code>publishers</code>: <code>publisher_id</code> (Primary Key, <code>AUTO_INCREMENT</code>), <code>publisher_name</code> (<code>VARCHAR(100)</code>, <code>NOT NULL</code>, <code>UNIQUE</code>).</p>
+<p>2. <code>books</code>: <code>book_id</code> (Primary Key, <code>AUTO_INCREMENT</code>), <code>title</code> (<code>VARCHAR(150)</code>, <code>NOT NULL</code>), <code>publisher_id</code> (Foreign Key referencing <code>publishers</code>, with <code>ON DELETE SET NULL</code>).</p>
+
+<details>
+<summary>🔍 Click to view Mini Challenge Solution</summary>
+
+<pre><code class="language-sql">-- Step 1: Parent Table (Publishers)
+<p>CREATE TABLE publishers (</p>
+<p>    publisher_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    publisher_name VARCHAR(100) NOT NULL UNIQUE</p>
+<p>);</p>
+
+<p>-- Step 2: Child Table (Books)</p>
+<p>CREATE TABLE books (</p>
+<p>    book_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    title VARCHAR(150) NOT NULL,</p>
+<p>    publisher_id INT, -- Nullable FK for ON DELETE SET NULL</p>
+<p>    </p>
+<p>    CONSTRAINT fk_books_publisher</p>
+<p>        FOREIGN KEY (publisher_id)</p>
+<p>        REFERENCES publishers(publisher_id)</p>
+<p>        ON DELETE SET NULL</p>
+<p>        ON UPDATE CASCADE</p>
+<p>);</p>
+
+<p>-- Step 3: Test Inserts</p>
+<p>INSERT INTO publishers (publisher_name) VALUES (&#39;O&#39;&#39;Reilly Media&#39;), (&#39;Penguin Books&#39;);</p>
+<p>INSERT INTO books (title, publisher_id) VALUES (&#39;Learning SQL&#39;, 1);</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="04-data-types-and-null.html">SQL Data Types & NULL Values</a></li></p>
+<p>  <li><a href="06-insert.html"><code>INSERT</code> – Adding Data to Tables with Keys</a></li></p>
+<p>  <li><a href="14-joins.html">SQL Joins & Table Relationships</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="04-data-types-and-null.html">← Previous: Data Types & NULL</a> | <a href="./">SQL Home</a> | <a href="06-insert.html">Next: INSERT Data →</a></p>
+
+  </div>
+</body>
+</html>

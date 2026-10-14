@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 transactions - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Chapter 22 — Transactions & ACID in SQL</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>SQL Transaction</strong> is a single logical unit of database work consisting of one or more SQL execution steps. A transaction ensures that either <strong>all</strong> statements execute successfully and their changes are permanently saved (<strong><code>COMMIT</code></strong>), or <strong>none</strong> of the statements take effect and any uncommitted modifications are discarded (<strong><code>ROLLBACK</code></strong>).</p>
+
+<p>Transactions are fundamental for maintaining data integrity during multi-step operations (such as bank transfers, order checkout processing, or inventory adjustments).</p>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong>Rollback Limitations</strong>: A <code>ROLLBACK</code> statement can only cancel uncommitted changes in an <strong>active, open transaction</strong>. Once a transaction has been committed with <code>COMMIT</code>, those changes are permanently written to disk and <strong>cannot</strong> be undone using <code>ROLLBACK</code>.</p></blockquote>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Transaction related database commands ka ek aisa group hota hai jo poora ek saath chalta hai.</p>
+<ul>
+<p>  <li><code>START TRANSACTION</code> ya <code>BEGIN</code>: Transaction shuru karta hai.</li></p>
+<p>  <li><code>COMMIT</code>: Saare badlaav ko database mein permanently save karta hai.</li></p>
+<p>  <li><code>ROLLBACK</code>: Agar beech mein koi error aaye, toh saare uncommitted badlaav ko cancel karke purani state wapas laata hai.</li></p>
+<p>  <li><strong>Dhyan rakhein</strong>: Ek baar <code>COMMIT</code> hone ke baad <code>ROLLBACK</code> kaam nahi karta!</li></p>
+<p>  <li>MySQL mein transactions ke liye <strong>InnoDB</strong> storage engine zaroori hota hai (MyISAM engine transactions support nahi karta).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Transaction mhanje sambandhit database commands cha ek asha group jo eka unit sarakha run hoto.</p>
+<ul>
+<p>  <li><code>START TRANSACTION</code> kiwa <code>BEGIN</code>: Transaction shuru karto.</li></p>
+<p>  <li><code>COMMIT</code>: Sarva badal (changes) database madhye permanently save karto.</li></p>
+<p>  <li><code>ROLLBACK</code>: Error aalyas uncommitted badal radd (cancel) karto.</li></p>
+<p>  <li><strong>Lakshat theva</strong>: Ekada <code>COMMIT</code> zalyavar <code>ROLLBACK</code> badal radd karu shakat nahi!</li></p>
+<p>  <li>MySQL madhye transactions sathi <strong>InnoDB</strong> engine vaparne bandhankarak aahe.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🏛️ The 4 ACID Properties</h2>
+
+<p>The reliability of a relational database transaction model is governed by four core properties known as <strong>ACID</strong>:</p>
+
+<pre><code class="language-text">               +-------------------------------------------+
+<table>
+<p>  <thead><tr><th>ACID PROPERTIES</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>               +-------------------------------------------+</p>
+<table>
+<p>  <thead><tr><th>Atomicity   : All-or-Nothing Execution</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Consistency : Validates All Rules/Keys</td></tr></p>
+<p>    <tr><td>Isolation   : Prevents Interference</td></tr></p>
+<p>    <tr><td>Durability  : Survives System Crashes</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>               +-------------------------------------------+</code></pre></p>
+
+<h3>1. ⚛️ Atomicity ("All or Nothing")</h3>
+<p>Every transaction is treated as a single atomic unit. If any individual statement within the transaction fails or is aborted, the entire transaction is aborted and rolled back.</p>
+<ul>
+<p>  <li><strong>Example</strong>: In a bank transfer of $200 from Rahul to Priya, the system must NOT debit Rahul's account without completing the $200 credit to Priya's account.</li></p>
+<p></ul></p>
+
+<h3>2. 🛡️ Consistency ("Preserving Invariants")</h3>
+<p>A transaction must transition the database from one valid state to another, preserving all primary keys, foreign keys, unique constraints, and check constraints before and after execution.</p>
+<ul>
+<p>  <li><strong>Example</strong>: If an account table has a constraint <code>CHECK (balance >= 0)</code>, any transaction that attempts to leave a negative balance is rejected and aborted.</li></p>
+<p></ul></p>
+
+<h3>3. 🔒 Isolation ("Concurrent Independence")</h3>
+<p>Concurrent transactions executing at the same time must run independently without interfering with one another. The level of isolation controls what uncommitted or concurrent modifications a transaction can observe.</p>
+<ul>
+<p>  <li><strong>Example</strong>: If User A and User B transfer money simultaneously, isolation mechanisms (such as row-level locks) prevent race conditions and lost updates.</li></p>
+<p></ul></p>
+
+<h3>4. 💾 Durability ("Permanent Persistence")</h3>
+<p>Once a transaction executes <code>COMMIT</code>, its changes are permanently recorded on non-volatile storage (via transaction redo logs and data files) and will survive power outages, OS crashes, or server restarts.</p>
+
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><strong>ACID Scope</strong>: While ACID guarantees structural database reliability, it does <strong>not</strong> automatically guarantee that application-level business logic is correct. Applications must still perform proper input validation, check expected row counts, and handle application errors.</p></blockquote>
+
+<p>---</p>
+
+<h2>⚙️ MySQL Autocommit & Storage Engines</h2>
+
+<p>In MySQL (such as WampServer or phpMyAdmin):</p>
+<p>1. <strong>Default Autocommit</strong>: MySQL operates with <code>autocommit = 1</code> enabled by default. Every standalone SQL statement (<code>UPDATE</code>, <code>INSERT</code>, <code>DELETE</code>) is automatically committed immediately upon execution.</p>
+<p>2. <strong>Explicit Transaction Boundaries</strong>: Executing <code>START TRANSACTION;</code> or <code>BEGIN;</code> temporarily disables autocommit until <code>COMMIT;</code> or <code>ROLLBACK;</code> is called.</p>
+<p>3. <strong>Storage Engine Requirement</strong>: Transactions require a transactional storage engine like <strong>InnoDB</strong>. Non-transactional engines like MyISAM ignore transaction blocks!</p>
+<p>4. <strong>Implicit Commits via DDL</strong>: Data Definition Language (DDL) statements (e.g. <code>CREATE TABLE</code>, <code>ALTER TABLE</code>, <code>DROP TABLE</code>, <code>TRUNCATE TABLE</code>) cause an <strong>implicit automatic commit</strong> of any open transaction! You cannot undo schema changes with <code>ROLLBACK</code>.</p>
+
+<p>---</p>
+
+<h2>📊 Reproducible Sample Setup Data</h2>
+
+<p>Run this setup script to create an InnoDB <code>accounts</code> table with sample balances.</p>
+
+<blockquote><p>[!WARNING]</p></blockquote>
+<blockquote><p><code>DROP TABLE IF EXISTS</code> removes pre-existing tables and their data. Always back up data before running drop scripts in non-testing environments.</p></blockquote>
+
+<pre><code class="language-sql">-- Clean up pre-existing sample table
+<p>DROP TABLE IF EXISTS accounts;</p>
+
+<p>-- Create InnoDB accounts table with money data type (DECIMAL)</p>
+<p>CREATE TABLE accounts (</p>
+<p>    account_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    holder_name VARCHAR(50) NOT NULL,</p>
+<p>    balance DECIMAL(12, 2) NOT NULL DEFAULT 0.00,</p>
+<p>    CONSTRAINT chk_positive_balance CHECK (balance &gt;= 0.00)</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- Insert initial sample accounts</p>
+<p>INSERT INTO accounts (account_id, holder_name, balance) VALUES</p>
+<p>(1, &#39;Rahul Sharma&#39;, 1000.00),</p>
+<p>(2, &#39;Priya Patel&#39;, 500.00);</code></pre></p>
+
+<h3>Initial Balances (<code>accounts</code>)</h3>
+<table>
+<p>  <thead><tr><th>account_id</th><th>holder_name</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>1000.00</td></tr></p>
+<p>    <tr><td>2</td><td>Priya Patel</td><td>500.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🧭 Separate Demonstrations: COMMIT vs ROLLBACK</h2>
+
+<h3>Demo A: Committing Changes Permanently (<code>COMMIT</code>)</h3>
+
+<pre><code class="language-sql">-- 1. Verify starting balances (Account 1: $1000.00, Account 2: $500.00)
+<p>SELECT account_id, holder_name, balance FROM accounts;</p>
+
+<p>-- 2. Begin explicit transaction</p>
+<p>START TRANSACTION;</p>
+
+<p>-- 3. Perform transfer: Deduct $200 from Rahul (Account 1), add $200 to Priya (Account 2)</p>
+<p>UPDATE accounts SET balance = balance - 200.00 WHERE account_id = 1;</p>
+<p>UPDATE accounts SET balance = balance + 200.00 WHERE account_id = 2;</p>
+
+<p>-- 4. Commit changes permanently to disk</p>
+<p>COMMIT;</p>
+
+<p>-- 5. Query final balances</p>
+<p>SELECT account_id, holder_name, balance FROM accounts ORDER BY account_id;</code></pre></p>
+
+<p>#### Final Output After <code>COMMIT</code></p>
+<table>
+<p>  <thead><tr><th>account_id</th><th>holder_name</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>800.00</td></tr></p>
+<p>    <tr><td>2</td><td>Priya Patel</td><td>700.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation</p>
+<p>Both <code>UPDATE</code> statements succeeded, and <code>COMMIT</code> permanently updated the balances. Total money in the system remains conserved ($800.00 + $700.00 = $1500.00$).</p>
+
+<p>---</p>
+
+<h3>Demo B: Rolling Back Uncommitted Changes (<code>ROLLBACK</code>)</h3>
+
+<p>First, reset or verify initial balances (Account 1: $800.00, Account 2: $700.00).</p>
+
+<pre><code class="language-sql">-- 1. Begin explicit transaction
+<p>START TRANSACTION;</p>
+
+<p>-- 2. Perform a test deduction of $300 from Account 1</p>
+<p>UPDATE accounts SET balance = balance - 300.00 WHERE account_id = 1;</p>
+
+<p>-- 3. Query balance INSIDE uncommitted transaction (Shows $500.00)</p>
+<p>SELECT account_id, holder_name, balance FROM accounts WHERE account_id = 1;</p>
+
+<p>-- 4. Cancel uncommitted changes</p>
+<p>ROLLBACK;</p>
+
+<p>-- 5. Query balance AFTER ROLLBACK (Restored to $800.00!)</p>
+<p>SELECT account_id, holder_name, balance FROM accounts WHERE account_id = 1;</code></pre></p>
+
+<p>#### Output After <code>ROLLBACK</code></p>
+<table>
+<p>  <thead><tr><th>account_id</th><th>holder_name</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>800.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation</p>
+<p>The uncommitted $300 deduction was completely discarded by <code>ROLLBACK</code>, restoring Account 1 to its pre-transaction state ($800.00).</p>
+
+<p>---</p>
+
+<h2>🛡️ Safe Money Transfer Pattern & Concurrency Control</h2>
+
+<p>In real-world payment applications, executing two unconditional <code>UPDATE</code> statements is <strong>not sufficient</strong>. The system must validate preconditions and handle concurrent access.</p>
+
+<h3>4-Step Money Transfer Algorithm:</h3>
+<p>1. <strong>Start Transaction</strong>: Open an explicit transaction block (<code>START TRANSACTION</code>).</p>
+<p>2. <strong>Lock & Verify Source Row (<code>FOR UPDATE</code>)</strong>: Acquire an exclusive row lock on the source account using <code>SELECT ... FOR UPDATE</code>. This prevents concurrent transactions from modifying or reading stale balance data.</p>
+<p>3. <strong>Validate Balance & Accounts</strong>: Check that:</p>
+<ul>
+<p>  <li>Source account exists.</li></p>
+<p>  <li>Destination account exists.</li></p>
+<p>  <li>Transfer amount is positive ($amount > 0$).</li></p>
+<p>  <li>Source account has sufficient funds ($balance \ge amount$).</li></p>
+<p>  <li>Both <code>UPDATE</code> statements affect exactly $1$ row (<code>ROW_COUNT() = 1</code>).</li></p>
+<p></ul></p>
+<p>4. <strong>Commit or Rollback</strong>: If all checks pass, issue <code>COMMIT;</code>. If any check fails, issue <code>ROLLBACK;</code>.</p>
+
+<pre><code class="language-sql">-- Safe Row-Locking Transfer Example (MySQL / InnoDB)
+<p>START TRANSACTION;</p>
+
+<p>-- Step 1: Lock source account row for update check</p>
+<p>SELECT balance FROM accounts WHERE account_id = 1 FOR UPDATE;</p>
+
+<p>-- Step 2: Debit source account (Rahul: $800.00 -&gt; $600.00)</p>
+<p>UPDATE accounts SET balance = balance - 200.00 WHERE account_id = 1;</p>
+
+<p>-- Step 3: Credit destination account (Priya: $700.00 -&gt; $900.00)</p>
+<p>UPDATE accounts SET balance = balance + 200.00 WHERE account_id = 2;</p>
+
+<p>-- Step 4: Finalize transaction</p>
+<p>COMMIT;</code></pre></p>
+
+<p>---</p>
+
+<h2>🔖 Partial Rollback Using <code>SAVEPOINT</code></h2>
+
+<p>A <strong>Savepoint</strong> creates a named marker inside an active transaction. This allows you to roll back changes made <strong>after</strong> the savepoint without aborting or committing the entire outer transaction.</p>
+
+<pre><code class="language-sql">-- Reset balances for demo (Account 1: $1000.00)
+<p>UPDATE accounts SET balance = 1000.00 WHERE account_id = 1;</p>
+
+<p>START TRANSACTION;</p>
+
+<p>-- Step 1: Deduct $100.00 base order payment</p>
+<p>UPDATE accounts SET balance = balance - 100.00 WHERE account_id = 1;</p>
+
+<p>-- Step 2: Create a savepoint marker</p>
+<p>SAVEPOINT after_base_payment;</p>
+
+<p>-- Step 3: Attempt an additional $50.00 expedited shipping fee</p>
+<p>UPDATE accounts SET balance = balance - 50.00 WHERE account_id = 1;</p>
+
+<p>-- Step 4: Customer cancels expedited shipping -&gt; Roll back ONLY to savepoint!</p>
+<p>ROLLBACK TO SAVEPOINT after_base_payment;</p>
+
+<p>-- Step 5: Commit the base payment</p>
+<p>COMMIT;</p>
+
+<p>-- Verify final balance</p>
+<p>SELECT account_id, holder_name, balance FROM accounts WHERE account_id = 1;</code></pre></p>
+
+<p>#### Final Output</p>
+<table>
+<p>  <thead><tr><th>account_id</th><th>holder_name</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>900.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation</p>
+<ul>
+<p>  <li>Base payment deduction ($100.00) occurred before the savepoint and was <strong>committed</strong> ($1000.00 \rightarrow 900.00$).</li></p>
+<p>  <li>Expedited shipping fee ($50.00) occurred after the savepoint and was <strong>rolled back</strong>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔒 Concurrency Anomalies & Isolation Levels</h2>
+
+<p>When multiple transactions interact with the same rows simultaneously, concurrency anomalies can occur if isolation levels are insufficient.</p>
+
+<h3>Concurrency Anomalies Defined:</h3>
+<p>1. <strong>Dirty Read</strong>: Transaction A reads uncommitted data modified by Transaction B. If Transaction B rolls back, Transaction A worked with invalid data.</p>
+<p>2. <strong>Non-Repeatable Read</strong>: Transaction A reads a row, Transaction B updates and commits that row, and Transaction A re-reads the same row finding different column values.</p>
+<p>3. <strong>Phantom Read</strong>: Transaction A executes a range query, Transaction B inserts new rows matching the range and commits, and Transaction A re-executes the range query finding new "phantom" rows.</p>
+<p>4. <strong>Lost Update</strong>: Transaction A and Transaction B read the same balance ($100$). Both calculate new balances based on $100$ and overwrite each other's changes.</p>
+
+<h3>MySQL Isolation Levels (InnoDB):</h3>
+
+<table>
+<p>  <thead><tr><th>Isolation Level</th><th>Dirty Read</th><th>Non-Repeatable Read</th><th>Phantom Read</th><th>InnoDB Lock / Behavior Notes</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>READ UNCOMMITTED</code></td><td>⚠️ Possible</td><td>⚠️ Possible</td><td>⚠️ Possible</td><td>Lowest isolation; reads dirty uncommitted data.</td></tr></p>
+<p>    <tr><td><code>READ COMMITTED</code></td><td>❌ Prevented</td><td>⚠️ Possible</td><td>⚠️ Possible</td><td>Reads only committed data.</td></tr></p>
+<p>    <tr><td><code>REPEATABLE READ</code></td><td>❌ Prevented</td><td>❌ Prevented</td><td>❌ Prevented*</td><td><strong>MySQL Default!</strong> Uses MVCC snapshot reads to prevent phantoms in consistent reads.</td></tr></p>
+<p>    <tr><td><code>SERIALIZABLE</code></td><td>❌ Prevented</td><td>❌ Prevented</td><td>❌ Prevented</td><td>Highest isolation; converts plain <code>SELECT</code>s into shared locks (<code>LOCK IN SHARE MODE</code>).</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & How to Avoid Them</h2>
+
+<p>1. <strong>Leaving Transactions Open</strong>:</p>
+<p>   Forgetting to issue <code>COMMIT</code> or <code>ROLLBACK</code> holds row locks open indefinitely, blocking other application threads. Always ensure transactions terminate promptly.</p>
+<p>2. <strong>Assuming <code>ROLLBACK</code> Can Undo Committed Work</strong>:</p>
+<p>   Once <code>COMMIT</code> runs, <code>ROLLBACK</code> has no effect. Undoing committed work requires writing a compensating transaction (e.g., issuing a refund).</p>
+<p>3. <strong>Assuming DDL Statements Can Be Rolled Back</strong>:</p>
+<p>   DDL commands (<code>DROP TABLE</code>, <code>ALTER TABLE</code>, <code>TRUNCATE</code>) trigger an implicit commit in MySQL.</p>
+<p>4. <strong>Using Floating-Point Types (<code>FLOAT</code>/<code>DOUBLE</code>) for Money</strong>:</p>
+<p>   Binary floating-point representation causes rounding errors ($0.1 + 0.2 = 0.30000000000000004$). Always use <code>DECIMAL(12,2)</code> for financial values.</p>
+<p>5. <strong>Using Non-Transactional Storage Engines</strong>:</p>
+<p>   Using <code>ENGINE=MyISAM</code> silently ignores transaction blocks. Always specify <code>ENGINE=InnoDB</code>.</p>
+<p>6. <strong>Ignoring Affected Row Counts (<code>ROW_COUNT()</code>)</strong>:</p>
+<p>   Executing <code>UPDATE accounts SET balance = balance - 100 WHERE account_id = 999;</code> does not raise a syntax error even if account 999 does not exist! Applications must verify that <code>ROW_COUNT() = 1</code>.</p>
+
+<p>---</p>
+
+<h2>🧪 Step-by-Step Practice Exercises</h2>
+
+<p>Run the sample setup script provided in this chapter before attempting these exercises.</p>
+
+<p>---</p>
+
+<h3>Exercise 1: Multi-Row Update with <code>COMMIT</code></h3>
+<p><strong>Task</strong>: Start a transaction, add $100.00 to Rahul's balance (<code>account_id = 1</code>) and add $100.00 to Priya's balance (<code>account_id = 2</code>), then commit the changes.</p>
+
+<pre><code class="language-sql">-- Solution
+<p>START TRANSACTION;</p>
+<p>UPDATE accounts SET balance = balance + 100.00 WHERE account_id = 1;</p>
+<p>UPDATE accounts SET balance = balance + 100.00 WHERE account_id = 2;</p>
+<p>COMMIT;</p>
+
+<p>-- Verify final balances</p>
+<p>SELECT account_id, holder_name, balance FROM accounts ORDER BY account_id;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>account_id</th><th>holder_name</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>1000.00</td></tr></p>
+<p>    <tr><td>2</td><td>Priya Patel</td><td>600.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 2: Simulating Error Recovery with <code>ROLLBACK</code></h3>
+<p><strong>Task</strong>: Start a transaction, deduct $500.00 from Priya's account (<code>account_id = 2</code>), inspect the balance inside the transaction, and then roll back the transaction.</p>
+
+<pre><code class="language-sql">-- Solution
+<p>START TRANSACTION;</p>
+<p>UPDATE accounts SET balance = balance - 500.00 WHERE account_id = 2;</p>
+
+<p>-- Query uncommitted change</p>
+<p>SELECT balance FROM accounts WHERE account_id = 2; -- Shows 100.00</p>
+
+<p>ROLLBACK;</p>
+
+<p>-- Verify restored balance</p>
+<p>SELECT balance FROM accounts WHERE account_id = 2; -- Restored to 600.00</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>600.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 3: Partial Transaction Rollback with <code>SAVEPOINT</code></h3>
+<p><strong>Task</strong>: Start a transaction, add $50.00 interest to Rahul's account, create a savepoint named <code>after_interest</code>, attempt a $200.00 fee deduction, roll back to <code>after_interest</code>, and commit.</p>
+
+<pre><code class="language-sql">-- Solution
+<p>START TRANSACTION;</p>
+
+<p>UPDATE accounts SET balance = balance + 50.00 WHERE account_id = 1;</p>
+<p>SAVEPOINT after_interest;</p>
+
+<p>UPDATE accounts SET balance = balance - 200.00 WHERE account_id = 1;</p>
+<p>ROLLBACK TO SAVEPOINT after_interest;</p>
+
+<p>COMMIT;</p>
+
+<p>-- Verify final balance (1000.00 + 50.00 = 1050.00)</p>
+<p>SELECT account_id, balance FROM accounts WHERE account_id = 1;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>account_id</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>1050.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 4: Locking a Row with <code>FOR UPDATE</code></h3>
+<p><strong>Task</strong>: Write a <code>SELECT</code> statement that reads and locks Priya's account (<code>account_id = 2</code>) inside a transaction to prevent concurrent updates.</p>
+
+<pre><code class="language-sql">-- Solution
+<p>START TRANSACTION;</p>
+<p>SELECT account_id, holder_name, balance </p>
+<p>FROM accounts </p>
+<p>WHERE account_id = 2 </p>
+<p>FOR UPDATE;</p>
+<p>COMMIT;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>account_id</th><th>holder_name</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Priya Patel</td><td>600.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 5: Concurrency Control Strategy Analysis</h3>
+<p><strong>Task</strong>: Explain the difference between <strong>Pessimistic Locking</strong> (<code>FOR UPDATE</code>) and <strong>Optimistic Concurrency Control</strong> (version numbers) for preventing lost updates.</p>
+
+<p>#### Answer Key</p>
+<ul>
+<p>  <li><strong>Pessimistic Locking (<code>FOR UPDATE</code>)</strong>: Locks the database row immediately upon reading. Other transactions attempting to lock or update the same row are blocked until the first transaction commits or rolls back. Best for high-contention environments.</li></p>
+<p>  <li><strong>Optimistic Concurrency Control</strong>: Reads rows without locking, but includes a version/timestamp column (<code>WHERE account_id = 1 AND version = 5</code>). Upon updating, if the version number changed, the update affects $0$ rows, indicating a concurrent collision, and the application retries. Best for read-heavy, low-contention environments.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Design a robust payment validation workflow for transferring $300.00 from Account 1 to Account 2.</p>
+
+<h3>Required Safeguards Checklist:</h3>
+<p>1. What should happen if Account 1's balance is less than $300.00?</p>
+<p>2. What should happen if Account 2 does not exist (<code>ROW_COUNT() = 0</code>)?</p>
+<p>3. What should happen if an unexpected error occurs during step 2?</p>
+
+<pre><code class="language-sql">-- Solution Pattern Demonstration
+<p>START TRANSACTION;</p>
+
+<p>-- Step 1: Lock source account and fetch balance</p>
+<p>SELECT balance FROM accounts WHERE account_id = 1 FOR UPDATE;</p>
+
+<p>-- Step 2: Debit source account</p>
+<p>UPDATE accounts SET balance = balance - 300.00 WHERE account_id = 1;</p>
+
+<p>-- Step 3: Credit target account</p>
+<p>UPDATE accounts SET balance = balance + 300.00 WHERE account_id = 2;</p>
+
+<p>-- Application Check Logic:</p>
+<p>-- If (source_balance &gt;= 300.00 AND update1_rows == 1 AND update2_rows == 1) THEN</p>
+<p>COMMIT;</p>
+<p>-- ELSE</p>
+<p>-- ROLLBACK;</code></pre></p>
+
+<p>#### Expected Final Balances (if transfer succeeds)</p>
+<table>
+<p>  <thead><tr><th>account_id</th><th>holder_name</th><th>balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>750.00</td></tr></p>
+<p>    <tr><td>2</td><td>Priya Patel</td><td>900.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation of Failure Responses:</p>
+<p>1. <strong>Insufficient Balance</strong>: The application detects <code>balance < 300.00</code>, issues <code>ROLLBACK;</code>, and returns an <code>"Insufficient Funds"</code> error to the user.</p>
+<p>2. <strong>Missing Target Account</strong>: The second <code>UPDATE</code> affects $0$ rows (<code>ROW_COUNT() = 0</code>). The application detects the failure, issues <code>ROLLBACK;</code>, and restores Account 1's balance.</p>
+<p>3. <strong>Database Error/Timeout</strong>: The exception handler catches the database error and immediately triggers <code>ROLLBACK;</code>.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="21-indexes-and-performance.html">Indexes & Query Performance</a></li></p>
+<p>  <li><a href="26-stored-procedures.html">Stored Procedures & Functions</a></li></p>
+<p>  <li><a href="23-ctes.html">Common Table Expressions (CTEs)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← SQL Home</a> | <a href="21-indexes-and-performance.html">← Previous: Indexes & Performance</a> | <a href="23-ctes.html">Next: Common Table Expressions →</a></p>
+
+  </div>
+</body>
+</html>

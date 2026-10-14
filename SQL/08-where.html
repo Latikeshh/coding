@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 where - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Filtering Data with <code>WHERE</code></h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>WHERE</code></strong> clause is used in SQL statements (<code>SELECT</code>, <code>UPDATE</code>, <code>DELETE</code>) to filter table records based on one or more boolean search conditions.</p>
+
+<p>The database engine evaluates the <code>WHERE</code> condition for every candidate row:</p>
+<ul>
+<p>  <li><strong><code>TRUE</code>:</strong> The row satisfies the condition and is included in the query result (or affected by <code>UPDATE</code>/<code>DELETE</code>).</li></p>
+<p>  <li><strong><code>FALSE</code>:</strong> The row fails the condition and is excluded.</li></p>
+<p>  <li><strong><code>UNKNOWN</code> (due to <code>NULL</code>):</strong> The condition evaluates to unknown and the row is excluded.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Database table se specific conditions ke aadhar par data filter karne ke liye <strong><code>WHERE</code></strong> clause ka use hota hai. <code>WHERE</code> clause se aap <code>SELECT</code> (data dekhne), <code>UPDATE</code> (data modify karne), aur <code>DELETE</code> (data hatane) queries mein exact rows ko target kar sakte hain. Multiple conditions combine karne ke liye <strong><code>AND</code></strong>, <strong><code>OR</code></strong>, aur <strong><code>NOT</code></strong> ka use hota hai. Sahi logic ke liye parentheses <code>()</code> ka istemal karna zaroori hai kyunki SQL mein <code>AND</code> ki priority <code>OR</code> se zyada hoti hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Database table madhun tharavik conditions nusar data filter karnyasathi <strong><code>WHERE</code></strong> clause vaparla jato. Phakta ja rows sathi condition <strong><code>TRUE</code></strong> hote tech records result madhye disat. Multiple conditions ekatra karnyasathi <strong><code>AND</code></strong>, <strong><code>OR</code></strong>, aani <strong><code>NOT</code></strong> cha wapar hoto. SQL madhye <code>AND</code> chi precedence (priority) <code>OR</code> peksha jast aslyamule konshta (parentheses <code>()</code>) vaparne garjeche ahe.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Executing queries without a <code>WHERE</code> clause processes or returns <strong>every single row</strong> in the table. Using <code>WHERE</code> is critical because:</p>
+
+<ul>
+<p>  <li><strong>Precision:</strong> Focuses queries on exact business records (e.g., finding orders for customer #101 or users from 'Mumbai').</li></p>
+<p>  <li><strong>Query Performance:</strong> Reduces the number of records scanned and processed by the database engine, dramatically speeding up response times.</li></p>
+<p>  <li><strong>Safety:</strong> Prevents catastrophic accidental data loss (e.g., executing <code>DELETE FROM staff;</code> without <code>WHERE</code> wipes out the entire table!).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: The Security Gate Check</h2>
+
+<p>Think of a <code>WHERE</code> clause as a <strong>Security Guard at an Event Gate</strong>:</p>
+
+<ul>
+<p>  <li><strong>The Event Attendees:</strong> Every row in the <code>staff</code> table.</li></p>
+<p>  <li>**<code>SELECT * FROM staff;</code><strong>: Opening the gates and letting everyone enter without checking tickets.</li></p>
+<p>  <li></strong><code>WHERE city = 'Mumbai'</code>**: The Security Guard asking every attendee: *"Are you from Mumbai?"*</li></p>
+<p>  <li>Attendees who answer <strong>"Yes" (<code>TRUE</code>)</strong> pass through the gate.</li></p>
+<p>  <li>Attendees who answer <strong>"No" (<code>FALSE</code>)</strong> are turned away.</li></p>
+<p>  <li>Attendees whose location is <strong>unrecorded (<code>NULL</code> / <code>UNKNOWN</code>)</strong> are also stopped at the gate!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔢 1. Comparison Operators Matrix</h2>
+
+<p>SQL provides standard comparison operators to evaluate scalar column values:</p>
+
+<table>
+<p>  <thead><tr><th>Operator</th><th>Meaning / Description</th><th>Example Query</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>=</code></strong></td><td>Equal to</td><td><code>WHERE city = 'Mumbai'</code></td></tr></p>
+<p>    <tr><td><strong><code><></code></strong> / <strong><code>!=</code></strong></td><td>Not equal to (both supported by MySQL)</td><td><code>WHERE department != 'HR'</code></td></tr></p>
+<p>    <tr><td><strong><code>></code></strong></td><td>Greater than</td><td><code>WHERE salary > 70000.00</code></td></tr></p>
+<p>    <tr><td><strong><code><</code></strong></td><td>Less than</td><td><code>WHERE age < 30</code></td></tr></p>
+<p>    <tr><td><strong><code>>=</code></strong></td><td>Greater than or equal to</td><td><code>WHERE salary >= 85000.00</code></td></tr></p>
+<p>    <tr><td><strong><code><=</code></strong></td><td>Less than or equal to</td><td><code>WHERE age <= 25</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>🌐 <strong>Note on String Case Sensitivity:</strong> In MySQL (with default collations like <code>utf8mb4_0900_ai_ci</code>), string comparisons are <strong>case-insensitive</strong> by default. Searching for <code>WHERE city = 'mumbai'</code> will match <code>'Mumbai'</code>, <code>'MUMBAI'</code>, and <code>'mumbai'</code>.</p></blockquote>
+
+<p>---</p>
+
+<h2>🔀 2. Logical Operators: <code>AND</code>, <code>OR</code>, <code>NOT</code> & Parentheses <code>()</code></h2>
+
+<p>When filtering by multiple criteria, combine boolean expressions using logical operators:</p>
+
+<ul>
+<p>  <li><strong><code>AND</code>:</strong> Returns rows where <strong>ALL</strong> conditions evaluate to <code>TRUE</code>.</li></p>
+<p>  <li><strong><code>OR</code>:</strong> Returns rows where <strong>AT LEAST ONE</strong> condition evaluates to <code>TRUE</code>.</li></p>
+<p>  <li><strong><code>NOT</code>:</strong> Negates a condition (returns rows where the condition is <code>FALSE</code>).</li></p>
+<p></ul></p>
+
+<h3>🚨 Operator Precedence Rule: <code>AND</code> Over <code>OR</code></h3>
+<p>In SQL boolean algebra, <strong><code>AND</code> has higher precedence than <code>OR</code></strong>!</p>
+
+<pre><code class="language-sql">-- ❌ Without Parentheses (Evaluates as: city = &#39;Mumbai&#39; OR (city = &#39;Delhi&#39; AND salary &gt; 80000))
+<p>SELECT * FROM staff</p>
+<p>WHERE city = &#39;Mumbai&#39; OR city = &#39;Delhi&#39; AND salary &gt; 80000;</p>
+<p>-- Result: Returns ALL Mumbai staff regardless of salary, PLUS Delhi staff earning &gt; 80000!</p>
+
+<p>-- ✅ With Parentheses (Evaluates as: (city = &#39;Mumbai&#39; OR city = &#39;Delhi&#39;) AND salary &gt; 80000)</p>
+<p>SELECT * FROM staff</p>
+<p>WHERE (city = &#39;Mumbai&#39; OR city = &#39;Delhi&#39;) AND salary &gt; 80000;</p>
+<p>-- Result: Correctly returns staff from Mumbai OR Delhi WHO ALSO earn &gt; 80000!</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 3. Useful Filtering Patterns: <code>BETWEEN</code>, <code>IN</code>, and <code>LIKE</code></h2>
+
+<p>In addition to basic comparison operators, SQL provides high-level filtering shortcuts:</p>
+
+<h3>A. Range Searching (<code>BETWEEN min AND max</code>)</h3>
+<p>Filters values within a specified range, <strong>inclusive of both endpoints</strong>:</p>
+
+<pre><code class="language-sql">SELECT name, salary
+<p>FROM staff</p>
+<p>WHERE salary BETWEEN 65000.00 AND 95000.00;</p>
+<p>-- Equivalent to: WHERE salary &gt;= 65000.00 AND salary &lt;= 95000.00</code></pre></p>
+
+<h3>B. List Matching (<code>IN (value1, value2, ...)</code>)</h3>
+<p>Matches a column value against a list of options (a clean alternative to multiple <code>OR</code> equality checks):</p>
+
+<pre><code class="language-sql">SELECT name, city
+<p>FROM staff</p>
+<p>WHERE city IN (&#39;Mumbai&#39;, &#39;Bengaluru&#39;);</p>
+<p>-- Equivalent to: WHERE city = &#39;Mumbai&#39; OR city = &#39;Bengaluru&#39;</code></pre></p>
+
+<h3>C. Pattern Matching (<code>LIKE 'pattern'</code>)</h3>
+<p>Searches for string pattern matches using SQL wildcards:</p>
+<ul>
+<p>  <li><strong><code>%</code> Wildcard:</strong> Matches <strong>zero or more</strong> characters.</li></p>
+<p>  <li><strong><code>_</code> Wildcard:</strong> Matches <strong>exactly one</strong> character.</li></p>
+<p></ul></p>
+
+<pre><code class="language-sql">-- Finds names starting with &#39;A&#39; (e.g. &#39;Ananya&#39;, &#39;Amit&#39;)
+<p>SELECT name FROM staff WHERE name LIKE &#39;A%&#39;;</p>
+
+<p>-- Finds names where the second letter is &#39;i&#39; (e.g. &#39;Vikram&#39;, &#39;Kiran&#39;)</p>
+<p>SELECT name FROM staff WHERE name LIKE &#39;_i%&#39;;</code></pre></p>
+
+<p>---</p>
+
+<h2>❓ 4. Handling <code>NULL</code> Values in <code>WHERE</code> Clauses</h2>
+
+<p>As covered in Topic 4, <strong><code>NULL</code> represents missing or unknown data</strong>.</p>
+
+<h3>The <code>NULL</code> Comparison Error:</h3>
+<p>Comparing a column to <code>NULL</code> using ordinary equality operators (<code>= NULL</code> or <code>!= NULL</code>) evaluates to <strong><code>UNKNOWN</code></strong>, which fails in <code>WHERE</code> filtering and returns 0 rows!</p>
+
+<pre><code class="language-sql">-- ❌ WRONG! Always returns 0 rows:
+<p>SELECT * FROM staff WHERE city = NULL;</p>
+
+<p>-- ✅ CORRECT: Use IS NULL or IS NOT NULL</p>
+<p>SELECT * FROM staff WHERE city IS NULL;</p>
+<p>SELECT * FROM staff WHERE city IS NOT NULL;</code></pre></p>
+
+<blockquote><p>📌 <strong><code>NOT</code> Operator and <code>NULL</code>:</strong> Evaluating <code>WHERE NOT (salary > 80000)</code> will <strong>not</strong> include rows where <code>salary</code> is <code>NULL</code>, because <code>NOT (UNKNOWN)</code> remains <code>UNKNOWN</code>!</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Complete Practical Workflow & Staff Example</h2>
+
+<p>Let's create a MySQL-compatible <code>staff</code> table and run filtering queries demonstrating multi-condition <code>AND</code>, <code>OR</code>, <code>BETWEEN</code>, and parentheses precedence.</p>
+
+<pre><code class="language-sql">-- 1. Create table schema
+<p>CREATE TABLE IF NOT EXISTS staff (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    name VARCHAR(100) NOT NULL,</p>
+<p>    department VARCHAR(50) NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL,</p>
+<p>    age INT NOT NULL,</p>
+<p>    city VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample staff records using explicit column syntax</p>
+<p>INSERT INTO staff (emp_id, name, department, salary, age, city)</p>
+<p>VALUES </p>
+<p>    (101, &#39;Ananya Roy&#39;, &#39;Engineering&#39;, 95000.00, 28, &#39;Mumbai&#39;),</p>
+<p>    (102, &#39;Vikram Sharma&#39;, &#39;Engineering&#39;, 65000.00, 24, &#39;Delhi&#39;),</p>
+<p>    (103, &#39;Kiran Deshmukh&#39;, &#39;Marketing&#39;, 70000.00, 32, &#39;Mumbai&#39;),</p>
+<p>    (104, &#39;Siddharth Verma&#39;, &#39;HR&#39;, 55000.00, 29, &#39;Bengaluru&#39;),</p>
+<p>    (105, &#39;Meera Nair&#39;, &#39;Engineering&#39;, 105000.00, 35, &#39;Mumbai&#39;);</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 1: Filter Engineering Staff in Mumbai Earning > 90,000</h3>
+
+<pre><code class="language-sql">SELECT name, department, salary, city 
+<p>FROM staff </p>
+<p>WHERE department = &#39;Engineering&#39; </p>
+<p>  AND city = &#39;Mumbai&#39; </p>
+<p>  AND salary &gt; 90000.00;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+------------+-------------+-----------+--------+
+<table>
+<p>  <thead><tr><th>name</th><th>department</th><th>salary</th><th>city</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+-------------+-----------+--------+</p>
+<table>
+<p>  <thead><tr><th>Ananya Roy</th><th>Engineering</th><th>95000.00</th><th>Mumbai</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Meera Nair</td><td>Engineering</td><td>105000.00</td><td>Mumbai</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+-------------+-----------+--------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 2: Filter Staff in Mumbai OR Bengaluru Who Are Under 30</h3>
+
+<pre><code class="language-sql">SELECT name, city, age 
+<p>FROM staff </p>
+<p>WHERE (city = &#39;Mumbai&#39; OR city = &#39;Bengaluru&#39;) </p>
+<p>  AND age &lt; 30;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-----------------+-----------+-----+
+<table>
+<p>  <thead><tr><th>name</th><th>city</th><th>age</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------------+-----------+-----+</p>
+<table>
+<p>  <thead><tr><th>Ananya Roy</th><th>Mumbai</th><th>28</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Siddharth Verma</td><td>Bengaluru</td><td>29</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------------+-----------+-----+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 3: Filter Staff Salary Range Using <code>BETWEEN</code></h3>
+
+<pre><code class="language-sql">SELECT name, department, salary
+<p>FROM staff</p>
+<p>WHERE salary BETWEEN 65000.00 AND 95000.00;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+----------------+-------------+----------+
+<table>
+<p>  <thead><tr><th>name</th><th>department</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+-------------+----------+</p>
+<table>
+<p>  <thead><tr><th>Ananya Roy</th><th>Engineering</th><th>95000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Vikram Sharma</td><td>Engineering</td><td>65000.00</td></tr></p>
+<p>    <tr><td>Kiran Deshmukh</td><td>Marketing</td><td>70000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+-------------+----------+</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error Message / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1054 (42S22): Unknown column 'Mumbai' in 'where clause'</code></strong></td><td>Forgetting single quotes around string literals (<code>WHERE city = Mumbai</code>).</td><td>Always enclose text string literals in single quotes (<code>WHERE city = 'Mumbai'</code>).</td></tr></p>
+<p>    <tr><td><strong><code>WHERE column = NULL</code> Returns 0 Rows</strong></td><td>Using equality <code>=</code> operator to compare <code>NULL</code> values.</td><td>Use <code>IS NULL</code> or <code>IS NOT NULL</code> for checking missing values.</td></tr></p>
+<p>    <tr><td><strong>Unexpected Rows When Combining <code>AND</code> & <code>OR</code></strong></td><td>Relying on default precedence where <code>AND</code> evaluates before <code>OR</code>.</td><td>Use explicit parentheses <code>(cond1 OR cond2) AND cond3</code> to enforce logic.</td></tr></p>
+<p>    <tr><td><strong>Assuming <code>BETWEEN</code> Excludes Endpoints</strong></td><td>Assuming <code>BETWEEN 65000 AND 95000</code> excludes 65000 or 95000.</td><td>Remember that <code>BETWEEN</code> is <strong>inclusive</strong> of both minimum and maximum values.</td></tr></p>
+<p>    <tr><td><strong><code>LIKE</code> Pattern Missing <code>%</code> Wildcards</strong></td><td>Writing <code>WHERE name LIKE 'Ananya'</code> (acts as exact <code>=</code> match).</td><td>Add <code>%</code> wildcards for partial matching: <code>WHERE name LIKE 'Ananya%'</code>.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Price Sliders:</strong> Executing <code>SELECT * FROM products WHERE category = 'Laptops' AND price BETWEEN 40000 AND 80000</code>.</li></p>
+<p>  <li><strong>Targeted Email Marketing:</strong> Querying <code>SELECT email FROM users WHERE country = 'India' AND last_login_date >= '2026-01-01'</code>.</li></p>
+<p>  <li><strong>Fraud Monitoring:</strong> Filtering transactions where <code>amount > 50000 AND status = 'PENDING'</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Basic Comparison Filtering</h3>
+<p>Write an SQL query to select all staff members earning less than <code>70000.00</code>.</p>
+
+<h3>Exercise 2: Excluding Specific Departments</h3>
+<p>Write a query to select all staff members who do <strong>not</strong> work in the <code>'HR'</code> department (<code>!= 'HR'</code>). Explain how <code>NULL</code> values would be handled if a staff record had an unassigned nullable department.</p>
+
+<h3>Exercise 3: Pattern & List Matching</h3>
+<p>Write a query to select all staff members whose names start with the letter <code>'A'</code> AND whose city is in <code>('Mumbai', 'Delhi')</code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write an SQL query to retrieve staff members who are in <strong>either</strong> the <code>'Engineering'</code> <strong>or</strong> <code>'Marketing'</code> department <strong>AND</strong> have a salary greater than <code>68000.00</code>.</p>
+
+<p>Make sure to enforce explicit evaluation grouping using parentheses <code>()</code>.</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">SELECT name, department, salary 
+<p>FROM staff </p>
+<p>WHERE salary &lt; 70000.00;</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<pre><code class="language-sql">SELECT name, department 
+<p>FROM staff </p>
+<p>WHERE department != &#39;HR&#39;;</code></pre></p>
+<p>*(Note: If a row has <code>department IS NULL</code>, <code>department != 'HR'</code> evaluates to <code>UNKNOWN</code> and the row is excluded. To include nullable records, write <code>WHERE department != 'HR' OR department IS NULL</code>).*</p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">SELECT name, city 
+<p>FROM staff </p>
+<p>WHERE name LIKE &#39;A%&#39; </p>
+<p>  AND city IN (&#39;Mumbai&#39;, &#39;Delhi&#39;);</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">SELECT name, department, salary
+<p>FROM staff</p>
+<p>WHERE (department = &#39;Engineering&#39; OR department = &#39;Marketing&#39;)</p>
+<p>  AND salary &gt; 68000.00;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+----------------+-------------+-----------+
+<table>
+<p>  <thead><tr><th>name</th><th>department</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+-------------+-----------+</p>
+<table>
+<p>  <thead><tr><th>Ananya Roy</th><th>Engineering</th><th>95000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Kiran Deshmukh</td><td>Marketing</td><td>70000.00</td></tr></p>
+<p>    <tr><td>Meera Nair</td><td>Engineering</td><td>105000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+-------------+-----------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
+<p>  <li><a href="09-operators.html">Operators in SQL (<code>BETWEEN</code>, <code>IN</code>, <code>LIKE</code>)</a></li></p>
+<p>  <li><a href="10-order-by-and-limit.html">Sorting & Limiting Results (<code>ORDER BY</code>, <code>LIMIT</code>)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="07-select.html">← Previous: SELECT Querying Data</a> | <a href="./">SQL Home</a> | <a href="09-operators.html">Next: Operators in SQL →</a></p>
+
+  </div>
+</body>
+</html>

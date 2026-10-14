@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 git push and git pull - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Syncing Remotes (<code>git push</code>, <code>git pull</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code>git push</code></strong> uploads local repository commits to a remote server (like GitHub). <strong><code>git pull</code></strong> fetches latest commits from a remote server and automatically merges them into your active local working branch (<code>git pull = git fetch + git merge</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git push</code> uploads local commits to the remote server. The <code>-u</code> flag (<code>--set-upstream</code>) links your local branch to the remote branch so future pushes require typing only <code>git push</code>. <code>git pull</code> downloads remote changes and merges them into your active local branch.</p>
+
+<h3>Hindi</h3>
+<p>Local computer se commits ko GitHub par upload karne ke liye <code>git push</code> ka upyog hota hai. Pehli baar push karte waqt <code>-u</code> (<code>--set-upstream</code>) flag lagayein (<code>git push -u origin main</code>). GitHub se naye commits ko local computer par download karke merge karne ke liye <code>git pull</code> run karein.</p>
+
+<h3>Marathi</h3>
+<p>Local commits GitHub var upload karanyasathi <code>git push</code> vaparatat. Pehlya veli <code>git push -u origin main</code> chalvave. GitHub varil navin badal local computer var aannyasathi <code>git pull</code> command vaparali jaate.</p>
+
+<h3>Hinglish</h3>
+<p><code>git push</code> aapke local commits ko GitHub par live kar deta hai. First time push par <code>git push -u origin main</code> use karein. Remote repository par teammates ke dwaara kiye gaye new commits ko apne local code mein merge karne ke liye <code>git pull</code> Type karein.</p>
+
+<h2>🤔 Why Do We Use They?</h2>
+
+<p>Without pushing and pulling, code stays trapped on a single developer's laptop. Pushing publishes your completed work to team members; pulling keeps your local workspace synchronized with team contributions.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of pushing and pulling like cloud storage synchronization:</p>
+<ul>
+<p>  <li><strong><code>git push</code> (Upload):</strong> Uploading your local photos to Google Photos or iCloud so others can view them.</li></p>
+<p>  <li><strong><code>git pull</code> (Download & Sync):</strong> Downloading the latest photos shared by family members into your local gallery.</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & Command Patterns</h2>
+
+<h3>1. Pushing Local Commits (<code>git push</code>)</h3>
+<pre><code class="language-bash"># First time push: Uploads branch AND sets upstream tracking link
+<p>git push -u origin main</p>
+
+<h1>Subsequent pushes on a tracked branch:</h1>
+<p>git push</p>
+
+<h1>Push a specific feature branch to remote</h1>
+<p>git push -u origin feature-login</p>
+
+<h1>Delete a remote branch on GitHub</h1>
+<p>git push origin --delete feature-login</code></pre></p>
+
+<h3>2. Pulling Remote Changes (<code>git pull</code>)</h3>
+<pre><code class="language-bash"># Pull and merge latest changes from tracked upstream branch
+<p>git pull</p>
+
+<h1>Explicitly pull from origin main</h1>
+<p>git pull origin main</p>
+
+<h1>Pull with rebase instead of merge commit</h1>
+<p>git pull --rebase origin main</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Full terminal syncing workflow:</p>
+
+<pre><code class="language-bash"># 1. Make local changes and commit
+<p>echo &quot;console.log(&#39;v1.1&#39;);&quot; &gt;&gt; app.js</p>
+<p>git commit -am &quot;Update app version to v1.1&quot;</p>
+
+<h1>2. Push to GitHub origin main</h1>
+<p>git push -u origin main</p>
+
+<h1>3. Pull latest changes made by team members on GitHub</h1>
+<p>git pull</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git push</code>: Invokes upload engine.</li></p>
+<p>  <li><code>-u</code> (<code>--set-upstream</code>): Remembers remote <code>origin</code> and branch <code>main</code> so future pushes require only <code>git push</code>.</li></p>
+<p>  <li><code>git pull</code>: Executes <code>git fetch</code> (downloads remote commits) followed immediately by <code>git merge</code> (combines remote commits into local branch).</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git push -u origin main
+<p>Enumerating objects: 5, done.</p>
+<p>Counting objects: 100% (5/5), done.</p>
+<p>Writing objects: 100% (5/5), 450 bytes | 450.00 KiB/s, done.</p>
+<p>Total 5 (delta 0), reused 0 (delta 0)</p>
+<p>To https://github.com/Rahul/my-app.git</p>
+<ul>
+<p>  <li>[new branch]      main -&gt; main</li></p>
+<p></ul></p>
+<p>Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.</code></pre></p>
+
+<h2>⚠️ Common Mistakes & Push Rejection</h2>
+
+<ul>
+<p>  <li><strong>Push Rejection (<code>Updates were rejected because the remote contains work...</code>):</strong> Attempting <code>git push</code> when GitHub contains newer commits pushed by teammates that you don't have locally yet!</li></p>
+<p>  <li>*Fix:* Run <code>git pull origin main</code> first, resolve any merge conflicts if necessary, and then run <code>git push</code>.</li></p>
+<p>  <li><strong>DANGER — Force Pushing (<code>git push --force</code>):</strong> Overwriting remote commits with your local history. Never force push to shared <code>main</code> branches! (Use <code>--force-with-lease</code> if force pushing on personal feature branches).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always run <code>git status</code> to ensure your working tree is clean before running <code>git pull</code>.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Developers execute <code>git pull</code> every morning when starting work to get teammates' latest code, and execute <code>git push</code> before ending their workday.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Verify your active branch using <code>git branch</code>.</p>
+<p>2. Practice the command syntax for pushing a branch named <code>feature-auth</code>: <code>git push -u origin feature-auth</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Explain in your own words why Git rejects <code>git push</code> if your teammate pushed new commits to GitHub while you were working offline.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-remote-repositories-and-remotes.html">Remote Repositories</a></li></p>
+<p>  <li><a href="19-git-fetch-and-remote-branches.html">Remote Tracking & Fetching</a></li></p>
+<p>  <li><a href="20-introduction-to-github.html">Introduction to GitHub</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="17-remote-repositories-and-remotes.html">← Previous: Remotes</a> | <a href="19-git-fetch-and-remote-branches.html">Next: Fetching →</a></p>
+
+
+
+  </div>
+</body>
+</html>

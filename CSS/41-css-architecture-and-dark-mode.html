@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>41 css architecture and dark mode - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Architecture (BEM), <code>@supports</code> & Dark Mode</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Architecture & Dark Mode</strong> covers structuring maintainable production stylesheets at scale:</p>
+<ul>
+<p>  <li><strong>BEM (Block Element Modifier):</strong> A naming convention methodology (<code>.block__element--modifier</code>) that keeps CSS selectors flat, modular, and reusable without specificity collisions.</li></p>
+<p>  <li><strong><code>@supports</code> Feature Queries:</strong> Conditional CSS rules that test whether a browser supports specific CSS features before applying them.</li></p>
+<p>  <li><strong>Dark Mode Architecture:</strong> Implementing dark themes seamlessly using CSS Custom Properties and <code>@media (prefers-color-scheme: dark)</code> or class-based theme toggling.</li></p>
+<p></ul></p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>BEM naming (<code>.card__title--active</code>) keeps selector specificity flat and maintainable. <code>@supports (display: grid)</code> tests browser feature support. Dark Mode uses CSS variables with <code>@media (prefers-color-scheme: dark)</code>.</p>
+
+<h3>Hindi</h3>
+<p>BEM naming (<code>.card__title--active</code>) se code clean, modular, aur re-usable rehta hai. <code>@supports</code> se browser feature support test hota hai. Dark mode ko CSS variables aur <code>prefers-color-scheme</code> dware manage kiya jaata hai.</p>
+
+<h3>Marathi</h3>
+<p>BEM padhdati mule code neetnetka rahto. <code>@supports</code> dware browser features tapasya yetat ani CSS variables ne dark mode banavla jaato.</p>
+
+<h2>🧱 The BEM Naming Methodology Explained</h2>
+
+<p>BEM stands for <strong>Block</strong>, <strong>Element</strong>, <strong>Modifier</strong>:</p>
+
+<pre><code class="language-text">.block__element--modifier</code></pre>
+
+<p>1. <strong>Block (<code>.card</code>):</strong> Standalone, meaningful component entity.</p>
+<p>2. <strong>Element (<code>.card__title</code>, <code>.card__img</code>):</strong> A sub-part inside the Block that depends on the Block context (separated by double underscores <code>__</code>).</p>
+<p>3. <strong>Modifier (<code>.card--featured</code>, <code>.card__title--large</code>):</strong> A flag that modifies appearance or state (separated by double hyphens <code>--</code>).</p>
+
+<pre><code class="language-css">/* BEM Naming Convention Example */
+<p>.card { ... }                /* Block */</p>
+<p>.card__image { ... }         /* Element */</p>
+<p>.card__title { ... }         /* Element */</p>
+<p>.card__button { ... }        /* Element */</p>
+<p>.card__button--primary { ... } /* Modifier */</code></pre></p>
+
+<h2>🛠️ <code>@supports</code> Feature Queries</h2>
+
+<p><code>@supports</code> allows progressive enhancement by checking browser capability before applying modern CSS:</p>
+
+<pre><code class="language-css">/* Fallback for older browsers */
+<p>.container {</p>
+<p>  display: flex;</p>
+<p>}</p>
+
+<p>/* Progressive enhancement if browser supports CSS Grid */</p>
+<p>@supports (display: grid) {</p>
+<p>  .container {</p>
+<p>    display: grid;</p>
+<p>    grid-template-columns: repeat(3, 1fr);</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2>🌙 Dark Mode Architecture Pattern</h2>
+
+<p>The most clean method to support Dark Mode is combining CSS Variables with <code>@media (prefers-color-scheme: dark)</code> and attribute overrides:</p>
+
+<pre><code class="language-css">/* 1. Default Light Theme Variables */
+<p>:root {</p>
+<p>  --bg-primary: #ffffff;</p>
+<p>  --bg-secondary: #f8fafc;</p>
+<p>  --text-primary: #0f172a;</p>
+<p>  --text-muted: #64748b;</p>
+<p>  --border-color: #e2e8f0;</p>
+<p>}</p>
+
+<p>/* 2. Automatic OS Dark Mode Preference */</p>
+<p>@media (prefers-color-scheme: dark) {</p>
+<p>  :root {</p>
+<p>    --bg-primary: #0f172a;</p>
+<p>    --bg-secondary: #1e293b;</p>
+<p>    --text-primary: #f8fafc;</p>
+<p>    --text-muted: #94a3b8;</p>
+<p>    --border-color: #334155;</p>
+<p>  }</p>
+<p>}</p>
+
+<p>/* 3. Manual JavaScript Toggle Override */</p>
+<p>[data-theme=&quot;dark&quot;] {</p>
+<p>  --bg-primary: #0f172a;</p>
+<p>  --bg-secondary: #1e293b;</p>
+<p>  --text-primary: #f8fafc;</p>
+<p>  --text-muted: #94a3b8;</p>
+<p>  --border-color: #334155;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;BEM &amp;amp; Dark Mode Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;article class=&quot;article-card article-card--featured&quot;&gt;</p>
+<p>    &lt;h2 class=&quot;article-card__title&quot;&gt;BEM &amp;amp; Dark Theme Card&lt;/h2&gt;</p>
+<p>    &lt;p class=&quot;article-card__excerpt&quot;&gt;This component uses BEM class naming conventions and respects your system OS Dark Mode preferences automatically!&lt;/p&gt;</p>
+<p>    &lt;button class=&quot;article-card__btn article-card__btn--primary&quot;&gt;Read Article&lt;/button&gt;</p>
+<p>  &lt;/article&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>*, *::before, *::after {</p>
+<p>  box-sizing: border-box;</p>
+<p>}</p>
+
+<p>/* Light Theme Defaults */</p>
+<p>:root {</p>
+<p>  --bg-page: #f1f5f9;</p>
+<p>  --bg-surface: #ffffff;</p>
+<p>  --text-main: #0f172a;</p>
+<p>  --text-sub: #475569;</p>
+<p>  --border-main: #e2e8f0;</p>
+<p>  --accent-blue: #2563eb;</p>
+<p>  --accent-hover: #1d4ed8;</p>
+<p>}</p>
+
+<p>/* OS Dark Mode Preference */</p>
+<p>@media (prefers-color-scheme: dark) {</p>
+<p>  :root {</p>
+<p>    --bg-page: #020617;</p>
+<p>    --bg-surface: #0f172a;</p>
+<p>    --text-main: #f8fafc;</p>
+<p>    --text-sub: #94a3b8;</p>
+<p>    --border-main: #1e293b;</p>
+<p>    --accent-blue: #38bdf8;</p>
+<p>    --accent-hover: #0284c7;</p>
+<p>  }</p>
+<p>}</p>
+
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: var(--bg-page);</p>
+<p>  color: var(--text-main);</p>
+<p>  padding: 40px 20px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  transition: background-color 0.3s, color 0.3s;</p>
+<p>}</p>
+
+<p>/* BEM Component: Block (.article-card) */</p>
+<p>.article-card {</p>
+<p>  background-color: var(--bg-surface);</p>
+<p>  border: 1px solid var(--border-main);</p>
+<p>  border-radius: 12px;</p>
+<p>  padding: 30px;</p>
+<p>  max-width: 450px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.1);</p>
+<p>  transition: background-color 0.3s, border-color 0.3s;</p>
+<p>}</p>
+
+<p>/* BEM Modifier (.article-card--featured) */</p>
+<p>.article-card--featured {</p>
+<p>  border-top: 4px solid var(--accent-blue);</p>
+<p>}</p>
+
+<p>/* BEM Element (.article-card__title) */</p>
+<p>.article-card__title {</p>
+<p>  margin-top: 0;</p>
+<p>  color: var(--text-main);</p>
+<p>}</p>
+
+<p>/* BEM Element (.article-card__excerpt) */</p>
+<p>.article-card__excerpt {</p>
+<p>  color: var(--text-sub);</p>
+<p>  line-height: 1.6;</p>
+<p>}</p>
+
+<p>/* BEM Element + Modifier (.article-card__btn--primary) */</p>
+<p>.article-card__btn {</p>
+<p>  padding: 10px 20px;</p>
+<p>  border-radius: 6px;</p>
+<p>  font-weight: bold;</p>
+<p>  cursor: pointer;</p>
+<p>  border: none;</p>
+<p>  transition: background-color 0.2s;</p>
+<p>}</p>
+
+<p>.article-card__btn--primary {</p>
+<p>  background-color: var(--accent-blue);</p>
+<p>  color: white;</p>
+<p>}</p>
+
+<p>.article-card__btn--primary:hover {</p>
+<p>  background-color: var(--accent-hover);</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<ul>
+<p>  <li>BEM classes keep the stylesheet organized into component blocks.</li></p>
+<p>  <li>If your system operating system theme is set to Dark Mode, the page automatically switches to dark surface background colors with high-contrast text!</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Toggle your computer's OS theme setting between Light Mode and Dark Mode to watch the page switch themes instantly!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Deep nesting in BEM:</strong> Writing <code>.card__body__title__text</code> (keep BEM flat: <code>.card__title</code>).</li></p>
+<p>  <li><strong>Hardcoding hex colors inside component rules when building dark mode:</strong> Hardcoding <code>color: #000000</code> prevents dark mode variables from overriding text colors.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Major tech companies (GitHub, Twitter/X, Slack, Stripe) structure design systems with BEM class conventions and CSS variables to support Dark Mode, Light Mode, and high-contrast themes cleanly.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="31-variables.html">CSS Variables (Custom Properties)</a></li></p>
+<p>  <li><a href="23-media-queries.html">Media Queries & Container Queries</a></li></p>
+<p>  <li><a href="42-overflow-and-visibility.html">Overflow & Visibility</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>BEM format: <code>.block__element--modifier</code>.</li></p>
+<p>  <li>Use <code>:root</code> variables for dark mode theme color tokens.</li></p>
+<p>  <li>Use <code>@media (prefers-color-scheme: dark)</code> for native OS theme preferences.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="40-modern-css-features.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="42-overflow-and-visibility.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 strings - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Strings in C (<code><string.h></code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In C, a <strong>string</strong> is not a primitive data type; it is represented as a 1D array of characters terminated by a special ASCII null character <code>'\0'</code> (null terminator). The null terminator signals the end of the string in computer memory.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Strings in C are null-terminated character arrays (<code>char[]</code>). The null terminator <code>'\0'</code> marks the end of string data in memory. String literals like <code>"Hello"</code> are read-only constants in memory. Always allocate <code>length + 1</code> bytes to store <code>'\0'</code>. Use <code><string.h></code> functions (<code>strlen</code>, <code>strcpy</code>, <code>strcat</code>, <code>strcmp</code>) and prefer <code>fgets()</code> over unsafe <code>scanf("%s")</code>.</p>
+
+<h3>Hindi</h3>
+<p>C mein string alag data type nahi balki null-terminated character array (<code>char[]</code>) hota hai. Memory mein string ka anth <code>'\0'</code> (null character) se hota hai. Isliye <code>N</code> length ki string ke liye <code>N + 1</code> bytes allocate karne padte hain. Safe string reading ke liye <code>fgets()</code> ka upyog karein aur <code><string.h></code> library functions use karein.</p>
+
+<h3>Marathi</h3>
+<p>C madhye string mhanje null-terminated character array (<code>char[]</code>) asto. Memory madhye string cha shevut <code>'\0'</code> ne hoto. String sathavanyasathi <code>length + 1</code> size cha array lagto. Read-only literals aani writable arrays madhye farak samajhane garjeche aahe. <code><string.h></code> vaprūn string operations kele jatat.</p>
+
+<h3>Hinglish</h3>
+<p>C strings character arrays hote hain jinke end mein <code>'\0'</code> hota hai. <code>scanf("%s")</code> unsafe hai kyunki woh spaces par stop ho jata hai aur bounds check nahi karta. Text inputs ke liye <code>fgets(buf, sizeof(buf), stdin)</code> use karo aur trailing <code>\n</code> character clean karo.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Text processing is essential in software: reading usernames, formatting email messages, parsing command line inputs, processing JSON strings, and generating log files.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a string in C like a train of letter carriages:</p>
+<ul>
+<p>  <li>Each carriage holds one letter (<code>'H'</code>, <code>'e'</code>, <code>'l'</code>, <code>'l'</code>, <code>'o'</code>).</li></p>
+<p>  <li>The last carriage is a special guard caboose containing <code>'\0'</code> that tells C "The train ends here!".</li></p>
+<p>  <li>Without the caboose <code>'\0'</code>, functions like <code>printf("%s")</code> keep reading adjacent memory forever!</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & Standard <code><string.h></code> Functions</h2>
+
+<pre><code class="language-c">// Writable character array (allocated on Stack)
+<p>char name[20] = &quot;Alice&quot;; // Automatically inserts &#39;\0&#39; at index 5</p>
+
+<p>// Read-only string literal pointer (allocated in Code Segment)</p>
+<p>const char *title = &quot;Software Engineer&quot;;</code></pre></p>
+
+<h3>Essential Functions in <code><string.h></code></h3>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Purpose</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>strlen(str)</code></td><td>Returns string length (excluding <code>'\0'</code>)</td><td><code>strlen("C Code")</code> -> <code>6</code></td></tr></p>
+<p>    <tr><td><code>strcpy(dest, src)</code></td><td>Copies <code>src</code> string to <code>dest</code> buffer</td><td><code>strcpy(buf, "Hello")</code></td></tr></p>
+<p>    <tr><td><code>strncpy(dest, src, n)</code></td><td>Safer bounded string copy</td><td><code>strncpy(buf, src, sizeof(buf) - 1)</code></td></tr></p>
+<p>    <tr><td><code>strcat(dest, src)</code></td><td>Concatenates <code>src</code> onto end of <code>dest</code></td><td><code>strcat(buf, " World")</code></td></tr></p>
+<p>    <tr><td><code>strcmp(str1, str2)</code></td><td>Compares 2 strings lexicographically</td><td>Returns <code>0</code> if strings are equal</td></tr></p>
+<p>    <tr><td><code>strchr(str, ch)</code></td><td>Finds first occurrence of character <code>ch</code></td><td>Returns pointer to char or <code>NULL</code></td></tr></p>
+<p>    <tr><td><code>strstr(str, sub)</code></td><td>Finds first occurrence of substring <code>sub</code></td><td>Returns pointer to match or <code>NULL</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical user profile processor demonstrating string input, null terminator trimming, concatenation, string comparison, and substring searching:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;string.h&gt;</p>
+
+<p>int main(void) {</p>
+<p>    char firstName[30];</p>
+<p>    char lastName[30];</p>
+<p>    char fullName[70] = &quot;&quot;; // Initialize empty string</p>
+<p>    char searchDomain[] = &quot;gmail.com&quot;;</p>
+<p>    char userEmail[50];</p>
+
+<p>    printf(&quot;--- USER REGISTRATION MODULE ---\n&quot;);</p>
+
+<p>    // 1. Reading strings safely using fgets</p>
+<p>    printf(&quot;Enter First Name: &quot;);</p>
+<p>    if (fgets(firstName, sizeof(firstName), stdin) != NULL) {</p>
+<p>        firstName[strcspn(firstName, &quot;\n&quot;)] = &#39;\0&#39;; // Trim &#39;\0&#39;</p>
+<p>    }</p>
+
+<p>    printf(&quot;Enter Last Name : &quot;);</p>
+<p>    if (fgets(lastName, sizeof(lastName), stdin) != NULL) {</p>
+<p>        lastName[strcspn(lastName, &quot;\n&quot;)] = &#39;\0&#39;;</p>
+<p>    }</p>
+
+<p>    // 2. String Concatenation using strncat</p>
+<p>    strncat(fullName, firstName, sizeof(fullName) - strlen(fullName) - 1);</p>
+<p>    strncat(fullName, &quot; &quot;, sizeof(fullName) - strlen(fullName) - 1);</p>
+<p>    strncat(fullName, lastName, sizeof(fullName) - strlen(fullName) - 1);</p>
+
+<p>    printf(&quot;\nFull Name      : %s\n&quot;, fullName);</p>
+<p>    printf(&quot;Full Name Length: %zu characters\n&quot;, strlen(fullName));</p>
+
+<p>    // 3. String Comparison using strcmp</p>
+<p>    printf(&quot;\nEnter Email Address: &quot;);</p>
+<p>    if (fgets(userEmail, sizeof(userEmail), stdin) != NULL) {</p>
+<p>        userEmail[strcspn(userEmail, &quot;\n&quot;)] = &#39;\0&#39;;</p>
+<p>    }</p>
+
+<p>    // 4. Substring Search using strstr</p>
+<p>    char *domainMatch = strstr(userEmail, searchDomain);</p>
+<p>    if (domainMatch != NULL) {</p>
+<p>        printf(&quot;Verification   : Valid %s domain email address detected!\n&quot;, searchDomain);</p>
+<p>    } else {</p>
+<p>        printf(&quot;Verification   : Non-%s email address detected.\n&quot;, searchDomain);</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>strcspn(firstName, "\n")</code>: Returns the index of the first occurrence of <code>\n</code> in <code>firstName</code>. Setting <code>firstName[...] = '\0'</code> cleanly strips the newline character captured by <code>fgets()</code>.</li></p>
+<p>  <li><code>strncat(fullName, firstName, ...)</code>: Appends <code>firstName</code> onto <code>fullName</code> up to specified maximum remaining capacity, preventing buffer overflow.</li></p>
+<p>  <li><code>strcmp(str1, str2)</code>: Returns <code>0</code> if both strings match character for character, a negative value if <code>str1 < str2</code>, and a positive value if <code>str1 > str2</code>.</li></p>
+<p>  <li><code>strstr(userEmail, searchDomain)</code>: Searches for <code>searchDomain</code> inside <code>userEmail</code>. If found, returns a pointer to the start of the substring match; otherwise returns <code>NULL</code>.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- USER REGISTRATION MODULE ---
+<p>Enter First Name: Rahul</p>
+<p>Enter Last Name : Verma</p>
+
+<p>Full Name      : Rahul Verma</p>
+<p>Full Name Length: 11 characters</p>
+
+<p>Enter Email Address: rahul.verma@gmail.com</p>
+<p>Verification   : Valid gmail.com domain email address detected!</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Buffer Overflow (Insufficient Array Size):</strong> Declaring <code>char str[5] = "Hello";</code> fails because <code>"Hello"</code> requires 6 bytes (<code>'H','e','l','l','o','\0'</code>). Missing <code>'\0'</code> leads to memory corruption when passing <code>str</code> to string functions!</li></p>
+<p>  <li><strong>Comparing Strings with <code>==</code>:</strong> Writing <code>if (str1 == str2)</code> compares memory addresses of the character buffers, NOT the string text! Always use <code>strcmp(str1, str2) == 0</code> for string equality testing.</li></p>
+<p>  <li><strong>Modifying Read-Only String Literals:</strong> Writing <code>char *str = "Read Only"; str[0] = 'W';</code> crashes with a Segmentation Fault because string literals reside in read-only memory. Use character arrays (<code>char str[] = "Writable";</code>) for editable strings.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always allocate <code>N + 1</code> bytes for a string of maximum length <code>N</code> to accommodate the null terminator <code>'\0'</code>.</li></p>
+<p>  <li>Never use <code>strcpy</code> or <code>strcat</code> with untrusted input sizes; prefer bounded alternatives (<code>strncpy</code>, <code>strncat</code>) or calculate buffer lengths explicitly.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>String operations handle HTTP headers in web servers, SQL query parsing, file path manipulations in shell utilities, configuration file reading (<code>.env</code>/<code>.ini</code>), and CLI argument parsing.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare two string arrays: <code>str1[20] = "Coding"</code> and <code>str2[20] = "Coding"</code>.</p>
+<p>2. Compare them using <code>strcmp()</code> and print whether they are identical.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function <code>void reverseString(char str[])</code> that reverses a string in-place (e.g. converts <code>"C Language"</code> to <code>"egaugnaL C"</code>) by swapping characters from ends toward the center. Test it in <code>main()</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
+<p>  <li><a href="09-arrays.html">Arrays</a></li></p>
+<p>  <li><a href="10-pointers-basics.html">Pointers Basics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="11-advanced-pointers.html">← Previous: Advanced Pointers</a> | <a href="13-dynamic-memory-allocation.html">Next: Dynamic Memory Allocation →</a></p>
+
+
+
+  </div>
+</body>
+</html>

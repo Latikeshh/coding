@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 functions - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Functions in JavaScript</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>function</strong> is a reusable block of code designed to perform a specific task. Functions take inputs called <strong>parameters</strong>, process logic, and send back a output using the <code>return</code> statement.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Function code ka ek reusable block hota hai jo specific kaam karta hai. Logics ko functions mein wrap karne se code duplication nahi hoti (<strong>DRY Principle:</strong> Don't Repeat Yourself).</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Function mhanje पुन्हा-पुन्हा (reusable) वापरता येणारा कोड ब्लॉक. Inputs ghenyasathi parameters ahet aani result parat dhenyasathi <code>return</code> cha wapar kela jato.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without functions, you would have to write the same calculations or logic repeatedly across your project. Functions make code clean, modular, testable, and maintainable.</p>
+
+<h2>📝 Function Syntaxes</h2>
+
+<h3>1. Function Declaration (Hoisted)</h3>
+<pre><code class="language-js">function calculateArea(width, height) {
+<p>  return width * height;</p>
+<p>}</p>
+
+<p>let area = calculateArea(10, 5); // 50</code></pre></p>
+
+<h3>2. Function Expression (Not Hoisted)</h3>
+<pre><code class="language-js">const greetUser = function(name) {
+<p>  return <code>Welcome, ${name}!</code>;</p>
+<p>};</code></pre></p>
+
+<h3>3. Arrow Function (Modern ES6 Concise Syntax)</h3>
+<pre><code class="language-js">// Arrow function with implicit return for single expressions
+<p>const multiply = (a, b) =&gt; a * b;</p>
+
+<p>console.log(multiply(4, 6)); // 24</code></pre></p>
+
+<h3>4. Default & Rest Parameters (<code>...args</code>)</h3>
+<pre><code class="language-js">// Default parameter value (taxRate = 0.05)
+<p>function calculateTotal(price, taxRate = 0.05) {</p>
+<p>  return price + (price * taxRate);</p>
+<p>}</p>
+
+<p>// Rest parameters bundle multiple arguments into an array</p>
+<p>function sumAll(...numbers) {</p>
+<p>  return numbers.reduce((total, num) =&gt; total + num, 0);</p>
+<p>}</p>
+
+<p>console.log(sumAll(10, 20, 30, 40)); // 100</code></pre></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">function generateInvoice(customerName, itemsCount, pricePerItem, discountRate = 0) {
+<p>  let subtotal = itemsCount * pricePerItem;</p>
+<p>  let discountAmount = subtotal * (discountRate / 100);</p>
+<p>  let finalPrice = subtotal - discountAmount;</p>
+
+<p>  return {</p>
+<p>    customer: customerName,</p>
+<p>    subtotal: subtotal,</p>
+<p>    discount: discountAmount,</p>
+<p>    total: finalPrice</p>
+<p>  };</p>
+<p>}</p>
+
+<p>let invoice = generateInvoice(&quot;Priya Sharma&quot;, 3, 500, 10);</p>
+<p>console.log(&quot;Invoice Summary:&quot;, invoice);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Invoice Summary: { customer: &#39;Priya Sharma&#39;, subtotal: 1500, discount: 150, total: 1350 }</code></pre>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function <code>isAdult(age)</code> that returns <code>true</code> if age is 18 or above, otherwise <code>false</code>.</p>
+<p>2. Convert it into a single-line Arrow function.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting the <code>return</code> keyword: Functions without a <code>return</code> statement evaluate to <code>undefined</code> by default!</li></p>
+<p>  <li>Confusing parameters (variables defined in function header) with arguments (actual values passed during execution).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Event handlers, API fetching methods, score calculators, string formatters, and authentication utilities.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Keep functions focused on a single responsibility. Master Arrow functions as they are widely used in modern JavaScript frameworks.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="07-loops.html">← Previous: Loops</a> | <a href="09-arrays.html">Next: Arrays →</a></p>
+
+
+
+  </div>
+</body>
+</html>

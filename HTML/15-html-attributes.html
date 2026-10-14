@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 html attributes - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>HTML Attributes (<code>id</code>, <code>class</code>, <code>title</code>, Global Attributes)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Attributes</strong> provide additional configuration, metadata, properties, or styling instructions to HTML elements. Attributes are always written inside the opening tag as <strong><code>name="value"</code></strong> pairs.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Attributes configure HTML elements as <code>name="value"</code> pairs inside opening tags. Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>hidden</code>, <code>data-*</code>) can be used on any HTML element.</p>
+
+<h3>Hindi</h3>
+<p>Attributes opening tag ke andar <code>name="value"</code> format mein extra settings add karte hain. Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>data-*</code>) kisi bhi HTML element par use ho sakte hain.</p>
+
+<h3>Marathi</h3>
+<p>Attributes opening tag madhye <code>name="value"</code> swarupat extra settings detat. Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>data-*</code>) kontyahi HTML element var vaparle jau shaktat.</p>
+
+<h2>🤔 Why Do We Use Attributes?</h2>
+
+<p>Attributes customize element behavior—specifying image sources (<code>src</code>), link destinations (<code>href</code>), element identifiers (<code>id</code>), reusable CSS styling classes (<code>class</code>), tooltip descriptions (<code>title</code>), and language declarations (<code>lang</code>).</p>
+
+<h2>🔑 Common Global Attributes Reference</h2>
+
+<p>Global attributes can be applied to almost any HTML element:</p>
+
+<table>
+<p>  <thead><tr><th>Global Attribute</th><th>Description & Purpose</th><th>Usage Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>id</code></strong></td><td>Defines a <strong>unique identifier</strong> for a single element on a page. Used for CSS styling, JS DOM selection, and fragment links (<code>#id</code>).</td><td><code><section id="about"></code></td></tr></p>
+<p>    <tr><td><strong><code>class</code></strong></td><td>Assigns one or more <strong>reusable class names</strong> to elements. Multiple elements can share the same class name.</td><td><code><button class="btn primary-btn"></code></td></tr></p>
+<p>    <tr><td><strong><code>title</code></strong></td><td>Displays advisory tooltip text when hovering over the element with a mouse pointer.</td><td><code><abbr title="HyperText Markup Language">HTML</abbr></code></td></tr></p>
+<p>    <tr><td><strong><code>lang</code></strong></td><td>Specifies the language of element content.</td><td><code><p lang="fr">Bonjour</p></code></td></tr></p>
+<p>    <tr><td><strong><code>dir</code></strong></td><td>Specifies text direction (<code>ltr</code> for left-to-right, <code>rtl</code> for right-to-left languages like Arabic or Hebrew).</td><td><code><p dir="rtl">...</p></code></td></tr></p>
+<p>    <tr><td><strong><code>hidden</code></strong></td><td>Hides the element from display on the page layout.</td><td><code><p hidden>Secret text</p></code></td></tr></p>
+<p>    <tr><td><strong><code>tabindex</code></strong></td><td>Controls keyboard focus order (<code>tabindex="0"</code> adds custom element to natural tab order).</td><td><code><div tabindex="0"></code></td></tr></p>
+<p>    <tr><td>**<code>data-*</code><strong></td><td>Stores custom data attributes for JavaScript (<code>data-user-id</code>, <code>data-category</code>).</td><td><code><div data-category="books"></code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>⚖️ <code>id</code> vs. <code>class</code> (Crucial Difference)</h2>
+
+<ul>
+<p>  <li></strong><code>id</code> (Unique):<strong> MUST be completely unique across the entire HTML document. No two elements should ever share the same <code>id</code> value.</li></p>
+<p>  <li></strong><code>class</code> (Reusable):<strong> Can be assigned to multiple elements across the page. An element can also hold multiple space-separated classes (<code>class="card shadow rounded"</code>).</li></p>
+<p></ul></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Global Attributes Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Attributes Demonstration&lt;/h1&gt;</p>
+
+<p>  &lt;section id=&quot;features-section&quot; class=&quot;container content-box&quot; data-author=&quot;Developer&quot;&gt;</p>
+<p>    &lt;p title=&quot;Hover tooltip information&quot;&gt;Move mouse pointer here to view tooltip message.&lt;/p&gt;</p>
+
+<p>    &lt;button id=&quot;main-cta&quot; class=&quot;btn primary-btn&quot; data-action=&quot;subscribe&quot;&gt;</p>
+<p>      Subscribe Now</p>
+<p>    &lt;/button&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A rendered section with an <code>id</code> and classes, displaying a tooltip message when hovering over the paragraph text, and a styled button with custom <code>data-action</code> attribute.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a section element with a unique <code>id="services"</code>.</p>
+<p>2. Add two paragraphs sharing the same class <code>class="highlight-text"</code>.</p>
+<p>3. Add a <code>title</code> attribute to a link displaying a helpful tooltip.</p>
+<p>4. Add a custom <code>data-category="electronics"</code> attribute to a container.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li></strong>Reusing the same <code>id</code> on multiple elements:<strong> Violates HTML standards and breaks JavaScript selector logic.</li></p>
+<p>  <li></strong>Using positive <code>tabindex</code> values (e.g., <code>tabindex="5"</code>):<strong> Disrupts natural tabbing order for keyboard and screen reader users.</li></p>
+<p>  <li></strong>Omitting quotes around attribute values:** Writing <code>class=card title=hello</code> instead of <code>class="card" title="hello"</code>.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All modern web frameworks and UI libraries rely heavily on <code>class</code> names for CSS styling and <code>data-*</code> attributes for interactive JavaScript state.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-div-and-span.html">Div and Span</a></li></p>
+<p>  <li><a href="31-global-and-data-attributes.html">Global & Data Attributes</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code>id</code> MUST be unique per page.</li></p>
+<p>  <li><code>class</code> can be reused on multiple elements.</li></p>
+<p>  <li>Attributes are written as <code>name="value"</code> inside opening tags.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="14-div-and-span.html">← Previous: Div and Span</a> | <a href="./">HTML Home</a> | <a href="16-html-comments.html">Next: Comments →</a></p>
+
+
+
+  </div>
+</body>
+</html>

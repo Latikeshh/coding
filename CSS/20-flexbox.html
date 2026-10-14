@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 flexbox - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Flexbox Layout (Main & Cross Axes)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Flexible Box Layout (Flexbox)</strong> is a 1-dimensional CSS layout model designed to distribute space, align items, and handle dynamic sizing along a row or column direction.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Flexbox (<code>display: flex</code>) aligns items along a 1D direction. <code>justify-content</code> aligns items along the <strong>Main Axis</strong> and <code>align-items</code> aligns items along the <strong>Cross Axis</strong>.</p>
+
+<h3>Hindi</h3>
+<p>Flexbox (<code>display: flex</code>) 1D layout ke liye hota hai. <code>justify-content</code> Main Axis par aur <code>align-items</code> Cross Axis par elements ko align karta hai.</p>
+
+<h3>Marathi</h3>
+<p>Flexbox mule content 1D direction madhye sahaj align hoto. <code>justify-content</code> Main Axis var ani <code>align-items</code> Cross Axis var alignment karte.</p>
+
+<h2>🎯 Main Axis vs. Cross Axis (Crucial Flexbox Concept)</h2>
+
+<p>A common misconception among beginners is thinking <code>justify-content</code> is always horizontal and <code>align-items</code> is always vertical.</p>
+
+<p>In reality, Flexbox alignment depends entirely on <strong><code>flex-direction</code></strong>:</p>
+<ul>
+<p>  <li><strong>Main Axis:</strong> The primary direction defined by <code>flex-direction</code> (<code>row</code> or <code>column</code>).</li></p>
+<p>  <li><strong>Cross Axis:</strong> The perpendicular axis to the Main Axis.</li></p>
+<p></ul></p>
+
+<table>
+<p>  <thead><tr><th><code>flex-direction</code> Setting</th><th>Main Axis (<code>justify-content</code>)</th><th>Cross Axis (<code>align-items</code>)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>flex-direction: row</code></strong> (Default)</td><td><strong>Horizontal</strong> (Left to Right)</td><td><strong>Vertical</strong> (Top to Bottom)</td></tr></p>
+<p>    <tr><td><strong><code>flex-direction: column</code></strong></td><td><strong>Vertical</strong> (Top to Bottom)</td><td><strong>Horizontal</strong> (Left to Right)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<pre><code class="language-text">flex-direction: row
+<p>Main Axis (justify-content) ---&gt; [Item 1] [Item 2] [Item 3]</p>
+<p>Cross Axis (align-items) |</p>
+
+<p>flex-direction: column</p>
+<p>Main Axis (justify-content) | [Item 1]</p>
+<p>                            | [Item 2]</p>
+<p>Cross Axis (align-items) ---&gt;</code></pre></p>
+
+<h2>📚 Container & Item Properties Reference</h2>
+
+<h3>Flex Container Properties (Applied to Parent):</h3>
+<ul>
+<p>  <li><strong><code>display: flex</code> / <code>inline-flex</code>:</strong> Enables flex layout context on child elements.</li></p>
+<p>  <li><strong><code>flex-direction</code>:</strong> <code>row</code> | <code>row-reverse</code> | <code>column</code> | <code>column-reverse</code>.</li></p>
+<p>  <li><strong><code>justify-content</code> (Main Axis Alignment):</strong> <code>flex-start</code> | <code>center</code> | <code>flex-end</code> | <code>space-between</code> | <code>space-around</code> | <code>space-evenly</code>.</li></p>
+<p>  <li><strong><code>align-items</code> (Cross Axis Alignment):</strong> <code>stretch</code> | <code>flex-start</code> | <code>center</code> | <code>flex-end</code> | <code>baseline</code>.</li></p>
+<p>  <li><strong><code>flex-wrap</code>:</strong> <code>nowrap</code> | <code>wrap</code> | <code>wrap-reverse</code> (Allows flex items to wrap onto multiple lines).</li></p>
+<p>  <li><strong><code>gap</code>:</strong> Sets consistent spacing gap between flex items (<code>gap: 20px</code>).</li></p>
+<p></ul></p>
+
+<h3>Flex Item Properties (Applied to Children):</h3>
+<ul>
+<p>  <li><strong><code>flex-grow</code>:</strong> Defines ability for an item to grow if extra free space exists (<code>flex-grow: 1</code>).</li></p>
+<p>  <li><strong><code>flex-shrink</code>:</strong> Defines ability for an item to shrink if space is constrained (<code>flex-shrink: 1</code>).</li></p>
+<p>  <li><strong><code>flex-basis</code>:</strong> Defines default ideal size before extra space distribution (<code>flex-basis: 200px</code>).</li></p>
+<p>  <li><strong><code>flex</code> (Shorthand):</strong> <code>flex: flex-grow flex-shrink flex-basis;</code> (e.g. <code>flex: 1 1 0;</code> or <code>flex: 1;</code>).</li></p>
+<p>  <li><strong><code>align-self</code>:</strong> Overrides <code>align-items</code> on a single specific flex child (<code>align-self: flex-end</code>).</li></p>
+<p></ul></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Flexbox Layout Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;!-- Navigation Bar Component using Flexbox --&gt;</p>
+<p>  &lt;nav class=&quot;navbar&quot;&gt;</p>
+<p>    &lt;div class=&quot;logo&quot;&gt;BrandLogo&lt;/div&gt;</p>
+<p>    &lt;ul class=&quot;nav-links&quot;&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Products&lt;/a&gt;&lt;/li&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;</p>
+<p>      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
+<p>    &lt;/ul&gt;</p>
+<p>    &lt;button class=&quot;cta-btn&quot;&gt;Sign In&lt;/button&gt;</p>
+<p>  &lt;/nav&gt;</p>
+
+<p>  &lt;!-- Perfect Centering Box using Flexbox --&gt;</p>
+<p>  &lt;div class=&quot;hero-center&quot;&gt;</p>
+<p>    &lt;div class=&quot;centered-content&quot;&gt;</p>
+<p>      &lt;h2&gt;Perfect Centering Made Simple&lt;/h2&gt;</p>
+<p>      &lt;p&gt;Centered both horizontally and vertically with Flexbox.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  margin: 0;</p>
+<p>  background-color: #f4f6f8;</p>
+<p>}</p>
+
+<p>/* Navbar Component */</p>
+<p>.navbar {</p>
+<p>  display: flex;</p>
+<p>  justify-content: space-between; /* Space out logo, links, button along main axis */</p>
+<p>  align-items: center;            /* Center vertically along cross axis */</p>
+<p>  padding: 15px 30px;</p>
+<p>  background-color: #111827;</p>
+<p>  color: white;</p>
+<p>}</p>
+
+<p>.nav-links {</p>
+<p>  display: flex;</p>
+<p>  gap: 20px;                      /* Spacing between list items */</p>
+<p>  list-style: none;</p>
+<p>  margin: 0;</p>
+<p>  padding: 0;</p>
+<p>}</p>
+
+<p>.nav-links a {</p>
+<p>  color: #d1d5db;</p>
+<p>  text-decoration: none;</p>
+<p>}</p>
+
+<p>.cta-btn {</p>
+<p>  background-color: #3b82f6;</p>
+<p>  color: white;</p>
+<p>  border: none;</p>
+<p>  padding: 8px 16px;</p>
+<p>  border-radius: 6px;</p>
+<p>  cursor: pointer;</p>
+<p>}</p>
+
+<p>/* Perfect Centering Pattern */</p>
+<p>.hero-center {</p>
+<p>  display: flex;</p>
+<p>  justify-content: center; /* Main axis center */</p>
+<p>  align-items: center;     /* Cross axis center */</p>
+<p>  min-height: 60vh;</p>
+<p>}</p>
+
+<p>.centered-content {</p>
+<p>  background: white;</p>
+<p>  padding: 30px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.1);</p>
+<p>  text-align: center;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<ul>
+<p>  <li>The navigation bar spaces out the logo, links, and CTA button horizontally on a single row, vertically aligned in the center.</li></p>
+<p>  <li>The hero box centers both horizontally and vertically inside a 60vh height container.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Change <code>flex-direction: row</code> to <code>flex-direction: column</code> on <code>.navbar</code>.</p>
+<p>2. Notice how <code>justify-content</code> now controls vertical spacing and <code>align-items</code> controls horizontal centering!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Applying <code>justify-content</code> to flex child items instead of the flex parent container:</strong> <code>justify-content</code> and <code>align-items</code> must be declared on the flex parent.</li></p>
+<p>  <li><strong>Confusing Main and Cross axes when switching <code>flex-direction</code>:</strong> Remember that <code>justify-content</code> ALWAYS follows the Main Axis (<code>flex-direction</code>).</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Flexbox is used in almost every web application for navigation bars, card lists, toolbar alignments, media objects, and centering modals.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-display.html">Display Property</a></li></p>
+<p>  <li><a href="21-grid.html">CSS Grid Layout</a></li></p>
+<p>  <li><a href="37-navigation-bars.html">Navigation Bar Components</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Flexbox is a 1D layout model (rows OR columns).</li></p>
+<p>  <li><code>flex-direction</code> determines the Main Axis (<code>row</code> or <code>column</code>).</li></p>
+<p>  <li><code>justify-content</code> = Main Axis alignment; <code>align-items</code> = Cross Axis alignment.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="19-float-and-clear.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="21-grid.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 databases and tables - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Database & Table Basics (<code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In relational database systems, a <strong>Database</strong> is a named top-level container (or namespace) that holds database objects, while a <strong>Table</strong> is a structured grid inside that database consisting of <strong>Columns</strong> (fields defining data attributes) and <strong>Rows</strong> (individual data records).</p>
+
+<p><strong>Data Definition Language (DDL)</strong> commands (<code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code>) are the subset of SQL used to create, modify, inspect, and delete database containers and table schemas.</p>
+
+<h3>Core Concepts:</h3>
+<ul>
+<p>  <li><strong>Database:</strong> A top-level logical container that isolates one project's tables, views, and security permissions from other applications.</li></p>
+<p>  <li><strong>Table:</strong> A 2-dimensional grid of rows and columns designed to store a specific type of real-world entity (e.g., <code>students</code>, <code>orders</code>).</li></p>
+<p>  <li><strong>Columns (Attributes):</strong> The fixed vertical definitions of a table. Each column has an explicit name, a data type (e.g., <code>INT</code>, <code>VARCHAR</code>), and optional rules called <strong>constraints</strong> (e.g., <code>NOT NULL</code>, <code>PRIMARY KEY</code>).</li></p>
+<p>  <li><strong>Rows (Records):</strong> The dynamic horizontal entries added to a table. Each row represents a single complete instance of the entity.</li></p>
+<p>  <li><strong>Schema Design:</strong> The process of choosing appropriate column names, data types, and integrity rules before inserting data. Careful schema design prevents data corruption, improves search speed, and saves disk space.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Relational database mein <strong>Database</strong> ek main folder (ya container) ki tarah hota hai jiske andar saare <strong>Tables</strong> store hote hain. Single <strong>Table</strong> mein data ko <strong>Columns</strong> (data type aur rules define karne wale fields) aur <strong>Rows</strong> (actual records) ke form mein organize kiya jata hai. Structure banane ke liye <code>CREATE DATABASE</code> aur <code>CREATE TABLE</code> commands ka use hota hai. Structure change karne ke liye <code>ALTER TABLE</code> aur poora table ya database delete karne ke liye <code>DROP</code> command ka use hota hai. Data delete karne ke liye <code>TRUNCATE</code> (saare rows instantly clear karne ke liye) aur <code>DELETE</code> (selective rows delete karne ke liye) ke beech ka fark samajhna zaroori hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Relational database madhye <strong>Database</strong> ha ek mukhya container asto jyachyat saare <strong>Tables</strong> saathvle jatat. <strong>Table</strong> madhye mahiti <strong>Columns</strong> (data chi attribute niyam) aani <strong>Rows</strong> (actual records) chya swarupat aste. N नवीन Database aani Table tayar karnyasathi <code>CREATE</code>, structure madhye badal karnyasathi <code>ALTER</code>, aani structure delete karnyasathi <code>DROP</code> commands vaparlya jatat. Table poornapane delete karne (<code>DROP</code>), fakta saara data empty karne (<code>TRUNCATE</code>), aani tharavik rows kadhne (<code>DELETE</code>) yanchyat pharak ahe.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Before you can insert customer profiles, store product prices, or query sales records, you must create a structured environment. DDL statements allow you to:</p>
+
+<ul>
+<p>  <li>Create isolated namespaces for different applications (<code>school_db</code>, <code>ecommerce_db</code>).</li></p>
+<p>  <li>Define exact data types and rules to prevent bad data (e.g., stopping text from being inserted into an <code>age</code> or <code>price</code> column).</li></p>
+<p>  <li>Evolve your application database over time by adding or modifying table columns safely without recreating the entire database.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Explanation & Analogy</h2>
+
+<p>Think of Database & Table setup as a <strong>Digital Filing Cabinet</strong>:</p>
+
+<pre><code class="language-text">┌────────────────────────────────────────────────────────────────────────┐
+<p>│                        DATABASE: school_db                             │</p>
+<p>│                     ( The Digital Filing Cabinet )                     │</p>
+<p>│                                                                        │</p>
+<p>│   ┌────────────────────────────────────────────────────────────────┐   │</p>
+<p>│   │                     TABLE: students                            │   │</p>
+<p>│   │                  ( A Labeled File Drawer )                     │   │</p>
+<p>│   │                                                                │   │</p>
+<p>│   │   COLUMNS (Form Field Headers):                                │   │</p>
+<p>│   │   [ student_id (INT) | student_name (VARCHAR) | age (INT) ]     │   │</p>
+<p>│   │                                                                │   │</p>
+<p>│   │   ROWS (Filled Application Forms):                             │   │</p>
+<p>│   │   Row 1: [ 1           | Rahul                | 20        ]    │   │</p>
+<p>│   │   Row 2: [ 2           | Priya                | 21        ]    │   │</p>
+<p>│   └────────────────────────────────────────────────────────────────┘   │</p>
+<p>└────────────────────────────────────────────────────────────────────────┘</code></pre></p>
+
+<ul>
+<p>  <li><strong>Database (<code>school_db</code>):</strong> The physical filing cabinet.</li></p>
+<p>  <li><strong>Table (<code>students</code>):</strong> A specific drawer labeled "Students".</li></p>
+<p>  <li><strong>Columns:</strong> The pre-printed form headers on the student registration card (<code>student_id</code>, <code>student_name</code>, <code>age</code>).</li></p>
+<p>  <li><strong>Row:</strong> A completed form for one student filed inside the drawer.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🗄️ Database Management Commands</h2>
+
+<p>Below are the standard DDL statements for managing database containers.</p>
+
+<h3>1. Create a Database</h3>
+<p>Creates a new empty database namespace.</p>
+
+<pre><code class="language-sql">-- Standard SQL Database Creation
+<p>CREATE DATABASE school_db;</p>
+
+<p>-- Safeguard: Creates database only if it does not already exist</p>
+<p>CREATE DATABASE IF NOT EXISTS school_db;</code></pre></p>
+
+<h3>2. Display Available Databases *(MySQL / MariaDB Specific)*</h3>
+<p>Displays a list of all database containers created on the server instance.</p>
+
+<pre><code class="language-sql">-- MySQL / MariaDB specific command
+<p>SHOW DATABASES;</code></pre></p>
+
+<blockquote><p>🌐 <strong>Engine Compatibility Note:</strong> <code>SHOW DATABASES;</code> is specific to <strong>MySQL</strong> and <strong>MariaDB</strong>. In <strong>PostgreSQL</strong>, use the <code>\l</code> meta-command in <code>psql</code> or view databases in pgAdmin. In <strong>SQLite</strong>, databases are individual <code>.db</code> files on disk, so this command does not apply.</p></blockquote>
+
+<h3>3. Select an Active Database *(MySQL / MariaDB Specific)*</h3>
+<p>Sets the active database context for subsequent table queries.</p>
+
+<pre><code class="language-sql">-- MySQL / MariaDB specific command
+<p>USE school_db;</code></pre></p>
+
+<blockquote><p>🌐 <strong>Engine Compatibility Note:</strong> <code>USE database_name;</code> sets the session context in <strong>MySQL</strong>, <strong>MariaDB</strong>, and <strong>SQL Server</strong>. <strong>PostgreSQL</strong> uses <code>\c database_name</code> in <code>psql</code> or a GUI selector in pgAdmin.</p></blockquote>
+
+<h3>4. Delete a Database *(High Risk!)*</h3>
+<p>Permanently deletes the database container and <strong>all</strong> tables, views, indexes, and records contained inside it.</p>
+
+<pre><code class="language-sql">-- Permanent Deletion Warning: This cannot be undone!
+<p>DROP DATABASE IF EXISTS school_db;</code></pre></p>
+
+<blockquote><p>⚠️ <strong>Critical Risk Warning:</strong> <code>DROP DATABASE</code> permanently destroys all data inside the specified database. Executing this command requires administrative privileges (<code>DROP</code> privilege). Never execute <code>DROP DATABASE</code> on a production database server!</p></blockquote>
+
+<p>---</p>
+
+<h2>📋 Table Creation (<code>CREATE TABLE</code>)</h2>
+
+<p>Once a database is created and selected, use <code>CREATE TABLE</code> to define the table schema, column names, data types, and integrity constraints.</p>
+
+<h3>Practical Example: Creating a <code>students</code> Table</h3>
+
+<pre><code class="language-sql">-- Ensure database is selected
+<p>USE school_db;</p>
+
+<p>-- Create the students table schema</p>
+<p>CREATE TABLE students (</p>
+<p>    student_id INT PRIMARY KEY,</p>
+<p>    student_name VARCHAR(100) NOT NULL,</p>
+<p>    age INT,</p>
+<p>    city VARCHAR(50)</p>
+<p>);</code></pre></p>
+
+<h3>🔍 Column Definition Breakdown:</h3>
+<ul>
+<p>  <li><strong><code>CREATE TABLE students (...)</code></strong>: Tells the database engine to construct a new table named <code>students</code>.</li></p>
+<p>  <li><strong><code>student_id INT PRIMARY KEY</code></strong>: Defines <code>student_id</code> as an integer (<code>INT</code>) and marks it as the <strong>Primary Key</strong> (guaranteeing that every student has a unique ID number and no ID is <code>NULL</code>).</li></p>
+<p>  <li><strong><code>student_name VARCHAR(100) NOT NULL</code></strong>: Defines <code>student_name</code> as a variable-length character string up to a maximum of 100 characters. The <strong><code>NOT NULL</code></strong> constraint ensures this field can never be left empty.</li></p>
+<p>  <li><strong><code>age INT</code></strong>: Defines <code>age</code> as an integer column.</li></p>
+<p>  <li><strong><code>city VARCHAR(50)</code></strong>: Defines <code>city</code> as a variable-length string up to 50 characters.</li></p>
+<p></ul></p>
+
+<blockquote><p>ℹ️ <strong>Understanding <code>VARCHAR(n)</code>:</strong> <code>VARCHAR(100)</code> means the column can store up to 100 characters. Unlike fixed-length <code>CHAR(100)</code>, <code>VARCHAR</code> allocates only the storage space actually used by the text string plus 1-2 length bytes, making it memory-efficient.</p></blockquote>
+
+<p>---</p>
+
+<h2>🔍 Table Inspection Commands *(MySQL / MariaDB)*</h2>
+
+<p>After creating a table, you can inspect its schema definition and confirm its column structure.</p>
+
+<h3>1. List All Tables in the Active Database</h3>
+<pre><code class="language-sql">SHOW TABLES;</code></pre>
+
+<h3>2. Inspect Column Definitions & Data Types</h3>
+<pre><code class="language-sql">-- Displays column names, data types, NULL rules, keys, and default values
+<p>DESCRIBE students;</p>
+
+<p>-- Short syntax equivalent:</p>
+<p>DESC students;</code></pre></p>
+
+<p>#### 👀 Expected <code>DESCRIBE students;</code> Output:</p>
+
+<pre><code class="language-text">+--------------+--------------+------+-----+---------+-------+
+<table>
+<p>  <thead><tr><th>Field</th><th>Type</th><th>Null</th><th>Key</th><th>Default</th><th>Extra</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+--------------+------+-----+---------+-------+</p>
+<table>
+<p>  <thead><tr><th>student_id</th><th>int</th><th>NO</th><th>PRI</th><th>NULL</th><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>student_name</td><td>varchar(100)</td><td>NO</td><td></td><td>NULL</td><td></td></tr></p>
+<p>    <tr><td>age</td><td>int</td><td>YES</td><td></td><td>NULL</td><td></td></tr></p>
+<p>    <tr><td>city</td><td>varchar(50)</td><td>YES</td><td></td><td>NULL</td><td></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+--------------+------+-----+---------+-------+</code></pre></p>
+
+<h3>3. Display the Exact SQL <code>CREATE TABLE</code> DDL Statement</h3>
+<pre><code class="language-sql">SHOW CREATE TABLE students;</code></pre>
+
+<blockquote><p>🌐 <strong>Other Engines:</strong> In <strong>PostgreSQL</strong>, use <code>\dt</code> to list tables and <code>\d students</code> to inspect table structure. In <strong>SQLite</strong>, use <code>.tables</code> to list tables and <code>.schema students</code> to inspect the creation statement.</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Modifying Table Structure (<code>ALTER TABLE</code>)</h2>
+
+<p>Applications evolve over time. Instead of dropping and recreating a table (which destroys existing records), use <strong><code>ALTER TABLE</code></strong> to modify the schema structure.</p>
+
+<h3>1. Add a New Column</h3>
+<p>Adds an <code>email</code> column to the existing <code>students</code> table:</p>
+
+<pre><code class="language-sql">ALTER TABLE students
+<p>ADD email VARCHAR(150);</code></pre></p>
+
+<h3>2. Modify an Existing Column's Data Type or Constraints *(MySQL / MariaDB)*</h3>
+<p>Expands <code>student_name</code> length to 150 characters and enforces <code>NOT NULL</code>:</p>
+
+<pre><code class="language-sql">ALTER TABLE students
+<p>MODIFY COLUMN student_name VARCHAR(150) NOT NULL;</code></pre></p>
+
+<blockquote><p>🌐 <strong>Dialect Note:</strong> Syntax for modifying column types varies across engines:</p></blockquote>
+<blockquote><p>- <strong>MySQL / MariaDB:</strong> <code>ALTER TABLE students MODIFY COLUMN student_name VARCHAR(150) NOT NULL;</code></p></blockquote>
+<blockquote><p>- <strong>PostgreSQL:</strong> <code>ALTER TABLE students ALTER COLUMN student_name TYPE VARCHAR(150);</code></p></blockquote>
+<blockquote><p>- <strong>SQLite:</strong> SQLite has limited <code>ALTER TABLE</code> support. Modifying column types in SQLite often requires creating a new table, copying data, and dropping the old table.</p></blockquote>
+
+<h3>3. Rename a Column *(MySQL 8.0+ / Standard SQL)*</h3>
+<p>Renames the <code>city</code> column to <code>hometown</code>:</p>
+
+<pre><code class="language-sql">ALTER TABLE students
+<p>RENAME COLUMN city TO hometown;</code></pre></p>
+
+<h3>4. Drop (Delete) a Column</h3>
+<p>Permanently removes the <code>age</code> column and all data stored within it:</p>
+
+<pre><code class="language-sql">ALTER TABLE students
+<p>DROP COLUMN age;</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Removing Tables & Data: <code>DROP</code> vs <code>TRUNCATE</code> vs <code>DELETE</code></h2>
+
+<p>Beginners frequently confuse these three commands. Understand their critical differences:</p>
+
+<table>
+<p>  <thead><tr><th>Command</th><th>SQL Category</th><th>What It Removes</th><th>Table Structure Kept?</th><th>Transaction Rollback?</th><th>Best Used For</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>DROP TABLE</code></strong></td><td><strong>DDL</strong></td><td>Removes <strong>everything</strong>: the table definition, indexes, permissions, and all data.</td><td>❌ <strong>No</strong></td><td>❌ No (in default autocommit)</td><td>Deleting an obsolete table entirely from disk.</td></tr></p>
+<p>    <tr><td><strong><code>TRUNCATE TABLE</code></strong></td><td><strong>DDL</strong></td><td>Instantly empties <strong>all rows</strong> from the table. Resets auto-increment counters.</td><td>✅ <strong>Yes</strong></td><td>❌ No (in most engines)</td><td>Wiping all test data rapidly while keeping empty table schema.</td></tr></p>
+<p>    <tr><td><strong><code>DELETE FROM</code></strong></td><td><strong>DML</strong></td><td>Removes <strong>specific rows</strong> matching a <code>WHERE</code> condition (or all rows if no <code>WHERE</code> is given).</td><td>✅ <strong>Yes</strong></td><td>✅ <strong>Yes</strong> (Inside active transaction)</td><td>Selectively removing specific row records safely.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<pre><code class="language-sql">-- 1. DROP: Deletes entire table and structure
+<p>DROP TABLE IF EXISTS students;</p>
+
+<p>-- 2. TRUNCATE: Empties all rows, keeps empty table structure</p>
+<p>TRUNCATE TABLE students;</p>
+
+<p>-- 3. DELETE: Removes specific rows safely</p>
+<p>DELETE FROM students WHERE hometown = &#39;Pune&#39;;</code></pre></p>
+
+<p>---</p>
+
+<h2>🚀 Complete Practical Workflow (MySQL / MariaDB)</h2>
+
+<p>Follow this complete, logically ordered workflow from start to finish in phpMyAdmin, MySQL Workbench, or CLI:</p>
+
+<pre><code class="language-sql">-- Step 1: Create practice database
+<p>CREATE DATABASE IF NOT EXISTS school_db;</p>
+
+<p>-- Step 2: Select database session context</p>
+<p>USE school_db;</p>
+
+<p>-- Step 3: Create the students table</p>
+<p>CREATE TABLE IF NOT EXISTS students (</p>
+<p>    student_id INT PRIMARY KEY,</p>
+<p>    student_name VARCHAR(100) NOT NULL,</p>
+<p>    age INT,</p>
+<p>    city VARCHAR(50)</p>
+<p>);</p>
+
+<p>-- Step 4: Inspect table structure</p>
+<p>DESCRIBE students;</p>
+
+<p>-- Step 5: Modify table structure by adding an email column</p>
+<p>ALTER TABLE students</p>
+<p>ADD email VARCHAR(150);</p>
+
+<p>-- Step 6: Verify updated structure</p>
+<p>DESCRIBE students;</code></pre></p>
+
+<p>---</p>
+
+<h2>📊 Adding Sample Data & Viewing Table Results</h2>
+
+<p>To see your new table structure in action, let's insert a few sample student records:</p>
+
+<pre><code class="language-sql">-- Insert 3 sample records into the students table
+<p>INSERT INTO students (student_id, student_name, age, city, email)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Rahul&#39;, 20, &#39;Pune&#39;, &#39;rahul@example.com&#39;),</p>
+<p>    (2, &#39;Priya&#39;, 21, &#39;Mumbai&#39;, &#39;priya@example.com&#39;),</p>
+<p>    (3, &#39;Amit&#39;, 19, &#39;Dhule&#39;, &#39;amit@example.com&#39;);</p>
+
+<p>-- Query all rows from the table</p>
+<p>SELECT * FROM students;</code></pre></p>
+
+<p>#### 👀 Resulting Data Table Output:</p>
+
+<pre><code class="language-text">+------------+--------------+------+--------+-------------------+
+<table>
+<p>  <thead><tr><th>student_id</th><th>student_name</th><th>age</th><th>city</th><th>email</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+--------------+------+--------+-------------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Rahul</th><th>20</th><th>Pune</th><th>rahul@example.com</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Priya</td><td>21</td><td>Mumbai</td><td>priya@example.com</td></tr></p>
+<p>    <tr><td>3</td><td>Amit</td><td>19</td><td>Dhule</td><td>amit@example.com</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+--------------+------+--------+-------------------+</code></pre></p>
+
+<p>*(Note: <code>INSERT</code> statements will be covered in detail in Topic 6).*</p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Issue / Error Message</th><th>Likely Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1046 (3D000): No database selected</code></strong></td><td>Attempting to create or inspect tables without selecting a database first.</td><td>Run <code>USE school_db;</code> or select <code>school_db</code> from phpMyAdmin sidebar before running table statements.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1050 (42S01): Table 'students' already exists</code></strong></td><td>Attempting to execute <code>CREATE TABLE students</code> when it already exists in the database.</td><td>Use <code>CREATE TABLE IF NOT EXISTS students (...);</code> or check existing tables with <code>SHOW TABLES;</code>.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1064 (42000): Syntax Error</code></strong></td><td>Forgetting a comma between column definitions in <code>CREATE TABLE</code>.</td><td>Check that every column definition except the last one is followed by a comma <code>,</code>.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1062 (23000): Duplicate entry for key 'PRIMARY'</code></strong></td><td>Attempting to insert two records with the same <code>student_id</code> Primary Key value.</td><td>Ensure every inserted record contains a unique Primary Key integer value.</td></tr></p>
+<p>    <tr><td><strong>Destructive <code>DROP TABLE</code> Error</strong></td><td>Running <code>DROP TABLE</code> accidentally expecting it to only clear rows.</td><td>Use <code>TRUNCATE TABLE</code> to clear rows while keeping the table, or <code>DELETE FROM</code> with <code>WHERE</code>.</td></tr></p>
+<p>    <tr><td><strong>Dialect Mismatch in <code>ALTER TABLE</code></strong></td><td>Using MySQL <code>MODIFY COLUMN</code> syntax inside PostgreSQL or SQLite.</td><td>Check target database engine rules: PostgreSQL uses <code>ALTER COLUMN ... TYPE</code>, SQLite requires table recreation.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>In professional software development:</p>
+
+<ul>
+<p>  <li><strong>Database Migrations:</strong> Engineering teams maintain <code>.sql</code> migration files containing <code>CREATE TABLE</code> and <code>ALTER TABLE</code> statements version-controlled in Git repositories to deploy schema updates across development, staging, and production environments.</li></p>
+<p>  <li><strong>Microservice Schemas:</strong> E-commerce systems create separate databases (<code>orders_db</code>, <code>users_db</code>, <code>inventory_db</code>) to decouple microservices and optimize table schemas independently.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Question Set 1: Conceptual Check</h3>
+<p>1. Explain the difference between a <strong>Database</strong> and a <strong>Table</strong> using a real-world analogy.</p>
+<p>2. What is the difference between <code>DROP TABLE</code> and <code>TRUNCATE TABLE</code>?</p>
+<p>3. Why is it important to specify column data types (like <code>INT</code> or <code>VARCHAR</code>) when creating a table?</p>
+
+<h3>Question Set 2: Database Creation</h3>
+<p>Write the SQL statements to:</p>
+<p>1. Safely create a database named <code>company_db</code> only if it does not already exist.</p>
+<p>2. Select <code>company_db</code> as your active database session context.</p>
+
+<h3>Question Set 3: Table Schema Creation</h3>
+<p>Write a <code>CREATE TABLE</code> statement for an <code>employees</code> table with the following columns:</p>
+<ul>
+<p>  <li><code>emp_id</code>: Integer, Primary Key.</li></p>
+<p>  <li><code>full_name</code>: Variable text up to 100 characters, Cannot be empty.</li></p>
+<p>  <li><code>salary</code>: Decimal supporting values up to <code>999,999.99</code> (<code>DECIMAL(8,2)</code>).</li></p>
+<p>  <li><code>hire_date</code>: Date field (<code>DATE</code>).</li></p>
+<p></ul></p>
+
+<h3>Question Set 4: Altering Table Structure</h3>
+<p>Write an <code>ALTER TABLE</code> statement that adds a <code>department_id</code> column of type <code>INT</code> to the <code>employees</code> table.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write the complete SQL script to:</p>
+<p>1. Create and select a database named <code>library_db</code>.</p>
+<p>2. Create a <code>books</code> table with:</p>
+<ul>
+<p>  <li><code>book_id</code> (Integer, Primary Key)</li></p>
+<p>  <li><code>title</code> (Variable text up to 150 characters, Cannot be NULL)</li></p>
+<p>  <li><code>author</code> (Variable text up to 100 characters)</li></p>
+<p>  <li><code>price</code> (Decimal, 8 digits total, 2 decimal places)</li></p>
+<p></ul></p>
+<p>3. Alter the <code>books</code> table to add a <code>published_year</code> column of type <code>INT</code>.</p>
+
+<details>
+<summary>🔍 Click to view Mini Challenge Solution</summary>
+
+<pre><code class="language-sql">-- Step 1: Create and select library database
+<p>CREATE DATABASE IF NOT EXISTS library_db;</p>
+<p>USE library_db;</p>
+
+<p>-- Step 2: Create books table</p>
+<p>CREATE TABLE IF NOT EXISTS books (</p>
+<p>    book_id INT PRIMARY KEY,</p>
+<p>    title VARCHAR(150) NOT NULL,</p>
+<p>    author VARCHAR(100),</p>
+<p>    price DECIMAL(8, 2)</p>
+<p>);</p>
+
+<p>-- Step 3: Add published_year column</p>
+<p>ALTER TABLE books</p>
+<p>ADD published_year INT;</p>
+
+<p>-- Step 4: Verify table schema</p>
+<p>DESCRIBE books;</code></pre></p>
+
+<p><strong>Expected <code>DESCRIBE books;</code> Output:</strong></p>
+
+<pre><code class="language-text">+----------------+--------------+------+-----+---------+-------+
+<table>
+<p>  <thead><tr><th>Field</th><th>Type</th><th>Null</th><th>Key</th><th>Default</th><th>Extra</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+--------------+------+-----+---------+-------+</p>
+<table>
+<p>  <thead><tr><th>book_id</th><th>int</th><th>NO</th><th>PRI</th><th>NULL</th><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>title</td><td>varchar(150)</td><td>NO</td><td></td><td>NULL</td><td></td></tr></p>
+<p>    <tr><td>author</td><td>varchar(100)</td><td>YES</td><td></td><td>NULL</td><td></td></tr></p>
+<p>    <tr><td>price</td><td>decimal(8,2)</td><td>YES</td><td></td><td>NULL</td><td></td></tr></p>
+<p>    <tr><td>published_year</td><td>int</td><td>YES</td><td></td><td>NULL</td><td></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------------+--------------+------+-----+---------+-------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-data-types-and-null.html">SQL Data Types & NULL Values</a></li></p>
+<p>  <li><a href="05-keys.html">Database Keys (Primary, Foreign & Candidate Keys)</a></li></p>
+<p>  <li><a href="06-insert.html"><code>INSERT</code> – Adding Data to Tables</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="02-introduction-to-sql.html">← Previous: Introduction to SQL</a> | <a href="./">SQL Home</a> | <a href="04-data-types-and-null.html">Next: Data Types & NULL Values →</a></p>
+
+  </div>
+</body>
+</html>

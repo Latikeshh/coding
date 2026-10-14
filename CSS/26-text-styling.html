@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26 text styling - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Text Styling & Typography</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Text Styling</strong> properties format text alignment, spacing, transformation, decoration, line heights, and letter spacing to build readable typography hierarchy across web pages.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Style text with <code>color</code>, <code>font-size</code>, <code>line-height</code> (spacious body text readability), <code>text-align</code>, <code>text-decoration</code>, <code>text-transform</code>, and <code>letter-spacing</code>.</p>
+
+<h3>Hindi</h3>
+<p>Text styling se padhne ki kshamta (readability) badhti hai. <code>line-height: 1.5</code> se lines ke beech ki doori tay hoti hai. <code>text-align</code> se alignment set karein.</p>
+
+<h3>Marathi</h3>
+<p>Vachniyata vadhvnyasathi <code>line-height</code> (1.5 te 1.6) ani <code>text-align</code> vapartat.</p>
+
+<h2>🤔 Why Is Typography Styling Crucial?</h2>
+
+<p>Websites are over 90% text content. Poorly spaced text with tight line heights or bad color contrast strains visitors' eyes and drives them away. Proper typography hierarchy guides readers naturally through articles.</p>
+
+<h2>📚 Essential Text Properties Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Value Options</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>color</code></td><td>Sets text color (Hex, RGB, HSL)</td><td><code>color: #1f2937;</code></td></tr></p>
+<p>    <tr><td><code>text-align</code></td><td>Horizontal alignment (<code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code>)</td><td><code>text-align: center;</code></td></tr></p>
+<p>    <tr><td><code>text-decoration</code></td><td>Decorative lines (<code>none</code>, <code>underline</code>, <code>line-through</code>)</td><td><code>text-decoration: none;</code> (Removes link underlines)</td></tr></p>
+<p>    <tr><td><code>text-transform</code></td><td>Letter casing (<code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>)</td><td><code>text-transform: uppercase;</code></td></tr></p>
+<p>    <tr><td><code>line-height</code></td><td>Vertical spacing between line boxes</td><td><code>line-height: 1.6;</code> (Recommended <code>1.5</code>–<code>1.6</code> for body text)</td></tr></p>
+<p>    <tr><td><code>letter-spacing</code></td><td>Horizontal spacing between characters</td><td><code>letter-spacing: 0.05em;</code></td></tr></p>
+<p>    <tr><td><code>word-spacing</code></td><td>Horizontal spacing between words</td><td><code>word-spacing: 0.1em;</code></td></tr></p>
+<p>    <tr><td><code>text-shadow</code></td><td>Drop shadow behind text characters</td><td><code>text-shadow: 1px 1px 2px rgba(0,0,0,0.2);</code></td></tr></p>
+<p>    <tr><td><code>white-space</code></td><td>Controls line wrapping (<code>normal</code>, <code>nowrap</code>, <code>pre-wrap</code>)</td><td><code>white-space: nowrap;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<pre><code class="language-css">/* Body typography defaults for high readability */
+<p>body {</p>
+<p>  color: #222222;</p>
+<p>  font-size: 1rem;       /* 16px */</p>
+<p>  line-height: 1.6;     /* 1.6 multiplier creates comfortable line height */</p>
+<p>}</p>
+
+<p>/* Category Badge Styling */</p>
+<p>.badge {</p>
+<p>  text-transform: uppercase;</p>
+<p>  letter-spacing: 0.08em;</p>
+<p>  font-size: 0.75rem;   /* 12px */</p>
+<p>  font-weight: bold;</p>
+<p>}</p>
+
+<p>/* Clean Un-underlined Navigation Links */</p>
+<p>.nav-link {</p>
+<p>  text-decoration: none;</p>
+<p>  color: #2563eb;</p>
+<p>}</p>
+
+<p>.nav-link:hover {</p>
+<p>  text-decoration: underline;</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Typography Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;article class=&quot;article-box&quot;&gt;</p>
+<p>    &lt;span class=&quot;category-badge&quot;&gt;WEB DEVELOPMENT&lt;/span&gt;</p>
+<p>    &lt;h1&gt;Mastering CSS Typography&lt;/h1&gt;</p>
+<p>    &lt;p class=&quot;lead-text&quot;&gt;Spacious line height and high contrast typography make body text enjoyable to read on both mobile and desktop screens.&lt;/p&gt;</p>
+<p>    &lt;p&gt;Good typography establishes clear visual hierarchy. Use larger font weights for headings and comfortable 1.5 to 1.6 line heights for paragraph text blocks.&lt;/p&gt;</p>
+<p>    &lt;a href=&quot;#&quot; class=&quot;read-more&quot;&gt;Read Full Article &amp;rarr;&lt;/a&gt;</p>
+<p>  &lt;/article&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 30px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.article-box {</p>
+<p>  background: white;</p>
+<p>  padding: 35px;</p>
+<p>  border-radius: 12px;</p>
+<p>  max-width: 600px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>}</p>
+
+<p>.category-badge {</p>
+<p>  display: inline-block;</p>
+<p>  text-transform: uppercase;</p>
+<p>  letter-spacing: 0.1em;</p>
+<p>  font-size: 0.75rem;</p>
+<p>  font-weight: bold;</p>
+<p>  color: #2563eb;</p>
+<p>  background-color: #eff6ff;</p>
+<p>  padding: 4px 10px;</p>
+<p>  border-radius: 4px;</p>
+<p>  margin-bottom: 12px;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  margin-top: 0;</p>
+<p>  color: #111827;</p>
+<p>  line-height: 1.25;</p>
+<p>}</p>
+
+<p>.lead-text {</p>
+<p>  font-size: 1.125rem;</p>
+<p>  color: #374151;</p>
+<p>  line-height: 1.6;</p>
+<p>  font-weight: 500;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  color: #4b5563;</p>
+<p>  line-height: 1.6;</p>
+<p>}</p>
+
+<p>.read-more {</p>
+<p>  display: inline-block;</p>
+<p>  margin-top: 15px;</p>
+<p>  color: #2563eb;</p>
+<p>  text-decoration: none;</p>
+<p>  font-weight: bold;</p>
+<p>}</p>
+
+<p>.read-more:hover {</p>
+<p>  text-decoration: underline;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A beautifully formatted article card with uppercase category badge, clean headline line height, and spacious paragraph text.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Remove <code>line-height: 1.6</code> from <code>p</code> elements and notice how cramped and difficult paragraphs become to read.</p>
+<p>2. Add <code>text-transform: uppercase</code> to <code>h1</code> to transform heading letters into all capitals automatically.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Tight line heights on paragraph body text:</strong> Using <code>line-height: 1</code> or omitting <code>line-height</code> causes text lines to touch vertically. Always set <code>line-height: 1.5</code> to <code>1.6</code> on body text.</li></p>
+<p>  <li><strong>Justifying paragraph body text (<code>text-align: justify</code>):</strong> Causes irregular gaps ("rivers of white space") between words on web screens. Keep body text aligned left (<code>text-align: left</code>).</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Designers use <code>text-decoration: none</code> to strip default underlines from links, adding custom animated underline effects on <code>:hover</code> for modern UI aesthetics.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="27-fonts.html">Web Fonts & <code>@font-face</code></a></li></p>
+<p>  <li><a href="32-functions.html">CSS Functions (<code>clamp()</code>)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>line-height: 1.5</code> to <code>1.6</code> for readable body paragraphs.</li></p>
+<p>  <li>Use <code>text-decoration: none</code> to remove default link underlines.</li></p>
+<p>  <li>Use <code>text-transform: uppercase</code> and <code>letter-spacing</code> for category badges and buttons.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="25-pseudo-elements.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="27-fonts.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

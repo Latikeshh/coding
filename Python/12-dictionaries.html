@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictionaries - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Dictionaries in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Dictionary</strong> in Python is a <strong>mutable, key-value mapping collection</strong> enclosed in curly braces <code>{}</code> with the syntax <code>{"key": "value"}</code>. Dictionary keys must be unique and immutable/hashable (strings, numbers, tuples), while values can be any data type.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Dictionary key-value pairs ka structure hota hai (<code>{"name": "Aarav", "age": 25}</code>). Index position ke bajaye data Key ke dwara search kiya jata hai (<code>dict["key"]</code>). Key missing rehne par error se bachne ke liye safe method <code>.get("key", default)</code> ka use karein.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Dictionary madhye data <strong>Key-Value</strong> स्वरूपात (pair) saathavla jato. Key missing aslyas error yenaypasun vachnyasathi <code>.get()</code> method vapara.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a Python dictionary as a real physical language dictionary. When you want to find the meaning of <code>"algorithm"</code>, you don't read page by page from the beginning—you directly look up the key word <code>"algorithm"</code> to instantly fetch its associated definition value.</p>
+
+<h2>📝 1. Accessing & Modifying Dictionary Entries</h2>
+
+<pre><code class="language-python">user = {
+<p>    &quot;id&quot;: 101,</p>
+<p>    &quot;name&quot;: &quot;Rahul Verma&quot;,</p>
+<p>    &quot;role&quot;: &quot;Developer&quot;,</p>
+<p>    &quot;is_active&quot;: True</p>
+<p>}</p>
+
+<h1>1. Direct Bracket Access (Raises KeyError if key doesn&#39;t exist!)</h1>
+<p>print(user[&quot;name&quot;]) # &quot;Rahul Verma&quot;</p>
+
+<h1>2. Safe .get() Access (Returns default fallback if key is missing)</h1>
+<p>location = user.get(&quot;location&quot;, &quot;Not Specified&quot;) # &quot;Not Specified&quot;</p>
+
+<h1>3. Adding or Updating Entries</h1>
+<p>user[&quot;location&quot;] = &quot;Mumbai&quot; # Adds new key-value pair</p>
+<p>user[&quot;role&quot;] = &quot;Lead Developer&quot; # Updates existing key</p>
+
+<h1>4. Deleting Entries</h1>
+<p>removed_role = user.pop(&quot;role&quot;) # Removes and returns value</code></pre></p>
+
+<h2>📝 2. Iterating Dictionaries (<code>.keys()</code>, <code>.values()</code>, <code>.items()</code>)</h2>
+
+<pre><code class="language-python">scores = {&quot;Aarav&quot;: 92, &quot;Priya&quot;: 88, &quot;Rohan&quot;: 95}
+
+<h1>Iterating Keys</h1>
+<p>for name in scores.keys():</p>
+<p>    print(name)</p>
+
+<h1>Iterating Values</h1>
+<p>for score in scores.values():</p>
+<p>    print(score)</p>
+
+<h1>Iterating Key-Value Pairs simultaneously (Best Practice)</h1>
+<p>for name, score in scores.items():</p>
+<p>    print(f&quot;{name} -&gt; {score}&quot;)</code></pre></p>
+
+<h2>💡 Complete Example: Student Grade Management Engine</h2>
+
+<pre><code class="language-python"># Student Record System
+<p>student_database = {</p>
+<p>    &quot;STU-101&quot;: {&quot;name&quot;: &quot;Aarav Mehta&quot;, &quot;marks&quot;: 85, &quot;city&quot;: &quot;Mumbai&quot;},</p>
+<p>    &quot;STU-102&quot;: {&quot;name&quot;: &quot;Sneha Kapoor&quot;, &quot;marks&quot;: 92, &quot;city&quot;: &quot;Delhi&quot;},</p>
+<p>    &quot;STU-103&quot;: {&quot;name&quot;: &quot;Rohan Sharma&quot;, &quot;marks&quot;: 48, &quot;city&quot;: &quot;Bengaluru&quot;}</p>
+<p>}</p>
+
+<p>print(&quot;=== STUDENT DATABASE MANAGER ===&quot;)</p>
+
+<h1>Adding a new student record</h1>
+<p>new_student_id = &quot;STU-104&quot;</p>
+<p>student_database[new_student_id] = {</p>
+<p>    &quot;name&quot;: &quot;Ananya Roy&quot;,</p>
+<p>    &quot;marks&quot;: 78,</p>
+<p>    &quot;city&quot;: &quot;Kolkata&quot;</p>
+<p>}</p>
+
+<h1>Searching student record safely using .get()</h1>
+<p>target_id = &quot;STU-102&quot;</p>
+<p>student = student_database.get(target_id)</p>
+
+<p>if student:</p>
+<p>    print(f&quot;\nRecord Found for ID &#39;{target_id}&#39;:&quot;)</p>
+<p>    print(f&quot; - Name  : {student[&#39;name&#39;]}&quot;)</p>
+<p>    print(f&quot; - Marks : {student[&#39;marks&#39;]}&quot;)</p>
+<p>    print(f&quot; - City  : {student[&#39;city&#39;]}&quot;)</p>
+
+<h1>Iterating all students and updating pass status</h1>
+<p>print(&quot;\n--- CLASS ACADEMIC SUMMARY ---&quot;)</p>
+<p>for student_id, details in student_database.items():</p>
+<p>    status = &quot;PASSED&quot; if details[&quot;marks&quot;] &gt;= 50 else &quot;FAILED&quot;</p>
+<p>    print(f&quot;ID: {student_id} | Name: {details[&#39;name&#39;]:&lt;15} | Marks: {details[&#39;marks&#39;]} | Status: {status}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== STUDENT DATABASE MANAGER ===
+
+<p>Record Found for ID &#39;STU-102&#39;:</p>
+<ul>
+<p>  <li>Name  : Sneha Kapoor</li></p>
+<p>  <li>Marks : 92</li></p>
+<p>  <li>City  : Delhi</li></p>
+<p></ul></p>
+
+<p>--- CLASS ACADEMIC SUMMARY ---</p>
+<p>ID: STU-101 | Name: Aarav Mehta     | Marks: 85 | Status: PASSED</p>
+<p>ID: STU-102 | Name: Sneha Kapoor    | Marks: 92 | Status: PASSED</p>
+<p>ID: STU-103 | Name: Rohan Sharma    | Marks: 48 | Status: FAILED</p>
+<p>ID: STU-104 | Name: Ananya Roy      | Marks: 78 | Status: PASSED</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong><code>KeyError</code>:</strong> Accessing a non-existent key directly via <code>dict["missing_key"]</code> (use <code>dict.get("missing_key", default)</code> instead!).</li></p>
+<p>  <li>Trying to use a mutable object (like a <code>list</code>) as a dictionary key (<code>{"tags": ["a", "b"]}</code> as key causes <code>TypeError: unhashable type: 'list'</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>In Python 3.7+, dictionaries are guaranteed to <strong>preserve insertion order</strong>. Iterating through dictionary keys or items will yield elements in the exact order they were inserted.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>JSON REST API data payloads, database user record objects, configuration file settings, caches, and fast lookup tables ($O(1)$ key lookups).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a dictionary <code>inventory = {"apples": 10, "bananas": 5}</code>. Add <code>"oranges": 8</code> and update <code>"apples": 12</code>.</p>
+<p>2. Retrieve <code>"mangoes"</code> using <code>.get("mangoes", 0)</code> and print the result.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a list of words <code>["apple", "banana", "apple", "cherry", "banana", "apple"]</code> and builds a dictionary word-frequency count table.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="11-sets.html">Sets</a></li></p>
+<p>  <li><a href="14-list-comprehensions.html">List Comprehensions</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="11-sets.html">← Previous: Sets</a> | <a href="13-strings.html">Next: Strings →</a></p>
+
+
+  </div>
+</body>
+</html>

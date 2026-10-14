@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditionals - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Conditional Decision Making in Java</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Conditional Statements</strong> allow Java programs to execute specific blocks of code based on whether a boolean expression evaluates to <code>true</code> or <code>false</code>. Java supports <code>if...else if...else</code> decision chains, classic <code>switch</code> statements, modern <strong>Switch Expressions</strong> (<code>switch</code> with arrow <code>-></code> syntax and <code>yield</code>), and Ternary operators.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Decision making ke liye <code>if...else</code> aur <code>switch</code> ka use hota hai. Note karein ki Java mein <code>if</code> condition hamesha explicit <code>boolean</code> (<code>true</code>/<code>false</code>) honi chahiye; numbers (<code>0</code> ya <code>1</code>) ya strings automatically boolean mein convert nahi hote.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Decision-making sathi <code>if...else</code> aani <code>switch</code> vaparatat. Java madhye condition hamesha <code>boolean</code> pahije.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Applications adapt dynamically based on data—for example, verifying if an account balance is sufficient before authorizing a transaction, or routing user requests based on user roles (<code>ADMIN</code>, <code>USER</code>, <code>GUEST</code>).</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of conditionals as a railway track switch. Depending on the signal color (the boolean condition), the train is routed down Track A (<code>if</code>), Track B (<code>else if</code>), or the fallback siding (<code>else</code>).</p>
+
+<h2>📝 1. <code>if...else if...else</code> Decision Chains</h2>
+
+<pre><code class="language-java">int score = 82;
+
+<p>if (score &gt;= 90) {</p>
+<p>    System.out.println(&quot;Grade: A+&quot;);</p>
+<p>} else if (score &gt;= 75) {</p>
+<p>    System.out.println(&quot;Grade: A&quot;);</p>
+<p>} else if (score &gt;= 50) {</p>
+<p>    System.out.println(&quot;Grade: B&quot;);</p>
+<p>} else {</p>
+<p>    System.out.println(&quot;Grade: F&quot;);</p>
+<p>}</code></pre></p>
+
+<h2>📝 2. Modern Switch Expressions (Java 14+)</h2>
+
+<p>Modern Java features arrow syntax <code>-></code> in <code>switch</code> expressions that automatically eliminate fall-through bugs and do not require <code>break</code> statements.</p>
+
+<pre><code class="language-java">String day = &quot;WEDNESDAY&quot;;
+
+<p>// Switch Expression returning a value</p>
+<p>String dayType = switch (day) {</p>
+<p>    case &quot;MONDAY&quot;, &quot;TUESDAY&quot;, &quot;WEDNESDAY&quot;, &quot;THURSDAY&quot;, &quot;FRIDAY&quot; -&gt; &quot;Weekday&quot;;</p>
+<p>    case &quot;SATURDAY&quot;, &quot;SUNDAY&quot; -&gt; &quot;Weekend&quot;;</p>
+<p>    default -&gt; {</p>
+<p>        System.out.println(&quot;Validating unknown day...&quot;);</p>
+<p>        yield &quot;Invalid Day&quot;; // yield returns a value from a multi-line block</p>
+<p>    }</p>
+<p>};</code></pre></p>
+
+<h2>💡 Complete Example: Role-Based Authorization Engine</h2>
+
+<pre><code class="language-java">public class AuthorizationSystem {
+<p>    public static void main(String[] args) {</p>
+<p>        String userRole = &quot;MANAGER&quot;;</p>
+<p>        double transactionAmount = 75000.00;</p>
+<p>        boolean isAccountActive = true;</p>
+
+<p>        // 1. Explicit Boolean Guard Clause</p>
+<p>        if (!isAccountActive) {</p>
+<p>            System.out.println(&quot;Access Denied: Account is deactivated.&quot;);</p>
+<p>            return;</p>
+<p>        }</p>
+
+<p>        // 2. Modern Switch Expression for Role Approval Thresholds</p>
+<p>        double maxApprovalLimit = switch (userRole) {</p>
+<p>            case &quot;ADMIN&quot; -&gt; 500000.00;</p>
+<p>            case &quot;MANAGER&quot; -&gt; 100000.00;</p>
+<p>            case &quot;CLERK&quot; -&gt; 25000.00;</p>
+<p>            default -&gt; 0.00;</p>
+<p>        };</p>
+
+<p>        System.out.println(&quot;User Role           : &quot; + userRole);</p>
+<p>        System.out.println(&quot;Transaction Amount  : ₹&quot; + transactionAmount);</p>
+<p>        System.out.println(&quot;Approval Threshold  : ₹&quot; + maxApprovalLimit);</p>
+
+<p>        // 3. Conditional Decision</p>
+<p>        if (transactionAmount &lt;= maxApprovalLimit) {</p>
+<p>            System.out.println(&quot;Status              : APPROVED&quot;);</p>
+<p>        } else {</p>
+<p>            System.out.println(&quot;Status              : REQUIRES HIGHER APPROVAL&quot;);</p>
+<p>        }</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">User Role           : MANAGER
+<p>Transaction Amount  : ₹75000.0</p>
+<p>Approval Threshold  : ₹100000.0</p>
+<p>Status              : APPROVED</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Writing <code>if (x = 5)</code> instead of <code>if (x == 5)</code>. In Java, <code>x = 5</code> evaluates to an integer, which causes a compilation error because Java requires a <code>boolean</code>!</li></p>
+<p>  <li>Forgetting <code>break;</code> statements in classic <code>switch</code> statements, leading to accidental "fall-through" into subsequent cases.</li></p>
+<p>  <li>Reversing condition order in range checks (e.g., checking <code>score >= 50</code> before <code>score >= 90</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always use curly braces <code>{}</code> for <code>if</code> and <code>else</code> blocks, even if the block contains only a single line statement, to avoid dangling <code>else</code> bugs.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Role-based authorization checks, payment gateway decision engines, HTTP status code routers (<code>200 OK</code>, <code>404 NOT FOUND</code>, <code>500 ERROR</code>), and game state handlers.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write an <code>if...else</code> block that checks if a temperature in Celsius is below freezing (<code><= 0</code>), comfortable (<code>18</code> to <code>28</code>), or hot (<code>> 30</code>).</p>
+<p>2. Convert it into a modern <code>switch</code> expression checking temperature status codes.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes an integer month (1 to 12) and uses a modern <code>switch</code> expression to return the number of days in that month (handle leap years for month 2).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-operators-and-expressions.html">Operators and Expressions</a></li></p>
+<p>  <li><a href="07-loops.html">Loops</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="05-operators-and-expressions.html">← Previous: Operators</a> | <a href="07-loops.html">Next: Loops →</a></p>
+
+
+  </div>
+</body>
+</html>

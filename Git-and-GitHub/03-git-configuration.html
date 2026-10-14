@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 git configuration - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Git Configuration (<code>git config</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code>git config</code></strong> is the command used to customize Git's behavior, user identity settings, default editor preferences, line-ending conversions, and branch naming conventions across your entire system or for a specific repository.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Before making commits, you must configure your user identity (<code>user.name</code> and <code>user.email</code>). Git attaches this author metadata to every commit you make. Configuration levels include <code>--global</code> (all repositories for current OS user), <code>--local</code> (current repository only), and <code>--system</code> (all OS users).</p>
+
+<h3>Hindi</h3>
+<p>Commits karne se pehle aapko apna user identity (<code>user.name</code> aur <code>user.email</code>) configure karna zaroori hai. Git har commit ke saath yeh author info attach karta hai. Global level (<code>--global</code>) se yeh settings aapke sabhi repositories par apply hoti hain.</p>
+
+<h3>Marathi</h3>
+<p>Commits karanya pūrvi aapan aaple identity (<code>user.name</code> aani <code>user.email</code>) set kela pahije. Git pratyek commit sobat he author information jodto. Global settings (<code>--global</code>) sarv repositories sathi lagu hotat.</p>
+
+<h3>Hinglish</h3>
+<p>Pehli baar Git install karne par <code>user.name</code> aur <code>user.email</code> config karna mandatory hai. GitHub par commits aapke account se link hone ke liye <code>user.email</code> exact GitHub registered email se match hona chahiye. <code>--global</code> flag sabhi projects ke liye defaults set karta hai.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>If you don't configure your name and email, Git will either refuse to create commits or generate commits with default system hostname strings (e.g. <code>user@DESKTOP-8492X</code>). Configuring your email ensures GitHub attributes your commits to your profile correctly.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>git config</code> like setting up your digital passport or signature stamp. Every time you seal an official document (make a commit), Git stamps your name, email, and timestamp onto that document.</p>
+
+<h2>📝 Configuration Levels</h2>
+
+<p>1. <strong><code>--system</code>:</strong> Applied system-wide to all users on the computer (<code>/etc/gitconfig</code>).</p>
+<p>2. <strong><code>--global</code>:</strong> Applied to current OS user's home directory (<code>~/.gitconfig</code> or <code>C:\Users\username\.gitconfig</code>). <strong>(Most Common)</strong></p>
+<p>3. <strong><code>--local</code>:</strong> Applied only to the current active repository (<code>.git/config</code>). Overrides global settings.</p>
+
+<h2>💡 Essential First-Time Commands</h2>
+
+<h3>1. Set Your Author Identity</h3>
+<pre><code class="language-bash"># Set your full name
+<p>git config --global user.name &quot;Rahul Sharma&quot;</p>
+
+<h1>Set your GitHub registered email address</h1>
+<p>git config --global user.email &quot;rahul.sharma@example.com&quot;</code></pre></p>
+
+<h3>2. Set Default Branch Name to <code>main</code></h3>
+<p>Modern industry standard uses <code>main</code> as the default primary branch name instead of legacy <code>master</code>:</p>
+<pre><code class="language-bash">git config --global init.defaultBranch main</code></pre>
+
+<h3>3. Set VS Code as Default Git Text Editor</h3>
+<pre><code class="language-bash">git config --global core.editor &quot;code --wait&quot;</code></pre>
+
+<h3>4. Configure Line-Ending Conversions (<code>core.autocrlf</code>)</h3>
+<p>Prevents cross-platform line ending issues (<code>CRLF</code> on Windows vs <code>LF</code> on Linux/macOS):</p>
+<pre><code class="language-bash"># On Windows:
+<p>git config --global core.autocrlf true</p>
+
+<h1>On Linux / macOS:</h1>
+<p>git config --global core.autocrlf input</code></pre></p>
+
+<h3>5. Inspecting Active Configuration</h3>
+<pre><code class="language-bash"># List all active configurations
+<p>git config --list</p>
+
+<h1>Show where each setting originates from (file path)</h1>
+<p>git config --list --show-origin</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git config</code>: Invokes the configuration tool.</li></p>
+<p>  <li><code>--global</code>: Specifies that settings apply to the current user across all repositories.</li></p>
+<p>  <li><code>user.name "Your Name"</code>: Key-value pair assigning the author name string.</li></p>
+<p>  <li><code>user.email "email@domain.com"</code>: Key-value pair assigning the author email address.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git config --global user.name &quot;Rahul Sharma&quot;
+<p>$ git config --global user.email &quot;rahul.sharma@example.com&quot;</p>
+
+<p>$ git config user.name</p>
+<p>Rahul Sharma</p>
+
+<p>$ git config user.email</p>
+<p>rahul.sharma@example.com</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Email Mismatch on GitHub:</strong> Setting a generic email in <code>git config</code> that doesn't match your registered GitHub account email. As a result, GitHub will not display your commit avatar or count your contributions on your profile activity graph!</li></p>
+<p>  <li><strong>Typos in Command Keys:</strong> Writing <code>git config user.nam</code> instead of <code>user.name</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Configuration settings are stored in plain text files (<code>~/.gitconfig</code>). Do NOT store passwords, API keys, or private SSH keys inside <code>git config</code> files.</li></p>
+<p>  <li>Local repository settings (<code>--local</code>) always override <code>--global</code> settings.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Developers use <code>--local</code> config when switching between work/company repositories (using company email) and personal open-source projects (using personal GitHub email) on the same laptop.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Set your <code>user.name</code> and <code>user.email</code> globally in Git Bash or Terminal.</p>
+<p>2. Run <code>git config user.name</code> and verify that your name prints correctly.</p>
+<p>3. Set your default branch to <code>main</code> using <code>git config --global init.defaultBranch main</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Run <code>git config --list --show-origin</code> in your terminal and identify the exact file path where your <code>--global</code> config settings are saved on your computer disk.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="02-installation-and-setup.html">Installation & Setup</a></li></p>
+<p>  <li><a href="04-initializing-a-repository.html">Initializing a Repository</a></li></p>
+<p>  <li><a href="22-ssh-keys-and-github-authentication.html">SSH Keys & Authentication</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="02-installation-and-setup.html">← Previous: Setup</a> | <a href="04-initializing-a-repository.html">Next: Initializing Repository →</a></p>
+
+
+
+  </div>
+</body>
+</html>

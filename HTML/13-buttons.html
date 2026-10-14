@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 buttons - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Buttons (<code><button></code>, <code>type="submit"</code>, <code>type="button"</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code><button></code></strong> element creates clickable interactive buttons used to submit forms, reset form fields, or trigger custom JavaScript actions.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Use <code><button type="submit"></code> inside forms to submit data and <code><button type="button"></code> for JavaScript click events. Use anchor links <code><a></code> for page navigation.</p>
+
+<h3>Hindi</h3>
+<p>Form data submit karne ke liye <code><button type="submit"></code> aur JavaScript actions ke liye <code><button type="button"></code> use karein. Dusre page par jaane ke liye <code><a></code> links use karein.</p>
+
+<h3>Marathi</h3>
+<p>Form submit karanyasathi <code><button type="submit"></code> ani JavaScript actions sathi <code><button type="button"></code> vapra. Dusrya page var janyasathi <code><a></code> tags vapra.</p>
+
+<h2>🤔 Why Do We Use Buttons?</h2>
+
+<p>Buttons are the primary interactive triggers for user actions on web pages—submitting forms, opening modal dialogs, toggling dark mode, clearing inputs, or adding items to a shopping cart.</p>
+
+<h2>🧱 Button Types & Behaviors</h2>
+
+<p>Inside forms, the <code>type</code> attribute of a <code><button></code> determines its behavior:</p>
+
+<table>
+<p>  <thead><tr><th>Button Type</th><th>Description & Behavior</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code><button type="submit"></code></td><td>Submits enclosing <code><form></code> data to the <code>action</code> URL. <strong>Default behavior if <code>type</code> attribute is omitted inside a form.</strong></td></tr></p>
+<p>    <tr><td><code><button type="reset"></code></td><td>Resets all input fields inside the enclosing form back to their initial values.</td></tr></p>
+<p>    <tr><td><code><button type="button"></code></td><td>Plain clickable button with no default action. Used to trigger custom JavaScript functions.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>⚔️ <code><button></code> vs. <code><a href="..."></code> (When to Use Which?)</h2>
+
+<ul>
+<p>  <li><strong>Use <code><a></code> (Anchor Link):</strong> When navigating to another webpage, URL, or document section (e.g., "About Us", "View Profile", "Go to Checkout").</li></p>
+<p>  <li><strong>Use <code><button></code>:</strong> When triggering an action or state change on the current page without navigating away (e.g., "Submit Form", "Open Menu", "Close Modal", "Play Video").</li></p>
+<p></ul></p>
+
+<h2>⚔️ <code><button></code> vs. <code><input type="submit"></code></h2>
+
+<p><code><button></code> is flexible because it can contain formatted HTML elements, SVG icons, and images, whereas <code><input type="submit" value="..."></code> can only display plain text string values:</p>
+
+<pre><code class="language-html">&lt;!-- Modern flexible &lt;button&gt; with icon --&gt;
+<p>&lt;button type=&quot;submit&quot;&gt;</p>
+<p>  &lt;img src=&quot;icons/send.svg&quot; alt=&quot;&quot; width=&quot;16&quot; height=&quot;16&quot;&gt;</p>
+<p>  &lt;span&gt;Send Feedback&lt;/span&gt;</p>
+<p>&lt;/button&gt;</p>
+
+<p>&lt;!-- Legacy plain-text &lt;input type=&quot;submit&quot;&gt; --&gt;</p>
+<p>&lt;input type=&quot;submit&quot; value=&quot;Send Feedback&quot;&gt;</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Buttons Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Form Action Buttons&lt;/h1&gt;</p>
+
+<p>  &lt;form action=&quot;/subscribe&quot; method=&quot;POST&quot;&gt;</p>
+<p>    &lt;p&gt;</p>
+<p>      &lt;label for=&quot;newsletter-email&quot;&gt;Subscribe to Newsletter:&lt;/label&gt;&lt;br&gt;</p>
+<p>      &lt;input id=&quot;newsletter-email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;name@domain.com&quot;&gt;</p>
+<p>    &lt;/p&gt;</p>
+
+<p>    &lt;p&gt;</p>
+<p>      &lt;button type=&quot;submit&quot;&gt;Subscribe Now&lt;/button&gt;</p>
+<p>      &lt;button type=&quot;reset&quot;&gt;Reset Fields&lt;/button&gt;</p>
+<p>      &lt;button type=&quot;button&quot; onclick=&quot;alert(&#39;Help requested!&#39;)&quot;&gt;Need Help?&lt;/button&gt;</p>
+<p>    &lt;/p&gt;</p>
+<p>  &lt;/form&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A newsletter form displaying a <strong>Subscribe Now</strong> submit button, a <strong>Reset Fields</strong> clear button, and a <strong>Need Help?</strong> JavaScript button.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Build a contact form containing an email input field.</p>
+<p>2. Add a <code><button type="submit"></code> button.</p>
+<p>3. Add a <code><button type="reset"></code> button.</p>
+<p>4. Add a standalone <code><button type="button"></code> with an inline <code>onclick</code> handler.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Omitting <code>type="button"</code> on non-submitting form buttons:</strong> Clicking a button without an explicit <code>type</code> attribute inside a form accidentally submits the form!</li></p>
+<p>  <li><strong>Using <code><button></code> for simple page navigation:</strong> Use <code><a href="page.html"></code> for page navigation so right-click "Open in new tab" works properly.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>E-commerce checkout pages, web application dashboards, form submissions, and UI dropdowns rely on proper button types and accessibility labels.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="07-links.html">Links</a></li></p>
+<p>  <li><a href="11-forms.html">Forms</a></li></p>
+<p>  <li><a href="12-input-types.html">Input Types</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Use <code><button type="submit"></code> for form submission.</li></p>
+<p>  <li>Use <code><button type="button"></code> for JavaScript actions.</li></p>
+<p>  <li>Use <code><a></code> links for page navigation.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="12-input-types.html">← Previous: Input Types</a> | <a href="./">HTML Home</a> | <a href="14-div-and-span.html">Next: Generic Containers →</a></p>
+
+
+
+  </div>
+</body>
+</html>

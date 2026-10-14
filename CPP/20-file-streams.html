@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 file streams - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>File I/O Streams in C++ (<code>std::ifstream</code>, <code>std::ofstream</code>, <code><fstream></code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>File Input and Output (I/O) in C++ is managed through the <code><fstream></code> header library using three primary stream classes:</p>
+<p>1. <code>std::ofstream</code> (Output File Stream): Used for <strong>creating and writing</strong> data to disk files.</p>
+<p>2. <code>std::ifstream</code> (Input File Stream): Used for <strong>reading</strong> data from disk files.</p>
+<p>3. <code>std::fstream</code> (File Stream): Supports <strong>both reading and writing</strong> to files simultaneously.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>C++ mein disk par text files create, write, aur read karne ke liye <code><fstream></code> library ka use hota hai.</p>
+<ul>
+<p>  <li><strong><code>std::ofstream</code></strong>: File banana aur usme data write karna (<code>file << "text";</code>).</li></p>
+<p>  <li><strong><code>std::ifstream</code></strong>: Disk par pehle se maujood file ko kholna aur lines read karna (<code>std::getline(file, line)</code>).</li></p>
+<p>  <li>File open karne ke baad use <code>.close()</code> karna zaroori hota hai (halanki destructor use automatically close kar deta hai).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Disk varil text files tayar karne, lihine (write), aani vachane (read) yasathi <code><fstream></code> cha vapar hota.</p>
+<ul>
+<p>  <li><strong><code>std::ofstream</code></strong>: File lihinyasathi (Output).</li></p>
+<p>  <li><strong><code>std::ifstream</code></strong>: File vachnyasathi (Input).</li></p>
+<p>  <li>File vaaparun zalyavar <code>.close()</code> करणे changle aste.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 File Open Modes Summary</h2>
+
+<table>
+<p>  <thead><tr><th>Open Mode</th><th>Flag</th><th>Description</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Write</strong></td><td><code>std::ios::out</code></td><td>Opens file for writing (truncates existing file by default)</td></tr></p>
+<p>    <tr><td><strong>Append</strong></td><td><code>std::ios::app</code></td><td>Appends new data to the <strong>end</strong> of existing file</td></tr></p>
+<p>    <tr><td><strong>Read</strong></td><td><code>std::ios::in</code></td><td>Opens existing file for reading</td></tr></p>
+<p>    <tr><td><strong>Binary</strong></td><td><code>std::ios::binary</code></td><td>Reads/writes binary data instead of text lines</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;fstream&gt; // For std::ofstream and std::ifstream</p>
+<p>#include &lt;string&gt;</p>
+
+<p>int main() {</p>
+<p>    std::string filename = &quot;user_logs.txt&quot;;</p>
+
+<p>    // 1. WRITING TO FILE using std::ofstream</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. WRITING TO FILE ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::ofstream outFile(filename, std::ios::out);</p>
+
+<p>    if (outFile.is_open()) {</p>
+<p>        outFile &lt;&lt; &quot;Log 101: System initialized successfully.&quot; &lt;&lt; std::endl;</p>
+<p>        outFile &lt;&lt; &quot;Log 102: User &#39;Rahul&#39; logged in.&quot; &lt;&lt; std::endl;</p>
+<p>        outFile &lt;&lt; &quot;Log 103: Database backup completed.&quot; &lt;&lt; std::endl;</p>
+<p>        outFile.close(); // Explicitly closing stream</p>
+<p>        std::cout &lt;&lt; &quot;Data successfully saved to &quot; &lt;&lt; filename &lt;&lt; std::endl;</p>
+<p>    } else {</p>
+<p>        std::cerr &lt;&lt; &quot;Failed to create/open &quot; &lt;&lt; filename &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // 2. APPENDING TO FILE using std::ios::app</p>
+<p>    std::ofstream appendFile(filename, std::ios::app);</p>
+<p>    if (appendFile.is_open()) {</p>
+<p>        appendFile &lt;&lt; &quot;Log 104: Session closed.&quot; &lt;&lt; std::endl;</p>
+<p>        appendFile.close();</p>
+<p>    }</p>
+
+<p>    // 3. READING FROM FILE using std::ifstream</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 2. READING FROM FILE ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::ifstream inFile(filename);</p>
+
+<p>    if (inFile.is_open()) {</p>
+<p>        std::string line;</p>
+<p>        // Read file line by line until EOF (End Of File)</p>
+<p>        while (std::getline(inFile, line)) {</p>
+<p>            std::cout &lt;&lt; &quot;[READ LINE] &quot; &lt;&lt; line &lt;&lt; std::endl;</p>
+<p>        }</p>
+<p>        inFile.close();</p>
+<p>    } else {</p>
+<p>        std::cerr &lt;&lt; &quot;Could not open &quot; &lt;&lt; filename &lt;&lt; &quot; for reading!&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>#include <fstream></code>: Provides <code>ofstream</code> and <code>ifstream</code> classes.</li></p>
+<p>  <li><code>outFile.is_open()</code>: Checks if the file handle was successfully acquired before performing I/O.</li></p>
+<p>  <li><code>std::getline(inFile, line)</code>: Continuously reads text line by line until reaching End-Of-File (EOF).</li></p>
+<p>  <li><code>std::ios::app</code>: Specifies append mode so new log entries don't overwrite previous logs.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. WRITING TO FILE ---
+<p>Data successfully saved to user_logs.txt</p>
+
+<p>--- 2. READING FROM FILE ---</p>
+<p>[READ LINE] Log 101: System initialized successfully.</p>
+<p>[READ LINE] Log 102: User &#39;Rahul&#39; logged in.</p>
+<p>[READ LINE] Log 103: Database backup completed.</p>
+<p>[READ LINE] Log 104: Session closed.</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>.is_open()</code> Check</strong>: Attempting to read a file that doesn't exist without checking <code>.is_open()</code> fails silently without reading anything.</li></p>
+<p>  <li><strong>Default Overwriting in <code>ofstream</code></strong>: Opening a file with <code>std::ofstream outFile("data.txt")</code> <strong>truncates/deletes</strong> existing contents! Pass <code>std::ios::app</code> if you want to append without deleting.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always check if the file opened successfully (<code>if (file.is_open())</code>).</li></p>
+<p>  <li>Leverage C++ RAII: destructors automatically flush and close file streams when file object variables go out of scope.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a C++ script that inputs a user's favorite quote and saves it into <code>quote.txt</code>.</p>
+<p>2. Read <code>quote.txt</code> and print the total number of characters in the file.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a Student Grade Exporter program that reads a list of student names and scores from <code>students.txt</code>, calculates their grade, and writes the results to <code>grades_report.txt</code>.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input & Output in C++</a></li></p>
+<p>  <li><a href="19-exception-handling.html">Exception Handling</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="19-exception-handling.html">← Previous: Exception Handling</a> | <a href="21-namespaces-and-modern-cpp.html">Next: Namespaces & Modern C++ →</a></p>
+
+
+  </div>
+</body>
+</html>

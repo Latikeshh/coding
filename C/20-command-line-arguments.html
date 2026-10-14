@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 command line arguments - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Command Line Arguments (<code>argc</code>, <code>argv</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Command Line Arguments</strong> pass inputs directly into a C application from the terminal shell when launching the executable binary. In C, these parameters are received in <code>main()</code> via <code>int argc</code> (argument count) and <code>char *argv[]</code> (argument vector array of string pointers).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Command line arguments pass parameters to <code>main(int argc, char *argv[])</code>. <code>argc</code> contains the total argument count (including program executable path at <code>argv[0]</code>). <code>argv[]</code> is an array of string pointers (<code>char*</code>). Always validate <code>argc</code> before accessing <code>argv</code> array elements. Prefer <code>strtol()</code> over <code>atoi()</code> for converting string arguments to numbers because <code>strtol()</code> provides error detection for invalid non-numeric inputs.</p>
+
+<h3>Hindi</h3>
+<p>Terminal shell se C program chalate waqt inputs dene ke liye Command Line Arguments ka use hota hai. <code>main(int argc, char *argv[])</code> in inputs ko receive karta hai. <code>argc</code> total arguments ki count batata hai (jisne <code>argv[0]</code> par program name hota hai). Numbers mein conversion ke liye <code>atoi()</code> ki jagah <code>strtol()</code> ka use karein kyunki <code>strtol()</code> invalid input error check karta hai.</p>
+
+<h3>Marathi</h3>
+<p>Terminal varun program chalavatana parameters denyasathi Command Line Arguments vaparale jatat. <code>argc</code> arguments chi sankhya sangto (<code>argv[0]</code> madhye program cha path asto). <code>argv[]</code> madhye sarv arguments text (string) swarupat asatat. Strings che numbers madhye rupantar karanyasathi <code>atoi()</code> peksha <code>strtol()</code> vaparane jasta safe aahe.</p>
+
+<h3>Hinglish</h3>
+<p>CLI tools (jaise <code>gcc</code>, <code>git</code>, <code>curl</code>) command line arguments se operate hote hain. <code>argv[0]</code> par hamesha executable ka name/path hota hai, isliye real user parameters <code>argv[1]</code> se start hote hain. Raw <code>atoi(argv[1])</code> unsafe hota hai kyunki invalid text paas hone par woh <code>0</code> return karta hai aur error detect nahi karta. Safe conversion ke liye <code>strtol()</code> use karo.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>CLI utilities like <code>gcc -Wall main.c -o app</code> or <code>git commit -m "Init"</code> do not prompt users interactively with <code>printf</code>/<code>scanf</code>. Command line arguments allow automation in shell scripts and terminal pipelines.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of launching a C executable like ordering food at a drive-thru:</p>
+<ul>
+<p>  <li><code>argv[0]</code> is the name of the drive-thru restaurant (<code>./calculator</code>).</li></p>
+<p>  <li><code>argv[1]</code> is the first item ordered (<code>"10"</code>).</li></p>
+<p>  <li><code>argv[2]</code> is the second item ordered (<code>"25"</code>).</li></p>
+<p>  <li><code>argc</code> is the total count of items on the receipt (<code>3</code>).</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & Mechanics</h2>
+
+<pre><code class="language-c">int main(int argc, char *argv[]) {
+<p>    // argc: Total number of arguments passed (argc &gt;= 1)</p>
+<p>    // argv[0]: Executable name or invocation path string</p>
+<p>    // argv[1]: First command line argument passed by user</p>
+<p>    // argv[argc - 1]: Last argument passed</p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h3>Safe Numeric String Conversion: <code>strtol()</code> vs <code>atoi()</code></h3>
+<ul>
+<p>  <li><strong><code>atoi(str)</code>:</strong> Legacy function. Returns <code>0</code> on invalid inputs like <code>"abc"</code>, making it impossible to distinguish between the number <code>0</code> and an invalid string error!</li></p>
+<p>  <li><strong><code>strtol(str, &endptr, base)</code>:</strong> Modern safe standard function. Sets <code>endptr</code> to point to the first invalid character, allowing precise error validation.</li></p>
+<p></ul></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical command line calculator utility demonstrating <code>argc</code> validation, safe numeric string conversion using <code>strtol</code>, and usage help formatting:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;errno.h&gt;</p>
+
+<p>int main(int argc, char *argv[]) {</p>
+<p>    printf(&quot;--- COMMAND LINE CALCULATOR UTILITY ---\n&quot;);</p>
+
+<p>    // 1. Argument Count Validation</p>
+<p>    // Expecting 4 arguments: executable_name num1 operator num2</p>
+<p>    if (argc != 4) {</p>
+<p>        printf(&quot;Usage: %s &lt;num1&gt; &lt;+|-|x|/&gt; &lt;num2&gt;\n&quot;, argv[0]);</p>
+<p>        printf(&quot;Example: %s 15 x 4\n&quot;, argv[0]);</p>
+<p>        return 1; // Exit with error code</p>
+<p>    }</p>
+
+<p>    // 2. Safe String to Long Integer Conversion using strtol</p>
+<p>    char *endPtr1;</p>
+<p>    errno = 0; // Reset global error number</p>
+<p>    long num1 = strtol(argv[1], &amp;endPtr1, 10);</p>
+
+<p>    // Validate if argv[1] was a valid number</p>
+<p>    if (*endPtr1 != &#39;\0&#39; || errno != 0) {</p>
+<p>        printf(&quot;Error: First argument &#39;%s&#39; is not a valid integer!\n&quot;, argv[1]);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    char operator = argv[2][0]; // First character of operator argument</p>
+
+<p>    char *endPtr2;</p>
+<p>    errno = 0;</p>
+<p>    long num2 = strtol(argv[3], &amp;endPtr2, 10);</p>
+
+<p>    if (*endPtr2 != &#39;\0&#39; || errno != 0) {</p>
+<p>        printf(&quot;Error: Third argument &#39;%s&#39; is not a valid integer!\n&quot;, argv[3]);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    // 3. Performing Selected Calculation</p>
+<p>    long result = 0;</p>
+<p>    switch (operator) {</p>
+<p>        case &#39;+&#39;:</p>
+<p>            result = num1 + num2;</p>
+<p>            printf(&quot;Calculation: %ld + %ld = %ld\n&quot;, num1, num2, result);</p>
+<p>            break;</p>
+<p>        case &#39;-&#39;:</p>
+<p>            result = num1 - num2;</p>
+<p>            printf(&quot;Calculation: %ld - %ld = %ld\n&quot;, num1, num2, result);</p>
+<p>            break;</p>
+<p>        case &#39;x&#39;:</p>
+<p>        case &#39;*&#39;:</p>
+<p>            result = num1 * num2;</p>
+<p>            printf(&quot;Calculation: %ld x %ld = %ld\n&quot;, num1, num2, result);</p>
+<p>            break;</p>
+<p>        case &#39;/&#39;:</p>
+<p>            if (num2 == 0) {</p>
+<p>                printf(&quot;Error: Division by zero is undefined!\n&quot;);</p>
+<p>                return 1;</p>
+<p>            }</p>
+<p>            printf(&quot;Calculation: %ld / %ld = %.2lf\n&quot;, num1, num2, (double)num1 / num2);</p>
+<p>            break;</p>
+<p>        default:</p>
+<p>            printf(&quot;Error: Unsupported operator &#39;%c&#39;! Use +, -, x, or /.\n&quot;, operator);</p>
+<p>            return 1;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>if (argc != 4)</code>: Verifies that the user provided exactly 3 arguments after the program invocation name.</li></p>
+<p>  <li><code>strtol(argv[1], &endPtr1, 10)</code>: Converts string <code>argv[1]</code> in base 10. If <code>argv[1]</code> is <code>"150"</code>, <code>endPtr1</code> points to <code>'\0'</code> (successful). If <code>argv[1]</code> is <code>"150abc"</code>, <code>endPtr1</code> points to <code>'a'</code>, signaling an invalid format error!</li></p>
+<p>  <li><code>argv[0]</code>: Dynamically prints the name/path of the executable program in help usage instructions (<code>Usage: ./calc ...</code>).</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<h3>Running with Incorrect Arguments (<code>./calc 10 +</code>):</h3>
+<pre><code class="language-text">--- COMMAND LINE CALCULATOR UTILITY ---
+<p>Usage: ./calc &lt;num1&gt; &lt;+|-|x|/&gt; &lt;num2&gt;</p>
+<p>Example: ./calc 15 x 4</code></pre></p>
+
+<h3>Running with Valid Arguments (<code>./calc 25 x 4</code>):</h3>
+<pre><code class="language-text">--- COMMAND LINE CALCULATOR UTILITY ---
+<p>Calculation: 25 x 4 = 100</code></pre></p>
+
+<h3>Running with Invalid Numeric Text (<code>./calc 25 x abc</code>):</h3>
+<pre><code class="language-text">--- COMMAND LINE CALCULATOR UTILITY ---
+<p>Error: Third argument &#39;abc&#39; is not a valid integer!</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Accessing <code>argv[1]</code> Without Checking <code>argc</code>:</strong> Running <code>./calc</code> without arguments and accessing <code>argv[1]</code> dereferences a <code>NULL</code> pointer (or invalid memory), crashing immediately with a Segmentation Fault! Always check <code>if (argc >= 2)</code> first.</li></p>
+<p>  <li><strong>Relying Exclusively on <code>atoi()</code>:</strong> <code>atoi("invalid")</code> returns <code>0</code> silently without reporting any parsing failure, leading to silent calculation bugs in CLI applications.</li></p>
+<p>  <li>**Shell Wildcard Expansion with <code>*</code>:** Passing <code>*</code> as an operator on Linux/macOS shell (<code>./calc 10 * 5</code>) causes the shell to expand <code>*</code> into a list of all files in current directory before passing arguments to C! Use <code>x</code> or escape <code>\*</code> (<code>./calc 10 \* 5</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>All items in <code>argv[]</code> are string pointers (<code>char*</code>). Always convert arguments to numeric types (<code>strtol</code>, <code>strtod</code>) before performing math operations.</li></p>
+<p>  <li><code>argv[argc]</code> is guaranteed by the ISO C standard to be a <code>NULL</code> pointer.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Command line argument parsing powers core UNIX CLI utilities (<code>ls</code>, <code>grep</code>, <code>cat</code>, <code>gcc</code>, <code>make</code>), system services, containers (<code>docker run</code>), build toolchains, and automated test harnesses.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a C program that receives a filename as a command line argument (<code>argv[1]</code>).</p>
+<p>2. Verify <code>argc == 2</code>, open the file using <code>fopen()</code>, and print a message confirming whether the file exists.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a CLI program named <code>greet</code> that accepts optional flag <code>--uppercase</code> or <code>-u</code> as <code>argv[1]</code> and a name string as <code>argv[2]</code>. If the flag is present, convert and print the name in uppercase letters; otherwise print it normally.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
+<p>  <li><a href="12-strings.html">Strings</a></li></p>
+<p>  <li><a href="22-error-handling.html">Error Handling</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="19-storage-classes.html">← Previous: Storage Classes</a> | <a href="21-multi-file-projects.html">Next: Multi-file Projects →</a></p>
+
+
+
+  </div>
+</body>
+</html>

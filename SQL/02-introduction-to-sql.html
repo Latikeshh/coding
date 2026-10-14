@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 introduction to sql - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Introduction to SQL & Relational Databases</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>SQL (Structured Query Language)</strong> is the standardized computer language used to define, query, manipulate, and control data stored in a <strong>Relational Database Management System (RDBMS)</strong>.</p>
+
+<p>To understand relational databases clearly, you must distinguish between the following related concepts:</p>
+
+<ul>
+<p>  <li><strong>SQL:</strong> The query language itself (the instructions you write).</li></p>
+<p>  <li><strong>Database:</strong> An organized collection of structured data stored electronically on disk.</li></p>
+<p>  <li><strong>DBMS (Database Management System):</strong> General software that controls database creation, storage, and retrieval.</li></p>
+<p>  <li><strong>RDBMS (Relational Database Management System):</strong> A specialized DBMS based on the relational model, where data is organized into tables that can be linked using common identifiers.</li></p>
+<p>  <li><strong>Database Server:</strong> A background service or process that accepts, processes, and responds to database requests (e.g., MySQL Server, PostgreSQL Server).</li></p>
+<p>  <li><strong>Database Client:</strong> A tool or software interface (such as phpMyAdmin, MySQL Workbench, pgAdmin, or CLI) used by developers to send queries to a database server.</li></p>
+<p></ul></p>
+
+<blockquote><p>💡 <strong>Important Distinction:</strong> <strong>SQL</strong> is the language, whereas <strong>MySQL</strong>, <strong>PostgreSQL</strong>, <strong>Oracle</strong>, and <strong>SQLite</strong> are specific software engines that implement and execute the SQL language. They are not the same thing. Furthermore, not all RDBMS software uses a client-server model—for instance, <strong>SQLite</strong> is an embedded, file-based database that runs directly inside an application without a separate server process.</p></blockquote>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p><strong>SQL (Structured Query Language)</strong> woh bhasha hai jiske zariye hum relational database se baat karte hain. Aapko <strong>SQL</strong> (bhasha) aur <strong>MySQL / PostgreSQL</strong> (software jo SQL execute karte hain) ke beech ka fark samajhna zaroori hai. Relational database mein data <strong>Tables</strong> (rows aur columns) ke form mein organized rehta hai. Tables ke beech ke rishte (relationships) data redundancy ko kam karte hain aur fast search queries chalane mein madad karte hain.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p><strong>SQL</strong> hi relational database sobat samvad sadhnyasathi vaparli janari pramanit bhasha ahe. <strong>SQL</strong> (bhasha) aani <strong>MySQL / PostgreSQL</strong> (database software) yanchyat pharak ahe. Relational database madhye mahiti <strong>Tables</strong> (rows aani columns) chya swarupat saathvli jate. Vegveglya tables madhil sambandhamule (relationships) data chukiya shivay aani changlya speed ne shodhata yeto.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>While simple spreadsheets (like Microsoft Excel) or flat text files work well for small lists, they become unreliable, slow, and insecure when managing enterprise data. Relational databases providing SQL support are essential because they offer:</p>
+
+<ul>
+<p>  <li><strong>Concurrency & Multi-User Access:</strong> Hundreds of users can safely read and write data simultaneously without corrupting files.</li></p>
+<p>  <li><strong>Data Integrity & Rules:</strong> Enforces constraints (e.g., ensuring an order cannot exist without a valid customer).</li></p>
+<p>  <li><strong>High Performance & Indexing:</strong> Quickly retrieves specific records from millions of rows in milliseconds using B-Tree indexes.</li></p>
+<p>  <li><strong>ACID Transactions:</strong> Guarantees that financial and business operations complete fully or fail safely without leaving partial data.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧱 Key Database Terminology</h2>
+
+<p>Relational databases organize information into tabular structures. Consider this <code>employees</code> table:</p>
+
+<pre><code class="language-text">employees
+<p>+----+------------+-----------+---------+</p>
+<table>
+<p>  <thead><tr><th>id</th><th>first_name</th><th>position</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----+------------+-----------+---------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Rahul</th><th>Developer</th><th>75000</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Priya</td><td>Designer</td><td>65000</td></tr></p>
+<p>    <tr><td>3</td><td>Amit</td><td>Tester</td><td>50000</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----+------------+-----------+---------+</code></pre></p>
+
+<ul>
+<p>  <li><strong>Table:</strong> The main named container (<code>employees</code>) representing a single real-world entity type.</li></p>
+<p>  <li><strong>Columns (Attributes):</strong> The vertical fields (<code>id</code>, <code>first_name</code>, <code>position</code>, <code>salary</code>) that define the data type and properties stored for every entry.</li></p>
+<p>  <li><strong>Row (Record / Tuple):</strong> A single horizontal entry representing one complete entity (e.g., <code>1 | Rahul | Developer | 75000</code>).</li></p>
+<p>  <li><strong>Field:</strong> Informally used to describe an individual column attribute or a specific data cell value at the intersection of a row and column (e.g., <code>75000</code>).</li></p>
+<p>  <li><strong>Primary Key:</strong> A column or combination of columns that uniquely identifies each row in a table. In the table above, <code>id</code> serves as a Primary Key (no two employees can share the same <code>id</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Simple Relational Database Example</h2>
+
+<p>Relational databases avoid storing repetitive data in a single giant spreadsheet by splitting information into multiple, smaller related tables.</p>
+
+<p>For example, instead of repeating department names and locations inside every employee record, we create two related tables: <code>departments</code> and <code>employees</code>.</p>
+
+<pre><code class="language-text">departments
+<p>+---------------+-----------------+</p>
+<table>
+<p>  <thead><tr><th>department_id</th><th>department_name</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------+-----------------+</p>
+<table>
+<p>  <thead><tr><th>10</th><th>Engineering</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>20</td><td>Design</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------+-----------------+</p>
+
+<p>employees</p>
+<p>+----+------------+---------------+---------+</p>
+<table>
+<p>  <thead><tr><th>id</th><th>first_name</th><th>department_id</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----+------------+---------------+---------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Rahul</th><th>10</th><th>75000</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Priya</td><td>20</td><td>65000</td></tr></p>
+<p>    <tr><td>3</td><td>Amit</td><td>10</td><td>50000</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----+------------+---------------+---------+</code></pre></p>
+
+<h3>How They Connect:</h3>
+<ul>
+<p>  <li>In <code>employees</code>, <code>department_id = 10</code> links <strong>Rahul</strong> and <strong>Amit</strong> directly to the <strong>Engineering</strong> department in the <code>departments</code> table.</li></p>
+<p>  <li><code>department_id = 20</code> links <strong>Priya</strong> to the <strong>Design</strong> department.</li></p>
+<p>  <li>If the Engineering department renames itself, we update <strong>one single row</strong> in <code>departments</code>, and every employee linked via <code>department_id = 10</code> automatically reflects the change!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Categories of SQL Commands</h2>
+
+<p>SQL commands are commonly grouped into five functional categories. *(Note: Classification conventions vary in educational references—for example, some textbooks classify <code>SELECT</code> under DML, while others place it in its own category as DQL)*.</p>
+
+<pre><code class="language-text">                      ┌─────────────────────────────────────────┐
+<p>                      │          SQL Command Categories         │</p>
+<p>                      └────────────────────┬────────────────────┘</p>
+<p>        ┌──────────────┬──────────────┬────┴─────────┬──────────────┐</p>
+<p>        ▼              ▼              ▼              ▼              ▼</p>
+<p>     ┌─────┐        ┌─────┐        ┌─────┐        ┌─────┐        ┌─────┐</p>
+<p>     │ DDL │        │ DML │        │ DQL │        │ DCL │        │ TCL │</p>
+<p>     └─────┘        └─────┘        └─────┘        └─────┘        └─────┘</p>
+<p>   Structure         Data          Queries       Access       Transactions</code></pre></p>
+
+<h3>1. DDL (Data Definition Language)</h3>
+<p>Commands that define, alter, or remove database structures and schema objects (tables, indexes, views).</p>
+<ul>
+<p>  <li><code>CREATE</code> — Creates new database objects (<code>CREATE TABLE employees ...;</code>).</li></p>
+<p>  <li><code>ALTER</code> — Modifies existing table structures (<code>ALTER TABLE employees ADD email VARCHAR(100);</code>).</li></p>
+<p>  <li><code>DROP</code> — Permanently deletes a table or database (<code>DROP TABLE employees;</code>).</li></p>
+<p>  <li><code>TRUNCATE</code> — Removes all rows from a table while preserving its structure.</li></p>
+<p></ul></p>
+
+<h3>2. DML (Data Manipulation Language)</h3>
+<p>Commands used to insert, update, or delete actual data records inside tables.</p>
+<ul>
+<p>  <li><code>INSERT</code> — Adds new data rows (<code>INSERT INTO employees VALUES (4, 'Neha', 'HR', 55000);</code>).</li></p>
+<p>  <li><code>UPDATE</code> — Modifies existing row values (<code>UPDATE employees SET salary = 80000 WHERE id = 1;</code>).</li></p>
+<p>  <li><code>DELETE</code> — Removes specific rows (<code>DELETE FROM employees WHERE id = 3;</code>).</li></p>
+<p></ul></p>
+
+<h3>3. DQL (Data Query Language)</h3>
+<p>Commands used exclusively to retrieve data from the database.</p>
+<ul>
+<p>  <li><code>SELECT</code> — Fetches records matching specified search criteria (<code>SELECT * FROM employees;</code>).</li></p>
+<p></ul></p>
+
+<h3>4. DCL (Data Control Language)</h3>
+<p>Commands that manage user rights, roles, and security permissions.</p>
+<ul>
+<p>  <li><code>GRANT</code> — Gives access permissions to users (<code>GRANT SELECT ON employees TO user1;</code>).</li></p>
+<p>  <li><code>REVOKE</code> — Removes previously granted permissions (<code>REVOKE SELECT ON employees FROM user1;</code>).</li></p>
+<p></ul></p>
+
+<h3>5. TCL (Transaction Control Language)</h3>
+<p>Commands that manage groups of SQL operations executed as a single atomic unit.</p>
+<ul>
+<p>  <li><code>COMMIT</code> — Saves changes permanently to disk (<code>COMMIT;</code>).</li></p>
+<p>  <li><code>ROLLBACK</code> — Undoes uncommitted changes if an error occurs (<code>ROLLBACK;</code>).</li></p>
+<p>  <li><code>SAVEPOINT</code> — Sets a point within a transaction to which you can roll back.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Syntax Rules & Comments</h2>
+
+<p>When writing SQL queries, keep these fundamental syntax rules in mind:</p>
+
+<p>1. <strong>Case Sensitivity:</strong> SQL keywords (<code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>) are general case-insensitive. However, table names, column identifiers, and string literals can be case-sensitive depending on the operating system and database collation configuration. Writing keywords in <strong>UPPERCASE</strong> is a universal readability best practice.</p>
+<p>2. <strong>Statement Termination:</strong> Semicolons <code>;</code> terminate SQL statements in multi-command scripts and command-line interfaces.</p>
+<p>3. <strong>String Literals:</strong> Text values must be enclosed in single quotes <code>'Rahul'</code>.</p>
+<p>4. <strong>Comments:</strong></p>
+<ul>
+<p>  <li><strong>Single-Line Comment:</strong> Starts with <code>-- </code> (double dash followed by a space).</li></p>
+<p>  <li><strong>Multi-Line / Block Comment:</strong> Enclosed between <code>/*</code> and <code>*/</code>.</li></p>
+<p></ul></p>
+
+<h3>Example 1: Single-Line Comment & Simple Select</h3>
+
+<pre><code class="language-sql">-- Retrieve the name and salary of all employees
+<p>SELECT first_name, salary</p>
+<p>FROM employees;</code></pre></p>
+
+<h3>Example 2: Block Comment & Filtered Query</h3>
+
+<pre><code class="language-sql">/* 
+<p>  Query: High Earners Filter</p>
+<p>  Author: Learn Coding Team</p>
+<p>  Purpose: Fetches employees earning over 60,000</p>
+<p>*/</p>
+<p>SELECT first_name, salary</p>
+<p>FROM employees</p>
+<p>WHERE salary &gt; 60000;</code></pre></p>
+
+<p>---</p>
+
+<h2>🚀 First-Query Walkthrough</h2>
+
+<p>You can execute a simple <code>SELECT</code> statement in any SQL client without creating or reading from a physical table on disk:</p>
+
+<pre><code class="language-sql">SELECT
+<p>    &#39;Hello, SQL!&#39; AS message,</p>
+<p>    2026 AS example_year;</code></pre></p>
+
+<h3>🔍 Detailed Query Breakdown:</h3>
+<ul>
+<p>  <li><code>SELECT</code>: Tells the database engine to return or project values.</li></p>
+<p>  <li><code>'Hello, SQL!'</code>: A string literal value.</li></p>
+<p>  <li><code>AS message</code>: Assigns an explicit <strong>Column Alias</strong> (<code>message</code>) to the output header.</li></p>
+<p>  <li><code>2026</code>: A numeric literal value.</li></p>
+<p>  <li><code>AS example_year</code>: Assigns a column alias (<code>example_year</code>).</li></p>
+<p></ul></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+--------------+
+<table>
+<p>  <thead><tr><th>message</th><th>example_year</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+</p>
+<table>
+<p>  <thead><tr><th>Hello, SQL!</th><th>2026</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+</code></pre></p>
+
+<blockquote><p>ℹ️ <strong>Note:</strong> This query evaluates expressions in memory and returns a temporary result set. It does <strong>not</strong> create a database table or save data permanently on disk.</p></blockquote>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>SQL is used in virtually every industry to manage structured records:</p>
+
+<ul>
+<p>  <li>🏦 <strong>Banking Systems:</strong> Tracking account balances, deposits, withdrawals, and fraud logs.</li></p>
+<p>  <li>🛒 <strong>E-Commerce Platforms:</strong> Managing product catalogs, shopping carts, inventory stock, and customer orders.</li></p>
+<p>  <li>🏢 <strong>HR & Payroll:</strong> Storing employee profiles, attendance records, tax deductions, and salary disbursements.</li></p>
+<p>  <li>🎓 <strong>Education Portals:</strong> Recording student enrollments, course catalogs, exam marks, and grade histories.</li></p>
+<p>  <li>📊 <strong>Business Intelligence:</strong> Running complex analytical queries to track quarterly revenue and user retention trends.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Confusing SQL with MySQL / PostgreSQL:</strong> Assuming "SQL" is a software program you download, rather than the query language executed *by* MySQL or PostgreSQL.</li></p>
+<p>  <li><strong>Confusing Engine Server with Client Tool:</strong> Expecting a client like MySQL Workbench to work without starting the underlying MySQL server service first.</li></p>
+<p>  <li><strong>Forgetting Quotes Around String Literals:</strong> Writing <code>WHERE first_name = Rahul</code> instead of <code>WHERE first_name = 'Rahul'</code>.</li></p>
+<p>  <li><strong>Confusing <code>DELETE</code> and <code>DROP</code>:</strong> Using <code>DROP TABLE</code> (which deletes the entire table structure) when you intended to use <code>DELETE FROM</code> (which removes rows).</li></p>
+<p>  <li><strong>Missing Semicolon <code>;</code>:</strong> Forgetting the trailing semicolon when running multi-statement scripts in CLI tools.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Question Set 1: Conceptual Check</h3>
+<p>1. Explain the difference between <strong>SQL</strong> and <strong>MySQL</strong> in your own words.</p>
+<p>2. What is the difference between a <strong>Database Server</strong> and a <strong>Database Client</strong>?</p>
+<p>3. Why do relational databases split data into multiple related tables instead of putting everything into one massive spreadsheet?</p>
+
+<h3>Question Set 2: Identify Table Components</h3>
+<p>Look at the <code>employees</code> table below:</p>
+
+<pre><code class="language-text">employees
+<p>+----+------------+-----------+---------+</p>
+<table>
+<p>  <thead><tr><th>id</th><th>first_name</th><th>position</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----+------------+-----------+---------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Rahul</th><th>Developer</th><th>75000</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Priya</td><td>Designer</td><td>65000</td></tr></p>
+<p>    <tr><td>3</td><td>Amit</td><td>Tester</td><td>50000</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----+------------+-----------+---------+</code></pre></p>
+
+<p>1. List all column names in this table.</p>
+<p>2. How many total rows (records) are stored in this table?</p>
+<p>3. Which column is most suitable as a Primary Key?</p>
+
+<h3>Question Set 3: Command Categorization</h3>
+<p>Classify each of the following SQL commands into its correct category (<strong>DDL</strong>, <strong>DML</strong>, <strong>DQL</strong>, <strong>DCL</strong>, or <strong>TCL</strong>):</p>
+<p>1. <code>CREATE TABLE</code></p>
+<p>2. <code>INSERT INTO</code></p>
+<p>3. <code>SELECT</code></p>
+<p>4. <code>GRANT</code></p>
+<p>5. <code>COMMIT</code></p>
+
+<h3>Question Set 4: Syntax Bug Hunt</h3>
+<p>Identify the syntax error in the following query:</p>
+
+<pre><code class="language-sql">SELECT first_name, salary FROM employees WHERE first_name = Rahul;</code></pre>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a single SQL query using <code>SELECT</code> and <code>AS</code> aliases that displays two columns:</p>
+<p>1. Column 1 named <code>CourseName</code> with the value <code>'SQL Mastery'</code>.</p>
+<p>2. Column 2 named <code>TotalLessons</code> with the value <code>30</code>.</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Question Set 1:</p>
+<p>1. <strong>SQL</strong> is the query language used to write commands. <strong>MySQL</strong> is a Relational Database Management System (RDBMS) software that executes SQL commands.</p>
+<p>2. A <strong>Database Server</strong> is the background engine process that stores and manages data on disk. A <strong>Database Client</strong> is the tool (like phpMyAdmin or Workbench) where you type queries and view output tables.</p>
+<p>3. To eliminate data redundancy, prevent inconsistency when updating records, and improve query speed.</p>
+
+<p>#### Question Set 2:</p>
+<p>1. Columns: <code>id</code>, <code>first_name</code>, <code>position</code>, <code>salary</code>.</p>
+<p>2. Total rows: <code>3</code> records.</p>
+<p>3. Primary Key: <code>id</code> (because it contains unique integer values for each employee).</p>
+
+<p>#### Question Set 3:</p>
+<p>1. <code>CREATE TABLE</code> $\rightarrow$ <strong>DDL</strong></p>
+<p>2. <code>INSERT INTO</code> $\rightarrow$ <strong>DML</strong></p>
+<p>3. <code>SELECT</code> $\rightarrow$ <strong>DQL</strong></p>
+<p>4. <code>GRANT</code> $\rightarrow$ <strong>DCL</strong></p>
+<p>5. <code>COMMIT</code> $\rightarrow$ <strong>TCL</strong></p>
+
+<p>#### Question Set 4:</p>
+<ul>
+<p>  <li><strong>Error:</strong> <code>Rahul</code> is missing single quotes. String literals in SQL must be enclosed in single quotes (<code>'Rahul'</code>).</li></p>
+<p>  <li><strong>Fixed Query:</strong> <code>SELECT first_name, salary FROM employees WHERE first_name = 'Rahul';</code></li></p>
+<p></ul></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">SELECT &#39;SQL Mastery&#39; AS CourseName, 30 AS TotalLessons;</code></pre>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+-------------+--------------+
+<table>
+<p>  <thead><tr><th>CourseName</th><th>TotalLessons</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+</p>
+<table>
+<p>  <thead><tr><th>SQL Mastery</th><th>30</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-sql.html">Set Up SQL Environment</a></li></p>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="01-setup-sql.html">← Previous: Set Up SQL Environment</a> | <a href="./">SQL Home</a> | <a href="03-databases-and-tables.html">Next: Database & Table Basics →</a></p>
+
+  </div>
+</body>
+</html>

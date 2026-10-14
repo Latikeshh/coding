@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 backgrounds - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Backgrounds & Gradients</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>CSS <strong>Background</strong> properties control the visual background layers behind HTML elements. They allow setting solid colors (<code>background-color</code>), image files (<code>background-image</code>), image scaling and repeating, attachment behavior, and smooth multi-color transitions using CSS gradients (<code>linear-gradient()</code>, <code>radial-gradient()</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Style backgrounds using <code>background-color</code>, <code>background-image</code>, <code>background-size: cover</code>, and gradients (<code>linear-gradient()</code>). Use <code>background-size: cover</code> to fill hero containers without stretching distorting images.</p>
+
+<h3>Hindi</h3>
+<p><code>background-color</code> se color, <code>background-image</code> se photo aur <code>linear-gradient()</code> se do ya jyada colors ka gradient set kiya jaata hai. Image ko sahi fit karne ke liye <code>background-size: cover</code> use karein.</p>
+
+<h3>Marathi</h3>
+<p>Background sathi colors, images ani <code>linear-gradient()</code> vapartat. Image neet basvnyasathi <code>background-size: cover</code> vapartat.</p>
+
+<h2>🤔 Why Do We Use Backgrounds?</h2>
+
+<p>Backgrounds create visual depth, establish brand aesthetics, highlight card containers, and build engaging hero banner sections for landing pages.</p>
+
+<h2>📚 Background Properties Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Values</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>background-color</code></td><td>Sets solid color (Hex, RGB, RGBA, Named)</td><td><code>background-color: #f8f9fa;</code></td></tr></p>
+<p>    <tr><td><code>background-image</code></td><td>Specifies image URL or gradient function</td><td><code>background-image: url("hero.jpg");</code></td></tr></p>
+<p>    <tr><td><code>background-repeat</code></td><td>Controls tile repeating (<code>repeat</code>, <code>no-repeat</code>)</td><td><code>background-repeat: no-repeat;</code></td></tr></p>
+<p>    <tr><td><code>background-position</code></td><td>Positions image alignment (<code>center</code>, <code>top left</code>)</td><td><code>background-position: center center;</code></td></tr></p>
+<p>    <tr><td><code>background-size</code></td><td>Scales image (<code>cover</code>, <code>contain</code>, <code>100%</code>)</td><td><code>background-size: cover;</code></td></tr></p>
+<p>    <tr><td><code>background-attachment</code></td><td>Controls scroll attachment (<code>scroll</code>, <code>fixed</code>)</td><td><code>background-attachment: fixed;</code> (Parallax)</td></tr></p>
+<p>    <tr><td><code>background</code> (Shorthand)</td><td>Combines all background properties into one line</td><td><code>background: #000 url("hero.jpg") no-repeat center/cover;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🎨 CSS Gradients</h2>
+
+<p>Gradients allow blending two or more colors smoothly without loading image files:</p>
+<ul>
+<p>  <li><strong><code>linear-gradient(angle, color1, color2)</code>:</strong> Transitions colors along a straight directional line.</li></p>
+<p>  <li><strong><code>radial-gradient(shape, color1, color2)</code>:</strong> Transitions colors outward from a central focal point.</li></p>
+<p></ul></p>
+
+<pre><code class="language-css">/* Linear Gradient (45 degree angle) */
+<p>.gradient-banner {</p>
+<p>  background-image: linear-gradient(135deg, #007bff, #6610f2);</p>
+<p>}</p>
+
+<p>/* Semi-transparent dark overlay over background image for text contrast */</p>
+<p>.hero-overlay {</p>
+<p>  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(&quot;hero.jpg&quot;);</p>
+<p>  background-size: cover;</p>
+<p>  background-position: center;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Backgrounds Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header class=&quot;hero-section&quot;&gt;</p>
+<p>    &lt;h1&gt;Web Development Bootcamp&lt;/h1&gt;</p>
+<p>    &lt;p&gt;Master modern HTML5, CSS3, and JavaScript from scratch.&lt;/p&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  margin: 0;</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>}</p>
+
+<p>.hero-section {</p>
+<p>  min-height: 60vh;</p>
+<p>  /* Dark linear gradient overlay combined with background color fallback */</p>
+<p>  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);</p>
+<p>  color: #ffffff;</p>
+<p>  display: flex;</p>
+<p>  flex-direction: column;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  text-align: center;</p>
+<p>  padding: 20px;</p>
+<p>}</p>
+
+<p>.hero-section h1 {</p>
+<p>  font-size: 2.5rem;</p>
+<p>  margin-bottom: 10px;</p>
+<p>}</p>
+
+<p>.hero-section p {</p>
+<p>  font-size: 1.2rem;</p>
+<p>  color: #d1d5db;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A dark, gradient hero section filling <code>60vh</code> height with centered text.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Change <code>linear-gradient(135deg, #0f2027, #203a43, #2c5364)</code> to <code>linear-gradient(to right, #ff416c, #ff4b2b)</code> and observe the vibrant orange-pink gradient.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting fallback <code>background-color</code>:</strong> If a <code>background-image</code> fails to load or loads slowly, dark text over an unstyled transparent background becomes unreadable. Always specify a fallback <code>background-color</code>.</li></p>
+<p>  <li><strong>Forgetting <code>no-repeat</code>:</strong> Large background images default to repeating like small floor tiles across the screen if <code>background-repeat: no-repeat</code> is omitted.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Landing pages combine dark gradient overlays over hero background images (<code>background-size: cover</code>) to ensure white headline text remains high-contrast and readable over any image background.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-borders.html">Borders, Border Radius & Box Shadows</a></li></p>
+<p>  <li><a href="31-variables.html">CSS Variables (Custom Properties)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>background-size: cover</code> and <code>background-position: center</code> for full-width banner images.</li></p>
+<p>  <li>Use <code>linear-gradient()</code> for modern multi-color card or banner accents.</li></p>
+<p>  <li>Always provide a solid fallback <code>background-color</code> when using background images.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="11-css-units.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="13-borders.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

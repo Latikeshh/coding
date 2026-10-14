@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 pseudo classes - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Pseudo-classes (<code>:hover</code>, <code>:focus</code>, <code>:nth-child</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Pseudo-class</strong> is a keyword added to a selector (prefixed by a single colon <code>:</code>) that styles elements based on specific user interaction states (like <code>:hover</code>, <code>:focus</code>, <code>:active</code>) or structural DOM tree positions (like <code>:first-child</code>, <code>:nth-child()</code>, <code>:not()</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Pseudo-classes style elements based on user interaction state (<code>:hover</code>, <code>:focus</code>, <code>:visited</code>) or DOM tree position (<code>:first-child</code>, <code>:nth-child()</code>).</p>
+
+<h3>Hindi</h3>
+<p>Pseudo-classes user interaction states (<code>:hover</code>, <code>:focus</code>) aur DOM position (<code>:first-child</code>, <code>:nth-child()</code>) ke aadhar par elements ko style karti hain.</p>
+
+<h3>Marathi</h3>
+<p>User chya garajenusar (<code>:hover</code>, <code>:focus</code>) ani position anusar (<code>:first-child</code>, <code>:nth-child()</code>) elements na style karnyasaathi pseudo-classes vapartat.</p>
+
+<h2>🤔 Why Do We Use Pseudo-classes?</h2>
+
+<p>Pseudo-classes allow web pages to respond dynamically to user actions—highlighting buttons when hovered, showing focus rings around form inputs during keyboard navigation, or zebra-striping table rows—without needing custom JavaScript!</p>
+
+<h2>📚 Essential Pseudo-classes Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Pseudo-class</th><th>Trigger State / Position</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>:hover</code></strong></td><td>Triggered when user hovers mouse over element</td><td><code>a:hover { color: red; }</code></td></tr></p>
+<p>    <tr><td><strong><code>:focus</code></strong></td><td>Triggered when element receives keyboard/mouse focus</td><td><code>input:focus { outline: 2px solid blue; }</code></td></tr></p>
+<p>    <tr><td><strong><code>:active</code></strong></td><td>Triggered during mouse click hold state</td><td><code>button:active { transform: scale(0.98); }</code></td></tr></p>
+<p>    <tr><td><strong><code>:visited</code></strong></td><td>Target links user has already visited in browser</td><td><code>a:visited { color: purple; }</code></td></tr></p>
+<p>    <tr><td><strong><code>:first-child</code></strong></td><td>Targets element if it is the first child of parent</td><td><code>li:first-child { font-weight: bold; }</code></td></tr></p>
+<p>    <tr><td><strong><code>:last-child</code></strong></td><td>Targets element if it is the last child of parent</td><td><code>p:last-child { margin-bottom: 0; }</code></td></tr></p>
+<p>    <tr><td><strong><code>:nth-child(n)</code></strong></td><td>Targets elements based on formula (<code>odd</code>, <code>even</code>, <code>2n+1</code>)</td><td><code>tr:nth-child(even) { background: #f2f2f2; }</code></td></tr></p>
+<p>    <tr><td><strong><code>:not(selector)</code></strong></td><td>Negation selector targeting elements matching NOT</td><td><code>button:not(.primary) { border: 1px solid; }</code></td></tr></p>
+<p>    <tr><td><strong><code>:disabled</code></strong></td><td>Targets disabled form controls</td><td><code>button:disabled { opacity: 0.5; }</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>♿ Keyboard Focus & Accessibility Rule</h2>
+
+<p>Keyboard users navigate pages using the <code>Tab</code> key. Removing focus rings (<code>outline: none</code>) without providing custom <code>:focus</code> styling destroys accessibility for keyboard and screen reader users.</p>
+
+<pre><code class="language-css">/* Accessible Custom Focus Styling */
+<p>button:focus-visible,</p>
+<p>a:focus-visible,</p>
+<p>input:focus-visible {</p>
+<p>  outline: 3px solid #2563eb;</p>
+<p>  outline-offset: 2px;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Pseudo-classes Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h2&gt;Zebra Striped Table&lt;/h2&gt;</p>
+
+<p>  &lt;table&gt;</p>
+<p>    &lt;thead&gt;</p>
+<p>      &lt;tr&gt;</p>
+<p>        &lt;th&gt;Student Name&lt;/th&gt;</p>
+<p>        &lt;th&gt;Grade&lt;/th&gt;</p>
+<p>      &lt;/tr&gt;</p>
+<p>    &lt;/thead&gt;</p>
+<p>    &lt;tbody&gt;</p>
+<p>      &lt;tr&gt;&lt;td&gt;Alex Kumar&lt;/td&gt;&lt;td&gt;A+&lt;/td&gt;&lt;/tr&gt;</p>
+<p>      &lt;tr&gt;&lt;td&gt;Riya Sharma&lt;/td&gt;&lt;td&gt;A&lt;/td&gt;&lt;/tr&gt;</p>
+<p>      &lt;tr&gt;&lt;td&gt;David Miller&lt;/td&gt;&lt;td&gt;B+&lt;/td&gt;&lt;/tr&gt;</p>
+<p>      &lt;tr&gt;&lt;td&gt;Sara Khan&lt;/td&gt;&lt;td&gt;A+&lt;/td&gt;&lt;/tr&gt;</p>
+<p>    &lt;/tbody&gt;</p>
+<p>  &lt;/table&gt;</p>
+
+<p>  &lt;br&gt;</p>
+<p>  &lt;button class=&quot;interactive-btn&quot;&gt;Hover &amp;amp; Click Me&lt;/button&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  padding: 30px;</p>
+<p>  background-color: #f8f9fa;</p>
+<p>}</p>
+
+<p>/* Zebra Striping using :nth-child(even) */</p>
+<p>table {</p>
+<p>  width: 100%;</p>
+<p>  max-width: 500px;</p>
+<p>  border-collapse: collapse;</p>
+<p>  background: white;</p>
+<p>  box-shadow: 0 2px 8px rgba(0,0,0,0.08);</p>
+<p>}</p>
+
+<p>th, td {</p>
+<p>  padding: 12px 15px;</p>
+<p>  text-align: left;</p>
+<p>  border-bottom: 1px solid #e5e7eb;</p>
+<p>}</p>
+
+<p>th {</p>
+<p>  background-color: #1f2937;</p>
+<p>  color: white;</p>
+<p>}</p>
+
+<p>tbody tr:nth-child(even) {</p>
+<p>  background-color: #f3f4f6; /* Alternating even row background */</p>
+<p>}</p>
+
+<p>tbody tr:hover {</p>
+<p>  background-color: #e5e7eb; /* Hover highlight row */</p>
+<p>}</p>
+
+<p>/* Interactive Button States */</p>
+<p>.interactive-btn {</p>
+<p>  padding: 12px 24px;</p>
+<p>  background-color: #2563eb;</p>
+<p>  color: white;</p>
+<p>  border: none;</p>
+<p>  border-radius: 6px;</p>
+<p>  font-size: 16px;</p>
+<p>  cursor: pointer;</p>
+<p>  transition: background-color 0.2s ease, transform 0.1s ease;</p>
+<p>}</p>
+
+<p>.interactive-btn:hover {</p>
+<p>  background-color: #1d4ed8;</p>
+<p>}</p>
+
+<p>.interactive-btn:active {</p>
+<p>  transform: scale(0.97); /* Depresses button slightly on click */</p>
+<p>}</p>
+
+<p>.interactive-btn:focus-visible {</p>
+<p>  outline: 3px solid #93c5fd;</p>
+<p>  outline-offset: 2px;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<ul>
+<p>  <li>Table rows alternate with zebra striping backgrounds (<code>#f3f4f6</code>), and rows highlight when hovered.</li></p>
+<p>  <li>The button smoothly darkens on <code>:hover</code>, depresses on click (<code>:active</code>), and shows a blue outline on keyboard <code>Tab</code> focus (<code>:focus-visible</code>).</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Change <code>tbody tr:nth-child(even)</code> to <code>tbody tr:nth-child(odd)</code> to swap zebra striping rows!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Removing outline focus rings (<code>outline: none</code> or <code>outline: 0</code>) without replacement:</strong> Leaves keyboard users unable to see where focus is located on the page.</li></p>
+<p>  <li><strong>Incorrect Order for Link States (LVHA Rule):</strong> Link pseudo-classes should be declared in the <strong>LVHA</strong> order: <code>:link</code>, <code>:visited</code>, <code>:hover</code>, <code>:active</code>.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Pseudo-classes power interactive navigation hover states, zebra-striped data tables, form field validation error highlights (<code>:invalid</code>), and dark mode toggle states.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-selectors.html">Basic Selectors</a></li></p>
+<p>  <li><a href="25-pseudo-elements.html">Pseudo-elements</a></li></p>
+<p>  <li><a href="39-advanced-selectors.html">Advanced Selectors</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Pseudo-classes start with a single colon <code>:</code>.</li></p>
+<p>  <li>Use <code>:nth-child(even)</code> for alternating table row backgrounds.</li></p>
+<p>  <li>Always provide accessible <code>:focus-visible</code> styling for keyboard navigation.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="23-media-queries.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="25-pseudo-elements.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

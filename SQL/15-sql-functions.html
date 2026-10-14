@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 sql functions - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>SQL Built-in Functions: String, Numeric, Date & NULL Handling</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>SQL Function</strong> is a built-in operation that accepts input values (column data or literals), performs a calculation or transformation, and returns a computed value.</p>
+
+<p>In SQL, functions are categorized into two types:</p>
+<ul>
+<p>  <li><strong>Single-Row (Scalar) Functions:</strong> Process individual values per row and return one computed value for every input row (e.g. <code>UPPER()</code>, <code>ROUND()</code>, <code>DATEDIFF()</code>).</li></p>
+<p>  <li><strong>Multi-Row (Aggregate) Functions:</strong> Process values across multiple rows and summarize them into a single result (e.g. <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>SQL ke <strong>Built-in Functions</strong> database ke andar bane-banaye tools hote hain jo text, numbers, dates, aur missing values (<code>NULL</code>) ko process aur transform karte hain. Primary categories hain: <strong>String Functions</strong> (<code>CONCAT</code>, <code>UPPER</code>, <code>CHAR_LENGTH</code>), <strong>Numeric Functions</strong> (<code>ROUND</code>, <code>CEIL</code>, <code>FLOOR</code>), <strong>Date Functions</strong> (<code>CURRENT_DATE</code>, <code>DATEDIFF</code>, <code>DATE_ADD</code>), aur <strong>NULL Handling Functions</strong> (<code>COALESCE</code>, <code>NULLIF</code>). Scalar functions har input row ke liye alag computed output dete hain aur table ke stored data ko permanent modify nahi karte.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>SQL <strong>Built-in Functions</strong> mhanje database madhye built-in asli-le tools aahet, je text, numbers, dates, aani <code>NULL</code> values var प्रक्रिया karun result detat. <strong>String Functions</strong> (<code>CONCAT</code>, <code>UPPER</code>, <code>CHAR_LENGTH</code>), <strong>Numeric Functions</strong> (<code>ROUND</code>, <code>CEIL</code>, <code>FLOOR</code>), <strong>Date Functions</strong> (<code>CURRENT_DATE</code>, <code>DATEDIFF</code>, <code>DATE_ADD</code>), aani <strong>NULL Functions</strong> (<code>COALESCE</code>, <code>NULLIF</code>) hi hyanchi mukhya udaharanet aahet. Scalar functions pratyek row sathi swatantra computed result detat.</p>
+
+<p>---</p>
+
+<h2>🧩 Categorization of Built-in Functions</h2>
+
+<pre><code class="language-text">                        SQL FUNCTIONS
+<p>                              │</p>
+<p>        ┌─────────────────────┴─────────────────────┐</p>
+<p>        ▼                                           ▼</p>
+<p>  Single-Row (Scalar) Functions            Multi-Row (Aggregate) Functions</p>
+<p>  (Returns 1 output row per input row)    (Summarizes multiple rows into 1 value)</p>
+<p>        │                                           │</p>
+<p>  ┌─────┼─────┬─────┬─────┐               ┌─────┼─────┬─────┬─────┐</p>
+<p>  │     │     │     │     │               │     │     │     │     │</p>
+<p>String Num  Date  NULL   Case            COUNT SUM   AVG  MIN   MAX</code></pre></p>
+
+<p>---</p>
+
+<h2>🔤 1. String Functions (Text Processing)</h2>
+
+<p>String functions clean, format, combine, and extract text data stored in string columns.</p>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Purpose & Description</th><th>Example Statement</th><th>Result</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>CONCAT(a, b, ...)</code></strong></td><td>Merges two or more string values together.</td><td><code>CONCAT('Rahul', ' ', 'Dravid')</code></td><td><code>'Rahul Dravid'</code></td></tr></p>
+<p>    <tr><td><strong><code>UPPER(str)</code></strong></td><td>Converts string characters to UPPERCASE.</td><td><code>UPPER('mumbai')</code></td><td><code>'MUMBAI'</code></td></tr></p>
+<p>    <tr><td><strong><code>LOWER(str)</code></strong></td><td>Converts string characters to lowercase.</td><td><code>LOWER('ADMIN@TEST.COM')</code></td><td><code>'admin@test.com'</code></td></tr></p>
+<p>    <tr><td><strong><code>CHAR_LENGTH(str)</code></strong></td><td>Returns the exact number of <strong>characters</strong> in a string.</td><td><code>CHAR_LENGTH('SQL World')</code></td><td><code>9</code></td></tr></p>
+<p>    <tr><td><strong><code>LENGTH(str)</code></strong></td><td>Returns string length in <strong>bytes</strong> (Differs for UTF-8 multi-byte characters).</td><td><code>LENGTH('SQL World')</code></td><td><code>9</code></td></tr></p>
+<p>    <tr><td><strong><code>SUBSTRING(str, pos, len)</code></strong></td><td>Extracts a substring starting at 1-based position <code>pos</code> for length <code>len</code>.</td><td><code>SUBSTRING('Database', 1, 4)</code></td><td><code>'Data'</code></td></tr></p>
+<p>    <tr><td><strong><code>REPLACE(str, old, new)</code></strong></td><td>Replaces all occurrences of <code>old</code> substring with <code>new</code> substring.</td><td><code>REPLACE('v1.0.0', '1.0.0', '2.0.0')</code></td><td><code>'v2.0.0'</code></td></tr></p>
+<p>    <tr><td><strong><code>TRIM(str)</code></strong></td><td>Strips leading and trailing whitespace spaces from text.</td><td><code>TRIM('  PostgreSQL  ')</code></td><td><code>'PostgreSQL'</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>🌐 <strong>MySQL <code>CHAR_LENGTH()</code> vs <code>LENGTH()</code>:</strong></p></blockquote>
+<blockquote><p>- <strong><code>CHAR_LENGTH(str)</code>:</strong> Counts the actual number of <strong>characters</strong> in the text string.</p></blockquote>
+<blockquote><p>- <strong><code>LENGTH(str)</code>:</strong> Counts the number of <strong>bytes</strong> consumed by the string. For standard ASCII text, both return the same value. However, for multi-byte UTF-8 strings (such as non-English characters or emojis like <code>😊</code>), <code>LENGTH()</code> returns the higher byte count while <code>CHAR_LENGTH()</code> returns the human character count.</p></blockquote>
+
+<p>---</p>
+
+<h2>🔢 2. Numeric Functions (Mathematical Calculations)</h2>
+
+<p>Numeric functions perform mathematical rounding, modulus calculations, and absolute transformations on numbers.</p>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Purpose & Description</th><th>Example Statement</th><th>Result</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ROUND(x, d)</code></strong></td><td>Rounds number $x$ to $d$ decimal places.</td><td><code>ROUND(1499.856, 2)</code></td><td><code>1499.86</code></td></tr></p>
+<p>    <tr><td><strong><code>CEIL(x)</code> / <code>CEILING</code></strong></td><td>Rounds number $x$ <strong>UP</strong> to the nearest whole integer.</td><td><code>CEIL(12.1)</code></td><td><code>13</code></td></tr></p>
+<p>    <tr><td><strong><code>FLOOR(x)</code></strong></td><td>Rounds number $x$ <strong>DOWN</strong> to the nearest whole integer.</td><td><code>FLOOR(12.9)</code></td><td><code>12</code></td></tr></p>
+<p>    <tr><td><strong><code>ABS(x)</code></strong></td><td>Returns the absolute positive value of $x$.</td><td><code>ABS(-45.50)</code></td><td><code>45.50</code></td></tr></p>
+<p>    <tr><td><strong><code>MOD(n, m)</code> / <code>%</code></strong></td><td>Returns the integer remainder of division $n / m$.</td><td><code>MOD(10, 3)</code></td><td><code>1</code></td></tr></p>
+<p>    <tr><td><strong><code>POWER(x, y)</code></strong></td><td>Raises base $x$ to the power of exponent $y$ ($x^y$).</td><td><code>POWER(2, 4)</code></td><td><code>16</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>📅 3. Date & Time Functions</h2>
+
+<p>Date functions perform date arithmetic, extract calendar parts, and format timestamps.</p>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Purpose & Description</th><th>Example Statement</th><th>Illustrative Output</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>CURRENT_DATE</code> / <code>CURDATE()</code></strong></td><td>Returns the current server calendar date.</td><td><code>SELECT CURRENT_DATE;</code></td><td><code>'2026-10-10'</code></td></tr></p>
+<p>    <tr><td><strong><code>CURRENT_TIMESTAMP</code> / <code>NOW()</code></strong></td><td>Returns the current server date and time.</td><td><code>SELECT CURRENT_TIMESTAMP;</code></td><td><code>'2026-10-10 14:00:00'</code></td></tr></p>
+<p>    <tr><td><strong><code>DATEDIFF(date1, date2)</code></strong></td><td>Returns the difference in days between <code>date1</code> and <code>date2</code> (<code>date1 - date2</code>).</td><td><code>DATEDIFF('2026-10-15', '2026-10-10')</code></td><td><code>5</code></td></tr></p>
+<p>    <tr><td><strong><code>DATE_ADD(date, INTERVAL n unit)</code></strong></td><td>Adds a time interval (<code>DAY</code>, <code>MONTH</code>, <code>YEAR</code>) to a date.</td><td><code>DATE_ADD('2026-10-10', INTERVAL 30 DAY)</code></td><td><code>'2026-11-09'</code></td></tr></p>
+<p>    <tr><td><strong><code>EXTRACT(unit FROM date)</code></strong></td><td>Extracts date parts (<code>YEAR</code>, <code>MONTH</code>, <code>DAY</code>).</td><td><code>EXTRACT(YEAR FROM '2026-10-10')</code></td><td><code>2026</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>📌 <strong>Understanding <code>DATEDIFF()</code> Argument Order & Age Limitations:</strong></p></blockquote>
+<blockquote><p>1. <code>DATEDIFF(date1, date2)</code> evaluates <code>date1 - date2</code>. If <code>date1</code> is earlier than <code>date2</code>, <code>DATEDIFF()</code> returns a <strong>negative number</strong>.</p></blockquote>
+<blockquote><p>2. Calculating employee age via <code>DATEDIFF(CURRENT_DATE, birth_date) / 365.25</code> is a simplified estimate and does not account for leap years perfectly.</p></blockquote>
+
+<p>---</p>
+
+<h2>🛡️ 4. NULL Handling Functions (<code>COALESCE</code> & <code>NULLIF</code>)</h2>
+
+<p>In SQL, <code>NULL</code> represents missing or unrecorded information. Operations with <code>NULL</code> (e.g. <code>10 + NULL</code>) evaluate to <code>NULL</code>.</p>
+
+<h3>A. <code>COALESCE(val1, val2, ...)</code></h3>
+<p>Evaluates arguments in sequence and returns the <strong>first non-NULL value</strong> in the list.</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    customer_id,</p>
+<p>    full_name,</p>
+<p>    COALESCE(phone_number, &#39;No Phone Available&#39;) AS contact_phone</p>
+<p>FROM customers;</code></pre></p>
+
+<p>---</p>
+
+<h3>B. <code>NULLIF(val1, val2)</code> & Preventing Division-by-Zero</h3>
+<p>Returns <strong><code>NULL</code></strong> if <code>val1 = val2</code>; otherwise returns <code>val1</code>.</p>
+
+<p>In MySQL strict mode, dividing a number by zero triggers a severe runtime error (<code>ERROR 1365 (22012): Division by 0</code>). Using <code>NULLIF(denominator, 0)</code> converts <code>0</code> into <code>NULL</code>, causing the division to safely evaluate to <code>NULL</code> instead of crashing the query!</p>
+
+<pre><code class="language-sql">-- Safe Division-by-Zero Prevention:
+<p>SELECT </p>
+<p>    store_id,</p>
+<p>    total_revenue,</p>
+<p>    total_orders,</p>
+<p>    -- Converts total_orders = 0 into NULL, preventing Division by Zero!</p>
+<p>    ROUND(total_revenue / NULLIF(total_orders, 0), 2) AS avg_order_value</p>
+<p>FROM store_sales;</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Complete Runnable Example (<code>product_catalog</code> Table)</h2>
+
+<p>Let's execute a complete MySQL-compatible workflow creating a <code>product_catalog</code> table and running a query that combines <code>TRIM()</code>, <code>UPPER()</code>, <code>COALESCE()</code>, and <code>ROUND()</code>.</p>
+
+<pre><code class="language-sql">-- 1. Drop sample table if it exists to allow safe script re-runs
+<p>DROP TABLE IF EXISTS product_catalog;</p>
+
+<p>-- 2. Create product_catalog table schema</p>
+<p>CREATE TABLE product_catalog (</p>
+<p>    product_id INT PRIMARY KEY,</p>
+<p>    raw_product_name VARCHAR(100) NOT NULL,</p>
+<p>    category_code VARCHAR(50), -- Nullable column</p>
+<p>    list_price DECIMAL(10, 2) NOT NULL,</p>
+<p>    discount_rate DECIMAL(4, 2) -- Nullable column</p>
+<p>);</p>
+
+<p>-- 3. Insert sample product records</p>
+<p>INSERT INTO product_catalog (product_id, raw_product_name, category_code, list_price, discount_rate)</p>
+<p>VALUES</p>
+<p>    (1, &#39;  wireless gaming MOUSE  &#39;, &#39;ELEC&#39;, 1299.50, 0.15),</p>
+<p>    (2, &#39;MECHANICAL KEYBOARD&#39;, &#39;ELEC&#39;, 3499.00, NULL),</p>
+<p>    (3, &#39;  ergonomic desk CHAIR  &#39;, NULL, 12500.00, 0.10),</p>
+<p>    (4, &#39;coffee mug&#39;, NULL, 350.00, NULL);</p>
+
+<p>-- 4. Execute Multi-Function Transformation Query</p>
+<p>SELECT </p>
+<p>    product_id,</p>
+<p>    UPPER(TRIM(raw_product_name)) AS clean_product_name,</p>
+<p>    COALESCE(category_code, &#39;UNASSIGNED&#39;) AS display_category,</p>
+<p>    list_price,</p>
+<p>    COALESCE(discount_rate, 0.00) AS applied_discount_rate,</p>
+<p>    ROUND(list_price * (1 - COALESCE(discount_rate, 0.00)), 2) AS final_price</p>
+<p>FROM product_catalog;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+--------------------------------+------------------+------------+-----------------------+-------------+
+<table>
+<p>  <thead><tr><th>product_id</th><th>clean_product_name</th><th>display_category</th><th>list_price</th><th>applied_discount_rate</th><th>final_price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------------------------+------------------+------------+-----------------------+-------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>WIRELESS GAMING MOUSE</th><th>ELEC</th><th>1299.50</th><th>0.15</th><th>1104.58</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>MECHANICAL KEYBOARD</td><td>ELEC</td><td>3499.00</td><td>0.00</td><td>3499.00</td></tr></p>
+<p>    <tr><td>3</td><td>ERGONOMIC DESK CHAIR</td><td>UNASSIGNED</td><td>12500.00</td><td>0.10</td><td>11250.00</td></tr></p>
+<p>    <tr><td>4</td><td>COFFEE MUG</td><td>UNASSIGNED</td><td>350.00</td><td>0.00</td><td>350.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------------------------+------------------+------------+-----------------------+-------------+</code></pre></p>
+
+<blockquote><p>📌 <strong>Important Clarification:</strong> Displaying <code>'UNASSIGNED'</code> for <code>category_code</code> or <code>0.00</code> for <code>discount_rate</code> using <code>COALESCE()</code> is a query-level display/calculation fallback. It does <strong>not</strong> alter the raw <code>NULL</code> values stored inside the database table on disk.</p></blockquote>
+
+<p>---</p>
+
+<h2>⚡ Index Performance Warning: Functions in <code>WHERE</code> Clauses</h2>
+
+<p>Applying a scalar function to an indexed column inside a <code>WHERE</code> clause (e.g. <code>WHERE UPPER(email) = 'ALICE@EXAMPLE.COM'</code> or <code>WHERE YEAR(order_date) = 2026</code>) prevents MySQL from utilizing a standard B-Tree index on that column, forcing a slow <strong>Full Table Scan</strong>!</p>
+
+<h3>How to Fix Function Index Performance Issues:</h3>
+
+<p>1. <strong>Rewrite as Range Predicates (Recommended):</strong></p>
+<p>   <pre><code class="language-sql">   -- ❌ Bad (Disables Index on order_date):</p>
+<p>   SELECT * FROM orders WHERE YEAR(order_date) = 2026;</p>
+
+<p>   -- ✅ Good (Uses B-Tree Index Range Scan):</p>
+<p>   SELECT * FROM orders WHERE order_date &gt;= &#39;2026-01-01&#39; AND order_date &lt; &#39;2027-01-01&#39;;</p>
+<p>   ``<code></p>
+<p>2. <strong>Use MySQL 8.0+ Functional Indexes:</strong></p>
+<p>   In MySQL 8.0+, you can create an explicit functional index on expressions:</p>
+<p>   </code>CREATE INDEX idx_upper_email ON users ((UPPER(email)));<code></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes &amp; Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong></code>LENGTH()<code> vs </code>CHAR_LENGTH()<code> UTF-8 Mismatch</strong></td><td>Using </code>LENGTH()<code> expecting character count on multi-byte UTF-8 Unicode characters.</td><td>Use </code>CHAR_LENGTH()<code> to count human characters accurately.</td></tr></p>
+<p>    <tr><td><strong></code>ERROR 1365 (22012): Division by 0<code></strong></td><td>Dividing a numeric column by a column containing zero values.</td><td>Wrap the denominator in </code>NULLIF(denominator, 0)<code>.</td></tr></p>
+<p>    <tr><td><strong>Disabling B-Tree Indexes in </code>WHERE<code></strong></td><td>Applying scalar functions (</code>UPPER()<code>, </code>YEAR()<code>) to indexed columns.</td><td>Rewrite filtering conditions as range comparisons without functions on the column.</td></tr></p>
+<p>    <tr><td><strong></code>DATEDIFF()<code> Argument Order Negative Result</strong></td><td>Passing dates in reverse order (</code>DATEDIFF(start_date, end_date)<code>).</td><td>Ensure </code>date1<code> is the later date: </code>DATEDIFF(later_date, earlier_date)<code>.</td></tr></p>
+<p>    <tr><td><strong>Expecting </code>COALESCE<code> to Update Table Data</strong></td><td>Assuming </code>COALESCE(col, &#39;Default&#39;)<code> updates table storage.</td><td>Use </code>UPDATE table_name SET col = &#39;Default&#39; WHERE col IS NULL;<code> to modify disk data.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Checkout Engines:</strong> Calculating discounted final prices using </code>ROUND(price * (1 - COALESCE(discount, 0)), 2)<code>.</li></p>
+<p>  <li><strong>User Profile Sanitation:</strong> Cleaning user input with </code>TRIM()<code> and </code>LOWER()<code> before storing email addresses in database tables.</li></p>
+<p>  <li><strong>Invoice Aging Reports:</strong> Categorizing overdue invoices using </code>DATEDIFF(CURRENT_DATE, due_date)<code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Structured Practice Exercises</h2>
+
+<p>Follow these 5 practical exercises using the </code>product_catalog<code> table created above:</p>
+
+<h3>Exercise 1: String Cleanup</h3>
+<p>Write a query displaying </code>product_id<code> and a clean product name formatted with leading/trailing spaces removed (</code>TRIM()<code>) and converted to lowercase (</code>LOWER()<code>).</p>
+
+<h3>Exercise 2: Numeric Rounding &amp; Tax Calculation</h3>
+<p>Write a query calculating a 18% tax (</code>list_price * 0.18<code>) on all products, returning </code>product_id<code>, </code>list_price<code>, and </code>tax_amount<code> rounded to 2 decimal places using </code>ROUND()<code>.</p>
+
+<h3>Exercise 3: Date Arithmetic</h3>
+<p>Write a query that displays </code>CURRENT_DATE<code>, the date 45 days from today using </code>DATE_ADD()<code>, and the difference in days using </code>DATEDIFF()<code>.</p>
+
+<h3>Exercise 4: NULL Substitution</h3>
+<p>Write a query displaying </code>raw_product_name<code>, and replacing </code>NULL<code> discount rates with </code>0.00<code> using </code>COALESCE()<code>.</p>
+
+<h3>Exercise 5: Safe Division-by-Zero Calculation</h3>
+<p>Given a </code>store_sales<code> table (</code>total_revenue DECIMAL(10,2)<code>, </code>total_orders INT<code>), write a query calculating average order value while safely preventing division-by-zero errors using </code>NULLIF()<code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>1. Create a </code>customer_invoices<code> table:</p>
+<ul>
+<p>  <li></code>invoice_id<code> (INT, Primary Key)</li></p>
+<p>  <li></code>client_name<code> (VARCHAR 100, NOT NULL)</li></p>
+<p>  <li></code>gross_amount<code> (DECIMAL 10,2, NOT NULL)</li></p>
+<p>  <li></code>paid_amount<code> (DECIMAL 10,2) -- Nullable (NULL if no payment made yet)</li></p>
+<p>  <li></code>due_date<code> (DATE NOT NULL)</li></p>
+<p></ul></p>
+<p>2. Insert 3 sample invoices:</p>
+<ul>
+<p>  <li>Invoice 101: Client </code>&#39;Acme Corp&#39;<code>, Gross </code>5000.00<code>, Paid </code>2000.00<code>, Due </code>&#39;2026-09-01&#39;<code></li></p>
+<p>  <li>Invoice 102: Client </code>&#39;Beta LLC&#39;<code>, Gross </code>3500.00<code>, Paid </code>NULL<code>, Due </code>&#39;2026-09-15&#39;<code></li></p>
+<p>  <li>Invoice 103: Client </code>&#39;Gamma Inc&#39;<code>, Gross </code>1200.00<code>, Paid </code>1200.00<code>, Due </code>&#39;2026-10-01&#39;<code></li></p>
+<p></ul></p>
+<p>3. Write a query calculating:</p>
+<ul>
+<p>  <li></code>client_name<code></li></p>
+<p>  <li></code>gross_amount<code></li></p>
+<p>  <li></code>unpaid_balance<code>: </code>gross_amount - COALESCE(paid_amount, 0.00)<code></li></p>
+<p>  <li></code>days_overdue<code>: </code>DATEDIFF(&#39;2026-10-10&#39;, due_date)<code></li></p>
+<p></ul></p>
+
+<p>&lt;details&gt;</p>
+<p>&lt;summary&gt;🔍 Click to view Exercise Solutions &amp; Answer Key&lt;/summary&gt;</p>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</code></pre>sql</p>
+<p>SELECT product_id, LOWER(TRIM(raw_product_name)) AS clean_name </p>
+<p>FROM product_catalog;</p>
+<pre><code class="language-text">
+<p>#### Exercise 2 Solution:</code></pre>sql</p>
+<p>SELECT product_id, list_price, ROUND(list_price * 0.18, 2) AS tax_amount </p>
+<p>FROM product_catalog;</p>
+<pre><code class="language-text">
+<p>#### Exercise 3 Solution:</code></pre>sql</p>
+<p>SELECT </p>
+<p>    CURRENT_DATE AS today,</p>
+<p>    DATE_ADD(CURRENT_DATE, INTERVAL 45 DAY) AS future_date,</p>
+<p>    DATEDIFF(DATE_ADD(CURRENT_DATE, INTERVAL 45 DAY), CURRENT_DATE) AS days_difference;</p>
+<pre><code class="language-text">
+<p>#### Exercise 4 Solution:</code></pre>sql</p>
+<p>SELECT raw_product_name, COALESCE(discount_rate, 0.00) AS safe_discount </p>
+<p>FROM product_catalog;</p>
+<pre><code class="language-text">
+<p>#### Exercise 5 Solution:</code></pre>sql</p>
+<p>SELECT total_revenue / NULLIF(total_orders, 0) AS avg_order_value </p>
+<p>FROM store_sales;</p>
+<pre><code class="language-text">
+<p>#### Mini Challenge Solution:</p>
+<p></code></pre>sql</p>
+<p>-- Step 1: Create invoices table schema</p>
+<p>CREATE TABLE IF NOT EXISTS customer_invoices (</p>
+<p>    invoice_id INT PRIMARY KEY,</p>
+<p>    client_name VARCHAR(100) NOT NULL,</p>
+<p>    gross_amount DECIMAL(10, 2) NOT NULL,</p>
+<p>    paid_amount DECIMAL(10, 2),</p>
+<p>    due_date DATE NOT NULL</p>
+<p>);</p>
+
+<p>-- Step 2: Insert sample invoices</p>
+<p>INSERT INTO customer_invoices (invoice_id, client_name, gross_amount, paid_amount, due_date)</p>
+<p>VALUES </p>
+<p>    (101, 'Acme Corp', 5000.00, 2000.00, '2026-09-01'),</p>
+<p>    (102, 'Beta LLC', 3500.00, NULL, '2026-09-15'),</p>
+<p>    (103, 'Gamma Inc', 1200.00, 1200.00, '2026-10-01');</p>
+
+<p>-- Step 3: Run calculation query</p>
+<p>SELECT </p>
+<p>    client_name,</p>
+<p>    gross_amount,</p>
+<p>    COALESCE(paid_amount, 0.00) AS paid_amount_display,</p>
+<p>    gross_amount - COALESCE(paid_amount, 0.00) AS unpaid_balance,</p>
+<p>    DATEDIFF('2026-10-10', due_date) AS days_overdue</p>
+<p>FROM customer_invoices;</p>
+<pre><code class="language-text">
+<p><strong>Expected Output (Calculated against reference date </code>&#39;2026-10-10&#39;<code>):</strong></p>
+<p></code></pre>text</p>
+<p>+-------------+--------------+---------------------+----------------+--------------+</p>
+<table>
+<p>  <thead><tr><th>client_name</th><th>gross_amount</th><th>paid_amount_display</th><th>unpaid_balance</th><th>days_overdue</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+---------------------+----------------+--------------+</p>
+<table>
+<p>  <thead><tr><th>Acme Corp</th><th>5000.00</th><th>2000.00</th><th>3000.00</th><th>39</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Beta LLC</td><td>3500.00</td><td>0.00</td><td>3500.00</td><td>25</td></tr></p>
+<p>    <tr><td>Gamma Inc</td><td>1200.00</td><td>1200.00</td><td>0.00</td><td>9</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+---------------------+----------------+--------------+</p>
+<p></code>``</p>
+
+<p>*(Explanation: Beta LLC's NULL payment is converted to 0.00 via COALESCE, yielding unpaid balance = $3,500.00. Days overdue are calculated relative to '2026-10-10').*</p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-data-types-and-null.html">SQL Data Types & NULL Values</a></li></p>
+<p>  <li><a href="14-joins.html">SQL Joins & Table Relationships</a></li></p>
+<p>  <li><a href="16-case-expressions.html">Conditional Logic with CASE</a></li></p>
+<p>  <li><a href="25-window-functions.html">SQL Window Functions</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="14-joins.html">← Previous: SQL Joins</a> | <a href="./">SQL Home</a> | <a href="16-case-expressions.html">Next: CASE Expressions →</a></p>
+
+  </div>
+</body>
+</html>

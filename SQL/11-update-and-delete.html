@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 update and delete - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1><code>UPDATE</code> & <code>DELETE</code> – Modifying Data</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong><code>UPDATE</code>:</strong> A <strong>Data Manipulation Language (DML)</strong> command that modifies existing column values in specific database table rows.</li></p>
+<p>  <li><strong><code>DELETE</code>:</strong> A DML command that permanently removes specific data rows from a database table based on a filtering condition.</li></p>
+<p></ul></p>
+
+<p>Both <code>UPDATE</code> and <code>DELETE</code> modify table contents on disk, making proper condition filtering with <strong><code>WHERE</code></strong> clauses and data safety protocols essential for database administration.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Existing database records ko modify karne ke liye <strong><code>UPDATE</code></strong> aur unnecessary records ko delete karne ke liye <strong><code>DELETE FROM</code></strong> command ka use hota hai. </p>
+
+<blockquote><p>🚨 <strong>CRITICAL WARNING:</strong> <code>UPDATE</code> ya <code>DELETE</code> queries chalate waqt <strong><code>WHERE</code></strong> clause hamesha lagana zaroori hai! Agar aap bina <code>WHERE</code> clause ke <code>UPDATE</code> ya <code>DELETE</code> run karenge, toh <strong>poore table ka data ek saath modify ya delete ho jayega</strong>! Hamesha query run karne se pehle <code>SELECT</code> statement se target rows ko test aur verify karein.</p></blockquote>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Table madhil existing data badalnyasathi <strong><code>UPDATE</code></strong> aani data delete karnyasathi <strong><code>DELETE FROM</code></strong> command vaparatat.</p>
+
+<blockquote><p>🚨 <strong>CRITICAL WARNING:</strong> <code>UPDATE</code> kiva <code>DELETE</code> query linitana <strong><code>WHERE</code></strong> condition lihine atyanta garjeche ahe! <code>WHERE</code> condition na lihilyas <strong>poorna table madhil data badlel kiva delete hoil</strong>. Query run karnya purvi hamesha <code>SELECT</code> query dware target rows तपासून (verify karun) ghya.</p></blockquote>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Databases are dynamic systems where information changes continuously over time. You need <code>UPDATE</code> and <code>DELETE</code> commands to:</p>
+
+<ul>
+<p>  <li>Modify customer account details (e.g., updating phone numbers or home addresses).</li></p>
+<p>  <li>Change application state flags (e.g., updating an order status from <code>'Pending'</code> to <code>'Shipped'</code>).</li></p>
+<p>  <li>Perform relative financial adjustments (e.g., increasing departmental salaries by 10% or adding a bonus).</li></p>
+<p>  <li>Remove obsolete or closed records (e.g., deleting canceled registrations or purged accounts).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Student Report Cards</h2>
+
+<p>Think of database table operations as managing <strong>Student Report Cards</strong>:</p>
+
+<ul>
+<p>  <li><strong><code>SELECT</code>:</strong> Opening a student's file folder and reading their marks on screen.</li></p>
+<p>  <li><strong><code>UPDATE</code>:</strong> Taking an eraser, updating an existing grade from <code>80</code> to <code>90</code>, and writing it back onto the card.</li></p>
+<p>  <li><strong><code>DELETE</code>:</strong> Taking a withdrawn student's file folder out of the cabinet and placing it in the paper shredder.</li></p>
+<p>  <li><strong>Omitting <code>WHERE</code> Clause:</strong> Erasing the grade on <strong>every single student card in the entire university filing cabinet</strong>!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 1. Modifying Data (<code>UPDATE</code>)</h2>
+
+<h3>A. Updating a Single Column</h3>
+<p>To update a single column for a specific record, specify the column name and the new target value in the <code>SET</code> clause:</p>
+
+<pre><code class="language-sql">UPDATE employee_accounts
+<p>SET salary = 62000.00</p>
+<p>WHERE emp_id = 103;</code></pre></p>
+
+<p>---</p>
+
+<h3>B. Updating Multiple Columns in One Statement</h3>
+<p>To modify multiple columns simultaneously, separate column assignment pairs with commas in the <code>SET</code> clause:</p>
+
+<pre><code class="language-sql">UPDATE employee_accounts
+<p>SET status = &#39;Active&#39;,</p>
+<p>    salary = 58000.00</p>
+<p>WHERE emp_id = 104;</code></pre></p>
+
+<p>---</p>
+
+<h3>C. Relative Arithmetic Updates (Fixed vs Percentage Assignment)</h3>
+
+<p>You can assign a fixed value or perform relative arithmetic updates using the column's current value:</p>
+
+<ul>
+<p>  <li><strong>Fixed Assignment:</strong> <code>SET salary = 58000.00</code> $\rightarrow$ Sets salary to exactly $58,000.00 regardless of its previous value.</li></p>
+<p>  <li><strong>Relative Arithmetic Update:</strong> <code>SET salary = salary * 1.10</code> $\rightarrow$ Calculates a 10% increase on the employee's current salary.</li></p>
+<p></ul></p>
+
+<pre><code class="language-sql">-- Increase Engineering department salaries by 10%
+<p>UPDATE employee_accounts</p>
+<p>SET salary = salary * 1.10</p>
+<p>WHERE department = &#39;Engineering&#39;;</code></pre></p>
+
+<blockquote><p>⚠️ <strong>Compounding Warning:</strong> Executing a relative arithmetic update (<code>salary = salary * 1.10</code>) multiple times continuously compounds the calculation! Running it twice turns an $80,000 salary into $88,000, and then into $96,800.</p></blockquote>
+
+<p>---</p>
+
+<h3>🛡️ Safe 3-Step <code>UPDATE</code> Workflow:</h3>
+
+<p>To prevent accidental data corruption, always follow this 3-step execution pattern:</p>
+
+<pre><code class="language-sql">-- Step 1: PREVIEW target rows first using SELECT
+<p>SELECT emp_id, first_name, department, salary</p>
+<p>FROM employee_accounts</p>
+<p>WHERE department = &#39;Engineering&#39;;</p>
+
+<p>-- Step 2: EXECUTE the UPDATE query</p>
+<p>UPDATE employee_accounts</p>
+<p>SET salary = salary * 1.10</p>
+<p>WHERE department = &#39;Engineering&#39;;</p>
+
+<p>-- Step 3: VERIFY the modified rows</p>
+<p>SELECT emp_id, first_name, department, salary</p>
+<p>FROM employee_accounts</p>
+<p>WHERE department = &#39;Engineering&#39;;</code></pre></p>
+
+<p>---</p>
+
+<h2>🗑️ 2. Removing Data (<code>DELETE</code>)</h2>
+
+<p>The <code>DELETE FROM</code> statement removes specific rows matching a <code>WHERE</code> condition.</p>
+
+<h3>A. Deleting a Specific Record Using Primary Key</h3>
+
+<pre><code class="language-sql">-- Deleting employee #102
+<p>DELETE FROM employee_accounts</p>
+<p>WHERE emp_id = 102;</code></pre></p>
+
+<p>---</p>
+
+<h3>B. Deleting Multiple Rows Matching a Condition</h3>
+
+<pre><code class="language-sql">-- Deleting all employees whose status is &#39;Resigned&#39;
+<p>DELETE FROM employee_accounts</p>
+<p>WHERE status = &#39;Resigned&#39;;</code></pre></p>
+
+<p>---</p>
+
+<h3>🛡️ Safe 3-Step <code>DELETE</code> Workflow:</h3>
+
+<pre><code class="language-sql">-- Step 1: PREVIEW target rows to be deleted
+<p>SELECT * FROM employee_accounts</p>
+<p>WHERE status = &#39;Resigned&#39;;</p>
+
+<p>-- Step 2: EXECUTE the DELETE query</p>
+<p>DELETE FROM employee_accounts</p>
+<p>WHERE status = &#39;Resigned&#39;;</p>
+
+<p>-- Step 3: VERIFY that target rows have been removed (should return 0 rows)</p>
+<p>SELECT * FROM employee_accounts</p>
+<p>WHERE status = &#39;Resigned&#39;;</code></pre></p>
+
+<p>---</p>
+
+<h2>🔐 3. Data Safety & MySQL Transactions (<code>START TRANSACTION</code>)</h2>
+
+<p>In enterprise databases supporting transactional storage engines (such as MySQL <strong>InnoDB</strong>), you can wrap <code>UPDATE</code> and <code>DELETE</code> statements inside a transaction block to test changes safely before saving them permanently.</p>
+
+<pre><code class="language-sql">-- 1. Start a safe, temporary transaction block
+<p>START TRANSACTION;</p>
+
+<p>-- 2. Execute candidate UPDATE or DELETE statement</p>
+<p>UPDATE employee_accounts</p>
+<p>SET salary = salary * 1.10</p>
+<p>WHERE department = &#39;Engineering&#39;;</p>
+
+<p>-- 3. Inspect modified records within the uncommitted transaction session</p>
+<p>SELECT * FROM employee_accounts WHERE department = &#39;Engineering&#39;;</p>
+
+<p>-- 4. IF SATISFIED, save changes permanently:</p>
+<p>COMMIT;</p>
+
+<p>-- OR IF AN ERROR OCCURRED, undo all changes and restore original data:</p>
+<p>-- ROLLBACK;</code></pre></p>
+
+<blockquote><p>🌐 <strong>Transaction Compatibility & Rules:</strong></p></blockquote>
+<blockquote><p>- Transactions require a transactional storage engine like MySQL <strong>InnoDB</strong> (default in MySQL 5.5+). Older MyISAM tables do not support transaction rollbacks.</p></blockquote>
+<blockquote><p>- <strong><code>ROLLBACK</code></strong> must be called <strong>before</strong> <code>COMMIT</code>. Once <code>COMMIT</code> is executed, changes are written to disk permanently.</p></blockquote>
+<blockquote><p>- In MySQL, executing DDL commands (<code>TRUNCATE TABLE</code>, <code>DROP TABLE</code>, <code>ALTER TABLE</code>) triggers an <strong>implicit commit</strong>, terminating any active transaction block.</p></blockquote>
+
+<p>---</p>
+
+<h2>📊 4. <code>DELETE</code> vs <code>TRUNCATE</code> Comparison</h2>
+
+<p>Beginners frequently ask whether to use <code>DELETE FROM</code> or <code>TRUNCATE TABLE</code> when clearing table data:</p>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th><code>DELETE FROM table_name</code></th><th><code>TRUNCATE TABLE table_name</code></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>SQL Category</strong></td><td><strong>DML</strong> (Data Manipulation Language)</td><td><strong>DDL</strong> (Data Definition Language)</td></tr></p>
+<p>    <tr><td><strong>Condition Filtering</strong></td><td>Accepts <code>WHERE</code> clause to delete specific rows.</td><td>Does <strong>NOT</strong> accept <code>WHERE</code>. Empties all rows unconditionally.</td></tr></p>
+<p>    <tr><td><strong>Execution Method</strong></td><td>Deletes rows individually, logging each deletion.</td><td>Re-initializes the table data pages on disk instantly.</td></tr></p>
+<p>    <tr><td><strong>Auto-Increment Counter</strong></td><td>Preserves current <code>AUTO_INCREMENT</code> sequence number.</td><td>Resets <code>AUTO_INCREMENT</code> counter back to <code>1</code>.</td></tr></p>
+<p>    <tr><td><strong>Transaction Rollback</strong></td><td>Fully rollbackable inside InnoDB transaction blocks.</td><td>Causes an implicit commit in MySQL; cannot be rolled back.</td></tr></p>
+<p>    <tr><td><strong>Best Used For</strong></td><td>Selectively removing specific row records safely.</td><td>Instantly wiping all test rows while preserving empty table schema.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🛠️ Complete Practical Workflow & Employee Example</h2>
+
+<p>Let's execute a complete MySQL-compatible workflow creating an <code>employee_accounts</code> table, inserting 4 initial records, and applying sequential <code>UPDATE</code> and <code>DELETE</code> operations.</p>
+
+<pre><code class="language-sql">-- 1. Create table schema
+<p>CREATE TABLE IF NOT EXISTS employee_accounts (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    last_name VARCHAR(50) NOT NULL,</p>
+<p>    department VARCHAR(50) NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL,</p>
+<p>    status VARCHAR(20) DEFAULT &#39;Active&#39;</p>
+<p>);</p>
+
+<p>-- 2. Insert initial sample records using explicit column syntax</p>
+<p>INSERT INTO employee_accounts (emp_id, first_name, last_name, department, salary, status)</p>
+<p>VALUES </p>
+<p>    (101, &#39;Ananya&#39;, &#39;Roy&#39;, &#39;Engineering&#39;, 80000.00, &#39;Active&#39;),</p>
+<p>    (102, &#39;Priya&#39;, &#39;Sharma&#39;, &#39;HR&#39;, 50000.00, &#39;Resigned&#39;),</p>
+<p>    (103, &#39;Kiran&#39;, &#39;Deshmukh&#39;, &#39;Marketing&#39;, 60000.00, &#39;Active&#39;),</p>
+<p>    (104, &#39;Siddharth&#39;, &#39;Verma&#39;, &#39;HR&#39;, 52000.00, &#39;On Leave&#39;);</p>
+
+<p>-- Step A: Apply a 10% salary increase to Engineering department</p>
+<p>UPDATE employee_accounts</p>
+<p>SET salary = salary * 1.10</p>
+<p>WHERE department = &#39;Engineering&#39;;</p>
+
+<p>-- Step B: Update multiple columns for Siddharth Verma (ID 104)</p>
+<p>UPDATE employee_accounts</p>
+<p>SET status = &#39;Active&#39;,</p>
+<p>    salary = 58000.00</p>
+<p>WHERE emp_id = 104;</p>
+
+<p>-- Step C: Delete employees whose status is &#39;Resigned&#39;</p>
+<p>DELETE FROM employee_accounts</p>
+<p>WHERE status = &#39;Resigned&#39;;</p>
+
+<p>-- Step D: Retrieve final remaining active records</p>
+<p>SELECT emp_id, CONCAT(first_name, &#39; &#39;, last_name) AS full_name, department, salary, status</p>
+<p>FROM employee_accounts;</code></pre></p>
+
+<p>#### 👀 Expected Final Output:</p>
+
+<pre><code class="language-text">+--------+-----------------+-------------+----------+--------+
+<table>
+<p>  <thead><tr><th>emp_id</th><th>full_name</th><th>department</th><th>salary</th><th>status</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+-----------------+-------------+----------+--------+</p>
+<table>
+<p>  <thead><tr><th>101</th><th>Ananya Roy</th><th>Engineering</th><th>88000.00</th><th>Active</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>103</td><td>Kiran Deshmukh</td><td>Marketing</td><td>60000.00</td><td>Active</td></tr></p>
+<p>    <tr><td>104</td><td>Siddharth Verma</td><td>HR</td><td>58000.00</td><td>Active</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+-----------------+-------------+----------+--------+</code></pre></p>
+
+<h3>🔍 Verification Breakdown:</h3>
+<p>1. <strong>Ananya Roy (ID 101):</strong> Salary increased by 10% from $80,000.00 to <strong>$88,000.00</strong>.</p>
+<p>2. <strong>Priya Sharma (ID 102):</strong> Removed completely from table because her status was <code>'Resigned'</code>.</p>
+<p>3. <strong>Kiran Deshmukh (ID 103):</strong> Remained unchanged ($60,000.00, Active).</p>
+<p>4. <strong>Siddharth Verma (ID 104):</strong> Status updated to <code>'Active'</code> and salary updated to <strong>$58,000.00</strong>.</p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Accidental Bulk Overwrite (<code>UPDATE</code> without <code>WHERE</code>)</strong></td><td>Running <code>UPDATE employee_accounts SET salary = 90000;</code> without <code>WHERE</code>.</td><td><strong>Always</strong> test filter conditions with <code>SELECT</code> before running <code>UPDATE</code>!</td></tr></p>
+<p>    <tr><td><strong>Accidental Bulk Table Wipe (<code>DELETE</code> without <code>WHERE</code>)</strong></td><td>Running <code>DELETE FROM employee_accounts;</code> without <code>WHERE</code>.</td><td>Use <code>SELECT</code> first to verify target rows before deleting.</td></tr></p>
+<p>    <tr><td><strong>Forgetting Quotes Around Strings in <code>SET</code></strong></td><td>Writing <code>SET status = Active</code> without single quotes.</td><td>Enclose text strings in single quotes: <code>SET status = 'Active'</code>.</td></tr></p>
+<p>    <tr><td><strong>Accidentally Compounding Relative Updates</strong></td><td>Re-running <code>SET salary = salary * 1.10</code> multiple times by mistake.</td><td>Use <code>SELECT</code> to verify current values before re-running arithmetic updates.</td></tr></p>
+<p>    <tr><td><strong>Confusing <code>DELETE FROM</code> with <code>DROP TABLE</code></strong></td><td>Running <code>DROP TABLE</code> expecting it to only clear row records.</td><td>Use <code>DELETE FROM</code> to remove rows; <code>DROP TABLE</code> permanently deletes the entire table structure!</td></tr></p>
+<p>    <tr><td><strong>Expecting <code>ROLLBACK</code> After <code>COMMIT</code></strong></td><td>Calling <code>ROLLBACK</code> after <code>COMMIT</code> was already executed.</td><td><code>ROLLBACK</code> must be called *before* <code>COMMIT</code> in an uncommitted transaction session.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Order Management:</strong> Executing <code>UPDATE orders SET status = 'Shipped' WHERE order_id = 88412;</code>.</li></p>
+<p>  <li><strong>Account Security:</strong> Executing <code>UPDATE users SET password_hash = '...' WHERE user_id = 42;</code>.</li></p>
+<p>  <li><strong>Session Cleanup Services:</strong> Running <code>DELETE FROM active_sessions WHERE last_activity < '2026-10-01';</code> nightly.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise A: Department Transfer</h3>
+<p>Write an <code>UPDATE</code> statement to change <strong>Kiran Deshmukh's</strong> (<code>emp_id = 103</code>) department to <code>'Sales'</code>.</p>
+
+<h3>Exercise B: Safe Deletion Test</h3>
+<p>Write a <code>DELETE</code> statement to remove any employee whose salary is <strong>less than <code>50000.00</code></strong>.</p>
+<ul>
+<p>  <li>*Self-Check:* Explain why running this query against the updated sample table above deletes <strong>0 rows</strong> safely.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>For all employees working in the <strong><code>'HR'</code></strong> department, write a single <code>UPDATE</code> statement that:</p>
+<p>1. Sets their <code>status</code> to <code>'Reviewed'</code>.</p>
+<p>2. Adds a flat bonus of <strong><code>2000.00</code></strong> to their current salary (using relative arithmetic addition <code>salary = salary + 2000.00</code>).</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise A Solution:</p>
+<pre><code class="language-sql">UPDATE employee_accounts
+<p>SET department = &#39;Sales&#39;</p>
+<p>WHERE emp_id = 103;</code></pre></p>
+
+<p>#### Exercise B Solution:</p>
+<pre><code class="language-sql">DELETE FROM employee_accounts
+<p>WHERE salary &lt; 50000.00;</code></pre></p>
+<ul>
+<p>  <li><strong>Explanation:</strong> In our updated table output above, the remaining salaries are $88,000.00, $60,000.00, and $58,000.00. Because no employee earns below $50,000.00, the condition evaluates to <code>FALSE</code> for all rows and 0 rows are deleted.</li></p>
+<p></ul></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">UPDATE employee_accounts
+<p>SET status = &#39;Reviewed&#39;,</p>
+<p>    salary = salary + 2000.00</p>
+<p>WHERE department = &#39;HR&#39;;</code></pre></p>
+
+<p><strong>Verification Query:</strong></p>
+
+<pre><code class="language-sql">SELECT emp_id, CONCAT(first_name, &#39; &#39;, last_name) AS full_name, department, salary, status
+<p>FROM employee_accounts</p>
+<p>WHERE department = &#39;HR&#39;;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+--------+-----------------+------------+----------+----------+
+<table>
+<p>  <thead><tr><th>emp_id</th><th>full_name</th><th>department</th><th>salary</th><th>status</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+-----------------+------------+----------+----------+</p>
+<table>
+<p>  <thead><tr><th>104</th><th>Siddharth Verma</th><th>HR</th><th>60000.00</th><th>Reviewed</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+-----------------+------------+----------+----------+</code></pre></p>
+
+<p>*(Note: Siddharth Verma's salary increases from $58,000.00 to $60,000.00 and his status changes to <code>'Reviewed'</code>).*</p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="08-where.html">Filtering Data with <code>WHERE</code></a></li></p>
+<p>  <li><a href="10-order-by-and-limit.html">Sorting & Limiting Results (<code>ORDER BY</code>, <code>LIMIT</code>)</a></li></p>
+<p>  <li><a href="12-aggregate-functions.html">Aggregate Functions (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="10-order-by-and-limit.html">← Previous: Sorting & Limiting Results</a> | <a href="./">SQL Home</a> | <a href="12-aggregate-functions.html">Next: Aggregate Functions →</a></p>
+
+  </div>
+</body>
+</html>

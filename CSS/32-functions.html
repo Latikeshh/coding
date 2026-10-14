@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>32 functions - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Functions (<code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Functions</strong> are built-in value methods that perform runtime mathematical calculations (<code>calc()</code>), select boundary thresholds (<code>min()</code>, <code>max()</code>), or set fluid responsive scaling (<code>clamp()</code>) directly inside CSS property declarations.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>calc()</code> evaluates math expressions (<code>calc(100% - 40px)</code>). <code>clamp(min, val, max)</code> sets fluid responsive typography and sizing without media queries.</p>
+
+<h3>Hindi</h3>
+<p><code>calc()</code> mathematical calculations karne ke liye use hota hai. <code>clamp(min, val, max)</code> se font size aur width bina media queries ke mobile aur desktop ke beech flexible ban jaate hain.</p>
+
+<h3>Marathi</h3>
+<p><code>calc()</code> dware ganiti aakdemod karta yete. <code>clamp()</code> mule font size screen-nusar aapoaap adjust hote.</p>
+
+<h2>🤔 Why Do We Use CSS Mathematical Functions?</h2>
+
+<p>Before CSS math functions, setting a sidebar to a fixed 300px width while making the main content area fill remaining space required complex JavaScript or float hacks. Functions like <code>calc()</code> and <code>clamp()</code> make dynamic fluid layouts simple and native.</p>
+
+<h2>📚 Core Math & Fluid Functions Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Purpose & Expression Format</th><th>Example Usage</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>calc()</code></strong></td><td>Evaluates mathematical expressions (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) mixing different units</td><td><code>width: calc(100% - 40px);</code></td></tr></p>
+<p>    <tr><td><strong><code>min()</code></strong></td><td>Selects the <strong>smallest</strong> value from comma-separated options</td><td><code>width: min(100%, 800px);</code></td></tr></p>
+<p>    <tr><td><strong><code>max()</code></strong></td><td>Selects the <strong>largest</strong> value from comma-separated options</td><td><code>font-size: max(18px, 2vw);</code></td></tr></p>
+<p>    <tr><td><strong><code>clamp()</code></strong></td><td>Clamps a value between a <strong>minimum</strong>, <strong>preferred</strong>, and <strong>maximum</strong> bound</td><td><code>font-size: clamp(1rem, 2.5vw, 2.5rem);</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🌟 Fluid Responsive Typography with <code>clamp()</code></h2>
+
+<p><code>clamp(minimum, preferred, maximum)</code> takes three parameters:</p>
+<p>1. <strong>Minimum Value:</strong> The smallest font size (e.g. <code>1rem</code> on small mobile screens).</p>
+<p>2. <strong>Preferred Value:</strong> A dynamic relative unit (e.g. <code>4vw</code> screen percentage) that scales continuously as the window resizes.</p>
+<p>3. <strong>Maximum Value:</strong> The largest font size cap (e.g. <code>2.5rem</code> on wide desktop monitors).</p>
+
+<pre><code class="language-css">/* Fluid Typography: Scales smoothly from 16px (1rem) up to 40px (2.5rem) */
+<p>h1 {</p>
+<p>  font-size: clamp(1rem, 4vw, 2.5rem);</p>
+<p>}</code></pre></p>
+
+<h2>📝 Syntax & Operator Rules for <code>calc()</code></h2>
+
+<p>When using <code>calc()</code>, <strong>spaces are MANDATORY around addition <code>+</code> and subtraction <code>-</code> operators</strong>:</p>
+
+<pre><code class="language-css">/* CORRECT: Spaces around minus operator */
+<p>.content {</p>
+<p>  width: calc(100% - 60px);</p>
+<p>}</p>
+
+<p>/* INCORRECT: Missing spaces breaks calc() parsing! */</p>
+<p>.content {</p>
+<p>  width: calc(100%-60px); /* INVALID SYNTAX */</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Functions Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;fluid-card&quot;&gt;</p>
+<p>    &lt;h1&gt;Fluid Clamp Heading&lt;/h1&gt;</p>
+<p>    &lt;p&gt;Resize your browser window width to see the headline font size scale fluidly between 1.5rem and 3rem without a single media query!&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 20px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  min-height: 100vh;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>.fluid-card {</p>
+<p>  /* min() selects whichever is smaller: 100% or 600px */</p>
+<p>  width: min(100%, 600px);</p>
+<p>  padding: calc(1rem + 10px); /* Mixing rem and px units */</p>
+<p>  background: white;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  text-align: center;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  color: #1d4ed8;</p>
+<p>  margin-top: 0;</p>
+<p>  /* Fluid responsive typography with clamp(MIN, PREFERRED, MAX) */</p>
+<p>  font-size: clamp(1.5rem, 5vw, 3rem);</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  color: #4b5563;</p>
+<p>  line-height: 1.6;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>The headline font size scales fluidly as you drag your browser viewport wider or narrower, never dropping below <code>1.5rem</code> or exceeding <code>3rem</code>.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Change <code>width: min(100%, 600px)</code> to <code>width: calc(100% - 80px)</code> and observe how the card maintains an exact 40px margin gap on both left and right sides.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting spaces around <code>+</code> and <code>-</code> in <code>calc()</code>:</strong> Writing <code>calc(100%-40px)</code> breaks parsing. Always include spaces: <code>calc(100% - 40px)</code>.</li></p>
+<p>  <li><strong>Swapping MIN and MAX order in <code>clamp(min, val, max)</code>:</strong> The first parameter MUST be smaller than the third parameter.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Modern web design systems use <code>clamp()</code> for fluid responsive typography and fluid padding scales (<code>padding: clamp(1rem, 3vw, 3rem)</code>), eliminating dozens of repetitive media query breakpoints.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="11-css-units.html">CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>)</a></li></p>
+<p>  <li><a href="31-variables.html">CSS Variables (Custom Properties)</a></li></p>
+<p>  <li><a href="40-modern-css-features.html">Modern CSS Features</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Always include spaces around <code>+</code> and <code>-</code> in <code>calc()</code>.</li></p>
+<p>  <li><code>clamp(min, preferred, max)</code> sets fluid responsive typography.</li></p>
+<p>  <li><code>min(100%, 800px)</code> prevents elements from exceeding 800px on desktop while fitting 100% on mobile.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="31-variables.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="33-important.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

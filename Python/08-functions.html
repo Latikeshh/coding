@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Functions in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Function</strong> is a named, reusable block of Python statements declared using the <code>def</code> keyword. Functions accept input <strong>parameters</strong>, process application logic, and return output results using the <code>return</code> statement (or return <code>None</code> if no return is specified).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Function code ka ek reusable block hota hai jo specific kaam karta hai. Reusable logic ko function mein wrap karne se code duplication nahi hoti (<strong>DRY Principle:</strong> Don't Repeat Yourself). Parameters inputs lene ke liye aur <code>return</code> statement result wapas bhejne ke liye use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Function mhanje punha-punha vaparta yenara code block. Parameters inputs ghenyasathi aani <code>return</code> result parat dhenyasathi vaparatat.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without functions, you would have to duplicate the same calculations, validations, and string formatting statements repeatedly across your codebase. Functions make programs modular, readable, maintainable, and unit-testable.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a function as an automated juice blender. You pass inputs (the fruits you drop in), press start (invoke the function), it processes the blending internally, and gives you back the resulting glass of juice (<code>return</code> value).</p>
+
+<h2>📝 1. Function Syntax & Keyword Arguments</h2>
+
+<pre><code class="language-python"># Function Definition with Default Parameter
+<p>def calculate_tax(amount, tax_rate=18.0):</p>
+<p>    tax = amount * (tax_rate / 100)</p>
+<p>    return tax</p>
+
+<h1>Positional Argument Call</h1>
+<p>t1 = calculate_tax(1000)      # Uses default tax_rate=18.0 -&gt; 180.0</p>
+
+<h1>Keyword Argument Call (Explicitly naming parameters)</h1>
+<p>t2 = calculate_tax(tax_rate=10.0, amount=2000) # 200.0</code></pre></p>
+
+<h2>📝 2. Returning Multiple Values (Tuple Packing)</h2>
+
+<p>Python functions can return multiple values simultaneously using commas (Python packs them into a tuple!):</p>
+
+<pre><code class="language-python">def get_min_max(numbers):
+<p>    return min(numbers), max(numbers) # Returns tuple (min_val, max_val)</p>
+
+<h1>Unpacking returned tuple directly into separate variables</h1>
+<p>lowest, highest = get_min_max([45, 12, 89, 33, 95])</code></pre></p>
+
+<h2>📝 3. Local vs Global Scope</h2>
+
+<ul>
+<p>  <li><strong>Local Scope:</strong> Variables created inside a function exist only while that function is executing.</li></p>
+<p>  <li><strong>Global Scope:</strong> Variables declared outside functions. To modify a global variable inside a function, use the <code>global</code> keyword.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: E-Commerce Invoice Engine</h2>
+
+<pre><code class="language-python"># E-Commerce Order Calculation Engine
+
+<p>def apply_discount(price, discount_percent=0.0):</p>
+<p>    &quot;&quot;&quot;Calculates discounted price given percentage.&quot;&quot;&quot;</p>
+<p>    if price &lt; 0 or discount_percent &lt; 0:</p>
+<p>        return 0.0</p>
+<p>    discount_amount = price * (discount_percent / 100)</p>
+<p>    return price - discount_amount</p>
+
+<p>def generate_invoice(customer_name, item_price, quantity=1, coupon=&quot;NONE&quot;):</p>
+<p>    &quot;&quot;&quot;Generates complete order invoice metrics.&quot;&quot;&quot;</p>
+<p>    discount_rate = 0.0</p>
+<p>    if coupon.upper() == &quot;SAVE10&quot;:</p>
+<p>        discount_rate = 10.0</p>
+<p>    elif coupon.upper() == &quot;SUPER20&quot;:</p>
+<p>        discount_rate = 20.0</p>
+<p>        </p>
+<p>    discounted_unit_price = apply_discount(item_price, discount_rate)</p>
+<p>    subtotal = discounted_unit_price * quantity</p>
+<p>    gst_tax = subtotal * 0.18</p>
+<p>    final_total = subtotal + gst_tax</p>
+<p>    </p>
+<p>    return subtotal, gst_tax, final_total # Returning multiple values</p>
+
+<h1>Testing Function Invocation</h1>
+<p>cust = &quot;Rahul Sharma&quot;</p>
+<p>price = 1500.00</p>
+<p>qty = 2</p>
+
+<p>sub, tax, total = generate_invoice(cust, price, quantity=qty, coupon=&quot;SUPER20&quot;)</p>
+
+<p>print(f&quot;=== INVOICE RECEIPT FOR {cust.upper()} ===&quot;)</p>
+<p>print(f&quot;Original Price : ₹{price:.2f} (x{qty})&quot;)</p>
+<p>print(f&quot;Coupon Applied : SUPER20 (20% OFF)&quot;)</p>
+<p>print(f&quot;Subtotal       : ₹{sub:.2f}&quot;)</p>
+<p>print(f&quot;GST Tax (18%)  : ₹{tax:.2f}&quot;)</p>
+<p>print(f&quot;Final Payable  : ₹{total:.2f}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== INVOICE RECEIPT FOR RAHUL SHARMA ===
+<p>Original Price : ₹1500.00 (x2)</p>
+<p>Coupon Applied : SUPER20 (20% OFF)</p>
+<p>Subtotal       : ₹2400.00</p>
+<p>GST Tax (18%)  : ₹432.00</p>
+<p>Final Payable  : ₹2832.00</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to write <code>return</code> in a function when you need to use the computed result outside (functions without a <code>return</code> statement return <code>None</code> by default!).</li></p>
+<p>  <li>Placing required positional parameters <strong>after</strong> default parameters (<code>def func(a=10, b):</code> is invalid syntax!).</li></p>
+<p>  <li>Expecting a function to modify a primitive variable passed from outside (arguments are passed by assignment reference!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL PYTHON PITFALL:</strong> <strong>Never use mutable default arguments like <code>def func(items=[])</code>!</strong></p></blockquote>
+<blockquote><p>Default arguments are evaluated <strong>ONCE when the function is defined</strong>, NOT every time it is called. A mutable list <code>[]</code> will persist state across separate function calls!</p></blockquote>
+<blockquote><p>> <strong>Correct Pattern:</strong></p></blockquote>
+<blockquote><p>``<code>python</p></blockquote>
+<blockquote><p>def func(items=None):</p></blockquote>
+<blockquote><p>if items is None:</p></blockquote>
+<blockquote><p>items = [] # Fresh list created every execution!</p></blockquote>
+<blockquote><p></code>`<code></p></blockquote>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data transformation routines, API request handlers, mathematical scoring algorithms, and string formatters.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function </code>is_even(number)<code> that returns </code>True<code> if a number is even, otherwise </code>False<code>.</p>
+<p>2. Write a function </code>calculate_area(length, width=5)<code> that calculates rectangle area.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function </code>convert_temperature(celsius)<code> that returns two values in a tuple: Fahrenheit (</code>celsius * 9/5 + 32<code>) and Kelvin (</code>celsius + 273.15`).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p>  <li><a href="09-lists.html">Lists</a></li></p>
+<p>  <li><a href="15-functions-advanced.html">Advanced Functions</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="07-loops.html">← Previous: Loops</a> | <a href="09-lists.html">Next: Lists →</a></p>
+
+
+  </div>
+</body>
+</html>

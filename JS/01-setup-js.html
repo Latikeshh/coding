@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 setup js - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Set Up JavaScript Environment</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>JavaScript can run directly inside any modern web browser or in a standalone runtime environment like <strong>Node.js</strong>. Setting up your environment involves learning how to run JavaScript in the browser Developer Tools, connecting <code>.js</code> files to HTML documents, and running scripts using Node.js.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>JavaScript ko aap direct browser ke Developer Console mein chalayein, ya fir <code>.js</code> file ko HTML document ke saath link karke chalayein. Node.js ka use karke aap JavaScript ko server-side par terminal se bhi run kar sakte hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>JavaScript tumhi browser chya Developer Console madhye direct run karu shakta, kiva <code>.js</code> file HTML document sobat link karun chalavu shakta. Node.js cha wapar karun terminal madhun siddhi JS code run karta yeto.</p>
+
+<h2>🤔 Why Use It?</h2>
+
+<p>Before writing JavaScript programs, you need a environment to execute your code, test ideas, debug errors, and view output in real time.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of the browser console as a digital notebook where you write a line of code and instantly get an answer. Linking a <code>.js</code> file to HTML is like attaching an engine to a car—it gives the web page power and functionality.</p>
+
+<h2>📝 Setup Options</h2>
+
+<h3>Option 1: Browser Developer Console (Fastest for testing)</h3>
+<p>1. Open Google Chrome, Firefox, or Microsoft Edge.</p>
+<p>2. Press <code>F12</code> (or right-click anywhere on a page and click <strong>Inspect</strong>).</p>
+<p>3. Switch to the <strong>Console</strong> tab.</p>
+<p>4. Type <code>console.log("Hello World")</code> and press <code>Enter</code>.</p>
+
+<h3>Option 2: Connecting JS to HTML in VS Code</h3>
+<p>Create two files in the same folder: <code>index.html</code> and <code>script.js</code>.</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;JavaScript Setup&lt;/title&gt;</p>
+<p>  &lt;!-- defer ensures script executes after HTML parsing --&gt;</p>
+<p>  &lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h1&gt;JavaScript Environment Setup&lt;/h1&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-js">/* script.js */
+<p>console.log(&quot;JavaScript file successfully connected!&quot;);</code></pre></p>
+
+<h3>Option 3: Running JavaScript with Node.js</h3>
+<p>1. Install Node.js from <a href="https://nodejs.org">nodejs.org</a>.</p>
+<p>2. Open your terminal or command prompt.</p>
+<p>3. Run: <code>node script.js</code></p>
+
+<h2>💡 Important Rules & Script Placement</h2>
+
+<ul>
+<p>  <li><strong><code><script></code> in <code><head></code> with <code>defer</code>:</strong> Recommended. Downloads in background and executes after HTML is fully parsed.</li></p>
+<p>  <li><strong><code><script></code> at bottom of <code><body></code>:</strong> Traditional approach. Ensures HTML elements exist before JavaScript tries to manipulate them.</li></p>
+<p>  <li><strong><code><script></code> with <code>async</code>:</strong> Downloads asynchronously and executes immediately when downloaded. Use for independent third-party scripts (like analytics).</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Open your browser console (<code>F12</code>).</p>
+<p>2. Run <code>console.log(20 + 30);</code> and see the result.</p>
+<p>3. Create an <code>index.html</code> and <code>script.js</code> file, connect them, and verify the console output.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting the quotes around strings in <code>console.log("Hello")</code>.</li></p>
+<p>  <li>Misspelling the file path in <code><script src="script.js"></code>.</li></p>
+<p>  <li>Trying to access DOM elements before HTML has loaded (when <code><script></code> is placed in <code><head></code> without <code>defer</code>).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Every professional frontend developer uses the browser Developer Console daily to test snippets, inspect network requests, and debug code execution.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Use <code>defer</code> when linking external scripts in <code><head></code> so your web page loads quickly and reliably.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="02-introduction-to-js.html">Next: Introduction to JavaScript →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 group by and having - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>📊 <code>GROUP BY</code> & <code>HAVING</code> Clauses in SQL</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong><code>GROUP BY</code>:</strong> An SQL clause that collapses individual table rows sharing identical values in specified columns into summary rows. It is paired with aggregate functions (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>) to compute metrics per category.</li></p>
+<p>  <li><strong><code>HAVING</code>:</strong> An SQL clause used specifically to filter summarized groups <strong>after</strong> aggregation has occurred. It functions as the <code>WHERE</code> clause for grouped summary data.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Data ko category-wise summarize karne ke liye <strong><code>GROUP BY</code></strong> clause ka use hota hai (jaise department-wise total salary ya city-wise customer count). <strong><code>WHERE</code></strong> aur <strong><code>HAVING</code></strong> mein antar samajhna sabse zaroori hai:</p>
+<ul>
+<p>  <li><strong><code>WHERE</code>:</strong> Grouping hone se <strong>pehle</strong> individual raw rows ko filter karta hai. (Isme <code>SUM</code> ya <code>AVG</code> jaise aggregate functions nahi likh sakte).</li></p>
+<p>  <li><strong><code>HAVING</code>:</strong> Grouping aur calculation hone ke <strong>baad</strong> summary groups ko filter karta hai (jaise <code>HAVING SUM(sales) > 50000</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Data la category-wise summarize karnyasathi <strong><code>GROUP BY</code></strong> clause vaparla jato. <strong><code>WHERE</code></strong> aani <strong><code>HAVING</code></strong> madhil pharak samajne mahatvache ahe:</p>
+<ul>
+<p>  <li><strong><code>WHERE</code>:</strong> Grouping honyapurvi <strong>raw rows</strong> la filter karto.</li></p>
+<p>  <li><strong><code>HAVING</code>:</strong> Grouping aani aggregation zalyanantar <strong>summary groups</strong> la filter karto (jasakhi <code>HAVING COUNT(*) >= 5</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>In real-world business analytics, stakeholders need categorized summary reporting rather than raw transaction lists:</p>
+
+<ul>
+<p>  <li>What is the total gross sales revenue per product category?</li></p>
+<p>  <li>Which customers have placed 5 or more completed orders this month?</li></p>
+<p>  <li>What is the average employee salary per department, excluding interns?</li></p>
+<p></ul></p>
+
+<p><code>GROUP BY</code> organizes raw rows into category buckets, and <code>HAVING</code> filters those buckets based on aggregate conditions.</p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Mailroom Sorting Trays</h2>
+
+<p>Think of <code>GROUP BY</code> and <code>HAVING</code> as a <strong>Postal Mailroom</strong>:</p>
+
+<pre><code class="language-text">┌───────────────────────────────────────┬──────────────────────────────────────────┐
+<p>│ Mailroom Operation                    │ SQL Clause Equivalent                    │</p>
+<p>├───────────────────────────────────────┼──────────────────────────────────────────┤</p>
+<p>│ 1. Throwing away damaged envelopes    │ WHERE status = &#39;VALID&#39; (Pre-filter)      │</p>
+<p>│ 2. Sorting mail into City Trays       │ GROUP BY city                            │</p>
+<p>│ 3. Counting total letters in each tray│ Aggregate: COUNT(*) AS letter_count      │</p>
+<p>│ 4. Loading ONLY heavy trays (&gt;50 msgs)│ HAVING COUNT(*) &gt; 50 (Post-group filter) │</p>
+<p>└───────────────────────────────────────┴──────────────────────────────────────────┘</code></pre></p>
+
+<p>---</p>
+
+<h2>⚡ Logical Query Processing Order</h2>
+
+<p>Understanding the internal logical execution sequence of SQL clauses explains why aggregate conditions belong in <code>HAVING</code> rather than <code>WHERE</code>:</p>
+
+<pre><code class="language-text">1. FROM &amp; JOINs  ──► Locate source tables and join relationships
+<p>2. WHERE         ──► Filter individual raw rows BEFORE grouping</p>
+<p>3. GROUP BY      ──► Partition remaining rows into category buckets</p>
+<p>4. HAVING        ──► Filter aggregate summary groups</p>
+<p>5. SELECT        ──► Project columns, evaluate aliases, compute aggregates</p>
+<p>6. DISTINCT      ──► Remove duplicate rows from final output</p>
+<p>7. ORDER BY      ──► Sort final output rows</p>
+<p>8. LIMIT         ──► Restrict maximum number of output rows</code></pre></p>
+
+<blockquote><p>💡 <strong>Why <code>WHERE SUM(amount) > 100</code> Fails:</strong> In Step 2 (<code>WHERE</code>), individual rows are being evaluated one-by-one *before* groups exist! Aggregations do not exist until Step 3 (<code>GROUP BY</code>). Therefore, aggregate filter conditions must be placed in Step 4 (<code>HAVING</code>).</p></blockquote>
+
+<p>---</p>
+
+<h2>🔍 <code>WHERE</code> vs <code>HAVING</code> Comparison Matrix</h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th><code>WHERE</code> Clause</th><th><code>HAVING</code> Clause</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Execution Point</strong></td><td>Evaluated <strong>BEFORE</strong> <code>GROUP BY</code> (filters raw rows).</td><td>Evaluated <strong>AFTER</strong> <code>GROUP BY</code> (filters summary groups).</td></tr></p>
+<p>    <tr><td><strong>Aggregate Functions</strong></td><td>❌ <strong>Prohibited</strong> (e.g. <code>WHERE SUM(price) > 50</code> throws Error 1111).</td><td>✅ <strong>Allowed</strong> (e.g. <code>HAVING SUM(price) > 50</code>).</td></tr></p>
+<p>    <tr><td><strong>Column Targets</strong></td><td>References raw table columns (<code>department</code>, <code>status</code>).</td><td>References aggregate results (<code>COUNT(*)</code>, <code>AVG(salary)</code>).</td></tr></p>
+<p>    <tr><td><strong>Performance</strong></td><td><strong>High efficiency</strong> (reduces rows before grouping).</td><td><strong>Post-group overhead</strong> (groups rows before filtering).</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h3>Side-by-Side SQL Comparison:</h3>
+
+<pre><code class="language-sql">-- Query A: Filter individual rows BEFORE grouping using WHERE
+<p>SELECT department_name, AVG(salary) AS avg_salary</p>
+<p>FROM employees</p>
+<p>WHERE status = &#39;Active&#39; -- Filters out inactive employees first</p>
+<p>GROUP BY department_name;</p>
+
+<p>-- Query B: Filter aggregate summary groups AFTER grouping using HAVING</p>
+<p>SELECT department_name, AVG(salary) AS avg_salary</p>
+<p>FROM employees</p>
+<p>GROUP BY department_name</p>
+<p>HAVING AVG(salary) &gt; 50000.00; -- Filters out departments with avg salary &lt;= 50,000</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Reproducible Example 1: Multi-Column <code>GROUP BY</code> & <code>HAVING</code> (<code>sales_records</code>)</h2>
+
+<p>Let's execute a complete MySQL-compatible workflow calculating annual revenue per department and filtering department years with $10,000+ in sales.</p>
+
+<pre><code class="language-sql">-- 1. Create sales_records table schema
+<p>CREATE TABLE IF NOT EXISTS sales_records (</p>
+<p>    order_id INT PRIMARY KEY,</p>
+<p>    department_name VARCHAR(50) NOT NULL,</p>
+<p>    order_date DATE NOT NULL,</p>
+<p>    status VARCHAR(20) NOT NULL, -- &#39;COMPLETED&#39;, &#39;PENDING&#39;, &#39;CANCELLED&#39;</p>
+<p>    order_total DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample sales records</p>
+<p>INSERT INTO sales_records (order_id, department_name, order_date, status, order_total)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Electronics&#39;, &#39;2025-05-10&#39;, &#39;COMPLETED&#39;, 15000.00),</p>
+<p>    (2, &#39;Electronics&#39;, &#39;2025-06-15&#39;, &#39;COMPLETED&#39;, 25000.00),</p>
+<p>    (3, &#39;Furniture&#39;, &#39;2025-07-20&#39;, &#39;COMPLETED&#39;, 8000.00),</p>
+<p>    (4, &#39;Electronics&#39;, &#39;2026-01-10&#39;, &#39;COMPLETED&#39;, 30000.00),</p>
+<p>    (5, &#39;Furniture&#39;, &#39;2026-02-14&#39;, &#39;COMPLETED&#39;, 12000.00),</p>
+<p>    (6, &#39;Kitchen&#39;, &#39;2026-03-01&#39;, &#39;COMPLETED&#39;, 4000.00),</p>
+<p>    (7, &#39;Electronics&#39;, &#39;2026-03-10&#39;, &#39;PENDING&#39;, 5000.00);</code></pre></p>
+
+<h3>Multi-Column Grouping Query:</h3>
+
+<pre><code class="language-sql">SELECT 
+<p>    department_name,</p>
+<p>    YEAR(order_date) AS order_year,</p>
+<p>    COUNT(order_id) AS completed_orders,</p>
+<p>    SUM(order_total) AS gross_revenue</p>
+<p>FROM sales_records</p>
+<p>WHERE status = &#39;COMPLETED&#39; -- Step 1: Filter raw rows BEFORE grouping</p>
+<p>GROUP BY department_name, YEAR(order_date) -- Step 2: Group by department AND year</p>
+<p>HAVING SUM(order_total) &gt;= 10000.00 -- Step 3: Filter groups generating $10,000+</p>
+<p>ORDER BY gross_revenue DESC; -- Step 4: Sort results</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+─────────────────+────────────+──────────────────+───────────────+
+<table>
+<p>  <thead><tr><th>department_name</th><th>order_year</th><th>completed_orders</th><th>gross_revenue</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+─────────────────+────────────+──────────────────+───────────────+</p>
+<table>
+<p>  <thead><tr><th>Electronics</th><th>2025</th><th>2</th><th>40000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Electronics</td><td>2026</td><td>1</td><td>30000.00</td></tr></p>
+<p>    <tr><td>Furniture</td><td>2026</td><td>1</td><td>12000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+─────────────────+────────────+──────────────────+───────────────+</code></pre></p>
+
+<h3>🔍 Query Breakdown:</h3>
+<ul>
+<p>  <li><strong><code>WHERE status = 'COMPLETED'</code></strong>: Filters out order #7 (<code>PENDING</code>) *before* grouping.</li></p>
+<p>  <li><strong><code>GROUP BY department_name, YEAR(order_date)</code></strong>: Groups completed sales by both department name AND calendar year.</li></p>
+<p>  <li><strong><code>HAVING SUM(order_total) >= 10000.00</code></strong>: Excludes <code>Furniture 2025</code> ($8000) and <code>Kitchen 2026</code> ($4000) because their aggregate gross revenue is below $10,000.00.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛠️ Reproducible Example 2: VIP Customers (<code>HAVING COUNT(*) >= 5</code>)</h2>
+
+<p>Find high-frequency VIP customers who have placed 5 or more orders:</p>
+
+<pre><code class="language-sql">-- 1. Create orders table schema
+<p>CREATE TABLE IF NOT EXISTS orders (</p>
+<p>    order_id INT PRIMARY KEY,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    total_amount DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample orders (Customer 1 &amp; 3 have 5 orders; Customer 2 has 2)</p>
+<p>INSERT INTO orders (order_id, customer_id, total_amount)</p>
+<p>VALUES </p>
+<p>    (101, 1, 150.00), (102, 1, 200.00), (103, 1, 300.00), (104, 1, 100.00), (105, 1, 250.00),</p>
+<p>    (106, 2, 500.00), (107, 2, 600.00),</p>
+<p>    (108, 3, 100.00), (109, 3, 150.00), (110, 3, 200.00), (111, 3, 250.00), (112, 3, 300.00);</p>
+
+<p>-- 3. Query VIP customers with 5+ orders</p>
+<p>SELECT </p>
+<p>    customer_id,</p>
+<p>    COUNT(order_id) AS total_orders,</p>
+<p>    SUM(total_amount) AS total_spent,</p>
+<p>    ROUND(AVG(total_amount), 2) AS avg_order_value</p>
+<p>FROM orders</p>
+<p>GROUP BY customer_id</p>
+<p>HAVING COUNT(order_id) &gt;= 5</p>
+<p>ORDER BY total_spent DESC;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+--------------+-------------+-----------------+
+<table>
+<p>  <thead><tr><th>customer_id</th><th>total_orders</th><th>total_spent</th><th>avg_order_value</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+-------------+-----------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>5</th><th>1000.00</th><th>200.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>3</td><td>5</td><td>1000.00</td><td>200.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------+-------------+-----------------+</code></pre></p>
+
+<p>*(Note: Customer 2 is excluded because they placed only 2 orders).*</p>
+
+<p>---</p>
+
+<h2>🛠️ Reproducible Example 3: Salary Audit Excluding Interns</h2>
+
+<p>Calculate average department salaries while excluding low-ranking interns before averaging:</p>
+
+<pre><code class="language-sql">-- 1. Create employees table schema
+<p>CREATE TABLE IF NOT EXISTS employees (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    department_name VARCHAR(50) NOT NULL,</p>
+<p>    job_title VARCHAR(50) NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample employees</p>
+<p>INSERT INTO employees (emp_id, first_name, department_name, job_title, salary)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Rahul&#39;, &#39;Engineering&#39;, &#39;Senior Dev&#39;, 95000.00),</p>
+<p>    (2, &#39;Priya&#39;, &#39;Engineering&#39;, &#39;Junior Dev&#39;, 65000.00),</p>
+<p>    (3, &#39;Amit&#39;, &#39;Engineering&#39;, &#39;Intern&#39;, 20000.00),</p>
+<p>    (4, &#39;Sneha&#39;, &#39;HR&#39;, &#39;HR Manager&#39;, 70000.00),</p>
+<p>    (5, &#39;Kiran&#39;, &#39;HR&#39;, &#39;Intern&#39;, 18000.00),</p>
+<p>    (6, &#39;Vikram&#39;, &#39;Marketing&#39;, &#39;Lead Marketer&#39;, 85000.00);</p>
+
+<p>-- 3. Department salary audit query</p>
+<p>SELECT </p>
+<p>    department_name,</p>
+<p>    COUNT(emp_id) AS non_intern_count,</p>
+<p>    ROUND(AVG(salary), 2) AS avg_non_intern_salary</p>
+<p>FROM employees</p>
+<p>WHERE job_title != &#39;Intern&#39; -- Exclude interns BEFORE calculating average</p>
+<p>GROUP BY department_name</p>
+<p>HAVING AVG(salary) &gt;= 70000.00;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+─────────────────+──────────────────+────────────────────────+
+<table>
+<p>  <thead><tr><th>department_name</th><th>non_intern_count</th><th>avg_non_intern_salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+─────────────────+──────────────────+────────────────────────+</p>
+<table>
+<p>  <thead><tr><th>Marketing</th><th>1</th><th>85000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Engineering</td><td>2</td><td>80000.00</td></tr></p>
+<p>    <tr><td>HR</td><td>1</td><td>70000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+─────────────────+──────────────────+────────────────────────+</code></pre></p>
+
+<blockquote><p>💡 <strong>Why <code>WHERE job_title != 'Intern'</code> Matters:</strong> If Amit's intern stipend ($20,000) was included in Engineering's average, the average would drop to $60,000. Excluing interns before grouping ensures the population average reflects non-intern staff ($80,000.00$).</p></blockquote>
+
+<p>---</p>
+
+<h2>⚠️ MySQL <code>ONLY_FULL_GROUP_BY</code> & Common Mistakes</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1111 (HY000): Invalid use of group function</code></strong></td><td>Writing aggregate functions inside <code>WHERE</code> (e.g. <code>WHERE SUM(sales) > 100</code>).</td><td>Move aggregate conditions to <code>HAVING SUM(sales) > 100</code>.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1055 (42000): ONLY_FULL_GROUP_BY violation</code></strong></td><td>Selecting a non-aggregated column in <code>SELECT</code> that is NOT listed in <code>GROUP BY</code>.</td><td>Include all non-aggregated <code>SELECT</code> columns in the <code>GROUP BY</code> clause.</td></tr></p>
+<p>    <tr><td><strong>Using <code>HAVING</code> for Non-Aggregate Row Filtering</strong></td><td>Writing <code>HAVING status = 'COMPLETED'</code> instead of <code>WHERE status = 'COMPLETED'</code>.</td><td>Use <code>WHERE</code> for row filtering. <code>WHERE</code> filters rows before grouping, improving performance.</td></tr></p>
+<p>    <tr><td><strong>Expecting <code>HAVING</code> Aliases in <code>WHERE</code></strong></td><td>Referencing column aliases created in <code>SELECT</code> inside the <code>WHERE</code> clause.</td><td><code>WHERE</code> executes before <code>SELECT</code> aliases exist. Use column names in <code>WHERE</code>.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce VIP Loyalty Programs:</strong> Identifying top customers spending over $1,000 across 5+ completed orders (<code>HAVING SUM(total_amount) > 1000</code>).</li></p>
+<p>  <li><strong>Financial Audit Systems:</strong> Identifying department branches exceeding monthly operational budgets.</li></p>
+<p>  <li><strong>Inventory Logistics:</strong> Grouping product stock by warehouse location and alerting when regional inventory falls below safety thresholds.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Students Table Setup & Grouping</h3>
+<p>Given the following <code>students</code> table:</p>
+
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS students (
+<p>    student_id INT PRIMARY KEY,</p>
+<p>    student_name VARCHAR(50) NOT NULL,</p>
+<p>    grade_level VARCHAR(20) NOT NULL,</p>
+<p>    tuition_fee DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>INSERT INTO students (student_id, student_name, grade_level, tuition_fee)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Rahul&#39;, &#39;Grade 10&#39;, 6000.00),</p>
+<p>    (2, &#39;Priya&#39;, &#39;Grade 10&#39;, 6000.00),</p>
+<p>    (3, &#39;Amit&#39;, &#39;Grade 10&#39;, 6000.00),</p>
+<p>    (4, &#39;Sneha&#39;, &#39;Grade 11&#39;, 7500.00),</p>
+<p>    (5, &#39;Kiran&#39;, &#39;Grade 11&#39;, 7500.00),</p>
+<p>    (6, &#39;Neha&#39;, &#39;Grade 12&#39;, 9000.00);</code></pre></p>
+
+<p>1. Write a query counting total students per <code>grade_level</code>.</p>
+<p>2. Write a query displaying only grade levels that have <strong>more than 2 students</strong> (<code>HAVING COUNT(*) > 2</code>).</p>
+<p>3. Write a query calculating total tuition fees per grade level for students paying <code>tuition_fee >= 7000.00</code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>1. Create an <code>e_commerce_orders</code> table schema:</p>
+<ul>
+<p>  <li><code>order_id</code> (INT, Primary Key)</li></p>
+<p>  <li><code>customer_id</code> (INT)</li></p>
+<p>  <li><code>order_status</code> (VARCHAR 20 — <code>'DELIVERED'</code>, <code>'PENDING'</code>, <code>'CANCELLED'</code>)</li></p>
+<p>  <li><code>item_count</code> (INT)</li></p>
+<p>  <li><code>total_price</code> (DECIMAL 10,2)</li></p>
+<p></ul></p>
+<p>2. Insert sample orders:</p>
+<ul>
+<p>  <li>Order 1: Cust 1, <code>'DELIVERED'</code>, 5 items, <code>$300.00</code></li></p>
+<p>  <li>Order 2: Cust 1, <code>'DELIVERED'</code>, 6 items, <code>$250.00</code></li></p>
+<p>  <li>Order 3: Cust 2, <code>'DELIVERED'</code>, 12 items, <code>$600.00</code></li></p>
+<p>  <li>Order 4: Cust 2, <code>'CANCELLED'</code>, 10 items, <code>$500.00</code></li></p>
+<p>  <li>Order 5: Cust 3, <code>'DELIVERED'</code>, 2 items, <code>$100.00</code></li></p>
+<p></ul></p>
+<p>3. Write a query that:</p>
+<ul>
+<p>  <li>Filters completed orders (<code>WHERE order_status = 'DELIVERED'</code>).</li></p>
+<p>  <li>Groups by <code>customer_id</code>.</li></p>
+<p>  <li>Displays <code>customer_id</code>, total items purchased (<code>SUM(item_count)</code>), and total spend (<code>SUM(total_price)</code>).</li></p>
+<p>  <li>Filters using <code>HAVING</code> to retain only customers whose total spend exceeds <strong><code>$500.00</code></strong> AND whose total item count is <strong>at least 10 items</strong> (<code>HAVING SUM(total_price) > 500.00 AND SUM(item_count) >= 10</code>).</li></p>
+<p></ul></p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solutions:</p>
+
+<pre><code class="language-sql">-- Task 1: Count students per grade level
+<p>SELECT grade_level, COUNT(*) AS student_count</p>
+<p>FROM students</p>
+<p>GROUP BY grade_level;</p>
+
+<p>-- Task 2: Grade levels with &gt; 2 students</p>
+<p>SELECT grade_level, COUNT(*) AS student_count</p>
+<p>FROM students</p>
+<p>GROUP BY grade_level</p>
+<p>HAVING COUNT(*) &gt; 2;</p>
+<p>-- Output: Grade 10 (3 students)</p>
+
+<p>-- Task 3: Total tuition fees per grade level for fees &gt;= 7000.00</p>
+<p>SELECT grade_level, SUM(tuition_fee) AS total_tuition</p>
+<p>FROM students</p>
+<p>WHERE tuition_fee &gt;= 7000.00</p>
+<p>GROUP BY grade_level;</p>
+<p>-- Output: Grade 11 ($15,000.00), Grade 12 ($9,000.00)</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">-- Step 1: Create table schema
+<p>CREATE TABLE IF NOT EXISTS e_commerce_orders (</p>
+<p>    order_id INT PRIMARY KEY,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    order_status VARCHAR(20) NOT NULL,</p>
+<p>    item_count INT NOT NULL,</p>
+<p>    total_price DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- Step 2: Insert sample orders</p>
+<p>INSERT INTO e_commerce_orders (order_id, customer_id, order_status, item_count, total_price)</p>
+<p>VALUES </p>
+<p>    (1, 1, &#39;DELIVERED&#39;, 5, 300.00),</p>
+<p>    (2, 1, &#39;DELIVERED&#39;, 6, 250.00),</p>
+<p>    (3, 2, &#39;DELIVERED&#39;, 12, 600.00),</p>
+<p>    (4, 2, &#39;CANCELLED&#39;, 10, 500.00),</p>
+<p>    (5, 3, &#39;DELIVERED&#39;, 2, 100.00);</p>
+
+<p>-- Step 3: Execute GROUP BY + HAVING query</p>
+<p>SELECT </p>
+<p>    customer_id,</p>
+<p>    SUM(item_count) AS total_items,</p>
+<p>    SUM(total_price) AS total_spend</p>
+<p>FROM e_commerce_orders</p>
+<p>WHERE order_status = &#39;DELIVERED&#39;</p>
+<p>GROUP BY customer_id</p>
+<p>HAVING SUM(total_price) &gt; 500.00 </p>
+<p>   AND SUM(item_count) &gt;= 10;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+-------------+-------------+-------------+
+<table>
+<p>  <thead><tr><th>customer_id</th><th>total_items</th><th>total_spend</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+-------------+-------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>11</th><th>550.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>12</td><td>600.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+-------------+-------------+</code></pre></p>
+
+<p>*(Explanation: Customer 1 has 11 delivered items spending $550.00. Customer 2 has 12 delivered items spending $600.00 [order #4 was CANCELLED so it is filtered out by WHERE]. Customer 3 is excluded because they bought only 2 items spending $100.00).*</p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
+<p>  <li><a href="08-where.html">Filtering Data with <code>WHERE</code></a></li></p>
+<p>  <li><a href="12-aggregate-functions.html">Aggregate Functions (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>)</a></li></p>
+<p>  <li><a href="14-joins.html">SQL Joins & Table Relationships</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="12-aggregate-functions.html">← Previous: Aggregate Functions</a> | <a href="./">SQL Home</a> | <a href="14-joins.html">Next: SQL Joins →</a></p>
+
+  </div>
+</body>
+</html>

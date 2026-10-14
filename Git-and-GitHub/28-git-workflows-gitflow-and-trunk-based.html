@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28 git workflows gitflow and trunk based - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Industry Workflows (GitFlow & Trunk-Based)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Git Workflow</strong> (or Branching Strategy) is a standardized set of team conventions and rules defining how branches are created, named, merged, and released into production environments. The two dominant industry models are <strong>GitFlow</strong> and <strong>Trunk-Based Development</strong>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Git workflows guide team collaboration. <strong>GitFlow</strong> uses strict long-lived branches (<code>main</code> for production, <code>develop</code> for integration) alongside support branches (<code>feature/*</code>, <code>release/*</code>, <code>hotfix/*</code>). <strong>Trunk-Based Development</strong> uses a single central branch (<code>trunk</code>/<code>main</code>) where developers merge small, frequent commits multiple times per day using feature flags.</p>
+
+<h3>Hindi</h3>
+<p>Git Workflow team collaboration ka rulebook hota hai. <strong>GitFlow</strong> mein do main branches hoti hain: <code>main</code> (production code) aur <code>develop</code> (staging code), aur chhote branches hote hain jaise <code>feature/login</code> ya <code>hotfix/bug</code>. <strong>Trunk-Based Development</strong> mein sabhi developers rozana chote commits directly <code>main</code> branch par merge karte hain.</p>
+
+<h3>Marathi</h3>
+<p>Git Workflow mhanje team madhye branching che niyam. <strong>GitFlow</strong> madhye <code>main</code> aani <code>develop</code> don mukhya branches asatat. <strong>Trunk-Based Development</strong> madhye sarv developers ekach central <code>main</code> branch var lhan-lhan badal divsatun anekda merge kartat.</p>
+
+<h3>Hinglish</h3>
+<p>Moti companies team collaboration ke liye specific branching strategy follow karti hain. Scheduled software releases ke liye <strong>GitFlow</strong> best hai. Fast SaaS continuous deployment ke liye <strong>Trunk-Based Development</strong> (micro-PRs merged daily into <code>main</code>) popular hai.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without a defined team workflow, developers create randomly named branches, merge unreviewed code into production, and overwrite teammates' code during release deployment.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of Git Workflows like managing airport air traffic:</p>
+<ul>
+<p>  <li><strong>GitFlow:</strong> A large international airport with strict scheduled runways: International Terminal (<code>main</code>), Domestic Terminal (<code>develop</code>), Boarding Gates (<code>feature/*</code>), and Emergency Runway (<code>hotfix/*</code>).</li></p>
+<p>  <li><strong>Trunk-Based Development:</strong> A high-speed express subway train (<code>main</code>) where passengers hop on and off every 2 minutes in rapid, small bursts.</li></p>
+<p></ul></p>
+
+<h2>📝 Workflow Architectures Compared</h2>
+
+<h3>1. GitFlow Workflow Architecture</h3>
+<p>Created by Vincent Driessen. Ideal for traditional software with scheduled versioned releases (e.g. mobile apps, desktop software, embedded firmware).</p>
+
+<pre><code class="language-text">[main] ───────(v1.0)───────────────────────────────────(v1.1)─────&gt; (Production)
+<p>                │                                       ▲</p>
+<p>                └────&gt; [hotfix/patch] ──────────────────┘</p>
+<p>                          ▲</p>
+<p>                          │</p>
+<p>[develop] ────────────────┴─────(release/v1.1)─────────&gt; (Staging)</p>
+<p>             │                       ▲</p>
+<p>             └─&gt; [feature/auth] ─────┘</code></pre></p>
+
+<p>#### Branch Roles in GitFlow:</p>
+<ul>
+<p>  <li><strong><code>main</code>:</strong> Contains strictly stable, production-ready, tagged release code.</li></p>
+<p>  <li><strong><code>develop</code>:</strong> Integration branch for upcoming releases.</li></p>
+<p>  <li>**<code>feature/*</code>:<strong> Short-lived branches for new feature development (merged into <code>develop</code>).</li></p>
+<p>  <li></strong><code>release/*</code>:<strong> Preparation branch for testing a new release candidate.</li></p>
+<p>  <li></strong><code>hotfix/*</code>:<strong> Emergency patch branch spawned directly from <code>main</code> to fix critical production bugs.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h3>2. Trunk-Based Development Architecture</h3>
+<p>Preferred by high-velocity SaaS companies (Google, Meta, Netflix) practicing Continuous Integration / Continuous Deployment (CI/CD).</p>
+
+<pre><code class="language-text">[main / trunk] ───●──────●──────●──────●──────●──────●──────&gt; (Production)
+<p>                  │      ▲      │      ▲</p>
+<p>                  └──C1──┘      └──C2──┘ (Short-lived 1-day Feature Branches)</code></pre></p>
+
+<p>#### Key Rules of Trunk-Based Development:</p>
+<ul>
+<p>  <li>Developers merge small, short-lived feature branches into <code>main</code> multiple times per day.</li></p>
+<p>  <li>Every commit on <code>main</code> must pass automated CI/CD unit test suites.</li></p>
+<p>  <li>Unfinished features are hidden behind </strong>Feature Flags<strong> (boolean configuration toggles) so unready code can safely sit in production without being visible to end users.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h3>3. GitHub Flow (Simplified Web Workflow)</h3>
+<p>A lightweight alternative to GitFlow designed for web applications:</p>
+<p>1. Create a branch from <code>main</code> (<code>feature/name</code>).</p>
+<p>2. Add commits and push to GitHub.</p>
+<p>3. Open a Pull Request for discussion and review.</p>
+<p>4. Merge PR into <code>main</code> after CI checks pass.</p>
+<p>5. Deploy <code>main</code> immediately to production.</p>
+
+<h2>💡 Summary Comparison Matrix</h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th>GitFlow</th><th>Trunk-Based Development</th><th>GitHub Flow</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td></strong>Branch Complexity<strong></td><td>Heavy (5+ branch types)</td><td>Lightweight (1 main trunk)</td><td>Medium (main + feature branches)</td></tr></p>
+<p>    <tr><td></strong>Release Frequency<strong></td><td>Scheduled (Monthly/Quarterly)</td><td>Continuous (Multiple times/day)</td><td>Continuous / On-demand</td></tr></p>
+<p>    <tr><td></strong>Testing Overhead<strong></td><td>Manual release testing</td><td>100% Automated CI/CD required</td><td>Automated CI + Code Review</td></tr></p>
+<p>    <tr><td></strong>Best Used For<strong></td><td>Mobile apps, OS kernels</td><td>Web apps, Microservices, SaaS</td><td>Open-source web projects</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li></strong>Long-Lived Feature Branches in Trunk-Based Dev:<strong> Keeping a feature branch unmerged for weeks, resulting in "Merge Hell" when trying to integrate back into <code>main</code>.</li></p>
+<p>  <li></strong>Committing Directly to <code>main</code> in GitFlow:<strong> Bypassing <code>develop</code> and committing unstable experimental code onto production <code>main</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Enforce </strong>GitHub Branch Protection Rules** on <code>main</code> requiring at least 1-2 approved PR reviews and passing CI checks before merging.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Google and Meta run Trunk-Based Development with millions of daily automated test runs, while Apple and automotive software teams utilize GitFlow for strict hardware release cycles.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Identify which workflow model (GitFlow, Trunk-Based, or GitHub Flow) best fits a web portfolio project.</p>
+<p>2. Practice creating a branch using GitHub Flow naming conventions: <code>git switch -c feature/add-contact-form</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write down the 3 steps required in GitFlow to deliver an emergency bug fix for a production crash on <code>main</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="12-branching-basics.html">Branching Basics</a></li></p>
+<p>  <li><a href="13-merging-branches.html">Merging Branches</a></li></p>
+<p>  <li><a href="26-github-actions-and-ci-cd-basics.html">GitHub Actions & CI/CD Basics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="27-git-aliases-and-shortcuts.html">← Previous: Aliases</a> | <a href="29-git-best-practices-and-security.html">Next: Best Practices & Security →</a></p>
+
+
+
+  </div>
+</body>
+</html>

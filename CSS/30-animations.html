@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30 animations - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Animations (<code>@keyframes</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Animations</strong> allow creating complex, multi-step keyframe animations using <strong><code>@keyframes</code></strong> rules to define intermediate styles at percentages (<code>0%</code> to <code>100%</code>) along an animation timeline, applied via the <strong><code>animation</code></strong> property.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Define multi-step animation sequences with <code>@keyframes</code> and apply them using <code>animation: name duration timing-function iteration-count direction</code>.</p>
+
+<h3>Hindi</h3>
+<p>Multi-step animation ke liye <code>@keyframes</code> mein steps (0% se 100%) define karke <code>animation</code> property dwara apply karein.</p>
+
+<h3>Marathi</h3>
+<p><code>@keyframes</code> dware animation che steps (0% te 100%) tharvta yetat.</p>
+
+<h2>🤔 <code>transition</code> vs. <code>animation</code> (When to Use Which?)</h2>
+
+<ul>
+<p>  <li><strong>Use <code>transition</code>:</strong> For simple 2-state animations triggered by user interaction (like <code>:hover</code> or <code>:focus</code>).</li></p>
+<p>  <li><strong>Use <code>animation</code>:</strong> For multi-step sequences (<code>0%</code> → <code>50%</code> → <code>100%</code>), continuous infinite loops (like loading spinners), or animations that run automatically on page load without user hover.</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & <code>@keyframes</code> Structure</h2>
+
+<pre><code class="language-css">/* 1. Define Keyframe Sequence */
+<p>@keyframes pulse {</p>
+<p>  0% {</p>
+<p>    transform: scale(1);</p>
+<p>    opacity: 1;</p>
+<p>  }</p>
+<p>  50% {</p>
+<p>    transform: scale(1.1);</p>
+<p>    opacity: 0.7;</p>
+<p>  }</p>
+<p>  100% {</p>
+<p>    transform: scale(1);</p>
+<p>    opacity: 1;</p>
+<p>  }</p>
+<p>}</p>
+
+<p>/* 2. Apply Animation Rule */</p>
+<p>.badge-live {</p>
+<p>  /* animation: name duration timing-function delay iteration-count direction fill-mode; */</p>
+<p>  animation: pulse 2s ease-in-out infinite;</p>
+<p>}</code></pre></p>
+
+<h2>📚 Animation Sub-properties Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Sub-property</th><th>Purpose & Options</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>animation-name</code></td><td>Matches <code>@keyframes</code> identifier name</td><td><code>animation-name: spin;</code></td></tr></p>
+<p>    <tr><td><code>animation-duration</code></td><td>Time length for one full cycle</td><td><code>animation-duration: 1.5s;</code></td></tr></p>
+<p>    <tr><td><code>animation-timing-function</code></td><td>Speed curve (<code>ease</code>, <code>linear</code>, <code>steps()</code>)</td><td><code>animation-timing-function: linear;</code></td></tr></p>
+<p>    <tr><td><code>animation-iteration-count</code></td><td>Repetition count (<code>1</code>, <code>3</code>, <code>infinite</code>)</td><td><code>animation-iteration-count: infinite;</code></td></tr></p>
+<p>    <tr><td><code>animation-direction</code></td><td>Direction (<code>normal</code>, <code>reverse</code>, <code>alternate</code>)</td><td><code>animation-direction: alternate;</code></td></tr></p>
+<p>    <tr><td><code>animation-fill-mode</code></td><td>Retains keyframe styles before/after (<code>forwards</code>, <code>backwards</code>, <code>both</code>)</td><td><code>animation-fill-mode: forwards;</code></td></tr></p>
+<p>    <tr><td><code>animation-play-state</code></td><td>Pauses/plays animation (<code>running</code>, <code>paused</code>)</td><td><code>animation-play-state: paused;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Animations Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;div class=&quot;spinner&quot;&gt;&lt;/div&gt;</p>
+<p>    &lt;h3&gt;Loading Dashboard...&lt;/h3&gt;</p>
+<p>    &lt;p&gt;Please wait while we fetch your analytics data.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  min-height: 100vh;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  padding: 30px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  text-align: center;</p>
+<p>  width: 280px;</p>
+<p>}</p>
+
+<p>/* Loading Spinner Element */</p>
+<p>.spinner {</p>
+<p>  width: 40px;</p>
+<p>  height: 40px;</p>
+<p>  margin: 0 auto 15px auto;</p>
+<p>  border: 4px solid #e5e7eb;</p>
+<p>  border-top-color: #2563eb; /* Blue spinner accent */</p>
+<p>  border-radius: 50%;</p>
+<p>  animation: spin 1s linear infinite; /* Infinite continuous rotation */</p>
+<p>}</p>
+
+<p>/* Keyframe Definition */</p>
+<p>@keyframes spin {</p>
+<p>  0% {</p>
+<p>    transform: rotate(0deg);</p>
+<p>  }</p>
+<p>  100% {</p>
+<p>    transform: rotate(360deg);</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A smooth, continuously rotating loading spinner ring spinning infinitely at <code>1s</code> per revolution.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add <code>@media (prefers-reduced-motion: reduce)</code> to disable animations for users who prefer reduced motion:</p>
+<p>   ``<code>css</p>
+<p>   @media (prefers-reduced-motion: reduce) {</p>
+<p>     .spinner {</p>
+<p>       animation: none;</p>
+<p>     }</p>
+<p>   }</p>
+<p>   </code>`<code></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Misspelling keyframe names:</strong> Writing </code>animation: spin 1s;<code> when the keyframe is named </code>@keyframes spinner<code>.</li></p>
+<p>  <li><strong>Forgetting </code>forwards<code> fill-mode on one-time animations:</strong> When animating an element into view once (</code>1<code>), without </code>animation-fill-mode: forwards;<code>, the element snaps back to its pre-animated initial state at the end!</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>CSS </code>@keyframes<code> power infinite loading spinners, pulsing live-status badges, skeleton screens, toast notification slide-ins, and hero text entrance animations.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="28-transitions.html">CSS Transitions</a></li></p>
+<p>  <li><a href="29-transforms.html">CSS Transforms (2D & 3D)</a></li></p>
+<p>  <li><a href="41-css-architecture-and-dark-mode.html">CSS Architecture & Dark Mode</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Define animation sequences using </code>@keyframes name { 0% {...} 100% {...} }<code>.</li></p>
+<p>  <li>Use </code>infinite<code> for continuous loops (like loading spinners).</li></p>
+<p>  <li>Use </code>animation-fill-mode: forwards` to retain final keyframe styles.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="29-transforms.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="31-variables.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 html comments - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>HTML Comments (<code><!-- --></code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>HTML comments</strong> are developer notes written inside the HTML document. Web browsers completely ignore comments during page rendering, so they are not displayed on the rendered webpage.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>HTML comments (<code><!-- comment --></code>) are notes for developers that browsers do not display on screen. Use comments to document code structure or temporarily disable code during debugging.</p>
+
+<h3>Hindi</h3>
+<p>Comments (<code><!-- note --></code>) developer notes ke liye hote hain jo browser screen par render nahi hote. Code section document karne ya debugging ke time code disable karne ke liye use hote hain.</p>
+
+<h3>Marathi</h3>
+<p>Comments (<code><!-- note --></code>) developer notes sathi astat je browser screen var dakhat nahi. Code cha structure samajhanyasathi ani debugging sathi vapartat.</p>
+
+<h2>🤔 Why Do We Use Comments?</h2>
+
+<p>1. <strong>Documenting Code Structure:</strong> Helps developers navigate large HTML files by labeling header, navigation, main content, sidebar, and footer sections.</p>
+<p>2. <strong>Temporarily Disabling Code:</strong> Allows developers to "comment out" code blocks to test layout changes without deleting code.</p>
+
+<h2>📐 Syntax & Examples</h2>
+
+<pre><code class="language-html">&lt;!-- Single-line HTML comment --&gt;
+
+<p>&lt;!-- </p>
+<p>  Multi-line HTML comment</p>
+<p>  spanning across multiple lines</p>
+<p>--&gt;</code></pre></p>
+
+<h2>🚨 CRITICAL SECURITY WARNING</h2>
+
+<p>HTML comments are transmitted to the user's browser and can be viewed by <strong>ANYONE</strong> inspecting page source code (<code>Ctrl + U</code> or Developer Tools <code>F12</code>).</p>
+
+<blockquote><p>[!CAUTION]</p></blockquote>
+<blockquote><p><strong>NEVER store sensitive information in HTML comments!</strong></p></blockquote>
+<blockquote><p>Do not put database passwords, private API keys, user credentials, phone numbers, or confidential developer notes inside HTML comments.</p></blockquote>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;HTML Comments Example&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;!-- ==================== HEADER SECTION ==================== --&gt;</p>
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;Tech Learning Portal&lt;/h1&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;!-- ==================== MAIN CONTENT AREA ==================== --&gt;</p>
+<p>  &lt;main&gt;</p>
+<p>    &lt;article&gt;</p>
+<p>      &lt;h2&gt;Learning Web Development&lt;/h2&gt;</p>
+<p>      &lt;p&gt;HTML is the foundation for building modern web applications.&lt;/p&gt;</p>
+
+<p>      &lt;!-- TODO: Add video tutorial component here after review --&gt;</p>
+<p>    &lt;/article&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>  &lt;!-- ==================== FOOTER SECTION ==================== --&gt;</p>
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;&amp;copy; 2026 Tech Learning Portal&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>The browser displays only the heading <strong>"Tech Learning Portal"</strong>, article heading, paragraph, and footer copyright text. All <code><!-- comment --></code> lines are completely invisible to website visitors.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Open an HTML file in VS Code.</p>
+<p>2. Add comments marking the start and end of a navigation bar.</p>
+<p>3. Comment out a paragraph to hide it from the browser preview.</p>
+<p>4. Use keyboard shortcut <code>Ctrl + /</code> (or <code>Cmd + /</code> on Mac) to toggle comments quickly in VS Code.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Nesting comments inside comments:</strong> Writing <code><!-- <!-- nested --> --></code> is invalid syntax and breaks HTML parsing.</li></p>
+<p>  <li><strong>Putting sensitive credentials in comments:</strong> Exposes private passwords or keys publicly to website visitors inspecting page source.</li></p>
+<p>  <li><strong>Leaving debug clutter in production:</strong> Clean up temporary debugging comments before publishing websites live.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Developers use comments to mark section boundaries in large multi-page templates and leave <code>TODO:</code> notes for teammates.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-html-document-structure.html">Document Structure</a></li></p>
+<p>  <li><a href="15-html-attributes.html">HTML Attributes</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Comments use <code><!-- comment --></code> syntax.</li></p>
+<p>  <li>Browsers ignore comments during rendering.</li></p>
+<p>  <li>NEVER put sensitive passwords or API keys in HTML comments.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="15-html-attributes.html">← Previous: Attributes</a> | <a href="./">HTML Home</a> | <a href="17-html-colors.html">Next: Colors →</a></p>
+
+
+
+  </div>
+</body>
+</html>

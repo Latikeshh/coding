@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>42 overflow and visibility - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Overflow & Visibility (<code>overflow</code>, <code>clip-path</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>overflow</code></strong> property specifies how content that exceeds an element's container boundary box is handled (<code>visible</code>, <code>hidden</code>, <code>scroll</code>, <code>auto</code>). The <strong><code>visibility</code></strong> property controls whether an element is visible or hidden while preserving its space in the document layout flow.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>overflow</code> controls content spilling outside box boundaries (<code>visible</code>, <code>hidden</code>, <code>scroll</code>, <code>auto</code>). <code>visibility: hidden</code> hides elements while preserving their reserved layout space (unlike <code>display: none</code>).</p>
+
+<h3>Hindi</h3>
+<p><code>overflow</code> decide karta hai ki agar content box se bahar nikle toh kya hoga (<code>visible</code>, <code>hidden</code>, <code>scroll</code>, <code>auto</code>). <code>visibility: hidden</code> element ko chhupata hai lekin uski khali space layout mein reserved rakhta hai.</p>
+
+<h3>Marathi</h3>
+<p><code>overflow</code> mule box baher janara content kasa sambhalaycha te tharte. <code>visibility: hidden</code> mule element distat nahi pan tyachi jaga layout madhye rahte.</p>
+
+<h2>📚 Property Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Values</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>overflow</code></td><td>Shorthand for horizontal (<code>overflow-x</code>) and vertical (<code>overflow-y</code>) content clipping</td><td><code>overflow: hidden;</code></td></tr></p>
+<p>    <tr><td><code>overflow: visible</code></td><td>Default value; content spills outside the box without scrollbars</td><td><code>overflow: visible;</code></td></tr></p>
+<p>    <tr><td><code>overflow: hidden</code></td><td>Clips extra content; hides scrollbars</td><td><code>overflow: hidden;</code></td></tr></p>
+<p>    <tr><td><code>overflow: auto</code></td><td>Displays scrollbars <strong>only when content overflows</strong></td><td><code>overflow-y: auto;</code> (Scrollable modal body)</td></tr></p>
+<p>    <tr><td><code>overflow: scroll</code></td><td>Always shows scrollbars (even if content fits)</td><td><code>overflow-x: scroll;</code></td></tr></p>
+<p>    <tr><td><code>visibility</code></td><td>Controls element visibility (<code>visible</code>, <code>hidden</code>, <code>collapse</code>)</td><td><code>visibility: hidden;</code></td></tr></p>
+<p>    <tr><td><code>clip-path</code></td><td>Creates custom geometric clip masks (<code>circle()</code>, <code>polygon()</code>)</td><td><code>clip-path: circle(50%);</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>⚔️ <code>visibility: hidden</code> vs. <code>display: none</code> vs. <code>opacity: 0</code></h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Visual Display</th><th>Document Layout Space Reserved</th><th>Interactive (Clickable)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>display: none</code></strong></td><td>Invisible</td><td><strong>No</strong> (Space collapses)</td><td>No</td></tr></p>
+<p>    <tr><td><strong><code>visibility: hidden</code></strong></td><td>Invisible</td><td><strong>Yes</strong> (Space reserved)</td><td>No</td></tr></p>
+<p>    <tr><td><strong><code>opacity: 0</code></strong></td><td>Invisible</td><td><strong>Yes</strong> (Space reserved)</td><td><strong>Yes</strong> (Receives clicks)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Overflow &amp;amp; Visibility Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;!-- Scrollable Box Container --&gt;</p>
+<p>  &lt;div class=&quot;scroll-box&quot;&gt;</p>
+<p>    &lt;h3&gt;Scrollable Modal Body&lt;/h3&gt;</p>
+<p>    &lt;p&gt;Paragraph 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;</p>
+<p>    &lt;p&gt;Paragraph 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;</p>
+<p>    &lt;p&gt;Paragraph 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.&lt;/p&gt;</p>
+<p>    &lt;p&gt;Paragraph 4: Duis aute irure dolor in reprehenderit in voluptate velit esse.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 30px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.scroll-box {</p>
+<p>  width: 100%;</p>
+<p>  max-width: 320px;</p>
+<p>  max-height: 180px; /* Capped container height */</p>
+<p>  overflow-y: auto;  /* Displays vertical scrollbar when text exceeds 180px */</p>
+<p>  background: white;</p>
+<p>  padding: 20px;</p>
+<p>  border-radius: 8px;</p>
+<p>  border: 1px solid #d1d5db;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>}</p>
+
+<p>h3 {</p>
+<p>  margin-top: 0;</p>
+<p>  color: #1d4ed8;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  color: #4b5563;</p>
+<p>  line-height: 1.5;</p>
+<p>  font-size: 14px;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A card box with a capped height of 180px. Because the text paragraphs exceed 180px, a clean vertical scrollbar appears automatically on the right side.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Change <code>overflow-y: auto</code> to <code>overflow: hidden</code> in <code>style.css</code>.</p>
+<p>2. Notice how text paragraphs beyond 180px are clipped off completely without scrollbars.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using <code>overflow: scroll</code> instead of <code>overflow: auto</code>:</strong> <code>scroll</code> forces inactive gray scrollbars on screen even when content fits inside the container. Use <code>overflow: auto</code>.</li></p>
+<p>  <li><strong>Forgetting that <code>overflow: hidden</code> clips absolute overlays:</strong> Using <code>overflow: hidden</code> on a card container will clip tooltips or dropdown menus that stick outside the card border.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p><code>overflow-y: auto</code> formats scrollable modal popup bodies, chat message feeds, and code block snippets. <code>clip-path: polygon()</code> creates slanted hero banners and custom geometric image masks.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-display.html">Display Property</a></li></p>
+<p>  <li><a href="18-positioning.html">Positioning, z-index & Stacking Context</a></li></p>
+<p>  <li><a href="36-card-layout.html">Card Layout Components</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>overflow: auto</code> to show scrollbars only when content exceeds container dimensions.</li></p>
+<p>  <li>Use <code>overflow: hidden</code> to clip content or clean up floated children.</li></p>
+<p>  <li><code>visibility: hidden</code> hides elements while preserving their reserved layout space.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="41-css-architecture-and-dark-mode.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="43-css-lists-and-tables.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

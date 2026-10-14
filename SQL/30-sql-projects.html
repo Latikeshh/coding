@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30 sql projects - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Chapter 30 — Practical SQL Capstone Projects</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition & Overview</h2>
+
+<p>A <strong>SQL Capstone Project</strong> brings together all database concepts—schema design, primary and foreign key constraints, normalized relationships, CRUD operations, multi-table joins, GROUP BY aggregations, subqueries, CTEs, window functions, views, indexes, transactions, and security controls—into complete, production-grade database systems.</p>
+
+<p>Building capstone projects moves you from writing isolated queries to architecting end-to-end data systems that power real-world applications like e-commerce platforms, financial ledgers, and inventory management portals.</p>
+
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><strong>Environment Target</strong>: The projects in this chapter target <strong>MySQL 8.0 or later</strong> (compatible with WampServer, phpMyAdmin, and MySQL Workbench). Enforced <code>CHECK</code> constraints require MySQL 8.0.16 or higher.</p></blockquote>
+
+<p>---</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Capstone projects demonstrate how all SQL concepts integrate together in real-world software engineering. By designing relational schemas, enforcing constraints, seeding realistic datasets, and writing analytical reporting queries, you build portfolio-ready database projects for your developer resume.</p>
+
+<h3>Hindi (Roman Script)</h3>
+<p>SQLSeekhne ka sabse accha tareeka real-world capstone projects banana hai. Is chapter mein hum 3 complete projects banayenge: E-Commerce Platform, Banking & Transaction Ledger, aur Library Management System. Hum tables banayein ge, key constraints enforce karenge, sample data insert karenge, aur analytical reports generate karenge.</p>
+
+<h3>Marathi (Roman Script)</h3>
+<p>SQL madhye mastery milvanyasathi real-world projects banavne garjeche ahe. Ya chapter madhye aapan 3 purna projects tayar karnar aahot: E-Commerce, Banking Transaction Ledger, aani Library Management. Schema design, key constraints, aani analytical queries cha vapar karun portfolio-ready projects tayar kara.</p>
+
+<p>---</p>
+
+<h2>🛠️ Prerequisite: Setup Guide for phpMyAdmin & WampServer</h2>
+
+<p>To execute the project scripts in phpMyAdmin or WampServer:</p>
+
+<p>1. Open phpMyAdmin (<code>http://localhost/phpmyadmin</code>).</p>
+<p>2. Click <strong>Databases</strong> $\rightarrow$ Create a new database named <code>capstone_projects_db</code> $\rightarrow$ Click <strong>Create</strong>.</p>
+<p>3. Select <code>capstone_projects_db</code> from the left sidebar.</p>
+<p>4. Open the <strong>SQL</strong> tab.</p>
+<p>5. Paste the setup scripts and click <strong>Go</strong>.</p>
+
+<blockquote><p>[!WARNING]</p></blockquote>
+<blockquote><p><strong>Reset Script Caution</strong>: Project setup scripts include <code>DROP TABLE IF EXISTS</code> commands to allow clean, reproducible testing. Executing drop statements in a production database permanently deletes pre-existing tables and data!</p></blockquote>
+
+<p>---</p>
+
+<h2>🛒 Capstone Project 1: Complete E-Commerce Database</h2>
+
+<h3>1. Business Requirements & Schema Design</h3>
+<p>An e-commerce database requires tracking customers, product categories, physical products with stock quantities, customer orders, and line items.</p>
+
+<p>Key Business Rules:</p>
+<ul>
+<p>  <li><strong>Historical Price Protection</strong>: <code>unit_price</code> in <code>order_items</code> captures the exact item price charged at purchase time. This protects past financial records if current product prices change in <code>products</code>.</li></p>
+<p>  <li><strong>Composite Primary Key</strong>: <code>order_items</code> uses <code>PRIMARY KEY (order_id, product_id)</code> because an order cannot list the same product twice (quantities are incremented instead).</li></p>
+<p>  <li><strong>Revenue Recognition</strong>: Completed revenue is defined as orders with status <code>'PAID'</code> or <code>'SHIPPED'</code>. Orders with status <code>'PENDING'</code> or <code>'CANCELLED'</code> do not count toward completed revenue.</li></p>
+<p></ul></p>
+
+<h3>2. Table Creation Script (In Dependency Order)</h3>
+
+<pre><code class="language-sql">-- Clean up pre-existing tables in reverse dependency order
+<p>DROP TABLE IF EXISTS order_items;</p>
+<p>DROP TABLE IF EXISTS orders;</p>
+<p>DROP TABLE IF EXISTS products;</p>
+<p>DROP TABLE IF EXISTS categories;</p>
+<p>DROP TABLE IF EXISTS customers;</p>
+
+<p>-- 1. Customers Table</p>
+<p>CREATE TABLE customers (</p>
+<p>    customer_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    last_name VARCHAR(50) NOT NULL,</p>
+<p>    email VARCHAR(100) NOT NULL UNIQUE,</p>
+<p>    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 2. Categories Table</p>
+<p>CREATE TABLE categories (</p>
+<p>    category_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    category_name VARCHAR(50) NOT NULL UNIQUE</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 3. Products Table</p>
+<p>CREATE TABLE products (</p>
+<p>    product_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    product_name VARCHAR(100) NOT NULL,</p>
+<p>    category_id INT NOT NULL,</p>
+<p>    price DECIMAL(10, 2) NOT NULL CHECK (price &gt;= 0.00),</p>
+<p>    stock_quantity INT NOT NULL DEFAULT 0 CHECK (stock_quantity &gt;= 0),</p>
+<p>    FOREIGN KEY (category_id) REFERENCES categories(category_id)</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 4. Orders Table</p>
+<p>CREATE TABLE orders (</p>
+<p>    order_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    order_date DATE NOT NULL,</p>
+<p>    order_status VARCHAR(20) NOT NULL DEFAULT &#39;PENDING&#39; </p>
+<p>        CHECK (order_status IN (&#39;PENDING&#39;, &#39;PAID&#39;, &#39;SHIPPED&#39;, &#39;CANCELLED&#39;)),</p>
+<p>    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 5. Order Items Child Table (Composite Primary Key)</p>
+<p>CREATE TABLE order_items (</p>
+<p>    order_id INT NOT NULL,</p>
+<p>    product_id INT NOT NULL,</p>
+<p>    quantity INT NOT NULL CHECK (quantity &gt; 0),</p>
+<p>    unit_price DECIMAL(10, 2) NOT NULL CHECK (unit_price &gt;= 0.00),</p>
+<p>    PRIMARY KEY (order_id, product_id),</p>
+<p>    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,</p>
+<p>    FOREIGN KEY (product_id) REFERENCES products(product_id)</p>
+<p>) ENGINE=InnoDB;</code></pre></p>
+
+<p>---</p>
+
+<h3>3. E-Commerce Sample Seed Data</h3>
+
+<pre><code class="language-sql">-- Populate Customers (5 Customers; Customer 105 has 0 orders)
+<p>INSERT INTO customers (customer_id, first_name, last_name, email) VALUES</p>
+<p>(101, &#39;Aarav&#39;, &#39;Mehta&#39;, &#39;aarav@example.com&#39;),</p>
+<p>(102, &#39;Sophia&#39;, &#39;Miller&#39;, &#39;sophia@example.com&#39;),</p>
+<p>(103, &#39;Karan&#39;, &#39;Johar&#39;, &#39;karan@example.com&#39;),</p>
+<p>(104, &#39;Emma&#39;, &#39;Wilson&#39;, &#39;emma@example.com&#39;),</p>
+<p>(105, &#39;Rahul&#39;, &#39;Sharma&#39;, &#39;rahul@example.com&#39;);</p>
+
+<p>-- Populate Categories (3 Categories)</p>
+<p>INSERT INTO categories (category_id, category_name) VALUES</p>
+<p>(1, &#39;Electronics&#39;),</p>
+<p>(2, &#39;Furniture&#39;),</p>
+<p>(3, &#39;Books&#39;);</p>
+
+<p>-- Populate Products (9 Products; Product 9 &quot;HD Webcam&quot; is NEVER ordered)</p>
+<p>INSERT INTO products (product_id, product_name, category_id, price, stock_quantity) VALUES</p>
+<p>(1, &#39;Laptop Pro&#39;, 1, 1200.00, 15),</p>
+<p>(2, &#39;Smartphone X&#39;, 1, 800.00, 25),</p>
+<p>(3, &#39;Wireless Headphones&#39;, 1, 150.00, 50),</p>
+<p>(4, &#39;Ergonomic Desk Chair&#39;, 2, 250.00, 8),</p>
+<p>(5, &#39;Standing Computer Desk&#39;, 2, 450.00, 4),</p>
+<p>(6, &#39;Bookshelf Unit&#39;, 2, 180.00, 0), -- Out of stock</p>
+<p>(7, &#39;SQL Master Guide&#39;, 3, 40.00, 100),</p>
+<p>(8, &#39;Python Handbook&#39;, 3, 35.00, 75),</p>
+<p>(9, &#39;HD Webcam&#39;, 1, 60.00, 30); -- Never ordered</p>
+
+<p>-- Populate Orders (8 Orders across varied statuses)</p>
+<p>INSERT INTO orders (order_id, customer_id, order_date, order_status) VALUES</p>
+<p>(5001, 101, &#39;2026-01-15&#39;, &#39;PAID&#39;),</p>
+<p>(5002, 101, &#39;2026-02-10&#39;, &#39;SHIPPED&#39;),</p>
+<p>(5003, 102, &#39;2026-01-20&#39;, &#39;PAID&#39;),</p>
+<p>(5004, 103, &#39;2026-02-05&#39;, &#39;PENDING&#39;),   -- Unpaid pending order</p>
+<p>(5005, 101, &#39;2026-02-25&#39;, &#39;PAID&#39;),</p>
+<p>(5006, 102, &#39;2026-02-28&#39;, &#39;CANCELLED&#39;), -- Cancelled order</p>
+<p>(5007, 104, &#39;2026-02-12&#39;, &#39;SHIPPED&#39;),</p>
+<p>(5008, 103, &#39;2026-02-20&#39;, &#39;PAID&#39;);</p>
+
+<p>-- Populate Order Items</p>
+<p>INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES</p>
+<p>(5001, 1, 1, 1200.00), -- Laptop ($1200.00)</p>
+<p>(5001, 3, 2, 150.00),  -- 2x Headphones ($300.00)</p>
+<p>(5002, 2, 1, 800.00),  -- Smartphone ($800.00)</p>
+<p>(5002, 7, 2, 40.00),   -- 2x SQL Book ($80.00)</p>
+<p>(5003, 1, 2, 1200.00), -- 2x Laptop ($2400.00)</p>
+<p>(5003, 5, 1, 450.00),  -- Standing Desk ($450.00)</p>
+<p>(5004, 4, 1, 250.00),  -- Chair ($250.00, Pending)</p>
+<p>(5005, 8, 2, 35.00),   -- 2x Python Book ($70.00)</p>
+<p>(5006, 2, 1, 800.00),  -- Smartphone ($800.00, Cancelled)</p>
+<p>(5007, 4, 2, 250.00),  -- 2x Chair ($500.00)</p>
+<p>(5008, 3, 1, 150.00),  -- Headphones ($150.00)</p>
+<p>(5008, 7, 1, 40.00);   -- SQL Book ($40.00)</code></pre></p>
+
+<p>---</p>
+
+<h3>4. E-Commerce Analytical Reports</h3>
+
+<p>#### Report A: Top Spending Customers (Completed Revenue)</p>
+<pre><code class="language-sql">SELECT 
+<p>    c.customer_id,</p>
+<p>    CONCAT(c.first_name, &#39; &#39;, c.last_name) AS customer_name,</p>
+<p>    COUNT(DISTINCT o.order_id) AS completed_orders,</p>
+<p>    SUM(oi.quantity * oi.unit_price) AS lifetime_spend</p>
+<p>FROM customers AS c</p>
+<p>JOIN orders AS o ON c.customer_id = o.customer_id</p>
+<p>JOIN order_items AS oi ON o.order_id = oi.order_id</p>
+<p>WHERE o.order_status IN (&#39;PAID&#39;, &#39;SHIPPED&#39;)</p>
+<p>GROUP BY c.customer_id, c.first_name, c.last_name</p>
+<p>ORDER BY lifetime_spend DESC;</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>customer_id</th><th>customer_name</th><th>completed_orders</th><th>lifetime_spend</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>102</td><td>Sophia Miller</td><td>1</td><td>2850.00</td></tr></p>
+<p>    <tr><td>101</td><td>Aarav Mehta</td><td>3</td><td>2450.00</td></tr></p>
+<p>    <tr><td>104</td><td>Emma Wilson</td><td>1</td><td>500.00</td></tr></p>
+<p>    <tr><td>103</td><td>Karan Johar</td><td>1</td><td>190.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>##### Explanation:</p>
+<ul>
+<p>  <li>Filter <code>o.order_status IN ('PAID', 'SHIPPED')</code> excludes pending and cancelled orders.</li></p>
+<p>  <li><code>COUNT(DISTINCT o.order_id)</code> avoids double-counting order numbers when joining multiple order items.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<p>#### Report B: Category Revenue & Revenue Share Percentage (CTE & Window Functions)</p>
+<pre><code class="language-sql">WITH category_revenue_summary AS (
+<p>    SELECT </p>
+<p>        cat.category_id,</p>
+<p>        cat.category_name,</p>
+<p>        COALESCE(SUM(oi.quantity * oi.unit_price), 0.00) AS category_revenue</p>
+<p>    FROM categories AS cat</p>
+<p>    LEFT JOIN products AS p ON cat.category_id = p.category_id</p>
+<p>    LEFT JOIN order_items AS oi ON p.product_id = oi.product_id</p>
+<p>    LEFT JOIN orders AS o ON oi.order_id = o.order_id AND o.order_status IN (&#39;PAID&#39;, &#39;SHIPPED&#39;)</p>
+<p>    GROUP BY cat.category_id, cat.category_name</p>
+<p>)</p>
+<p>SELECT </p>
+<p>    category_name,</p>
+<p>    category_revenue,</p>
+<p>    ROUND(</p>
+<p>        CASE </p>
+<p>            WHEN SUM(category_revenue) OVER() = 0 THEN 0.00</p>
+<p>            ELSE (category_revenue / SUM(category_revenue) OVER()) * 100.0</p>
+<p>        END, 2</p>
+<p>    ) AS revenue_share_pct</p>
+<p>FROM category_revenue_summary</p>
+<p>ORDER BY category_revenue DESC;</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>category_name</th><th>category_revenue</th><th>revenue_share_pct</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Electronics</td><td>4850.00</td><td>80.97</td></tr></p>
+<p>    <tr><td>Furniture</td><td>950.00</td><td>15.86</td></tr></p>
+<p>    <tr><td>Books</td><td>190.00</td><td>3.17</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>##### Explanation:</p>
+<ul>
+<p>  <li><code>SUM(category_revenue) OVER()</code> calculates the grand total completed revenue ($5990.00$) using a window function.</li></p>
+<p>  <li>The <code>CASE</code> statement prevents division-by-zero errors if total revenue is zero.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<p>#### Report C: Products Never Ordered (<code>NOT EXISTS</code>)</p>
+<pre><code class="language-sql">SELECT p.product_id, p.product_name, cat.category_name, p.price
+<p>FROM products AS p</p>
+<p>JOIN categories AS cat ON p.category_id = cat.category_id</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 </p>
+<p>    FROM order_items AS oi</p>
+<p>    WHERE oi.product_id = p.product_id</p>
+<p>)</p>
+<p>ORDER BY p.product_id;</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>product_id</th><th>product_name</th><th>category_name</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>9</td><td>HD Webcam</td><td>Electronics</td><td>60.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<p>#### Report D: Inventory Stock Status Alert (<code>CASE</code> Statement)</p>
+<pre><code class="language-sql">SELECT 
+<p>    p.product_id,</p>
+<p>    p.product_name,</p>
+<p>    cat.category_name,</p>
+<p>    p.stock_quantity,</p>
+<p>    CASE </p>
+<p>        WHEN p.stock_quantity = 0 THEN &#39;OUT OF STOCK&#39;</p>
+<p>        WHEN p.stock_quantity &lt;= 10 THEN &#39;LOW STOCK ALERT&#39;</p>
+<p>        ELSE &#39;IN STOCK&#39;</p>
+<p>    END AS inventory_status</p>
+<p>FROM products AS p</p>
+<p>JOIN categories AS cat ON p.category_id = cat.category_id</p>
+<p>ORDER BY p.stock_quantity ASC;</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>product_id</th><th>product_name</th><th>category_name</th><th>stock_quantity</th><th>inventory_status</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>6</td><td>Bookshelf Unit</td><td>Furniture</td><td>0</td><td>OUT OF STOCK</td></tr></p>
+<p>    <tr><td>5</td><td>Standing Computer Desk</td><td>Furniture</td><td>4</td><td>LOW STOCK ALERT</td></tr></p>
+<p>    <tr><td>4</td><td>Ergonomic Desk Chair</td><td>Furniture</td><td>8</td><td>LOW STOCK ALERT</td></tr></p>
+<p>    <tr><td>1</td><td>Laptop Pro</td><td>Electronics</td><td>15</td><td>IN STOCK</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<p>#### Report E: Complete Customer Order History Directory (<code>LEFT JOIN</code>)</p>
+<pre><code class="language-sql">SELECT 
+<p>    c.customer_id,</p>
+<p>    CONCAT(c.first_name, &#39; &#39;, c.last_name) AS customer_name,</p>
+<p>    COUNT(DISTINCT o.order_id) AS total_orders_placed,</p>
+<p>    COALESCE(MAX(o.order_date), &#39;No Orders&#39;) AS last_order_date</p>
+<p>FROM customers AS c</p>
+<p>LEFT JOIN orders AS o ON c.customer_id = o.customer_id</p>
+<p>GROUP BY c.customer_id, c.first_name, c.last_name</p>
+<p>ORDER BY c.customer_id;</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>customer_id</th><th>customer_name</th><th>total_orders_placed</th><th>last_order_date</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>101</td><td>Aarav Mehta</td><td>3</td><td>2026-02-25</td></tr></p>
+<p>    <tr><td>102</td><td>Sophia Miller</td><td>2</td><td>2026-02-28</td></tr></p>
+<p>    <tr><td>103</td><td>Karan Johar</td><td>2</td><td>2026-02-20</td></tr></p>
+<p>    <tr><td>104</td><td>Emma Wilson</td><td>1</td><td>2026-02-12</td></tr></p>
+<p>    <tr><td>105</td><td>Rahul Sharma</td><td>0</td><td>No Orders</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🏦 Capstone Project 2: Banking & Transaction Ledger</h2>
+
+<h3>1. Schema & Setup Script</h3>
+
+<pre><code class="language-sql">DROP TABLE IF EXISTS account_transactions;
+<p>DROP TABLE IF EXISTS bank_accounts;</p>
+
+<p>-- 1. Accounts Master Table</p>
+<p>CREATE TABLE bank_accounts (</p>
+<p>    account_number INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    holder_name VARCHAR(100) NOT NULL,</p>
+<p>    account_type VARCHAR(20) NOT NULL CHECK (account_type IN (&#39;SAVINGS&#39;, &#39;CHECKING&#39;)),</p>
+<p>    balance DECIMAL(12, 2) NOT NULL DEFAULT 0.00 CHECK (balance &gt;= 0.00),</p>
+<p>    is_active BOOLEAN NOT NULL DEFAULT TRUE</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 2. Transaction Log Table</p>
+<p>CREATE TABLE account_transactions (</p>
+<p>    transaction_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    account_number INT NOT NULL,</p>
+<p>    transaction_type VARCHAR(20) NOT NULL CHECK (transaction_type IN (&#39;DEPOSIT&#39;, &#39;WITHDRAWAL&#39;, &#39;TRANSFER&#39;)),</p>
+<p>    amount DECIMAL(12, 2) NOT NULL CHECK (amount &gt; 0.00),</p>
+<p>    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,</p>
+<p>    FOREIGN KEY (account_number) REFERENCES bank_accounts(account_number)</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- Populate Accounts</p>
+<p>INSERT INTO bank_accounts (account_number, holder_name, account_type, balance) VALUES</p>
+<p>(1001, &#39;Rahul Sharma&#39;, &#39;SAVINGS&#39;, 2500.00),</p>
+<p>(1002, &#39;Priya Patel&#39;, &#39;CHECKING&#39;, 1200.00),</p>
+<p>(1003, &#39;Amit Verma&#39;, &#39;SAVINGS&#39;, 4500.00),</p>
+<p>(1004, &#39;Neha Gupta&#39;, &#39;CHECKING&#39;, 800.00);</p>
+
+<p>-- Populate Transactions</p>
+<p>INSERT INTO account_transactions (transaction_id, account_number, transaction_type, amount, transaction_date) VALUES</p>
+<p>(1, 1001, &#39;DEPOSIT&#39;, 1000.00, &#39;2026-02-01 10:00:00&#39;),</p>
+<p>(2, 1001, &#39;WITHDRAWAL&#39;, 200.00, &#39;2026-02-05 11:30:00&#39;),</p>
+<p>(3, 1002, &#39;DEPOSIT&#39;, 1500.00, &#39;2026-02-02 09:15:00&#39;),</p>
+<p>(4, 1002, &#39;WITHDRAWAL&#39;, 300.00, &#39;2026-02-10 14:20:00&#39;),</p>
+<p>(5, 1003, &#39;DEPOSIT&#39;, 5000.00, &#39;2026-02-01 08:00:00&#39;),</p>
+<p>(6, 1003, &#39;WITHDRAWAL&#39;, 500.00, &#39;2026-02-12 16:45:00&#39;),</p>
+<p>(7, 1004, &#39;DEPOSIT&#39;, 800.00, &#39;2026-02-15 12:00:00&#39;),</p>
+<p>(8, 1001, &#39;TRANSFER&#39;, 1500.00, &#39;2026-02-20 15:00:00&#39;);</code></pre></p>
+
+<p>---</p>
+
+<h3>2. Banking Reports</h3>
+
+<p>#### Report A: Account Transaction Summary</p>
+<pre><code class="language-sql">SELECT 
+<p>    b.account_number,</p>
+<p>    b.holder_name,</p>
+<p>    b.balance AS current_balance,</p>
+<p>    COALESCE(SUM(CASE WHEN t.transaction_type = &#39;DEPOSIT&#39; THEN t.amount ELSE 0 END), 0.00) AS total_deposits,</p>
+<p>    COALESCE(SUM(CASE WHEN t.transaction_type = &#39;WITHDRAWAL&#39; THEN t.amount ELSE 0 END), 0.00) AS total_withdrawals</p>
+<p>FROM bank_accounts AS b</p>
+<p>LEFT JOIN account_transactions AS t ON b.account_number = t.account_number</p>
+<p>GROUP BY b.account_number, b.holder_name, b.balance</p>
+<p>ORDER BY b.account_number;</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>account_number</th><th>holder_name</th><th>current_balance</th><th>total_deposits</th><th>total_withdrawals</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1001</td><td>Rahul Sharma</td><td>2500.00</td><td>1000.00</td><td>200.00</td></tr></p>
+<p>    <tr><td>1002</td><td>Priya Patel</td><td>1200.00</td><td>1500.00</td><td>300.00</td></tr></p>
+<p>    <tr><td>1003</td><td>Amit Verma</td><td>4500.00</td><td>5000.00</td><td>500.00</td></tr></p>
+<p>    <tr><td>1004</td><td>Neha Gupta</td><td>800.00</td><td>800.00</td><td>0.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>3. Safe Transfer Pattern (MySQL / InnoDB)</h3>
+
+<p>To safely transfer $500.00 from Account 1001 to Account 1002:</p>
+
+<pre><code class="language-sql">-- Transactional Transfer Pattern
+<p>START TRANSACTION;</p>
+
+<p>-- Step 1: Lock source account and verify balance</p>
+<p>SELECT balance FROM bank_accounts WHERE account_number = 1001 FOR UPDATE;</p>
+
+<p>-- Step 2: Debit source account</p>
+<p>UPDATE bank_accounts SET balance = balance - 500.00 WHERE account_number = 1001;</p>
+
+<p>-- Step 3: Credit destination account</p>
+<p>UPDATE bank_accounts SET balance = balance + 500.00 WHERE account_number = 1002;</p>
+
+<p>-- Step 4: Record audit log entries</p>
+<p>INSERT INTO account_transactions (account_number, transaction_type, amount) VALUES</p>
+<p>(1001, &#39;TRANSFER&#39;, 500.00),</p>
+<p>(1002, &#39;DEPOSIT&#39;, 500.00);</p>
+
+<p>-- Finalize transaction</p>
+<p>COMMIT;</code></pre></p>
+
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><strong>Educational Scope Note</strong>: In real production systems, financial software enforces multi-factor authentication, idempotency keys, fraud analysis, double-entry bookkeeping ledgers, and regulatory audit logging.</p></blockquote>
+
+<p>---</p>
+
+<h2>📚 Capstone Project 3: Library Management System</h2>
+
+<h3>1. Schema & Setup Script</h3>
+
+<pre><code class="language-sql">DROP TABLE IF EXISTS book_loans;
+<p>DROP TABLE IF EXISTS books;</p>
+<p>DROP TABLE IF EXISTS members;</p>
+
+<p>-- 1. Members Table</p>
+<p>CREATE TABLE members (</p>
+<p>    member_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    full_name VARCHAR(100) NOT NULL,</p>
+<p>    email VARCHAR(100) NOT NULL UNIQUE,</p>
+<p>    joined_date DATE NOT NULL</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 2. Books Table</p>
+<p>CREATE TABLE books (</p>
+<p>    book_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    title VARCHAR(150) NOT NULL,</p>
+<p>    author VARCHAR(100) NOT NULL,</p>
+<p>    category VARCHAR(50) NOT NULL,</p>
+<p>    total_copies INT NOT NULL CHECK (total_copies &gt;= 0)</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 3. Book Loans Table</p>
+<p>CREATE TABLE book_loans (</p>
+<p>    loan_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    book_id INT NOT NULL,</p>
+<p>    member_id INT NOT NULL,</p>
+<p>    borrow_date DATE NOT NULL,</p>
+<p>    due_date DATE NOT NULL,</p>
+<p>    return_date DATE DEFAULT NULL, -- NULL means currently outstanding!</p>
+<p>    FOREIGN KEY (book_id) REFERENCES books(book_id),</p>
+<p>    FOREIGN KEY (member_id) REFERENCES members(member_id)</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- Populate Members (Emma Wilson has borrowed 0 books)</p>
+<p>INSERT INTO members (member_id, full_name, email, joined_date) VALUES</p>
+<p>(1, &#39;Aarav Mehta&#39;, &#39;aarav@example.com&#39;, &#39;2025-01-10&#39;),</p>
+<p>(2, &#39;Sophia Miller&#39;, &#39;sophia@example.com&#39;, &#39;2025-03-15&#39;),</p>
+<p>(3, &#39;Karan Johar&#39;, &#39;karan@example.com&#39;, &#39;2025-06-20&#39;),</p>
+<p>(4, &#39;Emma Wilson&#39;, &#39;emma@example.com&#39;, &#39;2025-09-01&#39;);</p>
+
+<p>-- Populate Books (Book 105 &quot;Design Patterns&quot; is NEVER borrowed)</p>
+<p>INSERT INTO books (book_id, title, author, category, total_copies) VALUES</p>
+<p>(101, &#39;Database System Concepts&#39;, &#39;Silberschatz&#39;, &#39;Computer Science&#39;, 5),</p>
+<p>(102, &#39;Clean Code&#39;, &#39;Robert C. Martin&#39;, &#39;Software Engineering&#39;, 3),</p>
+<p>(103, &#39;The Pragmatic Programmer&#39;, &#39;Andrew Hunt&#39;, &#39;Software Engineering&#39;, 4),</p>
+<p>(104, &#39;Introduction to Algorithms&#39;, &#39;Cormen&#39;, &#39;Computer Science&#39;, 2),</p>
+<p>(105, &#39;Design Patterns&#39;, &#39;Gang of Four&#39;, &#39;Software Engineering&#39;, 3);</p>
+
+<p>-- Populate Loans (Reference current date: &#39;2026-03-01&#39;)</p>
+<p>INSERT INTO book_loans (loan_id, book_id, member_id, borrow_date, due_date, return_date) VALUES</p>
+<p>(1, 101, 1, &#39;2026-01-05&#39;, &#39;2026-01-19&#39;, &#39;2026-01-18&#39;), -- Returned on time</p>
+<p>(2, 102, 1, &#39;2026-02-01&#39;, &#39;2026-02-15&#39;, NULL),         -- OVERDUE (Due Feb 15)</p>
+<p>(3, 101, 2, &#39;2026-02-10&#39;, &#39;2026-02-24&#39;, NULL),         -- OVERDUE (Due Feb 24)</p>
+<p>(4, 103, 3, &#39;2026-02-20&#39;, &#39;2026-03-06&#39;, NULL),         -- Outstanding (Due March 6)</p>
+<p>(5, 102, 2, &#39;2026-01-10&#39;, &#39;2026-01-24&#39;, &#39;2026-01-22&#39;), -- Returned on time</p>
+<p>(6, 104, 3, &#39;2026-02-01&#39;, &#39;2026-02-15&#39;, &#39;2026-02-14&#39;); -- Returned on time</code></pre></p>
+
+<p>---</p>
+
+<h3>2. Library Reports</h3>
+
+<p>#### Report A: Overdue Loans Report (Reference Date: <code>'2026-03-01'</code>)</p>
+<pre><code class="language-sql">SELECT 
+<p>    l.loan_id,</p>
+<p>    m.full_name AS member_name,</p>
+<p>    b.title AS book_title,</p>
+<p>    l.borrow_date,</p>
+<p>    l.due_date,</p>
+<p>    DATEDIFF(&#39;2026-03-01&#39;, l.due_date) AS days_overdue</p>
+<p>FROM book_loans AS l</p>
+<p>JOIN members AS m ON l.member_id = m.member_id</p>
+<p>JOIN books AS b ON l.book_id = b.book_id</p>
+<p>WHERE l.return_date IS NULL AND l.due_date &lt; &#39;2026-03-01&#39;</p>
+<p>ORDER BY days_overdue DESC;</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>loan_id</th><th>member_name</th><th>book_title</th><th>borrow_date</th><th>due_date</th><th>days_overdue</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Aarav Mehta</td><td>Clean Code</td><td>2026-02-01</td><td>2026-02-15</td><td>14</td></tr></p>
+<p>    <tr><td>3</td><td>Sophia Miller</td><td>Database System Concepts</td><td>2026-02-10</td><td>2026-02-24</td><td>5</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<p>#### Report B: Books Never Borrowed (<code>NOT EXISTS</code>)</p>
+<pre><code class="language-sql">SELECT b.book_id, b.title, b.author, b.category
+<p>FROM books AS b</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 FROM book_loans AS l WHERE l.book_id = b.book_id</p>
+<p>);</code></pre></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>book_id</th><th>title</th><th>author</th><th>category</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>105</td><td>Design Patterns</td><td>Gang of Four</td><td>Software Engineering</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>⚡ Indexing & Performance Principles</h2>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong>MySQL Foreign Key Index Rule</strong>: In MySQL (InnoDB), the database engine <strong>automatically creates an index on foreign key columns</strong> if a matching index does not already exist. You do <strong>not</strong> need to manually add duplicate indexes on foreign key columns.</p></blockquote>
+
+<h3>Index Best Practices:</h3>
+<p>1. <strong>Target Selective Filtering Columns</strong>: Create indexes on columns frequently used in <code>WHERE</code>, <code>JOIN</code>, and <code>ORDER BY</code> clauses (e.g. <code>orders(order_status, order_date)</code>).</p>
+<p>2. <strong>Inspect Query Plans with <code>EXPLAIN</code></strong>:</p>
+<p>   <pre><code class="language-sql">   EXPLAIN SELECT * FROM orders WHERE order_status = &#39;PAID&#39;;</p>
+<p>   ``<code></p>
+<p>3. <strong>Avoid Over-Indexing</strong>: Every index slows down </code>INSERT<code>, </code>UPDATE<code>, and </code>DELETE<code> performance because the B-Tree index must be updated on disk during modifications.</p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+
+<p>1. <strong>Creating Child Tables Before Parent Tables</strong>: Executing </code>CREATE TABLE order_items<code> before </code>orders<code> fails with </code>Cannot add foreign key constraint<code>. Always create parent tables first!</p>
+<p>2. <strong>Double-Counting Revenue in One-to-Many Joins</strong>: Joining </code>orders<code> with </code>order_items<code> multiplies order rows. Use </code>SUM(oi.quantity * oi.unit_price)<code> instead of </code>SUM(o.total_amount)<code>.</p>
+<p>3. <strong>Counting Line Items Instead of Orders</strong>: Using </code>COUNT(oi.product_id)<code> counts line items. Use </code>COUNT(DISTINCT o.order_id)<code> to count distinct orders.</p>
+<p>4. <strong>Including Unpaid/Cancelled Orders in Revenue</strong>: Always filter </code>WHERE order_status IN (&#39;PAID&#39;, &#39;SHIPPED&#39;)<code> when generating completed sales reports.</p>
+<p>5. <strong>Adding Duplicate Foreign Key Indexes</strong>: Manually creating indexes on foreign key columns that InnoDB already indexed automatically.</p>
+<p>6. <strong>Hardcoding Historic Unit Prices</strong>: Reading prices dynamically from </code>products<code> during invoice generation alters past order values if product prices change later. Always copy </code>unit_price<code> into </code>order_items<code>.</p>
+
+<p>---</p>
+
+<h2>🧪 Ten Progressive Practice Exercises &amp; Solutions</h2>
+
+<p>Use the sample database scripts (</code>E-Commerce<code>, </code>Banking<code>, </code>Library<code>) provided in this chapter.</p>
+
+<p>---</p>
+
+<h3>Exercise 1: E-Commerce — Products Never Ordered</h3>
+<p><strong>Task</strong>: Find all products in the catalog that have never been ordered.  </p>
+<p><strong>Hint</strong>: Use </code>NOT EXISTS<code> on </code>order_items<code>.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>SELECT p.product_id, p.product_name, p.price</p>
+<p>FROM products AS p</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 FROM order_items AS oi WHERE oi.product_id = p.product_id</p>
+<p>);</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>product_id</th><th>product_name</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>9</td><td>HD Webcam</td><td>60.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 2: E-Commerce — Top 3 Customers by Paid Spend</h3>
+<p><strong>Task</strong>: List the top 3 spending customers counting only </code>&#39;PAID&#39;<code> or </code>&#39;SHIPPED&#39;<code> orders.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>SELECT </p>
+<p>    c.customer_id,</p>
+<p>    CONCAT(c.first_name, ' ', c.last_name) AS customer_name,</p>
+<p>    SUM(oi.quantity * oi.unit_price) AS completed_spend</p>
+<p>FROM customers AS c</p>
+<p>JOIN orders AS o ON c.customer_id = o.customer_id</p>
+<p>JOIN order_items AS oi ON o.order_id = oi.order_id</p>
+<p>WHERE o.order_status IN ('PAID', 'SHIPPED')</p>
+<p>GROUP BY c.customer_id, c.first_name, c.last_name</p>
+<p>ORDER BY completed_spend DESC</p>
+<p>LIMIT 3;</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>customer_id</th><th>customer_name</th><th>completed_spend</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>102</td><td>Sophia Miller</td><td>2850.00</td></tr></p>
+<p>    <tr><td>101</td><td>Aarav Mehta</td><td>2450.00</td></tr></p>
+<p>    <tr><td>104</td><td>Emma Wilson</td><td>500.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 3: E-Commerce — Category Revenue Share</h3>
+<p><strong>Task</strong>: Calculate each category&#39;s total completed revenue and percentage share of overall sales.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>WITH cat_sales AS (</p>
+<p>    SELECT </p>
+<p>        cat.category_name,</p>
+<p>        COALESCE(SUM(oi.quantity * oi.unit_price), 0.00) AS cat_revenue</p>
+<p>    FROM categories AS cat</p>
+<p>    LEFT JOIN products AS p ON cat.category_id = p.category_id</p>
+<p>    LEFT JOIN order_items AS oi ON p.product_id = oi.product_id</p>
+<p>    LEFT JOIN orders AS o ON oi.order_id = o.order_id AND o.order_status IN ('PAID', 'SHIPPED')</p>
+<p>    GROUP BY cat.category_name</p>
+<p>)</p>
+<p>SELECT </p>
+<p>    category_name,</p>
+<p>    cat_revenue,</p>
+<p>    ROUND((cat_revenue / SUM(cat_revenue) OVER()) * 100.0, 2) AS revenue_pct</p>
+<p>FROM cat_sales</p>
+<p>ORDER BY cat_revenue DESC;</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>category_name</th><th>cat_revenue</th><th>revenue_pct</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Electronics</td><td>4850.00</td><td>80.97</td></tr></p>
+<p>    <tr><td>Furniture</td><td>950.00</td><td>15.86</td></tr></p>
+<p>    <tr><td>Books</td><td>190.00</td><td>3.17</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 4: E-Commerce — High-Value Orders</h3>
+<p><strong>Task</strong>: Retrieve all orders where the order total amount exceeds $1000.00.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>SELECT order_id, customer_id, order_date, total_amount, order_status</p>
+<p>FROM (</p>
+<p>    SELECT </p>
+<p>        o.order_id,</p>
+<p>        o.customer_id,</p>
+<p>        o.order_date,</p>
+<p>        o.order_status,</p>
+<p>        SUM(oi.quantity * oi.unit_price) AS order_total</p>
+<p>    FROM orders AS o</p>
+<p>    JOIN order_items AS oi ON o.order_id = oi.order_id</p>
+<p>    GROUP BY o.order_id, o.customer_id, o.order_date, o.order_status</p>
+<p>) AS order_totals</p>
+<p>WHERE order_total > 1000.00</p>
+<p>ORDER BY order_total DESC;</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>order_id</th><th>customer_id</th><th>order_date</th><th>order_status</th><th>order_total</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>5003</td><td>102</td><td>2026-01-20</td><td>PAID</td><td>2850.00</td></tr></p>
+<p>    <tr><td>5001</td><td>101</td><td>2026-01-15</td><td>PAID</td><td>1500.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 5: E-Commerce — Customers with No Paid Orders</h3>
+<p><strong>Task</strong>: Find customers who have never placed a </code>&#39;PAID&#39;<code> or </code>&#39;SHIPPED&#39;<code> order.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS customer_name</p>
+<p>FROM customers AS c</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 FROM orders AS o </p>
+<p>    WHERE o.customer_id = c.customer_id AND o.order_status IN ('PAID', 'SHIPPED')</p>
+<p>);</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>customer_id</th><th>customer_name</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>103</td><td>Karan Johar</td></tr></p>
+<p>    <tr><td>105</td><td>Rahul Sharma</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 6: Banking — Account Deposits vs Withdrawals</h3>
+<p><strong>Task</strong>: Summarize total deposits and total withdrawals per bank account.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>SELECT </p>
+<p>    account_number,</p>
+<p>    SUM(CASE WHEN transaction_type = 'DEPOSIT' THEN amount ELSE 0 END) AS total_deposits,</p>
+<p>    SUM(CASE WHEN transaction_type = 'WITHDRAWAL' THEN amount ELSE 0 END) AS total_withdrawals</p>
+<p>FROM account_transactions</p>
+<p>GROUP BY account_number</p>
+<p>ORDER BY account_number;</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>account_number</th><th>total_deposits</th><th>total_withdrawals</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1001</td><td>1000.00</td><td>200.00</td></tr></p>
+<p>    <tr><td>1002</td><td>1500.00</td><td>300.00</td></tr></p>
+<p>    <tr><td>1003</td><td>5000.00</td><td>500.00</td></tr></p>
+<p>    <tr><td>1004</td><td>800.00</td><td>0.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 7: Banking — High-Value Transactions</h3>
+<p><strong>Task</strong>: Find all bank transactions where amount is $\ge \$1000.00$.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>SELECT transaction_id, account_number, transaction_type, amount, transaction_date</p>
+<p>FROM account_transactions</p>
+<p>WHERE amount >= 1000.00</p>
+<p>ORDER BY amount DESC;</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>transaction_id</th><th>account_number</th><th>transaction_type</th><th>amount</th><th>transaction_date</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>5</td><td>1003</td><td>DEPOSIT</td><td>5000.00</td><td>2026-02-01 08:00:00</td></tr></p>
+<p>    <tr><td>3</td><td>1002</td><td>DEPOSIT</td><td>1500.00</td><td>2026-02-02 09:15:00</td></tr></p>
+<p>    <tr><td>8</td><td>1001</td><td>TRANSFER</td><td>1500.00</td><td>2026-02-20 15:00:00</td></tr></p>
+<p>    <tr><td>1</td><td>1001</td><td>DEPOSIT</td><td>1000.00</td><td>2026-02-01 10:00:00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 8: Library — Overdue Loans List</h3>
+<p><strong>Task</strong>: List all members with overdue books as of </code>&#39;2026-03-01&#39;<code>.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>SELECT </p>
+<p>    m.full_name AS member_name,</p>
+<p>    b.title AS book_title,</p>
+<p>    l.due_date</p>
+<p>FROM book_loans AS l</p>
+<p>JOIN members AS m ON l.member_id = m.member_id</p>
+<p>JOIN books AS b ON l.book_id = b.book_id</p>
+<p>WHERE l.return_date IS NULL AND l.due_date < '2026-03-01'</p>
+<p>ORDER BY l.due_date ASC;</p>
+<pre><code class="language-text">
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>member_name</th><th>book_title</th><th>due_date</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Aarav Mehta</td><td>Clean Code</td><td>2026-02-15</td></tr></p>
+<p>    <tr><td>Sophia Miller</td><td>Database System Concepts</td><td>2026-02-24</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 9: Library — Most Borrowed Books Ranking</h3>
+<p><strong>Task</strong>: Rank books by total number of times borrowed using </code>DENSE_RANK()<code>.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>WITH loan_counts AS (</p>
+<p>    SELECT book_id, COUNT(loan_id) AS times_borrowed</p>
+<p>    FROM book_loans</p>
+<p>    GROUP BY book_id</p>
+<p>)</p>
+<p>SELECT </p>
+<p>    b.title,</p>
+<p>    COALESCE(lc.times_borrowed, 0) AS times_borrowed,</p>
+<p>    DENSE_RANK() OVER (ORDER BY COALESCE(lc.times_borrowed, 0) DESC) AS borrow_rank</p>
+<p>FROM books AS b</p>
+<p>LEFT JOIN loan_counts AS lc ON b.book_id = lc.book_id</p>
+<p>ORDER BY borrow_rank, b.title;</p>
+<p></code>`<code></p>
+
+<p>##### Output</p>
+<table>
+<p>  <thead><tr><th>title</th><th>times_borrowed</th><th>borrow_rank</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Clean Code</td><td>2</td><td>1</td></tr></p>
+<p>    <tr><td>Database System Concepts</td><td>2</td><td>1</td></tr></p>
+<p>    <tr><td>Introduction to Algorithms</td><td>1</td><td>2</td></tr></p>
+<p>    <tr><td>The Pragmatic Programmer</td><td>1</td><td>2</td></tr></p>
+<p>    <tr><td>Design Patterns</td><td>0</td><td>3</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 10: Index Strategy Evaluation</h3>
+<p><strong>Task</strong>: Recommend an optimal indexing strategy for a query that frequently filters orders by </code>order_status<code> and orders by </code>order_date DESC<code>.</p>
+
+<p>#### Answer & Explanation:</p>
+<ul>
+<p>  <li>Create a composite index: </code>CREATE INDEX idx_orders_status_date ON orders(order_status, order_date DESC);<code>.</li></p>
+<p>  <li>The leading column </code>order_status<code> accelerates filtering, while the second column </code>order_date<code> eliminates extra sorting passes (</code>filesort<code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🎯 Portfolio Assignment: Presenting Your Project on GitHub</h2>
+
+<p>To showcase your Capstone Projects professionally on GitHub:</p>
+
+<p>1. <strong>Repository Structure</strong>: Store setup scripts in </code>schema.sql<code>, seed data in </code>seeds.sql<code>, and reporting queries in </code>queries.sql<code>.</p>
+<p>2. <strong>Professional README Template</strong>:</p>
+<ul>
+<p>  <li><strong>Project Overview</strong>: Problem statement and business goals.</li></p>
+<p>  <li><strong>ER Diagram</strong>: Visual relationship model (</code>1:N<code>, </code>N:M`).</li></p>
+<p>  <li><strong>Schema & Constraints</strong>: Primary/foreign keys, unique constraints, and check validation.</li></p>
+<p>  <li><strong>Analytical Query Showcase</strong>: Present reporting queries with markdown tables showing expected outputs.</li></p>
+<p>  <li><strong>Setup Instructions</strong>: Step-by-step import guide for phpMyAdmin or MySQL CLI.</li></p>
+<p>  <li><strong>Disclaimer</strong>: State clearly that these projects are educational database architecture demonstrations.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="19-normalization.html">Database Relationships & Normalization</a></li></p>
+<p>  <li><a href="21-indexes-and-performance.html">Indexes & Query Performance</a></li></p>
+<p>  <li><a href="26-stored-procedures.html">Stored Procedures & Functions</a></li></p>
+<p>  <li><a href="27-triggers.html">Triggers & Automated Event Auditing</a></li></p>
+<p>  <li><a href="28-sql-security.html">SQL Security & Permissions</a></li></p>
+<p>  <li><a href="29-json-data-in-sql.html">Working with JSON Data in SQL</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← SQL Home</a> | <a href="29-json-data-in-sql.html">← Previous: JSON Data in SQL</a> | <a href="./">SQL Home →</a></p>
+
+<blockquote><p>[!TIP]</p></blockquote>
+<blockquote><p><strong>Congratulations!</strong> You have completed Chapter 30, the final capstone chapter in the <strong>SQL Developer Mastery Curriculum</strong>! You are now equipped to design relational schemas, write analytical reports, optimize query performance, and publish production-grade database projects.</p></blockquote>
+
+  </div>
+</body>
+</html>

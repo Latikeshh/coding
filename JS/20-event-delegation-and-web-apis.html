@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 event delegation and web apis - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Event Bubbling, Delegation & Web APIs</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Event Listener:</strong> A function attached to a DOM node that executes when a specific event (like <code>click</code>, <code>submit</code>, <code>keydown</code>) occurs.</li></p>
+<p>  <li><strong>Event Bubbling:</strong> The process where an event triggered on a deeply nested child node bubbles up through parent ancestor nodes in the DOM tree.</li></p>
+<p>  <li><strong>Event Delegation:</strong> High-performance pattern where a single event listener is attached to a parent container to handle events triggered by current or future child elements.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>DOM Events bottom se top parent elements tak bubble hote hain (<strong>Event Bubbling</strong>). Sabhi child buttons par alag-alag listeners lagane ke bajaye unke parent container par ek single listener lagana <strong>Event Delegation</strong> kehlata hai. Isse app performance aur memory optimization dono imrpove hote hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Event trigger jhalyavar to varcha parent elements kade sarakto (<strong>Event Bubbling</strong>). Pratyek chhotya element varti listener lavnya peksha parent element varti ekach listener lavne mhanje <strong>Event Delegation</strong>.</p>
+
+<h2>🧠 Event Bubbling vs Capturing</h2>
+
+<p>1. <strong>Capturing Phase:</strong> Event travels down from <code>window</code> to target element.</p>
+<p>2. <strong>Target Phase:</strong> Event reaches the target element.</p>
+<p>3. <strong>Bubbling Phase (Default):</strong> Event bubbles up from target back up to <code>window</code>.</p>
+
+<pre><code class="language-js">// Stopping propagation
+<p>element.addEventListener(&quot;click&quot;, (event) =&gt; {</p>
+<p>  event.stopPropagation(); // Stops event from bubbling up to parent</p>
+<p>});</p>
+
+<p>// Preventing default action (e.g. form submission page reload)</p>
+<p>form.addEventListener(&quot;submit&quot;, (event) =&gt; {</p>
+<p>  event.preventDefault(); // Prevents page refresh</p>
+<p>});</code></pre></p>
+
+<h2>💡 Complete Example: High-Performance Event Delegation</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Event Delegation&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h2&gt;Interactive Todo List&lt;/h2&gt;</p>
+<p>  &lt;ul id=&quot;todo-container&quot;&gt;</p>
+<p>    &lt;li class=&quot;todo-item&quot;&gt;Task 1 &lt;button class=&quot;delete-btn&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;</p>
+<p>    &lt;li class=&quot;todo-item&quot;&gt;Task 2 &lt;button class=&quot;delete-btn&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;</p>
+<p>  &lt;/ul&gt;</p>
+
+<p>  &lt;script&gt;</p>
+<p>    const container = document.querySelector(&quot;#todo-container&quot;);</p>
+
+<p>    // Single listener on PARENT &lt;ul&gt; container instead of individual items!</p>
+<p>    container.addEventListener(&quot;click&quot;, (event) =&gt; {</p>
+<p>      // event.target is the exact element clicked</p>
+<p>      if (event.target.classList.contains(&quot;delete-btn&quot;)) {</p>
+<p>        const itemToRemove = event.target.closest(&quot;.todo-item&quot;);</p>
+<p>        itemToRemove.remove();</p>
+<p>        console.log(&quot;Task deleted efficiently!&quot;);</p>
+<p>      }</p>
+<p>    });</p>
+<p>  &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>🧠 <code>event.target</code> vs <code>event.currentTarget</code></h2>
+
+<ul>
+<p>  <li><code>event.target</code>: The actual element that triggered the event (e.g., specific <code><button></code> clicked inside a container).</li></p>
+<p>  <li><code>event.currentTarget</code>: The element to which the event listener is attached (e.g., parent <code><ul></code> container).</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add a form with a text input and submit button.</p>
+<p>2. Use <code>event.preventDefault()</code> inside the submit event listener to prevent page reloads and log the input text.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Attaching hundreds of individual event listeners inside loops on dynamic lists, causing memory bloat and memory leaks.</li></p>
+<p>  <li>Confusing <code>event.target</code> (clicked child node) with <code>event.currentTarget</code> (listening parent node).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Dynamic list deletions, infinite scroll feeds, data tables, form validations, and keyboard navigation listeners.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Use Event Delegation for dynamic lists to keep memory lightweight and code simple.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="19-dom-manipulation.html">← Previous: DOM Manipulation</a> | <a href="21-web-storage.html">Next: Web Storage →</a></p>
+
+
+
+  </div>
+</body>
+</html>

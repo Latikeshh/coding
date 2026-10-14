@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 positioning - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Positioning, <code>z-index</code> & Stacking Context</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>position</code></strong> property specifies how an element is placed within the document flow using offset properties (<code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>). The <strong><code>z-index</code></strong> property controls vertical front-to-back layer stacking order of overlapping positioned elements within a <strong>Stacking Context</strong>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>position</code> controls layout placement (<code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>). <code>absolute</code> positions relative to its nearest non-static ancestor. <code>z-index</code> controls layer stacking order.</p>
+
+<h3>Hindi</h3>
+<p><code>position</code> elements ko jagah dene ke kaam aati hai. <code>absolute</code> apne sabse paas wale <code>relative</code> parent ke hisaab se set hota hai. Overlap hone wale elements ki layering ko <code>z-index</code> control karta hai.</p>
+
+<h3>Marathi</h3>
+<p><code>position</code> mule element halavta yeto. Overlap zaleleya elements madhye <code>z-index</code> mule konta element var disel te tharte.</p>
+
+<h2>📚 Position Values Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Value</th><th>Document Flow</th><th>Positioned Relative To</th><th>Common Use Cases</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>static</code></strong> (Default)</td><td>In normal flow</td><td>Normal document flow (<code>top</code>/<code>left</code> ignored)</td><td>Default browser element layout</td></tr></p>
+<p>    <tr><td><strong><code>relative</code></strong></td><td>In normal flow</td><td>Its own normal starting position</td><td>Parent container anchor for <code>absolute</code> children</td></tr></p>
+<p>    <tr><td><strong><code>absolute</code></strong></td><td><strong>Removed from flow</strong></td><td><strong>Nearest non-static ancestor element</strong></td><td>Badge overlays, dropdown menus, modal popups</td></tr></p>
+<p>    <tr><td><strong><code>fixed</code></strong></td><td><strong>Removed from flow</strong></td><td><strong>Browser Viewport Window</strong></td><td>Fixed header bars, floating chat widgets</td></tr></p>
+<p>    <tr><td><strong><code>sticky</code></strong></td><td>In flow until scroll threshold</td><td>Scroll container parent</td><td>Sticky navigation bars, table header titles</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🔑 Absolute Positioning Pattern: Parent <code>relative</code> + Child <code>absolute</code></h2>
+
+<p>To position an <code>absolute</code> child element precisely inside a container, you <strong>must set <code>position: relative</code> on the parent container</strong>. Otherwise, the child positions relative to the entire <code><body></code> page!</p>
+
+<pre><code class="language-css">/* Parent Container Anchor */
+<p>.card {</p>
+<p>  position: relative; /* Establishes positioning anchor boundary */</p>
+<p>  width: 300px;</p>
+<p>}</p>
+
+<p>/* Child Overlay Badge */</p>
+<p>.card-badge {</p>
+<p>  position: absolute;</p>
+<p>  top: 10px;</p>
+<p>  right: 10px;</p>
+<p>  background-color: #ff3b30;</p>
+<p>  color: white;</p>
+<p>  padding: 4px 8px;</p>
+<p>  border-radius: 4px;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 <code>z-index</code> & Stacking Context</h2>
+
+<p><code>z-index</code> controls layer overlap along the Z-axis (towards or away from the viewer). Higher <code>z-index</code> values render in front of lower values.</p>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong>Stacking Context Rule:</strong> <code>z-index</code> works ONLY on positioned elements (<code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>). A child element with <code>z-index: 9999</code> inside a parent with lower stacking context <strong>cannot appear above</strong> an element in a higher parent stacking context!</p></blockquote>
+
+<p>A new Stacking Context is created by:</p>
+<p>1. Positioned elements (<code>relative</code>/<code>absolute</code>) with <code>z-index</code> other than <code>auto</code>.</p>
+<p>2. <code>position: fixed</code> or <code>position: sticky</code>.</p>
+<p>3. Elements with <code>opacity</code> less than <code>1</code>.</p>
+<p>4. Elements with <code>transform</code>, <code>filter</code>, or <code>perspective</code> properties applied.</p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Positioning Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header class=&quot;sticky-nav&quot;&gt;</p>
+<p>    &lt;span&gt;Sticky Header Bar&lt;/span&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;div class=&quot;product-card&quot;&gt;</p>
+<p>    &lt;span class=&quot;badge&quot;&gt;SALE&lt;/span&gt;</p>
+<p>    &lt;h2&gt;Wireless Headphones&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Premium noise-cancelling headphones.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  margin: 0;</p>
+<p>  background-color: #f4f6f8;</p>
+<p>  height: 200vh; /* Extra height to test sticky scroll */</p>
+<p>  padding-top: 20px;</p>
+<p>}</p>
+
+<p>.sticky-nav {</p>
+<p>  position: sticky;</p>
+<p>  top: 0;</p>
+<p>  z-index: 1000; /* Stays above body content during scroll */</p>
+<p>  background-color: #111827;</p>
+<p>  color: white;</p>
+<p>  padding: 15px 30px;</p>
+<p>}</p>
+
+<p>.product-card {</p>
+<p>  position: relative; /* Anchor for absolute badge */</p>
+<p>  width: 300px;</p>
+<p>  margin: 40px auto;</p>
+<p>  padding: 25px;</p>
+<p>  background: white;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.1);</p>
+<p>}</p>
+
+<p>.badge {</p>
+<p>  position: absolute;</p>
+<p>  top: -10px;</p>
+<p>  right: -10px;</p>
+<p>  background-color: #ef4444;</p>
+<p>  color: white;</p>
+<p>  padding: 6px 12px;</p>
+<p>  border-radius: 20px;</p>
+<p>  font-size: 12px;</p>
+<p>  font-weight: bold;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<ul>
+<p>  <li>The navigation bar stays pinned to the top of the browser window as you scroll down (<code>position: sticky</code>).</li></p>
+<p>  <li>The red "SALE" badge floats at the top-right corner of the product card (<code>position: absolute</code> relative to <code>.product-card</code>).</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Remove <code>position: relative</code> from <code>.product-card</code> in <code>style.css</code>.</p>
+<p>2. Notice how the "SALE" badge jumps to the top-right corner of the entire <code><body></code> page instead of staying attached to the card!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>position: relative</code> on parent container:</strong> Causes <code>position: absolute</code> children to align to the document root instead of the card.</li></p>
+<p>  <li><strong>Applying <code>z-index</code> to <code>position: static</code> elements:</strong> <code>z-index</code> is ignored on <code>position: static</code> elements.</li></p>
+<p>  <li><strong>Using <code>position: fixed</code> for main layout columns:</strong> Destroys document layout flow and causes overlapping text.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Positioning powers essential UI patterns: fixed header bars, notification badges on shopping cart icons, modal popup windows, and floating support chat widgets.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-display.html">Display Property</a></li></p>
+<p>  <li><a href="20-flexbox.html">Flexbox Layout</a></li></p>
+<p>  <li><a href="21-grid.html">CSS Grid Layout</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>position: relative</code> on parent containers to anchor <code>position: absolute</code> children.</li></p>
+<p>  <li><code>position: fixed</code> attaches to the browser window.</li></p>
+<p>  <li><code>position: sticky</code> toggles pinning based on scroll position.</li></p>
+<p>  <li><code>z-index</code> requires a non-static positioned element.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="17-display.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="19-float-and-clear.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

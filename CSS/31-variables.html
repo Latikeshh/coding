@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>31 variables - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Variables (Custom Properties)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Custom Properties (CSS Variables)</strong> are user-defined entities that store reusable values (such as theme colors, font stacks, spacing values, or shadow levels) scoped to specific elements or globally on <code>:root</code>, and accessed using the <strong><code>var(--variable-name)</code></strong> function.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Define global CSS variables on <code>:root</code> as <code>--variable-name: value;</code> and reference them using <code>var(--variable-name)</code>. Variables enable dynamic theme switching (Dark/Light mode) without code duplication.</p>
+
+<h3>Hindi</h3>
+<p><code>:root</code> mein <code>--primary-color: #007bff;</code> jaise variable banakar <code>var(--primary-color)</code> se re-use karein. CSS variables se Dark Mode aur theme change karna bohot aasaan ho jaata hai.</p>
+
+<h3>Marathi</h3>
+<p>CSS variables mule theme badalne (Dark Mode) ani code manage karne sope jaate.</p>
+
+<h2>🤔 Why Do We Use CSS Variables?</h2>
+
+<p>Without variables, changing a primary brand color (<code>#2563eb</code>) across a 2,000-line stylesheet requires searching and replacing hundreds of individual property declarations. With CSS variables, you update the variable value once on <code>:root</code>, and the entire website updates instantly.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a CSS variable like a named storage box in a workshop. You write the label <code>--brand-color</code> on the box and put blue paint inside. Whenever any painting task needs brand color, workers grab paint from <code>--brand-color</code>. If you decide to change brand color to green later, you simply replace the paint inside that single box.</p>
+
+<h2>📝 Syntax & Usage</h2>
+
+<pre><code class="language-css">/* 1. Global Scope Definition on :root */
+<p>:root {</p>
+<p>  --primary-color: #2563eb;</p>
+<p>  --bg-color: #ffffff;</p>
+<p>  --text-color: #1f2937;</p>
+<p>  --card-radius: 12px;</p>
+<p>  --base-padding: 1.5rem;</p>
+<p>}</p>
+
+<p>/* 2. Accessing Variables using var() */</p>
+<p>body {</p>
+<p>  background-color: var(--bg-color);</p>
+<p>  color: var(--text-color);</p>
+<p>  padding: var(--base-padding);</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  border-radius: var(--card-radius);</p>
+<p>  border: 2px solid var(--primary-color);</p>
+<p>}</code></pre></p>
+
+<h2>🎨 Theme Switching with CSS Variables</h2>
+
+<p>Variables can be dynamically overridden under media queries or class toggles:</p>
+
+<pre><code class="language-css">/* Light Theme Defaults */
+<p>:root {</p>
+<p>  --bg-main: #f8f9fa;</p>
+<p>  --text-main: #111827;</p>
+<p>  --card-bg: #ffffff;</p>
+<p>}</p>
+
+<p>/* Dark Theme Overrides */</p>
+<p>[data-theme=&quot;dark&quot;] {</p>
+<p>  --bg-main: #111827;</p>
+<p>  --text-main: #f9fafb;</p>
+<p>  --card-bg: #1f2937;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Variables Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;theme-card&quot;&gt;</p>
+<p>    &lt;h2&gt;CSS Variables Component&lt;/h2&gt;</p>
+<p>    &lt;p&gt;All colors and spacing in this component are powered by reusable custom properties.&lt;/p&gt;</p>
+<p>    &lt;button class=&quot;btn-primary&quot;&gt;Primary Action&lt;/button&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>/* Global Design Tokens */</p>
+<p>:root {</p>
+<p>  --brand-blue: #2563eb;</p>
+<p>  --brand-blue-hover: #1d4ed8;</p>
+<p>  --surface-bg: #ffffff;</p>
+<p>  --text-dark: #1f2937;</p>
+<p>  --text-muted: #6b7280;</p>
+<p>  --space-md: 1.5rem;</p>
+<p>  --radius-lg: 12px;</p>
+<p>}</p>
+
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  min-height: 100vh;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>.theme-card {</p>
+<p>  background-color: var(--surface-bg);</p>
+<p>  color: var(--text-dark);</p>
+<p>  padding: var(--space-md);</p>
+<p>  border-radius: var(--radius-lg);</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  max-width: 350px;</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  margin-top: 0;</p>
+<p>  color: var(--text-dark);</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  color: var(--text-muted);</p>
+<p>  line-height: 1.5;</p>
+<p>}</p>
+
+<p>.btn-primary {</p>
+<p>  background-color: var(--brand-blue);</p>
+<p>  color: white;</p>
+<p>  border: none;</p>
+<p>  padding: 10px 20px;</p>
+<p>  border-radius: 6px;</p>
+<p>  cursor: pointer;</p>
+<p>  font-size: 1rem;</p>
+<p>  transition: background-color 0.2s ease;</p>
+<p>}</p>
+
+<p>.btn-primary:hover {</p>
+<p>  background-color: var(--brand-blue-hover);</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A styled card component referencing centralized design tokens. Updating <code>--brand-blue</code> in <code>:root</code> changes the button color and accent highlights across the entire app instantly.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Change <code>--brand-blue: #2563eb</code> to <code>--brand-blue: #16a34a</code> (green) in <code>:root</code>.</p>
+<p>2. Observe how the button and primary accents update to green across all component selectors automatically.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting double dashes <code>--</code>:</strong> Variable names MUST start with two dashes (e.g. <code>--primary-color</code>, NOT <code>primary-color</code>).</li></p>
+<p>  <li><strong>CSS Variable names are case-sensitive:</strong> <code>--mainColor</code> and <code>--maincolor</code> are treated as two separate variables.</li></p>
+<p>  <li><strong>Forgetting <code>var()</code> wrapper:</strong> Writing <code>color: --primary-color;</code> instead of <code>color: var(--primary-color);</code>.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>CSS Custom Properties power dark mode toggles, multi-tenant white-label branding themes, and responsive spacing scale tokens across professional design systems.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="32-functions.html">CSS Functions (<code>calc()</code>, <code>clamp()</code>)</a></li></p>
+<p>  <li><a href="41-css-architecture-and-dark-mode.html">CSS Architecture & Dark Mode</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Custom properties start with double dashes <code>--</code> (e.g. <code>--primary-color</code>).</li></p>
+<p>  <li>Declare global variables on <code>:root</code>.</li></p>
+<p>  <li>Access variables using <code>var(--variable-name)</code>.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="30-animations.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="32-functions.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

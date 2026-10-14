@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 mini projects - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Capstone Mini Projects in C++ (OOP & File I/O System)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>Mini projects synthesize core C++ concepts—including <strong>Object-Oriented Programming (OOP)</strong>, <strong>Standard Template Library (STL) Containers</strong>, <strong>Smart Pointers</strong>, <strong>Exception Handling</strong>, and <strong>File I/O Streams</strong>—into complete, production-grade console applications.</p>
+
+<p>In this lesson, we build a <strong>Complete Bank Management System</strong> that allows account creation, deposit/withdrawal validation, transaction logging to file, and account data persistence.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Yeh Capstone Mini Project saare C++ concepts (Classes, Vectors, File Handling, Exceptions, Smart Pointers) ko ek saath ek working C++ Application mein combine karta hai. Isme hum ek <strong>Bank Account Management System</strong> banayenge jo user accounts create kar sakta hai, deposit/withdraw operations validate karta hai, aur saara data disk par file (<code>bank_data.txt</code>) mein permanent save aur load karta hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Ha Mini Project C++ madhil sarva mahatvache concepts (Classes, Vectors, File Handling, Exceptions) ekatra karun ek practical C++ Application tayar karto. Aapan ek <strong>Bank Account Management System</strong> tayar karnar aahot jo accounts create karto, deposit/withdraw validate karto, aani data file madhye save karto.</p>
+
+<p>---</p>
+
+<h2>🏗️ System Architecture Diagram</h2>
+
+<pre><code class="language-text">                  +-----------------------------------+
+
+<table>
+<p>  <thead><tr><th>BankManagementSystem</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>std::vector&lt;std::shared_ptr&lt;Acc&gt;&gt;</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>                  +-----------------------------------+</p>
+
+<p>                                    |</p>
+<p>            +-----------------------+-----------------------+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>  [ Account Operations ]                             [ File Persistence ]</p>
+<ul>
+<p>  <li>createAccount()                                  - saveToFile()</li></p>
+<p>  <li>depositMoney()                                   - loadFromFile()</li></p>
+<p>  <li>withdrawMoney()</code></pre></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Capstone Code: Bank Management System</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;vector&gt;</p>
+<p>#include &lt;memory&gt;</p>
+<p>#include &lt;fstream&gt;</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;stdexcept&gt;</p>
+
+<p>// 1. BankAccount Class</p>
+<p>class Account {</p>
+<p>private:</p>
+<p>    int accountNumber;</p>
+<p>    std::string holderName;</p>
+<p>    double balance;</p>
+
+<p>public:</p>
+<p>    Account(int accNum, std::string name, double initialBalance)</p>
+<p>        : accountNumber(accNum), holderName(name), balance(initialBalance) {}</p>
+
+<p>    int getAccNum() const { return accountNumber; }</p>
+<p>    std::string getHolderName() const { return holderName; }</p>
+<p>    double getBalance() const { return balance; }</p>
+
+<p>    void deposit(double amount) {</p>
+<p>        if (amount &lt;= 0) throw std::invalid_argument(&quot;Deposit amount must be positive.&quot;);</p>
+<p>        balance += amount;</p>
+<p>        std::cout &lt;&lt; &quot;[SUCCESS] Deposited $&quot; &lt;&lt; amount &lt;&lt; &quot;. New Balance: $&quot; &lt;&lt; balance &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    void withdraw(double amount) {</p>
+<p>        if (amount &lt;= 0) throw std::invalid_argument(&quot;Withdrawal amount must be positive.&quot;);</p>
+<p>        if (amount &gt; balance) throw std::runtime_error(&quot;Insufficient funds for withdrawal.&quot;);</p>
+<p>        balance -= amount;</p>
+<p>        std::cout &lt;&lt; &quot;[SUCCESS] Withdrew $&quot; &lt;&lt; amount &lt;&lt; &quot;. Remaining Balance: $&quot; &lt;&lt; balance &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    void display() const {</p>
+<p>        std::cout &lt;&lt; &quot;Acc #&quot; &lt;&lt; accountNumber &lt;&lt; &quot; | Holder: &quot; &lt;&lt; holderName &lt;&lt; &quot; | Balance: $&quot; &lt;&lt; balance &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    std::string serialize() const {</p>
+<p>        return std::to_string(accountNumber) + &quot;,&quot; + holderName + &quot;,&quot; + std::to_string(balance);</p>
+<p>    }</p>
+<p>};</p>
+
+<p>// 2. Bank Manager Class</p>
+<p>class BankManager {</p>
+<p>private:</p>
+<p>    std::vector&lt;std::shared_ptr&lt;Account&gt;&gt; accounts;</p>
+<p>    std::string dataFilename;</p>
+
+<p>public:</p>
+<p>    BankManager(std::string filename) : dataFilename(filename) {</p>
+<p>        loadFromFile();</p>
+<p>    }</p>
+
+<p>    void addAccount(int accNum, std::string name, double initialDeposit) {</p>
+<p>        for (const auto&amp; acc : accounts) {</p>
+<p>            if (acc-&gt;getAccNum() == accNum) {</p>
+<p>                throw std::invalid_argument(&quot;Account number already exists!&quot;);</p>
+<p>            }</p>
+<p>        }</p>
+<p>        accounts.push_back(std::make_shared&lt;Account&gt;(accNum, name, initialDeposit));</p>
+<p>        std::cout &lt;&lt; &quot;[SUCCESS] Created Account #&quot; &lt;&lt; accNum &lt;&lt; &quot; for &quot; &lt;&lt; name &lt;&lt; std::endl;</p>
+<p>        saveToFile();</p>
+<p>    }</p>
+
+<p>    std::shared_ptr&lt;Account&gt; findAccount(int accNum) {</p>
+<p>        for (const auto&amp; acc : accounts) {</p>
+<p>            if (acc-&gt;getAccNum() == accNum) return acc;</p>
+<p>        }</p>
+<p>        throw std::out_of_range(&quot;Account not found!&quot;);</p>
+<p>    }</p>
+
+<p>    void displayAll() const {</p>
+<p>        std::cout &lt;&lt; &quot;\n=== CURRENT BANK ACCOUNTS ===&quot; &lt;&lt; std::endl;</p>
+<p>        if (accounts.empty()) {</p>
+<p>            std::cout &lt;&lt; &quot;No active bank accounts found.&quot; &lt;&lt; std::endl;</p>
+<p>            return;</p>
+<p>        }</p>
+<p>        for (const auto&amp; acc : accounts) {</p>
+<p>            acc-&gt;display();</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    void saveToFile() const {</p>
+<p>        std::ofstream outFile(dataFilename, std::ios::out);</p>
+<p>        if (outFile.is_open()) {</p>
+<p>            for (const auto&amp; acc : accounts) {</p>
+<p>                outFile &lt;&lt; acc-&gt;serialize() &lt;&lt; &quot;\n&quot;;</p>
+<p>            }</p>
+<p>            outFile.close();</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    void loadFromFile() {</p>
+<p>        std::ifstream inFile(dataFilename);</p>
+<p>        if (inFile.is_open()) {</p>
+<p>            std::string line;</p>
+<p>            while (std::getline(inFile, line)) {</p>
+<p>                if (line.empty()) continue;</p>
+<p>                size_t pos1 = line.find(&#39;,&#39;);</p>
+<p>                size_t pos2 = line.rfind(&#39;,&#39;);</p>
+<p>                if (pos1 != std::string::npos &amp;&amp; pos2 != std::string::npos &amp;&amp; pos1 != pos2) {</p>
+<p>                    int accNum = std::stoi(line.substr(0, pos1));</p>
+<p>                    std::string name = line.substr(pos1 + 1, pos2 - pos1 - 1);</p>
+<p>                    double bal = std::stod(line.substr(pos2 + 1));</p>
+<p>                    accounts.push_back(std::make_shared&lt;Account&gt;(accNum, name, bal));</p>
+<p>                }</p>
+<p>            }</p>
+<p>            inFile.close();</p>
+<p>        }</p>
+<p>    }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    try {</p>
+<p>        BankManager bank(&quot;bank_records.csv&quot;);</p>
+
+<p>        std::cout &lt;&lt; &quot;=== C++ BANK MANAGEMENT SYSTEM ===&quot; &lt;&lt; std::endl;</p>
+<p>        </p>
+<p>        // Creating accounts</p>
+<p>        bank.addAccount(101, &quot;Rahul Sharma&quot;, 1500.00);</p>
+<p>        bank.addAccount(102, &quot;Priya Patel&quot;, 3000.00);</p>
+
+<p>        bank.displayAll();</p>
+
+<p>        // Perform Transactions</p>
+<p>        std::cout &lt;&lt; &quot;\n--- PERFORMING TRANSACTIONS ---&quot; &lt;&lt; std::endl;</p>
+<p>        auto acc1 = bank.findAccount(101);</p>
+<p>        acc1-&gt;deposit(500.00);</p>
+<p>        acc1-&gt;withdraw(200.00);</p>
+
+<p>        // Save updated state</p>
+<p>        bank.saveToFile();</p>
+<p>        bank.displayAll();</p>
+
+<p>    } catch (const std::exception&amp; e) {</p>
+<p>        std::cerr &lt;&lt; &quot;[SYSTEM ERROR] &quot; &lt;&lt; e.what() &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== C++ BANK MANAGEMENT SYSTEM ===
+<p>[SUCCESS] Created Account #101 for Rahul Sharma</p>
+<p>[SUCCESS] Created Account #102 for Priya Patel</p>
+
+<p>=== CURRENT BANK ACCOUNTS ===</p>
+<p>Acc #101 | Holder: Rahul Sharma | Balance: $1500</p>
+<p>Acc #102 | Holder: Priya Patel | Balance: $3000</p>
+
+<p>--- PERFORMING TRANSACTIONS ---</p>
+<p>[SUCCESS] Deposited $500. New Balance: $2000</p>
+<p>[SUCCESS] Withdrew $200. Remaining Balance: $1800</p>
+
+<p>=== CURRENT BANK ACCOUNTS ===</p>
+<p>Acc #101 | Holder: Rahul Sharma | Balance: $1800</p>
+<p>Acc #102 | Holder: Priya Patel | Balance: $3000</code></pre></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add a <code>transferMoney(int fromAcc, int toAcc, double amount)</code> method to <code>BankManager</code>.</p>
+<p>2. Implement transaction history recording for each account.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-classes-and-oops.html">Classes & Objects</a></li></p>
+<p>  <li><a href="14-smart-pointers.html">Smart Pointers</a></li></p>
+<p>  <li><a href="20-file-streams.html">File Streams</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="22-move-semantics.html">← Previous: Move Semantics</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 iframes - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Inline Frames (<code><iframe></code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Inline Frame (<code><iframe></code>)</strong> embeds an external HTML document, web page, or interactive widget (such as Google Maps, YouTube video players, or external widgets) directly inside the current webpage.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>An <code><iframe></code> embeds external content (maps, videos, external web pages). Always provide a descriptive <code>title</code> attribute for screen reader accessibility.</p>
+
+<h3>Hindi</h3>
+<p>External content (jaise Google Maps ya YouTube videos) ko apne page mein embed karne ke liye <code><iframe></code> tag use karein. Screen readers ke liye <code>title</code> attribute compulsory hai.</p>
+
+<h3>Marathi</h3>
+<p>External content (jase Google Maps kiva YouTube videos) potchya webpage madhye dakhavnyasathi <code><iframe></code> tag vaprtat. <code>title</code> attribute dene aavashyak aahe.</p>
+
+<h2>🤔 Why Do We Use Iframes?</h2>
+
+<p>Iframes allow web developers to integrate interactive third-party tools—interactive location maps, embedded video players, payment portals, or social media widgets—without writing complex custom rendering logic from scratch.</p>
+
+<h2>📐 Key Attributes of <code><iframe></code></h2>
+
+<ul>
+<p>  <li><strong><code>src</code>:</strong> The target URL of the external webpage or embedded widget.</li></p>
+<p>  <li><strong><code>title</code> (Mandatory for Accessibility):</strong> Describes the embedded frame content so screen reader users understand its purpose.</li></p>
+<p>  <li><strong><code>width</code> & <code>height</code>:</strong> Specifies frame container dimensions in pixels or percentages.</li></p>
+<p>  <li><strong><code>loading="lazy"</code>:</strong> Defers loading iframe content until the user scrolls near it, improving initial page loading speed.</li></p>
+<p>  <li><strong><code>sandbox</code>:</strong> Restricts script execution, form submissions, and popups inside the embedded frame for security (<code>sandbox="allow-scripts allow-same-origin"</code>).</li></p>
+<p>  <li><strong><code>allowfullscreen</code>:</strong> Permits embedded video players to enter full-screen mode.</li></p>
+<p></ul></p>
+
+<h2>🔒 Security & Framing Restrictions</h2>
+
+<p>1. <strong>Mandatory <code>title</code> Attribute:</strong> Screen readers announce iframes by their <code>title</code>. Omitting <code>title</code> violates accessibility standards.</p>
+<p>2. <strong><code>X-Frame-Options</code> & CSP Security Headers:</strong> Major websites (such as Google Search, GitHub, or banking portals) send HTTP security headers (<code>X-Frame-Options: DENY</code> or <code>X-Frame-Options: SAMEORIGIN</code>) preventing external sites from embedding their pages inside an <code><iframe></code> to protect against clickjacking attacks.</p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Embedded Map and Video&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Our Store Location &amp; Demo&lt;/h1&gt;</p>
+
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;Visit Our Office&lt;/h2&gt;</p>
+<p>    &lt;iframe </p>
+<p>      src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2183123!2d-73.9855!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMDcuOCJX!5e0!3m2!1sen!2sin!4v123456789&quot; </p>
+<p>      title=&quot;Interactive Google Map showing store location&quot; </p>
+<p>      width=&quot;100%&quot; </p>
+<p>      height=&quot;350&quot; </p>
+<p>      style=&quot;border:0;&quot; </p>
+<p>      loading=&quot;lazy&quot; </p>
+<p>      allowfullscreen&gt;</p>
+<p>    &lt;/iframe&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;Watch Product Demo&lt;/h2&gt;</p>
+<p>    &lt;iframe </p>
+<p>      src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ&quot; </p>
+<p>      title=&quot;YouTube Video Player: Product Demonstration Tutorial&quot; </p>
+<p>      width=&quot;560&quot; </p>
+<p>      height=&quot;315&quot; </p>
+<p>      style=&quot;border:0;&quot; </p>
+<p>      allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; </p>
+<p>      allowfullscreen&gt;</p>
+<p>    &lt;/iframe&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>Two embedded interactive frames rendered seamlessly on the page: an interactive Google Maps location widget and a playable YouTube video player.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Embed a Google Maps location widget inside an <code><iframe></code>.</p>
+<p>2. Add a descriptive <code>title</code> attribute, <code>width="100%"</code>, <code>height="300"</code>, and <code>loading="lazy"</code>.</p>
+<p>3. Test a YouTube video embed with <code>allowfullscreen</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting the <code>title</code> attribute:</strong> Writing <code><iframe src="..."></code> without <code>title="Description"</code> breaks accessibility standards.</li></p>
+<p>  <li><strong>Attempting to embed sites that block framing:</strong> Trying to embed <code>https://google.com</code> results in a blank box due to <code>X-Frame-Options</code> security headers set by Google.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Contact pages embed Google Maps, blog articles embed YouTube videos, and e-commerce stores embed payment provider widgets using secure <code><iframe></code> containers.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-video.html">Video</a></li></p>
+<p>  <li><a href="24-accessibility-basics.html">Accessibility Basics</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Always provide a descriptive <code>title</code> attribute on every <code><iframe></code>.</li></p>
+<p>  <li>Use <code>loading="lazy"</code> to defer loading off-screen iframes.</li></p>
+<p>  <li>Some websites block iframe embedding using security headers.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="20-video.html">← Previous: Video</a> | <a href="./">HTML Home</a> | <a href="22-semantic-html.html">Next: Semantic HTML →</a></p>
+
+
+
+  </div>
+</body>
+</html>

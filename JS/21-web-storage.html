@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 web storage - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Web Storage (<code>localStorage</code> & <code>sessionStorage</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong>Web Storage API</strong> allows web applications to store key-value string data directly inside the user's browser. It provides two persistent storage mechanisms:</p>
+<ul>
+<p>  <li><code>localStorage</code>: Persists data indefinitely until explicitly cleared by user or script.</li></p>
+<p>  <li><code>sessionStorage</code>: Persists data only for the duration of the current browser tab session.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Web Storage browser mein client-side data store karne ke liye use hota hai. <code>localStorage</code> mein data browser close hone ke baad bhi saved rehta hai, jabki <code>sessionStorage</code> mein browser tab close hote hi clear ho jata hai. Web Storage sirf string values store karta hai, isliye Objects store karne ke liye <code>JSON.stringify()</code> aur <code>JSON.parse()</code> ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Web Storage API cha wapar browser madhye data saathvanya sathi kela jato. <code>localStorage</code> madhil data permanently saathvla jato, tar <code>sessionStorage</code> tab band kelyanantar clear hoto.</p>
+
+<h2>📝 Storage API Methods</h2>
+
+<table>
+<p>  <thead><tr><th>Method</th><th>What It Does</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>localStorage.setItem(key, value)</code></td><td>Saves key-value pair in storage</td></tr></p>
+<p>    <tr><td><code>localStorage.getItem(key)</code></td><td>Retrieves stored string value by key</td></tr></p>
+<p>    <tr><td><code>localStorage.removeItem(key)</code></td><td>Removes specific key entry</td></tr></p>
+<p>    <tr><td><code>localStorage.clear()</code></td><td>Deletes ALL stored items for the origin</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>⚠️ Security & Limitation Rules</h2>
+
+<ul>
+<p>  <li><strong>Strings Only:</strong> Web Storage can ONLY store string data (~5MB per origin).</li></p>
+<p>  <li><strong>Plaintext Storage:</strong> Never store passwords, credit card numbers, or unencrypted authentication tokens in <code>localStorage</code> as it is accessible via client-side JavaScript scripts (vulnerable to XSS attacks!).</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: Storing Objects & Managing User Theme</h2>
+
+<pre><code class="language-js">// Function to save user preference settings
+<p>function saveUserSettings(settingsObject) {</p>
+<p>  // Convert JS object to JSON string before saving</p>
+<p>  const serializedData = JSON.stringify(settingsObject);</p>
+<p>  localStorage.setItem(&quot;app_user_settings&quot;, serializedData);</p>
+<p>  console.log(&quot;Settings saved to localStorage successfully.&quot;);</p>
+<p>}</p>
+
+<p>// Function to load user settings</p>
+<p>function loadUserSettings() {</p>
+<p>  const savedData = localStorage.getItem(&quot;app_user_settings&quot;);</p>
+
+<p>  if (!savedData) {</p>
+<p>    return { theme: &quot;light&quot;, fontSize: 14 }; // Default fallback</p>
+<p>  }</p>
+
+<p>  // Parse JSON string back into JS Object</p>
+<p>  return JSON.parse(savedData);</p>
+<p>}</p>
+
+<p>// Usage</p>
+<p>saveUserSettings({ theme: &quot;dark&quot;, fontSize: 18, notifications: true });</p>
+
+<p>const currentSettings = loadUserSettings();</p>
+<p>console.log(&quot;Loaded Theme:&quot;, currentSettings.theme);</p>
+<p>console.log(&quot;Loaded Font Size:&quot;, currentSettings.fontSize);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Settings saved to localStorage successfully.
+<p>Loaded Theme: dark</p>
+<p>Loaded Font Size: 18</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Store your favorite user name in <code>localStorage.setItem("username", "yourName")</code>.</p>
+<p>2. Retrieve it using <code>localStorage.getItem("username")</code> and display it in a <code>console.log()</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to serialize objects with <code>JSON.stringify()</code>, which results in storing the useless string <code>"[object Object]"</code>.</li></p>
+<p>  <li>Assuming <code>localStorage</code> data persists across different browser origins or different user devices.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Remembering user dark mode preferences, preserving unsubmitted form drafts, caching non-sensitive user settings, and saving client-side shopping cart state.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Use <code>localStorage</code> for long-term user preferences and <code>sessionStorage</code> for temporary single-session workflows.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="20-event-delegation-and-web-apis.html">← Previous: Event Delegation</a> | <a href="22-error-handling.html">Next: Error Handling →</a></p>
+
+
+
+  </div>
+</body>
+</html>

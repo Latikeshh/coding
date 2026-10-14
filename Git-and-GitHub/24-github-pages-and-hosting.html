@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 github pages and hosting - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Free Hosting with GitHub Pages</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>GitHub Pages</strong> is a free static web hosting service provided directly by GitHub that takes HTML, CSS, JavaScript, and asset files from a repository and publishes them live on the World Wide Web with HTTPS security.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>GitHub Pages turns any public GitHub repository into a live static website. By enabling GitHub Pages in Repository Settings, your site becomes accessible globally at <code>https://username.github.io/repository-name/</code>. GitHub Pages automatically updates your live site whenever you push new commits to your published branch.</p>
+
+<h3>Hindi</h3>
+<p>GitHub Pages aapke frontend web projects (HTML, CSS, JS) ko bilkul FREE mein live internet par host kar deta hai. GitHub Settings -> Pages mein jaakar <code>main</code> branch select karne par aapko ek live URL (<code>https://username.github.io/repo-name/</code>) mil jata hai.</p>
+
+<h3>Marathi</h3>
+<p>GitHub Pages dware aapan aaple HTML, CSS, JS web projects online internet var fukat (FREE) publish karu shakto. Settings -> Pages madhye <code>main</code> branch select kelyavar kahi minutat live website link milte.</p>
+
+<h3>Hinglish</h3>
+<p>Apna portfolio website ya web app live duniya ko dikhane ke liye GitHub Pages best tool hai. Master/main branch par code push karein, Pages settings enable karein, aur aapki site <code>https://username.github.io/repo-name/</code> par live ho jayegi. Custom domains (e.g. <code>yourname.com</code>) bhi support karta hai.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Buying web hosting servers for personal portfolios or project demos costs money and requires complex server management. GitHub Pages provides zero-cost, instant, automated hosting directly integrated with your Git commit pipeline.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of GitHub Pages like turning a Word document on your laptop into a published book in a library:</p>
+<ul>
+<p>  <li>Normally, <code>index.html</code> sits private on your laptop disk.</li></p>
+<p>  <li>Enabling <strong>GitHub Pages</strong> gives <code>index.html</code> a public web address so anyone in the world can open it in their web browser!</li></p>
+<p></ul></p>
+
+<h2>📝 Step-by-Step GitHub Pages Publishing Guide</h2>
+
+<h3>Step 1: Prepare Repository Structure</h3>
+<p>Ensure your public GitHub repository contains a valid <strong><code>index.html</code></strong> file in the root directory.</p>
+
+<h3>Step 2: Enable GitHub Pages in Settings</h3>
+<p>1. Open your repository on GitHub web.</p>
+<p>2. Click <strong>Settings</strong> (top tab) -> Select <strong>Pages</strong> in the left sidebar.</p>
+<p>3. Under <strong>Build and deployment</strong>:</p>
+<ul>
+<p>  <li><strong>Source:</strong> Select <strong>Deploy from a branch</strong>.</li></p>
+<p>  <li><strong>Branch:</strong> Select <strong><code>main</code></strong> branch and <strong><code>/(root)</code></strong> folder.</li></p>
+<p></ul></p>
+<p>4. Click <strong>Save</strong>.</p>
+
+<h3>Step 3: Access Live Website</h3>
+<p>Within 1–2 minutes, GitHub Actions builds and deploys your site, displaying a green success banner with your live URL:</p>
+
+<pre><code class="language-text">Your site is live at https://your-username.github.io/repository-name/</code></pre>
+
+<h2>💡 Configuring Custom Domains (<code>yourname.com</code>)</h2>
+
+<p>GitHub Pages allows linking custom domains for personal branding:</p>
+
+<p>1. Add your domain name in GitHub Settings -> Pages -> <strong>Custom domain</strong> (e.g. <code>www.myportfolio.com</code>). This automatically generates a <code>CNAME</code> file in your repository.</p>
+<p>2. In your domain registrar DNS settings (GoDaddy, Namecheap, Cloudflare), add DNS records:</p>
+<ul>
+<p>  <li><strong><code>A</code> Records</strong> pointing to GitHub Pages IP addresses:</li></p>
+<p>  <li><code>185.199.108.153</code></li></p>
+<p>  <li><code>185.199.109.153</code></li></p>
+<p>  <li><code>185.199.110.153</code></li></p>
+<p>  <li><code>185.199.111.153</code></li></p>
+<p>  <li><strong><code>CNAME</code> Record:</strong> <code>www</code> pointing to <code>your-username.github.io</code>.</li></p>
+<p></ul></p>
+<p>3. Check the <strong>Enforce HTTPS</strong> box in GitHub Pages settings for free SSL security!</p>
+
+<h2>🔍 URL Format Anatomy</h2>
+
+<pre><code class="language-text">https://username.github.io/repository-name/
+<p>  │         │                 │</p>
+<p>  │         │                 └── GitHub Repository Name</p>
+<p>  │         └── Your GitHub Username</p>
+<p>  └── Secure Protocol (Free SSL Certificate)</code></pre></p>
+
+<h2>👀 GitHub Pages Settings UI</h2>
+
+<pre><code class="language-text">GitHub Pages [Active]
+<p>Your site is ready to be served at https://rahul.github.io/my-portfolio/</p>
+<p>Source: Branch [main] / Folder [/root]</p>
+<p>[✔] Enforce HTTPS</code></pre></p>
+
+<h2>⚠️ Common Mistakes & Limitations</h2>
+
+<ul>
+<p>  <li><strong>Missing <code>index.html</code>:</strong> Naming your homepage <code>home.html</code> or <code>main.html</code>. GitHub Pages expects <code>index.html</code> in the root directory by default; otherwise it displays a 404 error!</li></p>
+<p>  <li><strong>Case Sensitivity in File Paths:</strong> Linking images as <code><img src="Image.PNG"></code> when the file on disk is named <code>image.png</code>. Linux GitHub Pages servers are strictly case-sensitive.</li></p>
+<p>  <li><strong>Static Only Limit:</strong> Attempting to host backend server code (Node.js, Python Flask/Django, PHP, MySQL databases) on GitHub Pages. GitHub Pages ONLY hosts static frontend assets (HTML, CSS, JS, images).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Every time you push a new commit to your <code>main</code> branch, GitHub Pages automatically rebuilds and updates your live website in seconds.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Developers host personal portfolios, documentation sites (using Jekyll/Docusaurus), open-source project landing pages, and interactive web tools on GitHub Pages.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Go to your <code>github-practice</code> repository on GitHub.</p>
+<p>2. Create an <code>index.html</code> file with <code><h1>Hello from GitHub Pages!</h1></code>.</p>
+<p>3. Go to <strong>Settings -> Pages</strong>, select <code>main</code> branch <code>/root</code> folder, and click <strong>Save</strong>.</p>
+<p>4. Wait 1 minute, open your live URL, and view your live website!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Update <code>index.html</code> locally with CSS styles, commit, and push to <code>main</code>. Refresh your live GitHub Pages site in your browser to observe the automated live update.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-introduction-to-github.html">Introduction to GitHub</a></li></p>
+<p>  <li><a href="26-github-actions-and-ci-cd-basics.html">GitHub Actions Basics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="23-github-issues-and-project-boards.html">← Previous: Issues & Projects</a> | <a href="25-git-tags-and-releases.html">Next: Tags & Releases →</a></p>
+
+
+
+  </div>
+</body>
+</html>

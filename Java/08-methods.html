@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methods - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Methods in Java</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Method</strong> is a reusable, named block of Java statements declared within a class that performs a specific task. Methods accept input <strong>parameters</strong>, process application logic, and can optionally return a single value to the caller using the <code>return</code> keyword.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Method code ka ek reusable block hota hai jo specific kaam karta hai. Method create karne se code duplication nahi hoti (<strong>DRY Principle:</strong> Don't Repeat Yourself). Parameters inputs lene ke liye aur <code>return</code> statement result wapas bhejne ke liye use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Method mhanje punha-punha vaparta yenara code block. Parameters inputs ghenyathi aani <code>return</code> statement result parat dhenyasathi vaparatat.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without methods, you would have to duplicate the same math calculations, validation checks, and string formatting routines repeatedly throughout your application. Methods make code modular, readable, maintainable, and unit-testable.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a method as a kitchen microwave oven. You give it inputs (the food plate and time parameter), press start (invoke the method), it performs processing internally, and gives you back the resulting hot meal (<code>return</code> value).</p>
+
+<h2>📝 1. Anatomy of a Method Declaration</h2>
+
+<pre><code class="language-text">[access_modifier] [static] [return_type] <a href="[parameter_list]">method_name</a> {
+<p>    // Method body</p>
+<p>    return result; // Required if return_type is not void</p>
+<p>}</code></pre></p>
+
+<pre><code class="language-java">public static double calculateTax(double price, double taxRate) {
+<p>    double taxAmount = price * (taxRate / 100);</p>
+<p>    return taxAmount;</p>
+<p>}</code></pre></p>
+
+<h2>📝 2. Method Overloading (Compile-Time Polymorphism)</h2>
+
+<p>Java allows multiple methods in the same class to share the <strong>same method name</strong>, provided their parameter list differs in parameter type, number of parameters, or parameter order.</p>
+
+<pre><code class="language-java">public class MathUtils {
+<p>    // Overload 1: Two integers</p>
+<p>    public static int add(int a, int b) { return a + b; }</p>
+<p>    </p>
+<p>    // Overload 2: Three integers</p>
+<p>    public static int add(int a, int b, int c) { return a + b + c; }</p>
+<p>    </p>
+<p>    // Overload 3: Two doubles</p>
+<p>    public static double add(double a, double b) { return a + b; }</p>
+<p>}</code></pre></p>
+
+<h2>📝 3. Variable Arguments / Varargs (<code>Type... args</code>)</h2>
+
+<p>Varargs allow a method to accept zero or a variable number of arguments as an array:</p>
+
+<pre><code class="language-java">public static int sumAll(int... numbers) {
+<p>    int sum = 0;</p>
+<p>    for (int n : numbers) {</p>
+<p>        sum += n;</p>
+<p>    }</p>
+<p>    return sum;</p>
+<p>}</p>
+
+<p>// Invocation</p>
+<p>int total = sumAll(10, 20, 30, 40); // 100</code></pre></p>
+
+<h2>📝 4. Pass-By-Value Mechanics in Java</h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL RULE:</strong> <strong>Java is ALWAYS Pass-By-Value!</strong></p></blockquote>
+<blockquote><p>- For primitive arguments, a copy of the primitive value is passed. Modifying the parameter inside the method does NOT alter the caller's variable!</p></blockquote>
+<blockquote><p>- For object reference arguments, a copy of the <strong>reference memory address</strong> is passed. The method can modify the internal state of the referenced object, but reassigning the parameter variable itself to a new object does NOT affect the caller's reference variable!</p></blockquote>
+
+<h2>💡 Complete Example: E-Commerce Price Calculation Engine</h2>
+
+<pre><code class="language-java">public class DiscountEngine {
+
+<p>    // Method 1: Calculate discounted price</p>
+<p>    public static double applyDiscount(double originalPrice, double discountPercent) {</p>
+<p>        if (originalPrice &lt; 0 || discountPercent &lt; 0) {</p>
+<p>            return 0.0;</p>
+<p>        }</p>
+<p>        double discountAmount = originalPrice * (discountPercent / 100.0);</p>
+<p>        return originalPrice - discountAmount;</p>
+<p>    }</p>
+
+<p>    // Overloaded Method 2: Apply fixed coupon discount</p>
+<p>    public static double applyDiscount(double originalPrice, String couponCode) {</p>
+<p>        double discountPercent = switch (couponCode.toUpperCase()) {</p>
+<p>            case &quot;SAVE10&quot; -&gt; 10.0;</p>
+<p>            case &quot;SUPER20&quot; -&gt; 20.0;</p>
+<p>            case &quot;MEGA30&quot; -&gt; 30.0;</p>
+<p>            default -&gt; 0.0;</p>
+<p>        };</p>
+<p>        return applyDiscount(originalPrice, discountPercent); // Calling Method 1</p>
+<p>    }</p>
+
+<p>    // Method 3: Recursive Factorial Calculation Example</p>
+<p>    public static long calculateFactorial(int n) {</p>
+<p>        if (n &lt;= 1) return 1; // Base case prevents StackOverflowError</p>
+<p>        return n * calculateFactorial(n - 1); // Recursive case</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        double laptopPrice = 85000.00;</p>
+
+<p>        double priceAfterPercent = applyDiscount(laptopPrice, 15.0);</p>
+<p>        double priceAfterCoupon = applyDiscount(laptopPrice, &quot;SUPER20&quot;);</p>
+<p>        long factorialVal = calculateFactorial(5);</p>
+
+<p>        System.out.printf(&quot;Original Price     : ₹%.2f%n&quot;, laptopPrice);</p>
+<p>        System.out.printf(&quot;After 15%% Discount : ₹%.2f%n&quot;, priceAfterPercent);</p>
+<p>        System.out.printf(&quot;After &#39;SUPER20&#39;    : ₹%.2f%n&quot;, priceAfterCoupon);</p>
+<p>        System.out.println(&quot;Factorial of 5     : &quot; + factorialVal);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Original Price     : ₹85000.00
+<p>After 15% Discount : ₹72250.00</p>
+<p>After &#39;SUPER20&#39;    : ₹68000.00</p>
+<p>Factorial of 5     : 120</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to provide a <code>return</code> statement along every possible execution path in a non-void method.</li></p>
+<p>  <li>Overloading methods by changing ONLY the return type (Java overloading requires parameter list differences; changing return type alone causes a compilation error!).</li></p>
+<p>  <li>Writing recursive methods without a valid <strong>Base Case</strong>, resulting in a <code>java.lang.StackOverflowError</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Keep methods small and focused on doing <strong>one single responsibility well</strong> (Single Responsibility Principle).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Validation services, financial tax computation routines, security hashing functions, and domain entity helper methods.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a static method <code>isEven(int number)</code> that returns <code>true</code> if a number is even, otherwise <code>false</code>.</p>
+<p>2. Write an overloaded method <code>isEven(double number)</code> that checks if the integer portion is even.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a static method <code>calculateCompoundInterest(double principal, double rate, int years)</code> that computes compound interest using <code>Math.pow()</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="07-loops.html">Loops</a></li></p>
+<p>  <li><a href="09-arrays.html">Arrays</a></li></p>
+<p>  <li><a href="14-classes-and-objects.html">Classes and Objects</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="07-loops.html">← Previous: Loops</a> | <a href="09-arrays.html">Next: Arrays →</a></p>
+
+
+  </div>
+</body>
+</html>

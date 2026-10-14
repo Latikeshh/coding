@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 operators - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Operator</strong> is a symbol that instructs the C++ compiler to perform specific mathematical, relational, or logical evaluations on one or more operands. C++ provides a rich set of operators categorized into <strong>Arithmetic</strong>, <strong>Relational</strong>, <strong>Logical</strong>, <strong>Bitwise</strong>, <strong>Assignment</strong>, and <strong>Ternary</strong> operators.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Operators wo symbols hote hain jo variables par calculations karte hain. </p>
+<ul>
+<p>  <li>**Arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>)<strong>: Math calculations ke liye.</li></p>
+<p>  <li></strong>Relational (<code>==</code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>)<strong>: Compare karke <code>true</code> ya <code>false</code> return karte hain.</li></p>
+<p>  <li></strong>Logical (<code>&&</code>, <code>||</code>, <code>!</code>)<strong>: Multiple conditions ko combine karne ke liye.</li></p>
+<p>  <li></strong>Increment/Decrement (<code>++</code>, <code>--</code>)<strong>: Value ko 1 se badhane ya ghatane ke liye.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Operators mhanje ashe symbols je variables var ghanit (math) kiwa tulana (comparison) kartat.</p>
+<ul>
+<p>  <li></strong>Arithmetic<strong>: Berij, vajahbaki, gunakar, bhagakar aani baaki (<code>%</code>).</li></p>
+<p>  <li></strong>Relational<strong>: Don values madhil tulana karun <code>true</code> kiwa <code>false</code> uttar detat.</li></p>
+<p>  <li></strong>Logical<strong>: Ekapeksha jast conditions ekatra tapasnyasathi.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 Summary of Operator Categories</h2>
+
+<table>
+<p>  <thead><tr><th>Category</th><th>Operators</th><th>Description / Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td></strong>Arithmetic**</td><td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></td><td><code>a + b</code>, <code>a % b</code> (Remainder of integer division)</td></tr></p>
+<p>    <tr><td><strong>Relational</strong></td><td><code>==</code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code></td><td><code>score >= 50</code> (Returns <code>bool</code> true/false)</td></tr></p>
+<p>    <tr><td><strong>Logical</strong></td><td><code>&&</code> (AND), <code></td><td></td><td></code> (OR), <code>!</code> (NOT)</td><td><code>(age >= 18) && (hasLicense == true)</code></td></tr></p>
+<p>    <tr><td><strong>Increment/Decrement</strong></td><td><code>++a</code> (Pre), <code>a++</code> (Post), <code>--a</code>, <code>a--</code></td><td>Increments or decrements variable by 1</td></tr></p>
+<p>    <tr><td><strong>Compound Assignment</strong></td><td><code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code></td><td><code>x += 5</code> is equivalent to <code>x = x + 5</code></td></tr></p>
+<p>    <tr><td><strong>Ternary (Conditional)</strong></td><td><code>condition ? val1 : val2</code></td><td><code>(age >= 18) ? "Adult" : "Minor"</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy</h2>
+
+<ul>
+<p>  <li><strong>Logical AND (<code>&&</code>)</strong>: Like a security gate requiring <strong>BOTH</strong> a Gate Pass <strong>AND</strong> an ID Card. If either is missing, entry is denied!</li></p>
+<p>  <li><strong>Logical OR (<code>||</code>)</strong>: Like paying for a ticket with <strong>EITHER</strong> Cash <strong>OR</strong> Credit Card. Any 1 valid payment method allows entry.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+<p>int main() {</p>
+<p>    int a = 20, b = 6;</p>
+
+<p>    // 1. Arithmetic Operators</p>
+<p>    std::cout &lt;&lt; &quot;--- ARITHMETIC OPERATORS ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;a + b = &quot; &lt;&lt; (a + b) &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;a - b = &quot; &lt;&lt; (a - b) &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;a * b = &quot; &lt;&lt; (a * b) &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;a / b = &quot; &lt;&lt; (a / b) &lt;&lt; &quot; (Integer Division)&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;a % b = &quot; &lt;&lt; (a % b) &lt;&lt; &quot; (Remainder / Modulo)&quot; &lt;&lt; std::endl;</p>
+
+<p>    // 2. Relational &amp; Logical Operators</p>
+<p>    std::cout &lt;&lt; &quot;\n--- RELATIONAL &amp; LOGICAL OPERATORS ---&quot; &lt;&lt; std::endl;</p>
+<p>    bool isAdult = true;</p>
+<p>    bool hasID = false;</p>
+
+<p>    std::cout &lt;&lt; &quot;Can Enter (isAdult &amp;&amp; hasID) : &quot; &lt;&lt; ((isAdult &amp;&amp; hasID) ? &quot;Yes&quot; : &quot;No&quot;) &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Can Enter (isAdult || hasID) : &quot; &lt;&lt; ((isAdult || hasID) ? &quot;Yes&quot; : &quot;No&quot;) &lt;&lt; std::endl;</p>
+
+<p>    // 3. Pre vs Post Increment Difference</p>
+<p>    std::cout &lt;&lt; &quot;\n--- INCREMENT DIFFERENCE ---&quot; &lt;&lt; std::endl;</p>
+<p>    int x = 5;</p>
+<p>    std::cout &lt;&lt; &quot;Initial x : &quot; &lt;&lt; x &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;x++ (Post): &quot; &lt;&lt; x++ &lt;&lt; &quot; (Uses x=5 first, then increments x to 6)&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Current x : &quot; &lt;&lt; x &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;++x (Pre) : &quot; &lt;&lt; ++x &lt;&lt; &quot; (Increments x to 7 first, then uses it)&quot; &lt;&lt; std::endl;</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>a % b</code>: Modulo operator calculates the remainder of integer division ($20 \div 6 = 3$ remainder $2$).</li></p>
+<p>  <li><code>x++</code> (Post-increment): Uses the current value of <code>x</code> in the expression first, then increments <code>x</code> afterwards.</li></p>
+<p>  <li><code>++x</code> (Pre-increment): Increments <code>x</code> immediately before evaluating the expression.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- ARITHMETIC OPERATORS ---
+<p>a + b = 26</p>
+<p>a - b = 14</p>
+<p>a * b = 120</p>
+<p>a / b = 3 (Integer Division)</p>
+<p>a % b = 2 (Remainder / Modulo)</p>
+
+<p>--- RELATIONAL &amp; LOGICAL OPERATORS ---</p>
+<p>Can Enter (isAdult &amp;&amp; hasID) : No</p>
+<p>Can Enter (isAdult || hasID) : Yes</p>
+
+<p>--- INCREMENT DIFFERENCE ---</p>
+<p>Initial x : 5</p>
+<p>x++ (Post): 5 (Uses x=5 first, then increments x to 6)</p>
+<p>Current x : 6</p>
+<p>++x (Pre) : 7 (Increments x to 7 first, then uses it)</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Confusing <code>=</code> and <code>==</code></strong>:</li></p>
+<p>  <li><code>=</code> is the <strong>Assignment Operator</strong> (<code>x = 10</code> assigns 10 to x).</li></p>
+<p>  <li><code>==</code> is the <strong>Equality Operator</strong> (<code>if (x == 10)</code> compares x with 10). Writing <code>if (x = 0)</code> assigns 0 to x and evaluates to <code>false</code>!</li></p>
+<p>  <li><strong>Modulo <code>%</code> on Floating Point Numbers</strong>: <code>%</code> works strictly on integer types (<code>int</code>). Writing <code>5.5 % 2.0</code> causes a compilation error! Use <code>fmod()</code> from <code><cmath></code> for floating-point remainder.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always use parentheses <code>()</code> in complex logical expressions to make operator precedence explicit: <code>if ((age >= 18 && score > 50) || isVIP)</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare two numbers, calculate their sum, difference, product, quotient, and remainder.</p>
+<p>2. Write a boolean check testing whether a given number is <strong>both even AND greater than 10</strong>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a C++ script that inputs a student's exam score (0 to 100) and uses a ternary operator <code>? :</code> to print <code>"PASS"</code> if score $\ge 40$ and <code>"FAIL"</code> otherwise.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables & Data Types</a></li></p>
+<p>  <li><a href="06-conditionals.html">Conditionals in C++</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="04-input-output.html">← Previous: Input/Output</a> | <a href="06-conditionals.html">Next: Conditionals →</a></p>
+
+
+  </div>
+</body>
+</html>

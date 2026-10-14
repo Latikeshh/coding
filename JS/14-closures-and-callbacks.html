@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 closures and callbacks - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Higher-Order Functions & Closures</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Callback Function:</strong> A function passed as an argument into another function to be executed later.</li></p>
+<p>  <li><strong>Higher-Order Function (HOF):</strong> A function that receives another function as an argument, or returns a function.</li></p>
+<p>  <li><strong>Closure:</strong> An inner function's ability to retain access to variables in its outer lexical scope even after the outer function has finished execution.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Closure tab banta hai jab ek inner function apne outer function ke variables ko remember rakhta hai, chahe outer function execute hoke finish ho chuka ho. Closure ka primary use data privacy (private variables) aur function factories banane ke liye hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Closure mhanje aatil (inner) function la baherchya (outer) function mhadhil variables aathvati rahtat, outer function sampaalyanantar hi. Private variables tayar karnya sathi closure cha wapar kela jato.</p>
+
+<h2>🧠 Lexical Scope & Closure Mechanics</h2>
+
+<p>When a function is declared inside an outer function, it creates a binding to its surrounding <strong>Lexical Environment</strong>.</p>
+
+<pre><code class="language-js">function outerFunction(outerVariable) {
+<p>  return function innerFunction(innerVariable) {</p>
+<p>    console.log(<code>Outer: ${outerVariable}, Inner: ${innerVariable}</code>);</p>
+<p>  };</p>
+<p>}</p>
+
+<p>const newFunction = outerFunction(&quot;INSIDE_CLOSURE&quot;);</p>
+<p>// outerFunction has returned, but newFunction retains access to outerVariable!</p>
+<p>newFunction(&quot;CALL_TIME_VALUE&quot;);</code></pre></p>
+
+<h2>💡 Complete Example 1: Private Encapsulated State</h2>
+
+<pre><code class="language-js">function createBankAccount(initialBalance) {
+<p>  let balance = initialBalance; // Private variable hidden inside closure scope</p>
+
+<p>  return {</p>
+<p>    deposit(amount) {</p>
+<p>      if (amount &gt; 0) {</p>
+<p>        balance += amount;</p>
+<p>        return <code>Deposited ₹${amount}. Current Balance: ₹${balance}</code>;</p>
+<p>      }</p>
+<p>    },</p>
+<p>    withdraw(amount) {</p>
+<p>      if (amount &lt;= balance) {</p>
+<p>        balance -= amount;</p>
+<p>        return <code>Withdrew ₹${amount}. Remaining Balance: ₹${balance}</code>;</p>
+<p>      }</p>
+<p>      return &quot;Insufficient funds!&quot;;</p>
+<p>    },</p>
+<p>    getBalance() {</p>
+<p>      return <code>Current Balance: ₹${balance}</code>;</p>
+<p>    }</p>
+<p>  };</p>
+<p>}</p>
+
+<p>const myAccount = createBankAccount(5000);</p>
+<p>console.log(myAccount.deposit(1500));</p>
+<p>console.log(myAccount.withdraw(2000));</p>
+<p>console.log(myAccount.getBalance());</p>
+<p>// console.log(myAccount.balance); // undefined! Cannot be accessed or tampered directly.</code></pre></p>
+
+<h2>💡 Complete Example 2: Function Factory</h2>
+
+<pre><code class="language-js">function multiplier(factor) {
+<p>  return (number) =&gt; number * factor;</p>
+<p>}</p>
+
+<p>const double = multiplier(2);</p>
+<p>const triple = multiplier(3);</p>
+
+<p>console.log(&quot;Double 5:&quot;, double(5)); // 10</p>
+<p>console.log(&quot;Triple 5:&quot;, triple(5)); // 15</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Deposited ₹1500. Current Balance: ₹6500
+<p>Withdrew ₹2000. Remaining Balance: ₹4500</p>
+<p>Current Balance: ₹4500</p>
+<p>Double 5: 10</p>
+<p>Triple 5: 15</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a function <code>createCounter()</code> that returns a function that increments and returns a private count variable starting from <code>0</code>.</p>
+<p>2. Test two independent counter instances to verify they maintain separate isolated states.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Misunderstanding that closures capture <strong>variable references</strong>, not snapshots of static values.</li></p>
+<p>  <li>Creating unnecessary closures inside large loops which can increase memory usage if not cleaned up.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data encapsulation (emulating private fields before native <code>#field</code> syntax), debouncing/throttling event listeners, currying functions, and maintaining state in React hooks like <code>useState</code>.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Closure = A function + its lexical environment reference.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="13-advanced-array-methods.html">← Previous: Array Methods</a> | <a href="15-promises-and-async-await.html">Next: Promises & Async/Await →</a></p>
+
+
+
+  </div>
+</body>
+</html>

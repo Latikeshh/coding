@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operators and Expressions - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Operators and Expressions in Java</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Operator</strong> is a special symbol used to perform calculations, assign values, evaluate boolean conditions, and manipulate bit patterns. An <strong>Expression</strong> combines variables, constants, and operators to compute a resulting value.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Operators calculations karne, variables compare karne, aur logical conditions check karne ke kaam aate hain. Short-circuit operators (<code>&&</code>, <code>||</code>) performance aur null-checks ke liye sabse important hote hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Operators cha wapar ganit (calculations), tulana (comparison), aani logical checks karnyasathi kela jato.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Operators are the core evaluation logic of computer software—determining discount eligibility, calculating game physics, performing bitwise flag checks, and controlling decision branching.</p>
+
+<h2>📝 Operator Categories</h2>
+
+<h3>1. Arithmetic Operators</h3>
+<p><code>+</code> (Add), <code>-</code> (Subtract), <code>*</code> (Multiply), <code>/</code> (Divide), <code>%</code> (Modulus / Remainder)</p>
+
+<h3>2. Increment & Decrement (<code>++</code>, <code>--</code>)</h3>
+<ul>
+<p>  <li><strong>Prefix (<code>++x</code>):</strong> Increments variable <strong>first</strong>, then evaluates in expression.</li></p>
+<p>  <li><strong>Postfix (<code>x++</code>):</strong> Evaluates variable in current expression <strong>first</strong>, then increments.</li></p>
+<p></ul></p>
+
+<pre><code class="language-java">int a = 5;
+<p>int b = ++a; // a = 6, b = 6</p>
+
+<p>int x = 5;</p>
+<p>int y = x++; // y = 5, x = 6</code></pre></p>
+
+<h3>3. Comparison / Relational Operators</h3>
+<p><code>==</code> (Equal), <code>!=</code> (Not Equal), <code>></code> (Greater), <code><</code> (Less), <code>>=</code> (Greater Equal), <code><=</code> (Less Equal)</p>
+
+<h3>4. Logical & Short-Circuit Operators</h3>
+<ul>
+<p>  <li><code>&&</code> (Logical AND): Returns <code>true</code> only if <strong>both</strong> operands are true. Short-circuits if left side is <code>false</code>.</li></p>
+<p>  <li><code>||</code> (Logical OR): Returns <code>true</code> if <strong>at least one</strong> operand is true. Short-circuits if left side is <code>true</code>.</li></p>
+<p>  <li><code>!</code> (Logical NOT): Inverts boolean state.</li></p>
+<p></ul></p>
+
+<h3>5. Bitwise Operators (Operates on Binary Bits)</h3>
+<ul>
+<p>  <li><code>&</code> (Bitwise AND), <code>|</code> (Bitwise OR), <code>^</code> (Bitwise XOR), <code>~</code> (Bitwise NOT)</li></p>
+<p>  <li><code><<</code> (Left Shift), <code>>></code> (Signed Right Shift), <code>>>></code> (Unsigned Right Shift)</li></p>
+<p></ul></p>
+
+<h3>6. Ternary Operator (<code>condition ? valueIfTrue : valueIfFalse</code>)</h3>
+<p>Provides concise single-line conditional assignment.</p>
+
+<pre><code class="language-java">int score = 85;
+<p>String result = (score &gt;= 40) ? &quot;PASS&quot; : &quot;FAIL&quot;;</code></pre></p>
+
+<h2>🧠 Operator Precedence Summary</h2>
+
+<p>1. Parentheses <code>()</code></p>
+<p>2. Postfix <code>x++</code>, <code>x--</code></p>
+<p>3. Prefix <code>++x</code>, <code>--x</code>, <code>!</code>, <code>~</code></p>
+<p>4. Multiplicative <code>*</code>, <code>/</code>, <code>%</code></p>
+<p>5. Additive <code>+</code>, <code>-</code></p>
+<p>6. Shift <code><<</code>, <code>>></code>, <code>>>></code></p>
+<p>7. Relational <code><</code>, <code>></code>, <code><=</code>, <code>>=</code>, <code>instanceof</code></p>
+<p>8. Equality <code>==</code>, <code>!=</code></p>
+<p>9. Bitwise <code>&</code>, <code>^</code>, <code>|</code></p>
+<p>10. Logical <code>&&</code>, <code>||</code></p>
+<p>11. Ternary <code>? :</code></p>
+<p>12. Assignment <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code></p>
+
+<h2>💡 Complete Example: Operator Evaluation & Short-Circuiting</h2>
+
+<pre><code class="language-java">public class OperatorMaster {
+<p>    public static void main(String[] args) {</p>
+<p>        // Arithmetic &amp; Integer Division</p>
+<p>        int totalApples = 17;</p>
+<p>        int students = 5;</p>
+<p>        int perStudent = totalApples / students; // 3 (Integer division truncates!)</p>
+<p>        int remaining = totalApples % students;  // 2 (Modulus)</p>
+
+<p>        System.out.println(&quot;Apples per Student : &quot; + perStudent);</p>
+<p>        System.out.println(&quot;Remaining Apples   : &quot; + remaining);</p>
+
+<p>        // Short-Circuit Safety Check</p>
+<p>        String username = &quot;Aarav&quot;;</p>
+<p>        // Safe check: if username is null, second condition is NEVER evaluated!</p>
+<p>        boolean isValidUser = (username != null) &amp;&amp; (username.length() &gt;= 3);</p>
+<p>        System.out.println(&quot;Is Valid User?     : &quot; + isValidUser);</p>
+
+<p>        // Bitwise Left Shift (Multiply by 2^n)</p>
+<p>        int number = 8; // Binary: 0000 1000</p>
+<p>        int shifted = number &lt;&lt; 2; // Shift left 2 bits -&gt; 32 (8 * 4)</p>
+<p>        System.out.println(&quot;Bitwise Left Shift : &quot; + shifted);</p>
+
+<p>        // Ternary Operator</p>
+<p>        double accountBalance = 4500.00;</p>
+<p>        double withdrawalAmount = 1000.00;</p>
+<p>        String transactionStatus = (accountBalance &gt;= withdrawalAmount) </p>
+<p>                                   ? &quot;Approved&quot; </p>
+<p>                                   : &quot;Declined: Insufficient Funds&quot;;</p>
+<p>        System.out.println(&quot;Transaction        : &quot; + transactionStatus);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Apples per Student : 3
+<p>Remaining Apples   : 2</p>
+<p>Is Valid User?     : true</p>
+<p>Bitwise Left Shift : 32</p>
+<p>Transaction        : Approved</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using single assignment <code>=</code> instead of relational equality <code>==</code> inside conditions.</li></p>
+<p>  <li>Expecting integer division <code>5 / 2</code> to return <code>2.5</code> instead of <code>2</code> (use <code>5.0 / 2</code> for floating-point division!).</li></p>
+<p>  <li>Using <code>==</code> to compare Object/String contents instead of primitive values (use <code>.equals()</code> for string content comparison).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always use parentheses <code>()</code> when mixing arithmetic, logical <code>&&</code>, and <code>||</code> operators in a single statement to make execution order explicit.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Operators power invoice calculations, role-based access permission bitmasks, null-safety checks in backend services, and score thresholds in algorithms.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Test <code>System.out.println(10 / 4);</code> vs <code>System.out.println(10.0 / 4);</code>.</p>
+<p>2. Write a ternary expression that checks if a number is even or odd using <code>% 2 == 0</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that uses bitwise AND <code>&</code> to check whether a given integer is even or odd (<code>(number & 1) == 0</code>).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="04-input-and-output.html">← Previous: Input and Output</a> | <a href="06-conditionals.html">Next: Conditionals →</a></p>
+
+
+  </div>
+</body>
+</html>

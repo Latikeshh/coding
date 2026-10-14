@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>40 modern css features - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Modern CSS Features (<code>aspect-ratio</code>, <code>object-fit</code>, Logical Properties)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Modern CSS Features</strong> simplify layout calculations, aspect ratio reservations, responsive image fitting, and internationalized multi-directional layout styling without requiring complex mathematical hacks or media query workarounds:</p>
+<ul>
+<p>  <li><strong><code>aspect-ratio</code>:</strong> Native property that reserves aspect ratio dimensions (<code>16/9</code>, <code>1/1</code>, <code>4/3</code>) for video frames and images before assets download.</li></p>
+<p>  <li><strong><code>object-fit</code> & <code>object-position</code>:</strong> Controls how replaced content (images/videos) scales and clips inside its layout container.</li></p>
+<p>  <li><strong>Logical Properties:</strong> Direction-agnostic layout properties (<code>margin-inline</code>, <code>padding-block</code>, <code>inset-inline</code>) that replace physical left/right/top/bottom properties to support multi-language internationalization (LTR / RTL).</li></p>
+<p></ul></p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>aspect-ratio: 16/9</code> locks element aspect ratios to prevent layout shifts. <code>object-fit: cover</code> clips images cleanly without stretching. Logical properties (<code>margin-inline</code>) support internationalized LTR and RTL layouts.</p>
+
+<h3>Hindi</h3>
+<p><code>aspect-ratio: 16/9</code> se box ka ratio fix rehta hai. <code>object-fit: cover</code> se images bina khinche (stretch hue) sahi fit hoti hain. Logical properties (<code>margin-inline</code>) LTR/RTL multi-language layouts support karti hain.</p>
+
+<h3>Marathi</h3>
+<p><code>aspect-ratio</code> mule images cha aakar ani ratio (jase 16/9) fix rahto. <code>object-fit: cover</code> mule image stretch na hota net baste.</p>
+
+<h2>📚 Modern CSS Features Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Value Options</th><th>Example Syntax</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>aspect-ratio</code></strong></td><td>Reserves aspect ratio box dimensions (<code>16/9</code>, <code>1/1</code>, <code>4/3</code>)</td><td><code>aspect-ratio: 16 / 9;</code></td></tr></p>
+<p>    <tr><td><strong><code>object-fit</code></strong></td><td>Fits image inside box (<code>cover</code>, <code>contain</code>, <code>fill</code>, <code>none</code>)</td><td><code>object-fit: cover;</code></td></tr></p>
+<p>    <tr><td><strong><code>object-position</code></strong></td><td>Positions image focal point inside frame</td><td><code>object-position: top center;</code></td></tr></p>
+<p>    <tr><td><strong><code>margin-inline</code></strong></td><td>Replaces <code>margin-left</code> & <code>margin-right</code> (Start/End)</td><td><code>margin-inline: auto;</code></td></tr></p>
+<p>    <tr><td><strong><code>padding-block</code></strong></td><td>Replaces <code>padding-top</code> & <code>padding-bottom</code> (Block start/end)</td><td><code>padding-block: 1.5rem;</code></td></tr></p>
+<p>    <tr><td><strong><code>accent-color</code></strong></td><td>Styles native form controls (checkboxes, radio, range)</td><td><code>accent-color: #2563eb;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🌟 <code>object-fit</code> Explained: Fixing Distorted Images</h2>
+
+<p>When you set explicit <code>width: 300px</code> and <code>height: 200px</code> on an image with a different native aspect ratio:</p>
+<ul>
+<p>  <li><strong><code>object-fit: fill</code></strong> (Default): Stretches and distorts the image.</li></p>
+<p>  <li><strong><code>object-fit: contain</code></strong>: Fits the whole image inside, leaving letterbox empty spaces.</li></p>
+<p>  <li><strong><code>object-fit: cover</code></strong> (Recommended): Scales the image to fill the container completely while <strong>preserving native aspect ratio</strong> (cropping extra edges).</li></p>
+<p></ul></p>
+
+<pre><code class="language-css">.card-img {
+<p>  width: 100%;</p>
+<p>  height: 200px;</p>
+<p>  object-fit: cover; /* Preserves aspect ratio, no stretching! */</p>
+<p>  object-position: center;</p>
+<p>}</code></pre></p>
+
+<h2>🌐 Logical Properties vs. Physical Properties</h2>
+
+<p>Logical properties adapt automatically if a webpage is translated into Right-to-Left (RTL) languages like Arabic or Hebrew:</p>
+
+<table>
+<p>  <thead><tr><th>Physical Property (Left/Right/Top/Bottom)</th><th>Modern Logical Property Equivalent</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>margin-left: auto; margin-right: auto;</code></td><td><code>margin-inline: auto;</code></td></tr></p>
+<p>    <tr><td><code>padding-top: 20px; padding-bottom: 20px;</code></td><td><code>padding-block: 20px;</code></td></tr></p>
+<p>    <tr><td><code>border-left: 4px solid blue;</code></td><td><code>border-inline-start: 4px solid blue;</code></td></tr></p>
+<p>    <tr><td><code>top: 0; right: 0; bottom: 0; left: 0;</code></td><td><code>inset: 0;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Modern CSS Features Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;video-card&quot;&gt;</p>
+<p>    &lt;div class=&quot;video-container&quot;&gt;</p>
+<p>      &lt;iframe src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ&quot; title=&quot;Video Player&quot; allowfullscreen&gt;&lt;/iframe&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>    &lt;div class=&quot;card-content&quot;&gt;</p>
+<p>      &lt;h3&gt;Native 16:9 Aspect Ratio Video&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Uses aspect-ratio: 16/9 to reserve container dimensions before video loads.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>*, *::before, *::after {</p>
+<p>  box-sizing: border-box;</p>
+<p>}</p>
+
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding-block: 40px; /* Logical property for padding-top/bottom */</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.video-card {</p>
+<p>  background: white;</p>
+<p>  border-radius: 12px;</p>
+<p>  overflow: hidden;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  width: 100%;</p>
+<p>  max-width: 480px;</p>
+<p>}</p>
+
+<p>/* aspect-ratio: 16/9 locks container aspect ratio */</p>
+<p>.video-container {</p>
+<p>  width: 100%;</p>
+<p>  aspect-ratio: 16 / 9;</p>
+<p>  background-color: #111827;</p>
+<p>}</p>
+
+<p>.video-container iframe {</p>
+<p>  width: 100%;</p>
+<p>  height: 100%;</p>
+<p>  border: 0;</p>
+<p>}</p>
+
+<p>.card-content {</p>
+<p>  padding-block: 20px;   /* Logical top/bottom padding */</p>
+<p>  padding-inline: 24px;  /* Logical left/right padding */</p>
+<p>}</p>
+
+<p>h3 {</p>
+<p>  margin-block-start: 0; /* Logical top margin */</p>
+<p>  color: #1f2937;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  color: #4b5563;</p>
+<p>  line-height: 1.5;</p>
+<p>  margin-block-end: 0;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>The video container maintains a crisp, responsive 16:9 aspect ratio box on all screen widths without requiring legacy padding-bottom percentage hacks!</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add <code>accent-color: #2563eb;</code> to a checkbox input in CSS: <code>input[type="checkbox"] { accent-color: #2563eb; }</code>.</p>
+<p>2. Notice how the native checkbox checkmark theme changes instantly!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Setting <code>object-fit: cover</code> without defining both width and height:</strong> <code>object-fit</code> requires explicit dimensions or a container boundary to compute cropping.</li></p>
+<p>  <li><strong>Mixing logical and physical properties inconsistently:</strong> Stick to logical properties (<code>padding-inline</code>, <code>padding-block</code>) for internationalized layouts.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>E-commerce stores use <code>object-fit: cover</code> for product thumbnails, video portals use <code>aspect-ratio: 16/9</code> to prevent Cumulative Layout Shift (CLS), and global web apps use logical properties to support Arabic/Hebrew RTL layouts seamlessly.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="32-functions.html">CSS Functions (<code>calc()</code>, <code>clamp()</code>)</a></li></p>
+<p>  <li><a href="36-card-layout.html">Card Layout Components</a></li></p>
+<p>  <li><a href="39-advanced-selectors.html">Advanced Selectors</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>aspect-ratio: 16 / 9</code> or <code>1 / 1</code> to reserve responsive video/image container space.</li></p>
+<p>  <li>Use <code>object-fit: cover</code> to crop images cleanly without stretching aspect ratios.</li></p>
+<p>  <li>Use logical properties (<code>margin-inline</code>, <code>padding-block</code>) for modern internationalized layouts.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="39-advanced-selectors.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="41-css-architecture-and-dark-mode.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

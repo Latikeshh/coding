@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 javascript debugging - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Practical JavaScript Debugging in DevTools</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Debugging</strong> is the process of finding, diagnosing, and fixing errors, unexpected behavior, and performance bottlenecks in code. JavaScript provides <code>console</code> methods, <code>debugger</code> statements, and browser Developer Tools (DevTools) for inspection.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Debugging se hum apne code ke errors ko dhoondhte hain aur fix karte hain. Browser ke Developer Tools (<code>F12</code>) ka <strong>Console</strong>, <strong>Sources</strong>, aur <strong>Breakpoints</strong> use karke hum code ko line-by-line execute karke variables ki state monitor kar sakte hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Debugging cha wapar karun kod madhil chuka (bugs) shodhlya aani dur kelya jaatat. Browser chya DevTools madhye <strong>Breakpoints</strong> lavun code line-by-line tapasla jato.</p>
+
+<h2>📝 Modern Console Logging Methods</h2>
+
+<pre><code class="language-js">// 1. Log simple messages
+<p>console.log(&quot;User logged in successfully&quot;);</p>
+
+<p>// 2. Log Warnings &amp; Errors with visual highlighting</p>
+<p>console.warn(&quot;API token expiring soon!&quot;);</p>
+<p>console.error(&quot;Failed to connect to backend service&quot;);</p>
+
+<p>// 3. Tabular representation for arrays of objects</p>
+<p>const users = [</p>
+<p>  { id: 1, name: &quot;Anita&quot;, role: &quot;Dev&quot; },</p>
+<p>  { id: 2, name: &quot;Kiran&quot;, role: &quot;Design&quot; }</p>
+<p>];</p>
+<p>console.table(users);</p>
+
+<p>// 4. Measuring execution time</p>
+<p>console.time(&quot;LoopPerformance&quot;);</p>
+<p>for (let i = 0; i &lt; 1000000; i++) {}</p>
+<p>console.timeEnd(&quot;LoopPerformance&quot;);</code></pre></p>
+
+<h2>🧠 Using Breakpoints in Browser DevTools</h2>
+
+<p>1. Open DevTools in Google Chrome or Firefox (<code>F12</code>).</p>
+<p>2. Navigate to the <strong>Sources</strong> (or Debugger) tab.</p>
+<p>3. Open your JavaScript file in the left panel.</p>
+<p>4. Click on any line number to set a <strong>Breakpoint</strong> (a red dot will appear).</p>
+<p>5. Trigger the code action in your application. The browser will pause execution at that exact line!</p>
+<p>6. Inspect variable values in the <strong>Scope</strong> panel, view the function execution chain in <strong>Call Stack</strong>, and step through code line by line using controls:</p>
+<ul>
+<p>  <li><strong>Step Over (F10):</strong> Execute next line.</li></p>
+<p>  <li><strong>Step Into (F11):</strong> Jump inside called function.</li></p>
+<p>  <li><strong>Step Out (Shift+F11):</strong> Finish current function and return.</li></p>
+<p>  <li><strong>Resume (F8):</strong> Continue normal execution.</li></p>
+<p></ul></p>
+
+<h2>📝 Programmatic Breakpoint (<code>debugger</code>)</h2>
+
+<p>Adding the <code>debugger;</code> statement inside your JavaScript code forces the browser to automatically pause execution when DevTools is open.</p>
+
+<pre><code class="language-js">function calculateCartTotal(cartItems) {
+<p>  let total = 0;</p>
+
+<p>  for (let i = 0; i &lt; cartItems.length; i++) {</p>
+<p>    let item = cartItems[i];</p>
+
+<p>    // Execution pauses here automatically if DevTools is open</p>
+<p>    debugger;</p>
+
+<p>    total += item.price * item.quantity;</p>
+<p>  }</p>
+
+<p>  return total;</p>
+<p>}</p>
+
+<p>calculateCartTotal([{ name: &quot;Book&quot;, price: 200, quantity: 2 }]);</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add <code>console.table()</code> with an array of 3 products in your console.</p>
+<p>2. Place a <code>debugger;</code> statement inside a loop and step through it in Chrome DevTools.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Relying exclusively on <code>console.log()</code> statements everywhere instead of using breakpoints in DevTools.</li></p>
+<p>  <li>Leaving <code>debugger;</code> statements or excessive <code>console.log()</code> outputs in production code.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Inspecting network request payloads, tracking variable state mutations during UI updates, isolating memory leaks, and fixing logical errors.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Breakpoints let you pause execution and inspect variables live in memory without cluttering your code with <code>console.log()</code> statements.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="24-mini-projects.html">← Previous: Mini Projects</a></p>
+
+
+
+  </div>
+</body>
+</html>

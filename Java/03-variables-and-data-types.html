@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables and Data Types - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Variables and Data Types</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Variable</strong> is a named location in memory used to store data values. Java is a <strong>statically and strongly typed</strong> programming language, meaning every variable must have a declared data type that determines what kind of values it can store and what operations can be performed on it.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Java mein har variable ka Data Type declare karna zaroori hota hai. Data Types do categories mein hote hain: <strong>Primitive Types</strong> (<code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>, etc.) jo raw values store karte hain, aur <strong>Reference Types</strong> (<code>String</code>, Arrays, Objects) jo memory address hold karte hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Java madhye pratyek variable cha Data Type sangava lagto. Data types don prakarat ahet: <strong>Primitive Types</strong> (raw values) aani <strong>Reference Types</strong> (memory reference).</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Statically typed variables allow the Java compiler (<code>javac</code>) to catch type mismatch errors, invalid operations, and potential buffer overflows at compile time before your code ever runs in production.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a variable as a labeled storage box. The Data Type is the box shape (e.g., a round slot for numbers, a square slot for text). You cannot force a square text box into a round number slot without explicitly re-casting it.</p>
+
+<h2>📝 1. The 8 Primitive Data Types</h2>
+
+<p>Primitives store raw binary values directly in stack memory:</p>
+
+<table>
+<p>  <thead><tr><th>Type</th><th>Size</th><th>Range / Values</th><th>Default Value</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>byte</code></td><td>1 byte</td><td>-128 to 127</td><td><code>0</code></td><td><code>byte age = 25;</code></td></tr></p>
+<p>    <tr><td><code>short</code></td><td>2 bytes</td><td>-32,768 to 32,767</td><td><code>0</code></td><td><code>short year = 2026;</code></td></tr></p>
+<p>    <tr><td><code>int</code></td><td>4 bytes</td><td>-2^31 to 2^31-1 (~2 Billion)</td><td><code>0</code></td><td><code>int distance = 150000;</code></td></tr></p>
+<p>    <tr><td><code>long</code></td><td>8 bytes</td><td>-2^63 to 2^63-1</td><td><code>0L</code></td><td><code>long views = 9500000000L;</code></td></tr></p>
+<p>    <tr><td><code>float</code></td><td>4 bytes</td><td>Single-precision floating point</td><td><code>0.0f</code></td><td><code>float pi = 3.14159f;</code></td></tr></p>
+<p>    <tr><td><code>double</code></td><td>8 bytes</td><td>Double-precision floating point</td><td><code>0.0d</code></td><td><code>double price = 999.99;</code></td></tr></p>
+<p>    <tr><td><code>char</code></td><td>2 bytes</td><td>Single 16-bit Unicode character</td><td><code>'\u0000'</code></td><td><code>char grade = 'A';</code></td></tr></p>
+<p>    <tr><td><code>boolean</code></td><td>1 bit</td><td><code>true</code> or <code>false</code></td><td><code>false</code></td><td><code>boolean active = true;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Type Casting (Widening vs Narrowing)</h2>
+
+<ul>
+<p>  <li><strong>Widening (Implicit):</strong> Converting smaller type to larger type automatically (<code>byte</code> -> <code>short</code> -> <code>int</code> -> <code>long</code> -> <code>float</code> -> <code>double</code>).</li></p>
+<p>  <li><strong>Narrowing (Explicit):</strong> Converting larger type to smaller type manually with potential data loss.</li></p>
+<p></ul></p>
+
+<pre><code class="language-java">// Widening Casting (Automatic)
+<p>int numInt = 100;</p>
+<p>double numDouble = numInt; // 100.0</p>
+
+<p>// Narrowing Casting (Explicit)</p>
+<p>double price = 99.95;</p>
+<p>int roundedPrice = (int) price; // 99 (fractional part truncated!)</code></pre></p>
+
+<h2>📝 3. Wrapper Classes & Autoboxing</h2>
+
+<p>Primitives have corresponding Object Wrapper classes (<code>Byte</code>, <code>Short</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>, <code>Double</code>, <code>Character</code>, <code>Boolean</code>).</p>
+
+<pre><code class="language-java">// Autoboxing: Primitive to Wrapper Object
+<p>Integer boxedNum = 50; </p>
+
+<p>// Unboxing: Wrapper Object to Primitive</p>
+<p>int unboxedNum = boxedNum;</code></pre></p>
+
+<h2>📝 4. Local Variable Type Inference (<code>var</code>)</h2>
+
+<p>Introduced in Java 10, <code>var</code> infers local variable types automatically from the assignment initializer:</p>
+
+<pre><code class="language-java">var username = &quot;Sneha&quot;; // Inferred as String
+<p>var userScore = 98;     // Inferred as int</code></pre></p>
+
+<h2>💡 Complete Example: Data Types, Casting & Wrappers</h2>
+
+<pre><code class="language-java">public class DataTypeMaster {
+<p>    public static void main(String[] args) {</p>
+<p>        // Primitive Variables</p>
+<p>        int itemQuantity = 3;</p>
+<p>        double pricePerUnit = 499.50;</p>
+<p>        char currencySymbol = &#39;₹&#39;;</p>
+<p>        boolean isAvailable = true;</p>
+
+<p>        // Calculated Expression</p>
+<p>        double subtotal = itemQuantity * pricePerUnit;</p>
+<p>        </p>
+<p>        // Explicit Type Casting (Double to Int)</p>
+<p>        int roundedTotal = (int) subtotal;</p>
+
+<p>        // Wrapper Class Usage</p>
+<p>        String numberStr = &quot;1250&quot;;</p>
+<p>        int parsedNumber = Integer.parseInt(numberStr);</p>
+
+<p>        System.out.println(&quot;Currency        : &quot; + currencySymbol);</p>
+<p>        System.out.println(&quot;In Stock?       : &quot; + isAvailable);</p>
+<p>        System.out.println(&quot;Subtotal        : &quot; + subtotal);</p>
+<p>        System.out.println(&quot;Rounded Total   : &quot; + roundedTotal);</p>
+<p>        System.out.println(&quot;Parsed Number   : &quot; + parsedNumber);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Currency        : ₹
+<p>In Stock?       : true</p>
+<p>Subtotal        : 1498.5</p>
+<p>Rounded Total   : 1498</p>
+<p>Parsed Number   : 1250</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting the <code>L</code> suffix for <code>long</code> literals (<code>long val = 9000000000L;</code>) or <code>f</code> suffix for <code>float</code> literals (<code>float f = 3.14f;</code>).</li></p>
+<p>  <li>Using <code>float</code> or <code>double</code> for financial currency calculations (use <code>java.math.BigDecimal</code> instead to prevent floating-point rounding errors!).</li></p>
+<p>  <li>Reading uninitialized local variables before assigning a value.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Primitives are compared by value (<code>==</code>), while Objects and <code>String</code> references are compared by memory address (use <code>.equals()</code> for string content comparison!).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Banking systems use <code>BigDecimal</code> for ledger accuracy, <code>long</code> for epoch timestamps, <code>boolean</code> for account status flags, and Wrapper classes for database Object-Relational Mapping (ORM).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare a <code>double</code> variable <code>temperature = 36.6</code>. Cast it explicitly to an <code>int</code> and observe the result.</p>
+<p>2. Use <code>Integer.parseInt()</code> to parse string <code>"500"</code> and add <code>100</code> to it.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that calculates student test percentage from <code>48</code> marks out of <code>60</code> without integer division truncation (ensure floating-point division using <code>48 * 100.0 / 60</code>).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="02-java-program-structure.html">Java Program Structure</a></li></p>
+<p>  <li><a href="04-input-and-output.html">Input and Output</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="02-java-program-structure.html">← Previous: Program Structure</a> | <a href="04-input-and-output.html">Next: Input and Output →</a></p>
+
+
+  </div>
+</body>
+</html>

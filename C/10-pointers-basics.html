@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 pointers basics - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Pointers Basics in C</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>pointer</strong> is a variable that stores the <strong>memory address</strong> of another variable as its value. Pointers provide direct access to computer memory, enabling efficient data manipulation and dynamic memory management.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>A pointer stores a memory address. The address-of operator <code>&</code> retrieves the memory address of a variable. The dereference operator <code>*</code> accesses or modifies the value stored at the memory address held by the pointer. Pointers initialized to <code>NULL</code> explicitly signal that they point to no valid memory location.</p>
+
+<h3>Hindi</h3>
+<p>Pointer ek aisa variable hai jo kisi doosre variable ka memory address store karta hai. Address-of operator <code>&</code> kisi variable ka memory address nikalta hai. Dereference operator <code>*</code> us address par rakhi value ko read ya modify karta hai. Pointer ko <code>NULL</code> par set karne se woh safe rehta hai.</p>
+
+<h3>Marathi</h3>
+<p>Pointer mhanje dusrya variable cha memory address sathavanya saathi vaparala janara variable. <code>&</code> operator variable cha address deto. <code>*</code> operator (dereference) tya address varil value vachato kiva badalto. Invalid access talnyasathi pointer <code>NULL</code> thevla jato.</p>
+
+<h3>Hinglish</h3>
+<p>Pointer memory address hold karta hai. Address nikalne ke liye <code>&var</code> use hota hai, aur pointer ke andar ki value ko update/read karne ke liye dereference operator <code>*ptr</code> use hota hai. Uninitialized pointer (Wild Pointer) dereference karne par Segmentation Fault crash ho jata hai. <code>%p</code> with <code>(void*)ptr</code> format specifier use karo.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Pointers are C's most powerful feature. They allow functions to modify variables in caller scopes (pass-by-address), enable dynamic memory allocation on the Heap, allow fast passing of large structures without copying, and build dynamic data structures like linked lists and trees.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of variables and memory like houses on a street:</p>
+<ul>
+<p>  <li>Variable <code>int score = 95</code> is a house containing value <code>95</code>.</li></p>
+<p>  <li>House Address <code>&score</code> is the street house number (e.g. <code>0x7ffd5f12</code>).</li></p>
+<p>  <li>Pointer <code>int *pScore = &score</code> is a piece of paper holding the house address written on it.</li></p>
+<p>  <li>Dereferencing <code>*pScore</code> means walking to house <code>0x7ffd5f12</code> and looking inside or changing the furniture inside.</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & Key Operators</h2>
+
+<h3>1. Address-of Operator (<code>&</code>)</h3>
+<p>Returns the memory address of a variable:</p>
+<pre><code class="language-c">int age = 25;
+<p>printf(&quot;Address of age: %p\n&quot;, (void*)&amp;age);</code></pre></p>
+
+<h3>2. Pointer Declaration & Initialization</h3>
+<p>The asterisk <code>*</code> in a type declaration specifies a pointer variable:</p>
+<pre><code class="language-c">int *pAge = &amp;age; // pAge holds the memory address of &#39;age&#39;</code></pre>
+
+<h3>3. Dereference / Indirection Operator (<code>*</code>)</h3>
+<p>Accesses or modifies the value stored at the address held by the pointer:</p>
+<pre><code class="language-c">*pAge = 26; // Modifies the value of &#39;age&#39; directly to 26!</code></pre>
+
+<h3>4. NULL Pointer</h3>
+<p>Safety initialization indicating pointer points to nothing:</p>
+<pre><code class="language-c">int *pSafe = NULL;</code></pre>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical program demonstrating pointer syntax, memory address inspection, in-place variable swapping, and NULL safety checks:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>// Function modifying caller variables using pointers</p>
+<p>void swap(int *a, int *b) {</p>
+<p>    int temp = *a; // Store value at address &#39;a&#39;</p>
+<p>    *a = *b;       // Overwrite value at address &#39;a&#39; with value at address &#39;b&#39;</p>
+<p>    *b = temp;     // Overwrite value at address &#39;b&#39; with temp</p>
+<p>}</p>
+
+<p>int main(void) {</p>
+<p>    int accountA = 1000;</p>
+<p>    int accountB = 5000;</p>
+
+<p>    // 1. Pointer Declarations</p>
+<p>    int *pAccountA = &amp;accountA;</p>
+
+<p>    printf(&quot;--- POINTER MEMORY INSPECTION ---\n&quot;);</p>
+<p>    printf(&quot;Value of accountA             : $%d\n&quot;, accountA);</p>
+<p>    printf(&quot;Memory Address of accountA (&amp;): %p\n&quot;, (void*)&amp;accountA);</p>
+<p>    printf(&quot;Value stored in pAccountA     : %p\n&quot;, (void*)pAccountA);</p>
+<p>    printf(&quot;Value dereferenced (*pAccountA): $%d\n\n&quot;, *pAccountA);</p>
+
+<p>    // 2. Modifying value via dereferencing</p>
+<p>    *pAccountA = 1500; // Directly updates &#39;accountA&#39;</p>
+<p>    printf(&quot;Updated accountA via pointer   : $%d\n\n&quot;, accountA);</p>
+
+<p>    // 3. In-Place Swapping using Function Pointers</p>
+<p>    printf(&quot;--- SWAPPING VALUES VIA POINTERS ---\n&quot;);</p>
+<p>    printf(&quot;Before Swap: accountA = $%d | accountB = $%d\n&quot;, accountA, accountB);</p>
+<p>    swap(&amp;accountA, &amp;accountB); // Pass memory addresses of accountA and accountB</p>
+<p>    printf(&quot;After Swap : accountA = $%d | accountB = $%d\n\n&quot;, accountA, accountB);</p>
+
+<p>    // 4. NULL Pointer Safety Check</p>
+<p>    int *pUnassigned = NULL;</p>
+<p>    if (pUnassigned != NULL) {</p>
+<p>        printf(&quot;Value: %d\n&quot;, *pUnassigned);</p>
+<p>    } else {</p>
+<p>        printf(&quot;Safety Guard: pUnassigned is NULL! Dereference prevented.\n&quot;);</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>int *pAccountA = &accountA;</code>: Creates a pointer variable <code>pAccountA</code> of type <code>int*</code> and stores the memory address of <code>accountA</code> inside it.</li></p>
+<p>  <li><code>(void*)pAccountA</code>: ISO C standard requires casting pointers to <code>(void*)</code> when printing addresses using the <code>%p</code> format specifier.</li></p>
+<p>  <li><code>swap(&accountA, &accountB)</code>: Passes the memory addresses of <code>accountA</code> and <code>accountB</code> to <code>swap()</code>. Inside <code>swap()</code>, dereferencing <code>*a</code> and <code>*b</code> swaps the actual caller variables in <code>main()</code>.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- POINTER MEMORY INSPECTION ---
+<p>Value of accountA             : $1000</p>
+<p>Memory Address of accountA (&amp;): 0x7ffdb120c4ac (Address varies by run/system)</p>
+<p>Value stored in pAccountA     : 0x7ffdb120c4ac</p>
+<p>Value dereferenced (*pAccountA): $1000</p>
+
+<p>Updated accountA via pointer   : $1500</p>
+
+<p>--- SWAPPING VALUES VIA POINTERS ---</p>
+<p>Before Swap: accountA = $1500 | accountB = $5000</p>
+<p>After Swap : accountA = $5000 | accountB = $1500</p>
+
+<p>Safety Guard: pUnassigned is NULL! Dereference prevented.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Wild Pointers (Uninitialized Pointers):</strong> Declaring a pointer without initializing it (<code>int *p; *p = 10;</code>). <code>p</code> contains random garbage memory addresses. Dereferencing it writes data to random CPU memory, causing unpredictable crashes (Segmentation Faults).</li></p>
+<p>  <li><strong>Dereferencing <code>NULL</code> Pointers:</strong> Attempting to read or write <code>*ptr</code> when <code>ptr == NULL</code> causes an immediate OS crash. Always perform <code>if (ptr != NULL)</code> checks before dereferencing!</li></p>
+<p>  <li><strong>Confusing Pointer Declaration with Dereferencing:</strong></li></p>
+<p>  <li>In declaration: <code>int *p;</code> (<code>*</code> specifies <code>p</code> is a pointer).</li></p>
+<p>  <li>In expression: <code>*p = 50;</code> (<code>*</code> means dereference/access value at address).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always initialize pointers upon declaration: either point to a valid variable address (<code>int *p = &var;</code>) or set to <code>NULL</code> (<code>int *p = NULL;</code>).</li></p>
+<p>  <li>Use format specifier <code>%p</code> with explicit <code>(void*)</code> cast when printing pointer addresses in <code>printf</code>.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Pointers power C hardware registers, memory-mapped I/O in microcontrollers, dynamic heap allocation (<code>malloc</code>), pass-by-address function mutations, and operating system data structures.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare a variable <code>int score = 80</code>.</p>
+<p>2. Create a pointer <code>pScore</code> pointing to <code>score</code>.</p>
+<p>3. Add <code>15</code> points to <code>score</code> by dereferencing <code>pScore</code> (<code>*pScore += 15</code>).</p>
+<p>4. Print <code>score</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function <code>void doubleValue(int *val)</code> that doubles the value of an integer variable passed to it by pointer. Test it in <code>main()</code> with a variable <code>int number = 45</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="08-functions.html">Functions</a></li></p>
+<p>  <li><a href="11-advanced-pointers.html">Advanced Pointers</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="09-arrays.html">← Previous: Arrays</a> | <a href="11-advanced-pointers.html">Next: Advanced Pointers →</a></p>
+
+
+
+  </div>
+</body>
+</html>

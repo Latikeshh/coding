@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 html colors - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>HTML & CSS Colors (HEX, RGB, HSL, Contrast)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Colors bring visual structure to webpages. While HTML defines structural elements, CSS properties (<code>color</code> for text color, <code>background-color</code> for background color) apply color formatting using Color Names, HEX codes, RGB/RGBA values, or HSL values.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Set text and background colors using color names, HEX codes (<code>#007bff</code>), <code>rgb()</code>, or <code>rgba()</code> values. Ensure high contrast between text and background for readability and accessibility.</p>
+
+<h3>Hindi</h3>
+<p>Text aur background colors set karne ke liye HEX (<code>#007bff</code>), RGB (<code>rgb(0, 123, 255)</code>), ya color names use karein. Text aur background ke beech high contrast rakhein.</p>
+
+<h3>Marathi</h3>
+<p>Text ani background colors sathi HEX (<code>#007bff</code>), RGB (<code>rgb(0, 123, 255)</code>), kiva color names vapra. Separation sathi changla text contrast theva.</p>
+
+<h2>🤔 Why Do We Use Colors?</h2>
+
+<p>Colors guide visual attention, emphasize key notices, convey brand identity, and make user interfaces pleasant to navigate. High contrast between text and background is essential for web accessibility.</p>
+
+<h2>🎨 Color Formats Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Format</th><th>Syntax Example</th><th>Description & Features</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Named Colors</strong></td><td><code>color: navy;</code></td><td>140 standard CSS color names (<code>red</code>, <code>blue</code>, <code>forestgreen</code>, <code>darkslategray</code>).</td></tr></p>
+<p>    <tr><td><strong>HEX Codes</strong></td><td><code>color: #007bff;</code></td><td>Hexadecimal format (<code>#RRGGBB</code> from <code>00</code> to <code>FF</code>). <code>#000000</code> is black, <code>#ffffff</code> is white.</td></tr></p>
+<p>    <tr><td><strong>RGB</strong></td><td><code>color: rgb(0, 123, 255);</code></td><td>Red, Green, Blue intensity values ranging from <code>0</code> to <code>255</code>.</td></tr></p>
+<p>    <tr><td><strong>RGBA</strong></td><td><code>color: rgba(0, 123, 255, 0.5);</code></td><td>Adds an <strong>Alpha</strong> opacity channel from <code>0.0</code> (fully transparent) to <code>1.0</code> (opaque).</td></tr></p>
+<p>    <tr><td><strong>HSL</strong></td><td><code>color: hsl(210, 100%, 50%);</code></td><td><strong>Hue</strong> (0–360° color wheel), <strong>Saturation</strong> (0–100%), and <strong>Lightness</strong> (0–100%).</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>♿ Accessibility & Color Contrast</h2>
+
+<p>Web Content Accessibility Guidelines (WCAG) require maintaining <strong>sufficient contrast ratio between text color and background color</strong>:</p>
+
+<ul>
+<p>  <li><strong>Good Contrast (Accessible):</strong> Dark navy text (<code>#001f3f</code>) on a light gray background (<code>#f8f9fa</code>). Easy to read for all users.</li></p>
+<p>  <li><strong>Poor Contrast (Inaccessible):</strong> Light yellow text (<code>#ffff00</code>) on a white background (<code>#ffffff</code>). Causes severe eye strain and is unreadable for low-vision users.</li></p>
+<p></ul></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;HTML Colors Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Color Formats Demonstration&lt;/h1&gt;</p>
+
+<p>  &lt;!-- High-contrast dark text on light background --&gt;</p>
+<p>  &lt;div style=&quot;background-color: #f0f4f8; padding: 15px; border-radius: 5px;&quot;&gt;</p>
+<p>    &lt;h2 style=&quot;color: #0d3b66;&quot;&gt;Primary Heading in Deep Navy (HEX)&lt;/h2&gt;</p>
+<p>    &lt;p style=&quot;color: rgb(40, 40, 40);&quot;&gt;Readable dark charcoal body text defined using RGB values.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>  &lt;br&gt;</p>
+
+<p>  &lt;!-- Semi-transparent overlay box using RGBA --&gt;</p>
+<p>  &lt;div style=&quot;background-color: rgba(0, 123, 255, 0.1); border: 2px solid rgb(0, 123, 255); padding: 15px;&quot;&gt;</p>
+<p>    &lt;p style=&quot;color: hsl(210, 100%, 30%);&quot;&gt;This banner uses RGBA transparency for its background layer.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>A light blue card containing dark navy heading text and dark charcoal paragraph text.</li></p>
+<p>  <li>A second semi-transparent blue alert banner created using RGBA background transparency.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a styled announcement card with a dark blue background (<code>#002b49</code>) and white text (<code>#ffffff</code>).</p>
+<p>2. Add a second box using an <code>rgba()</code> background with 20% opacity.</p>
+<p>3. Test your text color contrast in Chrome DevTools (Inspect Element → Click Color swatch).</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using low-contrast combinations:</strong> Placing light gray or yellow text on white backgrounds.</li></p>
+<p>  <li><strong>Forgetting <code>#</code> in HEX codes:</strong> Writing <code>color: 007bff;</code> instead of <code>color: #007bff;</code>.</li></p>
+<p>  <li><strong>Relying solely on color to convey meaning:</strong> Marking required fields in red without also adding text labels like <code>(required)</code> or <code>*</code>.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All professional websites use consistent color systems (HEX, RGB, RGBA) defined in CSS stylesheets to maintain brand themes and high WCAG contrast accessibility standards.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-div-and-span.html">Div and Span</a></li></p>
+<p>  <li><a href="24-accessibility-basics.html">Accessibility Basics</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>High contrast text is essential for accessibility.</li></p>
+<p>  <li>HEX codes start with <code>#</code>.</li></p>
+<p>  <li>RGBA adds an alpha opacity channel (<code>0.0</code> to <code>1.0</code>).</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="16-html-comments.html">← Previous: Comments</a> | <a href="./">HTML Home</a> | <a href="18-html-entities.html">Next: Entities →</a></p>
+
+
+
+  </div>
+</body>
+</html>

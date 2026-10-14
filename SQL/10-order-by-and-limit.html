@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 order by and limit - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Sorting & Limiting Results (<code>ORDER BY</code>, <code>LIMIT</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong><code>ORDER BY</code>:</strong> Sorts the rows in a query result set in ascending (<code>ASC</code>) or descending (<code>DESC</code>) order based on one or more specified columns.</li></p>
+<p>  <li><strong><code>LIMIT</code> & <code>OFFSET</code>:</strong> Restricts the maximum number of rows returned by a query (<code>LIMIT</code>) and specifies how many leading rows to skip before returning results (<code>OFFSET</code>), forming the backbone of web application pagination.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Query results ko kisi specific order mein arrange karne ke liye <strong><code>ORDER BY</code></strong> clause ka use hota hai. Default sorting ascending (<code>ASC</code>) hoti hai (A-to-Z, 1-to-9), jabki descending (<code>DESC</code>) ke liye explicitly <code>DESC</code> likhna padta hai. Query se top records ya fixed row count return karne ke liye <strong><code>LIMIT</code></strong> aur rows skip karke pages navigate karne ke liye <strong><code>OFFSET</code></strong> ka istemal kiya jata hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Query madhun milnara data tharavik kramat (sorting) lavnyasathi <strong><code>ORDER BY</code></strong> clause vaparla jato. Omitted astana sorting <code>ASC</code> (lahannatun motha) aste, tar <code>DESC</code> cha wapar mothyanatun lahan kramat data lavnyasathi hoto. Result madhun tharavik rows baher kadhnyasathi <strong><code>LIMIT</code></strong> aani pagination sathi <strong><code>OFFSET</code></strong> cha wapar kela jato.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>In relational database theory, <strong>tables are unordered sets of rows</strong>. When you execute a basic <code>SELECT * FROM table;</code> query, the database engine returns rows in an arbitrary physical disk order. </p>
+
+<p>Using <code>ORDER BY</code> and <code>LIMIT</code> is essential to:</p>
+
+<ul>
+<p>  <li>Display leaderboard rankings (e.g., "Top 10 Highest Spenders" or "Most Recent Orders").</li></p>
+<p>  <li>Sort catalog items alphabetically or by price (e.g., "Price: Low to High").</li></p>
+<p>  <li>Build scalable web pagination controls (e.g., displaying 10 products per page).</li></p>
+<p>  <li>Break ties deterministically so identical query runs always return rows in predictable sequence.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Shopping Search Filters</h2>
+
+<p>Think of <code>ORDER BY</code> and <code>LIMIT</code> as the <strong>Sorting & Pagination Controls on an Online Shopping Portal</strong>:</p>
+
+<pre><code class="language-text">┌──────────────────────────────────────┬──────────────────────────────────────────┐
+<p>│ Shopping Portal UI Control           │ SQL Query Equivalent                     │</p>
+<p>├──────────────────────────────────────┼──────────────────────────────────────────┤</p>
+<p>│ Sort By: &quot;Price: High to Low&quot;        │ ORDER BY price DESC                      │</p>
+<p>│ Sort By: &quot;Category A-Z, Price High&quot;  │ ORDER BY category ASC, price DESC        │</p>
+<p>│ Show: &quot;Top 5 Featured Items&quot;         │ ORDER BY rating DESC LIMIT 5             │</p>
+<p>│ Pagination: &quot;Page 2 (Items 11-20)&quot;   │ ORDER BY item_id ASC LIMIT 10 OFFSET 10  │</p>
+<p>└──────────────────────────────────────┴──────────────────────────────────────────┘</code></pre></p>
+
+<p>---</p>
+
+<h2>📝 SQL Clause Execution Order</h2>
+
+<p>In MySQL, SQL clauses <strong>must</strong> be written in strict syntactic order:</p>
+
+<pre><code class="language-sql">SELECT column1, column2         -- 1. Which columns to project
+<p>FROM table_name                 -- 2. Which table to query</p>
+<p>WHERE condition                 -- 3. Filter matching rows (Optional)</p>
+<p>ORDER BY col1 ASC, col2 DESC    -- 4. Sort result set (Optional)</p>
+<p>LIMIT count OFFSET offset_val;  -- 5. Restrict row count and skip rows (Optional)</code></pre></p>
+
+<blockquote><p>🚨 <strong>Syntax Order Rule:</strong> Placing <code>ORDER BY</code> or <code>LIMIT</code> before <code>WHERE</code> or <code>FROM</code> results in a SQL syntax error (<code>ERROR 1064 (42000)</code>).</p></blockquote>
+
+<p>---</p>
+
+<h2>🔢 1. Sorting Results (<code>ORDER BY</code>)</h2>
+
+<h3>A. Ascending vs Descending Order</h3>
+<ul>
+<p>  <li><strong><code>ASC</code> (Ascending):</strong> Sorts numbers low-to-high (<code>1</code> to <code>999</code>), text A-to-Z, and dates oldest-to-newest. <strong><code>ASC</code> is the default</strong> if no direction is specified.</li></p>
+<p>  <li><strong><code>DESC</code> (Descending):</strong> Sorts numbers high-to-low (<code>999</code> to <code>1</code>), text Z-to-A, and dates newest-to-oldest.</li></p>
+<p></ul></p>
+
+<pre><code class="language-sql">-- Default Ascending Sort (A-Z)
+<p>SELECT full_name, city FROM customers ORDER BY city ASC;</p>
+
+<p>-- Explicit Descending Sort (Highest to Lowest)</p>
+<p>SELECT full_name, total_spent FROM customers ORDER BY total_spent DESC;</code></pre></p>
+
+<p>---</p>
+
+<h3>B. Multi-Column Sorting</h3>
+<p>When multiple columns are specified, the database engine sorts by the first column. If two or more rows share <strong>identical values</strong> in the first column, the second column is used as a secondary tie-breaker:</p>
+
+<pre><code class="language-sql">-- Sorts by city alphabetically; within each city, sorts by total_spent highest first
+<p>SELECT full_name, city, total_spent</p>
+<p>FROM customers</p>
+<p>ORDER BY city ASC, total_spent DESC;</code></pre></p>
+
+<p>---</p>
+
+<h3>C. Deterministic Sorting & Tie-Breakers</h3>
+<p>If two rows have identical values in the sort column (e.g. two customers both spending <code>$125,000.00</code>), the database engine may return them in non-deterministic order.</p>
+
+<p>To guarantee reproducible, deterministic results across page reloads, <strong>always add a unique column (such as Primary Key <code>customer_id</code>) as the final tie-breaker</strong>:</p>
+
+<pre><code class="language-sql">-- Deterministic sorting: Uses customer_id ASC as a guaranteed tie-breaker
+<p>SELECT customer_id, full_name, city, total_spent</p>
+<p>FROM customers</p>
+<p>ORDER BY total_spent DESC, customer_id ASC;</code></pre></p>
+
+<p>---</p>
+
+<h2>🎯 2. Limiting Rows & Pagination (<code>LIMIT</code> & <code>OFFSET</code>)</h2>
+
+<h3>A. Restricting Result Rows (<code>LIMIT</code>)</h3>
+<p>The <code>LIMIT</code> clause restricts the maximum number of rows returned:</p>
+
+<pre><code class="language-sql">-- Returns only the top 3 highest spending customers
+<p>SELECT full_name, total_spent</p>
+<p>FROM customers</p>
+<p>ORDER BY total_spent DESC</p>
+<p>LIMIT 3;</code></pre></p>
+
+<p>---</p>
+
+<h3>B. Skipping Rows (<code>OFFSET</code>)</h3>
+<p>The <code>OFFSET</code> clause specifies how many rows to skip from the top of the sorted result set before returning rows:</p>
+
+<pre><code class="language-sql">-- Skips the top 3 rows and returns the next 3 rows (Rows 4, 5, 6)
+<p>SELECT full_name, total_spent</p>
+<p>FROM customers</p>
+<p>ORDER BY total_spent DESC</p>
+<p>LIMIT 3 OFFSET 3;</code></pre></p>
+
+<blockquote><p>🌐 <strong>MySQL Shorthand Syntax:</strong> MySQL and MariaDB also support <code>LIMIT offset_val, count</code> syntax (e.g. <code>LIMIT 3, 3</code> skips 3 rows and returns 3 rows). However, using <code>LIMIT count OFFSET offset_val</code> is standard ISO SQL practice and easier to read.</p></blockquote>
+
+<p>---</p>
+
+<h3>C. Web Application Pagination Formula</h3>
+<p>When building web application pages (e.g., Page 1, Page 2, Page 3), calculate <code>OFFSET</code> dynamically using this formula:</p>
+
+<p>$$\text{OFFSET} = (\text{Page Number} - 1) \times \text{Page Size}$$</p>
+
+<table>
+<p>  <thead><tr><th>Page Number</th><th>Items Per Page (<code>LIMIT</code>)</th><th>Formula Calculation</th><th>Resulting SQL Clause</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Page 1</strong></td><td>10 items</td><td><code>(1 - 1) * 10 = 0</code></td><td><code>LIMIT 10 OFFSET 0</code> (Items 1–10)</td></tr></p>
+<p>    <tr><td><strong>Page 2</strong></td><td>10 items</td><td><code>(2 - 1) * 10 = 10</code></td><td><code>LIMIT 10 OFFSET 10</code> (Items 11–20)</td></tr></p>
+<p>    <tr><td><strong>Page 3</strong></td><td>10 items</td><td><code>(3 - 1) * 10 = 20</code></td><td><code>LIMIT 10 OFFSET 20</code> (Items 21–30)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🔍 3. 2nd Row in Sorted List vs 2nd-Highest DISTINCT Value</h2>
+
+<p>Beginners frequently confuse these two distinct analytical requirements:</p>
+
+<h3>Task 1: Get the 2nd Row in a Sorted List</h3>
+<p>Returns a single row located at position #2 in the sorted result set, regardless of duplicate spending amounts:</p>
+
+<pre><code class="language-sql">SELECT customer_id, full_name, total_spent
+<p>FROM customers</p>
+<p>ORDER BY total_spent DESC, customer_id ASC</p>
+<p>LIMIT 1 OFFSET 1;</code></pre></p>
+
+<p>---</p>
+
+<h3>Task 2: Get the 2nd-Highest DISTINCT Value (and All Customers Tied For It)</h3>
+<p>If two top spenders are tied at <code>$125,000.00</code>, the 2nd row in the list is still <code>$125,000.00</code>. To find the <strong>2nd-highest distinct spending amount</strong> (<code>$85,000.00</code>) and return <strong>all customers</strong> who spent that amount, use <code>SELECT DISTINCT</code> with a subquery:</p>
+
+<pre><code class="language-sql">-- Step 1: Find the 2nd-highest distinct spending amount ($85,000.00)
+<p>SELECT DISTINCT total_spent</p>
+<p>FROM customers</p>
+<p>ORDER BY total_spent DESC</p>
+<p>LIMIT 1 OFFSET 1;</p>
+
+<p>-- Step 2: Retrieve ALL customers matching that 2nd-highest distinct amount</p>
+<p>SELECT customer_id, full_name, city, total_spent</p>
+<p>FROM customers</p>
+<p>WHERE total_spent = (</p>
+<p>    SELECT DISTINCT total_spent</p>
+<p>    FROM customers</p>
+<p>    ORDER BY total_spent DESC</p>
+<p>    LIMIT 1 OFFSET 1</p>
+<p>);</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Complete Practical Workflow & Customer Example</h2>
+
+<p>Let's execute a complete MySQL-compatible workflow using a <code>customers</code> table with six sample records, demonstrating multi-column sorting, deterministic tie-breakers, and pagination.</p>
+
+<pre><code class="language-sql">-- 1. Create customers table schema
+<p>CREATE TABLE IF NOT EXISTS customers (</p>
+<p>    customer_id INT PRIMARY KEY,</p>
+<p>    full_name VARCHAR(100) NOT NULL,</p>
+<p>    city VARCHAR(50) NOT NULL,</p>
+<p>    total_spent DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample customer records using explicit column syntax</p>
+<p>INSERT INTO customers (customer_id, full_name, city, total_spent)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Aarav Mehta&#39;, &#39;Mumbai&#39;, 125000.00),</p>
+<p>    (2, &#39;Sneha Kapoor&#39;, &#39;Delhi&#39;, 45000.00),</p>
+<p>    (3, &#39;Rohan Sharma&#39;, &#39;Mumbai&#39;, 85000.00),</p>
+<p>    (4, &#39;Priya Singh&#39;, &#39;Bengaluru&#39;, 32000.00),</p>
+<p>    (5, &#39;Kiran Deshmukh&#39;, &#39;Pune&#39;, 125000.00),</p>
+<p>    (6, &#39;Vikram Aditya&#39;, &#39;Mumbai&#39;, 85000.00);</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 1: Top 3 Spenders with Deterministic Tie-Breaker (<code>total_spent DESC, customer_id ASC</code>)</h3>
+
+<p>Note that <code>Aarav Mehta</code> ($125,000.00) and <code>Kiran Deshmukh</code> ($125,000.00) are tied for highest spending. Adding <code>customer_id ASC</code> ensures <code>Aarav</code> (ID 1) consistently appears before <code>Kiran</code> (ID 5).</p>
+
+<pre><code class="language-sql">SELECT customer_id, full_name, city, total_spent
+<p>FROM customers</p>
+<p>ORDER BY total_spent DESC, customer_id ASC</p>
+<p>LIMIT 3;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+----------------+-----------+-------------+
+<table>
+<p>  <thead><tr><th>customer_id</th><th>full_name</th><th>city</th><th>total_spent</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------------+-----------+-------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Aarav Mehta</th><th>Mumbai</th><th>125000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>5</td><td>Kiran Deshmukh</td><td>Pune</td><td>125000.00</td></tr></p>
+<p>    <tr><td>3</td><td>Rohan Sharma</td><td>Mumbai</td><td>85000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------------+-----------+-------------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 2: Multi-Column Sorting (City A-Z, then Highest Spender First)</h3>
+
+<pre><code class="language-sql">SELECT customer_id, full_name, city, total_spent
+<p>FROM customers</p>
+<p>ORDER BY city ASC, total_spent DESC;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+----------------+-----------+-------------+
+<table>
+<p>  <thead><tr><th>customer_id</th><th>full_name</th><th>city</th><th>total_spent</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------------+-----------+-------------+</p>
+<table>
+<p>  <thead><tr><th>4</th><th>Priya Singh</th><th>Bengaluru</th><th>32000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Sneha Kapoor</td><td>Delhi</td><td>45000.00</td></tr></p>
+<p>    <tr><td>1</td><td>Aarav Mehta</td><td>Mumbai</td><td>125000.00</td></tr></p>
+<p>    <tr><td>3</td><td>Rohan Sharma</td><td>Mumbai</td><td>85000.00</td></tr></p>
+<p>    <tr><td>6</td><td>Vikram Aditya</td><td>Mumbai</td><td>85000.00</td></tr></p>
+<p>    <tr><td>5</td><td>Kiran Deshmukh</td><td>Pune</td><td>125000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------------+-----------+-------------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 3: Finding All Customers Tied for 2nd-Highest DISTINCT Spending Amount</h3>
+
+<pre><code class="language-sql">SELECT customer_id, full_name, city, total_spent
+<p>FROM customers</p>
+<p>WHERE total_spent = (</p>
+<p>    SELECT DISTINCT total_spent</p>
+<p>    FROM customers</p>
+<p>    ORDER BY total_spent DESC</p>
+<p>    LIMIT 1 OFFSET 1</p>
+<p>);</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+---------------+--------+-------------+
+<table>
+<p>  <thead><tr><th>customer_id</th><th>full_name</th><th>city</th><th>total_spent</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+---------------+--------+-------------+</p>
+<table>
+<p>  <thead><tr><th>3</th><th>Rohan Sharma</th><th>Mumbai</th><th>85000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>6</td><td>Vikram Aditya</td><td>Mumbai</td><td>85000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+---------------+--------+-------------+</code></pre></p>
+
+<p>*(Note: The 1st highest distinct spending amount is $125,000.00. The 2nd highest distinct spending amount is $85,000.00. The subquery retrieves both <code>Rohan Sharma</code> and <code>Vikram Aditya</code> who are tied at $85,000.00).*</p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1064 (42000): Syntax Error</code></strong></td><td>Placing <code>LIMIT</code> or <code>ORDER BY</code> before <code>WHERE</code> or <code>FROM</code>.</td><td>Follow strict SQL order: <code>SELECT</code> $\rightarrow$ <code>FROM</code> $\rightarrow$ <code>WHERE</code> $\rightarrow$ <code>ORDER BY</code> $\rightarrow$ <code>LIMIT</code>.</td></tr></p>
+<p>    <tr><td><strong>Inconsistent Pagination Across Page Reloads</strong></td><td>Sorting by a non-unique column without a tie-breaker.</td><td>Always include a unique column (e.g. <code>PRIMARY KEY customer_id ASC</code>) as the final sort column.</td></tr></p>
+<p>    <tr><td><strong>Confusing 2nd Row vs 2nd-Highest Distinct Value</strong></td><td>Using <code>LIMIT 1 OFFSET 1</code> directly when top spenders are tied.</td><td>Use <code>SELECT DISTINCT total_spent ... LIMIT 1 OFFSET 1</code> in a subquery to find distinct value ties.</td></tr></p>
+<p>    <tr><td><strong>Assuming Results Have Default Sort Order</strong></td><td>Expecting <code>SELECT * FROM table;</code> to always return rows in primary key or insertion order.</td><td>Always specify <code>ORDER BY</code> explicitly whenever row sequence matters.</td></tr></p>
+<p>    <tr><td><strong>Incorrect <code>OFFSET</code> Calculation</strong></td><td>Using <code>OFFSET 20</code> for Page 2 with 10 items per page.</td><td>Use formula <code>OFFSET = (Page - 1) * Page Size</code>. Page 2 offset is <code>(2 - 1) * 10 = 10</code>.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Leaderboards:</strong> <code>ORDER BY sales_count DESC LIMIT 10</code> for "Best Sellers".</li></p>
+<p>  <li><strong>Product Price Sorting:</strong> <code>ORDER BY price ASC, product_id ASC</code> for "Price: Low to High".</li></p>
+<p>  <li><strong>Social Media Feeds:</strong> <code>ORDER BY post_timestamp DESC LIMIT 20 OFFSET 0</code> for "Recent Activity Feed".</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Top Cheapest Items</h3>
+<p>Write a query to retrieve the top 5 cheapest inventory items from a <code>store_inventory</code> table (<code>ORDER BY price ASC, item_id ASC LIMIT 5</code>).</p>
+
+<h3>Exercise 2: Pagination Formula</h3>
+<p>Calculate the <code>OFFSET</code> value for <strong>Page 3</strong> of a blog post list displaying <strong>15 posts per page</strong>.</p>
+
+<h3>Exercise 3: Multi-Column Sorting</h3>
+<p>Write an SQL query to select all customers sorted by <code>city</code> alphabetically (A-Z) and then by <code>total_spent</code> descending (highest first).</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a query to display the customer(s) who spent the <strong>2nd-highest DISTINCT total amount</strong> from the <code>customers</code> table, including <code>full_name</code>, <code>city</code>, and <code>total_spent</code>.</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">SELECT item_name, price 
+<p>FROM store_inventory </p>
+<p>ORDER BY price ASC, item_id ASC </p>
+<p>LIMIT 5;</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<ul>
+<p>  <li><strong>Formula:</strong> $\text{OFFSET} = (\text{Page Number} - 1) \times \text{Page Size}$</li></p>
+<p>  <li><strong>Calculation:</strong> $(3 - 1) \times 15 = 30$</li></p>
+<p>  <li><strong>SQL Clause:</strong> <code>LIMIT 15 OFFSET 30</code></li></p>
+<p></ul></p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">SELECT full_name, city, total_spent 
+<p>FROM customers </p>
+<p>ORDER BY city ASC, total_spent DESC;</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">SELECT full_name, city, total_spent
+<p>FROM customers</p>
+<p>WHERE total_spent = (</p>
+<p>    SELECT DISTINCT total_spent</p>
+<p>    FROM customers</p>
+<p>    ORDER BY total_spent DESC</p>
+<p>    LIMIT 1 OFFSET 1</p>
+<p>);</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+---------------+--------+-------------+
+<table>
+<p>  <thead><tr><th>full_name</th><th>city</th><th>total_spent</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------+--------+-------------+</p>
+<table>
+<p>  <thead><tr><th>Rohan Sharma</th><th>Mumbai</th><th>85000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Vikram Aditya</td><td>Mumbai</td><td>85000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------+--------+-------------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
+<p>  <li><a href="08-where.html">Filtering Data with <code>WHERE</code></a></li></p>
+<p>  <li><a href="09-operators.html">Operators in SQL</a></li></p>
+<p>  <li><a href="11-update-and-delete.html"><code>UPDATE</code> & <code>DELETE</code> – Modifying Data</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="09-operators.html">← Previous: Operators in SQL</a> | <a href="./">SQL Home</a> | <a href="11-update-and-delete.html">Next: UPDATE & DELETE →</a></p>
+
+  </div>
+</body>
+</html>

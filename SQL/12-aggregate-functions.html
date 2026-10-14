@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 aggregate functions - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>📈 SQL Aggregate Functions (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Aggregate Function</strong> in SQL performs a mathematical or statistical calculation on a set of values across multiple rows of a column and returns a single scalar summary value.</p>
+
+<p>SQL's core aggregate functions include:</p>
+<ul>
+<p>  <li>**<code>COUNT(*)</code> / <code>COUNT(column)</code>:<strong> Counts total rows or non-NULL column values.</li></p>
+<p>  <li></strong><code>SUM(column)</code>:<strong> Calculates the total sum of numeric values.</li></p>
+<p>  <li></strong><code>AVG(column)</code>:<strong> Calculates the arithmetic mean average of numeric values.</li></p>
+<p>  <li></strong><code>MIN(column)</code>:<strong> Returns the minimum non-NULL value (numbers, text, or dates).</li></p>
+<p>  <li></strong><code>MAX(column)</code>:<strong> Returns the maximum non-NULL value (numbers, text, or dates).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>SQL ke </strong>Aggregate Functions** bohot saari rows ke data ko calculate karke ek single summary result return karte hain. Main aggregate functions hain: <code>COUNT(*)</code> (saari rows ginne ke liye), <code>COUNT(column)</code> (sirf non-NULL values ginne ke liye), <code>SUM()</code> (total amount ke liye), <code>AVG()</code> (average nikalne ke liye), <code>MIN()</code> (sabse choti value ke liye), aur <code>MAX()</code> (sabse badi value ke liye). Important note: <code>COUNT(*)</code> ko chhod kar baaki saare aggregate functions <code>NULL</code> values ko ignore karte hain.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>SQL madhil <strong>Aggregate Functions</strong> anek rows madhil values varun ek single summary value tayar kartat. <code>COUNT(*)</code> sarva rows mojto, <code>COUNT(column)</code> phakta non-NULL values mojto, <code>SUM()</code> berij karto, <code>AVG()</code> sarasari kadhato, <code>MIN()</code> sarvat khali value shodhto, aani <code>MAX()</code> sarvat mothi value dakhvato. <code>COUNT(*)</code> vakalta baaki sarva aggregate functions <code>NULL</code> values la ignore kartat.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Databases often store millions of individual transaction records. Business stakeholders rarely read raw row logs—they require summary metrics to answer key questions:</p>
+
+<ul>
+<p>  <li>What was the total gross revenue generated this month?</li></p>
+<p>  <li>How many unique customers placed an order today?</li></p>
+<p>  <li>What is the average order value across all completed transactions?</li></p>
+<p>  <li>What are the lowest and highest product prices in our inventory?</li></p>
+<p></ul></p>
+
+<p>Aggregate functions calculate these high-level analytics directly inside the database engine in milliseconds.</p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: The Classroom Grade Summary</h2>
+
+<p>Imagine a <strong>Classroom Gradebook</strong>:</p>
+
+<ul>
+<p>  <li>**<code>COUNT(*)</code>:<strong> Counting the total number of student desks in the classroom (whether the student took the exam or was absent).</li></p>
+<p>  <li></strong><code>COUNT(score)</code>:<strong> Counting only the exam papers turned in (excluding absent students who have no score recorded).</li></p>
+<p>  <li></strong><code>SUM(score)</code>:<strong> Adding up all the exam scores on the turned-in papers.</li></p>
+<p>  <li></strong><code>AVG(score)</code>:<strong> Calculating the class average score across students who turned in an exam.</li></p>
+<p>  <li></strong><code>MIN(score)</code> / <code>MAX(score)</code>:<strong> Finding the lowest and highest test scores in the class.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 Core Aggregate Functions Reference Matrix</h2>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Functionality</th><th><code>NULL</code> Handling Rules</th><th>Example Usage</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td></strong><code>COUNT(*)</code><strong></td><td>Counts </strong>all<strong> matching rows in the result set.</td><td></strong>Includes** <code>NULL</code> rows.</td><td><code>SELECT COUNT(*) FROM orders;</code></td></tr></p>
+<p>    <tr><td><strong><code>COUNT(col)</code></strong></td><td>Counts non-NULL entries in a specific column.</td><td><strong>Ignores</strong> <code>NULL</code> values.</td><td><code>SELECT COUNT(email) FROM users;</code></td></tr></p>
+<p>    <tr><td><strong><code>COUNT(DISTINCT col)</code></strong></td><td>Counts unique, non-NULL values in a column.</td><td><strong>Ignores</strong> <code>NULL</code> values.</td><td><code>SELECT COUNT(DISTINCT customer_id) FROM orders;</code></td></tr></p>
+<p>    <tr><td><strong><code>SUM(col)</code></strong></td><td>Calculates total numeric sum of a column.</td><td><strong>Ignores</strong> <code>NULL</code> values.</td><td><code>SELECT SUM(order_amount) FROM orders;</code></td></tr></p>
+<p>    <tr><td><strong><code>AVG(col)</code></strong></td><td>Calculates arithmetic mean average (<code>SUM / COUNT(col)</code>).</td><td><strong>Ignores</strong> <code>NULL</code> values in denominator.</td><td><code>SELECT AVG(order_amount) FROM orders;</code></td></tr></p>
+<p>    <tr><td><strong><code>MIN(col)</code></strong></td><td>Returns smallest non-NULL value (numbers, dates, text).</td><td><strong>Ignores</strong> <code>NULL</code> values.</td><td><code>SELECT MIN(price) FROM products;</code></td></tr></p>
+<p>    <tr><td><strong><code>MAX(col)</code></strong></td><td>Returns largest non-NULL value (numbers, dates, text).</td><td><strong>Ignores</strong> <code>NULL</code> values.</td><td><code>SELECT MAX(price) FROM products;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>⚙️ How Aggregate Functions Handle <code>NULL</code> & Empty Sets</h2>
+
+<p>Understanding <code>NULL</code> behavior in aggregations is critical for data accuracy:</p>
+
+<p>1. <strong><code>NULL</code> Values Are Ignored:</strong> All aggregate functions (except <code>COUNT(*)</code>) completely skip <code>NULL</code> values during calculation.</p>
+<p>2. <strong>Behavior on Empty Result Sets:</strong></p>
+<ul>
+<p>  <li>If a <code>WHERE</code> condition matches <strong>0 rows</strong>:</li></p>
+<p>  <li><code>COUNT(*)</code> returns <strong><code>0</code></strong>.</li></p>
+<p>  <li><code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, and <code>MAX()</code> return <strong><code>NULL</code></strong>!</li></p>
+<p></ul></p>
+<p>3. <strong>Handling <code>NULL</code> Sums with <code>COALESCE()</code>:</strong></p>
+<ul>
+<p>  <li>To prevent returning <code>NULL</code> when summing empty or unpaid sets, wrap the sum in <code>COALESCE(SUM(column), 0.00)</code>. This guarantees a formatted numeric <code>$0.00</code> fallback.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛠️ Reproducible Example 1: E-Commerce Analytics Query</h2>
+
+<p>Let's execute a complete MySQL-compatible workflow creating an <code>orders</code> table and analyzing order counts, paid vs pending transactions, unique customers, and sales revenue.</p>
+
+<pre><code class="language-sql">-- 1. Create orders table schema
+<p>CREATE TABLE IF NOT EXISTS orders (</p>
+<p>    order_id INT PRIMARY KEY,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    order_amount DECIMAL(10, 2) NOT NULL,</p>
+<p>    payment_status VARCHAR(20) NOT NULL, -- &#39;PAID&#39;, &#39;PENDING&#39;, &#39;FAILED&#39;</p>
+<p>    payment_date DATE -- Nullable for pending/failed orders</p>
+<p>);</p>
+
+<p>-- 2. Insert 5 sample orders containing paid, pending, and failed transactions</p>
+<p>INSERT INTO orders (order_id, customer_id, order_amount, payment_status, payment_date)</p>
+<p>VALUES </p>
+<p>    (1001, 1, 1500.00, &#39;PAID&#39;, &#39;2026-10-01&#39;),</p>
+<p>    (1002, 2, 3500.00, &#39;PAID&#39;, &#39;2026-10-02&#39;),</p>
+<p>    (1003, 1, 2000.00, &#39;PENDING&#39;, NULL),</p>
+<p>    (1004, 3, 5000.00, &#39;PAID&#39;, &#39;2026-10-03&#39;),</p>
+<p>    (1005, 2, 1200.00, &#39;FAILED&#39;, NULL);</code></pre></p>
+
+<h3>Comprehensive Aggregate Query:</h3>
+
+<pre><code class="language-sql">SELECT 
+<p>    COUNT(*) AS total_order_rows,</p>
+<p>    COUNT(payment_date) AS orders_with_payment_dates,</p>
+<p>    SUM(CASE WHEN payment_status = &#39;PAID&#39; THEN 1 ELSE 0 END) AS paid_orders_count,</p>
+<p>    COUNT(DISTINCT customer_id) AS unique_purchasers,</p>
+<p>    COALESCE(SUM(CASE WHEN payment_status = &#39;PAID&#39; THEN order_amount ELSE 0 END), 0.00) AS total_paid_revenue,</p>
+<p>    ROUND(AVG(CASE WHEN payment_status = &#39;PAID&#39; THEN order_amount END), 2) AS avg_paid_order_value,</p>
+<p>    MIN(order_amount) AS cheapest_order,</p>
+<p>    MAX(order_amount) AS highest_order</p>
+<p>FROM orders;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+------------------+---------------------------+-------------------+-------------------+--------------------+-----------------------+----------------+---------------+
+<table>
+<p>  <thead><tr><th>total_order_rows</th><th>orders_with_payment_dates</th><th>paid_orders_count</th><th>unique_purchasers</th><th>total_paid_revenue</th><th>avg_paid_order_value</th><th>cheapest_order</th><th>highest_order</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------------+---------------------------+-------------------+-------------------+--------------------+-----------------------+----------------+---------------+</p>
+<table>
+<p>  <thead><tr><th>5</th><th>3</th><th>3</th><th>3</th><th>10000.00</th><th>3333.33</th><th>1200.00</th><th>5000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------------+---------------------------+-------------------+-------------------+--------------------+-----------------------+----------------+---------------+</code></pre></p>
+
+<h3>🔍 Query Breakdown & Calculations:</h3>
+<ul>
+<p>  <li><strong><code>total_order_rows</code> = 5:</strong> <code>COUNT(*)</code> counts all 5 rows in the table.</li></p>
+<p>  <li><strong><code>orders_with_payment_dates</code> = 3:</strong> <code>COUNT(payment_date)</code> counts non-NULL dates (Orders 1001, 1002, 1004).</li></p>
+<p>  <li><strong><code>paid_orders_count</code> = 3:</strong> <code>SUM(CASE WHEN payment_status = 'PAID' THEN 1 ELSE 0 END)</code> explicitly counts orders marked <code>'PAID'</code>.</li></p>
+<p>  <li><strong><code>unique_purchasers</code> = 3:</strong> <code>COUNT(DISTINCT customer_id)</code> counts unique customer IDs (<code>1</code>, <code>2</code>, <code>3</code>).</li></p>
+<p>  <li><strong><code>total_paid_revenue</code> = 10000.00:</strong> Sum of paid orders ($1500 + $3500 + $5000 = $10,000.00$).</li></p>
+<p>  <li><strong><code>avg_paid_order_value</code> = 3333.33:</strong> Average of paid orders ($10000.00 / 3 = $3,333.33$).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛠️ Reproducible Example 2: Understanding <code>NULL</code>s in <code>AVG()</code> vs <code>COALESCE()</code></h2>
+
+<p>Let's explore how <code>AVG()</code> calculates averages when nullable columns contain <code>NULL</code> values using an <code>employee_bonuses</code> table.</p>
+
+<pre><code class="language-sql">-- 1. Create table schema
+<p>CREATE TABLE IF NOT EXISTS employee_bonuses (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    employee_name VARCHAR(50) NOT NULL,</p>
+<p>    bonus_amount DECIMAL(10, 2) -- Nullable</p>
+<p>);</p>
+
+<p>-- 2. Insert 3 employee records (Alice &amp; Bob receive bonuses; Charlie has NULL)</p>
+<p>INSERT INTO employee_bonuses (emp_id, employee_name, bonus_amount)</p>
+<p>VALUES</p>
+<p>    (1, &#39;Alice&#39;, 5000.00),</p>
+<p>    (2, &#39;Bob&#39;, 3000.00),</p>
+<p>    (3, &#39;Charlie&#39;, NULL); -- Charlie has no bonus recorded</code></pre></p>
+
+<h3>Comparing Aggregate Calculations:</h3>
+
+<pre><code class="language-sql">SELECT 
+<p>    COUNT(*) AS total_employees,</p>
+<p>    COUNT(bonus_amount) AS bonus_recipients,</p>
+<p>    SUM(bonus_amount) AS total_bonus_payout,</p>
+<p>    </p>
+<p>    -- 1. Standard AVG(): Ignores NULL Charlie (8000 / 2 recipients = 4000.00)</p>
+<p>    AVG(bonus_amount) AS avg_bonus_per_recipient,</p>
+<p>    </p>
+<p>    -- 2. AVG with COALESCE: Converts NULL to 0.00 (8000 / 3 employees = 2666.67)</p>
+<p>    ROUND(AVG(COALESCE(bonus_amount, 0.00)), 2) AS avg_bonus_company_wide</p>
+<p>FROM employee_bonuses;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-----------------+------------------+--------------------+--------------------------+-------------------------+
+<table>
+<p>  <thead><tr><th>total_employees</th><th>bonus_recipients</th><th>total_bonus_payout</th><th>avg_bonus_per_recipient</th><th>avg_bonus_company_wide</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------------+------------------+--------------------+--------------------------+-------------------------+</p>
+<table>
+<p>  <thead><tr><th>3</th><th>2</th><th>8000.00</th><th>4000.00</th><th>2666.67</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------------+------------------+--------------------+--------------------------+-------------------------+</code></pre></p>
+
+<h3>💡 Why <code>avg_bonus_per_recipient</code> ($4000.00) and <code>avg_bonus_company_wide</code> ($2666.67) Differ:</h3>
+<ul>
+<p>  <li><strong><code>AVG(bonus_amount)</code>:</strong> Sums non-NULL values ($5000 + $3000 = $8000) and divides by <strong>2</strong> (the count of non-NULL rows). This answers: *"What was the average bonus among employees who actually received a bonus?"*</li></p>
+<p>  <li><strong><code>AVG(COALESCE(bonus_amount, 0.00))</code>:</strong> Converts Charlie's <code>NULL</code> into <code>0.00</code>, giving values $5000, $3000, and $0$. It sums to $8000 and divides by <strong>3</strong> (all employees). This answers: *"What was the average bonus payout across all company employees?"*</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1140 (42000): Mixing aggregate and non-aggregate columns</code></strong></td><td>Writing <code>SELECT employee_name, AVG(salary) FROM employees;</code> without <code>GROUP BY</code>.</td><td>Remove non-aggregated individual columns or add <code>GROUP BY employee_name</code>.</td></tr></p>
+<p>    <tr><td>**Confusing <code>COUNT(*)</code> vs <code>COUNT(column)</code>**</td><td>Expecting <code>COUNT(email)</code> to equal total table rows when some emails are <code>NULL</code>.</td><td>Use <code>COUNT(*)</code> for total table rows; use <code>COUNT(email)</code> for non-NULL emails.</td></tr></p>
+<p>    <tr><td><strong><code>SUM()</code> Returning <code>NULL</code> on Empty Sets</strong></td><td>Running <code>SELECT SUM(amount)</code> on a query matching 0 rows returns <code>NULL</code> instead of <code>0</code>.</td><td>Wrap sum in <code>COALESCE(SUM(amount), 0.00)</code> to guarantee a numeric <code>$0.00</code> fallback.</td></tr></p>
+<p>    <tr><td><strong>Applying <code>SUM()</code> to String Columns</strong></td><td>Running <code>SUM(first_name)</code> on VARCHAR columns.</td><td>Apply <code>SUM()</code> and <code>AVG()</code> only to numeric columns (<code>INT</code>, <code>DECIMAL</code>, <code>FLOAT</code>).</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Dashboards:</strong> Calculating daily gross revenue (<code>SUM(order_amount)</code>), total orders (<code>COUNT(*)</code>), and average order value (<code>AVG(order_amount)</code>).</li></p>
+<p>  <li><strong>Financial Analytics:</strong> Finding minimum and maximum stock prices (<code>MIN(price)</code>, <code>MAX(price)</code>).</li></p>
+<p>  <li><strong>User Metrics:</strong> Counting active subscribers vs total registered accounts (<code>COUNT(email)</code> vs <code>COUNT(*)</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Product Price Analytics</h3>
+<p>Write an SQL query on a <code>products (product_id, product_name, price, category)</code> table that retrieves:</p>
+<p>1. Total product count (<code>total_products</code>).</p>
+<p>2. Average product price rounded to 2 decimal places (<code>avg_price</code>).</p>
+<p>3. Lowest product price (<code>min_price</code>).</p>
+<p>4. Highest product price (<code>max_price</code>).</p>
+
+<h3>Exercise 2: Unique Category Count</h3>
+<p>Write a query to count how many unique categories exist in the <code>products</code> table using <code>COUNT(DISTINCT category)</code>.</p>
+
+<h3>Exercise 3: Comparing <code>COUNT(*)</code> vs <code>COUNT(column)</code></h3>
+<p>Given a <code>users</code> table with 10 total rows where 3 users have <code>email = NULL</code>, what values will <code>COUNT(*)</code> and <code>COUNT(email)</code> return?</p>
+
+<h3>Exercise 4: Total Revenue Fallback</h3>
+<p>Write a query using <code>COALESCE()</code> that calculates the total revenue from a <code>sales</code> table for region <code>'North'</code>, returning <code>0.00</code> if no matching sales rows exist.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>1. Create a <code>sales_records</code> table schema:</p>
+<ul>
+<p>  <li><code>sale_id</code> (INT, Primary Key)</li></p>
+<p>  <li><code>region</code> (VARCHAR 50)</li></p>
+<p>  <li><code>amount</code> (DECIMAL 10,2)</li></p>
+<p>  <li><code>payment_status</code> (VARCHAR 20 — <code>'PAID'</code> or <code>'PENDING'</code>)</li></p>
+<p></ul></p>
+<p>2. Insert 4 records for region <code>'West'</code>:</p>
+<ul>
+<p>  <li>ID 1: Amount <code>1000.00</code>, Status <code>'PAID'</code></li></p>
+<p>  <li>ID 2: Amount <code>2500.00</code>, Status <code>'PAID'</code></li></p>
+<p>  <li>ID 3: Amount <code>1500.00</code>, Status <code>'PENDING'</code></li></p>
+<p>  <li>ID 4: Amount <code>500.00</code>, Status <code>'PAID'</code></li></p>
+<p></ul></p>
+<p>3. Write a single query for region <code>'West'</code> that returns:</p>
+<ul>
+<p>  <li><code>total_transactions</code>: Total row count.</li></p>
+<p>  <li><code>paid_transactions</code>: Count of paid transactions (<code>payment_status = 'PAID'</code>).</li></p>
+<p>  <li><code>total_revenue</code>: Total paid revenue ($1000 + $2500 + $500 = $4000.00$) with a <code>0.00</code> fallback using <code>COALESCE()</code>.</li></p>
+<p>  <li><code>avg_revenue</code>: Average revenue across paid transactions rounded to 2 decimal places ($4000 / 3 = $1333.33$).</li></p>
+<p></ul></p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">SELECT 
+<p>    COUNT(*) AS total_products,</p>
+<p>    ROUND(AVG(price), 2) AS avg_price,</p>
+<p>    MIN(price) AS min_price,</p>
+<p>    MAX(price) AS max_price</p>
+<p>FROM products;</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<pre><code class="language-sql">SELECT COUNT(DISTINCT category) AS unique_categories 
+<p>FROM products;</code></pre></p>
+
+<p>#### Exercise 3 Solution:</p>
+<ul>
+<p>  <li><code>COUNT(*)</code> returns <strong><code>10</code></strong> (counts all 10 rows).</li></p>
+<p>  <li><code>COUNT(email)</code> returns <strong><code>7</code></strong> (ignores 3 NULL emails).</li></p>
+<p></ul></p>
+
+<p>#### Exercise 4 Solution:</p>
+<pre><code class="language-sql">SELECT COALESCE(SUM(amount), 0.00) AS total_revenue
+<p>FROM sales</p>
+<p>WHERE region = &#39;North&#39;;</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">-- Step 1: Create table schema
+<p>CREATE TABLE IF NOT EXISTS sales_records (</p>
+<p>    sale_id INT PRIMARY KEY,</p>
+<p>    region VARCHAR(50) NOT NULL,</p>
+<p>    amount DECIMAL(10, 2) NOT NULL,</p>
+<p>    payment_status VARCHAR(20) NOT NULL</p>
+<p>);</p>
+
+<p>-- Step 2: Insert sample records</p>
+<p>INSERT INTO sales_records (sale_id, region, amount, payment_status)</p>
+<p>VALUES </p>
+<p>    (1, &#39;West&#39;, 1000.00, &#39;PAID&#39;),</p>
+<p>    (2, &#39;West&#39;, 2500.00, &#39;PAID&#39;),</p>
+<p>    (3, &#39;West&#39;, 1500.00, &#39;PENDING&#39;),</p>
+<p>    (4, &#39;West&#39;, 500.00, &#39;PAID&#39;);</p>
+
+<p>-- Step 3: Run aggregate query</p>
+<p>SELECT </p>
+<p>    COUNT(*) AS total_transactions,</p>
+<p>    SUM(CASE WHEN payment_status = &#39;PAID&#39; THEN 1 ELSE 0 END) AS paid_transactions,</p>
+<p>    COALESCE(SUM(CASE WHEN payment_status = &#39;PAID&#39; THEN amount ELSE 0 END), 0.00) AS total_revenue,</p>
+<p>    ROUND(AVG(CASE WHEN payment_status = &#39;PAID&#39; THEN amount END), 2) AS avg_revenue</p>
+<p>FROM sales_records</p>
+<p>WHERE region = &#39;West&#39;;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+--------------------+-------------------+---------------+-------------+
+<table>
+<p>  <thead><tr><th>total_transactions</th><th>paid_transactions</th><th>total_revenue</th><th>avg_revenue</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------------+-------------------+---------------+-------------+</p>
+<table>
+<p>  <thead><tr><th>4</th><th>3</th><th>4000.00</th><th>1333.33</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------------+-------------------+---------------+-------------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
+<p>  <li><a href="11-update-and-delete.html"><code>UPDATE</code> & <code>DELETE</code> – Modifying Data</a></li></p>
+<p>  <li><a href="13-group-by-and-having.html"><code>GROUP BY</code> & <code>HAVING</code> Clauses</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="11-update-and-delete.html">← Previous: UPDATE & DELETE</a> | <a href="./">SQL Home</a> | <a href="13-group-by-and-having.html">Next: GROUP BY & HAVING →</a></p>
+
+  </div>
+</body>
+</html>

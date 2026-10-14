@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 undoing changes and git restore - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Undoing Local Changes (<code>git restore</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code>git restore</code></strong> is a modern Git command (introduced in Git 2.23) designed specifically to discard uncommitted modifications in your Working Directory or unstage files from the Staging Area without altering commit history.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git restore</code> undoes uncommitted changes. Running <code>git restore filename</code> discards local edits in your Working Directory, restoring the file to the state of the last commit. Running <code>git restore --staged filename</code> removes a file from the Staging Area back to the Working Directory without losing edits.</p>
+
+<h3>Hindi</h3>
+<p><code>git restore</code> command bina commit kiye huye local badlav ko undo karne ke liye use hoti hai. <code>git restore filename</code> chalane se aapke Working Directory ke saare uncommitted edits delete ho jaate hain. Staging Area se file ko bahar nikalne ke liye <code>git restore --staged filename</code> run karein.</p>
+
+<h3>Marathi</h3>
+<p><code>git restore</code> dware uncommitted badal (changes) discard kele jatat. <code>git restore filename</code> chalavlyas file madhil chukiche badal nighun jatat aani file pichlya commit sarkhi hote. Staged file la unstage karanyasathi <code>git restore --staged filename</code> vaparatat.</p>
+
+<h3>Hinglish</h3>
+<p>Agar aapne galat code edit kar diya hai aur pichli working version par waapas jaana chahte hain, toh <code>git restore filename</code> use karein. Agar aapne galti se <code>git add .</code> kar diya hai aur unstage karna chahte hain, toh <code>git restore --staged filename</code> run karein.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Developers frequently experiment with code. If an experimental edit fails or breaks functionality, <code>git restore</code> provides a 1-second reset button to throw away bad edits cleanly.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>git restore</code> like the <strong><code>Ctrl + Z</code> (Undo)</strong> key in a text editor:</p>
+<ul>
+<p>  <li><strong><code>git restore file</code>:</strong> Reverts the file on disk back to the last saved checkpoint (last commit).</li></p>
+<p>  <li><strong><code>git restore --staged file</code>:</strong> Takes a file out of the shipping box (Staging Area) and puts it back on the desk (Working Directory).</li></p>
+<p></ul></p>
+
+<h2>📝 Key <code>git restore</code> Commands</h2>
+
+<pre><code class="language-bash"># 1. Discard local unstaged edits in Working Directory for a specific file
+<p>git restore index.html</p>
+
+<h1>2. Discard local unstaged edits for ALL files in current directory</h1>
+<p>git restore .</p>
+
+<h1>3. Unstage a file from Staging Area back to Working Directory (Preserves edits!)</h1>
+<p>git restore --staged index.html</p>
+
+<h1>4. Restore a file&#39;s state from a specific past commit SHA</h1>
+<p>git restore --source=a1b2c3d index.html</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a step-by-step terminal demonstration of restoring files:</p>
+
+<pre><code class="language-bash"># Scenario A: Discarding Bad Edits
+<p>echo &quot;Bad experimental code&quot; &gt;&gt; app.js</p>
+<p>git status # Shows: modified: app.js</p>
+
+<h1>Discard the bad edits instantly</h1>
+<p>git restore app.js</p>
+<p>git status # Shows: working tree clean! (Edits discarded)</p>
+
+<h1>Scenario B: Unstaging an Accidentally Staged File</h1>
+<p>echo &quot;Valid code&quot; &gt;&gt; app.js</p>
+<p>git add app.js</p>
+<p>git status # Shows: Changes to be committed: modified: app.js</p>
+
+<h1>Unstage app.js back to Working Directory</h1>
+<p>git restore --staged app.js</p>
+<p>git status # Shows: Changes not staged for commit: modified: app.js</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git restore <file></code>: Target file whose Working Directory modifications will be overwritten by HEAD commit state.</li></p>
+<p>  <li><code>--staged</code>: Flag specifying that the target area is the Index/Staging Area rather than the Working Directory.</li></p>
+<p>  <li><code>--source=<commit></code>: Flag specifying an alternate commit snapshot to pull the file version from.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git restore app.js
+<p>$ git status</p>
+<p>On branch main</p>
+<p>nothing to commit, working tree clean</code></pre></p>
+
+<h2>⚠️ Common Mistakes & Danger Warning</h2>
+
+<ul>
+<p>  <li><strong>DANGER — Permanent Data Loss:</strong> Executing <code>git restore filename</code> on an UNCOMMITTED file permanently overwrites your disk changes! Uncommitted discarded changes CANNOT be recovered using Git history because they were never committed to the database!</li></p>
+<p>  <li><strong>Confusing <code>git restore</code> and Legacy <code>git checkout</code>:</strong> Prior to Git 2.23, <code>git checkout -- filename</code> was used for restoring files. <code>git restore</code> was created to separate file restoration from branch switching (<code>git switch</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always run <code>git diff</code> BEFORE executing <code>git restore</code> so you know exactly what edits you are about to discard permanently.</li></p>
+<p>  <li><code>git restore --staged</code> is 100% safe because it only unstages changes without deleting your actual code edits from disk.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Developers run <code>git restore</code> daily to clean up local debug statements, undo failed experimental refactoring, and unstage unwanted configuration files before committing clean code PRs.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Edit <code>README.md</code> in your <code>git-practice</code> directory with random garbage text.</p>
+<p>2. Run <code>git status</code> and verify it is modified.</p>
+<p>3. Run <code>git restore README.md</code> and open <code>README.md</code>. Notice that the garbage text is completely gone!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Modify <code>README.md</code>, stage it with <code>git add README.md</code>, and then use <code>git restore --staged README.md</code> to unstage it. Verify with <code>git status</code> that your edits are preserved in the Working Directory.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-git-diff-and-inspecting-changes.html">Git Diff & Inspecting Changes</a></li></p>
+<p>  <li><a href="11-git-reset-and-git-revert.html">Undoing Commits with Git Reset & Revert</a></li></p>
+<p>  <li><a href="16-git-stash.html">Git Stash</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="09-git-diff-and-inspecting-changes.html">← Previous: Git Diff</a> | <a href="11-git-reset-and-git-revert.html">Next: Reset & Revert →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Java Collections Framework (List, Set, Map & Queue)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong>Java Collections Framework (JCF)</strong> provides a unified architecture for storing, organizing, and manipulating groups of objects. It includes core interfaces (<code>List</code>, <code>Set</code>, <code>Map</code>, <code>Queue</code>, <code>Deque</code>) and high-performance implementation classes (<code>ArrayList</code>, <code>LinkedList</code>, <code>HashSet</code>, <code>TreeSet</code>, <code>HashMap</code>, <code>TreeMap</code>).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Java Collections Framework dynamic data management ke liye ready-made data structures provide karta hai. <code>List</code> ordered items duplicate allow karta hai, <code>Set</code> unique items store karta hai, <code>Map</code> key-value pairs store karta hai, aur <code>Queue</code> processing order (FIFO/LIFO) manage karta hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Collections Framework dynamic data saathi data structures deto. <code>List</code> kramawar data, <code>Set</code> unique items, aani <code>Map</code> key-value pairs sathavto.</p>
+
+<h2>📝 1. Collections Framework Hierarchy</h2>
+
+<pre><code class="language-text">               +--------------------+
+
+<table>
+<p>  <thead><tr><th>Collection (I)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>               +---------+----------+</p>
+
+<p>                         |</p>
+<p>      +------------------+------------------+</p>
+
+<table>
+<p>  <thead><tr><th></th><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----+------+    +------+-----+    +-------+----+</p>
+
+<table>
+<p>  <thead><tr><th>List (I)</th><th></th><th>Set (I)</th><th></th><th>Queue (I)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----+------+    +------+-----+    +-------+----+</p>
+
+<table>
+<p>  <thead><tr><th></th><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>  ArrayList          HashSet            ArrayDeque</p>
+<p>  LinkedList         LinkedHashSet      LinkedList</p>
+<p>                     TreeSet            PriorityQueue</p>
+
+<p>               +--------------------+</p>
+
+<table>
+<p>  <thead><tr><th>Map (Interface)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>               +---------+----------+</p>
+
+<p>                         |</p>
+<p>            +------------+------------+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>      +-----+------+            +-----+------+</p>
+
+<table>
+<p>  <thead><tr><th>HashMap</th><th></th><th>TreeMap</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>      +------------+            +------------+</code></pre></p>
+
+<h2>📝 2. Core Interface Breakdown</h2>
+
+<h3>A. <code>List<E></code> (Ordered, Allows Duplicates, Zero-Indexed)</h3>
+<ul>
+<p>  <li><code>ArrayList<E></code>: Resizable array. <strong>Fast $O(1)$ random access (<code>get(i)</code>)</strong>, slower insertions/deletions in middle ($O(N)$).</li></p>
+<p>  <li><code>LinkedList<E></code>: Doubly-linked list. <strong>Fast $O(1)$ insertions/deletions</strong>, slower $O(N)$ random access.</li></p>
+<p></ul></p>
+
+<h3>B. <code>Set<E></code> (Unique Elements Only, Discards Duplicates)</h3>
+<ul>
+<p>  <li><code>HashSet<E></code>: Fast $O(1)$ lookup via hashing. No guaranteed order.</li></p>
+<p>  <li><code>LinkedHashSet<E></code>: Maintains <strong>insertion order</strong>.</li></p>
+<p>  <li><code>TreeSet<E></code>: Self-balancing Red-Black tree. Elements stored in <strong>sorted natural order</strong> ($O(\log N)$).</li></p>
+<p></ul></p>
+
+<h3>C. <code>Map<K, V></code> (Key-Value Pairs, Unique Keys)</h3>
+<ul>
+<p>  <li><code>HashMap<K, V></code>: Fast $O(1)$ key lookups using <code>hashCode()</code>.</li></p>
+<p>  <li><code>LinkedHashMap<K, V></code>: Preserves <strong>key insertion order</strong>.</li></p>
+<p>  <li><code>TreeMap<K, V></code>: Sorted by <strong>keys</strong> in natural/comparator order.</li></p>
+<p></ul></p>
+
+<h3>D. <code>Queue<E></code> & <code>Deque<E></code> (Processing Pipelines)</h3>
+<ul>
+<p>  <li><code>ArrayDeque<E></code>: High-performance double-ended queue. Faster than <code>Stack</code> and <code>LinkedList</code> for LIFO/FIFO stacks and queues.</li></p>
+<p></ul></p>
+
+<h2>📝 3. Safe Iteration & <code>removeIf()</code></h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL WARNING:</strong> Modifying a collection structurally inside an enhanced <code>for-each</code> loop throws a <code>ConcurrentModificationException</code>! Use <code>collection.removeIf()</code> or an <code>Iterator</code> instead.</p></blockquote>
+
+<pre><code class="language-java">List&lt;Integer&gt; scores = new ArrayList&lt;&gt;(List.of(45, 82, 30, 91, 60));
+
+<p>// Safe removal using removeIf predicate</p>
+<p>scores.removeIf(score -&gt; score &lt; 50); // Removes 45 and 30 safely!</code></pre></p>
+
+<h2>💡 Complete Example: Student Enrollment & Grade Tracker</h2>
+
+<pre><code class="language-java">import java.util.*;
+
+<p>public class CollectionMaster {</p>
+<p>    public static void main(String[] args) {</p>
+<p>        // 1. List: Maintaining ordered student names</p>
+<p>        List&lt;String&gt; studentList = new ArrayList&lt;&gt;();</p>
+<p>        studentList.add(&quot;Rahul&quot;);</p>
+<p>        studentList.add(&quot;Ananya&quot;);</p>
+<p>        studentList.add(&quot;Rahul&quot;); // Duplicate allowed in List</p>
+
+<p>        System.out.println(&quot;Student List (Ordered)  : &quot; + studentList);</p>
+
+<p>        // 2. Set: Deduplicating skills</p>
+<p>        Set&lt;String&gt; uniqueSkills = new HashSet&lt;&gt;();</p>
+<p>        uniqueSkills.add(&quot;Java&quot;);</p>
+<p>        uniqueSkills.add(&quot;SQL&quot;);</p>
+<p>        uniqueSkills.add(&quot;Java&quot;); // Duplicate ignored silently</p>
+<p>        uniqueSkills.add(&quot;Spring&quot;);</p>
+
+<p>        System.out.println(&quot;Unique Skills (Set)    : &quot; + uniqueSkills);</p>
+
+<p>        // 3. Map: Indexing Student ID to Grade Result</p>
+<p>        Map&lt;Integer, String&gt; gradeMap = new HashMap&lt;&gt;();</p>
+<p>        gradeMap.put(101, &quot;A+&quot;);</p>
+<p>        gradeMap.put(102, &quot;B&quot;);</p>
+<p>        gradeMap.put(103, &quot;A&quot;);</p>
+
+<p>        // Safe retrieval with default fallback</p>
+<p>        String student104Grade = gradeMap.getOrDefault(104, &quot;NOT FOUND&quot;);</p>
+
+<p>        System.out.println(&quot;Grade Map              : &quot; + gradeMap);</p>
+<p>        System.out.println(&quot;Student 104 Grade      : &quot; + student104Grade);</p>
+
+<p>        // 4. Queue: Managing Support Tickets (FIFO)</p>
+<p>        Queue&lt;String&gt; supportQueue = new ArrayDeque&lt;&gt;();</p>
+<p>        supportQueue.offer(&quot;Ticket #1001&quot;);</p>
+<p>        supportQueue.offer(&quot;Ticket #1002&quot;);</p>
+
+<p>        System.out.println(&quot;Serving Ticket          : &quot; + supportQueue.poll()); // Removes Ticket #1001</p>
+<p>        System.out.println(&quot;Remaining Queue         : &quot; + supportQueue);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Student List (Ordered)  : [Rahul, Ananya, Rahul]
+<p>Unique Skills (Set)    : [Java, Spring, SQL]</p>
+<p>Grade Map              : {101=A+, 102=B, 103=A}</p>
+<p>Student 104 Grade      : NOT FOUND</p>
+<p>Serving Ticket          : Ticket #1001</p>
+<p>Remaining Queue         : [Ticket #1002]</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using <code>list.length</code> or <code>map.length</code> instead of <code>.size()</code>.</li></p>
+<p>  <li>Expecting <code>HashSet</code> or <code>HashMap</code> to maintain predictable element iteration order (use <code>LinkedHashSet</code>/<code>LinkedHashMap</code> if order matters!).</li></p>
+<p>  <li>Using mutable objects with changing <code>equals()</code>/<code>hashCode()</code> properties as <code>HashMap</code> keys.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always override <strong>both</strong> <code>equals()</code> and <code>hashCode()</code> when using custom class objects inside <code>HashSet</code> or as <code>HashMap</code> keys!</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>E-commerce shopping carts (<code>List</code>), unique tag filtering (<code>Set</code>), user session/cache stores (<code>Map</code>), message queues (<code>Queue</code>), and database ORM result sets.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>List<String></code> of 5 grocery items and sort them alphabetically using <code>Collections.sort()</code>.</p>
+<p>2. Deduplicate a list of numbers containing duplicates by passing it into a <code>HashSet</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a text sentence string and uses a <code>Map<String, Integer></code> to compute the frequency count of each unique word in the sentence.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-arrays.html">Arrays</a></li></p>
+<p>  <li><a href="13-generics.html">Generics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="10-strings.html">← Previous: Strings</a> | <a href="12-enums-and-records.html">Next: Enums and Records →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 subqueries - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Subqueries & Nested Queries in SQL</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Subquery</strong> (also called an <strong>Inner Query</strong> or <strong>Nested Query</strong>) is an SQL query embedded inside an <strong>Outer Query</strong> (<code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, or <code>FROM</code> clause) whose computed result is consumed by the outer statement.</p>
+
+<p>Subqueries allow developers to construct complex, multi-stage queries without writing temporary intermediate scripts.</p>
+
+<h3>Key Concepts:</h3>
+<ul>
+<p>  <li><strong>Logical Execution:</strong> In non-correlated subqueries, the inner query evaluates first to produce a result value or dataset, which is then passed to the outer query.</li></p>
+<p>  <li><strong>Scope & Aliasing:</strong> Tables defined inside an inner subquery are isolated from the outer query, unless explicitly correlated via table aliases.</li></p>
+<p>  <li><strong>Flexibility:</strong> Subqueries can return a single scalar value, a single column with multiple rows, multiple columns, or a complete temporary table source.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p><strong>Subquery</strong> ek main SQL query ke andar likhi gayi choti sub-query hoti hai. Pehle andar waali subquery execute hakar result calculate karti hai, aur fir bahar waali outer query us result ko filtering ya calculation ke liye use karti hai. Jaise: *"Un sabhi employees ko dikhao jin ki salary company ki average salary se zyada hai."* Pehle inner subquery overall average salary calculate karegi, fir outer query us average se zyada salary waale employees ko filter karegi.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p><strong>Subquery</strong> mhanje main SQL query chya aat lihileli dusri choti query. Pahile aatli subquery execute houn result tayar karte, aani tya result cha wapar main (outer) query madhye kela jato. Udaharanarth: *"Sarasari (average) pagarapeksha jast pagar aslelya karmcharyanchi naave dakhva."* Pahile subquery average salary kadhel, mag outer query karmchari filter karech.</p>
+
+<p>---</p>
+
+<h2>🧩 Subquery Classification & Categories</h2>
+
+<p>Subqueries are categorized based on their <strong>result dimensions</strong> and <strong>outer query relationships</strong>. *(Note: These categories describe different properties and are not mutually exclusive—for instance, a subquery can be both correlated and scalar)*.</p>
+
+<pre><code class="language-text">                           SUBQUERIES
+<p>                               │</p>
+<p>        ┌──────────────────────┴──────────────────────┐</p>
+<p>        ▼                                             ▼</p>
+<p>  Non-Correlated Subqueries                      Correlated Subqueries</p>
+<p>  (Inner query executes independently)          (Inner query references outer row)</p>
+<p>        │                                             │</p>
+<p>  ┌─────┼─────────────┬─────────────┐           ┌─────┴─────────────┐</p>
+<p>  │     │             │             │           │                   │</p>
+<p>Scalar Multi-Row    Multi-Col    Derived Table  EXISTS / NOT EXISTS  Correlated Scalar</p>
+<p>(1x1)  (1xN)        (NxM)       (FROM clause)  (Boolean Check)      (Per-row Lookup)</code></pre></p>
+
+<p>1. <strong>Scalar Subquery:</strong> Returns exactly <strong>1 value</strong> (1 row, 1 column).</p>
+<p>2. <strong>Single-Column, Multi-Row Subquery:</strong> Returns <strong>1 column with multiple rows</strong> (used with <code>IN</code>, <code>ALL</code>, <code>ANY</code>/<code>SOME</code>).</p>
+<p>3. <strong>Multi-Column Subquery:</strong> Returns multiple columns (used for multi-column tuple matching).</p>
+<p>4. <strong>Correlated Subquery:</strong> References columns from the outer query, creating a logical dependency.</p>
+<p>5. <strong>Derived Table:</strong> A subquery placed in the <code>FROM</code> clause acting as a temporary table source (requires an alias in MySQL).</p>
+<p>6. <strong><code>EXISTS</code> / <code>NOT EXISTS</code> Subquery:</strong> Evaluates boolean existence of matching rows.</p>
+
+<p>---</p>
+
+<h2>⚡ Execution Behavior: Non-Correlated vs Correlated</h2>
+
+<p>Understanding how inner and outer queries interact logically:</p>
+
+<ul>
+<p>  <li><strong>Non-Correlated Subquery:</strong> The inner subquery operates independently. It does <strong>not</strong> reference any columns from the outer query and can be run as a standalone statement.</li></p>
+<p>  <li><strong>Correlated Subquery:</strong> The inner subquery references a column from the outer query row currently being processed (e.g., <code>WHERE d.department_id = e.department_id</code>). Logically, the inner query evaluates for each candidate row of the outer query.</li></p>
+<p>  <li>🌐 <strong>MySQL Optimizer Note:</strong> Modern MySQL (5.7+, 8.0+) query optimizers frequently rewrite, flatten, or materialize subqueries into semi-joins or hash tables for high performance, so logical correlation does not imply a slow physical loop.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🎯 1. Scalar Subqueries (Returns 1 Value: 1 Row, 1 Column)</h2>
+
+<p>A <strong>Scalar Subquery</strong> returns a single cell value. It can be used anywhere a literal constant or column expression is expected (e.g. in <code>SELECT</code> lists or comparison operators like <code>=</code>, <code>></code>, <code><</code>).</p>
+
+<h3>Pattern A: Scalar Subquery in <code>WHERE</code> Clause</h3>
+<p>Find all employees who earn more than the company-wide average salary:</p>
+
+<pre><code class="language-sql">SELECT emp_id, first_name, salary
+<p>FROM emps</p>
+<p>WHERE salary &gt; (</p>
+<p>    SELECT AVG(salary) FROM emps -- Returns scalar value $72,000.00</p>
+<p>)</p>
+<p>ORDER BY salary DESC;</code></pre></p>
+
+<h3>Pattern B: Scalar Subquery in <code>SELECT</code> List</h3>
+<p>Display each employee's salary alongside the company-wide average salary:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    first_name,</p>
+<p>    salary,</p>
+<p>    (SELECT ROUND(AVG(salary), 2) FROM emps) AS company_avg_salary</p>
+<p>FROM emps;</code></pre></p>
+
+<blockquote><p>⚠️ <strong>Scalar Subquery Error Warning:</strong> If a subquery placed next to a scalar comparison operator (<code>=</code>, <code>></code>, <code><</code>) returns more than 1 row, MySQL throws <code>ERROR 1242 (21000): Subquery returns more than 1 row</code>. Use <code>IN</code> or <code>LIMIT 1</code> to fix this error.</p></blockquote>
+
+<p>---</p>
+
+<h2>📋 2. Multi-Row Subqueries (<code>IN</code>, <code>ALL</code>, <code>ANY</code>/<code>SOME</code>)</h2>
+
+<p>A <strong>Multi-Row Subquery</strong> returns a list of values in a single column (1 column, $N$ rows). It is paired with list operators:</p>
+
+<h3>A. Using <code>IN</code> (List Matching)</h3>
+<p>Find all departments that currently have at least one employee assigned:</p>
+
+<pre><code class="language-sql">SELECT dept_id, dept_name
+<p>FROM depts</p>
+<p>WHERE dept_id IN (</p>
+<p>    SELECT DISTINCT department_id </p>
+<p>    FROM emps </p>
+<p>    WHERE department_id IS NOT NULL</p>
+<p>);</code></pre></p>
+
+<h3>B. Using <code>ALL</code> (Compares Against Every Item in Set)</h3>
+<p>Find employees whose salary is greater than <strong>ALL</strong> employees in department 20:</p>
+
+<pre><code class="language-sql">SELECT first_name, salary
+<p>FROM emps</p>
+<p>WHERE salary &gt; ALL (</p>
+<p>    SELECT salary </p>
+<p>    FROM emps </p>
+<p>    WHERE department_id = 20</p>
+<p>);</code></pre></p>
+<ul>
+<p>  <li><strong>Explanation:</strong> If department 20 salaries are $60,000 and $70,000, <code>salary > ALL (...)</code> requires the salary to be greater than $70,000 (the maximum in department 20).</li></p>
+<p></ul></p>
+
+<h3>C. Using <code>ANY</code> / <code>SOME</code> (Compares Against At Least One Item)</h3>
+<p>Find employees whose salary is greater than <strong>AT LEAST ONE</strong> employee in department 20:</p>
+
+<pre><code class="language-sql">SELECT first_name, salary
+<p>FROM emps</p>
+<p>WHERE salary &gt; ANY (</p>
+<p>    SELECT salary </p>
+<p>    FROM emps </p>
+<p>    WHERE department_id = 20</p>
+<p>);</code></pre></p>
+<ul>
+<p>  <li><strong>Explanation:</strong> <code>salary > ANY (...)</code> requires the salary to be greater than $60,000 (the minimum in department 20).</li></p>
+<p></ul></p>
+
+<blockquote><p>🚨 <strong>Critical <code>NULL</code> Trap for <code>NOT IN</code>:</strong></p></blockquote>
+<blockquote><p>If a subquery used with <code>NOT IN</code> returns even a <strong>single <code>NULL</code> value</strong>, the entire <code>NOT IN</code> condition evaluates to <code>UNKNOWN</code>, returning <strong>0 rows</strong>!</p></blockquote>
+<blockquote><p><pre><code class="language-sql">&gt; -- ❌ DANGEROUS if department_id contains NULL:</p></blockquote>
+<p>&gt; SELECT * FROM depts WHERE dept_id NOT IN (SELECT department_id FROM emps);</p>
+<p>&gt;</p>
+<p>&gt; -- ✅ SAFE ALTERNATIVE 1: Filter out NULLs in subquery</p>
+<p>&gt; SELECT * FROM depts WHERE dept_id NOT IN (SELECT department_id FROM emps WHERE department_id IS NOT NULL);</p>
+<p>&gt;</p>
+<p>&gt; -- ✅ SAFE ALTERNATIVE 2: Use NOT EXISTS</p>
+<p>&gt; SELECT * FROM depts d WHERE NOT EXISTS (SELECT 1 FROM emps e WHERE e.department_id = d.dept_id);</p>
+<p>&gt; ``<code></p>
+
+<p>---</p>
+
+<h2>🔄 3. Correlated Subqueries</h2>
+
+<p>A <strong>Correlated Subquery</strong> references a column from the outer query.</p>
+
+<h3>Problem: Find employees who earn more than the average salary of THEIR OWN department.</h3>
+<p></code></pre>sql</p>
+<p>SELECT e.emp_id, e.first_name, e.department_id, e.salary</p>
+<p>FROM emps AS e</p>
+<p>WHERE e.salary > (</p>
+<p>    SELECT AVG(d.salary)</p>
+<p>    FROM emps AS d</p>
+<p>    WHERE d.department_id = e.department_id -- Correlation condition!</p>
+<p>);</p>
+<pre><code class="language-text">
+<h3>🔍 Step-by-Step Execution Logic:</h3>
+<p>1. For each candidate row $e$ evaluated by the outer query:</p>
+<p>2. The inner subquery executes, calculating </code>AVG(salary)<code> for only those employees $d$ where </code>d.department_id = e.department_id<code>.</p>
+<p>3. If $e$&#39;s salary is greater than that department average, row $e$ is included in the output.</p>
+<p>4. *(Note: Unassigned employees where </code>department_id IS NULL<code> fail equality </code>NULL = NULL<code> and are excluded).*</p>
+
+<p>---</p>
+
+<h2>⚡ 4. </code>EXISTS<code> &amp; </code>NOT EXISTS<code> Operators</h2>
+
+<p>The <strong></code>EXISTS<code></strong> predicate checks for the <strong>presence of matching rows</strong> in a subquery. It evaluates to boolean </code>TRUE<code> as soon as the inner query finds at least 1 matching row (short-circuit evaluation).</p>
+
+<h3>A. Using </code>EXISTS<code></h3>
+<p>Find departments that have at least one assigned employee:</p>
+<p></code></pre>sql</p>
+<p>SELECT d.dept_id, d.dept_name</p>
+<p>FROM depts AS d</p>
+<p>WHERE EXISTS (</p>
+<p>    SELECT 1 </p>
+<p>    FROM emps AS e</p>
+<p>    WHERE e.department_id = d.dept_id</p>
+<p>);</p>
+<pre><code class="language-text">
+<h3>B. Using </code>NOT EXISTS<code> (Anti-Join Pattern)</h3>
+<p>Find departments that have <strong>NO</strong> assigned employees:</p>
+<p></code></pre>sql</p>
+<p>SELECT d.dept_id, d.dept_name</p>
+<p>FROM depts AS d</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 </p>
+<p>    FROM emps AS e</p>
+<p>    WHERE e.department_id = d.dept_id</p>
+<p>);</p>
+<pre><code class="language-text">
+<p>&gt; 💡 <strong>Why </code>SELECT 1<code> is Standard:</strong> Inside an </code>EXISTS<code> subquery, </code>SELECT 1<code> (or </code>SELECT *<code>) is standard convention because the database engine ignores actual column values projected by the inner query—it only checks whether at least one matching row exists!</p>
+
+<p>---</p>
+
+<h2>📦 5. Subqueries in </code>FROM<code> Clause (Derived Tables)</h2>
+
+<p>A subquery placed in the </code>FROM<code> clause creates a temporary query result source called a <strong>Derived Table</strong>.</p>
+
+<p>&gt; 🚨 <strong>MySQL Mandatory Alias Rule:</strong> Every derived table in the </code>FROM<code> clause <strong>MUST</strong> have an explicit alias assigned (</code>AS alias_name<code>), or MySQL throws </code>ERROR 1248 (42000): Every derived table must have its own alias<code>.</p>
+<p></code></pre>sql</p>
+<p>SELECT </p>
+<p>    dept_summary.department_id,</p>
+<p>    dept_summary.total_payroll,</p>
+<p>    dept_summary.staff_count</p>
+<p>FROM (</p>
+<p>    SELECT </p>
+<p>        department_id,</p>
+<p>        SUM(salary) AS total_payroll,</p>
+<p>        COUNT(emp_id) AS staff_count</p>
+<p>    FROM emps</p>
+<p>    WHERE department_id IS NOT NULL</p>
+<p>    GROUP BY department_id</p>
+<p>) AS dept_summary -- Mandatory alias!</p>
+<p>WHERE dept_summary.total_payroll > 100000.00;</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h2>🛠️ Complete Runnable Setup &amp; Unified Example</h2>
+
+<p>Let&#39;s execute a complete, runnable MySQL-compatible workflow creating </code>depts<code> and </code>emps<code> tables, inserting sample records, and executing scalar, multi-row, correlated, and derived table subqueries.</p>
+<p></code></pre>sql</p>
+<p>-- 1. Drop sample tables if they exist to allow safe re-runs</p>
+<p>DROP TABLE IF EXISTS emps;</p>
+<p>DROP TABLE IF EXISTS depts;</p>
+
+<p>-- 2. Create Parent Table: Departments</p>
+<p>CREATE TABLE depts (</p>
+<p>    dept_id INT PRIMARY KEY,</p>
+<p>    dept_name VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>-- 3. Create Child Table: Employees</p>
+<p>CREATE TABLE emps (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    department_id INT, -- Nullable FK</p>
+<p>    salary DECIMAL(10, 2) NOT NULL,</p>
+<p>    FOREIGN KEY (department_id) REFERENCES depts(dept_id)</p>
+<p>);</p>
+
+<p>-- 4. Insert Sample Departments</p>
+<p>INSERT INTO depts (dept_id, dept_name) VALUES</p>
+<p>    (10, 'Engineering'),</p>
+<p>    (20, 'Marketing'),</p>
+<p>    (30, 'Sales'); -- Dept 30 has no employees</p>
+
+<p>-- 5. Insert Sample Employees</p>
+<p>INSERT INTO emps (emp_id, first_name, department_id, salary) VALUES</p>
+<p>    (1, 'Rahul', 10, 85000.00),</p>
+<p>    (2, 'Priya', 20, 60000.00),</p>
+<p>    (3, 'Amit', 10, 95000.00),</p>
+<p>    (4, 'Sneha', 20, 70000.00),</p>
+<p>    (5, 'Neha', NULL, 50000.00); -- Unassigned employee</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h3>Query 1: Scalar Subquery (Earning More Than Company-Wide Average $72,000.00)</h3>
+<p></code></pre>sql</p>
+<p>SELECT emp_id, first_name, salary</p>
+<p>FROM emps</p>
+<p>WHERE salary > (SELECT AVG(salary) FROM emps)</p>
+<p>ORDER BY salary DESC;</p>
+<pre><code class="language-text">
+<p>#### 👀 Expected Output:</p>
+<p></code></pre>text</p>
+<p>+--------+------------+----------+</p>
+<table>
+<p>  <thead><tr><th>emp_id</th><th>first_name</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+----------+</p>
+<table>
+<p>  <thead><tr><th>3</th><th>Amit</th><th>95000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul</td><td>85000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+----------+</p>
+<pre><code class="language-text">
+<p>*(Company average salary = $360,000 / 5 = $72,000.00. Only Amit [$95k] and Rahul [$85k] earn above $72k).*</p>
+
+<p>---</p>
+
+<h3>Query 2: Correlated Subquery (Earning More Than Department Average)</h3>
+<p></code></pre>sql</p>
+<p>SELECT e.emp_id, e.first_name, e.department_id, e.salary</p>
+<p>FROM emps AS e</p>
+<p>WHERE e.salary > (</p>
+<p>    SELECT AVG(d.salary)</p>
+<p>    FROM emps AS d</p>
+<p>    WHERE d.department_id = e.department_id</p>
+<p>);</p>
+<pre><code class="language-text">
+<p>#### 👀 Expected Output:</p>
+<p></code></pre>text</p>
+<p>+--------+------------+---------------+----------+</p>
+<table>
+<p>  <thead><tr><th>emp_id</th><th>first_name</th><th>department_id</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+---------------+----------+</p>
+<table>
+<p>  <thead><tr><th>3</th><th>Amit</th><th>10</th><th>95000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>4</td><td>Sneha</td><td>20</td><td>70000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+---------------+----------+</p>
+<pre><code class="language-text">
+<p>*(Engineering avg = $90,000 $\rightarrow$ Amit [$95k] &gt; $90k. Marketing avg = $65,000 $\rightarrow$ Sneha [$70k] &gt; $65k).*</p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes &amp; Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong></code>ERROR 1242 (21000): Subquery returns more than 1 row<code></strong></td><td>Using a scalar comparison operator (</code>=<code>, </code>&gt;<code>, </code>&lt;<code>) with a subquery returning multiple rows.</td><td>Replace scalar comparison with </code>IN<code>, </code>ANY<code>, or </code>ALL<code> operators.</td></tr></p>
+<p>    <tr><td><strong></code>NOT IN<code> Subquery Returning 0 Rows</strong></td><td>Subquery in </code>NOT IN (SELECT col FROM ...)<code> returns at least one </code>NULL<code> value.</td><td>Filter out </code>NULL<code>s in subquery (</code>WHERE col IS NOT NULL<code>) or use </code>NOT EXISTS<code>.</td></tr></p>
+<p>    <tr><td><strong></code>ERROR 1248 (42000): Every derived table must have its own alias<code></strong></td><td>Omitting a table alias from a subquery placed in the </code>FROM<code> clause.</td><td>Always assign an explicit alias to derived tables: </code>FROM (...) AS my_derived_table<code>.</td></tr></p>
+<p>    <tr><td><strong>Incorrect Correlation Alias</strong></td><td>Misreferencing outer table aliases inside correlated subqueries.</td><td>Ensure table aliases (</code>e<code> for outer, </code>d<code> for inner) are clearly distinguished.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Fraud Filters:</strong> Finding users whose order amounts exceed 5x their personal historical average order size (</code>WHERE amount &gt; 5 * (SELECT AVG(amount) ...)<code>).</li></p>
+<p>  <li><strong>Financial Risk Reporting:</strong> Finding accounts whose balance exceeds </code>ALL<code> default credit thresholds.</li></p>
+<p>  <li><strong>Data Cleanup Jobs:</strong> Identifying orphaned customer profiles using </code>NOT EXISTS<code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Structured Practice Exercises</h2>
+
+<h3>Exercise 1: Scalar Subquery</h3>
+<p>Write a query on the </code>emps<code> table to find all employees whose salary is <strong>less than</strong> the overall company average salary.</p>
+
+<h3>Exercise 2: Multi-Row </code>ALL<code> Operator</h3>
+<p>Write a query to find all employees whose salary is <strong>greater than ALL</strong> employees in department 20 (Marketing).</p>
+
+<h3>Exercise 3: Anti-Join with </code>NOT EXISTS<code></h3>
+<p>Write a query to find all departments in </code>depts<code> that have <strong>no</strong> assigned employees using </code>NOT EXISTS<code>.</p>
+
+<h3>Exercise 4: Correlated Subquery</h3>
+<p>Write a correlated subquery finding employees who earn <strong>less than or equal to</strong> the average salary of their own department.</p>
+
+<h3>Exercise 5: Derived Table Summarization</h3>
+<p>Write a query using a derived table in the </code>FROM<code> clause that calculates the total payroll per department and projects </code>department_id<code> and </code>total_payroll<code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>1. Create a </code>customers<code> table (</code>customer_id<code>, </code>customer_name<code>, </code>country<code>).</p>
+<p>2. Create an </code>orders<code> table (</code>order_id<code>, </code>customer_id<code>, </code>order_amount<code>).</p>
+<p>3. Insert sample data:</p>
+<ul>
+<p>  <li>Customers: ID 1 </code>&#39;Rahul&#39;<code> (</code>&#39;India&#39;<code>), ID 2 </code>&#39;Priya&#39;<code> (</code>&#39;India&#39;<code>), ID 3 </code>&#39;John&#39;<code> (</code>&#39;USA&#39;<code>).</li></p>
+<p>  <li>Orders: Order 101 (Cust 1, </code>$1500.00<code>), Order 102 (Cust 2, </code>$3500.00<code>), Order 103 (Cust 3, </code>$8000.00<code>), Order 104 (Cust 1, </code>$2000.00<code>).</li></p>
+<p></ul></p>
+<p>4. Write a subquery that retrieves all orders whose </code>order_amount<code> is <strong>greater than the average order amount of customers from </code>&#39;India&#39;<code></strong>.</p>
+
+<p>&lt;details&gt;</p>
+<p>&lt;summary&gt;🔍 Click to view Exercise Solutions &amp; Answer Key&lt;/summary&gt;</p>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</code></pre>sql</p>
+<p>SELECT emp_id, first_name, salary</p>
+<p>FROM emps</p>
+<p>WHERE salary < (SELECT AVG(salary) FROM emps);</p>
+<pre><code class="language-text">
+<p>#### Exercise 2 Solution:</code></pre>sql</p>
+<p>SELECT emp_id, first_name, salary</p>
+<p>FROM emps</p>
+<p>WHERE salary > ALL (SELECT salary FROM emps WHERE department_id = 20);</p>
+<p>-- Output: Amit ($95,000.00 > $70,000.00)</p>
+<pre><code class="language-text">
+<p>#### Exercise 3 Solution:</code></pre>sql</p>
+<p>SELECT d.dept_id, d.dept_name</p>
+<p>FROM depts AS d</p>
+<p>WHERE NOT EXISTS (SELECT 1 FROM emps AS e WHERE e.department_id = d.dept_id);</p>
+<p>-- Output: Sales (dept_id 30)</p>
+<pre><code class="language-text">
+<p>#### Exercise 4 Solution:</code></pre>sql</p>
+<p>SELECT e.emp_id, e.first_name, e.department_id, e.salary</p>
+<p>FROM emps AS e</p>
+<p>WHERE e.salary <= (SELECT AVG(d.salary) FROM emps AS d WHERE d.department_id = e.department_id);</p>
+<p>-- Output: Rahul ($85k <= $90k Eng avg), Priya ($60k <= $65k Mktg avg)</p>
+<pre><code class="language-text">
+<p>#### Exercise 5 Solution:</code></pre>sql</p>
+<p>SELECT dept_summary.department_id, dept_summary.total_payroll</p>
+<p>FROM (</p>
+<p>    SELECT department_id, SUM(salary) AS total_payroll</p>
+<p>    FROM emps</p>
+<p>    WHERE department_id IS NOT NULL</p>
+<p>    GROUP BY department_id</p>
+<p>) AS dept_summary;</p>
+<pre><code class="language-text">
+<p>#### Mini Challenge Solution:</p>
+<p></code></pre>sql</p>
+<p>-- Step 1: Create customers & orders tables</p>
+<p>CREATE TABLE IF NOT EXISTS customers (</p>
+<p>    customer_id INT PRIMARY KEY,</p>
+<p>    customer_name VARCHAR(50) NOT NULL,</p>
+<p>    country VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>CREATE TABLE IF NOT EXISTS orders (</p>
+<p>    order_id INT PRIMARY KEY,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    order_amount DECIMAL(10, 2) NOT NULL,</p>
+<p>    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)</p>
+<p>);</p>
+
+<p>-- Step 2: Insert sample data</p>
+<p>INSERT INTO customers (customer_id, customer_name, country) VALUES</p>
+<p>    (1, 'Rahul', 'India'),</p>
+<p>    (2, 'Priya', 'India'),</p>
+<p>    (3, 'John', 'USA');</p>
+
+<p>INSERT INTO orders (order_id, customer_id, order_amount) VALUES</p>
+<p>    (101, 1, 1500.00),</p>
+<p>    (102, 2, 3500.00),</p>
+<p>    (103, 3, 8000.00),</p>
+<p>    (104, 1, 2000.00);</p>
+
+<p>-- Step 3: Subquery filtering orders above Indian customers' average order size</p>
+<p>SELECT o.order_id, o.customer_id, o.order_amount</p>
+<p>FROM orders AS o</p>
+<p>WHERE o.order_amount > (</p>
+<p>    SELECT AVG(sub_o.order_amount)</p>
+<p>    FROM orders AS sub_o</p>
+<p>    JOIN customers AS sub_c ON sub_o.customer_id = sub_c.customer_id</p>
+<p>    WHERE sub_c.country = 'India'</p>
+<p>);</p>
+<pre><code class="language-text">
+<p><strong>Expected Output:</strong></p>
+<p></code></pre>text</p>
+<p>+----------+-------------+--------------+</p>
+<table>
+<p>  <thead><tr><th>order_id</th><th>customer_id</th><th>order_amount</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------+-------------+--------------+</p>
+<table>
+<p>  <thead><tr><th>102</th><th>2</th><th>3500.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>103</td><td>3</td><td>8000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------+-------------+--------------+</p>
+<p></code>`<code></p>
+
+<p>*(Explanation: Orders from India are $1500, $3500, and $2000. Average order for India = $7000 / 3 = $2333.33. Orders above $2333.33 are order 102 [$3500.00] and order 103 [$8000.00]).*</p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-joins.html">SQL Joins & Table Relationships</a></li></p>
+<p>  <li><a href="16-case-expressions.html">Conditional Logic with CASE</a></li></p>
+<p>  <li><a href="18-set-operations.html">Set Operations: </code>UNION<code> & </code>EXCEPT`</a></li></p>
+<p>  <li><a href="23-ctes.html">Common Table Expressions (CTEs)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="16-case-expressions.html">← Previous: CASE Expressions</a> | <a href="./">SQL Home</a> | <a href="18-set-operations.html">Next: Set Operations →</a></p>
+
+  </div>
+</body>
+</html>

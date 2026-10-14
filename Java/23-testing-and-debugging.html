@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing and Debugging - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Testing and Debugging in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Unit Testing:</strong> Automating the verification of individual units of code (like isolated methods or classes) using frameworks such as <strong>JUnit 5 (Jupiter)</strong>.</li></p>
+<p>  <li><strong>Debugging:</strong> Isolating, inspecting, and fixing runtime errors, logical bugs, and exceptions using IDE breakpoints, stack trace inspection, and variable watches.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Software quality maintain karne ke liye <strong>JUnit 5</strong> test framework se automated unit tests likhe jaate hain. Runtime bugs fix karne ke liye IDE breakpoints, stack trace inspection, aur variable inspection ka use karke line-by-line execution debug kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Automated tests sathi <strong>JUnit 5</strong> framework vaparatat. Code madhil bugs shodhnyasathi IDE Breakpoints aani Debugger vaparatat.</p>
+
+<h2>📝 1. Core JUnit 5 Test Annotations</h2>
+
+<table>
+<p>  <thead><tr><th>Annotation</th><th>What It Does</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>@Test</code></td><td>Marks a method as an automated test case</td></tr></p>
+<p>    <tr><td><code>@BeforeEach</code></td><td>Executes before <strong>each</strong> <code>@Test</code> method in the test class</td></tr></p>
+<p>    <tr><td><code>@AfterEach</code></td><td>Executes after <strong>each</strong> <code>@Test</code> method</td></tr></p>
+<p>    <tr><td><code>@BeforeAll</code></td><td>Executes <strong>once</strong> before all tests in class (<code>static</code>)</td></tr></p>
+<p>    <tr><td><code>@AfterAll</code></td><td>Executes <strong>once</strong> after all tests in class (<code>static</code>)</td></tr></p>
+<p>    <tr><td><code>@DisplayName("Custom Name")</code></td><td>Declares a readable custom test title</td></tr></p>
+<p>    <tr><td><code>@Disabled</code></td><td>Skips execution of test method</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. JUnit 5 Assertions</h2>
+
+<pre><code class="language-java">import static org.junit.jupiter.api.Assertions.*;
+
+<p>assertEquals(expected, actual);</p>
+<p>assertTrue(condition);</p>
+<p>assertFalse(condition);</p>
+<p>assertNull(objectReference);</p>
+<p>assertNotNull(objectReference);</p>
+
+<p>// Exception Assertion (Verifies specific exception is thrown)</p>
+<p>assertThrows(IllegalArgumentException.class, () -&gt; {</p>
+<p>    methodThatShouldThrow();</p>
+<p>});</code></pre></p>
+
+<h2>📝 3. Effective IDE Debugging Strategies</h2>
+
+<p>1. <strong>Set Breakpoint:</strong> Click on any line margin in IntelliJ IDEA or VS Code to pause execution when reached.</p>
+<p>2. <strong>Inspect Variables:</strong> View current field values in heap memory in the debugger scope window.</p>
+<p>3. <strong>Control Stepping:</strong></p>
+<ul>
+<p>  <li><strong>Step Over (F8):</strong> Executes current line and moves to next line.</li></p>
+<p>  <li><strong>Step Into (F7):</strong> Jumps inside called method.</li></p>
+<p>  <li><strong>Step Out (Shift+F8):</strong> Finishes current method and returns to caller.</li></p>
+<p>  <li><strong>Resume (F9):</strong> Resumes normal execution until next breakpoint.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: Class & Unit Test Class</h2>
+
+<h3>Class to Test: <code>CalculatorService.java</code></h3>
+<pre><code class="language-java">public class CalculatorService {
+<p>    </p>
+<p>    public double divide(double numerator, double denominator) {</p>
+<p>        if (denominator == 0.0) {</p>
+<p>            throw new ArithmeticException(&quot;Division by zero is not allowed.&quot;);</p>
+<p>        }</p>
+<p>        return numerator / denominator;</p>
+<p>    }</p>
+
+<p>    public boolean isEven(int number) {</p>
+<p>        return number % 2 == 0;</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h3>Automated Unit Test: <code>CalculatorServiceTest.java</code></h3>
+<pre><code class="language-java">import org.junit.jupiter.api.*;
+<p>import static org.junit.jupiter.api.Assertions.*;</p>
+
+<p>@DisplayName(&quot;Calculator Service Unit Tests&quot;)</p>
+<p>public class CalculatorServiceTest {</p>
+
+<p>    private CalculatorService calculator;</p>
+
+<p>    @BeforeEach</p>
+<p>    void setUp() {</p>
+<p>        calculator = new CalculatorService(); // Re-instantiated before each test</p>
+<p>    }</p>
+
+<p>    @Test</p>
+<p>    @DisplayName(&quot;Should divide two valid numbers correctly&quot;)</p>
+<p>    void testValidDivision() {</p>
+<p>        double result = calculator.divide(10.0, 2.0);</p>
+<p>        assertEquals(5.0, result, 0.0001, &quot;10 / 2 should equal 5.0&quot;);</p>
+<p>    }</p>
+
+<p>    @Test</p>
+<p>    @DisplayName(&quot;Should throw ArithmeticException when dividing by zero&quot;)</p>
+<p>    void testDivisionByZeroThrowsException() {</p>
+<p>        Exception exception = assertThrows(ArithmeticException.class, () -&gt; {</p>
+<p>            calculator.divide(10.0, 0.0);</p>
+<p>        });</p>
+<p>        </p>
+<p>        assertEquals(&quot;Division by zero is not allowed.&quot;, exception.getMessage());</p>
+<p>    }</p>
+
+<p>    @Test</p>
+<p>    @DisplayName(&quot;Should correctly identify even numbers&quot;)</p>
+<p>    void testIsEven() {</p>
+<p>        assertTrue(calculator.isEven(4));</p>
+<p>        assertFalse(calculator.isEven(7));</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Test Execution Output</h2>
+
+<pre><code class="language-text">JUnit Jupiter Test Runner Execution
+<p>-------------------------------------------------------</p>
+<p>[✔] Calculator Service Unit Tests</p>
+<p>   [✔] Should divide two valid numbers correctly</p>
+<p>   [✔] Should throw ArithmeticException when dividing by zero</p>
+<p>   [✔] Should correctly identify even numbers</p>
+
+<p>Tests passed: 3 of 3 (100% SUCCESS)</p>
+<p>-------------------------------------------------------</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Writing unit tests that depend on each other's execution order or shared mutable global state.</li></p>
+<p>  <li>Asserting only happy-path inputs while ignoring edge cases and boundary conditions (e.g. <code>null</code>, <code>0</code>, negative values).</li></p>
+<p>  <li>Reading only the bottom line of an error stack trace; always look for the <strong>first relevant line number in your own package code</strong>!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Keep unit tests fast, isolated, repeatable, and independent so they can run automatically during continuous integration build pipelines (<code>mvn test</code>).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>CI/CD deployment pipelines (GitHub Actions, Jenkins), regression testing during codebase refactoring, and verifying business validation rules.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>BankAccount</code> class with <code>deposit()</code> and <code>withdraw()</code> methods.</p>
+<p>2. Write a JUnit test class verifying that withdrawing more than balance throws <code>IllegalArgumentException</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a JUnit test verifying that a custom string reverse method returns <code>""</code> when passed <code>""</code> and correctly handles null arguments by throwing <code>NullPointerException</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="18-exceptions-and-validation.html">Exceptions and Validation</a></li></p>
+<p>  <li><a href="24-build-tools-and-mini-projects.html">Build Tools and Mini Projects</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="22-dates-and-time.html">← Previous: Dates and Time</a> | <a href="24-build-tools-and-mini-projects.html">Next: Build Tools and Mini Projects →</a></p>
+
+
+  </div>
+</body>
+</html>

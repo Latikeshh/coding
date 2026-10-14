@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Functions - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Advanced Functions in Python (<code>*args</code>, <code><strong>kwargs</code>, Closures & Scope)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Advanced Python function features include variable-length positional arguments (</strong><code>*args</code><strong>), variable-length keyword arguments (</strong><code><strong>kwargs</code></strong>), First-Class Functions, closures, and variable scope resolution rules (<strong>LEGB Rule: Local, Enclosing, Global, Built-in</strong>).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Python mein <code>*args</code> se aap arbitrary number of positional arguments (as a tuple) pass kar sakte hain, aur <code><strong>kwargs</code> se arbitrary keyword arguments (as a dictionary) pass hote hain. Python mein Functions </strong>First-Class Citizens** hain, yani unhe variables mein store kiya ja sakta hai aur doosre functions mein argument ki tarah pass kiya ja sakta hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p><code>*args</code> tuple chya roopat multiple inputs gheto, tar <code>**kwargs</code> dictionary chya roopat keyword inputs gheto.</p>
+
+<h2>📝 1. Variable-Length Arguments (<code>*args</code> & <code><strong>kwargs</code>)</h2>
+
+<ul>
+<p>  <li></strong><code>*args</code> (Positional Argument Packing):<strong> Gathers extra positional arguments into a <code>tuple</code>.</li></p>
+<p>  <li></strong><code><strong>kwargs</code> (Keyword Argument Packing):</strong> Gathers extra keyword arguments into a <code>dict</code>.</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">def flex_logger(log_level, *args, <strong>kwargs):
+<p>    print(f&quot;[{log_level}] Extra Positional Args:&quot;, args)</p>
+<p>    print(f&quot;[{log_level}] Extra Keyword Args   :&quot;, kwargs)</p>
+
+<h1>Call</h1>
+<p>flex_logger(&quot;INFO&quot;, &quot;User Logged In&quot;, &quot;IP: 192.168.1.1&quot;, user_id=501, status=&quot;SUCCESS&quot;)</code></pre></p>
+
+<h2>📝 2. Variable Scope & The LEGB Rule</h2>
+
+<p>Python searches for variable names in strict sequential order:</p>
+
+<p>1. </strong>L - Local:<strong> Inside the current executing function.</p>
+<p>2. </strong>E - Enclosing:<strong> Inside outer enclosing functions (for nested closures).</p>
+<p>3. </strong>G - Global:<strong> Declared at the top level of the module script.</p>
+<p>4. </strong>B - Built-in:<strong> Built-in Python functions (<code>len</code>, <code>range</code>, <code>print</code>).</p>
+
+<pre><code class="language-python">x = &quot;GLOBAL&quot;
+
+<p>def outer():</p>
+<p>    x = &quot;ENCLOSING&quot;</p>
+<p>    def inner():</p>
+<p>        nonlocal x # Modifies outer enclosing variable &#39;x&#39;</p>
+<p>        x = &quot;MODIFIED_ENCLOSING&quot;</p>
+<p>    inner()</p>
+<p>    print(&quot;Outer x:&quot;, x) # &quot;MODIFIED_ENCLOSING&quot;</p>
+
+<p>outer()</code></pre></p>
+
+<h2>📝 3. Closures & Function Factories</h2>
+
+<p>A </strong>Closure** occurs when an inner nested function retains access to variables in its outer enclosing scope even after the outer function has finished execution.</p>
+
+<pre><code class="language-python">def make_multiplier(factor):
+<p>    # &#39;factor&#39; is trapped inside the inner closure environment!</p>
+<p>    def multiply(number):</p>
+<p>        return number * factor</p>
+<p>    return multiply</p>
+
+<p>double = make_multiplier(2)</p>
+<p>triple = make_multiplier(3)</p>
+
+<p>print(double(5)) # 10</p>
+<p>print(triple(5)) # 15</code></pre></p>
+
+<h2>💡 Complete Example: Dynamic Configuration & Logging Factory</h2>
+
+<pre><code class="language-python"># Flexible Event Auditing System
+
+<p>def build_event_logger(system_component):</p>
+<p>    &quot;&quot;&quot;Function factory returning a custom logger closure.&quot;&quot;&quot;</p>
+<p>    event_count = 0 # Enclosing state variable</p>
+<p>    </p>
+<p>    def log_event(event_type, *details, **metadata):</p>
+<p>        nonlocal event_count</p>
+<p>        event_count += 1</p>
+<p>        </p>
+<p>        detail_msg = &quot; | &quot;.join(details)</p>
+<p>        print(f&quot;[{system_component}] Event #{event_count}: {event_type}&quot;)</p>
+<p>        if detail_msg:</p>
+<p>            print(f&quot;   Details : {detail_msg}&quot;)</p>
+<p>        if metadata:</p>
+<p>            print(f&quot;   Metadata: {metadata}&quot;)</p>
+<p>        print(&quot;-&quot; * 40)</p>
+<p>        </p>
+<p>    return log_event</p>
+
+<h1>Instantiate closures for separate components</h1>
+<p>auth_logger = build_event_logger(&quot;AUTH_SERVICE&quot;)</p>
+<p>db_logger = build_event_logger(&quot;DATABASE&quot;)</p>
+
+<h1>Logging events with args and kwargs</h1>
+<p>auth_logger(&quot;LOGIN_SUCCESS&quot;, &quot;User IP 10.0.0.1&quot;, user=&quot;Aarav&quot;, attempts=1)</p>
+<p>auth_logger(&quot;PASSWORD_CHANGE&quot;, user=&quot;Aarav&quot;, forced=False)</p>
+<p>db_logger(&quot;QUERY_EXECUTE&quot;, &quot;SELECT * FROM users&quot;, duration_ms=12)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">[AUTH_SERVICE] Event #1: LOGIN_SUCCESS
+<p>   Details : User IP 10.0.0.1</p>
+<p>   Metadata: {&#39;user&#39;: &#39;Aarav&#39;, &#39;attempts&#39;: 1}</p>
+<p>----------------------------------------</p>
+<p>[AUTH_SERVICE] Event #2: PASSWORD_CHANGE</p>
+<p>   Metadata: {&#39;user&#39;: &#39;Aarav&#39;, &#39;forced&#39;: False}</p>
+<p>----------------------------------------</p>
+<p>[DATABASE] Event #1: QUERY_EXECUTE</p>
+<p>   Details : SELECT * FROM users</p>
+<p>   Metadata: {&#39;duration_ms&#39;: 12}</p>
+<p>----------------------------------------</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Incorrect order of parameter declarations in functions! The strict required parameter order is:</li></p>
+<p></ul></p>
+<p>  <code>def func(positional, *args, default_param=val, **kwargs):</code></p>
+<ul>
+<p>  <li>Modifying a global variable inside a function without declaring <code>global var_name</code> first, causing an <code>UnboundLocalError</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>When unpacking lists or dictionaries into function calls, use <code>*</code> for list/tuple positional unpacking and <code>**</code> for dictionary keyword unpacking: <code>func(*my_list, **my_dict)</code>.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Writing custom decorators, middleware functions in web frameworks (Django/Flask), event listeners, and flexible API wrappers.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function <code>sum_all(*numbers)</code> that calculates and returns the sum of any quantity of numbers passed to it.</p>
+<p>2. Create a closure <code>make_counter()</code> that returns a function that increments and returns a private count variable starting from <code>0</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function <code>build_user_profile(first_name, last_name, **attributes)</code> that returns a dictionary containing the full name and any arbitrary extra keyword metadata passed in.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-functions.html">Functions Basics</a></li></p>
+<p>  <li><a href="21-decorators.html">Decorators</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="14-list-comprehensions.html">← Previous: List Comprehensions</a> | <a href="16-modules-and-packages.html">Next: Modules and Packages →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decorators - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Decorators in Python</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Decorator</strong> is a Higher-Order Function that accepts another function as an argument, wraps it inside an inner function to extend or modify its behavior, and returns the wrapped function <strong>without modifying the original function's source code</strong>. Decorators use the <strong><code>@decorator_name</code></strong> syntax.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Decorator ek higher-order function hota hai jo kisi doosre function ka behavior extend karta hai bina uske source code ko change kiye. Decorator ka use logging, execution timing, aur authentication checks ke liye sabse jyada hota hai. Syntax: <code>@decorator_name</code>.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Decorator function cha behavior badalnyasathi kiva extend karnyasathi vaparatat. <code>@decorator_name</code> syntax cha wapar hoto.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Decorators enforce the <strong>Dry Principle (Don't Repeat Yourself)</strong> by separating cross-cutting concerns (like logging, authentication, execution timing, input caching) from core business logic functions.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a decorator as a gift wrapping service. You give them a gift (the target function). They wrap the gift in fancy paper and add a bow (extend behavior with logging/timing) before handing you back the wrapped package. The gift inside remains unchanged.</p>
+
+<h2>📝 1. Decorator Blueprint & <code>functools.wraps</code></h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL RULE:</strong> Always use <strong><code>@functools.wraps(func)</code></strong> inside your decorator wrapper function!</p></blockquote>
+<blockquote><p>Without <code>@wraps</code>, the decorated function loses its original <code>__name__</code> and <code>__doc__</code> metadata attributes (they get overwritten by <code>wrapper</code>)!</p></blockquote>
+
+<pre><code class="language-python">from functools import wraps
+
+<p>def my_decorator(func):</p>
+<p>    @wraps(func) # Preserves target function metadata (__name__, __doc__)</p>
+<p>    def wrapper(*args, **kwargs):</p>
+<p>        # 1. Code executed BEFORE target function runs</p>
+<p>        print(&quot;Before function execution...&quot;)</p>
+<p>        </p>
+<p>        # 2. Executing target function</p>
+<p>        result = func(*args, **kwargs)</p>
+<p>        </p>
+<p>        # 3. Code executed AFTER target function runs</p>
+<p>        print(&quot;After function execution...&quot;)</p>
+<p>        </p>
+<p>        return result</p>
+<p>    return wrapper</p>
+
+<h1>Applying Decorator using @ syntax</h1>
+<p>@my_decorator</p>
+<p>def greet(name):</p>
+<p>    print(f&quot;Hello, {name}!&quot;)</p>
+
+<p>greet(&quot;Aarav&quot;)</code></pre></p>
+
+<h2>💡 Complete Example: Execution Timer & Audit Logger Decorators</h2>
+
+<pre><code class="language-python">import time
+<p>from functools import wraps</p>
+
+<h1>Decorator 1: Execution Time Benchmark</h1>
+<p>def time_benchmark(func):</p>
+<p>    &quot;&quot;&quot;Decorator that measures and logs function execution time.&quot;&quot;&quot;</p>
+<p>    @wraps(func)</p>
+<p>    def wrapper(*args, **kwargs):</p>
+<p>        start_time = time.perf_counter()</p>
+<p>        result = func(*args, **kwargs)</p>
+<p>        elapsed_time = (time.perf_counter() - start_time) * 1000 # Convert to ms</p>
+<p>        print(f&quot;[BENCHMARK] Function &#39;{func.__name__}&#39; executed in {elapsed_time:.3f} ms&quot;)</p>
+<p>        return result</p>
+<p>    return wrapper</p>
+
+<h1>Decorator 2: Security Role Checker</h1>
+<p>def require_admin(func):</p>
+<p>    &quot;&quot;&quot;Decorator that checks for admin privileges.&quot;&quot;&quot;</p>
+<p>    @wraps(func)</p>
+<p>    def wrapper(user_role, *args, **kwargs):</p>
+<p>        if user_role.upper() != &quot;ADMIN&quot;:</p>
+<p>            print(f&quot;[SECURITY] Access Denied for role &#39;{user_role}&#39;. Admin required.&quot;)</p>
+<p>            return None</p>
+<p>        return func(user_role, *args, **kwargs)</p>
+<p>    return wrapper</p>
+
+<h1>Applying Multiple Decorators (Executed bottom-up!)</h1>
+<p>@require_admin</p>
+<p>@time_benchmark</p>
+<p>def delete_database_record(user_role, record_id):</p>
+<p>    &quot;&quot;&quot;Simulates database deletion operation.&quot;&quot;&quot;</p>
+<p>    time.sleep(0.05) # Simulate minor delay</p>
+<p>    print(f&quot;[DATABASE] Record #{record_id} deleted successfully.&quot;)</p>
+<p>    return True</p>
+
+<h1>Testing Decorators</h1>
+<p>print(&quot;=== DECORATOR AUDIT SYSTEM ===&quot;)</p>
+
+<p>print(&quot;--- Case 1: Unauthorized User Attempt ---&quot;)</p>
+<p>delete_database_record(&quot;GUEST&quot;, 501)</p>
+
+<p>print(&quot;\n--- Case 2: Authorized Admin Execution ---&quot;)</p>
+<p>delete_database_record(&quot;ADMIN&quot;, 501)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== DECORATOR AUDIT SYSTEM ===
+<p>--- Case 1: Unauthorized User Attempt ---</p>
+<p>[SECURITY] Access Denied for role &#39;GUEST&#39;. Admin required.</p>
+
+<p>--- Case 2: Authorized Admin Execution ---</p>
+<p>[DATABASE] Record #501 deleted successfully.</p>
+<p>[BENCHMARK] Function &#39;delete_database_record&#39; executed in 51.234 ms</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to include <code>*args</code> and <code>**kwargs</code> in the inner wrapper function signature, causing decorated functions with arguments to fail with <code>TypeError</code>.</li></p>
+<p>  <li>Forgetting to return the result of <code>func(*args, <strong>kwargs)</code> inside the wrapper function, causing the decorated function to return <code>None</code>!</li></p>
+<p>  <li>Omitting <code>@functools.wraps(func)</code>, which breaks documentation tools and debugging.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>When chaining multiple decorators (<code>@decorator_a</code> over <code>@decorator_b</code>), remember that decorators are applied from the </strong>bottom-up** (nearest function first).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Authentication and permission gates in Web Frameworks (<code>@login_required</code> in Django/Flask), execution timing logs, caching/memoization (<code>@functools.lru_cache</code>), and input validation.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a decorator <code>@log_call</code> that prints <code>"Executing function..."</code> before running any target function.</p>
+<p>2. Apply <code>@log_call</code> to a function <code>add(a, b)</code> and test it.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a decorator <code>@repeat_three_times</code> that executes the target function 3 times whenever it is invoked.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-functions-advanced.html">Functions Advanced</a></li></p>
+<p>  <li><a href="20-iterators-and-generators.html">Iterators and Generators</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="20-iterators-and-generators.html">← Previous: Iterators and Generators</a> | <a href="22-lambda-map-filter-reduce.html">Next: Lambda, Map, Filter, Reduce →</a></p>
+
+
+  </div>
+</body>
+</html>

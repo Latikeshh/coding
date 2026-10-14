@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 float and clear - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Float and Clear Layouts</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>float</code></strong> property moves an element to the left or right edge of its parent container, allowing inline content (like paragraph text) to wrap around it. The <strong><code>clear</code></strong> property specifies whether an element can sit beside floating elements or must move below them.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>float: left/right</code> wraps text around images or columns. <code>clear: both</code> moves subsequent elements below floated elements. For overall page layout, Flexbox and Grid are preferred over floats.</p>
+
+<h3>Hindi</h3>
+<p><code>float</code> se image ke chaaron taraf paragraph text wrap hota hai. <code>clear</code> tag floated elements ke neeche naya content bhejne ka kaam karta hai. Modern layout ke liye Flexbox aur Grid use karein.</p>
+
+<h3>Marathi</h3>
+<p>Image bhowti text wrap karnyasaathi <code>float</code> vapartat. Modern layouts sathi Flexbox va Grid vapraavet.</p>
+
+<h2>🤔 Why Were Floats Used & Why Flexbox/Grid Replaced Them?</h2>
+
+<p>Historically (before 2012), web developers used <code>float</code> for multi-column website layouts because CSS lacked Flexbox or Grid. However, floats caused container collapse bugs requiring "clearfix" hacks. Today, floats are reserved primarily for its original intended purpose: <strong>wrapping text around images</strong>.</p>
+
+<h2>📝 Syntax & Properties Breakdown</h2>
+
+<pre><code class="language-css">/* Floating an image left so paragraph text wraps around its right side */
+<p>.article-image {</p>
+<p>  float: left;</p>
+<p>  margin-right: 20px;</p>
+<p>  margin-bottom: 10px;</p>
+<p>}</p>
+
+<p>/* Clearing floats on a footer or following section */</p>
+<p>.footer {</p>
+<p>  clear: both; /* Options: left, right, both, none */</p>
+<p>}</p>
+
+<p>/* Modern Micro Clearfix Hack for float containers */</p>
+<p>.clearfix::after {</p>
+<p>  content: &quot;&quot;;</p>
+<p>  display: table;</p>
+<p>  clear: both;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Float and Clear Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;article class=&quot;news-article clearfix&quot;&gt;</p>
+<p>    &lt;h2&gt;Tech News Article&lt;/h2&gt;</p>
+<p>    &lt;img src=&quot;https://via.placeholder.com/150&quot; alt=&quot;Tech Graphic&quot; class=&quot;float-img&quot;&gt;</p>
+<p>    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.&lt;/p&gt;</p>
+<p>  &lt;/article&gt;</p>
+
+<p>  &lt;footer class=&quot;footer&quot;&gt;</p>
+<p>    &lt;p&gt;&#169; 2026 Tech News Portal&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  padding: 20px;</p>
+<p>  background-color: #f8f9fa;</p>
+<p>}</p>
+
+<p>.news-article {</p>
+<p>  background: white;</p>
+<p>  padding: 20px;</p>
+<p>  border-radius: 8px;</p>
+<p>  border: 1px solid #e0e0e0;</p>
+<p>}</p>
+
+<p>.float-img {</p>
+<p>  float: left;</p>
+<p>  margin-right: 20px;</p>
+<p>  margin-bottom: 10px;</p>
+<p>  border-radius: 6px;</p>
+<p>}</p>
+
+<p>/* Clearfix prevents parent container collapse */</p>
+<p>.clearfix::after {</p>
+<p>  content: &quot;&quot;;</p>
+<p>  display: table;</p>
+<p>  clear: both;</p>
+<p>}</p>
+
+<p>.footer {</p>
+<p>  margin-top: 20px;</p>
+<p>  padding: 10px;</p>
+<p>  background-color: #333;</p>
+<p>  color: white;</p>
+<p>  text-align: center;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>The paragraph text wraps smoothly around the right and bottom sides of the left-floated image. The clearfix ensures the article container stretches fully to encompass the image height before the footer renders.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Remove <code>class="clearfix"</code> from <code>.news-article</code>.</p>
+<p>2. Notice how the floated image spills out of the article container box if the paragraph text is too short!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using <code>float</code> for modern grid or flex layouts:</strong> Causes fragile code requiring clearfix hacks. Use Flexbox or Grid instead.</li></p>
+<p>  <li><strong>Forgetting to clear floats:</strong> Causes following sections or footers to jump up beside floated items unexpectedly.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Floats remain useful in editorial blogs, news sites, and digital magazines for wrapping article text around inline images or pull-quotes.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-display.html">Display Property</a></li></p>
+<p>  <li><a href="20-flexbox.html">Flexbox Layout</a></li></p>
+<p>  <li><a href="21-grid.html">CSS Grid Layout</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>float: left</code> or <code>float: right</code> to wrap text around images.</li></p>
+<p>  <li>Use <code>clear: both</code> or <code>.clearfix</code> to prevent floating elements from breaking parent container heights.</li></p>
+<p>  <li>Use Flexbox/Grid for website structure layouts.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="18-positioning.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="20-flexbox.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

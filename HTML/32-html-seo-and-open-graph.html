@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>32 html seo and open graph - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>HTML SEO & Open Graph Metadata</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>HTML SEO (Search Engine Optimization)</strong> and <strong>Open Graph (OG)</strong> metadata involve structuring your HTML markup, head tags, semantic elements, and social card properties so search engine crawlers (Google, Bing) and social media platforms (WhatsApp, LinkedIn, X/Twitter, Facebook) can accurately index, rank, and preview your web pages.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Structure HTML for SEO using descriptive <code><title></code>, <code><meta name="description"></code>, canonical URLs, semantic tags, heading hierarchy, image <code>alt</code> attributes, and Open Graph metadata for rich social sharing cards.</p>
+
+<h3>Hindi</h3>
+<p>HTML ko SEO aur social sharing ke liye optimize karne ke liye descriptive <code><title></code>, <code><meta name="description"></code>, canonical URLs, semantic tags (<code><main></code>, <code><article></code>), heading hierarchy (<code><h1></code>-<code><h6></code>), image <code>alt</code> text, aur Open Graph tags (<code>og:title</code>, <code>og:image</code>) use karein.</p>
+
+<h3>Marathi</h3>
+<p>HTML la SEO ani social sharing sathi optimize karanyasathi descriptive <code><title></code>, <code><meta name="description"></code>, canonical URLs, semantic tags (<code><main></code>, <code><article></code>), heading hierarchy (<code><h1></code>-<code><h6></code>), image <code>alt</code> text, ani Open Graph tags (<code>og:title</code>, <code>og:image</code>) vaprtat.</p>
+
+<h2>🤔 Why Do We Need HTML SEO & Open Graph Metadata?</h2>
+
+<p>1. <strong>Search Engine Rankings:</strong> Search engine crawlers use page title tags, meta descriptions, semantic tags, and headings to understand what your page is about and rank it in search results.</p>
+<p>2. <strong>Click-Through Rate (CTR):</strong> Compelling meta descriptions and social preview cards increase clicks from search engines and social media feeds.</p>
+<p>3. <strong>Preventing Duplicate Content:</strong> Canonical URLs prevent search engines from penalizing duplicate page URLs.</p>
+
+<h2>🧱 7 Technical HTML SEO Best Practices</h2>
+
+<p>1. <strong>Descriptive <code><title></code> Tag:</strong> Keep titles under 60 characters with primary keywords placed near the beginning (<code><title>Learn HTML Meta Tags & SEO - Coding Notes</title></code>).</p>
+<p>2. <strong>Compelling <code><meta name="description"></code>:</strong> Summarize page content in 150–160 characters to serve as the search result snippet.</p>
+<p>3. <strong>Canonical Link (<code><link rel="canonical"></code>):</strong> Specifies the authoritative original URL of a page.</p>
+<p>4. <strong>Single <code><h1></code> & Sequential Headings:</strong> Maintain a logical heading outline (<code><h1></code> → <code><h2></code> → <code><h3></code>).</p>
+<p>5. <strong>Semantic Structural Tags:</strong> Wrap primary content inside <code><main></code> and <code><article></code> instead of unlabelled <code><div></code> tags.</p>
+<p>6. <strong>Descriptive Image <code>alt</code> Text:</strong> Provides search engines and screen readers with context about images.</p>
+<p>7. <strong>Accessible Hyperlinks:</strong> Use descriptive anchor text (<code><a href="course.html">Explore Web Course</a></code>) instead of generic *"click here"*.</p>
+
+<h2>📱 Open Graph & Twitter Card Metadata Reference</h2>
+
+<pre><code class="language-html">&lt;head&gt;
+<p>  &lt;!-- Page Title &amp; Primary Meta Description --&gt;</p>
+<p>  &lt;title&gt;Complete HTML5 &amp; Web Fundamentals Guide&lt;/title&gt;</p>
+<p>  &lt;meta name=&quot;description&quot; content=&quot;Master modern HTML5, semantic elements, forms, accessibility, and SEO best practices in this complete step-by-step tutorial.&quot;&gt;</p>
+<p>  </p>
+<p>  &lt;!-- Canonical URL --&gt;</p>
+<p>  &lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/html/learn-html&quot;&gt;</p>
+
+<p>  &lt;!-- Open Graph Protocol (Facebook, WhatsApp, LinkedIn) --&gt;</p>
+<p>  &lt;meta property=&quot;og:site_name&quot; content=&quot;Coding Notes&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:title&quot; content=&quot;Complete HTML5 &amp; Web Fundamentals Guide&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:description&quot; content=&quot;Master modern HTML5, semantic elements, forms, and SEO best practices.&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:image&quot; content=&quot;https://example.com/images/og-html-banner.jpg&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:url&quot; content=&quot;https://example.com/html/learn-html&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:type&quot; content=&quot;article&quot;&gt;</p>
+
+<p>  &lt;!-- Twitter / X Card Tags --&gt;</p>
+<p>  &lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;</p>
+<p>  &lt;meta name=&quot;twitter:title&quot; content=&quot;Complete HTML5 &amp; Web Fundamentals Guide&quot;&gt;</p>
+<p>  &lt;meta name=&quot;twitter:description&quot; content=&quot;Master modern HTML5, semantic elements, and SEO best practices.&quot;&gt;</p>
+<p>  &lt;meta name=&quot;twitter:image&quot; content=&quot;https://example.com/images/og-html-banner.jpg&quot;&gt;</p>
+<p>&lt;/head&gt;</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;meta name=&quot;description&quot; content=&quot;Learn HTML SEO fundamentals and Open Graph social card optimization.&quot;&gt;</p>
+<p>  &lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/html/32-html-seo-and-open-graph&quot;&gt;</p>
+
+<p>  &lt;!-- Open Graph Tags --&gt;</p>
+<p>  &lt;meta property=&quot;og:title&quot; content=&quot;HTML SEO &amp; Open Graph Tutorial&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:description&quot; content=&quot;Optimize web pages for search engines and social sharing.&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:image&quot; content=&quot;https://example.com/images/seo-banner.jpg&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:type&quot; content=&quot;article&quot;&gt;</p>
+
+<p>  &lt;title&gt;HTML SEO &amp; Open Graph Metadata - Coding Notes&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;HTML Search Engine Optimization (SEO) Guide&lt;/h1&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;main&gt;</p>
+<p>    &lt;article&gt;</p>
+<p>      &lt;h2&gt;Optimizing Web Pages for Search Engines&lt;/h2&gt;</p>
+<p>      &lt;p&gt;Semantic HTML5 elements like &lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt; signal primary content to search engine crawlers.&lt;/p&gt;</p>
+<p>    &lt;/article&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;&amp;copy; 2026 Coding Notes&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>Search engine crawlers parse title and meta description snippets for search results.</li></p>
+<p>  <li>Social media platforms render rich image preview cards when the page link is shared on WhatsApp, Twitter, or LinkedIn.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add Open Graph tags (<code>og:title</code>, <code>og:description</code>, <code>og:image</code>, <code>og:url</code>) to an HTML file.</p>
+<p>2. Add a <code><link rel="canonical"></code> tag pointing to your canonical page URL.</p>
+<p>3. Verify your heading outline follows a strict <code><h1></code> → <code><h2></code> sequence.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Duplicate <code><title></code> or meta descriptions across pages:</strong> Prevents search engines from indexing pages distinctly.</li></p>
+<p>  <li><strong>Using relative image URLs in <code>og:image</code>:</strong> Social sharing platforms require absolute image URLs (<code>https://domain.com/image.jpg</code>).</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All e-commerce stores, news portals, blogs, and marketing websites rely on HTML SEO and Open Graph metadata to maximize search engine visibility and social media share engagement.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-html-document-structure.html">Document Structure</a></li></p>
+<p>  <li><a href="22-semantic-html.html">Semantic HTML</a></li></p>
+<p>  <li><a href="27-meta-tags.html">Meta Tags & Head Metadata</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Keep <code><title></code> under 60 characters and <code><meta name="description"></code> under 160 characters.</li></p>
+<p>  <li>Use canonical URLs (<code><link rel="canonical"></code>) to prevent duplicate content issues.</li></p>
+<p>  <li><code>og:image</code> MUST use absolute URLs (<code>https://...</code>).</li></p>
+<p>  <li>Combine semantic HTML5 structure with Open Graph metadata for maximum SEO and shareability.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="31-global-and-data-attributes.html">← Previous: Global Attributes</a> | <a href="./">HTML Home</a></p>
+
+
+
+  </div>
+</body>
+</html>

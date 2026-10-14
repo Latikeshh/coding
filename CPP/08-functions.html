@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 functions - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Function</strong> is a self-contained block of organized, reusable C++ statements that performs a specific task. Functions take input arguments, process data, and optionally return a result value. C++ supports <strong>Pass-by-Value</strong> (copying arguments), <strong>Pass-by-Reference</strong> (referencing original variables directly), <strong>Default Parameters</strong>, and <strong>Function Overloading</strong>.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Function ek reusable code block hota hai jo ek specific kaam karta hai.</p>
+<ul>
+<p>  <li><strong>Pass-by-Value</strong>: Function ko variable ki ek nakal (copy) milti hai. Original variable change nahi hota.</li></p>
+<p>  <li><strong>Pass-by-Reference (<code>&</code>)</strong>: Function ko original variable ka memory address/reference milta hai. Inside function jo bhi change hoga, wo main variable mein reflect hoga.</li></p>
+<p>  <li><strong>Function Overloading</strong>: Ek hi naam ke multiple functions banana jin ke parameters alag hote hain (jaise <code>add(int, int)</code> aur <code>add(double, double)</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Function mhanje punha punha vaparta yenara code cha ek bhaag.</p>
+<ul>
+<p>  <li><strong>Pass-by-Value</strong>: Function la variable chi copy milte; मूळ (original) variable badalat nahi.</li></p>
+<p>  <li><strong>Pass-by-Reference (<code>&</code>)</strong>: Function la sarakshat original variable cha address milto; tyat kelela badal original variable vr disto.</li></p>
+<p>  <li><strong>Function Overloading</strong>: Ekach navache anek functions lihine,yaat parameters vegle astat.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 Pass-by-Value vs Pass-by-Reference Comparison</h2>
+
+<table>
+<p>  <thead><tr><th>Parameter Mode</th><th>Syntax</th><th>Memory Behavior</th><th>Modifies Original?</th><th>Performance Impact</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Pass-by-Value</strong></td><td><code>void fn(int x)</code></td><td>Creates a duplicate copy in stack memory</td><td>❌ No</td><td>Memory copy overhead for large objects</td></tr></p>
+<p>    <tr><td><strong>Pass-by-Reference</strong></td><td><code>void fn(int& x)</code></td><td>Operates directly on original memory location</td><td>✅ Yes</td><td>Zero-copy fast performance</td></tr></p>
+<p>    <tr><td><strong>Const Reference</strong></td><td><code>void fn(const std::string& s)</code></td><td>Read-only reference</td><td>❌ No</td><td>Zero-copy fast & safe</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy</h2>
+
+<ul>
+<p>  <li><strong>Pass-by-Value</strong>: Photocopying a document and handing it to a friend. If your friend writes notes on their photocopy, your original document remains completely clean!</li></p>
+<p>  <li><strong>Pass-by-Reference</strong>: Sharing a Google Doc link. If your friend edits text in the document, you see the edits instantly on the original document!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+
+<p>// 1. Pass-by-Value Function</p>
+<p>void incrementValue(int val) {</p>
+<p>    val += 10; // Modifies local copy only!</p>
+<p>}</p>
+
+<p>// 2. Pass-by-Reference Function (using &#39;&amp;&#39;)</p>
+<p>void incrementReference(int&amp; ref) {</p>
+<p>    ref += 10; // Modifies original variable!</p>
+<p>}</p>
+
+<p>// 3. Function Overloading (Same name &#39;add&#39;, different parameter types)</p>
+<p>int add(int a, int b) {</p>
+<p>    return a + b;</p>
+<p>}</p>
+
+<p>double add(double a, double b) {</p>
+<p>    return a + b;</p>
+<p>}</p>
+
+<p>// 4. Function with Default Parameter</p>
+<p>void greetUser(std::string name, std::string title = &quot;Member&quot;) {</p>
+<p>    std::cout &lt;&lt; &quot;Hello &quot; &lt;&lt; title &lt;&lt; &quot; &quot; &lt;&lt; name &lt;&lt; &quot;!&quot; &lt;&lt; std::endl;</p>
+<p>}</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. PASS-BY-VALUE vs PASS-BY-REFERENCE ---&quot; &lt;&lt; std::endl;</p>
+<p>    int num1 = 50;</p>
+<p>    incrementValue(num1);</p>
+<p>    std::cout &lt;&lt; &quot;After Pass-by-Value    : &quot; &lt;&lt; num1 &lt;&lt; &quot; (Unchanged)&quot; &lt;&lt; std::endl;</p>
+
+<p>    incrementReference(num1);</p>
+<p>    std::cout &lt;&lt; &quot;After Pass-by-Reference: &quot; &lt;&lt; num1 &lt;&lt; &quot; (Updated directly)&quot; &lt;&lt; std::endl;</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 2. FUNCTION OVERLOADING ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;add(10, 20)       [int]   : &quot; &lt;&lt; add(10, 20) &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;add(5.5, 4.2)     [double]: &quot; &lt;&lt; add(5.5, 4.2) &lt;&lt; std::endl;</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 3. DEFAULT PARAMETERS ---&quot; &lt;&lt; std::endl;</p>
+<p>    greetUser(&quot;Aria&quot;);                // Uses default title = &quot;Member&quot;</p>
+<p>    greetUser(&quot;Vikram&quot;, &quot;Dr.&quot;);       // Overrides default title</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>void incrementReference(int& ref)</code>: The <code>&</code> symbol marks <code>ref</code> as a reference alias to <code>num1</code>. Changes to <code>ref</code> alter <code>num1</code> directly.</li></p>
+<p>  <li><code>int add(int, int)</code> vs <code>double add(double, double)</code>: Compiler automatically resolves which overloaded function to call based on passed argument types.</li></p>
+<p>  <li><code>std::string title = "Member"</code>: Default parameter assigned when argument is omitted at call site.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. PASS-BY-VALUE vs PASS-BY-REFERENCE ---
+<p>After Pass-by-Value    : 50 (Unchanged)</p>
+<p>After Pass-by-Reference: 60 (Updated directly)</p>
+
+<p>--- 2. FUNCTION OVERLOADING ---</p>
+<p>add(10, 20)       [int]   : 30</p>
+<p>add(5.5, 4.2)     [double]: 9.7</p>
+
+<p>--- 3. DEFAULT PARAMETERS ---</p>
+<p>Hello Member Aria!</p>
+<p>Hello Dr. Vikram!</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting Function Prototypes</strong>: Calling a function above its definition without a forward declaration (<code>int add(int, int);</code>) causes <code>'add' was not declared in this scope</code> error.</li></p>
+<p>  <li><strong>Accidental Pass-by-Value for Heavy Containers</strong>: Passing a huge <code>std::vector<int></code> by value copies millions of elements in memory! Always pass large containers by const reference: <code>void process(const std::vector<int>& data)</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Mark reference parameters <code>const</code> when the function only needs read access: <code>void print(const std::string& text)</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a <code>swapNumbers(int& a, int& b)</code> function that swaps the values of two integers using pass-by-reference.</p>
+<p>2. Create an overloaded function <code>calculateArea</code> for calculating the area of a square (<code>side</code>) and a rectangle (<code>length, width</code>).</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function <code>isPrime(int n)</code> that returns <code>true</code> if $n$ is a prime number and <code>false</code> otherwise. Test it in <code>main()</code> with numbers from 1 to 20.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables & Data Types</a></li></p>
+<p>  <li><a href="09-arrays-and-vectors.html">Arrays & Vectors</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="07-loops.html">← Previous: Loops</a> | <a href="09-arrays-and-vectors.html">Next: Arrays & Vectors →</a></p>
+
+
+  </div>
+</body>
+</html>

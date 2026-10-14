@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 tables - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Tables (<code><table></code>, <code><thead></code>, <code><tbody></code>, <code><caption></code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code><table></code></strong> element presents structured, 2-dimensional <strong>tabular data</strong> arranged into rows and columns. Tables must be used strictly for tabular data (e.g., student grade sheets, flight schedules, pricing plans, timetables), and <strong>never for page layout</strong>.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Tables display structured tabular data. Structure tables using <code><caption></code>, <code><thead></code>, <code><tbody></code>, <code><tfoot></code>, <code><tr></code> (row), <code><th></code> (header cell), and <code><td></code> (data cell).</p>
+
+<h3>Hindi</h3>
+<p>Tabular data ke liye <code><table></code> use karein. <code><caption></code> table summary deta hai, <code><tr></code> row banata hai, <code><th></code> header cell hai, aur <code><td></code> normal data cell hai. Page layout ke liye tables kabhi mat use karein.</p>
+
+<h3>Marathi</h3>
+<p>Tabular data sathi <code><table></code> vapra. <code><caption></code> table chi mahiti dete, <code><tr></code> row tayar karto, <code><th></code> header cell aahe, ani <code><td></code> normal data cell aahe. Layout sathi tables kadhihi vapru naka.</p>
+
+<h2>🤔 Why Do We Use Tables?</h2>
+
+<p>Tabular data requires rigid grid alignment so visitors and screen readers can analyze relationships between rows and columns (e.g. comparing student marks across subjects or comparing software subscription tiers).</p>
+
+<h2>🧱 Standard HTML Table Structure</h2>
+
+<p>An accessible, well-structured table uses semantic sectioning elements:</p>
+
+<table>
+<p>  <thead><tr><th>Element</th><th>Description & Role</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code><table></code></td><td>Outer container wrapping all table content.</td></tr></p>
+<p>    <tr><td><code><caption></code></td><td>Title or description of the table data for screen readers and users.</td></tr></p>
+<p>    <tr><td><code><thead></code></td><td>Groups header rows defining column titles.</td></tr></p>
+<p>    <tr><td><code><tbody></code></td><td>Groups primary body data rows.</td></tr></p>
+<p>    <tr><td><code><tfoot></code></td><td>Groups summary or total rows at the bottom of the table.</td></tr></p>
+<p>    <tr><td><code><tr></code></td><td>Defines a single horizontal table row (*table row*).</td></tr></p>
+<p>    <tr><td><code><th></code></td><td>Defines a bold, centered header cell (*table header*). Uses <code>scope="col"</code> or <code>scope="row"</code>.</td></tr></p>
+<p>    <tr><td><code><td></code></td><td>Defines a standard data cell (*table data*).</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🔑 Spanning Rows & Columns (<code>colspan</code> & <code>rowspan</code>)</h2>
+
+<ul>
+<p>  <li><strong><code>colspan="N"</code>:</strong> Spans a single cell horizontally across <code>N</code> columns.</li></p>
+<p>  <li><strong><code>rowspan="N"</code>:</strong> Spans a single cell vertically across <code>N</code> rows.</li></p>
+<p></ul></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Student Grade Report&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Semester Examination Results&lt;/h1&gt;</p>
+
+<p>  &lt;table&gt;</p>
+<p>    &lt;caption&gt;Table 1: Computer Science Semester 1 Results&lt;/caption&gt;</p>
+<p>    &lt;thead&gt;</p>
+<p>      &lt;tr&gt;</p>
+<p>        &lt;th scope=&quot;col&quot;&gt;Student Name&lt;/th&gt;</p>
+<p>        &lt;th scope=&quot;col&quot;&gt;Subject&lt;/th&gt;</p>
+<p>        &lt;th scope=&quot;col&quot;&gt;Marks (Out of 100)&lt;/th&gt;</p>
+<p>        &lt;th scope=&quot;col&quot;&gt;Grade&lt;/th&gt;</p>
+<p>      &lt;/tr&gt;</p>
+<p>    &lt;/thead&gt;</p>
+<p>    &lt;tbody&gt;</p>
+<p>      &lt;tr&gt;</p>
+<p>        &lt;td&gt;Latikesh&lt;/td&gt;</p>
+<p>        &lt;td&gt;Web Development&lt;/td&gt;</p>
+<p>        &lt;td&gt;92&lt;/td&gt;</p>
+<p>        &lt;td&gt;A+&lt;/td&gt;</p>
+<p>      &lt;/tr&gt;</p>
+<p>      &lt;tr&gt;</p>
+<p>        &lt;td&gt;Riya&lt;/td&gt;</p>
+<p>        &lt;td&gt;Database Systems&lt;/td&gt;</p>
+<p>        &lt;td&gt;88&lt;/td&gt;</p>
+<p>        &lt;td&gt;A&lt;/td&gt;</p>
+<p>      &lt;/tr&gt;</p>
+<p>      &lt;tr&gt;</p>
+<p>        &lt;td&gt;Aarav&lt;/td&gt;</p>
+<p>        &lt;td&gt;Data Structures&lt;/td&gt;</p>
+<p>        &lt;td&gt;95&lt;/td&gt;</p>
+<p>        &lt;td&gt;A+&lt;/td&gt;</p>
+<p>      &lt;/tr&gt;</p>
+<p>    &lt;/tbody&gt;</p>
+<p>    &lt;tfoot&gt;</p>
+<p>      &lt;tr&gt;</p>
+<p>        &lt;th scope=&quot;row&quot; colspan=&quot;2&quot;&gt;Average Class Score&lt;/th&gt;</p>
+<p>        &lt;td colspan=&quot;2&quot;&gt;91.6&lt;/td&gt;</p>
+<p>      &lt;/tr&gt;</p>
+<p>    &lt;/tfoot&gt;</p>
+<p>  &lt;/table&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A structured grid table displaying student examination results with clear column headers (<strong>Student Name</strong>, <strong>Subject</strong>, <strong>Marks</strong>, <strong>Grade</strong>), data rows, and a summary footer row spanning multiple columns.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Build a 3-column timetable table for a school or college schedule.</p>
+<p>2. Include <code><caption></code>, <code><thead></code>, <code><tbody></code>, and 3 data rows (<code><tr></code>).</p>
+<p>3. Use <code>scope="col"</code> on column headers (<code><th></code>).</p>
+<p>4. Add a footer row using <code><tfoot></code> and <code>colspan</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using tables for website page layout:</strong> Using <code><table></code> to position sidebars or headers (use CSS Flexbox/Grid instead).</li></p>
+<p>  <li><strong>Omitting <code><caption></code> and <code>scope</code> attributes:</strong> Leaves screen reader users without context about what column or row headers represent.</li></p>
+<p>  <li><strong>Using outdated presentation attributes:</strong> Styling borders or background colors using <code>border="1"</code> or <code>bgcolor</code> instead of CSS.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Financial reports, sports scoreboards, airline flight schedules, e-commerce pricing plans, and university mark sheets rely on accessible HTML tables.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-lists.html">Lists</a></li></p>
+<p>  <li><a href="24-accessibility-basics.html">Accessibility Basics</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Use tables ONLY for tabular data.</li></p>
+<p>  <li>Always include <code><caption></code> for table context.</li></p>
+<p>  <li>Use <code><th></code> with <code>scope="col"</code> or <code>scope="row"</code> for headers.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="09-lists.html">← Previous: Lists</a> | <a href="./">HTML Home</a> | <a href="11-forms.html">Next: Forms →</a></p>
+
+
+
+  </div>
+</body>
+</html>

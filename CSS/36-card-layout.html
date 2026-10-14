@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>36 card layout - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Card Layout Components</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Card Layout Component</strong> is a modular UI design pattern that groups related information (such as an image thumbnail, category badge, headline title, description text, and action button) into an elevated rectangular container using <code>background-color</code>, <code>border-radius</code>, <code>padding</code>, <code>box-shadow</code>, and <code>transition</code> effects.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Card components combine <code>padding</code>, <code>border-radius</code>, <code>box-shadow</code>, and <code>transition</code> to group related content into clean modular UI containers.</p>
+
+<h3>Hindi</h3>
+<p>Card component mein image, title, aur button ko ek box mein <code>padding</code>, <code>border-radius</code>, aur <code>box-shadow</code> ka use karke design kiya jaata hai.</p>
+
+<h3>Marathi</h3>
+<p>Card layout sathi <code>padding</code>, <code>border-radius</code> ani <code>box-shadow</code> vaprun aakarshak UI card design banavle jaate.</p>
+
+<h2>🤔 Why Are Cards Popular in Modern Web Design?</h2>
+
+<p>Cards break complex page layouts into bite-sized, digestible content units. They are flexible, easy to rearrange in Flexbox or CSS Grid tracks, and scale responsively across all screen widths.</p>
+
+<h2>🧱 Structure of a Standard UI Card</h2>
+
+<pre><code class="language-text">+------------------------------------------+
+
+<table>
+<p>  <thead><tr><th>[ CARD IMAGE / MEDIA THUMBNAIL ]</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td></td></tr></p>
+<p>    <tr><td>CATEGORY BADGE</td></tr></p>
+<p>    <tr><td>Card Title / Headline</td></tr></p>
+<p>    <tr><td>Brief description text paragraph...</td></tr></p>
+<p>    <tr><td></td></tr></p>
+<p>    <tr><td>[ Action Button / Read More Link ]</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------------------------------------+</code></pre></p>
+
+<h2>📝 Syntax & CSS Pattern</h2>
+
+<pre><code class="language-css">.card {
+<p>  background-color: #ffffff;</p>
+<p>  border: 1px solid #e5e7eb;</p>
+<p>  border-radius: 12px;</p>
+<p>  overflow: hidden; /* Clips image corners to match border-radius */</p>
+<p>  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);</p>
+<p>  transition: transform 0.2s ease, box-shadow 0.2s ease;</p>
+<p>}</p>
+
+<p>/* Subtle Hover Lift Effect */</p>
+<p>.card:hover {</p>
+<p>  transform: translateY(-4px);</p>
+<p>  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);</p>
+<p>}</p>
+
+<p>.card-body {</p>
+<p>  padding: 20px;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Card Component Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;img src=&quot;https://via.placeholder.com/350x180&quot; alt=&quot;Course Thumbnail&quot; class=&quot;card-img&quot;&gt;</p>
+<p>    &lt;div class=&quot;card-body&quot;&gt;</p>
+<p>      &lt;span class=&quot;badge&quot;&gt;COURSE&lt;/span&gt;</p>
+<p>      &lt;h3&gt;CSS Grid &amp;amp; Flexbox Masterclass&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Learn to build modern, responsive 2D layouts and UI components from scratch.&lt;/p&gt;</p>
+<p>      &lt;a href=&quot;#&quot; class=&quot;card-btn&quot;&gt;Enroll Now&lt;/a&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 40px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background-color: #ffffff;</p>
+<p>  border-radius: 12px;</p>
+<p>  overflow: hidden; /* Clips top image to rounded card corners */</p>
+<p>  width: 100%;</p>
+<p>  max-width: 320px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);</p>
+<p>  transition: transform 0.25s ease, box-shadow 0.25s ease;</p>
+<p>}</p>
+
+<p>.card:hover {</p>
+<p>  transform: translateY(-6px); /* Elevates up on hover */</p>
+<p>  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);</p>
+<p>}</p>
+
+<p>.card-img {</p>
+<p>  width: 100%;</p>
+<p>  height: 180px;</p>
+<p>  object-fit: cover; /* Prevents image distortion */</p>
+<p>}</p>
+
+<p>.card-body {</p>
+<p>  padding: 20px;</p>
+<p>}</p>
+
+<p>.badge {</p>
+<p>  display: inline-block;</p>
+<p>  font-size: 11px;</p>
+<p>  font-weight: bold;</p>
+<p>  letter-spacing: 0.08em;</p>
+<p>  color: #2563eb;</p>
+<p>  background-color: #eff6ff;</p>
+<p>  padding: 4px 8px;</p>
+<p>  border-radius: 4px;</p>
+<p>  margin-bottom: 10px;</p>
+<p>}</p>
+
+<p>h3 {</p>
+<p>  margin: 0 0 10px 0;</p>
+<p>  color: #111827;</p>
+<p>  font-size: 1.125rem;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  color: #4b5563;</p>
+<p>  font-size: 14px;</p>
+<p>  line-height: 1.5;</p>
+<p>  margin-bottom: 20px;</p>
+<p>}</p>
+
+<p>.card-btn {</p>
+<p>  display: block;</p>
+<p>  text-align: center;</p>
+<p>  background-color: #2563eb;</p>
+<p>  color: white;</p>
+<p>  text-decoration: none;</p>
+<p>  padding: 10px;</p>
+<p>  border-radius: 6px;</p>
+<p>  font-weight: bold;</p>
+<p>  transition: background-color 0.2s;</p>
+<p>}</p>
+
+<p>.card-btn:hover {</p>
+<p>  background-color: #1d4ed8;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A card component featuring a thumbnail image, category badge, course headline, and an action button that smoothly lifts up on mouse hover.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Wrap three <code>.card</code> elements inside a parent container styled with <code>.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }</code> to create a responsive card grid!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>overflow: hidden</code> on card containers with images:</strong> Causes sharp rectangular image top corners to spill outside the rounded <code>border-radius</code> of the card.</li></p>
+<p>  <li><strong>Distorting images without <code>object-fit: cover</code>:</strong> Setting explicit image widths and heights without <code>object-fit: cover</code> stretches image aspect ratios.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Card components are the primary UI building blocks for e-commerce product grids (Amazon), streaming movie catalogs (Netflix), news article feeds, and SaaS pricing tables.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-borders.html">Borders, Border Radius & Box Shadows</a></li></p>
+<p>  <li><a href="21-grid.html">CSS Grid Layout</a></li></p>
+<p>  <li><a href="40-modern-css-features.html">Modern CSS Features (<code>object-fit</code>)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>overflow: hidden</code> on cards containing top image banners.</li></p>
+<p>  <li>Use <code>object-fit: cover</code> on card images to preserve aspect ratio.</li></p>
+<p>  <li>Combine <code>transform: translateY(-4px)</code> and <code>box-shadow</code> on <code>:hover</code> for subtle card elevation feedback.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="35-forms-and-inputs.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="37-navigation-bars.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

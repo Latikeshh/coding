@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Program Structure - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Java Program Structure</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Java Program</strong> consists of structural building blocks organized into packages, class declarations, fields, methods, statements, and code blocks <code>{}</code>. Every standalone Java application requires a main execution entry point method.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Java mein saara code <strong>Classes</strong> ke andar likha jata hai. Program ka execution <code>main</code> method se shuru hota hai. Java statements semicolon <code>;</code> par khatam hote hain aur curly braces <code>{}</code> code blocks banate hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Java madhye sarv code <strong>Classes</strong> chya aat lihila jato. Program chi suruvat <code>main</code> method pasun hote. Statements chya shevati semicolon <code>;</code> divya lagto aani braces <code>{}</code> block tayar kartat.</p>
+
+<h2>🤔 Why Use It?</h2>
+
+<p>Enforcing an explicit, class-based program structure prevents variable name collisions, keeps code modular, enforces type safety, and gives the compiler a predictable blueprint for memory allocation.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a Java file as a company department building. The <code>class</code> is the building itself. The <code>main</code> method is the front entrance security door through which execution enters. The statements inside are the specific tasks performed inside that office.</p>
+
+<h2>📝 Dissecting <code>public static void main(String[] args)</code></h2>
+
+<pre><code class="language-java">public class ProgramStructure {
+<p>    // Application Entry Point</p>
+<p>    public static void main(String[] args) {</p>
+<p>        System.out.println(&quot;Deconstructing Main Method&quot;);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<table>
+<p>  <thead><tr><th>Keyword</th><th>Why It Is Used</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>public</code></td><td>Access modifier that makes the main method visible and callable from anywhere outside the class by the JVM runtime.</td></tr></p>
+<p>    <tr><td><code>static</code></td><td>Allows the JVM to invoke <code>main()</code> directly on the class without needing to create an object instance first (<code>ProgramStructure.main()</code>).</td></tr></p>
+<p>    <tr><td><code>void</code></td><td>Return type signifying that the main method returns no value to the caller upon completion.</td></tr></p>
+<p>    <tr><td><code>main</code></td><td>The mandatory, standardized identifier name searched for by the JVM to begin application execution.</td></tr></p>
+<p>    <tr><td><code>String[] args</code></td><td>Array of string parameters passed from the command line interface when launching the application.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 Java Comment Types</h2>
+
+<pre><code class="language-java">// 1. Single-line comment
+
+<p>/* </p>
+<p>   2. Multi-line comment block</p>
+<p>*/</p>
+
+<p>/**</p>
+<ul>
+<p>  <li>3. Javadoc documentation comment</li></p>
+<p>  <li>@param args Command line arguments</li></p>
+<p></ul></p>
+<p> */</code></pre></p>
+
+<h2>💡 Complete Example: Program Structure & Execution</h2>
+
+<pre><code class="language-java">package com.example.basics;
+
+<p>public class EmployeeBadge {</p>
+<p>    public static void main(String[] args) {</p>
+<p>        // Variable declarations</p>
+<p>        String companyName = &quot;TechCorp Global&quot;;</p>
+<p>        String employeeName = &quot;Prathamesh Misar&quot;;</p>
+<p>        int employeeId = 5021;</p>
+<p>        </p>
+<p>        // Output statements</p>
+<p>        System.out.println(&quot;=================================&quot;);</p>
+<p>        System.out.println(&quot;       &quot; + companyName);</p>
+<p>        System.out.println(&quot;=================================&quot;);</p>
+<p>        System.out.println(&quot;Employee Name : &quot; + employeeName);</p>
+<p>        System.out.println(&quot;Employee ID   : #&quot; + employeeId);</p>
+<p>        System.out.println(&quot;Status        : ACTIVE&quot;);</p>
+<p>        System.out.println(&quot;=================================&quot;);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=================================
+<p>       TechCorp Global</p>
+<p>=================================</p>
+<p>Employee Name : Prathamesh Misar</p>
+<p>Employee ID   : #5021</p>
+<p>Status        : ACTIVE</p>
+<p>=================================</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting semicolons <code>;</code> at the end of execution statements.</li></p>
+<p>  <li>Mismatched curly braces <code>{}</code> causing compilation errors.</li></p>
+<p>  <li>Misspelling <code>main</code> (e.g., <code>Main</code> or <code>mainMethod</code>) or omitting <code>static</code>.</li></p>
+<p>  <li>Placing executable code statements directly inside a class body outside of a method or initializer block.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Indentation in Java does not affect syntax or execution (unlike Python), but using consistent 4-space indentation is critical for readability and team code reviews.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Standard program structures are used across command-line utilities, background service launchers, batch processing jobs, and microservice entry points.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a class <code>UserProfile</code> with a <code>main</code> method.</p>
+<p>2. Print a user profile containing name, location, and favorite programming language.</p>
+<p>3. Remove a semicolon deliberately and inspect the compiler error diagnostic.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a program <code>SystemDiagnostic</code> that prints your operating system name, Java vendor version (<code>System.getProperty("java.version")</code>), and processor core count (<code>Runtime.getRuntime().availableProcessors()</code>).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-java.html">Set Up Java</a></li></p>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="01-setup-java.html">← Previous: Set Up Java</a> | <a href="03-variables-and-data-types.html">Next: Variables and Data Types →</a></p>
+
+
+  </div>
+</body>
+</html>

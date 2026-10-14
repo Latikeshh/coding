@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 accessibility basics - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Web Accessibility (a11y) & HTML Validation</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Web Accessibility (a11y)</strong> means building webpages so that everyone—including people with visual, auditory, physical, speech, or cognitive disabilities—can access, navigate, and understand web content seamlessly.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Web accessibility ensures pages work for everyone, including screen readers and keyboard users. Prefer native semantic HTML elements first before using ARIA. Always validate your HTML code.</p>
+
+<h3>Hindi</h3>
+<p>Accessibility (a11y) ka matlab hai ki aapka web page sabhi users (screen readers, keyboard users) ke liye accessible ho. Pehle native semantic tags use karein, ARIA sirf zaroorat padne par.</p>
+
+<h3>Marathi</h3>
+<p>Accessibility (a11y) mule screen reader ani keyboard vaparnaryansahit sarv users na webpage sahaj vaparta yete. ARIA aadhi nehammi native semantic tags vaprave.</p>
+
+<h2>🤔 Why Do We Use Accessibility & Validation?</h2>
+
+<p>Building accessible websites ensures compliance with legal standards, expands audience reach to millions of users with disabilities, improves SEO rankings, and ensures clean parsing across different web browsers and screen readers.</p>
+
+<h2>♿ 5 Core Pillars of Accessible HTML</h2>
+
+<p>1. <strong>Form Input Labels:</strong> Every form control must have a connected <code><label for="id"></code> so screen readers state what information is expected.</p>
+<p>2. <strong>Descriptive Image Alternative Text:</strong> All informative images must provide meaningful <code>alt</code> text. Purely decorative images must use <code>alt=""</code> so screen readers skip them.</p>
+<p>3. <strong>Logical Heading Hierarchy:</strong> Use <code><h1></code> through <code><h6></code> to build a logical nested outline for your document content.</p>
+<p>4. <strong>Keyboard Navigability & Visible Focus:</strong> All links, buttons, and form inputs must be reachable using the <code>Tab</code> key, maintaining a clear visible focus outline.</p>
+<p>5. <strong>Descriptive Link Text:</strong> Avoid vague link text like *"click here"* or *"link"*. Use descriptive anchor text like *"Download Course Syllabus (PDF)"*.</p>
+
+<h2>⚖️ Native Semantic HTML vs. ARIA Rules</h2>
+
+<p><strong>ARIA (Accessible Rich Internet Applications)</strong> attributes (<code>role="..."</code>, <code>aria-label="..."</code>, <code>aria-expanded="..."</code>) provide additional accessibility information for complex custom web widgets.</p>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong>First Rule of ARIA:</strong> *Do not use ARIA if a native HTML element already exists that provides the semantic meaning and keyboard behavior you need.*</p></blockquote>
+
+<pre><code class="language-html">&lt;!-- BAD: Custom clickable div with ARIA override --&gt;
+<p>&lt;div role=&quot;button&quot; tabindex=&quot;0&quot; onclick=&quot;submitForm()&quot;&gt;Submit&lt;/div&gt;</p>
+
+<p>&lt;!-- GOOD: Native HTML button (automatically focusable &amp; screen reader accessible) --&gt;</p>
+<p>&lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;</code></pre></p>
+
+<h2>🔍 Checking HTML Code Quality: HTML Validation</h2>
+
+<p>Writing valid HTML ensures consistent rendering across browsers and assistive screen readers.</p>
+
+<ul>
+<p>  <li><strong>Browser Developer Tools:</strong> Press <code>F12</code> or <code>Ctrl + Shift + I</code> in Chrome/Firefox/Edge to inspect the rendered DOM tree and console warnings.</li></p>
+<p>  <li><strong>W3C Markup Validation Service:</strong> You can check your HTML code at <a href="https://validator.w3.org/">validator.w3.org</a> to identify unclosed tags, invalid nesting, duplicate IDs, or missing required attributes.</li></p>
+<p></ul></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Accessible Contact Form&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;Contact Support Team&lt;/h1&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;main&gt;</p>
+<p>    &lt;form action=&quot;/contact&quot; method=&quot;POST&quot;&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;user-name&quot;&gt;Full Name (required):&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;input id=&quot;user-name&quot; type=&quot;text&quot; name=&quot;name&quot; required placeholder=&quot;e.g. Alex&quot;&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;user-email&quot;&gt;Email Address (required):&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;input id=&quot;user-email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;name@domain.com&quot;&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;button type=&quot;submit&quot; aria-label=&quot;Submit contact inquiry form&quot;&gt;Send Inquiry&lt;/button&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>    &lt;/form&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;&lt;a href=&quot;privacy.html&quot;&gt;Read Privacy Policy Statement&lt;/a&gt;&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A clean, accessible contact form with associated labels, visible keyboard focus indicators, descriptive link text, and valid semantic structure.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Open your webpage in a browser.</p>
+<p>2. Press the <code>Tab</code> key repeatedly to verify that you can navigate through every link, button, and input box in logical order.</p>
+<p>3. Validate your HTML code at <a href="https://validator.w3.org/">validator.w3.org</a>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Removing CSS focus outlines (<code>outline: none</code>):</strong> Prevents keyboard users from seeing which button or link is currently focused.</li></p>
+<p>  <li><strong>Using color alone to convey meaning:</strong> Relying solely on red text for error messages without text labels or icons.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Government portals, educational institutions, enterprise web applications, and global companies mandate WCAG accessibility compliance.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-headings.html">Headings</a></li></p>
+<p>  <li><a href="11-forms.html">Forms</a></li></p>
+<p>  <li><a href="22-semantic-html.html">Semantic HTML</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Prefer native semantic HTML over ARIA.</li></p>
+<p>  <li>Connect every <code><label for="id"></code> to its <code><input id="id"></code>.</li></p>
+<p>  <li>Ensure keyboard focus outlines are visible.</li></p>
+<p>  <li>Validate HTML at validator.w3.org.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="23-html5-features.html">← Previous: HTML5 Features</a> | <a href="./">HTML Home</a> | <a href="25-mini-projects.html">Next: Mini Projects →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 objects - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Objects, <code>Map</code>, <code>Set</code>, <code>Date</code> & RegExp</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Object:</strong> Key-value data structure where keys are strings or symbols.</li></p>
+<p>  <li><strong><code>Map</code>:</strong> Key-value collection where keys can be <strong>any data type</strong> (objects, functions, primitives) and insertion order is preserved.</li></p>
+<p>  <li><strong><code>Set</code>:</strong> Collection of <strong>unique values</strong> where duplicates are automatically removed.</li></p>
+<p>  <li><strong><code>Date</code>:</strong> Built-in object for managing timestamps, dates, and time calculations.</li></p>
+<p>  <li><strong>RegExp:</strong> Regular Expressions used for text pattern matching and string validation.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Objects JavaScript ke fundamental building blocks hain. Structured key-value data ke liye Object aur <code>Map</code> use karein, unique items store karne ke liye <code>Set</code>, calendar dates ke liye <code>Date</code>, aur string validations ke liye <code>RegExp</code> ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Objects madhye data key-value pair स्वरूपात saathavla jato. Duplicate values kadhnyasathi <code>Set</code> cha wapar kara, badalnaraya keys sathi <code>Map</code>, tareekh ani vele sathi <code>Date</code> aani validation sathi <code>RegExp</code> cha wapar kara.</p>
+
+<h2>📝 Structures & Features</h2>
+
+<h3>1. Objects (Dot vs Bracket Notation)</h3>
+<pre><code class="language-js">const userProfile = {
+<p>  id: 101,</p>
+<p>  fullName: &quot;Ananya Roy&quot;,</p>
+<p>  role: &quot;Engineer&quot;,</p>
+<p>  skills: [&quot;JS&quot;, &quot;React&quot;],</p>
+<p>  greet() {</p>
+<p>    return <code>Hi, I am ${this.fullName}</code>;</p>
+<p>  }</p>
+<p>};</p>
+
+<p>console.log(userProfile.fullName);       // Dot notation</p>
+<p>console.log(userProfile[&quot;role&quot;]);        // Bracket notation</p>
+
+<p>// Utility methods</p>
+<p>console.log(Object.keys(userProfile));   // [&#39;id&#39;, &#39;fullName&#39;, &#39;role&#39;, &#39;skills&#39;, &#39;greet&#39;]</p>
+<p>console.log(Object.values(userProfile)); // [101, &#39;Ananya Roy&#39;, &#39;Engineer&#39;, ...]</code></pre></p>
+
+<h3>2. <code>Set</code> (Collection of Unique Values)</h3>
+<pre><code class="language-js">const numbers = [10, 20, 10, 30, 20, 40];
+<p>const uniqueNumbers = new Set(numbers);</p>
+<p>uniqueNumbers.add(50);</p>
+
+<p>console.log(&quot;Unique Size:&quot;, uniqueNumbers.size); // 5 (Duplicates ignored)</p>
+<p>console.log(&quot;Has 20?&quot;, uniqueNumbers.has(20));    // true</code></pre></p>
+
+<h3>3. <code>Map</code> (Any Data Type as Key)</h3>
+<pre><code class="language-js">const userRoles = new Map();
+<p>const keyObject = { id: 1 };</p>
+
+<p>userRoles.set(keyObject, &quot;Administrator&quot;);</p>
+<p>console.log(userRoles.get(keyObject)); // &quot;Administrator&quot;</code></pre></p>
+
+<h3>4. <code>Date</code> Object</h3>
+<pre><code class="language-js">const now = new Date();
+<p>console.log(&quot;Current Year:&quot;, now.getFullYear());</p>
+<p>console.log(&quot;ISO Format:&quot;, now.toISOString());</code></pre></p>
+
+<h3>5. Regular Expressions (<code>RegExp</code>)</h3>
+<pre><code class="language-js">const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+<p>console.log(emailRegex.test(&quot;user@domain.com&quot;)); // true</p>
+<p>console.log(emailRegex.test(&quot;invalid-email&quot;));   // false</code></pre></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">// Clean user input by removing duplicate tags and validating email
+<p>function processUserRegistration(emailInput, tagsArray) {</p>
+<p>  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;</p>
+<p>  const isValidEmail = emailPattern.test(emailInput);</p>
+
+<p>  const cleanTags = Array.from(new Set(tagsArray));</p>
+
+<p>  return {</p>
+<p>    email: emailInput,</p>
+<p>    valid: isValidEmail,</p>
+<p>    tags: cleanTags,</p>
+<p>    registeredAt: new Date().toLocaleDateString()</p>
+<p>  };</p>
+<p>}</p>
+
+<p>let result = processUserRegistration(&quot;dev@example.com&quot;, [&quot;js&quot;, &quot;html&quot;, &quot;js&quot;, &quot;css&quot;, &quot;html&quot;]);</p>
+<p>console.log(result);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">{
+<p>  email: &#39;dev@example.com&#39;,</p>
+<p>  valid: true,</p>
+<p>  tags: [ &#39;js&#39;, &#39;html&#39;, &#39;css&#39; ],</p>
+<p>  registeredAt: &#39;9/24/2026&#39;</p>
+<p>}</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an object <code>car</code> with <code>make</code>, <code>model</code>, <code>year</code>, and a <code>drive()</code> method.</p>
+<p>2. Create an array containing numbers with duplicates and convert it to a <code>Set</code> to remove duplicates.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting that months in JavaScript <code>Date</code> object are 0-indexed (<code>0</code> = January, <code>11</code> = December!).</li></p>
+<p>  <li>Accessing <code>Map</code> entries with dot notation (<code>map.key</code>) instead of using <code>.get(key)</code>.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Managing user profile state, filtering unique tags/categories in e-commerce, formatting timestamps, and validating email/password fields in registration forms.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Use <code>Object</code> for fixed structured records, <code>Set</code> for deduplication, <code>Map</code> when keys are dynamic or non-strings, and <code>Date</code> for calendar tracking.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="09-arrays.html">← Previous: Arrays</a> | <a href="11-scope-and-hoisting.html">Next: Scope & Hoisting →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 loops - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Loops & Iteration in C++ (<code>for</code>, <code>while</code>, <code>do-while</code>, Range-based <code>for</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Loops</strong> allow a block of C++ statements to execute repeatedly as long as a specified condition remains <code>true</code>. C++ supports four primary loop structures:</p>
+<p>1. <code>for</code> Loop: Best when the number of iterations is known in advance.</p>
+<p>2. <code>while</code> Loop: Best when iterating based on a condition until it becomes false.</p>
+<p>3. <code>do-while</code> Loop: Guarantees execution at least <strong>once</strong> before checking the condition.</p>
+<p>4. <strong>Range-based <code>for</code> Loop</strong> (C++11): Cleanly iterates over containers like <code>std::vector</code> and arrays.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Loop ka use ek hi code block ko baar-baar repeat karne ke liye hota hai. </p>
+<ul>
+<p>  <li><code>for</code> loop tab use hota hai jab pata ho ki loop kitni baar chalana hai (e.g. 1 se 10 tak).</li></p>
+<p>  <li><code>while</code> loop pehle condition check karta hai, fir andar ka code chalata hai.</li></p>
+<p>  <li><code>do-while</code> loop kam se kam ek baar zaroor chalta hai, chahe condition shuru mein hi false ho.</li></p>
+<p>  <li><strong>Range-based <code>for</code> loop</strong> C++11 ka modern feature hai jo array ya vector ke har element par aasani se iterate karta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Loop mule aapan ekapeksha jast vela ekach code block punha punha run karu shakto.</p>
+<ul>
+<p>  <li><code>for</code> loop: Iteration chi sankhya mahit aslyas.</li></p>
+<p>  <li><code>while</code> loop: Condition true ahe tovar.</li></p>
+<p>  <li><code>do-while</code> loop: Shart (condition) magun tapasli jate, mhanun ha loop kamit kami eka vela nakkich chaltos.</li></p>
+<p>  <li>Range-based <code>for</code> (C++11): Vector kiwa array madhil sarva elements varun iterate karnyasathi.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Syntax Comparison</h2>
+
+<pre><code class="language-cpp">// 1. Standard for Loop
+<p>for (int i = 0; i &lt; 5; i++) { /* Statements */ }</p>
+
+<p>// 2. while Loop</p>
+<p>int j = 0;</p>
+<p>while (j &lt; 5) { /* Statements */ j++; }</p>
+
+<p>// 3. do-while Loop</p>
+<p>int k = 0;</p>
+<p>do { /* Statements */ k++; } while (k &lt; 5);</p>
+
+<p>// 4. Range-based for Loop (C++11)</p>
+<p>int numbers[] = {10, 20, 30};</p>
+<p>for (int val : numbers) { /* Statements */ }</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;vector&gt;</p>
+
+<p>int main() {</p>
+<p>    // 1. Standard for Loop</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. STANDARD FOR LOOP (1 to 5) ---&quot; &lt;&lt; std::endl;</p>
+<p>    for (int i = 1; i &lt;= 5; i++) {</p>
+<p>        std::cout &lt;&lt; &quot;Iteration Count: &quot; &lt;&lt; i &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // 2. while Loop (Countdown)</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 2. WHILE LOOP (Countdown) ---&quot; &lt;&lt; std::endl;</p>
+<p>    int count = 3;</p>
+<p>    while (count &gt; 0) {</p>
+<p>        std::cout &lt;&lt; &quot;Countdown: &quot; &lt;&lt; count &lt;&lt; &quot;...&quot; &lt;&lt; std::endl;</p>
+<p>        count--;</p>
+<p>    }</p>
+<p>    std::cout &lt;&lt; &quot;Blastoff! 🚀&quot; &lt;&lt; std::endl;</p>
+
+<p>    // 3. do-while Loop (Guaranteed At Least 1 Run)</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 3. DO-WHILE LOOP ---&quot; &lt;&lt; std::endl;</p>
+<p>    int choice = 0;</p>
+<p>    do {</p>
+<p>        std::cout &lt;&lt; &quot;Executed choice = &quot; &lt;&lt; choice &lt;&lt; &quot; (Condition checked after execution)&quot; &lt;&lt; std::endl;</p>
+<p>        choice++;</p>
+<p>    } while (choice &lt; 1);</p>
+
+<p>    // 4. Range-based for Loop (C++11)</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 4. RANGE-BASED FOR LOOP ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::vector&lt;std::string&gt; fruits = {&quot;Apple&quot;, &quot;Banana&quot;, &quot;Cherry&quot;, &quot;Mango&quot;};</p>
+<p>    for (const std::string&amp; fruit : fruits) {</p>
+<p>        std::cout &lt;&lt; &quot;Fruit Item: &quot; &lt;&lt; fruit &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>for (int i = 1; i <= 5; i++)</code>: Initializes <code>i = 1</code>, checks <code>i <= 5</code>, runs body, then increments <code>i++</code>.</li></p>
+<p>  <li><code>const std::string& fruit</code>: Range-based for loop uses a <code>const</code> reference (<code>&</code>) to avoid copying strings in memory during iteration.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. STANDARD FOR LOOP (1 to 5) ---
+<p>Iteration Count: 1</p>
+<p>Iteration Count: 2</p>
+<p>Iteration Count: 3</p>
+<p>Iteration Count: 4</p>
+<p>Iteration Count: 5</p>
+
+<p>--- 2. WHILE LOOP (Countdown) ---</p>
+<p>Countdown: 3...</p>
+<p>Countdown: 2...</p>
+<p>Countdown: 1...</p>
+<p>Blastoff! 🚀</p>
+
+<p>--- 3. DO-WHILE LOOP ---</p>
+<p>Executed choice = 0 (Condition checked after execution)</p>
+
+<p>--- 4. RANGE-BASED FOR LOOP ---</p>
+<p>Fruit Item: Apple</p>
+<p>Fruit Item: Banana</p>
+<p>Fruit Item: Cherry</p>
+<p>Fruit Item: Mango</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & Infinite Loops</h2>
+
+<ul>
+<p>  <li><strong>Infinite Loop Bug</strong>: Forgetting to update loop variables (<code>count--</code> or <code>i++</code>) causes the condition to remain <code>true</code> forever, freezing terminal execution!</li></p>
+<p>  <li><strong>Off-By-One Errors</strong>: Writing <code>i <= 5</code> when <code>i < 5</code> was intended, leading to 1 extra iteration.</li></p>
+<p>  <li><strong>Modifying Range-based <code>for</code> Targets Without Reference</strong>:</li></p>
+<p></ul></p>
+<p>  Writing <code>for (int x : vec) x *= 2;</code> modifies the local copy <code>x</code>, NOT the vector elements! Write <code>for (int& x : vec) x *= 2;</code> (with reference <code>&</code>) to modify vector elements directly.</p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Prefer Range-based <code>for</code> loops when reading or modifying C++ containers like <code>std::vector</code>.</li></p>
+<p>  <li>Use <code>break</code> to exit loops early and <code>continue</code> to skip the remainder of the current iteration.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Print all Even numbers between 1 and 20 using a <code>for</code> loop.</p>
+<p>2. Calculate the factorial of 5 ($5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$) using a <code>while</code> loop.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that uses a loop to prompt the user to guess a secret passcode number (e.g. <code>1234</code>). Keep looping until the user enters the correct passcode!</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-conditionals.html">Conditionals in C++</a></li></p>
+<p>  <li><a href="09-arrays-and-vectors.html">Arrays & Vectors</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="06-conditionals.html">← Previous: Conditionals</a> | <a href="08-functions.html">Next: Functions →</a></p>
+
+
+  </div>
+</body>
+</html>

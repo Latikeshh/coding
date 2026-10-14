@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 text formatting - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Text Formatting (<code><strong></code>, <code><em></code>, <code><b></code>, <code><i></code>, etc.)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>HTML provides semantic text-formatting elements that add visual styling and structural meaning to specific words, phrases, or characters inside body text.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Use <code><strong></code> for strong importance (bold) and <code><em></code> for emphasized text (italic). Use <code><b></code> and <code><i></code> when you want visual styling without implying extra semantic importance.</p>
+
+<h3>Hindi</h3>
+<p>Important words ke liye <code><strong></code> (bold) aur emphasis ke liye <code><em></code> (italic) use karein. Bina extra semantic importance ke sirf visual style ke liye <code><b></code> aur <code><i></code> tags use hote hain.</p>
+
+<h3>Marathi</h3>
+<p>Mhatvachya shabdansathi <code><strong></code> ani bhar dinyasathi <code><em></code> vapra. Sirf visual style sathi <code><b></code> ani <code><i></code> tags vaparle jatat.</p>
+
+<h2>🔑 Semantic Tags vs. Visual Tags Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Tag</th><th>Purpose & Semantic Meaning</th><th>Default Visual Appearance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code><strong></code></strong></td><td>Strong importance, urgency, or warning. Screen readers emphasize this text verbally.</td><td><strong>Bold text</strong></td></tr></p>
+<p>    <tr><td><strong><code><b></code></strong></td><td>Draws visual attention without implying semantic importance (e.g. key terms).</td><td><strong>Bold text</strong></td></tr></p>
+<p>    <tr><td><strong><code><em></code></strong></td><td>Stress emphasis that changes sentence meaning when spoken aloud.</td><td>*Italic text*</td></tr></p>
+<p>    <tr><td><strong><code><i></code></strong></td><td>Alternate voice, technical terms, foreign phrases, thoughts, or publication titles.</td><td>*Italic text*</td></tr></p>
+<p>    <tr><td><strong><code><mark></code></strong></td><td>Highlighted text indicating relevance or active search matches.</td><td><mark>Yellow background highlight</mark></td></tr></p>
+<p>    <tr><td><strong><code><small></code></strong></td><td>Side comments, copyright notices, legal fine print, or disclaimers.</td><td>Small text</td></tr></p>
+<p>    <tr><td><strong><code><del></code></strong></td><td>Deleted or obsolete text (e.g., original price before discount).</td><td>~~Strikethrough text~~</td></tr></p>
+<p>    <tr><td><strong><code><ins></code></strong></td><td>Newly inserted text (e.g., updated discounted price).</td><td><u>Underlined text</u></td></tr></p>
+<p>    <tr><td><strong><code><sub></code></strong></td><td>Subscript characters (e.g., chemical formula H<sub>2</sub>O).</td><td>Lowered subscript text</td></tr></p>
+<p>    <tr><td><strong><code><sup></code></strong></td><td>Superscript characters (e.g., math exponent X<sup>2</sup> or ordinal 1<sup>st</sup>).</td><td>Raised superscript text</td></tr></p>
+<p>    <tr><td><strong><code><code></code></strong></td><td>Inline computer code snippets (displayed in monospace font).</td><td><code>Monospace font</code></td></tr></p>
+<p>    <tr><td><strong><code><hr></code></strong></td><td>Thematic break or horizontal divider between topics.</td><td>Horizontal line divider</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📐 Syntax & Examples</h2>
+
+<pre><code class="language-html">&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Limited tickets remaining!&lt;/p&gt;
+<p>&lt;p&gt;Original Price: &lt;del&gt;$99&lt;/del&gt; &lt;ins&gt;$49&lt;/ins&gt; (&lt;mark&gt;50% OFF&lt;/mark&gt;)&lt;/p&gt;</p>
+<p>&lt;p&gt;Water chemical formula: H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;</p>
+<p>&lt;p&gt;Pythagorean theorem: a&lt;sup&gt;2&lt;/sup&gt; + b&lt;sup&gt;2&lt;/sup&gt; = c&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;E-Commerce Product Offer&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Wireless Headphones Super Sale&lt;/h1&gt;</p>
+
+<p>  &lt;p&gt;&lt;strong&gt;Urgent Notice:&lt;/strong&gt; Limited stock available at discounted pricing!&lt;/p&gt;</p>
+
+<p>  &lt;p&gt;Original Price: &lt;del&gt;$99.99&lt;/del&gt; &lt;ins&gt;$49.99&lt;/ins&gt; (&lt;mark&gt;50% OFF&lt;/mark&gt;)&lt;/p&gt;</p>
+
+<p>  &lt;p&gt;Features active noise cancellation and Bluetooth &lt;i&gt;5.3&lt;/i&gt; technology.&lt;/p&gt;</p>
+
+<p>  &lt;p&gt;Kinetic energy formula: &lt;code&gt;E&lt;sub&gt;k&lt;/sub&gt; = &#189;mv&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt;&lt;/p&gt;</p>
+
+<p>  &lt;hr&gt;</p>
+
+<p>  &lt;p&gt;&lt;small&gt;&amp;copy; 2026 TechStore Inc. All rights reserved. Terms and conditions apply.&lt;/small&gt;&lt;/p&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li><strong>"Urgent Notice:"</strong> renders in bold with strong importance.</li></p>
+<p>  <li><strong>"$99.99"</strong> renders with strikethrough, and <strong>"$49.99"</strong> renders underlined.</li></p>
+<p>  <li><strong>"50% OFF"</strong> renders with a bright yellow highlight background.</li></p>
+<p>  <li><strong>"E<sub>k</sub> = ½mv<sup>2</sup>"</strong> displays subscript <code>k</code> and superscript <code>2</code>.</li></p>
+<p>  <li><strong>"© 2026..."</strong> renders as fine-print text below a horizontal line.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Write a paragraph for a bookstore promotion featuring:</p>
+<p>1. A book title wrapped in <code><i></code>.</p>
+<p>2. A warning notice wrapped in <code><strong></code>.</p>
+<p>3. An original price wrapped in <code><del></code> and a sale price wrapped in <code><ins></code>.</p>
+<p>4. A chemical formula like H<sub>2</sub>SO<sub>4</sub> using <code><sub></code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Confusing <code><b></code>/<code><i></code> with <code><strong></code>/<code><em></code>:</strong> Use <code><strong></code> and <code><em></code> when the semantic meaning matters for screen readers and search engines.</li></p>
+<p>  <li><strong>Using <code><ins></code> instead of CSS for underline:</strong> Do not use <code><ins></code> purely to underline plain text; use CSS <code>text-decoration: underline</code>.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>E-commerce sites, technical blogs, news platforms, and documentation portals use semantic text formatting to highlight key terms, discount pricing, mathematical formulas, and legal disclaimers accessibly.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-paragraphs.html">Paragraphs</a></li></p>
+<p>  <li><a href="18-html-entities.html">HTML Entities</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><strong></code> = Important bold text.</li></p>
+<p>  <li><code><em></code> = Emphasized italic text.</li></p>
+<p>  <li><code><sub></code> = Subscript (lowered text).</li></p>
+<p>  <li><code><sup></code> = Superscript (raised text).</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="05-paragraphs.html">← Previous: Paragraphs</a> | <a href="./">HTML Home</a> | <a href="07-links.html">Next: Links →</a></p>
+
+
+
+  </div>
+</body>
+</html>

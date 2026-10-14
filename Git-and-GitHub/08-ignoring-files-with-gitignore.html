@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 ignoring files with gitignore - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Ignoring Files (<code>.gitignore</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong><code>.gitignore</code></strong> file is a plain text configuration file placed in your repository root directory that tells Git which specific files, directories, temporary build outputs, or secret credentials should be intentionally untracked and excluded from version control.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>A <code>.gitignore</code> file specifies untracked files that Git should ignore. Common ignored files include build binaries (<code>.exe</code>, <code>.o</code>), dependency packages (<code>node_modules/</code>), secret keys (<code>.env</code>), and OS system files (<code>.DS_Store</code>, <code>Thumbs.db</code>). If a file is already tracked by Git, adding it to <code>.gitignore</code> will not ignore it until you untrack it using <code>git rm --cached</code>.</p>
+
+<h3>Hindi</h3>
+<p><code>.gitignore</code> file Git ko batati hai ki kin files aur folders ko track nahi karna hai. Heavy build files (<code>node_modules/</code>), compiled binaries (<code>.exe</code>), aur secret passwords (<code>.env</code>) ko <code>.gitignore</code> mein daal diya jata hai taaki woh accidentally GitHub par upload na ho jayein.</p>
+
+<h3>Marathi</h3>
+<p><code>.gitignore</code> file dware aapan Git la sangto ki konthya files version control madhye nahi yayala pahijet. Local build files, dependencies (<code>node_modules/</code>), aani secret keys (<code>.env</code>) <code>.gitignore</code> madhye taklyat jatat.</p>
+
+<h3>Hinglish</h3>
+<p>Project mein <code>node_modules</code>, <code>.env</code> secrets, <code>.vscode</code> settings aur build output files ko Git tracking se bahar rakhne ke liye root directory mein <code>.gitignore</code> name ki file banayein. Isme file names aur patterns add karne par <code>git status</code> unhe ignore kar deta hai.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Committing large build folders (<code>node_modules/</code> can contain 50,000+ files) bloats repository size, slows down network transfers, and creates merge conflicts. Committing <code>.env</code> secret keys exposes private database credentials on public GitHub repositories!</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>.gitignore</code> like a Bouncer at a club entrance:</p>
+<ul>
+<p>  <li>The Bouncer has a VIP guest list (<code>.gitignore</code>).</li></p>
+<p>  <li>When new files show up at the door (<code>git status</code>), the Bouncer checks the list.</li></p>
+<p>  <li>If a file is on the ignore list (like <code>node_modules/</code>), the Bouncer refuses to let it into the club (Staging Area).</li></p>
+<p></ul></p>
+
+<h2>📝 <code>.gitignore</code> Syntax & Pattern Rules</h2>
+
+<pre><code class="language-text"># 1. Ignore specific named file
+<p>.env</p>
+<p>config.json</p>
+
+<h1>2. Ignore all files with specific extension</h1>
+<p>*.log</p>
+<p>*.tmp</p>
+<p>*.exe</p>
+<p>*.o</p>
+
+<h1>3. Ignore an entire directory and all its contents</h1>
+<p>node_modules/</p>
+<p>dist/</p>
+<p>build/</p>
+<p>.venv/</p>
+
+<h1>4. Exclude subdirectories at any level</h1>
+<p>**/temp/</p>
+
+<h1>5. Negation rule (Track this file EVEN IF extension is ignored)</h1>
+<p>!important.log</p>
+
+<h1>6. Ignore OS system garbage</h1>
+<p>.DS_Store</p>
+<p>Thumbs.db</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Creating and testing a <code>.gitignore</code> file in terminal:</p>
+
+<pre><code class="language-bash"># 1. Create secret file and log file
+<p>echo &quot;SECRET_KEY=12345&quot; &gt; .env</p>
+<p>echo &quot;App started&quot; &gt; app.log</p>
+
+<h1>2. Create .gitignore file and populate pattern rules</h1>
+<p>echo &quot;.env&quot; &gt;&gt; .gitignore</p>
+<p>echo &quot;*.log&quot; &gt;&gt; .gitignore</p>
+
+<h1>3. Inspect git status</h1>
+<p>git status</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>.gitignore</code>: Must begin with a dot <code>.</code> and be saved in plain text UTF-8 format.</li></p>
+<p>  <li><code>*.extension</code>: Asterisk <code>*</code> wildcard matching any string of characters.</li></p>
+<p>  <li><code>folder/</code>: Trailing slash <code>/</code> specifies a directory match.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git status
+<p>On branch main</p>
+<p>Untracked files:</p>
+<p>  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</p>
+<p>        .gitignore</p>
+
+<h1>Notice that .env and app.log do NOT appear under Untracked files! Git is ignoring them.</code></pre></h1>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>File Already Tracked Problem:</strong> Adding a file to <code>.gitignore</code> AFTER it was already committed previously. <code>.gitignore</code> ONLY prevents UNTRACKED files from being added.</li></p>
+<p>  <li>*Fix:* Remove the file from Git tracking index without deleting it from disk:</li></p>
+<p></ul></p>
+<p>    ``<code>bash</p>
+<p>    git rm --cached filename.env</p>
+<p>    git commit -m "Untrack .env file"</p>
+<p>    </code>`<code></p>
+<ul>
+<p>  <li><strong>Spelling File Name Incorrectly:</strong> Creating </code>gitignore.txt<code> or </code>gitignore<code> instead of </code>.gitignore<code> (with leading dot).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Never commit passwords, API tokens, database URIs, or private SSH keys! Always list </code>.env<code> in </code>.gitignore<code>.</li></p>
+<p>  <li>Use community templates from <a href="https://gitignore.io">gitignore.io</a> for specific languages (e.g. Node.js, Python, C/C++, Java).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Every professional repository on GitHub includes a </code>.gitignore<code> file to ensure clean, secure repositories free of local OS garbage or private environment keys.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Inside your </code>git-practice<code> folder, create a file named </code>debug.log<code>.</p>
+<p>2. Create a </code>.gitignore<code> file and add </code>*.log<code> inside it.</p>
+<p>3. Run </code>git status<code> and verify that </code>debug.log<code> is completely ignored by Git.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a folder named </code>temp-cache/<code> and a file inside it </code>temp-cache/cache.txt<code>. Add </code>temp-cache/<code> to </code>.gitignore<code> and verify with </code>git status` that the entire directory is ignored.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="07-viewing-history-and-git-log.html">Viewing History</a></li></p>
+<p>  <li><a href="09-git-diff-and-inspecting-changes.html">Inspecting Changes with Git Diff</a></li></p>
+<p>  <li><a href="29-git-best-practices-and-security.html">Security Best Practices</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="07-viewing-history-and-git-log.html">← Previous: Viewing History</a> | <a href="09-git-diff-and-inspecting-changes.html">Next: Git Diff →</a></p>
+
+
+
+  </div>
+</body>
+</html>

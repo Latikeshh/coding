@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 exception handling - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Exception Handling in C++ (<code>try</code>, <code>catch</code>, <code>throw</code>, <code>std::exception</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Exception Handling</strong> is a mechanism in C++ that isolates runtime error detection from error recovery logic. When an abnormal runtime situation occurs (such as division by zero, invalid input, or out-of-memory errors), the program <strong><code>throw</code>s</strong> an exception. The execution control jumps to a matching <strong><code>catch</code></strong> block wrapped in a <strong><code>try</code></strong> block.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Runtime errors (jaise file na milna, ya zero se divide karna) ko handle karne ke liye <code>try-catch</code> blocks ka use hota hai:</p>
+<ul>
+<p>  <li><strong><code>try</code></strong>: Us code ko wrap karta hai jisme error aane ki sambhavna ho.</li></p>
+<p>  <li><strong><code>throw</code></strong>: Anomaly ya error milne par exception throw karta hai.</li></p>
+<p>  <li><strong><code>catch</code></strong>: Thrown exception ko catch karta hai aur program ko crash hone se bachata hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Runtime errors mule program crash hou naye mhanun Exception Handling cha vapar ke la jato.</p>
+<ul>
+<p>  <li><strong><code>try</code></strong>: Zyathaat error yeu shakto to code <code>try</code> block madhye thevla jato.</li></p>
+<p>  <li><strong><code>throw</code></strong>: Error aalyas exception feknyasathi (<code>throw</code>).</li></p>
+<p>  <li><strong><code>catch</code></strong>: Anomaly/Error catch karun program surakshitapane saambhalnyasathi.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Syntax & Exception Hierarchy</h2>
+
+<pre><code class="language-cpp">try {
+<p>    // Code that might throw an exception</p>
+<p>    if (errorCondition) {</p>
+<p>        throw std::runtime_error(&quot;Error description&quot;);</p>
+<p>    }</p>
+<p>} catch (const std::runtime_error&amp; e) {</p>
+<p>    // Handle specific runtime_error</p>
+<p>    std::cerr &lt;&lt; &quot;Caught Error: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;</p>
+<p>} catch (const std::exception&amp; e) {</p>
+<p>    // Fallback handler for standard exceptions</p>
+<p>} catch (...) {</p>
+<p>    // Catch-all handler for unknown non-standard exceptions</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;stdexcept&gt; // Standard exceptions header</p>
+<p>#include &lt;string&gt;</p>
+
+<p>// Custom Function that validates and divides numbers</p>
+<p>double divide(double numerator, double denominator) {</p>
+<p>    if (denominator == 0.0) {</p>
+<p>        throw std::invalid_argument(&quot;Division by Zero is undefined!&quot;);</p>
+<p>    }</p>
+<p>    return numerator / denominator;</p>
+<p>}</p>
+
+<p>// Custom Function that validates user age</p>
+<p>void verifyAge(int age) {</p>
+<p>    if (age &lt; 0) {</p>
+<p>        throw std::out_of_range(&quot;Age cannot be negative!&quot;);</p>
+<p>    }</p>
+<p>    if (age &lt; 18) {</p>
+<p>        throw std::runtime_error(&quot;Access Denied: User is under 18.&quot;);</p>
+<p>    }</p>
+<p>    std::cout &lt;&lt; &quot;Access Granted. Welcome!&quot; &lt;&lt; std::endl;</p>
+<p>}</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. SAFE DIVISION DEMO ---&quot; &lt;&lt; std::endl;</p>
+<p>    try {</p>
+<p>        std::cout &lt;&lt; &quot;10 / 2 = &quot; &lt;&lt; divide(10.0, 2.0) &lt;&lt; std::endl;</p>
+<p>        std::cout &lt;&lt; &quot;10 / 0 = &quot; &lt;&lt; divide(10.0, 0.0) &lt;&lt; std::endl; // Throws exception!</p>
+<p>    } catch (const std::invalid_argument&amp; e) {</p>
+<p>        std::cerr &lt;&lt; &quot;[CAUGHT ERROR] &quot; &lt;&lt; e.what() &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 2. AGE VERIFICATION DEMO ---&quot; &lt;&lt; std::endl;</p>
+<p>    try {</p>
+<p>        verifyAge(15);</p>
+<p>    } catch (const std::out_of_range&amp; e) {</p>
+<p>        std::cerr &lt;&lt; &quot;[OUT OF RANGE] &quot; &lt;&lt; e.what() &lt;&lt; std::endl;</p>
+<p>    } catch (const std::exception&amp; e) {</p>
+<p>        std::cerr &lt;&lt; &quot;[EXCEPTION] &quot; &lt;&lt; e.what() &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    std::cout &lt;&lt; &quot;\nProgram execution continued safely without crashing!&quot; &lt;&lt; std::endl;</p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>throw std::invalid_argument(...)</code>: Creates an exception object containing an error message string (<code>.what()</code>).</li></p>
+<p>  <li><code>catch (const std::exception& e)</code>: Catches any exception derived from <code>std::exception</code> by const reference to avoid slice copying.</li></p>
+<p>  <li><code>e.what()</code>: Returns the C-style string error message stored in the exception object.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. SAFE DIVISION DEMO ---
+<p>10 / 2 = 5</p>
+<p>[CAUGHT ERROR] Division by Zero is undefined!</p>
+
+<p>--- 2. AGE VERIFICATION DEMO ---</p>
+<p>[EXCEPTION] Access Denied: User is under 18.</p>
+
+<p>Program execution continued safely without crashing!</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Throwing Plain Primitives Instead of <code>std::exception</code> Derived Types</strong>: Writing <code>throw 404;</code> or <code>throw "Error";</code> makes exception handling inconsistent. Always derive or use classes from <code><stdexcept></code> (<code>std::runtime_error</code>, <code>std::invalid_argument</code>, <code>std::out_of_range</code>).</li></p>
+<p>  <li><strong>Throwing Exceptions Inside Destructors</strong>: If a destructor throws an exception while stack unwinding is already in progress, C++ immediately terminates the program (<code>std::terminate()</code>)! Mark destructors <code>noexcept</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Catch exceptions by <strong><code>const</code> reference</strong> (<code>catch (const std::exception& e)</code>).</li></p>
+<p>  <li>Use <code>noexcept</code> keyword on functions that are guaranteed never to throw exceptions (<code>void safeFunc() noexcept</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function <code>checkArrayAccess(int index)</code> that throws <code>std::out_of_range</code> if the requested index exceeds valid array boundaries.</p>
+<p>2. Catch <code>std::bad_alloc</code> when attempting to allocate an unrealistically huge dynamic array.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a bank withdrawal function <code>withdrawMoney(double balance, double amount)</code> that throws <code>std::runtime_error("Insufficient Balance")</code> if amount exceeds balance and <code>std::invalid_argument("Invalid Amount")</code> if amount $\le 0$. Test it inside a <code>try-catch</code> block.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input & Output in C++</a></li></p>
+<p>  <li><a href="20-file-streams.html">File I/O Streams</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="18-lambdas.html">← Previous: Lambdas</a> | <a href="20-file-streams.html">Next: File Streams →</a></p>
+
+
+  </div>
+</body>
+</html>

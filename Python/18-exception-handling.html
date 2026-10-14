@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exception Handling - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Exception Handling in Python</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Exception Handling</strong> is a mechanism that allows Python programs to intercept, process, and recover from runtime errors (like division by zero, invalid input parsing, or missing files) gracefully without crashing application execution.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Program crash hone se bachane ke liye <strong>Exception Handling</strong> ka use hota hai. Risky code ko <code>try</code> block mein rakha jata hai, error aane par <code>except</code> block chalta hai, <code>else</code> block tabhi chalta hai jab koi error na ho, aur <code>finally</code> block <strong>hamesha</strong> execute hota hai (cleanup ke liye).</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Application crash hone pasun vachvanyasathi <code>try...except</code> block vaparatat. Cleanup sathi <code>finally</code> block hamesha run hoto.</p>
+
+<h2>📝 1. Exception Handling Architecture</h2>
+
+<ul>
+<p>  <li><code>try:</code> Encloses code that might raise an exception during execution.</li></p>
+<p>  <li><code>except ExceptionType as err:</code> Catches and handles specific exception types.</li></p>
+<p>  <li><code>else:</code> Executes <strong>ONLY if no exception occurred</strong> in the <code>try</code> block.</li></p>
+<p>  <li><code>finally:</code> <strong>ALWAYS executes</strong> (whether an exception occurred or not) for resource cleanup.</li></p>
+<p>  <li><code>raise ExceptionType("message")</code>: Manually triggers/raises an exception.</li></p>
+<p></ul></p>
+
+<pre><code class="language-text">       +------------------------------------+
+
+<table>
+<p>  <thead><tr><th>try: Risky Operation Execution</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>       +-----------------+------------------+</p>
+
+<p>                         |</p>
+<p>           Has Exception?|</p>
+<p>          +--------------+--------------+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>          ▼ YES                         ▼ NO</p>
+<p>+-------------------------+   +-------------------------+</p>
+
+<table>
+<p>  <thead><tr><th>except ExceptionType:</th><th></th><th>else:</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Handles Error</td><td></td><td>Executes if NO exception</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+------------+   +------------+------------+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>             +--------------+--------------+</p>
+
+<p>                            |</p>
+<p>                            ▼</p>
+<p>               +--------------------------+</p>
+
+<table>
+<p>  <thead><tr><th>finally: ALWAYS Runs!</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>               +--------------------------+</code></pre></p>
+
+<h2>📝 2. Common Built-In Python Exceptions</h2>
+
+<ul>
+<p>  <li><code>ValueError</code>: Invalid value passed to function (e.g. <code>int("abc")</code>).</li></p>
+<p>  <li><code>TypeError</code>: Invalid operation on incompatible types (e.g. <code>"2" + 2</code>).</li></p>
+<p>  <li><code>ZeroDivisionError</code>: Division by zero (<code>10 / 0</code>).</li></p>
+<p>  <li><code>KeyError</code>: Non-existent dictionary key accessed.</li></p>
+<p>  <li><code>IndexError</code>: Sequence index out of bounds.</li></p>
+<p>  <li><code>FileNotFoundError</code>: Trying to open a missing file.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: Robust Order Processing System</h2>
+
+<pre><code class="language-python"># Custom Exception Definition
+<p>class InsufficientBalanceError(Exception):</p>
+<p>    &quot;&quot;&quot;Raised when account balance is less than transaction amount.&quot;&quot;&quot;</p>
+<p>    pass</p>
+
+<p>def process_withdrawal(account_balance, withdrawal_amount_str):</p>
+<p>    &quot;&quot;&quot;Processes withdrawal with comprehensive error handling &amp; validation.&quot;&quot;&quot;</p>
+<p>    try:</p>
+<p>        # 1. Parsing numeric input (Can raise ValueError)</p>
+<p>        amount = float(withdrawal_amount_str)</p>
+<p>        </p>
+<p>        # 2. Input Validation</p>
+<p>        if amount &lt;= 0:</p>
+<p>            raise ValueError(&quot;Withdrawal amount must be greater than zero.&quot;)</p>
+<p>            </p>
+<p>        if amount &gt; account_balance:</p>
+<p>            raise InsufficientBalanceError(</p>
+<p>                f&quot;Requested ₹{amount:.2f} exceeds available balance ₹{account_balance:.2f}.&quot;</p>
+<p>            )</p>
+<p>            </p>
+<p>        account_balance -= amount</p>
+<p>        </p>
+<p>    except ValueError as err:</p>
+<p>        print(f&quot;[VAL_ERROR] Invalid Input : {err}&quot;)</p>
+<p>        return account_balance, False</p>
+<p>        </p>
+<p>    except InsufficientBalanceError as err:</p>
+<p>        print(f&quot;[FUND_ERROR] Balance Issue: {err}&quot;)</p>
+<p>        return account_balance, False</p>
+<p>        </p>
+<p>    except Exception as err:</p>
+<p>        print(f&quot;[UNEXPECTED_ERROR] Unexpected: {err}&quot;)</p>
+<p>        return account_balance, False</p>
+<p>        </p>
+<p>    else:</p>
+<p>        # Runs ONLY if withdrawal succeeded without errors!</p>
+<p>        print(f&quot;[SUCCESS] Withdrew ₹{amount:.2f}. Remaining: ₹{account_balance:.2f}&quot;)</p>
+<p>        return account_balance, True</p>
+<p>        </p>
+<p>    finally:</p>
+<p>        # Always runs for audit trail logging!</p>
+<p>        print(&quot;[AUDIT LOG] Withdrawal processing attempt complete.&quot;)</p>
+
+<h1>Testing Test Cases</h1>
+<p>print(&quot;=== TESTING EXCEPTION HANDLING SYSTEM ===&quot;)</p>
+
+<p>current_balance = 5000.00</p>
+
+<p>print(&quot;\n--- Test Case 1: Non-numeric String Input ---&quot;)</p>
+<p>current_balance, _ = process_withdrawal(current_balance, &quot;abc&quot;)</p>
+
+<p>print(&quot;\n--- Test Case 2: Insufficient Funds ---&quot;)</p>
+<p>current_balance, _ = process_withdrawal(current_balance, &quot;7500.00&quot;)</p>
+
+<p>print(&quot;\n--- Test Case 3: Valid Transaction ---&quot;)</p>
+<p>current_balance, _ = process_withdrawal(current_balance, &quot;1200.00&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== TESTING EXCEPTION HANDLING SYSTEM ===
+
+<p>--- Test Case 1: Non-numeric String Input ---</p>
+<p>[VAL_ERROR] Invalid Input : could not convert string to float: &#39;abc&#39;</p>
+<p>[AUDIT LOG] Withdrawal processing attempt complete.</p>
+
+<p>--- Test Case 2: Insufficient Funds ---</p>
+<p>[FUND_ERROR] Balance Issue: Requested ₹7500.00 exceeds available balance ₹5000.00.</p>
+<p>[AUDIT LOG] Withdrawal processing attempt complete.</p>
+
+<p>--- Test Case 3: Valid Transaction ---</p>
+<p>[SUCCESS] Withdrew ₹1200.00. Remaining: ₹3800.00</p>
+<p>[AUDIT LOG] Withdrawal processing attempt complete.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using bare <code>except:</code> without specifying an exception class (catches ALL exceptions including <code>KeyboardInterrupt</code> and <code>SystemExit</code>, making terminal cancellation impossible!).</li></p>
+<p>  <li>Swallowing exceptions silently with <code>except Exception: pass</code> without logging error context, making debugging impossible!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always catch specific exception types (<code>ValueError</code>, <code>FileNotFoundError</code>) before catching broader parent exceptions (<code>Exception</code>).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Handling API network connection timeouts, catching invalid JSON payload parsing, handling database connection retries, and validating user input forms.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a program that prompts the user for two numbers and divides them inside a <code>try...except</code> block, catching <code>ZeroDivisionError</code> and <code>ValueError</code>.</p>
+<p>2. Add a <code>finally</code> block printing <code>"Calculation attempted."</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a custom exception <code>InvalidEmailError</code> and write a function <code>validate_email(email)</code> that raises it if the email string does not contain <code>@</code> or <code>.</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
+<p>  <li><a href="28-testing-and-debugging.html">Testing and Debugging</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="17-file-handling.html">← Previous: File Handling</a> | <a href="19-object-oriented-programming.html">Next: Object-Oriented Programming →</a></p>
+
+
+  </div>
+</body>
+</html>

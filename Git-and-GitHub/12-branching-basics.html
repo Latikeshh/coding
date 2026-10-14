@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 branching basics - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Branching Basics (<code>git branch</code>, <code>git switch</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Branch</strong> in Git is a lightweight, moveable pointer to a specific commit. <strong>Branching</strong> enables developers to diverge from the main line of development to work on new features, bug fixes, or experiments in complete isolation without affecting the stable <code>main</code> codebase.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Branches isolate development environments. In Git, a branch is merely a 41-byte file containing a commit hash. Use <code>git branch <name></code> to create a branch, <code>git switch <name></code> (or <code>git checkout <name></code>) to switch branches, and <code>git switch -c <name></code> to create and switch in a single command.</p>
+
+<h3>Hindi</h3>
+<p>Branching se aap stable code (<code>main</code>) ko bina disturb kiye nayee features par alag kaam kar sakte hain. Git mein branch ek chota pointer hota hai. Nayi branch banane aur uspar switch karne ke liye <code>git switch -c branch-name</code> command use karein.</p>
+
+<h3>Marathi</h3>
+<p>Branching mulhe mukhya stable code (<code>main</code>) safe rahto aani aapan navin feature var veglach kaam karu shakto. Navin branch tayar karun tya var jaanyasathi <code>git switch -c branch-name</code> vaparale jaate.</p>
+
+<h3>Hinglish</h3>
+<p>Production code <code>main</code> branch par rehta hai. New feature banane ke liye <code>git switch -c feature-login</code> se nayee branch banayein. Jab tak aap new branch par kaam kar rahe hain, <code>main</code> branch billkul safe aur unchanged rehti hai.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Imagine 5 developers working on the same codebase simultaneously without branches. Every untested change or broken code edit would instantly break the application for everyone else! Branching isolates every developer's work.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of Git branching like parallel dimensions in a sci-fi movie:</p>
+<ul>
+<p>  <li>The <strong><code>main</code> timeline</strong> is the real world where everything works stably.</li></p>
+<p>  <li>You open a portal (<strong>Create Branch <code>feature-login</code></strong>) into an alternate dimension where you build a new login portal.</li></p>
+<p>  <li>Once the login portal works perfectly, you collapse the dimensions together (<strong>Merge</strong>). If it fails, you destroy the alternate timeline (<strong>Delete Branch</strong>) without harming the real world!</li></p>
+<p></ul></p>
+
+<h2>📝 Key Branching Commands</h2>
+
+<pre><code class="language-bash"># 1. List all local branches (Active branch marked with *)
+<p>git branch</p>
+
+<h1>2. Create a new branch named &#39;feature-payment&#39; (Does NOT switch automatically)</h1>
+<p>git branch feature-payment</p>
+
+<h1>3. Switch to an existing branch (Modern Git 2.23+ syntax)</h1>
+<p>git switch feature-payment</p>
+
+<h1>4. Create AND switch to a new branch in one single step (RECOMMENDED)</h1>
+<p>git switch -c feature-user-profile</p>
+
+<h1>Legacy equivalence: git checkout -b feature-user-profile</h1>
+
+<h1>5. Rename current active branch</h1>
+<p>git branch -m feature-profile</p>
+
+<h1>6. Delete a branch safely (Only if merged)</h1>
+<p>git branch -d feature-profile</p>
+
+<h1>7. Force delete an unmerged branch</h1>
+<p>git branch -D experimental-failed-test</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Step-by-step workflow creating and working on a feature branch:</p>
+
+<pre><code class="language-bash"># 1. Verify you are on main branch
+<p>git switch main</p>
+
+<h1>2. Create and switch to new feature branch</h1>
+<p>git switch -c feature-dark-mode</p>
+
+<h1>3. Add feature files and commit on new branch</h1>
+<p>echo &quot;body { background: #111; }&quot; &gt; dark.css</p>
+<p>git add dark.css</p>
+<p>git commit -m &quot;Add dark theme stylesheet&quot;</p>
+
+<h1>4. Switch back to main branch (dark.css disappears from working directory!)</h1>
+<p>git switch main</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git switch <branch></code>: Safely updates Working Directory files to match target branch HEAD commit and moves <code>HEAD</code> pointer.</li></p>
+<p>  <li><code>-c <branch></code>: Stands for "create" — creates new branch before switching.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git branch
+<ul>
+<p>  <li>feature-dark-mode</li></p>
+<p></ul></p>
+<p>  main</p>
+
+<p>$ git switch main</p>
+<p>Switched to branch &#39;main&#39;</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Committing on the Wrong Branch:</strong> Forgetting to run <code>git switch -c new-feature</code> before making edits, accidentally committing experimental code directly onto <code>main</code> branch!</li></p>
+<p>  <li><strong>Dirty Working Directory Switch Warning:</strong> Trying to switch branches while having uncommitted modified files in your Working Directory that conflict with the target branch.</li></p>
+<p>  <li>*Fix:* Commit your changes first, or stash them using <code>git stash</code> before switching!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Creating a branch in Git takes 1 millisecond regardless of repository size because Git only writes a 41-byte text file containing a 40-character commit hash!</li></p>
+<p>  <li>Always switch back to <code>main</code> and pull the latest code before creating new feature branches.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Software teams enforce Branch Protection Rules on GitHub so developers cannot commit directly to <code>main</code>. All work must occur on feature branches and be merged via Pull Requests.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Inside your <code>git-practice</code> repo, run <code>git branch</code> and verify <code>main</code> is active.</p>
+<p>2. Create and switch to a branch named <code>feature-signup</code> using <code>git switch -c feature-signup</code>.</p>
+<p>3. Create a file <code>signup.html</code>, stage, and commit it.</p>
+<p>4. Switch back to <code>main</code> using <code>git switch main</code> and notice that <code>signup.html</code> is not present in <code>main</code>!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Switch back to <code>feature-signup</code> using <code>git switch feature-signup</code> and verify with <code>ls</code> or <code>dir</code> that <code>signup.html</code> reappears instantly.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-merging-branches.html">Merging Branches</a></li></p>
+<p>  <li><a href="14-handling-merge-conflicts.html">Handling Merge Conflicts</a></li></p>
+<p>  <li><a href="15-git-rebase.html">Git Rebase</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="11-git-reset-and-git-revert.html">← Previous: Reset & Revert</a> | <a href="13-merging-branches.html">Next: Merging Branches →</a></p>
+
+
+
+  </div>
+</body>
+</html>

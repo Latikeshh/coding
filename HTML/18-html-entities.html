@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 html entities - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>HTML Entities (<code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>&copy;</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>HTML Entities</strong> are special code sequences used to display reserved HTML syntax characters (like <code><</code> or <code>></code>) that browsers would otherwise interpret as tag markup, or specific symbols that may not be easily typed on standard computer keyboards (like <code>©</code> or <code>™</code>).</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Entities display reserved syntax characters like <code>&lt;</code> for <code><</code>, <code>&gt;</code> for <code>></code>, <code>&amp;</code> for <code>&</code>, and <code>&copy;</code> for <code>©</code>. Always end entity codes with a semicolon <code>;</code>.</p>
+
+<h3>Hindi</h3>
+<p>Special reserved characters ko literal text dikhane ke liye entities use hoti hain (jaise <code><</code> ke liye <code>&lt;</code>, <code>></code> ke liye <code>&gt;</code>, <code>&</code> ke liye <code>&amp;</code>, <code>©</code> ke liye <code>&copy;</code>). End mein semicolon <code>;</code> lagayein.</p>
+
+<h3>Marathi</h3>
+<p>Special characters screen var dakhavnyasathi entities vapartat (<code><</code> sathi <code>&lt;</code>, <code>></code> sathi <code>&gt;</code>, <code>©</code> sathi <code>&copy;</code>). End madhye semicolon <code>;</code> dene aavashyak aahe.</p>
+
+<h2>🤔 Why Do We Use Entities?</h2>
+
+<p>Certain characters are reserved in HTML syntax (<code><</code>, <code>></code>, <code>&</code>, <code>"</code>, <code>'</code>). If you type <code><p></code> inside body text, web browsers treat it as an opening HTML paragraph tag instead of displaying literal <code><p></code> text. HTML entities instruct browsers to render literal symbol characters without breaking HTML syntax parsing.</p>
+
+<h2>📝 Common HTML Entities Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Symbol / Character</th><th>Description</th><th>Entity Name</th><th>Entity Code</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code><</code></td><td>Less-than symbol</td><td><code>&lt;</code></td><td><code>&#60;</code></td></tr></p>
+<p>    <tr><td><code>></code></td><td>Greater-than symbol</td><td><code>&gt;</code></td><td><code>&#62;</code></td></tr></p>
+<p>    <tr><td><code>&</code></td><td>Ampersand symbol</td><td><code>&amp;</code></td><td><code>&#38;</code></td></tr></p>
+<p>    <tr><td><code>"</code></td><td>Double quote mark</td><td><code>&quot;</code></td><td><code>&#34;</code></td></tr></p>
+<p>    <tr><td><code>'</code></td><td>Single quote / Apostrophe</td><td><code>&apos;</code></td><td><code>&#39;</code></td></tr></p>
+<p>    <tr><td><code>©</code></td><td>Copyright symbol</td><td><code>&copy;</code></td><td><code>&#169;</code></td></tr></p>
+<p>    <tr><td><code>™</code></td><td>Trademark symbol</td><td><code>&trade;</code></td><td><code>&#8482;</code></td></tr></p>
+<p>    <tr><td><code>€</code></td><td>Euro currency symbol</td><td><code>&euro;</code></td><td><code>&#8364;</code></td></tr></p>
+<p>    <tr><td><code>₹</code></td><td>Indian Rupee symbol</td><td><code>&#8377;</code></td><td><code>&#8377;</code></td></tr></p>
+<p>    <tr><td></td><td>Non-breaking space</td><td><code>&nbsp;</code></td><td><code>&#160;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🧠 When Are Entities Necessary?</h2>
+
+<ul>
+<p>  <li><strong>Syntax Safety:</strong> Printing literal HTML code snippets inside tutorials (e.g., displaying <code>&lt;h1&gt;</code> on screen).</li></p>
+<p>  <li><strong>Trademarks & Copyrights:</strong> Formatting footer legal statements with <code>&copy;</code> and <code>&trade;</code>.</li></p>
+<p>  <li><strong>Note on UTF-8:</strong> Because modern HTML boilerplate uses <code><meta charset="UTF-8"></code>, you can type standard Unicode symbols directly. Entities are primarily used for syntax safety (<code><</code>, <code>></code>, <code>&</code>).</li></p>
+<p></ul></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;HTML Entities Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;HTML Entities Demonstration&lt;/h1&gt;</p>
+
+<p>  &lt;p&gt;To create a main heading in HTML, use the &amp;lt;h1&amp;gt; heading &amp;lt;/h1&amp;gt; tags.&lt;/p&gt;</p>
+
+<p>  &lt;p&gt;Mathematical expression: 5 &amp;lt; 10 &amp;amp;&amp;amp; 20 &amp;gt; 15&lt;/p&gt;</p>
+
+<p>  &lt;p&gt;Company Title: Johnson &amp;amp; Johnson Co.&lt;/p&gt;</p>
+
+<p>  &lt;p&gt;Special Pricing: &amp;#8377;1,499 or &amp;euro;18.50&lt;/p&gt;</p>
+
+<p>  &lt;hr&gt;</p>
+
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;Copyright &amp;copy; 2026 Coding Notes &amp;trade;. All rights reserved.&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>"To create a main heading in HTML, use the <code><h1></code> heading <code></h1></code> tags."</li></p>
+<p>  <li>"Mathematical expression: 5 < 10 && 20 > 15"</li></p>
+<p>  <li>"Company Title: Johnson & Johnson Co."</li></p>
+<p>  <li>"Special Pricing: ₹1,499 or €18.50"</li></p>
+<p>  <li>"Copyright © 2026 Coding Notes ™. All rights reserved."</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Write an HTML sentence displaying:  </p>
+<p><code>In HTML, we write <a> for hyperlinks and & for ampersand.</code> using proper HTML entities (<code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>).</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting trailing semicolons <code>;</code>:</strong> Writing <code>&lt</code> or <code>&copy</code> instead of <code>&lt;</code> or <code>&copy;</code>.</li></p>
+<p>  <li><strong>Using <code>&nbsp;</code> repeatedly for visual layout gaps:</strong> Inserting <code>&nbsp;&nbsp;&nbsp;&nbsp;</code> to force gaps between text instead of using CSS <code>margin</code> or <code>padding</code>.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Tech documentation sites, code tutorial portals, e-commerce stores, and website footers use HTML entities for code snippets and legal symbol display.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-text-formatting.html">Text Formatting</a></li></p>
+<p>  <li><a href="17-html-colors.html">Colors</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code>&lt;</code> = <code><</code></li></p>
+<p>  <li><code>&gt;</code> = <code>></code></li></p>
+<p>  <li><code>&amp;</code> = <code>&</code></li></p>
+<p>  <li><code>&copy;</code> = <code>©</code></li></p>
+<p>  <li>Always end entity codes with a semicolon <code>;</code>.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="17-html-colors.html">← Previous: Colors</a> | <a href="./">HTML Home</a> | <a href="19-audio.html">Next: Audio →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enums and Records - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Enums and Records in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong><code>enum</code> (Enumeration):</strong> A special Java class type used to define a fixed, type-safe set of named constants.</li></p>
+<p>  <li><strong><code>record</code> (Java 16+):</strong> A concise syntax for declaring transparent, <strong>immutable data-carrier classes</strong> where the compiler automatically generates private final component fields, accessors, <code>equals()</code>, <code>hashCode()</code>, <code>toString()</code>, and constructors.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Fixed choices represent karne ke liye <code>enum</code> ka use hota hai (jaise <code>OrderStatus.PAID</code>). Unchangeable data carry karne waali plain data classes ke boilerplate code ko hatane ke liye modern Java 16+ mein <code>record</code> ka use kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Tharavik choices sathi <code>enum</code> vaparatat. Data carrier classes saathi modern Java madhye <code>record</code> cha wapar hoto.</p>
+
+<h2>📝 1. Type-Safe Enums with Fields & Methods</h2>
+
+<p>Enums are more than simple integer flags—in Java, enums can have fields, custom constructors, and methods:</p>
+
+<pre><code class="language-java">public enum OrderStatus {
+<p>    PENDING(&quot;Order placed, awaiting payment&quot;, 100),</p>
+<p>    PROCESSING(&quot;Payment confirmed, packing order&quot;, 200),</p>
+<p>    SHIPPED(&quot;Package handed to courier&quot;, 300),</p>
+<p>    DELIVERED(&quot;Package delivered to customer&quot;, 400);</p>
+
+<p>    private final String description;</p>
+<p>    private final int statusCode;</p>
+
+<p>    // Enum Constructor (implicitly private)</p>
+<p>    OrderStatus(String description, int statusCode) {</p>
+<p>        this.description = description;</p>
+<p>        this.statusCode = statusCode;</p>
+<p>    }</p>
+
+<p>    public String getDescription() { return description; }</p>
+<p>    public int getStatusCode() { return statusCode; }</p>
+<p>}</code></pre></p>
+
+<h2>📝 2. Immutable Data Records (<code>record</code>)</h2>
+
+<p>Traditional Java Data Transfer Objects (DTOs) require hundreds of lines of boilerplate getters, <code>equals()</code>, <code>hashCode()</code>, <code>toString()</code>, and constructors. A <code>record</code> eliminates boilerplate completely:</p>
+
+<pre><code class="language-java">// Replaces 60+ lines of traditional JavaBean DTO boilerplate!
+<p>public record EmployeeRecord(int id, String name, double salary) {</p>
+<p>    </p>
+<p>    // Compact Constructor for input validation</p>
+<p>    public EmployeeRecord {</p>
+<p>        if (id &lt;= 0) {</p>
+<p>            throw new IllegalArgumentException(&quot;Employee ID must be positive&quot;);</p>
+<p>        }</p>
+<p>        if (salary &lt; 0) {</p>
+<p>            throw new IllegalArgumentException(&quot;Salary cannot be negative&quot;);</p>
+<p>        }</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<ul>
+<p>  <li>Component Accessors use field names directly: <code>emp.name()</code> (NOT <code>emp.getName()</code>).</li></p>
+<p>  <li>Records are <strong>final</strong> and cannot extend other classes.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: E-Commerce Order Fulfillment System</h2>
+
+<pre><code class="language-java">import java.util.List;
+
+<p>public class OrderSystemMaster {</p>
+
+<p>    // Enum Declaration</p>
+<p>    public enum PaymentMethod { CREDIT_CARD, UPI, NET_BANKING, CASH_ON_DELIVERY }</p>
+
+<p>    // Record Declarations</p>
+<p>    public record Customer(int customerId, String name, String email) {}</p>
+<p>    public record OrderItem(String productName, int quantity, double price) {}</p>
+<p>    </p>
+<p>    public record Order(</p>
+<p>        String orderId, </p>
+<p>        Customer customer, </p>
+<p>        List&lt;OrderItem&gt; items, </p>
+<p>        PaymentMethod paymentMethod</p>
+<p>    ) {</p>
+<p>        // Custom Helper Method in Record</p>
+<p>        public double calculateOrderTotal() {</p>
+<p>            double total = 0.0;</p>
+<p>            for (OrderItem item : items) {</p>
+<p>                total += item.price() * item.quantity();</p>
+<p>            }</p>
+<p>            return total;</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        Customer customer = new Customer(501, &quot;Aarav Sharma&quot;, &quot;aarav@example.com&quot;);</p>
+<p>        </p>
+<p>        List&lt;OrderItem&gt; items = List.of(</p>
+<p>            new OrderItem(&quot;Wireless Headphones&quot;, 1, 2999.00),</p>
+<p>            new OrderItem(&quot;USB-C Cable&quot;, 2, 499.00)</p>
+<p>        );</p>
+
+<p>        Order order = new Order(&quot;ORD-9821&quot;, customer, items, PaymentMethod.UPI);</p>
+
+<p>        System.out.println(&quot;=== ORDER SUMMARY ===&quot;);</p>
+<p>        System.out.println(&quot;Order ID       : &quot; + order.orderId());</p>
+<p>        System.out.println(&quot;Customer Name  : &quot; + order.customer().name());</p>
+<p>        System.out.println(&quot;Payment Method : &quot; + order.paymentMethod());</p>
+<p>        System.out.printf(&quot;Total Payable  : ₹%.2f%n&quot;, order.calculateOrderTotal());</p>
+<p>        System.out.println(&quot;Record toString: &quot; + order);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== ORDER SUMMARY ===
+<p>Order ID       : ORD-9821</p>
+<p>Customer Name  : Aarav Sharma</p>
+<p>Payment Method : UPI</p>
+<p>Total Payable  : ₹3997.00</p>
+<p>Record toString: Order[orderId=ORD-9821, customer=Customer[customerId=501, name=Aarav Sharma, email=aarav@example.com], items=[OrderItem[productName=Wireless Headphones, quantity=1, price=2999.0], OrderItem[productName=USB-C Cable, quantity=2, price=499.0]], paymentMethod=UPI]</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using raw String literals (<code>"PAID"</code>, <code>"PENDING"</code>) instead of <code>enum</code> constants, leading to silent typo bugs.</li></p>
+<p>  <li>Trying to add <code>getName()</code> getter JavaBean names on Records instead of generated component methods <code>record.name()</code>.</li></p>
+<p>  <li>Attempting to extend a <code>record</code> class (<code>records</code> implicitly extend <code>java.lang.Record</code> and are <code>final</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>While <code>record</code> component references are <code>final</code>, if a record component holds a reference to a <strong>mutable object</strong> (like a <code>List</code> or <code>Date</code>), callers can still mutate the internal state of that component! Always store unmodifiable copies (<code>List.copyOf()</code>) inside records.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Enums model user roles, HTTP status codes, workflow states, and transaction types. Records model API JSON DTOs, database query rows, microservice request payloads, and immutable event messages.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Priority</code> enum (<code>LOW</code>, <code>MEDIUM</code>, <code>HIGH</code>, <code>CRITICAL</code>).</p>
+<p>2. Create a <code>Task</code> record containing <code>int taskId</code>, <code>String title</code>, and <code>Priority priority</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create an <code>Enum</code> representing <code>Currency</code> (<code>USD</code>, <code>EUR</code>, <code>INR</code>) with conversion rates relative to USD, and add a method <code>convertToUSD(double amount)</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-classes-and-objects.html">Classes and Objects</a></li></p>
+<p>  <li><a href="11-collections.html">Collections</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="11-collections.html">← Previous: Collections</a> | <a href="13-generics.html">Next: Generics →</a></p>
+
+
+  </div>
+</body>
+</html>

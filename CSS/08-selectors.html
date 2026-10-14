@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 selectors - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Basic Selectors (Element, Class, ID, Grouping)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>CSS Selector</strong> is the part of a CSS rule set that targets specific HTML elements on a webpage so that property declarations can be applied to them.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Selectors target HTML elements. Element selectors target HTML tags (<code>p</code>), Class selectors target <code>.class_name</code>, ID selectors target <code>#id_name</code>, and Grouping selectors target multiple tags (<code>h1, h2, p</code>).</p>
+
+<h3>Hindi</h3>
+<p>Selectors HTML elements ko target karte hain. Element selector tag name (<code>p</code>), Class selector <code>.class_name</code>, aur ID selector <code>#id_name</code> ko style karte hain.</p>
+
+<h3>Marathi</h3>
+<p>Selectors HTML elements na target kartat. Class sathi <code>.class</code> ani ID sathi <code>#id</code> vapartat.</p>
+
+<h2>🤔 Why Do We Use Selectors?</h2>
+
+<p>Without selectors, CSS would have no way of knowing which paragraph, button, heading, or container you want to format. Selectors provide exact target control.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of selectors like addressing mail:</p>
+<ul>
+<p>  <li>**Universal Selector (<code>*</code>):<strong> "Deliver to everyone in the building."</li></p>
+<p>  <li></strong>Element Selector (<code>p</code>):<strong> "Deliver to all apartment doors."</li></p>
+<p>  <li></strong>Class Selector (<code>.special</code>):<strong> "Deliver to all apartments with a 'VIP' sticker."</li></p>
+<p>  <li></strong>ID Selector (<code>#main-header</code>):<strong> "Deliver exclusively to Apartment 401."</li></p>
+<p></ul></p>
+
+<h2>📚 Basic Selector Types Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Selector Type</th><th>Syntax Format</th><th>Target Description</th><th>Example</th><th>Specificity Score</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td></strong>Universal**</td><td><code>*</code></td><td>Targets <strong>all</strong> elements on the page</td><td><code>* { box-sizing: border-box; }</code></td><td>0,0,0,0</td></tr></p>
+<p>    <tr><td><strong>Element / Type</strong></td><td><code>element</code></td><td>Targets all elements with matching tag name</td><td><code>p { color: #333; }</code></td><td>0,0,0,1</td></tr></p>
+<p>    <tr><td><strong>Class</strong></td><td><code>.classname</code></td><td>Targets elements with matching <code>class="..."</code></td><td><code>.btn { padding: 10px; }</code></td><td>0,0,1,0</td></tr></p>
+<p>    <tr><td><strong>ID</strong></td><td><code>#idname</code></td><td>Targets single unique element with matching <code>id="..."</code></td><td><code>#main-logo { width: 150px; }</code></td><td>0,1,0,0</td></tr></p>
+<p>    <tr><td><strong>Grouping</strong></td><td><code>sel1, sel2</code></td><td>Applies same rules to multiple comma-separated selectors</td><td><code>h1, h2, h3 { color: navy; }</code></td><td>Varies per selector</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<pre><code class="language-css">/* Universal Reset */
+<ul>
+<p>  <li>{</li></p>
+<p></ul></p>
+<p>  box-sizing: border-box;</p>
+<p>}</p>
+
+<p>/* Element Selectors */</p>
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  color: #444444;</p>
+<p>}</p>
+
+<p>/* Class Selector (Reusable across multiple elements) */</p>
+<p>.card {</p>
+<p>  background-color: #ffffff;</p>
+<p>  border-radius: 8px;</p>
+<p>  padding: 20px;</p>
+<p>}</p>
+
+<p>/* ID Selector (Unique to one element per page) */</p>
+<p>#hero-title {</p>
+<p>  color: #0056b3;</p>
+<p>  font-size: 36px;</p>
+<p>}</p>
+
+<p>/* Grouping Selector */</p>
+<p>h1, h2, h3 {</p>
+<p>  font-family: &#39;Georgia&#39;, serif;</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Basic Selectors Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1 id=&quot;hero-title&quot;&gt;Welcome to Our Store&lt;/h1&gt;</p>
+<p>  </p>
+<p>  &lt;p class=&quot;highlight-box&quot;&gt;Special seasonal discount available today!&lt;/p&gt;</p>
+<p>  &lt;p&gt;Standard paragraph body text.&lt;/p&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;p&gt;This text is inside a card container.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>#hero-title {</p>
+<p>  color: #007bff;</p>
+<p>  text-align: center;</p>
+<p>}</p>
+
+<p>.highlight-box {</p>
+<p>  background-color: #fff3cd;</p>
+<p>  border-left: 4px solid #ffc107;</p>
+<p>  padding: 12px;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background-color: #f8f9fa;</p>
+<p>  border: 1px solid #dee2e6;</p>
+<p>  padding: 20px;</p>
+<p>  margin-top: 15px;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<ul>
+<p>  <li><code>#hero-title</code> renders as a centered blue heading.</li></p>
+<p>  <li><code>.highlight-box</code> renders as an alert box with a yellow background and left accent border.</li></p>
+<p>  <li><code>.card</code> renders as a light-gray bordered box container.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add a second paragraph in HTML with <code>class="highlight-box"</code>.</p>
+<p>2. Notice how both elements receive the same yellow alert box styling automatically!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Swapping Class and ID symbols:</strong> Writing <code>#card</code> for a class or <code>.hero-title</code> for an ID.</li></p>
+<p>  <li><strong>Reusing the same ID on multiple HTML elements:</strong> IDs must be completely unique per page. Use classes for reusable styles.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Developers build UI component systems (like Bootstrap or Tailwind) using class selectors (<code>.btn</code>, <code>.card</code>, <code>.modal</code>) so visual styles can be reused cleanly across thousands of pages.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-specificity.html">Specificity, Cascade & Inheritance</a></li></p>
+<p>  <li><a href="24-pseudo-classes.html">Pseudo-classes</a></li></p>
+<p>  <li><a href="39-advanced-selectors.html">Advanced Selectors (<code>:is()</code>, <code>:where()</code>, <code>:has()</code>)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Class selectors start with a dot <code>.</code>.</li></p>
+<p>  <li>ID selectors start with a hash <code>#</code>.</li></p>
+<p>  <li>Use classes for reusable styles; use IDs sparingly for unique target anchors.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="07-css-comments.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="09-specificity.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

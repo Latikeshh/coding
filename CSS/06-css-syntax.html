@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 css syntax - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Syntax & Rules</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>CSS Rule Set</strong> consists of a <strong>Selector</strong> pointing to HTML elements, followed by a <strong>Declaration Block</strong> enclosed in curly braces <code>{}</code> containing individual <strong>Declarations</strong> made of a <strong>Property</strong> and a <strong>Value</strong> ending with a semicolon <code>;</code>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>CSS rule syntax: <code>selector { property: value; }</code>. Always end property declarations with a semicolon <code>;</code> and wrap rules inside <code>{}</code> braces.</p>
+
+<h3>Hindi</h3>
+<p>CSS syntax structure: <code>selector { property: value; }</code>. Har declaration ke baad semicolon <code>;</code> lagana compulsory hai.</p>
+
+<h3>Marathi</h3>
+<p>CSS syntax structure: <code>selector { property: value; }</code>. Pratyek declaration nantar semicolon <code>;</code> lavne avashyak aahe.</p>
+
+<h2>🤔 Why Is Correct Syntax Mandatory?</h2>
+
+<p>Computers and browser rendering engines require precise syntax rules. Missing a single semicolon or curly brace can break subsequent CSS declarations across an entire stylesheet.</p>
+
+<h2>📝 Anatomy of a CSS Rule</h2>
+
+<pre><code class="language-css">selector {
+<p>  property: value;</p>
+<p>  property: value;</p>
+<p>}</code></pre></p>
+
+<pre><code class="language-css">h1 {
+<p>  color: #007bff;</p>
+<p>  font-size: 32px;</p>
+<p>  text-align: center;</p>
+<p>}</code></pre></p>
+
+<h2>📚 Rule Components Breakdown</h2>
+
+<table>
+<p>  <thead><tr><th>Component</th><th>Definition</th><th>Example in <code>color: red;</code></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Selector</strong></td><td>Identifies which HTML element(s) to style</td><td><code>h1</code></td></tr></p>
+<p>    <tr><td><strong>Declaration Block</strong></td><td>Everything enclosed within <code>{}</code> braces</td><td><code>{ color: red; margin: 10px; }</code></td></tr></p>
+<p>    <tr><td><strong>Property</strong></td><td>The visual style attribute being modified</td><td><code>color</code></td></tr></p>
+<p>    <tr><td><strong>Value</strong></td><td>The setting assigned to the property</td><td><code>red</code></td></tr></p>
+<p>    <tr><td><strong>Declaration</strong></td><td>Property name + colon + value + semicolon</td><td><code>color: red;</code></td></tr></p>
+<p>    <tr><td><strong>Semicolon <code>;</code></strong></td><td>Separates declarations</td><td><code>;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<pre><code class="language-css">/* Styling body defaults */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  line-height: 1.6;</p>
+<p>  margin: 0;</p>
+<p>  padding: 0;</p>
+<p>}</p>
+
+<p>/* Styling class card */</p>
+<p>.card {</p>
+<p>  background-color: #ffffff;</p>
+<p>  border: 1px solid #dddddd;</p>
+<p>  border-radius: 8px;</p>
+<p>  padding: 20px;</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Syntax Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;box&quot;&gt;</p>
+<p>    &lt;h2&gt;Correct CSS Syntax&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Every declaration ends with a semicolon.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>.box {</p>
+<p>  width: 300px;</p>
+<p>  margin: 40px auto;</p>
+<p>  padding: 20px;</p>
+<p>  background-color: #e8f5e9;</p>
+<p>  border: 2px solid #4caf50;</p>
+<p>  border-radius: 6px;</p>
+<p>  text-align: center;</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  color: #2e7d32;</p>
+<p>  margin-top: 0;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A neatly formatted green box centered horizontally on the page containing styled heading and text.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Remove the semicolon <code>;</code> after <code>color: #2e7d32</code> in <code>style.css</code>.</p>
+<p>2. Add another property <code>font-size: 24px;</code> immediately below it.</p>
+<p>3. Observe how the missing semicolon breaks the syntax parsing in your browser!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Omitting the semicolon <code>;</code>:</strong> <code>color: red font-size: 20px;</code> breaks parsing for <code>font-size</code>.</li></p>
+<p>  <li><strong>Using equals <code>=</code> instead of colon <code>:</code>:</strong> Writing <code>color = red;</code> instead of <code>color: red;</code>.</li></p>
+<p>  <li><strong>Forgetting closing brace <code>}</code>:</strong> Causes all following CSS rules to be swallowed into the unclosed block.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Developers format CSS rules with clean indentation and spacing (often automated using formatters like Prettier) to ensure syntax readability across engineering teams.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="07-css-comments.html">CSS Comments</a></li></p>
+<p>  <li><a href="08-selectors.html">Basic Selectors</a></li></p>
+<p>  <li><a href="09-specificity.html">Specificity, Cascade & Inheritance</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Format: <code>selector { property: value; }</code>.</li></p>
+<p>  <li>Colons <code>:</code> separate property from value.</li></p>
+<p>  <li>Semicolons <code>;</code> terminate declarations.</li></p>
+<p>  <li>Curly braces <code>{}</code> group declaration blocks.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="05-how-to-add-css.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="07-css-comments.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

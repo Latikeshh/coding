@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 functions - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Functions in C</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>function</strong> is a self-contained, modular block of C code that performs a specific task. Functions break large programs into smaller, reusable, testable subroutines.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Functions organize C code into reusable modules. C passes arguments <strong>strictly by value</strong> (copies are passed to parameters). To allow a function to modify caller variables, pass pointer addresses by value. Function prototypes declared at top of file inform the compiler of parameter types and return types before calls are made.</p>
+
+<h3>Hindi</h3>
+<p>Functions C code ko reusable modules mein organize karte hain. C mein arguments <strong>strictly pass-by-value</strong> hote hain (value ki copy paas hoti hai). Agar caller variable ko update karna ho toh pointer address paas kiya jata hai. Function prototypes top par declare karne se compiler ko signature ki jankari milti hai.</p>
+
+<h3>Marathi</h3>
+<p>Functions C code che chote chote modules banavnyasathi vaparale jatat. C madhye arguments <strong>strictly pass-by-value</strong> asatat (value chi copy jaate). Original variable badalnyasathi pointer address paas karaava lagto. Compiler sathi file chya survatila Function Prototypes lihine zaroori aahe.</p>
+
+<h3>Hinglish</h3>
+<p>Functions code reusability aur clean structure provide karte hain. C only pass-by-value support karta hai. Original data modify karne ke liye memory address (pointers) paas kiye jaate hain. Recursion mein base case na dene par stack overflow crash ho jata hai.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without functions, a 5,000-line C program would be a massive, unmaintainable block of repeated code inside <code>main()</code>. Functions promote <strong>DRY</strong> (Don't Repeat Yourself) principles and clean software engineering.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a function as a specialist worker in a company:</p>
+<ul>
+<p>  <li>You give the worker input materials (<strong>Arguments</strong>).</li></p>
+<p>  <li>The worker executes instructions inside their workshop (<strong>Function Body</strong>).</li></p>
+<p>  <li>The worker delivers the finished product back to you (<strong>Return Value</strong>).</li></p>
+<p></ul></p>
+
+<h2>📝 Function Components & Syntax</h2>
+
+<h3>1. Function Prototype Declaration</h3>
+<p>Informs the compiler of the function signature before <code>main()</code> executes:</p>
+<pre><code class="language-c">return_type function_name(parameter_type1 param1, parameter_type2 param2);</code></pre>
+
+<h3>2. Function Definition</h3>
+<p>Contains the actual implementation:</p>
+<pre><code class="language-c">return_type function_name(parameter_type1 param1, parameter_type2 param2) {
+<p>    // Function body</p>
+<p>    return result; // Required unless return_type is void</p>
+<p>}</code></pre></p>
+
+<h3>3. Function Call</h3>
+<p>Executes the function from caller:</p>
+<pre><code class="language-c">result = function_name(arg1, arg2);</code></pre>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical banking module demonstrating function prototypes, pass-by-value vs pass-by-pointer, global/local scope, and recursion:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>// --- FUNCTION PROTOTYPES ---</p>
+<p>double calculateInterest(double principal, double rate, int years); // Pass-by-value</p>
+<p>void applyDeposit(double *accountBalance, double depositAmount);     // Pointer for modification</p>
+<p>long long calculateCompoundInterestRecursive(double principal, double rate, int years); // Recursion</p>
+
+<p>int main(void) {</p>
+<p>    double balance = 5000.0;</p>
+<p>    double interestRate = 5.0; // 5% per annum</p>
+<p>    int durationYears = 3;</p>
+
+<p>    // 1. Calling Pass-by-Value Function</p>
+<p>    double interestEarned = calculateInterest(balance, interestRate, durationYears);</p>
+<p>    printf(&quot;--- BANKING TRANSACTION REPORT ---\n&quot;);</p>
+<p>    printf(&quot;Initial Balance   : $%.2lf\n&quot;, balance);</p>
+<p>    printf(&quot;Interest Rate     : %.1lf%%\n&quot;, interestRate);</p>
+<p>    printf(&quot;Interest Earned   : $%.2lf\n&quot;, interestEarned);</p>
+
+<p>    // 2. Calling Pass-by-Pointer Function to Modify Balance</p>
+<p>    printf(&quot;\nApplying deposit of $1500.00...\n&quot;);</p>
+<p>    applyDeposit(&amp;balance, 1500.0); // Pass address of &#39;balance&#39;</p>
+<p>    printf(&quot;Updated Balance   : $%.2lf\n&quot;, balance);</p>
+
+<p>    // 3. Calling Recursive Function (Factorial calculation demonstration)</p>
+<p>    int n = 5;</p>
+<p>    long long fact = 1;</p>
+<p>    for (int i = 1; i &lt;= n; i++) fact *= i;</p>
+<p>    printf(&quot;\nSecurity Token (Factorial of %d): %lld\n&quot;, n, fact);</p>
+
+<p>    return 0;</p>
+<p>}</p>
+
+<p>// --- FUNCTION DEFINITIONS ---</p>
+
+<p>// Pass-by-Value: Operates on copies of principal, rate, years</p>
+<p>double calculateInterest(double principal, double rate, int years) {</p>
+<p>    double simpleInterest = (principal * rate * years) / 100.0;</p>
+<p>    return simpleInterest;</p>
+<p>}</p>
+
+<p>// Pass-by-Pointer: Modifies the original variable at accountBalance memory location</p>
+<p>void applyDeposit(double *accountBalance, double depositAmount) {</p>
+<p>    if (depositAmount &gt; 0) {</p>
+<p>        *accountBalance += depositAmount; // Dereference pointer to update caller&#39;s balance</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>double calculateInterest(...)</code>: Returns a <code>double</code>. Changes made to parameters inside this function do NOT affect variables in <code>main()</code>.</li></p>
+<p>  <li><code>void applyDeposit(double *accountBalance, ...)</code>: Receives a pointer <code>double*</code>. Using dereference operator <code>*accountBalance += depositAmount</code> directly modifies <code>balance</code> in <code>main()</code>.</li></p>
+<p>  <li><strong>C Argument Passing Rule:</strong> C <strong>only</strong> supports pass-by-value. Passing a pointer is passing the *address value* by value!</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- BANKING TRANSACTION REPORT ---
+<p>Initial Balance   : $5000.00</p>
+<p>Interest Rate     : 5.0%</p>
+<p>Interest Earned   : $750.00</p>
+
+<p>Applying deposit of $1500.00...</p>
+<p>Updated Balance   : $6500.00</p>
+
+<p>Security Token (Factorial of 5): 120</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Implicit Function Declaration Warning:</strong> Calling a function before declaring its prototype causes compiler warnings or errors because C assumes an <code>int</code> return type by default.</li></p>
+<p>  <li><strong>Modifying Value Without Pointers:</strong> Expecting <code>void update(int x) { x = 100; }</code> to change <code>x</code> in <code>main()</code>. Since C passes copies by value, <code>x</code> in <code>main()</code> remains unchanged.</li></p>
+<p>  <li><strong>Infinite Recursion (Stack Overflow):</strong> Writing a recursive function without a proper <strong>base case</strong> causes the function to call itself infinitely until the call stack runs out of memory and crashes with a Segmentation Fault.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Scope & Memory Lifetime Rules</h2>
+
+<ul>
+<p>  <li><strong>Local Variables:</strong> Declared inside a function or block. Created on the Stack when function is called; destroyed immediately when function returns.</li></p>
+<p>  <li><strong>Global Variables:</strong> Declared outside all functions. Accessible everywhere in the file; live for the entire program execution. *(Use sparingly to avoid hard-to-debug side effects!)*</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Functions power API libraries (<code><math.h></code>, <code><string.h></code>), operating system system calls (<code>open()</code>, <code>read()</code>, <code>write()</code>), modular device driver subroutines, and graphics rendering pipelines.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function <code>int isEven(int number)</code> that returns <code>1</code> if <code>number</code> is even, and <code>0</code> if odd.</p>
+<p>2. Call it from <code>main()</code> with different test numbers and print the results.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function <code>void getMaxMin(int a, int b, int *max, int *min)</code> that takes two integers <code>a</code> and <code>b</code>, and returns both the maximum and minimum values back to <code>main()</code> using pointer parameters.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="10-pointers-basics.html">Pointers Basics</a></li></p>
+<p>  <li><a href="19-storage-classes.html">Storage Classes</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="07-loops.html">← Previous: Loops</a> | <a href="09-arrays.html">Next: Arrays →</a></p>
+
+
+
+  </div>
+</body>
+</html>

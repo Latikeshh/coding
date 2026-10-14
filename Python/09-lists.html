@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lists - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Lists in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>List</strong> in Python is an ordered, <strong>mutable</strong> (modifiable) collection of elements enclosed in square brackets <code>[]</code>. Lists can store elements of mixed data types (integers, strings, floats, nested lists) and allow duplicate values.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>List Python ki sabse popular mutable ordered collection hai. List mein elements square brackets <code>[]</code> ke andar hote hain. Indexing <code>0</code> se start hoti hai, aur last element ke liye negative indexing <code>-1</code> ka use kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>List mutable ahe (tyat badal karta yeto). Indexing <code>0</code> pasun suru hote aani shevatcha item ghenyasathi <code>-1</code> Indexing vaparatat.</p>
+
+<h2>📝 1. Indexing & Slicing (<code>list[start:stop:step]</code>)</h2>
+
+<ul>
+<p>  <li><strong>Zero-Based Indexing:</strong> First item <code>list[0]</code>, second item <code>list[1]</code>.</li></p>
+<p>  <li><strong>Negative Indexing:</strong> Last item <code>list[-1]</code>, second to last <code>list[-2]</code>.</li></p>
+<p>  <li><strong>Slicing (<code>list[start:stop:step]</code>):</strong> Extracts a sub-list from <code>start</code> up to (but <strong>excluding</strong>) <code>stop</code>.</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">colors = [&quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;, &quot;Yellow&quot;, &quot;Orange&quot;]
+
+<p>print(colors[0])       # &quot;Red&quot;</p>
+<p>print(colors[-1])      # &quot;Orange&quot;</p>
+<p>print(colors[1:4])     # [&quot;Green&quot;, &quot;Blue&quot;, &quot;Yellow&quot;] (index 1, 2, 3)</p>
+<p>print(colors[::-1])    # Reverses list: [&quot;Orange&quot;, &quot;Yellow&quot;, &quot;Blue&quot;, &quot;Green&quot;, &quot;Red&quot;]</code></pre></p>
+
+<h2>📝 2. Essential List Methods</h2>
+
+<table>
+<p>  <thead><tr><th>Method</th><th>What It Does</th><th>Mutates List?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>.append(item)</code></td><td>Adds single item to the <strong>end</strong></td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>.extend(iterable)</code></td><td>Appends all elements from another list</td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>.insert(index, item)</code></td><td>Inserts item at specific index</td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>.pop(index)</code></td><td>Removes & returns item at index (default last)</td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>.remove(item)</code></td><td>Removes first occurrence of matching item</td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>.sort(reverse=True)</code></td><td>Sorts elements in-place</td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>.reverse()</code></td><td>Reverses elements in-place</td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>.copy()</code></td><td>Creates a shallow copy of the list</td><td>❌ No</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🧠 3. Aliasing (<code>b = a</code>) vs Shallow Copying (<code>b = a.copy()</code>)</h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL PITFALL:</strong> Writing <code>list_b = list_a</code> does <strong>NOT</strong> copy the list! It creates two variable names pointing to the <strong>same underlying list in memory</strong>. Modifying <code>list_b</code> WILL modify <code>list_a</code>!</p></blockquote>
+
+<pre><code class="language-python">a = [1, 2, 3]
+<p>b = a          # Alias (Same reference in memory!)</p>
+<p>c = a.copy()   # Shallow Copy (Independent new list!)</p>
+
+<p>b.append(99)</p>
+<p>print(&quot;a:&quot;, a) # [1, 2, 3, 99] (Modified!)</p>
+<p>print(&quot;c:&quot;, c) # [1, 2, 3]     (Unchanged!)</code></pre></p>
+
+<h2>💡 Complete Example: Student Score Analytics</h2>
+
+<pre><code class="language-python"># Student Test Score Analytics
+
+<p>scores = [78, 92, 45, 88, 63, 95, 52]</p>
+
+<p>print(&quot;=== STUDENT SCORE ANALYTICS ===&quot;)</p>
+<p>print(&quot;Original Scores :&quot;, scores)</p>
+
+<h1>1. Modifying Elements</h1>
+<p>scores.append(82)           # Adding new score to end</p>
+<p>scores.insert(0, 90)         # Inserting score at index 0</p>
+<p>scores.remove(45)           # Removing failing score 45</p>
+
+<h1>2. Statistical Analysis</h1>
+<p>total_students = len(scores)</p>
+<p>highest_score = max(scores)</p>
+<p>lowest_score = min(scores)</p>
+<p>average_score = sum(scores) / total_students</p>
+
+<h1>3. Sorting Scores (Non-destructive copy using sorted())</h1>
+<p>sorted_scores = sorted(scores, reverse=True)</p>
+
+<p>print(f&quot;Updated Scores  : {scores}&quot;)</p>
+<p>print(f&quot;Total Students  : {total_students}&quot;)</p>
+<p>print(f&quot;Highest Score   : {highest_score}&quot;)</p>
+<p>print(f&quot;Lowest Score    : {lowest_score}&quot;)</p>
+<p>print(f&quot;Average Score   : {average_score:.2f}&quot;)</p>
+<p>print(f&quot;Sorted Top-Down : {sorted_scores}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== STUDENT SCORE ANALYTICS ===
+<p>Original Scores : [78, 92, 45, 88, 63, 95, 52]</p>
+<p>Updated Scores  : [90, 78, 92, 88, 63, 95, 52, 82]</p>
+<p>Total Students  : 8</p>
+<p>Highest Score   : 95</p>
+<p>Lowest Score    : 52</p>
+<p>Average Score   : 78.75</p>
+<p>Sorted Top-Down : [95, 92, 90, 88, 82, 78, 63, 52]</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong><code>IndexError: list index out of range</code>:</strong> Attempting to access an index that doesn't exist (e.g., <code>list[len(list)]</code>).</li></p>
+<p>  <li>Calling <code>.sort()</code> or <code>.append()</code> and expecting it to return the new list (<code>result = my_list.sort()</code> sets <code>result</code> to <code>None</code> because <code>.sort()</code> modifies the list in-place and returns <code>None</code>!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>If a list contains nested mutable objects (e.g. lists inside lists <code>[[1, 2], [3, 4]]</code>), use <code>copy.deepcopy()</code> to create a fully independent recursive copy.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Shopping cart items, search result sets, message queues, time-series data, and batch record processing.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a list of 5 product prices <code>[120, 450, 80, 990, 230]</code>.</p>
+<p>2. Add a new price to the end using <code>.append()</code> and remove the lowest price using <code>.remove(min(prices))</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a list with duplicate numbers <code>[10, 20, 10, 30, 20, 40]</code> and creates a new list with duplicates removed while preserving the original element order.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-tuples.html">Tuples</a></li></p>
+<p>  <li><a href="14-list-comprehensions.html">List Comprehensions</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="08-functions.html">← Previous: Functions</a> | <a href="10-tuples.html">Next: Tuples →</a></p>
+
+
+  </div>
+</body>
+</html>

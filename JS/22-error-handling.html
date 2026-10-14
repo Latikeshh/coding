@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 error handling - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🛡️ Error Handling in JavaScript (<code>try...catch...finally</code> & Custom Errors)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Error Handling</strong> in JavaScript is a defensive programming mechanism that allows applications to gracefully intercept, process, and recover from runtime exceptions, network request failures, and invalid user inputs without terminating script execution or crashing the application UI.</p>
+
+<p>---</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>In JavaScript, unexpected runtime exceptions (such as network timeouts, invalid JSON payloads, or accessing properties on <code>undefined</code>) interrupt the standard Call Stack execution. The <code>try...catch...finally</code> block intercepts these exceptions. Custom errors can be manually triggered using the <code>throw</code> keyword.</p>
+
+<h3>Hindi (Roman Script)</h3>
+<p>Jab JavaScript code run hota hai, toh runtime par aane wale errors app ko crash kar sakte hain. Unhe handle karne ke liye <code>try...catch...finally</code> use karte hain. Risky code <code>try</code> mein hota hai, error aane par <code>catch</code> run hota hai, aur <code>finally</code> block hamesha execute hota hai (resource cleanup ke liye).</p>
+
+<h3>Marathi (Roman Script)</h3>
+<p>JavaScript application crash honyapasun vachvanyasathi <code>try...catch...finally</code> cha wapar kela jato. Network API calls kiwa invalid input handle karnyasathi <code>throw new Error()</code> dwaare custom error raise karta yeto.</p>
+
+<h3>Hinglish</h3>
+<p>JavaScript mein 6 standard built-in Error types hote hain (jaise <code>TypeError</code>, <code>ReferenceError</code>). Asynchronous code (<code>async/await</code>) mein API calls reject hone par <code>try...catch</code> block se error capture kiya jata hai taaki UI par friendly fallback error message dikhaya ja sake.</p>
+
+<p>---</p>
+
+<h2>🧱 The Mechanics of <code>try...catch...finally</code></h2>
+
+<pre><code class="language-text">[ try Block ] ──► Executes code statements
+<p>       │</p>
+<p>       ├──► No Exception ──────────────┐</p>
+<p>       │                               ▼</p>
+<p>       └──► Exception Thrown ──► [ catch(error) Block ] ──► Intercepts &amp; logs error</p>
+<p>                                       │</p>
+<p>                                       ▼</p>
+<p>                             [ finally Block ] ──► ALWAYS executes (Cleanup / Stop Spinner)</code></pre></p>
+
+<p>1. <strong><code>try</code> Block</strong>: Encloses code statements that might throw an exception.</p>
+<p>2. <strong><code>catch(error)</code> Block</strong>: Executes ONLY if an exception occurs inside the <code>try</code> block. Receives the <code>Error</code> object containing <code>.name</code>, <code>.message</code>, and <code>.stack</code>.</p>
+<p>3. <strong><code>finally</code> Block</strong>: ALWAYS executes regardless of success or failure. Ideal for hiding loading spinners or closing file handles.</p>
+<p>4. <strong><code>throw</code> Statement</strong>: Generates a user-defined custom exception instance.</p>
+
+<p>---</p>
+
+<h2>🏷️ Standard Built-in Error Types in JavaScript</h2>
+
+<table>
+<p>  <thead><tr><th>Error Type</th><th>Cause</th><th>Example Trigger</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>TypeError</code></strong></td><td>Value is not of expected type or method call on <code>null</code>/<code>undefined</code>.</td><td><code>null.toUpperCase()</code></td></tr></p>
+<p>    <tr><td><strong><code>ReferenceError</code></strong></td><td>Variable name is invalid or accessed in Temporal Dead Zone.</td><td><code>console.log(x); // x unassigned</code></td></tr></p>
+<p>    <tr><td><strong><code>SyntaxError</code></strong></td><td>Invalid JavaScript code or malformed JSON payload.</td><td><code>JSON.parse("invalid json")</code></td></tr></p>
+<p>    <tr><td><strong><code>RangeError</code></strong></td><td>Numeric value is out of valid range or infinite recursion.</td><td><code>new Array(-5)</code> or Stack Overflow</td></tr></p>
+<p>    <tr><td><strong><code>URIError</code></strong></td><td>Malformed URI encoding or decoding parameters.</td><td><code>decodeURIComponent("%")</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Production Examples</h2>
+
+<h3>Example 1: Custom Error Classes & Form Input Validation</h3>
+
+<pre><code class="language-js">// 1. Custom Error Subclass
+<p>class ValidationError extends Error {</p>
+<p>  constructor(message, field) {</p>
+<p>    super(message);</p>
+<p>    this.name = &quot;ValidationError&quot;;</p>
+<p>    this.field = field;</p>
+<p>  }</p>
+<p>}</p>
+
+<p>// 2. Validation Function</p>
+<p>function registerUser(username, age) {</p>
+<p>  try {</p>
+<p>    if (!username || username.trim().length &lt; 3) {</p>
+<p>      throw new ValidationError(&quot;Username must be at least 3 characters.&quot;, &quot;username&quot;);</p>
+<p>    }</p>
+
+<p>    if (typeof age !== &quot;number&quot; || age &lt; 18) {</p>
+<p>      throw new ValidationError(&quot;User must be 18 years or older.&quot;, &quot;age&quot;);</p>
+<p>    }</p>
+
+<p>    console.log(<code>User ${username} registered successfully!</code>);</p>
+<p>    return { status: &quot;SUCCESS&quot; };</p>
+
+<p>  } catch (error) {</p>
+<p>    if (error instanceof ValidationError) {</p>
+<p>      console.error(<code>[Validation Failed] Field &#39;${error.field}&#39;: ${error.message}</code>);</p>
+<p>    } else {</p>
+<p>      console.error(<code>[System Error]: ${error.message}</code>);</p>
+<p>    }</p>
+<p>    return { status: &quot;FAILED&quot;, error: error.message };</p>
+
+<p>  } finally {</p>
+<p>    console.log(&quot;Registration attempt audit logged.&quot;);</p>
+<p>  }</p>
+<p>}</p>
+
+<p>// Test cases</p>
+<p>registerUser(&quot;Al&quot;, 22);     // Fails username validation</p>
+<p>registerUser(&quot;Rohan&quot;, 16);  // Fails age validation</p>
+<p>registerUser(&quot;Rohan&quot;, 24);  // Succeeds</code></pre></p>
+
+<p>---</p>
+
+<h3>Example 2: Asynchronous Error Handling in Fetch API with <code>async/await</code></h3>
+
+<pre><code class="language-js">async function fetchUserProfile(userId) {
+<p>  const loadingSpinner = { visible: true };</p>
+
+<p>  try {</p>
+<p>    console.log(<code>Fetching user profile #${userId}...</code>);</p>
+<p>    const response = await fetch(<code>https://api.example.com/users/${userId}</code>);</p>
+
+<p>    // Fetch API does NOT reject HTTP 404/500 automatically; check response.ok!</p>
+<p>    if (!response.ok) {</p>
+<p>      throw new Error(<code>HTTP Request Failed with Status Code: ${response.status}</code>);</p>
+<p>    }</p>
+
+<p>    const userData = await response.json();</p>
+<p>    console.log(&quot;User Profile Loaded:&quot;, userData);</p>
+<p>    return userData;</p>
+
+<p>  } catch (error) {</p>
+<p>    console.error(&quot;Network or API Error:&quot;, error.message);</p>
+<p>    // Display user-friendly UI fallback</p>
+<p>    return { id: userId, name: &quot;Anonymous Guest&quot;, isFallback: true };</p>
+
+<p>  } finally {</p>
+<p>    loadingSpinner.visible = false;</p>
+<p>    console.log(&quot;Loading spinner hidden.&quot;);</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & Pitfalls</h2>
+
+<ul>
+<p>  <li><strong>Silently Swallowing Errors</strong>: Leaving <code>catch (err) {}</code> empty hides errors entirely, making application bugs impossible to track down.</li></p>
+<p>  <li><strong>Throwing Plain Strings</strong>: Writing <code>throw "Something went wrong";</code> instead of <code>throw new Error("Something went wrong");</code> loses the Call Stack trace (<code>.stack</code>).</li></p>
+<p>  <li><strong>Ignoring Fetch API <code>response.ok</code></strong>: Assuming <code>fetch()</code> throws an error on HTTP 404 or 500 errors. <code>fetch()</code> only rejects on network disconnects. Always check <code>if (!response.ok) throw new Error(...)</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself & Practice Exercises</h2>
+
+<p>1. Write a function <code>safeJsonParse(jsonString)</code> that attempts <code>JSON.parse()</code>. If valid, return the object; if invalid JSON, catch the error and return <code>null</code>.</p>
+<p>2. Write a function <code>divideNumbers(a, b)</code> that throws a custom error if <code>b === 0</code> ("Division by zero is undefined").</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Build a secure password validator function <code>validatePassword(password)</code>:</p>
+<ul>
+<p>  <li><code>try</code> block checks if password length is at least 8 characters, contains at least one digit, and contains at least one special symbol.</li></p>
+<p>  <li>If any check fails, <code>throw</code> a <code>ValidationError</code> with a descriptive message.</li></p>
+<p>  <li>Use <code>catch</code> to log the failure and <code>finally</code> to record an authentication attempt log.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-promises-and-async-await.html">Asynchronous JS, Promises & Async/Await</a></li></p>
+<p>  <li><a href="16-fetch-api-and-json.html">Fetch API & Working with JSON</a></li></p>
+<p>  <li><a href="21-web-storage.html">Web Storage & Session Management</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="21-web-storage.html">← Previous: Web Storage</a> | <a href="23-modules.html">Next: JS Modules →</a></p>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 scope and hoisting - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Scope, Hoisting & Temporal Dead Zone (TDZ)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Scope:</strong> Determines accessibility/visibility of variables in different parts of your code.</li></p>
+<p>  <li><strong>Hoisting:</strong> JavaScript engine's behavior of hoisting variable and function declarations to the top of their enclosing scope during compilation.</li></p>
+<p>  <li><strong>Temporal Dead Zone (TDZ):</strong> The period between entering scope and variable initialization where accessing a <code>let</code> or <code>const</code> variable throws a <code>ReferenceError</code>.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Scope yeh decide karta hai ki variable kahan accessible hai. Hoisting se JavaScript declarations ko scope ke top par process karta hai. <code>let</code> aur <code>const</code> hoist hote hain par initialize hone tak <strong>Temporal Dead Zone (TDZ)</strong> mein rehte hain, isliye unhe declaration se pehle access karne par error aata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Scope mule ठरते ki variable kuthe vaparta yeto. Hoisting mule declarations varti move hotat. <code>let</code> aani <code>const</code> declare karnya purvi vaparlyas TDZ mule <code>ReferenceError</code> yeto.</p>
+
+<h2>📝 Types of Scope</h2>
+
+<p>1. <strong>Global Scope:</strong> Variables declared outside any function or block. Accessible anywhere in the script.</p>
+<p>2. <strong>Function / Local Scope:</strong> Variables declared inside a function (with <code>var</code>, <code>let</code>, or <code>const</code>). Accessible only inside that function.</p>
+<p>3. <strong>Block Scope:</strong> Variables declared inside <code>{}</code> (like <code>if</code> statements or <code>for</code> loops) using <code>let</code> or <code>const</code>. Cannot be accessed outside the block.</p>
+
+<pre><code class="language-js">{
+<p>  var globalVar = &quot;I leak out of block!&quot;;</p>
+<p>  let blockLet = &quot;I am block scoped!&quot;;</p>
+<p>  const blockConst = &quot;I am also block scoped!&quot;;</p>
+<p>}</p>
+
+<p>console.log(globalVar);  // &quot;I leak out of block!&quot;</p>
+<p>// console.log(blockLet); // ReferenceError: blockLet is not defined</code></pre></p>
+
+<h2>🧠 Hoisting & Temporal Dead Zone Behavior</h2>
+
+<h3>Function Declaration Hoisting (Fully Hoisted)</h3>
+<pre><code class="language-js">// Works fine! Function declarations are fully hoisted.
+<p>sayHello();</p>
+
+<p>function sayHello() {</p>
+<p>  console.log(&quot;Hello World!&quot;);</p>
+<p>}</code></pre></p>
+
+<h3><code>var</code> Hoisting (Hoisted with <code>undefined</code>)</h3>
+<pre><code class="language-js">console.log(a); // Output: undefined (no error, but value is not yet assigned)
+<p>var a = 10;</code></pre></p>
+
+<h3><code>let</code> and <code>const</code> Hoisting (TDZ Protection)</h3>
+<pre><code class="language-js">// TDZ starts at beginning of scope
+<p>// console.log(b); // ReferenceError: Cannot access &#39;b&#39; before initialization</p>
+<p>let b = 20; // TDZ ends here</code></pre></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">let globalVal = 100;
+
+<p>function testScope() {</p>
+<p>  let localVal = 200;</p>
+
+<p>  if (true) {</p>
+<p>    let blockVal = 300;</p>
+<p>    var functionVal = 400; // var ignores block scope!</p>
+<p>    console.log(&quot;Inside Block:&quot;, globalVal, localVal, blockVal);</p>
+<p>  }</p>
+
+<p>  console.log(&quot;Outside Block - functionVal:&quot;, functionVal); // 400</p>
+<p>  // console.log(blockVal); // Uncaught ReferenceError</p>
+<p>}</p>
+
+<p>testScope();</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Inside Block: 100 200 300
+<p>Outside Block - functionVal: 400</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Predict what happens when you log a variable before declaring it with <code>var</code> vs with <code>let</code>.</p>
+<p>2. Fix this loop so it prints <code>1</code>, <code>2</code>, <code>3</code> instead of <code>4</code>, <code>4</code>, <code>4</code>:</p>
+<p>   ``<code>javascript</p>
+<p>   for (var i = 1; i <= 3; i++) {</p>
+<p>     setTimeout(() => console.log(i), 100);</p>
+<p>   }</p>
+<p>   </code>`<code></p>
+<p>   *(Hint: Change </code>var<code> to </code>let<code> so </code>i<code> gets a fresh block scope for each iteration!).*</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Assuming hoisting physically moves your code to the top of the file. It is a compilation phase memory allocation.</li></p>
+<p>  <li>Accidental global variable creation by omitting declaration keywords (</code>x = 10<code> inside a function creates a global property in non-strict mode).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Block scope prevents variable collisions in loops, module functions, and component event handlers.</p>
+
+<h2>💡 Remember</h2>
+
+<p></code>var<code> is function-scoped and hoisted as </code>undefined<code>. </code>let<code> and </code>const` are block-scoped and protected by the Temporal Dead Zone (TDZ).</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="10-objects.html">← Previous: Objects</a> | <a href="12-es6-features.html">Next: Modern ES6+ Features →</a></p>
+
+
+
+  </div>
+</body>
+</html>

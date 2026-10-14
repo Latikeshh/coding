@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 headings - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Headings (<code><h1></code> to <code><h6></code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>HTML provides six heading elements, <strong><code><h1></code></strong> through <strong><code><h6></code></strong>, which establish the document hierarchy and structural outline of a webpage. <code><h1></code> represents the primary top-level heading, while <code><h2></code> through <code><h6></code> represent sub-sections of decreasing structural importance.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>HTML headings (<code><h1></code> to <code><h6></code>) define document structure and hierarchy. Choose heading levels based on content outline rather than visual font size.</p>
+
+<h3>Hindi</h3>
+<p>HTML headings (<code><h1></code> se <code><h6></code>) document ka structural outline aur hierarchy define karte hain. Heading level font size ke bajaye document structure ke according choose karein.</p>
+
+<h3>Marathi</h3>
+<p>HTML headings (<code><h1></code> te <code><h6></code>) document cha outline ani hierarchy tharavtat. Heading shodhnyasathi font size peksha mahitichya rachnevar laksh dya.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Headings structure text content into readable sections. Browsers, search engine crawlers (SEO), and screen readers rely on heading outlines to understand page topics and content relationships:</p>
+<p>1. <strong>Readability:</strong> Visitors scan headings to locate relevant information quickly.</p>
+<p>2. <strong>Accessibility (a11y):</strong> Screen reader users navigate pages by jumping from heading to heading.</p>
+<p>3. <strong>SEO:</strong> Search engines use heading tags to index main topics and keywords.</p>
+
+<h2>🧱 Structural Hierarchy vs. Visual Font Size</h2>
+
+<p>A common beginner mistake is choosing heading tags based on default visual font size:</p>
+<ul>
+<p>  <li><strong>Incorrect approach:</strong> Using <code><h3></code> because you want smaller text.</li></p>
+<p>  <li><strong>Correct approach:</strong> Use CSS (<code>font-size</code>) to adjust text sizing. Choose HTML heading tags strictly based on <strong>content structure</strong>:</li></p>
+<p></ul></p>
+
+<pre><code class="language-text">&lt;h1&gt; Page Main Title (Level 1)
+<p> ├── &lt;h2&gt; Major Section Heading (Level 2)</p>
+<p> │    ├── &lt;h3&gt; Subsection Title (Level 3)</p>
+<p> │    └── &lt;h3&gt; Subsection Title (Level 3)</p>
+<p> └── &lt;h2&gt; Another Major Section (Level 2)</code></pre></p>
+
+<h2>📐 Syntax & Heading Scale</h2>
+
+<pre><code class="language-html">&lt;h1&gt;Heading Level 1 (Primary Page Title)&lt;/h1&gt;
+<p>&lt;h2&gt;Heading Level 2 (Major Section)&lt;/h2&gt;</p>
+<p>&lt;h3&gt;Heading Level 3 (Subsection)&lt;/h3&gt;</p>
+<p>&lt;h4&gt;Heading Level 4 (Sub-subsection)&lt;/h4&gt;</p>
+<p>&lt;h5&gt;Heading Level 5 (Minor Section)&lt;/h5&gt;</p>
+<p>&lt;h6&gt;Heading Level 6 (Lowest Level Heading)&lt;/h6&gt;</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Developer Portfolio - Headings Example&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Developer Portfolio&lt;/h1&gt;</p>
+
+<p>  &lt;h2&gt;About Me&lt;/h2&gt;</p>
+<p>  &lt;p&gt;I am a computer science student passionate about frontend web development.&lt;/p&gt;</p>
+
+<p>  &lt;h2&gt;My Web Projects&lt;/h2&gt;</p>
+
+<p>  &lt;h3&gt;1. Student Learning Portal&lt;/h3&gt;</p>
+<p>  &lt;p&gt;A web application providing structured coding tutorials for beginners.&lt;/p&gt;</p>
+
+<p>  &lt;h3&gt;2. E-Commerce Store Prototype&lt;/h3&gt;</p>
+<p>  &lt;p&gt;An accessible frontend prototype for an online bookstore.&lt;/p&gt;</p>
+
+<p>  &lt;h2&gt;Contact Information&lt;/h2&gt;</p>
+<p>  &lt;p&gt;Email me at contact@example.com for inquiries.&lt;/p&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>The browser renders a clear hierarchy: <strong>Developer Portfolio</strong> as the largest main heading, followed by major section headings (<strong>About Me</strong>, <strong>My Web Projects</strong>, <strong>Contact Information</strong>) and subsection headings (<strong>1. Student Learning Portal</strong>, <strong>2. E-Commerce Store Prototype</strong>).</p>
+
+<h2>💡 Best Practice Rules for Headings</h2>
+
+<ul>
+<p>  <li><strong>One <code><h1></code> Per Page:</strong> Use a single <code><h1></code> for the primary title of the page to maintain a clear outline for screen readers and search engines.</li></p>
+<p>  <li><strong>Sequential Hierarchy:</strong> Avoid skipping heading levels (e.g., jumping directly from <code><h1></code> to <code><h4></code>). Always follow a logical order (<code><h1></code> → <code><h2></code> → <code><h3></code>).</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a webpage for a recipe or blog article.</p>
+<p>2. Use <code><h1></code> for the main title.</p>
+<p>3. Use <code><h2></code> for major sections like "Ingredients" and "Instructions".</p>
+<p>4. Use <code><h3></code> for individual sub-steps under instructions.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using headings purely for bold text:</strong> Wrapping regular text in <code><h4></code> just to make it bold (use <code><strong></code> or CSS instead).</li></p>
+<p>  <li><strong>Choosing headings based on visual font size:</strong> Always separate structural markup (HTML) from visual presentation (CSS).</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All major websites (blogs, news outlets, e-commerce stores) use structured headings so users can skim content effortlessly and search engine crawlers can index pages correctly.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-html-document-structure.html">Document Structure</a></li></p>
+<p>  <li><a href="05-paragraphs.html">Paragraphs</a></li></p>
+<p>  <li><a href="06-text-formatting.html">Text Formatting</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><h1></code> is the primary main heading.</li></p>
+<p>  <li>Heading tags define document structure, NOT font size.</li></p>
+<p>  <li>Maintain sequential order (<code><h1></code> → <code><h2></code> → <code><h3></code>).</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="03-html-document-structure.html">← Previous: Document Structure</a> | <a href="./">HTML Home</a> | <a href="05-paragraphs.html">Next: Paragraphs →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Expressions - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Regular Expressions in Python (<code>re</code> Module)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Regular Expressions (Regex)</strong> are special character search patterns used to match, extract, validate, and replace complex text sequences inside strings using Python's built-in <strong><code>re</code></strong> module.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Text mein complex patterns (jaise Emails, Phone numbers, ZIP codes) search, validate, aur replace karne ke liye <strong>Regular Expressions (<code>re</code> module)</strong> ka use hota hai. Escape issues se bachne ke liye hamesha Raw Strings (<code>r"pattern"</code>) ka use karein.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Text patterns (Emails, Phone numbers) validate aani replace karnyasathi <code>re</code> module cha wapar kela jato. Pattern sathi Raw Strings (<code>r"pattern"</code>) vapara.</p>
+
+<h2>📝 1. Core Regex Metacharacters</h2>
+
+<table>
+<p>  <thead><tr><th>Symbol</th><th>What It Matches</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>\d</code></td><td>Any digit (<code>0-9</code>)</td><td><code>r"\d{3}"</code> matches 3 digits</td></tr></p>
+<p>    <tr><td><code>\w</code></td><td>Word character (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, <code>_</code>)</td><td><code>r"\w+"</code> matches word</td></tr></p>
+<p>    <tr><td><code>\s</code></td><td>Whitespace character (space, tab, newline)</td><td><code>r"\s+"</code> matches spaces</td></tr></p>
+<p>    <tr><td><code>.</code></td><td>Any single character except newline</td><td><code>r"a.c"</code> matches <code>"abc"</code></td></tr></p>
+<p>    <tr><td><code>^</code> / <code>$</code></td><td>Start / End of string</td><td><code>r"^Hello$"</code></td></tr></p>
+<p>    <tr><td><code>+</code></td><td>1 or more occurrences</td><td><code>r"\d+"</code></td></tr></p>
+<p>    <tr><td><code>*</code></td><td>0 or more occurrences</td><td><code>r"\d*"</code></td></tr></p>
+<p>    <tr><td><code>?</code></td><td>0 or 1 occurrence (optional)</td><td><code>r"colou?r"</code></td></tr></p>
+<p>    <tr><td><code>[a-z]</code></td><td>Character set range</td><td><code>r"[A-Za-z]+"</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Key <code>re</code> Module Functions</h2>
+
+<ul>
+<p>  <li><strong><code>re.search(pattern, text)</code>:</strong> Searches entire string for FIRST match. Returns <code>Match</code> object or <code>None</code>.</li></p>
+<p>  <li><strong><code>re.findall(pattern, text)</code>:</strong> Searches string and returns a <strong>list of all matching substrings</strong>.</li></p>
+<p>  <li><strong><code>re.match(pattern, text)</code>:</strong> Matches pattern starting at the <strong>very beginning</strong> of string.</li></p>
+<p>  <li><strong><code>re.sub(pattern, replacement, text)</code>:</strong> Replaces all pattern matches with replacement string.</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">import re
+
+<p>text = &quot;Call us at 987-654-3210 or 912-345-6789&quot;</p>
+<p>pattern = r&quot;\d{3}-\d{3}-\d{4}&quot;</p>
+
+<h1>Extracting all phone numbers</h1>
+<p>phones = re.findall(pattern, text)</p>
+<p>print(phones) # [&#39;987-654-3210&#39;, &#39;912-345-6789&#39;]</code></pre></p>
+
+<h2>💡 Complete Example: Email & Phone Number Validation Engine</h2>
+
+<pre><code class="language-python">import re
+
+<p>def validate_user_input(email, phone):</p>
+<p>    &quot;&quot;&quot;Validates email and Indian phone number formats using Regex.&quot;&quot;&quot;</p>
+<p>    </p>
+<p>    # 1. Email Regex Pattern</p>
+<p>    email_pattern = r&quot;^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$&quot;</p>
+<p>    </p>
+<p>    # 2. Indian Phone Number Pattern (10 digits starting with 6,7,8,9)</p>
+<p>    phone_pattern = r&quot;^[6-9]\d{9}$&quot;</p>
+<p>    </p>
+<p>    is_valid_email = bool(re.match(email_pattern, email))</p>
+<p>    is_valid_phone = bool(re.match(phone_pattern, phone))</p>
+<p>    </p>
+<p>    return is_valid_email, is_valid_phone</p>
+
+<p>def mask_sensitive_emails(text):</p>
+<p>    &quot;&quot;&quot;Replaces email addresses with &#39;[REDACTED]&#39; using re.sub().&quot;&quot;&quot;</p>
+<p>    email_pattern = r&quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}&quot;</p>
+<p>    return re.sub(email_pattern, &quot;[REDACTED_EMAIL]&quot;, text)</p>
+
+<h1>Testing Regex Engine</h1>
+<p>print(&quot;=== REGEX VALIDATION &amp; SANITIZATION ===&quot;)</p>
+
+<p>email_test = &quot;aarav.verma@example.com&quot;</p>
+<p>phone_test = &quot;9876543210&quot;</p>
+
+<p>v_email, v_phone = validate_user_input(email_test, phone_test)</p>
+
+<p>print(f&quot;Testing Email: &#39;{email_test}&#39; -&gt; Valid? {v_email}&quot;)</p>
+<p>print(f&quot;Testing Phone: &#39;{phone_test}&#39; -&gt; Valid? {v_phone}&quot;)</p>
+
+<p>sample_log = &quot;User Rahul (rahul@company.org) raised ticket #501.&quot;</p>
+<p>masked_log = mask_sensitive_emails(sample_log)</p>
+<p>print(&quot;\nOriginal Log :&quot;, sample_log)</p>
+<p>print(&quot;Masked Log   :&quot;, masked_log)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== REGEX VALIDATION &amp; SANITIZATION ===
+<p>Testing Email: &#39;aarav.verma@example.com&#39; -&gt; Valid? True</p>
+<p>Testing Phone: &#39;9876543210&#39; -&gt; Valid? True</p>
+
+<p>Original Log : User Rahul (rahul@company.org) raised ticket #501.</p>
+<p>Masked Log   : User Rahul ([REDACTED_EMAIL]) raised ticket #501.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to use Raw Strings <code>r"pattern"</code> (writing <code>"\\d+"</code> instead of <code>r"\d+"</code>), leading to backslash escape syntax conflicts.</li></p>
+<p>  <li>Confusing <code>re.match()</code> (matches ONLY at start of string) with <code>re.search()</code> (searches anywhere across entire string!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Avoid overly complex nested regex patterns on untrusted user inputs to prevent <strong>Catastrophic Backtracking</strong> (ReDoS - Regular Expression Denial of Service attacks).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Form validation (Email, Password strength, Phone), web scraping data extraction, log file parsing, and data masking/redaction.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a regex pattern <code>r"\d+"</code> and use <code>re.findall()</code> to extract all numbers from <code>"Order #501 with 3 items costing $450"</code>.</p>
+<p>2. Replace all spaces in <code>"Hello  World  Python"</code> with a single hyphen <code>-</code> using <code>re.sub()</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function <code>extract_hashtags(text)</code> using <code>re.findall()</code> that extracts all Twitter-style hashtags starting with <code>#</code> (e.g. <code>"#python #coding"</code>).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-strings.html">Strings</a></li></p>
+<p>  <li><a href="18-exception-handling.html">Exception Handling</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="22-lambda-map-filter-reduce.html">← Previous: Lambda, Map, Filter, Reduce</a> | <a href="24-datetime.html">Next: Datetime →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 introduction to js - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>⚡ Introduction to JavaScript & Engine Architecture</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>JavaScript (JS)</strong> is a high-level, dynamic, interpreted (JIT-compiled), single-threaded, multi-paradigm programming language that powers interactive user experiences on the web. Standardized as <strong>ECMAScript (ES6+)</strong>, JavaScript runs in web browsers via JavaScript engines (such as Chrome's V8, Firefox's SpiderMonkey, or Safari's JavaScriptCore) and on backend servers via runtime environments like <strong>Node.js</strong> and <strong>Bun</strong>.</p>
+
+<p>---</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>JavaScript is the programming language of the Web. While HTML defines the structural skeleton of a web page and CSS controls visual presentation, JavaScript provides behavioral logic, state management, event handling, and real-time API data fetching without requiring full browser page reloads.</p>
+
+<h3>Hindi (Roman Script)</h3>
+<p>JavaScript web pages ko dynamic aur interactive banati hai. HTML se web page ka structure banta hai, CSS se design aur styling hoti hai, aur JavaScript se logic, button clicks, popups, aur server API calls manage hote hain. Node.js ke aane se ab JS backend server par bhi chalti hai.</p>
+
+<h3>Marathi (Roman Script)</h3>
+<p>JavaScript hi web pages sathi ek dynamic programming language ahe. HTML mule page cha skeleton banto, CSS mule styling tayar hote, aani JavaScript mule page madhye logic, button events, aani API data connection shakya hoto.</p>
+
+<h3>Hinglish</h3>
+<p>JavaScript ki madad se aap frontend web apps (React, Vue, Vanilla JS) aur backend APIs (Node.js, Express) dono bana sakte hain. Yeh Just-In-Time (JIT) compilation use karti hai jisse code browsers mein bohot fast execute hota hai.</p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Building a House</h2>
+
+<ul>
+<p>  <li><strong>HTML</strong>: The architectural structure (walls, doors, windows).</li></p>
+<p>  <li><strong>CSS</strong>: The interior design (paint colors, lighting, furniture layout).</li></p>
+<p>  <li><strong>JavaScript</strong>: The electrical wiring, automatic smart doors, security sensors, and plumbing controls.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>⚙️ JavaScript Engine Architecture & JIT Compilation</h2>
+
+<p>Modern JavaScript engines do NOT purely interpret code line-by-line slowly. Instead, engines like Google Chrome's <strong>V8</strong> use <strong>Just-In-Time (JIT) Compilation</strong>:</p>
+
+<pre><code class="language-text">[ JavaScript Source Code ] 
+<p>          │</p>
+<p>          ▼</p>
+<p>[ Parser &amp; Abstract Syntax Tree (AST) ]</p>
+<p>          │</p>
+<p>          ▼</p>
+<p>[ Interpreter (Ignition) ──► Bytecode Execution ]</p>
+<p>          │ (Hot Code Optimization)</p>
+<p>          ▼</p>
+<p>[ JIT Compiler (TurboFan) ──► Optimized Native Machine Code ]</code></pre></p>
+
+<h3>Key Execution Characteristics:</h3>
+<p>1. <strong>Single-Threaded</strong>: Executes one instruction statement at a time on a single Call Stack.</p>
+<p>2. <strong>Asynchronous Non-Blocking I/O</strong>: Handles background network requests and timers using the <strong>Event Loop</strong>.</p>
+<p>3. <strong>Dynamic Typing</strong>: Variable types are determined at runtime (<code>let x = 10; x = "Hello";</code>).</p>
+
+<p>---</p>
+
+<h2>📝 Syntax & Code Structure</h2>
+
+<pre><code class="language-js">// 1. Single-line comment
+
+<p>/*</p>
+<p>  2. Multi-line comment</p>
+<p>  JavaScript statements end with semicolons (optional but recommended)</p>
+<p>*/</p>
+
+<p>// Printing messages to the Developer Console</p>
+<p>console.log(&quot;Welcome to Modern JavaScript (ES6+)!&quot;);</p>
+<p>console.warn(&quot;This is a warning log message.&quot;);</p>
+<p>console.error(&quot;This is an error log message.&quot;);</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Complete Examples</h2>
+
+<h3>Example 1: Variables, Template Literals & Inspection</h3>
+
+<pre><code class="language-js">// Defining variables with let and const
+<p>const studentName = &quot;Rohan Sharma&quot;;</p>
+<p>let enrolledCourse = &quot;Web Development&quot;;</p>
+<p>let currentScore = 94.5;</p>
+<p>let isGraduated = false;</p>
+
+<p>// Template Literals (backticks <code> </code> with ${expression})</p>
+<p>console.log(<code>Student Name: ${studentName}</code>);</p>
+<p>console.log(<code>Course: ${enrolledCourse} | Score: ${currentScore}%</code>);</p>
+
+<p>// Formatted Table Display in Browser DevTools Console</p>
+<p>console.table([</p>
+<p>  { id: 1, name: &quot;Alice&quot;, track: &quot;Python&quot; },</p>
+<p>  { id: 2, name: &quot;Rohan&quot;, track: &quot;JavaScript&quot; }</p>
+<p>]);</code></pre></p>
+
+<p>#### Output:</p>
+
+<pre><code class="language-text">Student Name: Rohan Sharma
+<p>Course: Web Development | Score: 94.5%</p>
+<p>┌───┬────┬──────────┬──────────────┐</p>
+<p>│   │ id │   name   │    track     │</p>
+<p>├───┼────┼──────────┼──────────────┤</p>
+<p>│ 0 │ 1  │ &#39;Alice&#39;  │  &#39;Python&#39;    │</p>
+<p>│ 1 │ 2  │ &#39;Rohan&#39;  │ &#39;JavaScript&#39; │</p>
+<p>└───┴────┴──────────┴──────────────┘</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & Misconceptions</h2>
+
+<ul>
+<p>  <li><strong>Confusing JavaScript with Java</strong>: JavaScript has NO relation to Java! Java is a compiled OOP language created by Sun Microsystems; JavaScript was created by Brendan Eich at Netscape in 1995.</li></p>
+<p>  <li><strong>Case Sensitivity Errors</strong>: Writing <code>Console.Log()</code> or <code>CONSOLE.LOG()</code> throws a <code>TypeError</code>. JavaScript keywords and methods are strictly case-sensitive (<code>console.log()</code>).</li></p>
+<p>  <li><strong>Ignoring Developer Tools (<code>F12</code>)</strong>: Beginners often try debugging JS blindly. Always open your browser's <strong>Console</strong> (<code>F12</code> or <code>Ctrl+Shift+I</code>) to view runtime errors and logs.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself & Practice Exercises</h2>
+
+<p>1. Open your web browser (Chrome / Firefox / Edge / Safari).</p>
+<p>2. Press <code>F12</code> (or right-click $\rightarrow$ <strong>Inspect</strong>) and click the <strong>Console</strong> tab.</p>
+<p>3. Type <code>console.log("Hello from Console!");</code> and press <code>Enter</code>.</p>
+<p>4. Calculate <code>125 * 8</code> directly in the browser console.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-js.html">Set Up JS Environment & DevTools</a></li></p>
+<p>  <li><a href="03-variables.html">Variables in JavaScript (let, const, var)</a></li></p>
+<p>  <li><a href="04-data-types.html">Data Types & String Methods</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="01-setup-js.html">← Previous: JS Setup</a> | <a href="03-variables.html">Next: Variables →</a></p>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 introduction to cpp - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Introduction to C++ Language & ISO Standards</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>C++</strong> is a general-purpose, statically typed, compiled, middle-level programming language created by <strong>Bjarne Stroustrup</strong> in 1979 at Bell Labs as an expansion of the C language ("C with Classes"). C++ combines low-level direct memory manipulation with high-level Object-Oriented, Generic, and Functional programming paradigms.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>C++ ek bahut hi fast aur powerful programming language hai jo C language par berbasis hai. C++ mein aapko direct memory control (pointers) ke saath-saath Object-Oriented Programming (Classes & Objects) aur Standard Template Library (STL) milti hai. Issi wajah se games (Unreal Engine), Operating Systems, aur high-frequency trading platforms C++ mein likhe jaate hain.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>C++ hi C language madhye sudharana karun tayar keleli ek atyant वेगवान (fast) aani powerful programming language aahe. C++ madhye memory vr sarakshat control (Pointers) aani Object-Oriented Programming (OOP) che sarva features miltat. Games, Operating Systems, aani Complex Applications madhye C++ cha sarvadhik vapar kele jato.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Learn C++?</h2>
+
+<p>1. <strong>Unmatched Performance & Speed</strong>: Zero-cost abstractions mean you don't pay a performance penalty for using high-level features.</p>
+<p>2. <strong>Direct Hardware & Memory Control</strong>: Fine-grained pointers and explicit stack/heap allocation.</p>
+<p>3. <strong>Rich Ecosystem</strong>: Standard Template Library (STL) provides battle-tested data structures (<code>vector</code>, <code>unordered_map</code>, <code>set</code>, algorithms).</p>
+<p>4. <strong>ISO Standardization Evolution</strong>: C++ is actively updated every 3 years (C++11, C++14, C++17, C++20, C++23).</p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy</h2>
+
+<p>Think of programming languages as vehicles:</p>
+<ul>
+<p>  <li><strong>Python</strong>: A self-driving automatic Tesla (very comfortable, easy to drive, but the computer controls everything).</li></p>
+<p>  <li><strong>C++</strong>: A Formula-1 racing car with a manual gearbox (you control every gear, engine valve, and steering millimeter. It requires skill, but achieves blistering speed!).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Evolution of C++ Standards</h2>
+
+<table>
+<p>  <thead><tr><th>ISO Standard</th><th>Major Introduced Features</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>C++98 / C++03</strong></td><td>Classes, Templates, Exceptions, Initial STL</td></tr></p>
+<p>    <tr><td><strong>C++11</strong></td><td>Modern C++ Revolution! <code>auto</code>, Lambdas, Smart Pointers, Move Semantics</td></tr></p>
+<p>    <tr><td><strong>C++14 / C++17</strong></td><td>Generic Lambdas, <code>std::optional</code>, <code>std::variant</code>, Structured Binding</td></tr></p>
+<p>    <tr><td><strong>C++20</strong></td><td>Concepts, Ranges, Coroutines, Modules (<code>import</code>), <code>std::format</code></td></tr></p>
+<p>    <tr><td><strong>C++23</strong></td><td><code>std::print</code>, Expected type, Multidimensional subscript operator <code>[]</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+
+<p>int main() {</p>
+<p>    std::string language = &quot;C++20&quot;;</p>
+<p>    int releaseYear = 2020;</p>
+<p>    </p>
+<p>    std::cout &lt;&lt; &quot;Language: &quot; &lt;&lt; language &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Standardized in: &quot; &lt;&lt; releaseYear &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;C++ combines Low-Level Control + High-Level Speed!&quot; &lt;&lt; std::endl;</p>
+<p>    </p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code><iostream></code>: Preprocessor header providing <code>std::cout</code> and <code>std::cin</code>.</li></p>
+<p>  <li><code>std::string</code>: Modern dynamic string class provided by standard library.</li></p>
+<p>  <li><code>std::endl</code>: Flushes buffer and outputs <code>\n</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Language: C++20
+<p>Standardized in: 2020</p>
+<p>C++ combines Low-Level Control + High-Level Speed!</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Confusing C and C++</strong>: C++ supports everything C does, but adds Classes, References, Templates, and Smart Pointers. Do not write raw <code>malloc/free</code> when <code>new/delete</code> or <code>std::vector</code> is available in C++.</li></p>
+<p>  <li><strong>Forgetting Namespace Prefix</strong>: Writing <code>cout</code> instead of <code>std::cout</code> without <code>using namespace std;</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Prefer modern C++ idioms (<code>std::vector</code>, <code>std::unique_ptr</code>) over raw C-style arrays and raw pointers.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>Game Development</strong>: Unreal Engine 5, Unity Engine Core, EA Frostbite.</li></p>
+<p>  <li><strong>Operating Systems</strong>: Microsoft Windows Kernel, Apple macOS Core, Android Runtime (ART).</li></p>
+<p>  <li><strong>Web Browsers</strong>: Google Chrome V8 JavaScript Engine, Mozilla Firefox.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Compile a C++ script using <code>g++ -std=c++20 main.cpp</code> and print the version of C++ you are practicing.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that prints 3 advantages of C++ formatted as bullet points on separate lines.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-cpp.html">Setup C++ Development Environment</a></li></p>
+<p>  <li><a href="03-variables-and-data-types.html">Variables & Data Types</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="01-setup-cpp.html">← Previous: Setup</a> | <a href="03-variables-and-data-types.html">Next: Variables & Data Types →</a></p>
+
+
+  </div>
+</body>
+</html>

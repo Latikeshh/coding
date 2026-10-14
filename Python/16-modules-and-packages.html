@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modules and Packages - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Modules and Packages in Python</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Module:</strong> A single Python source file (<code>.py</code>) containing functions, classes, and variables that can be re-used across other files.</li></p>
+<p>  <li><strong>Package:</strong> A directory containing multiple related Python module files and an <code>__init__.py</code> file (optional in modern Python 3.3+, but standard best practice).</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Large programs ko simple aur clean rakhne ke liye code ko multiple <code>.py</code> files mein divide kiya jata hai. Code import karne ke liye <code>import module_name</code> ya <code>from module import function</code> ka use hota hai. File ko directly run kar rahe hain ya import karke use kar rahe hain—yeh check karne ke liye <code>if __name__ == "__main__":</code> idiom ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Code la alag <code>.py</code> files madhye organize karnyasathi Modules vaparatat. Import karnyasathi <code>import</code> keyword vaparatat.</p>
+
+<h2>📝 1. Import Statements & Aliasing</h2>
+
+<pre><code class="language-python"># 1. Importing complete module
+<p>import math</p>
+<p>print(math.sqrt(16)) # 4.0</p>
+
+<h1>2. Importing specific functions with aliasing</h1>
+<p>from math import pi as PI_VAL, pow as power</p>
+<p>print(PI_VAL) # 3.141592653589793</p>
+
+<h1>3. Importing custom module from package directory</h1>
+<p>from my_package.utils import format_currency</code></pre></p>
+
+<h2>📝 2. The <code>if __name__ == "__main__":</code> Idiom</h2>
+
+<p>When Python runs a <code>.py</code> file:</p>
+<ul>
+<p>  <li>If the file is executed <strong>directly from terminal</strong>, Python sets the hidden <code>__name__</code> variable to <code>"__main__"</code>.</li></p>
+<p>  <li>If the file is <strong>imported as a module</strong> into another script, Python sets <code>__name__</code> to the file's actual module name (e.g. <code>"utils"</code>).</li></p>
+<p></ul></p>
+
+<blockquote><p>💡 <strong>Why It Matters:</strong> Wrapping execution code inside <code>if __name__ == "__main__":</code> prevents testing code from executing automatically whenever another script imports your file!</p></blockquote>
+
+<pre><code class="language-python">def add(a, b):
+<p>    return a + b</p>
+
+<h1>Runs ONLY when executed directly, NOT when imported!</h1>
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    print(&quot;Testing add function:&quot;, add(10, 5))</code></pre></p>
+
+<h2>📝 3. Essential Standard Library Modules</h2>
+
+<p>Python comes with a rich <strong>Standard Library ("Batteries Included")</strong>:</p>
+
+<ul>
+<p>  <li><strong><code>math</code>:</strong> Trigonometry, logarithms, roots, constants (<code>pi</code>, <code>e</code>).</li></p>
+<p>  <li><strong><code>random</code>:</strong> Random numbers (<code>randint</code>, <code>choice</code>, <code>shuffle</code>).</li></p>
+<p>  <li><strong><code>sys</code>:</strong> System arguments (<code>sys.argv</code>), exit (<code>sys.exit()</code>), Python path.</li></p>
+<p>  <li><strong><code>os</code>:</strong> Operating system files, directory creation, environment variables.</li></p>
+<p>  <li><strong><code>time</code> / <code>datetime</code>:</strong> Time tracking and performance benchmarking.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: Custom Module & Package Architecture</h2>
+
+<h3>File 1: <code>calculator.py</code></h3>
+<pre><code class="language-python"># Module: calculator.py
+<p>import math</p>
+
+<p>def add(a, b):</p>
+<p>    return a + b</p>
+
+<p>def square_root(x):</p>
+<p>    if x &lt; 0:</p>
+<p>        raise ValueError(&quot;Cannot calculate square root of negative number.&quot;)</p>
+<p>    return math.sqrt(x)</p>
+
+<h1>Executable entry point check</h1>
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    print(&quot;=== RUNNING CALCULATOR DIRECT MODULE TESTS ===&quot;)</p>
+<p>    print(&quot;Add Test        :&quot;, add(10, 20))</p>
+<p>    print(&quot;Square Root Test:&quot;, square_root(25))</code></pre></p>
+
+<h3>File 2: <code>main_app.py</code></h3>
+<pre><code class="language-python"># Main Application Script
+<p>import calculator as calc</p>
+
+<p>print(&quot;=== MAIN APPLICATION LAUNCH ===&quot;)</p>
+
+<p>val1 = 15</p>
+<p>val2 = 25</p>
+<p>sum_result = calc.add(val1, val2)</p>
+<p>sqrt_result = calc.square_root(sum_result)</p>
+
+<p>print(f&quot;Sum of {val1} + {val2} = {sum_result}&quot;)</p>
+<p>print(f&quot;Square Root of {sum_result} = {sqrt_result:.2f}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<p>Running <code>python3 main_app.py</code>:</p>
+
+<pre><code class="language-text">=== MAIN APPLICATION LAUNCH ===
+<p>Sum of 15 + 25 = 40</p>
+<p>Square Root of 40 = 6.32</code></pre></p>
+
+<p>*(Notice how the <code>=== RUNNING CALCULATOR DIRECT MODULE TESTS ===</code> block from <code>calculator.py</code> did NOT execute because of <code>if __name__ == "__main__":</code>!)*</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Circular Imports:</strong> Module A imports Module B, and Module B imports Module A simultaneously, resulting in <code>ImportError: cannot import name</code>.</li></p>
+<p>  <li>Naming custom Python files the exact same name as standard library modules (e.g., naming your test file <code>math.py</code> or <code>random.py</code>), which shadows the built-in library!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Avoid using <code>from module import *</code> because it pollutes your current namespace with unknown variable names and increases the risk of accidental variable shadowing bugs.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>All professional software architectures organize code into separate domain packages (<code>models/</code>, <code>views/</code>, <code>controllers/</code>, <code>services/</code>, <code>utils/</code>).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Use Python's built-in <code>random</code> module to pick a random item from a list <code>["Apple", "Banana", "Cherry"]</code> using <code>random.choice()</code>.</p>
+<p>2. Use <code>math.pi</code> to calculate the area of a circle with radius 7.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a custom module file <code>string_utils.py</code> containing a function <code>reverse_and_capitalize(text)</code>. Import and use it in a separate <code>app.py</code> file.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-functions.html">Functions Basics</a></li></p>
+<p>  <li><a href="29-virtual-environments-and-pip.html">Virtual Environments and Pip</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="15-functions-advanced.html">← Previous: Advanced Functions</a> | <a href="17-file-handling.html">Next: File Handling →</a></p>
+
+
+  </div>
+</body>
+</html>

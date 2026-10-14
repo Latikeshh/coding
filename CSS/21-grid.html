@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 grid - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Grid Layout (2D Grids)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Grid Layout</strong> is a 2-dimensional grid-based layout model designed to structure content into rows and columns simultaneously. It provides powerful track sizing (<code>fr</code>, <code>minmax()</code>, <code>repeat()</code>), explicit area placement (<code>grid-template-areas</code>), and responsive grid column layouts without requiring media queries.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>CSS Grid (<code>display: grid</code>) is a 2D layout system (rows AND columns simultaneously). Use <code>grid-template-columns: repeat(3, 1fr)</code> for equal fraction columns and <code>minmax()</code> for auto-responsive card grids.</p>
+
+<h3>Hindi</h3>
+<p>CSS Grid (<code>display: grid</code>) 2D layout system hai jo ek saath rows aur columns dono ko sambhalta hai. Auto-responsive cards ke liye <code>repeat(auto-fit, minmax(250px, 1fr))</code> ka use karein.</p>
+
+<h3>Marathi</h3>
+<p>CSS Grid 2D layout (rows ani columns) sathi vaparla jaato. <code>grid-template-columns</code> dware columns cha size thartat.</p>
+
+<h2>🤔 Why Do We Use CSS Grid?</h2>
+
+<p>While Flexbox excels at 1D alignment along a single row or column, CSS Grid manages complex 2D web page layouts, dashboards, image galleries, and multi-column card layouts where elements must align across both horizontal columns and vertical rows.</p>
+
+<h2>🧠 Simple Explanation & Graph Paper Analogy</h2>
+
+<p>Think of CSS Grid as an empty sheet of graph paper:</p>
+<ul>
+<p>  <li>You draw horizontal and vertical grid lines.</li></p>
+<p>  <li>You specify how wide columns should be (<code>grid-template-columns</code>).</li></p>
+<p>  <li>You place content cards into specific grid cells or let them auto-fill the grid.</li></p>
+<p></ul></p>
+
+<h2>📚 Core Grid Properties Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Value Format</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>display: grid</code></td><td>Converts container into 2D Grid context</td><td><code>display: grid;</code></td></tr></p>
+<p>    <tr><td><code>grid-template-columns</code></td><td>Defines column track count and sizing</td><td><code>grid-template-columns: repeat(3, 1fr);</code></td></tr></p>
+<p>    <tr><td><code>grid-template-rows</code></td><td>Defines row track sizing</td><td><code>grid-template-rows: auto 1fr auto;</code></td></tr></p>
+<p>    <tr><td><code>gap</code> / <code>grid-gap</code></td><td>Sets gutter spacing between rows & columns</td><td><code>gap: 20px;</code></td></tr></p>
+<p>    <tr><td><code>grid-column</code></td><td>Spans a child across multiple columns</td><td><code>grid-column: span 2;</code></td></tr></p>
+<p>    <tr><td><code>grid-template-areas</code></td><td>Named ASCII layout template map</td><td><code>"header header" "sidebar main" "footer footer"</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🌟 The Power of the <code>fr</code> Unit & Auto-Responsive Cards</h2>
+
+<p>The <code>fr</code> (Fraction) unit represents a fraction of available free space in the grid container. Combining <code>repeat()</code>, <code>auto-fit</code>, and <code>minmax()</code> creates <strong>fully responsive card layouts without writing a single media query</strong>:</p>
+
+<pre><code class="language-css">/* Responsive grid: creates as many columns as fit (min 250px, max 1 fraction) */
+<p>.card-grid {</p>
+<p>  display: grid;</p>
+<p>  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p>  gap: 20px;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Grid Layout Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Photo &amp;amp; Feature Card Gallery&lt;/h1&gt;</p>
+
+<p>  &lt;!-- Auto-responsive card grid --&gt;</p>
+<p>  &lt;div class=&quot;card-grid&quot;&gt;</p>
+<p>    &lt;div class=&quot;card&quot;&gt;</p>
+<p>      &lt;h3&gt;Web Design&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Building responsive and accessible UI components.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>    &lt;div class=&quot;card&quot;&gt;</p>
+<p>      &lt;h3&gt;Development&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Clean semantic HTML5 and modular CSS3 stylesheets.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>    &lt;div class=&quot;card&quot;&gt;</p>
+<p>      &lt;h3&gt;SEO &amp;amp; Performance&lt;/h3&gt;</p>
+<p>      &lt;p&gt;Optimizing fast loading speeds and accessibility.&lt;/p&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f0f2f5;</p>
+<p>  padding: 30px;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  text-align: center;</p>
+<p>  color: #1f2937;</p>
+<p>  margin-bottom: 30px;</p>
+<p>}</p>
+
+<p>/* 2D Auto-responsive Grid */</p>
+<p>.card-grid {</p>
+<p>  display: grid;</p>
+<p>  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p>  gap: 20px;</p>
+<p>  max-width: 1200px;</p>
+<p>  margin: 0 auto;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  padding: 24px;</p>
+<p>  border-radius: 12px;</p>
+<p>  border: 1px solid #e5e7eb;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.05);</p>
+<p>}</p>
+
+<p>.card h3 {</p>
+<p>  margin-top: 0;</p>
+<p>  color: #2563eb;</p>
+<p>}</p>
+
+<p>.card p {</p>
+<p>  color: #4b5563;</p>
+<p>  margin-bottom: 0;</p>
+<p>  line-height: 1.5;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>On desktop screens, the three cards render side-by-side in a 3-column layout. When you narrow the browser window to mobile width, the grid automatically reflows into a single column without needing <code>@media</code> query breakpoints!</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Change <code>minmax(250px, 1fr)</code> to <code>minmax(350px, 1fr)</code>.</p>
+<p>2. Notice how the grid wraps down into fewer columns sooner because each card requires at least 350px width.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using Grid when Flexbox is simpler:</strong> Using 2D Grid for a simple 1D single-row navigation bar (Flexbox fits 1D alignment better).</li></p>
+<p>  <li><strong>Forgetting <code>gap</code>:</strong> Adding outer margins on grid items instead of declaring <code>gap: 20px</code> on the grid parent container.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>CSS Grid powers complex web application dashboards (sidebar + main content + header widget area), photo galleries, e-commerce product grids, and pricing comparison tables.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-flexbox.html">Flexbox Layout</a></li></p>
+<p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
+<p>  <li><a href="36-card-layout.html">Card Layout Components</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Flexbox = 1D (rows OR columns); CSS Grid = 2D (rows AND columns).</li></p>
+<p>  <li><code>1fr</code> = One fraction of available container space.</li></p>
+<p>  <li><code>repeat(auto-fit, minmax(250px, 1fr))</code> creates responsive card grids automatically.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="20-flexbox.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="22-responsive-design.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

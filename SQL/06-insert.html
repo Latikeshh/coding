@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 insert - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1><code>INSERT</code> – Adding Data to Tables</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>INSERT INTO</code></strong> statement is a <strong>Data Manipulation Language (DML)</strong> command used to add new data rows (records) into an existing database table.</p>
+
+<p>When you execute an <code>INSERT</code> command, the database engine verifies that the new record satisfies all column data types, string length rules, <code>NOT NULL</code> constraints, <code>UNIQUE</code> restrictions, <code>CHECK</code> conditions, and <code>FOREIGN KEY</code> relationships before writing the row to disk.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Database table mein naye records/rows add karne ke liye <strong><code>INSERT INTO</code></strong> command ka use hota hai. Recommended tareeka yeh hai ki aap column names ko explicitly mention karein (<code>INSERT INTO table_name (col1, col2)...</code>). Single row insert karne ke alawa, aap ek hi query mein multiple rows bhi insert kar sakte hain. Text aur date values ko hamesha single quotes (<code>'text'</code>) mein likhna zaroori hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Table madhye navin data/rows bharnyasathi <strong><code>INSERT INTO</code></strong> command cha wapar kela jato. Columns chi naave spashtha sangun data bharnaychi paddhat sarvat changli ahe. Ekasathi ek kiva anek rows (<code>VALUES (...), (...)</code>) insert karta येतात. Text aani date valuse sathi single quotes (<code>'text'</code>) vaparnya garjeche ahe.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Creating database tables with <code>CREATE TABLE</code> only constructs the empty schema framework. The <code>INSERT INTO</code> statement is used to:</p>
+
+<ul>
+<p>  <li>Populate database tables with real-world application records (user registrations, e-commerce orders, inventory logs).</li></p>
+<p>  <li>Add new single records or perform bulk multi-row data imports efficiently.</li></p>
+<p>  <li>Trigger automatic column default values (<code>DEFAULT</code>) and auto-incrementing primary key IDs (<code>AUTO_INCREMENT</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Index Cards in a File Drawer</h2>
+
+<p>Think of an <code>INSERT INTO</code> statement as filling out a new <strong>Registration Card</strong> and sliding it into a filing drawer:</p>
+
+<ul>
+<p>  <li><strong>The File Drawer:</strong> The existing database table (<code>employees</code>).</li></p>
+<p>  <li><strong>The Printed Field Headers:</strong> The column names (<code>emp_id</code>, <code>first_name</code>, <code>salary</code>).</li></p>
+<p>  <li><strong>Filling out the Card:</strong> The <code>INSERT INTO</code> query writing values into each field.</li></p>
+<p>  <li><strong>Rules on the Card:</strong> Constraints ensuring you don't leave required fields blank (<code>NOT NULL</code>) or write duplicate Roll Numbers (<code>PRIMARY KEY</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Syntax Variations Explained</h2>
+
+<p>SQL supports three primary variations of the <code>INSERT INTO</code> statement:</p>
+
+<h3>Variation 1: Explicit Column Syntax (Recommended Best Practice)</h3>
+<p>Specifying target column names explicitly is the safest and most maintainable approach:</p>
+
+<pre><code class="language-sql">INSERT INTO employees
+<p>    (emp_id, first_name, last_name, department, salary, hire_date)</p>
+<p>VALUES</p>
+<p>    (101, &#39;Vikram&#39;, &#39;Aditya&#39;, &#39;Engineering&#39;, 85000.00, &#39;2024-01-15&#39;);</code></pre></p>
+
+<p>#### 💡 Why Explicit Column Syntax is Best Practice:</p>
+<p>1. <strong>Schema Immunity:</strong> If a developer adds a new column to the table later, existing code won't break because explicit column names dictate exact value alignment.</p>
+<p>2. <strong>Column Omission:</strong> Allows you to omit optional columns (columns that allow <code>NULL</code> or have a <code>DEFAULT</code> value).</p>
+<p>3. <strong>Clarity:</strong> Makes queries self-documenting by showing exactly which value corresponds to which column.</p>
+
+<p>---</p>
+
+<h3>Variation 2: Implicit Column Syntax (Without Column Names)</h3>
+<p>Omitting column names requires supplying values for <strong>every</strong> column in the exact ordinal sequence defined in the table schema:</p>
+
+<pre><code class="language-sql">INSERT INTO employees
+<p>VALUES (105, &#39;Siddharth&#39;, &#39;Verma&#39;, &#39;Finance&#39;, 72000.00, &#39;2024-05-10&#39;);</code></pre></p>
+
+<blockquote><p>⚠️ <strong>Warning on Implicit Syntax:</strong> This approach is fragile. If the table schema is altered (e.g., adding a new column or reordering existing columns), this query will fail or insert data into wrong columns! Always prefer explicit column syntax in production code.</p></blockquote>
+
+<p>---</p>
+
+<h3>Variation 3: Inserting Multiple Rows in One Statement (High Performance)</h3>
+<p>MySQL, MariaDB, PostgreSQL, and SQLite allow inserting multiple records using a single comma-separated <code>VALUES</code> list:</p>
+
+<pre><code class="language-sql">INSERT INTO employees
+<p>    (emp_id, first_name, last_name, department, salary, hire_date)</p>
+<p>VALUES</p>
+<p>    (102, &#39;Ananya&#39;, &#39;Roy&#39;, &#39;Marketing&#39;, 62000.00, &#39;2024-03-01&#39;),</p>
+<p>    (103, &#39;Kiran&#39;, &#39;Deshmukh&#39;, &#39;Engineering&#39;, 90000.00, &#39;2023-11-10&#39;),</p>
+<p>    (104, &#39;Priya&#39;, &#39;Sharma&#39;, &#39;HR&#39;, 58000.00, &#39;2025-02-01&#39;);</code></pre></p>
+
+<blockquote><p>⚡ <strong>Performance Tip:</strong> Inserting 1,000 rows in a single multi-row <code>INSERT</code> statement executes up to <strong>20x faster</strong> than executing 1,000 individual <code>INSERT</code> statements due to reduced network latency and transaction commit overhead!</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Complete Practical Workflow & Employee Example</h2>
+
+<p>Let's execute a complete, runnable MySQL-compatible workflow creating an <code>employees</code> table and demonstrating single inserts, multi-row inserts, column omissions, and <code>NULL</code> inserts.</p>
+
+<pre><code class="language-sql">-- 1. Create target employees table
+<p>CREATE TABLE employees (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    last_name VARCHAR(50) NOT NULL,</p>
+<p>    department VARCHAR(50), -- Nullable field</p>
+<p>    salary DECIMAL(10, 2),</p>
+<p>    hire_date DATE DEFAULT (CURRENT_DATE) -- Defaults to current date if omitted</p>
+<p>);</p>
+
+<p>-- 2. Insert single record with explicit columns</p>
+<p>INSERT INTO employees (emp_id, first_name, last_name, department, salary, hire_date)</p>
+<p>VALUES (101, &#39;Vikram&#39;, &#39;Aditya&#39;, &#39;Engineering&#39;, 85000.00, &#39;2024-01-15&#39;);</p>
+
+<p>-- 3. Insert multiple records in a single query</p>
+<p>INSERT INTO employees (emp_id, first_name, last_name, department, salary, hire_date)</p>
+<p>VALUES </p>
+<p>    (102, &#39;Ananya&#39;, &#39;Roy&#39;, &#39;Marketing&#39;, 62000.00, &#39;2024-03-01&#39;),</p>
+<p>    (103, &#39;Kiran&#39;, &#39;Deshmukh&#39;, &#39;Engineering&#39;, 90000.00, &#39;2023-11-10&#39;),</p>
+<p>    (104, &#39;Priya&#39;, &#39;Sharma&#39;, &#39;HR&#39;, 58000.00, &#39;2025-02-01&#39;);</p>
+
+<p>-- 4. Insert record with omitted hire_date (Triggers DEFAULT CURRENT_DATE)</p>
+<p>INSERT INTO employees (emp_id, first_name, last_name, department, salary)</p>
+<p>VALUES (105, &#39;Siddharth&#39;, &#39;Verma&#39;, &#39;Finance&#39;, 72000.00);</p>
+
+<p>-- 5. Insert record with explicit NULL for nullable department</p>
+<p>INSERT INTO employees (emp_id, first_name, last_name, department, salary, hire_date)</p>
+<p>VALUES (106, &#39;Neha&#39;, &#39;Patel&#39;, NULL, 78000.00, &#39;2024-06-01&#39;);</p>
+
+<p>-- 6. Retrieve all rows to verify inserted data</p>
+<p>SELECT * FROM employees;</code></pre></p>
+
+<p>#### 👀 Expected <code>SELECT * FROM employees;</code> Output:</p>
+
+<pre><code class="language-text">+--------+------------+-----------+-------------+----------+------------+
+<table>
+<p>  <thead><tr><th>emp_id</th><th>first_name</th><th>last_name</th><th>department</th><th>salary</th><th>hire_date</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+-----------+-------------+----------+------------+</p>
+<table>
+<p>  <thead><tr><th>101</th><th>Vikram</th><th>Aditya</th><th>Engineering</th><th>85000.00</th><th>2024-01-15</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>102</td><td>Ananya</td><td>Roy</td><td>Marketing</td><td>62000.00</td><td>2024-03-01</td></tr></p>
+<p>    <tr><td>103</td><td>Kiran</td><td>Deshmukh</td><td>Engineering</td><td>90000.00</td><td>2023-11-10</td></tr></p>
+<p>    <tr><td>104</td><td>Priya</td><td>Sharma</td><td>HR</td><td>58000.00</td><td>2025-02-01</td></tr></p>
+<p>    <tr><td>105</td><td>Siddharth</td><td>Verma</td><td>Finance</td><td>72000.00</td><td>2026-10-10</td></tr></p>
+<p>    <tr><td>106</td><td>Neha</td><td>Patel</td><td>NULL</td><td>78000.00</td><td>2024-06-01</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+-----------+-------------+----------+------------+</code></pre></p>
+
+<blockquote><p>ℹ️ <strong>Understanding Default Dates:</strong> For <code>emp_id 105</code>, <code>hire_date</code> was omitted from the <code>INSERT</code> column list, so the database engine automatically evaluated <code>DEFAULT (CURRENT_DATE)</code> upon query execution. Output <code>2026-10-10</code> represents the execution date when this tutorial was run.</p></blockquote>
+
+<p>---</p>
+
+<h2>⚙️ How SQL Handles Defaults, NULLs, and Required Columns</h2>
+
+<p>Understanding what happens when columns are omitted or assigned <code>NULL</code>:</p>
+
+<p>1. <strong>Omitting a Column with a <code>DEFAULT</code> Value:</strong></p>
+<ul>
+<p>  <li>If you omit <code>hire_date</code> from the column list, the engine automatically populates it with the default value (<code>CURRENT_DATE</code>).</li></p>
+<p></ul></p>
+<p>2. <strong>Explicitly Passing <code>NULL</code> to a Column with a <code>DEFAULT</code> Value:</strong></p>
+<ul>
+<p>  <li>If you execute <code>INSERT INTO employees (..., hire_date) VALUES (..., NULL);</code>, the engine inserts <strong><code>NULL</code></strong>, <strong>not</strong> the default date! Default constraints only trigger when the column is completely omitted from the column list.</li></p>
+<p></ul></p>
+<p>3. <strong>Omitting a Required <code>NOT NULL</code> Column Without a Default:</strong></p>
+<ul>
+<p>  <li>If you attempt to omit <code>last_name</code> (defined as <code>VARCHAR(50) NOT NULL</code>), the statement is rejected:</li></p>
+<p></ul></p>
+<p>     <code>ERROR 1364 (HY000): Field 'last_name' doesn't have a default value</code>.</p>
+
+<p>---</p>
+
+<h2>🚀 Advanced Variation: <code>INSERT INTO ... SELECT ...</code></h2>
+
+<p>You can copy rows from one table directly into another table using a <code>SELECT</code> query:</p>
+
+<pre><code class="language-sql">-- Create an archive table for high earners
+<p>CREATE TABLE senior_staff (</p>
+<p>    staff_id INT PRIMARY KEY,</p>
+<p>    full_name VARCHAR(100),</p>
+<p>    department VARCHAR(50),</p>
+<p>    salary DECIMAL(10, 2)</p>
+<p>);</p>
+
+<p>-- Copy employees earning &gt;= 80,000 into senior_staff</p>
+<p>INSERT INTO senior_staff (staff_id, full_name, department, salary)</p>
+<p>SELECT emp_id, CONCAT(first_name, &#39; &#39;, last_name), department, salary</p>
+<p>FROM employees</p>
+<p>WHERE salary &gt;= 80000.00;</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error Message / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1136 (21S01): Column count doesn't match value count</code></strong></td><td>Number of values provided does not match the number of specified columns.</td><td>Ensure every column in <code>(col1, col2)</code> has a matching value in <code>VALUES (val1, val2)</code>.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1062 (23000): Duplicate entry for key 'PRIMARY'</code></strong></td><td>Attempting to insert an <code>emp_id</code> Primary Key value that already exists.</td><td>Provide a unique integer for <code>emp_id</code> or use <code>AUTO_INCREMENT</code>.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1054 (42S22): Unknown column 'Vikram' in 'field list'</code></strong></td><td>Forgetting single quotes around text or date strings (<code>Vikram</code> instead of <code>'Vikram'</code>).</td><td>Always enclose text strings and date literals in single quotes (<code>'Vikram'</code>, <code>'2024-01-15'</code>).</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1364 (HY000): Field 'last_name' doesn't have a default value</code></strong></td><td>Omitting a required <code>NOT NULL</code> column that has no <code>DEFAULT</code> constraint defined.</td><td>Supply a valid string value for all required <code>NOT NULL</code> columns.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1452 (23000): Cannot add or update a child row</code></strong></td><td>Inserting a Foreign Key ID that does not exist in the parent table.</td><td>Ensure the referenced parent record exists before inserting into the child table.</td></tr></p>
+<p>    <tr><td><strong>Value & Column Order Mismatch</strong></td><td>Swapping values (e.g. passing salary into date column or name into ID column).</td><td>Use explicit column lists and match value types carefully to column positions.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Every interactive web application relies on <code>INSERT INTO</code> queries:</p>
+
+<ul>
+<p>  <li><strong>E-Commerce Checkouts:</strong> Inserting a new order record into <code>orders</code> and multiple line items into <code>order_items</code>.</li></p>
+<p>  <li><strong>User Authentication:</strong> Inserting a new user profile when someone signs up on a website.</li></p>
+<p>  <li><strong>Financial Logs:</strong> Inserting audit log events for every bank transaction or transfer.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Inserting a Single Employee</h3>
+<p>Write an <code>INSERT INTO</code> statement to add a new employee named <code>'Rahul Verma'</code> working in the <code>'Marketing'</code> department with salary <code>65000.00</code> and <code>emp_id = 107</code>. Ensure all required <code>NOT NULL</code> columns (<code>emp_id</code>, <code>first_name</code>, <code>last_name</code>) are supplied.</p>
+
+<h3>Exercise 2: Understanding Constraint Errors</h3>
+<p>Explain why the following query fails and identify the exact error code triggered:</p>
+
+<pre><code class="language-sql">INSERT INTO employees (emp_id, first_name, department, salary)
+<p>VALUES (108, &#39;Aarav&#39;, &#39;Finance&#39;, 70000.00);</code></pre></p>
+
+<h3>Exercise 3: Multi-Row Insert Practice</h3>
+<p>Write a single SQL statement that inserts two new departments (<code>30, 'Finance'</code> and <code>40, 'Human Resources'</code>) into a <code>departments (dept_id, dept_name)</code> table.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>1. Write a statement to create a <code>products</code> table:</p>
+<ul>
+<p>  <li><code>product_id</code> (INT, Primary Key)</li></p>
+<p>  <li><code>product_name</code> (VARCHAR 100, NOT NULL)</li></p>
+<p>  <li><code>price</code> (DECIMAL 10,2, NOT NULL)</li></p>
+<p></ul></p>
+<p>2. Write a single multi-row <code>INSERT</code> statement to add 2 products:</p>
+<ul>
+<p>  <li>Product 1: ID <code>1</code>, Name <code>'Wireless Mouse'</code>, Price <code>1299.50</code></li></p>
+<p>  <li>Product 2: ID <code>2</code>, Name <code>'Mechanical Keyboard'</code>, Price <code>3499.00</code></li></p>
+<p></ul></p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">INSERT INTO employees (emp_id, first_name, last_name, department, salary)
+<p>VALUES (107, &#39;Rahul&#39;, &#39;Verma&#39;, &#39;Marketing&#39;, 65000.00);</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<ul>
+<p>  <li><strong>Reason:</strong> The query omits <code>last_name</code>, which is defined as <code>VARCHAR(50) NOT NULL</code> with no <code>DEFAULT</code> constraint.</li></p>
+<p>  <li><strong>Error:</strong> <code>ERROR 1364 (HY000): Field 'last_name' doesn't have a default value</code>.</li></p>
+<p></ul></p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">INSERT INTO departments (dept_id, dept_name)
+<p>VALUES </p>
+<p>    (30, &#39;Finance&#39;),</p>
+<p>    (40, &#39;Human Resources&#39;);</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">-- Step 1: Create products table
+<p>CREATE TABLE products (</p>
+<p>    product_id INT PRIMARY KEY,</p>
+<p>    product_name VARCHAR(100) NOT NULL,</p>
+<p>    price DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- Step 2: Multi-row insert</p>
+<p>INSERT INTO products (product_id, product_name, price)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Wireless Mouse&#39;, 1299.50),</p>
+<p>    (2, &#39;Mechanical Keyboard&#39;, 3499.00);</p>
+
+<p>-- Step 3: Verify results</p>
+<p>SELECT * FROM products;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+------------+---------------------+---------+
+<table>
+<p>  <thead><tr><th>product_id</th><th>product_name</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+---------------------+---------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Wireless Mouse</th><th>1299.50</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Mechanical Keyboard</td><td>3499.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+---------------------+---------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="04-data-types-and-null.html">SQL Data Types & NULL Values</a></li></p>
+<p>  <li><a href="05-keys.html">Database Keys (Primary, Foreign & Candidate Keys)</a></li></p>
+<p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="05-keys.html">← Previous: Database Keys</a> | <a href="./">SQL Home</a> | <a href="07-select.html">Next: SELECT – Querying Data →</a></p>
+
+  </div>
+</body>
+</html>

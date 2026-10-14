@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28 sql security - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🔐 SQL Security, Roles & Permissions</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>SQL Security</strong> encompasses the policies, access controls, and defense mechanisms used to protect database servers, schemas, and data rows against unauthorized access, accidental modification, and malicious web attacks (such as SQL Injection).</p>
+
+<p>Database security is governed by three foundational pillars:</p>
+<p>1. <strong>Authentication:</strong> Verifying the identity of a connecting user or application (<code>'app_user'@'localhost'</code> + Password).</p>
+<p>2. <strong>Authorization (Access Control):</strong> Determining what specific operations (<code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>EXECUTE</code>) an authenticated identity is permitted to perform on specific database objects.</p>
+<p>3. <strong>Defense in Depth:</strong> Protecting application queries using <strong>Parameterized Prepared Statements</strong> and securing database credentials using environment variables.</p>
+
+<blockquote><p>💡 <strong>The Principle of Least Privilege (PoLP):</strong> Every user account, application service, and database role should be granted <strong>only the absolute minimum privileges</strong> required to perform its intended business function, and nothing more.</p></blockquote>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Database security ka sabse bada niyam hai <strong>Principle of Least Privilege</strong>: Kisi bhi user ya application ko sirf utni hi permissions (<code>SELECT</code>, <code>INSERT</code>) dein jitni uske kaam ke liye zaroori hai. Web applications mein kabhi bhi database connection ke liye <strong><code>root</code></strong> (admin) account ka use na karein. MySQL 8.0+ mein aap <strong>Roles</strong> banakar permissions group kar sakte hain (<code>CREATE ROLE</code>, <code>GRANT</code>). Application code mein SQL Injection se bachne ke liye hamesha <strong>Parameterized Prepared Statements</strong> (PDO / Prepared Queries) ka use karein.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Database security cha mukhya niyam mhanje <strong>Principle of Least Privilege</strong>: Pratyek user kiva application la phakta avashyak aslelya permissions (<code>SELECT</code>, <code>INSERT</code>) dhyat. Web applications madhye kadhihi <strong><code>root</code></strong> (admin) account cha wapar karu naka. MySQL 8.0+ madhye <strong>Roles</strong> tayar karun permissions manage karta yetat (<code>CREATE ROLE</code>, <code>GRANT</code>). SQL Injection pasun bachvanyasathi application code madhye hamesha <strong>Parameterized Prepared Statements</strong> (PDO) cha wapar kara.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Databases store critical business assets—including customer personal information, financial transaction logs, and user passwords. Implementing database security prevents:</p>
+
+<ul>
+<p>  <li><strong>Catastrophic Data Loss:</strong> Preventing compromised web applications from executing <code>DROP TABLE</code> or <code>TRUNCATE</code>.</li></p>
+<p>  <li><strong>Unauthorized Data Breaches:</strong> Restricting read access so reporting accounts cannot view sensitive user password hashes or payment tokens.</li></p>
+<p>  <li><strong>SQL Injection (SQLi) Attacks:</strong> Neutralizing malicious input strings sent through web forms before they reach the SQL engine.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Hotel Room Keycards</h2>
+
+<p>Think of database permissions as a <strong>Hotel Keycard System</strong>:</p>
+
+<pre><code class="language-text">┌──────────────────────────────────────┬──────────────────────────────────────────┐
+<p>│ Hotel Access Level                   │ Database Security Equivalent             │</p>
+<p>├──────────────────────────────────────┼──────────────────────────────────────────┤</p>
+<p>│ Master Keycard (Hotel Manager)       │ Root Administrator (&#39;root&#39;@&#39;localhost&#39;)  │</p>
+<p>│ Guest Keycard (Assigned to Room 412) │ Restricted App User (&#39;app_user&#39;@&#39;local&#39;) │</p>
+<p>│ Housekeeping Keycard (3rd Floor)     │ Role-Based Access (&#39;shop_report_reader&#39;) │</p>
+<p>└──────────────────────────────────────┴──────────────────────────────────────────┘</code></pre></p>
+
+<p>If an application connects using the <code>root</code> account, it is like handing every hotel guest a <strong>Master Keycard</strong>. If a guest loses their card, an attacker gains unrestricted access to every room, safe, and security office in the hotel!</p>
+
+<p>---</p>
+
+<h2>📊 Privilege Scopes Matrix in MySQL</h2>
+
+<p>MySQL allows granting privileges at five granular scope levels:</p>
+
+<table>
+<p>  <thead><tr><th>Scope Level</th><th>Example SQL Syntax</th><th>Operational Impact</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Global Scope</strong></td><td><code>GRANT SELECT ON *.* TO 'user'@'localhost';</code></td><td>Grants read access across <strong>ALL</strong> databases on the MySQL server. *(Avoid for app accounts!)*</td></tr></p>
+<p>    <tr><td><strong>Database Scope</strong></td><td><code>GRANT SELECT, INSERT ON shop_db.* TO 'user'@'localhost';</code></td><td>Grants read and insert access to <strong>ALL</strong> tables inside <code>shop_db</code>.</td></tr></p>
+<p>    <tr><td><strong>Table Scope</strong></td><td><code>GRANT SELECT ON shop_db.products TO 'user'@'localhost';</code></td><td>Grants read access <strong>ONLY</strong> to the <code>products</code> table in <code>shop_db</code>.</td></tr></p>
+<p>    <tr><td><strong>Column Scope</strong></td><td><code>GRANT SELECT (product_name, price) ON shop_db.products TO 'user'@'localhost';</code></td><td>Grants read access <strong>ONLY</strong> to specified columns (<code>product_name</code> and <code>price</code>).</td></tr></p>
+<p>    <tr><td><strong>Routine Scope</strong></td><td><code>GRANT EXECUTE ON PROCEDURE shop_db.ProcessOrderPayment TO 'user'@'localhost';</code></td><td>Allows executing a specific stored procedure without granting direct table update rights.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🛠️ Complete MySQL 8.0+ Role & User Setup (<code>shop_db</code>)</h2>
+
+<p>Let's execute a complete, runnable MySQL 8.0+ workflow creating a <code>shop_db</code> database, a read-only reporting role, a user account, and inspecting assigned privileges.</p>
+
+<blockquote><p>⚠️ <strong>Administrative Requirement:</strong> Creating users and roles requires administrative privileges (<code>CREATE USER</code>, <code>ROLE_ADMIN</code>, <code>GRANT OPTION</code>). In local development (WampServer / phpMyAdmin), run these setup commands logged in as <code>root</code>. Never attempt to directly edit MySQL system privilege tables (<code>mysql.user</code>)!</p></blockquote>
+
+<pre><code class="language-sql">-- Step 1: Create a dedicated database and sample table
+<p>CREATE DATABASE IF NOT EXISTS shop_db;</p>
+<p>USE shop_db;</p>
+
+<p>CREATE TABLE IF NOT EXISTS products (</p>
+<p>    product_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    product_name VARCHAR(100) NOT NULL,</p>
+<p>    price DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>INSERT INTO products (product_name, price) VALUES</p>
+<p>    (&#39;Wireless Mouse&#39;, 1299.50),</p>
+<p>    (&#39;Mechanical Keyboard&#39;, 3499.00);</p>
+
+<p>-- Step 2: Create a Read-Only Reporting Role (MySQL 8.0+)</p>
+<p>CREATE ROLE &#39;shop_report_reader&#39;;</p>
+
+<p>-- Step 3: Grant SELECT privilege on shop_db.products to the role</p>
+<p>GRANT SELECT ON shop_db.products TO &#39;shop_report_reader&#39;;</p>
+
+<p>-- Step 4: Create a restricted user account with a strong secret</p>
+<p>CREATE USER &#39;reporting_user&#39;@&#39;localhost&#39; </p>
+<p>IDENTIFIED BY &#39;Replace_With_A_Strong_Secret_Password_123!&#39;;</p>
+
+<p>-- Step 5: Grant the role to the user account</p>
+<p>GRANT &#39;shop_report_reader&#39; TO &#39;reporting_user&#39;@&#39;localhost&#39;;</p>
+
+<p>-- Step 6: Activate default roles for the user (MySQL 8.0+)</p>
+<p>SET DEFAULT ROLE ALL TO &#39;reporting_user&#39;@&#39;localhost&#39;;</p>
+
+<p>-- Step 7: Inspect assigned grants</p>
+<p>SHOW GRANTS FOR &#39;reporting_user&#39;@&#39;localhost&#39;;</p>
+<p>SHOW GRANTS FOR &#39;reporting_user&#39;@&#39;localhost&#39; USING &#39;shop_report_reader&#39;;</p>
+
+<p>-- Step 8: Revoking privileges &amp; roles when access is no longer required</p>
+<p>-- REVOKE SELECT ON shop_db.products FROM &#39;shop_report_reader&#39;;</p>
+<p>-- REVOKE &#39;shop_report_reader&#39; FROM &#39;reporting_user&#39;@&#39;localhost&#39;;</code></pre></p>
+
+<p>#### 👀 Expected <code>SHOW GRANTS</code> Output:</p>
+
+<pre><code class="language-text">+-------------------------------------------------------------------------------+
+<table>
+<p>  <thead><tr><th>Grants for reporting_user@localhost</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------------------------------------------------------------------------+</p>
+<table>
+<p>  <thead><tr><th>GRANT USAGE ON *.* TO <code>reporting_user</code>@<code>localhost</code></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>GRANT <code>shop_report_reader</code>@<code>%</code> TO <code>reporting_user</code>@<code>localhost</code></td></tr></p>
+<p>    <tr><td>GRANT SELECT ON <code>shop_db</code>.<code>products</code> TO <code>reporting_user</code>@<code>localhost</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------------------------------------------------------------------------+</code></pre></p>
+
+<p>---</p>
+
+<h2>🛡️ Defending Against SQL Injection (SQLi)</h2>
+
+<p><strong>SQL Injection (SQLi)</strong> occurs when untrusted user input is directly concatenated into SQL query strings, allowing an attacker to manipulate query execution logic.</p>
+
+<h3>❌ The Vulnerable Pattern (String Concatenation)</h3>
+
+<p>``<code>php</p>
+<p>// ❌ UNSAFE VULNERABLE PHP CODE (DO NOT USE!):</p>
+<p>$email = $_POST['email']; // Attacker enters: ' OR '1'='1</p>
+<p>$sql = "SELECT id, email FROM users WHERE email = '$email'";</p>
+<p>// Evaluates to: SELECT id, email FROM users WHERE email = '' OR '1'='1'</p>
+<p>// RESULT: Bypasses authentication and exposes ALL user rows in the database!</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h3>✅ The Safe Pattern (PHP PDO Parameterized Prepared Statements)</h3>
+
+<p>Parameterized queries send the SQL template and the input data values to the database engine in <strong>two separate steps</strong>.</p>
+<p></code></pre>php</p>
+<p>// ✅ SAFE PARAMETERIZED PHP PDO CODE:</p>
+<p>$email = $_POST['email'];</p>
+
+<p>// 1. Prepare SQL template with a named placeholder (:email)</p>
+<p>$stmt = $pdo->prepare('SELECT id, email FROM users WHERE email = :email');</p>
+
+<p>// 2. Execute by binding the untrusted input strictly as a DATA VALUE</p>
+<p>$stmt->execute(['email' => $email]);</p>
+
+<p>// 3. Fetch results safely</p>
+<p>$users = $stmt->fetchAll(PDO::FETCH_ASSOC);</p>
+<pre><code class="language-text">
+<h3>💡 Why Parameterized Queries Neutralize SQL Injection:</h3>
+<p>When using prepared statements, the database engine compiles the SQL execution tree <strong>before</strong> binding parameters. Even if an attacker enters </code>&#39; OR &#39;1&#39;=&#39;1<code>, the database treats the entire input string literally as the email address </code>&quot;&#39; OR &#39;1&#39;=&#39;1&quot;<code>, completely preventing SQL syntax manipulation!</p>
+
+<p>&gt; 📌 <strong>Handling Dynamic Identifiers (Table / Column Names):</strong> Prepared statements can parameterize <strong>data values</strong>, but <strong>cannot</strong> parameterize SQL identifiers like table or column names (e.g. </code>ORDER BY :sort_col<code>). If dynamic column sorting is needed, validate inputs against an explicit server-side <strong>allowlist</strong>:</p>
+<p>&gt; </code>`<code>php</p>
+<p>&gt; $allowed_sorts = [&#39;price&#39; =&gt; &#39;price&#39;, &#39;date&#39; =&gt; &#39;created_at&#39;];</p>
+<p>&gt; $sort_column = $allowed_sorts[$_GET[&#39;sort&#39;]] ?? &#39;price&#39;; // Safe allowlist lookup</p>
+<p>&gt; </code>`<code></p>
+
+<p>---</p>
+
+<h2>🔐 Credentials &amp; Secrets Management</h2>
+
+<p>Securing database connections requires protecting connection secrets:</p>
+
+<ul>
+<p>  <li><strong>Use Environment Variables:</strong> Store database credentials in environment variables (</code>getenv(&#39;DB_PASSWORD&#39;)<code>) or an uncommitted </code>.env<code> file loaded outside web root.</li></p>
+<p>  <li><strong>Never Commit Credentials to Git:</strong> Add </code>.env<code> and configuration files containing passwords to your repository </code>.gitignore<code> file.</li></p>
+<p>  <li><strong>Restrict Network Binding:</strong> Bind local MySQL servers to </code>127.0.0.1<code> (</code>bind-address = 127.0.0.1<code> in </code>my.cnf<code>) so port 3306 is not exposed to the public internet.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔒 Stored Routines &amp; Security Context (</code>DEFINER<code> vs </code>INVOKER<code>)</h2>
+
+<p>When creating MySQL stored procedures and functions (Topic 26), specify the security execution context:</p>
+
+<ul>
+<p>  <li><strong></code>SQL SECURITY DEFINER<code> (Default):</strong> The procedure executes with the permissions of the user who <strong>created</strong> it (</code>DEFINER<code>).</li></p>
+<p>  <li><strong></code>SQL SECURITY INVOKER<code>:</strong> The procedure executes with the permissions of the user who <strong>calls</strong> it (</code>INVOKER<code>).</li></p>
+<p></ul></p>
+<p></code></pre>sql</p>
+<p>-- Safer Routine Execution Context</p>
+<p>CREATE PROCEDURE shop_db.ReadProducts()</p>
+<p>SQL SECURITY INVOKER</p>
+<p>BEGIN</p>
+<p>    SELECT * FROM shop_db.products;</p>
+<p>END;</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h2>📊 Least-Privilege Account Design Matrix</h2>
+
+<table>
+<p>  <thead><tr><th>Account Name</th><th>Primary Purpose</th><th>Minimum Required Privileges</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong></code>app_frontend<code></strong></td><td>Web App User Requests</td><td></code>SELECT<code> on </code>products<code>; </code>INSERT, SELECT<code> on </code>orders<code>, </code>order_items<code>.</td></tr></p>
+<p>    <tr><td><strong></code>app_reporting<code></strong></td><td>BI Dashboards &amp; Analytics</td><td></code>SELECT<code> on reporting views and materialized summary tables.</td></tr></p>
+<p>    <tr><td><strong></code>app_migrator<code></strong></td><td>CI/CD Schema Deployment</td><td></code>CREATE, ALTER, DROP, INDEX<code> on target application database.</td></tr></p>
+<p>    <tr><td><strong></code>db_admin<code></strong></td><td>Database Administrator</td><td></code>ALL PRIVILEGES<code> on </code>*.* WITH GRANT OPTION<code> (Used only for admin tasks).</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes &amp; Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Using </code>root<code> for Web Applications</strong></td><td>Web application connecting using </code>root<code> password.</td><td>Create a dedicated restricted user account (</code>&#39;app_user&#39;@&#39;localhost&#39;<code>) with minimal privileges.</td></tr></p>
+<p>    <tr><td>**Granting Global Privileges (</code>ON *.*<code>)**</td><td>Granting </code>GRANT ALL ON *.*<code> for convenience.</td><td>Restrict grants to specific databases (</code>shop_db.*<code>) or specific tables (</code>shop_db.products<code>).</td></tr></p>
+<p>    <tr><td><strong>Unactivated Roles in MySQL 8.0</strong></td><td>User assigned a role, but </code>SHOW GRANTS<code> shows </code>USAGE<code> only.</td><td>Run </code>SET DEFAULT ROLE ALL TO &#39;user&#39;@&#39;localhost&#39;;<code> to activate assigned roles upon login.</td></tr></p>
+<p>    <tr><td><strong>String Concatenation SQLi</strong></td><td>Building queries via </code>$sql = &quot;SELECT ... &quot; . $input<code>.</td><td>Always use PDO prepared statements with parameter binding (</code>$stmt-&gt;prepare()<code>).</td></tr></p>
+<p>    <tr><td><strong>Committing Passwords to GitHub</strong></td><td>Committing database passwords in </code>config.php<code> or </code>.env<code>.</td><td>Add </code>.env<code> and credential files to </code>.gitignore<code> before committing code.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Applications:</strong> Microservices use distinct accounts: </code>catalog_service<code> has read-only access to products, while </code>order_service<code> has write access to orders.</li></p>
+<p>  <li><strong>Enterprise Compliance:</strong> Financial audit rules require revoking </code>DROP<code> and </code>DELETE<code> privileges from general application accounts.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Structured Practice Exercises</h2>
+
+<h3>Exercise 1: Role Creation</h3>
+<p>Write the SQL statements to create a role named </code>&#39;analytics_reader&#39;<code> in MySQL 8.0+.</p>
+
+<h3>Exercise 2: Table-Level Grant</h3>
+<p>Grant </code>SELECT<code> privileges on the </code>orders<code> table inside </code>shop_db<code> to the </code>&#39;analytics_reader&#39;<code> role.</p>
+
+<h3>Exercise 3: User Creation &amp; Role Assignment</h3>
+<p>Create a user </code>&#39;data_analyst&#39;@&#39;localhost&#39;<code> identified by password </code>&#39;Analyst_Secret_2026!&#39;<code> and assign the </code>&#39;analytics_reader&#39;<code> role to this user.</p>
+
+<h3>Exercise 4: Inspecting User Grants</h3>
+<p>Write the SQL command to inspect all assigned grants for </code>&#39;data_analyst&#39;@&#39;localhost&#39;<code>.</p>
+
+<h3>Exercise 5: Revoking Privileges</h3>
+<p>Write the SQL statement to revoke </code>SELECT<code> access on </code>shop_db.orders<code> from the </code>&#39;analytics_reader&#39;<code> role.</p>
+
+<h3>Exercise 6: Fixing SQL Injection</h3>
+<p>Rewrite the following vulnerable PHP code using a safe PDO prepared statement:</p>
+<p></code></pre>php</p>
+<p>// Unsafe code to rewrite:</p>
+<p>$user_id = $_GET['id'];</p>
+<p>$sql = "SELECT * FROM users WHERE id = $user_id";</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h2>🎯 Mini Challenge: E-Commerce Least-Privilege &amp; Parameterized Security Design</h2>
+
+<p>Consider an e-commerce application with two features:</p>
+<p>1. Browsing the product catalog (</code>SELECT<code> on </code>products<code>).</p>
+<p>2. Placing a new order (</code>INSERT<code> into </code>orders<code> and </code>order_items<code>).</p>
+
+<p><strong>Your Tasks:</strong></p>
+<p>1. Design the minimum required SQL </code>GRANT<code> statements for a restricted user account </code>&#39;shop_app&#39;@&#39;localhost&#39;<code>.</p>
+<p>2. Write a safe PHP PDO prepared statement for inserting a new order record (</code>customer_id<code>, </code>total_amount<code>).</p>
+<p>3. Explain why parameterized queries are <strong>still necessary</strong> even if the </code>&#39;shop_app&#39;<code> account has no </code>DROP TABLE<code> permissions.</p>
+
+<p>&lt;details&gt;</p>
+<p>&lt;summary&gt;🔍 Click to view Exercise Solutions &amp; Answer Key&lt;/summary&gt;</p>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</code></pre>sql</p>
+<p>CREATE ROLE 'analytics_reader';</p>
+<pre><code class="language-text">
+<p>#### Exercise 2 Solution:</code></pre>sql</p>
+<p>GRANT SELECT ON shop_db.orders TO 'analytics_reader';</p>
+<pre><code class="language-text">
+<p>#### Exercise 3 Solution:</code></pre>sql</p>
+<p>CREATE USER 'data_analyst'@'localhost' </p>
+<p>IDENTIFIED BY 'Analyst_Secret_2026!';</p>
+
+<p>GRANT 'analytics_reader' TO 'data_analyst'@'localhost';</p>
+<p>SET DEFAULT ROLE ALL TO 'data_analyst'@'localhost';</p>
+<pre><code class="language-text">
+<p>#### Exercise 4 Solution:</code></pre>sql</p>
+<p>SHOW GRANTS FOR 'data_analyst'@'localhost' USING 'analytics_reader';</p>
+<pre><code class="language-text">
+<p>#### Exercise 5 Solution:</code></pre>sql</p>
+<p>REVOKE SELECT ON shop_db.orders FROM 'analytics_reader';</p>
+<pre><code class="language-text">
+<p>#### Exercise 6 Solution:</code></pre>php</p>
+<p>$user_id = $_GET['id'];</p>
+<p>$stmt = $pdo->prepare('SELECT id, email, first_name FROM users WHERE id = :id');</p>
+<p>$stmt->execute(['id' => $user_id]);</p>
+<p>$user = $stmt->fetch(PDO::FETCH_ASSOC);</p>
+<pre><code class="language-text">
+<p>#### Mini Challenge Solution:</p>
+<p></code></pre>sql</p>
+<p>-- Task 1: Minimum Required Grants for shop_app</p>
+<p>CREATE USER 'shop_app'@'localhost' IDENTIFIED BY 'App_Secret_Pass_2026!';</p>
+
+<p>GRANT SELECT ON shop_db.products TO 'shop_app'@'localhost';</p>
+<p>GRANT SELECT, INSERT ON shop_db.orders TO 'shop_app'@'localhost';</p>
+<p>GRANT SELECT, INSERT ON shop_db.order_items TO 'shop_app'@'localhost';</p>
+<pre><code class="language-text"></code></pre>php
+<p>// Task 2: Safe PDO Prepared Statement for Order Placement</p>
+<p>$customer_id = $_POST['customer_id'];</p>
+<p>$total_amount = $_POST['total_amount'];</p>
+
+<p>$stmt = $pdo->prepare('INSERT INTO shop_db.orders (customer_id, total_amount) VALUES (:customer_id, :total_amount)');</p>
+<p>$stmt.execute([</p>
+<p>    'customer_id'  => $customer_id,</p>
+<p>    'total_amount' => $total_amount</p>
+<p>]);</p>
+<p></code>`<code></p>
+
+<p><strong>Task 3 Explanation:</strong></p>
+<p>Even without </code>DROP TABLE<code> permissions, an unparameterized SQL Injection vulnerability allows an attacker to manipulate data logic—such as altering </code>total_amount<code> to </code>$0.00<code>, extracting password hashes from </code>users<code> using </code>UNION SELECT<code>, or corrupting table records with unauthorized </code>UPDATE` payloads. Parameterized queries enforce that user input is treated strictly as data literals, protecting data integrity regardless of account privilege boundaries.</p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="22-transactions.html">Transactions & ACID Properties</a></li></p>
+<p>  <li><a href="26-stored-procedures.html">MySQL Stored Procedures & Functions</a></li></p>
+<p>  <li><a href="27-triggers.html">Triggers & Automated Events</a></li></p>
+<p>  <li><a href="30-sql-projects.html">Practical SQL Capstone Projects</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="27-triggers.html">← Previous: Triggers</a> | <a href="./">SQL Home</a> | <a href="30-sql-projects.html">Next: SQL Projects →</a></p>
+
+  </div>
+</body>
+</html>

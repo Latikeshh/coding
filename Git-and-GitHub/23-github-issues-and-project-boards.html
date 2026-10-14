@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 github issues and project boards - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>GitHub Issues, Projects & Discussions</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>GitHub Issues</strong> is an integrated bug tracking and feature request system built directly into GitHub repositories. <strong>GitHub Projects</strong> provides interactive Kanban boards for agile sprint planning, and <strong>GitHub Discussions</strong> serves as a community forum for Q&A, ideas, and open-ended conversations.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>GitHub Issues track bugs, enhancements, and tasks. Issues support Markdown formatting, labels (<code>bug</code>, <code>documentation</code>), assignees, and milestones. You can automatically close an issue from a commit or Pull Request by typing magic keywords like <code>Fixes #12</code> or <code>Closes #45</code> in commit messages or PR descriptions.</p>
+
+<h3>Hindi</h3>
+<p>GitHub Issues aapke project ke bugs, feature requests, aur task list ko track karta hai. Commit message ya PR mein <code>Fixes #12</code> likhne se Issue #12 PR merge hote hi automatically closed ho jata hai. GitHub Projects Kanban board (To Do, In Progress, Done) provide karta hai.</p>
+
+<h3>Marathi</h3>
+<p>GitHub Issues mule bugs aani navin features track karta yetat. Commit kiva PR madhye <code>Fixes #12</code> lihilyas Issue #12 swatahch close hoto. GitHub Projects madhye Kanban board dware kaam vyavasthit organize karta yete.</p>
+
+<h3>Hinglish</h3>
+<p>Project bugs aur tasks manage karne ke liye GitHub Issues use hota hai. Good open-source practice ke mutabiq pehle Issue open karein, use discuss karein, aur jab PR submit karein toh PR description mein <code>Closes #IssueNumber</code> likhein taaki issue auto-close ho jaye.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without issue tracking, software bugs get lost in emails or chat messages. GitHub Issues links bugs directly to the exact code commits and Pull Requests that resolve them.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of GitHub project management tools like an office workspace:</p>
+<ul>
+<p>  <li><strong>GitHub Issues:</strong> Sticky note bug tickets attached to the bulletin board.</li></p>
+<p>  <li><strong>GitHub Projects:</strong> A digital Kanban board with 3 columns (<strong>To Do</strong>, <strong>In Progress</strong>, <strong>Done</strong>) where team members drag tickets across columns.</li></p>
+<p>  <li><strong>GitHub Discussions:</strong> The coffee break room where team members brainstorm ideas without clogging up bug tracking.</li></p>
+<p></ul></p>
+
+<h2>📝 Magic Closing Keywords in Commit Messages</h2>
+
+<p>When you push a commit or merge a Pull Request containing specific closing keywords followed by an issue number <code>#N</code>, GitHub automatically closes that issue!</p>
+
+<table>
+<p>  <thead><tr><th>Closing Keywords</th><th>Example Usage</th><th>Action Taken by GitHub</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>close</code>, <code>closes</code>, <code>closed</code></td><td><code>Closes #12</code></td><td>Closes Issue #12 when PR merges</td></tr></p>
+<p>    <tr><td><code>fix</code>, <code>fixes</code>, <code>fixed</code></td><td><code>Fixes #45</code></td><td>Closes Issue #45 when PR merges</td></tr></p>
+<p>    <tr><td><code>resolve</code>, <code>resolves</code>, <code>resolved</code></td><td><code>Resolves #89</code></td><td>Closes Issue #89 when PR merges</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h3>Example Commit Message:</h3>
+<pre><code class="language-bash">git commit -m &quot;Fix navbar mobile overflow bug (Fixes #24)&quot;</code></pre>
+
+<h2>💡 Practical Workflow Example</h2>
+
+<p>1. <strong>Create Issue:</strong> User submits Issue <code>#14</code> titled *"Login button non-responsive on mobile devices"*.</p>
+<p>2. <strong>Assign & Label:</strong> Maintainer adds labels <code>bug</code> and <code>mobile</code>, and assigns developer Rahul.</p>
+<p>3. <strong>Develop & Commit:</strong> Rahul creates branch <code>fix-issue-14</code>, fixes code, and commits:</p>
+<p>   <pre><code class="language-bash">   git commit -m &quot;Correct button touch event handler (Fixes #14)&quot;</p>
+<p>   ``<code></p>
+<p>4. <strong>Merge PR:</strong> Rahul opens PR. When PR merges into </code>main<code>, GitHub automatically marks Issue </code>#14<code> as <strong>Closed</strong>!</p>
+
+<h2>🔍 Issue Labels &amp; Milestones</h2>
+
+<ul>
+<p>  <li><strong>Labels:</strong> Color-coded tags categorizing issues (</code>bug<code>, </code>enhancement<code>, </code>documentation<code>, </code>good first issue<code>).</li></p>
+<p>  <li><strong></code>good first issue<code> Label:</strong> Standard tag used across open-source projects marking easy beginner-friendly tasks for first-time contributors.</li></p>
+<p>  <li><strong>Milestones:</strong> Target release deadlines (e.g. </code>Version 1.0 Release<code>) grouping related issues together.</li></p>
+<p></ul></p>
+
+<h2>👀 GitHub Issue Interface</h2>
+<p></code></pre>text</p>
+<p>Issue #14: Login button non-responsive on mobile devices [Open]</p>
+<p>Labels: [bug] [mobile]</p>
+<p>Assignee: @Rahul</p>
+<p>Milestone: Version 1.0 Release</p>
+<p></code>`<code></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting </code>#<code> in Magic Keywords:</strong> Writing </code>Fixes 14<code> instead of </code>Fixes #14<code>. Without the hash </code>#<code> symbol, GitHub cannot detect the issue reference!</li></p>
+<p>  <li><strong>Using Issues for General Chat:</strong> Posting general beginner questions in Issues when repository has <strong>GitHub Discussions</strong> enabled.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Issue numbers </code>#N<code> share a numerical sequence with Pull Request numbers </code>#N<code> within the same repository.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Tech organizations manage entire product roadmaps using GitHub Projects, tracking hundreds of bugs and feature releases across developer teams.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Go to your </code>github-practice<code> repository on GitHub.</p>
+<p>2. Click the <strong>Issues</strong> tab -> Click <strong>New issue</strong>.</p>
+<p>3. Create an issue titled </code>Add footer contact links<code> and add label </code>enhancement<code>.</p>
+<p>4. Note down the issue number (e.g. </code>#1<code>).</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Make a edit in your local project, commit with message </code>Add footer links (Fixes #1)<code>, push to GitHub, and verify on GitHub web that Issue </code>#1` was automatically closed!</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-introduction-to-github.html">Introduction to GitHub</a></li></p>
+<p>  <li><a href="21-forking-and-pull-requests.html">Forking & Pull Requests</a></li></p>
+<p>  <li><a href="26-github-actions-and-ci-cd-basics.html">GitHub Actions Basics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="22-ssh-keys-and-github-authentication.html">← Previous: SSH Keys</a> | <a href="24-github-pages-and-hosting.html">Next: GitHub Pages →</a></p>
+
+
+
+  </div>
+</body>
+</html>

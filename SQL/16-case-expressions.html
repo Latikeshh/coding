@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 case expressions - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🔀 Conditional Logic with CASE Expressions in SQL</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>The SQL <strong><code>CASE</code> expression</strong> is a conditional expression that evaluates a sequence of boolean conditions and returns a scalar value when the first condition evaluates to <code>TRUE</code>.</p>
+
+<p>It serves as SQL's built-in conditional logic mechanism and can be embedded inside <code>SELECT</code>, <code>WHERE</code>, <code>GROUP BY</code>, <code>ORDER BY</code>, and <code>UPDATE</code> statements.</p>
+
+<h3>Key Rules of <code>CASE</code> Expressions:</h3>
+<ul>
+<p>  <li><strong>Sequential Evaluation:</strong> Conditions are checked in order from top to bottom. As soon as a condition evaluates to <code>TRUE</code>, <code>CASE</code> returns its corresponding <code>THEN</code> value and <strong>stops checking further conditions</strong>.</li></p>
+<p>  <li><strong>The <code>ELSE</code> Fallback:</strong> If no <code>WHEN</code> condition matches, <code>CASE</code> returns the value specified in the <code>ELSE</code> clause.</li></p>
+<p>  <li><strong>Default <code>NULL</code> Behavior:</strong> If <code>ELSE</code> is omitted and no <code>WHEN</code> conditions match, <code>CASE</code> returns <strong><code>NULL</code></strong>.</li></p>
+<p>  <li><strong>Syntax vs Stored Procedures:</strong> In standard SQL queries, the <code>CASE</code> expression terminates with the <strong><code>END</code></strong> keyword. *(Note: This differs from MySQL stored procedure control-flow <code>CASE</code> statements, which terminate with <code>END CASE;</code>)*.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>SQL mein conditional logic apply karne ke liye <strong><code>CASE</code> expression</strong> ka use hota hai. Yeh conditions ko top-to-bottom sequence mein evaluate karta hai. Pehli <code>TRUE</code> condition milti hi <code>CASE</code> uska <code>THEN</code> result return karta hai aur baaki conditions ko skip kar deta hai. Agar koi condition match na ho, toh <code>ELSE</code> ka value aata hai. Agar <code>ELSE</code> na likha ho aur koi condition TRUE na ho, toh <code>NULL</code> return hota hai. <code>CASE</code> expression hamesha <strong><code>END</code></strong> keyword se khatam hota hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>SQL madhye conditional logic vaparnyasathi <strong><code>CASE</code> expression</strong> cha wapar kela jato. He conditions varun khali kramane tapasate. Pahili <code>TRUE</code> condition milalyas tyacha <code>THEN</code> result milto aani baaki conditions check kelea jat nahit. Kahi match na jhalyas <code>ELSE</code> cha result deto. Jar <code>ELSE</code> lihile nasael aani condition TRUE nasael tar <strong><code>NULL</code></strong> result milto. <code>CASE</code> expression cha shevat hamesha <strong><code>END</code></strong> keyword ne hoto.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p><code>CASE</code> expressions allow you to build dynamic business logic directly inside SQL queries:</p>
+
+<ul>
+<p>  <li><strong>Dynamic Data Categorization:</strong> Transform numeric ranges or codes into human-readable labels (e.g. Total Spend $\rightarrow$ VIP, Gold, Silver, Standard).</li></p>
+<p>  <li><strong>Conditional Aggregation (Pivoting Metrics):</strong> Sum or count records conditionally within aggregate functions (<code>SUM(CASE WHEN payment_method = 'UPI' THEN amount ELSE 0 END)</code>).</li></p>
+<p>  <li><strong>Custom Sort Ordering:</strong> Force specific status values (e.g. <code>'URGENT'</code>, <code>'HIGH'</code>) to appear first in query output results.</li></p>
+<p>  <li><strong>Conditional Data Updates:</strong> Calculate variable salary raises or tier discounts dynamically in <code>UPDATE</code> statements.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Simple CASE vs Searched CASE Syntax</h2>
+
+<p>SQL supports two distinct forms of <code>CASE</code> expressions:</p>
+
+<h3>1. Searched CASE Expression (Most Flexible & Universal)</h3>
+<p>Evaluates complex boolean conditions using comparison operators (<code>></code>, <code><</code>, <code>BETWEEN</code>, <code>AND</code>, <code>OR</code>, <code>IS NULL</code>):</p>
+
+<pre><code class="language-sql">CASE
+<p>    WHEN condition_1 THEN result_1</p>
+<p>    WHEN condition_2 THEN result_2</p>
+<p>    WHEN condition_3 THEN result_3</p>
+<p>    ELSE fallback_result</p>
+<p>END</code></pre></p>
+
+<p>---</p>
+
+<h3>2. Simple CASE Expression (Value Comparison)</h3>
+<p>Compares a single target expression directly against candidate literal values for exact equality:</p>
+
+<pre><code class="language-sql">CASE target_expression
+<p>    WHEN candidate_value_1 THEN result_1</p>
+<p>    WHEN candidate_value_2 THEN result_2</p>
+<p>    ELSE fallback_result</p>
+<p>END</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Practical Example A: Categorizing Customer Order Sizes</h2>
+
+<p>When creating range categories, arrange conditions from <strong>highest threshold to lowest threshold</strong> so higher values are evaluated first:</p>
+
+<pre><code class="language-sql">-- 1. Create orders table schema
+<p>CREATE TABLE IF NOT EXISTS orders (</p>
+<p>    order_id INT PRIMARY KEY,</p>
+<p>    customer_id VARCHAR(10) NOT NULL,</p>
+<p>    total_amount DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample order records</p>
+<p>INSERT INTO orders (order_id, customer_id, total_amount)</p>
+<p>VALUES </p>
+<p>    (101, &#39;C881&#39;, 12500.00),</p>
+<p>    (102, &#39;C412&#39;, 6800.00),</p>
+<p>    (103, &#39;C203&#39;, 3500.00),</p>
+<p>    (104, &#39;C119&#39;, 450.00);</p>
+
+<p>-- 3. Execute Searched CASE query for customer tier categorization</p>
+<p>SELECT </p>
+<p>    order_id, </p>
+<p>    customer_id,</p>
+<p>    total_amount,</p>
+<p>    CASE</p>
+<p>        WHEN total_amount &gt;= 10000.00 THEN &#39;VIP Customer&#39;</p>
+<p>        WHEN total_amount &gt;= 5000.00  THEN &#39;Gold Customer&#39;</p>
+<p>        WHEN total_amount &gt;= 2000.00  THEN &#39;Silver Customer&#39;</p>
+<p>        ELSE &#39;Standard Customer&#39;</p>
+<p>    END AS customer_tier</p>
+<p>FROM orders</p>
+<p>ORDER BY total_amount DESC;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+----------+-------------+--------------+-------------------+
+<table>
+<p>  <thead><tr><th>order_id</th><th>customer_id</th><th>total_amount</th><th>customer_tier</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------+-------------+--------------+-------------------+</p>
+<table>
+<p>  <thead><tr><th>101</th><th>C881</th><th>12500.00</th><th>VIP Customer</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>102</td><td>C412</td><td>6800.00</td><td>Gold Customer</td></tr></p>
+<p>    <tr><td>103</td><td>C203</td><td>3500.00</td><td>Silver Customer</td></tr></p>
+<p>    <tr><td>104</td><td>C119</td><td>450.00</td><td>Standard Customer</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+----------+-------------+--------------+-------------------+</code></pre></p>
+
+<blockquote><p>💡 <strong>Why Order Matters:</strong> If <code>total_amount >= 2000.00</code> were placed at the top, order #101 ($12,500.00) would match <code>>= 2000</code> first and be assigned <code>'Silver Customer'</code> prematurely! Always list specific/higher thresholds before general ones.</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Practical Example B: Conditional Aggregation (Pivoting Metrics)</h2>
+
+<p>Combine <code>SUM()</code> or <code>COUNT()</code> with <code>CASE</code> to pivot transaction totals by payment method into separate summary columns:</p>
+
+<pre><code class="language-sql">-- 1. Create transactions table schema
+<p>CREATE TABLE IF NOT EXISTS transactions (</p>
+<p>    transaction_id INT PRIMARY KEY,</p>
+<p>    payment_method VARCHAR(30) NOT NULL,</p>
+<p>    amount DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample transactions</p>
+<p>INSERT INTO transactions (transaction_id, payment_method, amount)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Credit Card&#39;, 1500.00),</p>
+<p>    (2, &#39;UPI&#39;, 2500.00),</p>
+<p>    (3, &#39;Credit Card&#39;, 3500.00),</p>
+<p>    (4, &#39;COD&#39;, 800.00),</p>
+<p>    (5, &#39;UPI&#39;, 1200.00);</p>
+
+<p>-- 3. Execute Conditional Aggregation Query</p>
+<p>SELECT </p>
+<p>    COUNT(transaction_id) AS total_orders,</p>
+<p>    SUM(CASE WHEN payment_method = &#39;Credit Card&#39; THEN amount ELSE 0 END) AS credit_card_revenue,</p>
+<p>    SUM(CASE WHEN payment_method = &#39;UPI&#39; THEN amount ELSE 0 END) AS upi_revenue,</p>
+<p>    SUM(CASE WHEN payment_method = &#39;COD&#39; THEN amount ELSE 0 END) AS cod_revenue</p>
+<p>FROM transactions;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+--------------+---------------------+-------------+-------------+
+<table>
+<p>  <thead><tr><th>total_orders</th><th>credit_card_revenue</th><th>upi_revenue</th><th>cod_revenue</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+---------------------+-------------+-------------+</p>
+<table>
+<p>  <thead><tr><th>5</th><th>5000.00</th><th>3700.00</th><th>800.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+---------------------+-------------+-------------+</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Practical Example C: Custom Priority Sorting in <code>ORDER BY</code></h2>
+
+<p>Sort support tickets by business priority (<code>URGENT</code> $\rightarrow$ <code>HIGH</code> $\rightarrow$ <code>MEDIUM</code> $\rightarrow$ <code>LOW</code> $\rightarrow$ <code>RESOLVED</code>), breaking ties with <code>created_at DESC</code>.</p>
+
+<pre><code class="language-sql">-- 1. Create support_tickets table schema
+<p>CREATE TABLE IF NOT EXISTS support_tickets (</p>
+<p>    ticket_id INT PRIMARY KEY,</p>
+<p>    subject VARCHAR(100) NOT NULL,</p>
+<p>    status VARCHAR(20) NOT NULL,</p>
+<p>    created_at DATE NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample tickets</p>
+<p>INSERT INTO support_tickets (ticket_id, subject, status, created_at)</p>
+<p>VALUES </p>
+<p>    (101, &#39;Server Outage&#39;, &#39;RESOLVED&#39;, &#39;2026-10-01&#39;),</p>
+<p>    (102, &#39;Login Failure&#39;, &#39;URGENT&#39;, &#39;2026-10-02&#39;),</p>
+<p>    (103, &#39;Payment Gateway Error&#39;, &#39;HIGH&#39;, &#39;2026-10-02&#39;),</p>
+<p>    (104, &#39;UI Alignment Issue&#39;, &#39;MEDIUM&#39;, &#39;2026-10-03&#39;),</p>
+<p>    (105, &#39;Slow Page Load&#39;, &#39;LOW&#39;, &#39;2026-10-03&#39;);</p>
+
+<p>-- 3. Execute Custom Sorting Query</p>
+<p>SELECT ticket_id, subject, status, created_at</p>
+<p>FROM support_tickets</p>
+<p>ORDER BY </p>
+<p>    CASE status</p>
+<p>        WHEN &#39;URGENT&#39;   THEN 1</p>
+<p>        WHEN &#39;HIGH&#39;     THEN 2</p>
+<p>        WHEN &#39;MEDIUM&#39;   THEN 3</p>
+<p>        WHEN &#39;LOW&#39;      THEN 4</p>
+<p>        WHEN &#39;RESOLVED&#39; THEN 5</p>
+<p>        ELSE 6</p>
+<p>    END ASC,</p>
+<p>    created_at DESC;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-----------+-----------------------+----------+------------+
+<table>
+<p>  <thead><tr><th>ticket_id</th><th>subject</th><th>status</th><th>created_at</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------+-----------------------+----------+------------+</p>
+<table>
+<p>  <thead><tr><th>102</th><th>Login Failure</th><th>URGENT</th><th>2026-10-02</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>103</td><td>Payment Gateway Error</td><td>HIGH</td><td>2026-10-02</td></tr></p>
+<p>    <tr><td>104</td><td>UI Alignment Issue</td><td>MEDIUM</td><td>2026-10-03</td></tr></p>
+<p>    <tr><td>105</td><td>Slow Page Load</td><td>LOW</td><td>2026-10-03</td></tr></p>
+<p>    <tr><td>101</td><td>Server Outage</td><td>RESOLVED</td><td>2026-10-01</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------+-----------------------+----------+------------+</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Practical Example D: Conditional Bulk <code>UPDATE</code> Statements</h2>
+
+<p>Apply performance-based salary increments dynamically across an entire department:</p>
+
+<pre><code class="language-sql">-- 1. Create employees table schema
+<p>CREATE TABLE IF NOT EXISTS staff_ratings (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL,</p>
+<p>    performance_rating INT NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample staff</p>
+<p>INSERT INTO staff_ratings (emp_id, first_name, salary, performance_rating)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Rahul&#39;, 80000.00, 5),</p>
+<p>    (2, &#39;Priya&#39;, 60000.00, 4),</p>
+<p>    (3, &#39;Amit&#39;, 50000.00, 3);</p>
+
+<p>-- 3. Execute Conditional UPDATE</p>
+<p>UPDATE staff_ratings</p>
+<p>SET salary = salary * </p>
+<p>    CASE performance_rating</p>
+<p>        WHEN 5 THEN 1.15  -- 15% raise</p>
+<p>        WHEN 4 THEN 1.10  -- 10% raise</p>
+<p>        WHEN 3 THEN 1.05  -- 5% raise</p>
+<p>        ELSE 1.00         -- No raise</p>
+<p>    END;</p>
+
+<p>-- 4. Verify updated salaries</p>
+<p>SELECT emp_id, first_name, performance_rating, salary FROM staff_ratings;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+--------+------------+--------------------+----------+
+<table>
+<p>  <thead><tr><th>emp_id</th><th>first_name</th><th>performance_rating</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+--------------------+----------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Rahul</th><th>5</th><th>92000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Priya</td><td>4</td><td>66000.00</td></tr></p>
+<p>    <tr><td>3</td><td>Amit</td><td>3</td><td>52500.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+--------------------+----------+</code></pre></p>
+
+<blockquote><p>⚠️ <strong>Data Safety Warning for <code>UPDATE</code>:</strong> <code>UPDATE</code> statements permanently modify records stored on disk! Always preview your calculated values with a <code>SELECT</code> query first before running <code>UPDATE</code>, or execute inside a <code>START TRANSACTION</code> block.</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1064 (42000): Syntax Error</code></strong></td><td>Forgetting the mandatory <strong><code>END</code></strong> keyword at the end of the <code>CASE</code> expression.</td><td>Ensure every <code>CASE</code> expression terminates with <code>END</code>.</td></tr></p>
+<p>    <tr><td><strong>Testing <code>NULL</code> in Simple <code>CASE</code></strong></td><td>Writing <code>CASE col WHEN NULL THEN ...</code> (fails because <code>col = NULL</code> yields <code>UNKNOWN</code>).</td><td>Use Searched <code>CASE</code> with <code>WHEN col IS NULL THEN ...</code>.</td></tr></p>
+<p>    <tr><td><strong>Broad Conditions First</strong></td><td>Placing <code>>= 2000</code> before <code>>= 10000</code> in threshold range checks.</td><td>Arrange <code>WHEN</code> range thresholds from highest to lowest.</td></tr></p>
+<p>    <tr><td><strong>Incompatible Return Data Types</strong></td><td>Returning strings in one <code>THEN</code> branch and integers in another <code>THEN</code> branch.</td><td>Ensure all <code>THEN</code> and <code>ELSE</code> branches return compatible data types.</td></tr></p>
+<p>    <tr><td><strong>Unexpected <code>NULL</code> Output</strong></td><td>Omitting <code>ELSE</code> when no <code>WHEN</code> condition matches.</td><td>Provide an explicit <code>ELSE</code> fallback value (e.g. <code>ELSE 'Standard'</code>).</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Shipping Labels:</strong> Categorizing delivery speed (<code>WHEN speed_id = 1 THEN 'Overnight Air' ELSE 'Standard Ground'</code>).</li></p>
+<p>  <li><strong>Financial Risk Modeling:</strong> Assigning credit risk tiers based on credit score ranges.</li></p>
+<p>  <li><strong>Reporting Pivots:</strong> Grouping quarterly revenue into 4 fiscal quarter columns (<code>Q1</code>, <code>Q2</code>, <code>Q3</code>, <code>Q4</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Structured Practice Exercises</h2>
+
+<h3>Exercise 1: Categorizing Age Brackets</h3>
+<p>Write a <code>SELECT</code> query on an <code>employees</code> table categorizing staff into age brackets: <code>'Junior'</code> (< 25), <code>'Mid-Level'</code> (25–40), and <code>'Senior'</code> (> 40).</p>
+
+<h3>Exercise 2: Mapping Status Codes to Labels</h3>
+<p>Write a <code>SELECT</code> query that converts single-letter order status codes (<code>'P'</code>, <code>'S'</code>, <code>'D'</code>, <code>'C'</code>) into readable string labels (<code>'Pending'</code>, <code>'Shipped'</code>, <code>'Delivered'</code>, <code>'Cancelled'</code>).</p>
+
+<h3>Exercise 3: Handling <code>NULL</code>s in <code>CASE</code></h3>
+<p>Write a <code>CASE</code> expression that checks if <code>phone_number IS NULL</code>. If <code>NULL</code>, return <code>'Missing Phone'</code>; otherwise return <code>'Phone Available'</code>.</p>
+
+<h3>Exercise 4: Conditional Aggregation</h3>
+<p>Write a query on an <code>exam_results</code> table that counts total passed students (<code>score >= 50</code>) and total failed students (<code>score < 50</code>) in a single row using <code>SUM(CASE ...)</code>.</p>
+
+<h3>Exercise 5: Custom Priority Ordering</h3>
+<p>Write an <code>ORDER BY</code> clause using <code>CASE</code> to sort user roles in priority order: <code>'Admin'</code> (1st), <code>'Moderator'</code> (2nd), <code>'Member'</code> (3rd), <code>'Guest'</code> (4th).</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>1. Create a <code>products</code> table schema:</p>
+<ul>
+<p>  <li><code>product_id</code> (INT, Primary Key)</li></p>
+<p>  <li><code>product_name</code> (VARCHAR 100, NOT NULL)</li></p>
+<p>  <li><code>stock_quantity</code> (INT — Nullable)</li></p>
+<p></ul></p>
+<p>2. Insert 5 sample product records:</p>
+<ul>
+<p>  <li>ID 1: <code>'Wireless Mouse'</code>, Stock <code>0</code></li></p>
+<p>  <li>ID 2: <code>'USB-C Cable'</code>, Stock <code>5</code></li></p>
+<p>  <li>ID 3: <code>'Mechanical Keyboard'</code>, Stock <code>20</code></li></p>
+<p>  <li>ID 4: <code>'Gaming Monitor'</code>, Stock <code>45</code></li></p>
+<p>  <li>ID 5: <code>'Desk Mat'</code>, Stock <code>NULL</code></li></p>
+<p></ul></p>
+<p>3. Write a <code>SELECT</code> query displaying <code>product_name</code>, <code>stock_quantity</code>, and a dynamic label <code>stock_status</code> applying the following rules in correct order:</p>
+<ul>
+<p>  <li><code>'Unknown Status'</code> if <code>stock_quantity IS NULL</code></li></p>
+<p>  <li><code>'Out of Stock'</code> if <code>stock_quantity = 0</code></li></p>
+<p>  <li><code>'Critical Reorder'</code> if <code>stock_quantity < 10</code></li></p>
+<p>  <li><code>'Low Stock'</code> if <code>stock_quantity</code> is between 10 and 30, inclusive</li></p>
+<p>  <li><code>'Adequate Stock'</code> for all other quantities</li></p>
+<p></ul></p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">SELECT employee_name, age,
+<p>    CASE </p>
+<p>        WHEN age &lt; 25 THEN &#39;Junior&#39;</p>
+<p>        WHEN age BETWEEN 25 AND 40 THEN &#39;Mid-Level&#39;</p>
+<p>        ELSE &#39;Senior&#39;</p>
+<p>    END AS age_bracket</p>
+<p>FROM employees;</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<pre><code class="language-sql">SELECT order_id,
+<p>    CASE status_code</p>
+<p>        WHEN &#39;P&#39; THEN &#39;Pending&#39;</p>
+<p>        WHEN &#39;S&#39; THEN &#39;Shipped&#39;</p>
+<p>        WHEN &#39;D&#39; THEN &#39;Delivered&#39;</p>
+<p>        WHEN &#39;C&#39; THEN &#39;Cancelled&#39;</p>
+<p>        ELSE &#39;Unknown Status&#39;</p>
+<p>    END AS display_status</p>
+<p>FROM orders;</code></pre></p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">SELECT full_name,
+<p>    CASE </p>
+<p>        WHEN phone_number IS NULL THEN &#39;Missing Phone&#39;</p>
+<p>        ELSE &#39;Phone Available&#39;</p>
+<p>    END AS contact_status</p>
+<p>FROM customers;</code></pre></p>
+
+<p>#### Exercise 4 Solution:</p>
+<pre><code class="language-sql">SELECT 
+<p>    COUNT(student_id) AS total_students,</p>
+<p>    SUM(CASE WHEN score &gt;= 50 THEN 1 ELSE 0 END) AS passed_students,</p>
+<p>    SUM(CASE WHEN score &lt; 50 THEN 1 ELSE 0 END) AS failed_students</p>
+<p>FROM exam_results;</code></pre></p>
+
+<p>#### Exercise 5 Solution:</p>
+<pre><code class="language-sql">SELECT username, role
+<p>FROM user_accounts</p>
+<p>ORDER BY </p>
+<p>    CASE role</p>
+<p>        WHEN &#39;Admin&#39; THEN 1</p>
+<p>        WHEN &#39;Moderator&#39; THEN 2</p>
+<p>        WHEN &#39;Member&#39; THEN 3</p>
+<p>        WHEN &#39;Guest&#39; THEN 4</p>
+<p>        ELSE 5</p>
+<p>    END ASC;</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">-- Step 1: Create table schema
+<p>CREATE TABLE IF NOT EXISTS products (</p>
+<p>    product_id INT PRIMARY KEY,</p>
+<p>    product_name VARCHAR(100) NOT NULL,</p>
+<p>    stock_quantity INT -- Nullable</p>
+<p>);</p>
+
+<p>-- Step 2: Insert sample products</p>
+<p>INSERT INTO products (product_id, product_name, stock_quantity)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Wireless Mouse&#39;, 0),</p>
+<p>    (2, &#39;USB-C Cable&#39;, 5),</p>
+<p>    (3, &#39;Mechanical Keyboard&#39;, 20),</p>
+<p>    (4, &#39;Gaming Monitor&#39;, 45),</p>
+<p>    (5, &#39;Desk Mat&#39;, NULL);</p>
+
+<p>-- Step 3: Run Searched CASE query evaluating stock status</p>
+<p>SELECT </p>
+<p>    product_name,</p>
+<p>    stock_quantity,</p>
+<p>    CASE</p>
+<p>        WHEN stock_quantity IS NULL THEN &#39;Unknown Status&#39; -- Checked FIRST!</p>
+<p>        WHEN stock_quantity = 0 THEN &#39;Out of Stock&#39;</p>
+<p>        WHEN stock_quantity &lt; 10 THEN &#39;Critical Reorder&#39;</p>
+<p>        WHEN stock_quantity BETWEEN 10 AND 30 THEN &#39;Low Stock&#39;</p>
+<p>        ELSE &#39;Adequate Stock&#39;</p>
+<p>    END AS stock_status</p>
+<p>FROM products;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+---------------------+----------------+------------------+
+<table>
+<p>  <thead><tr><th>product_name</th><th>stock_quantity</th><th>stock_status</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+----------------+------------------+</p>
+<table>
+<p>  <thead><tr><th>Wireless Mouse</th><th>0</th><th>Out of Stock</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>USB-C Cable</td><td>5</td><td>Critical Reorder</td></tr></p>
+<p>    <tr><td>Mechanical Keyboard</td><td>20</td><td>Low Stock</td></tr></p>
+<p>    <tr><td>Gaming Monitor</td><td>45</td><td>Adequate Stock</td></tr></p>
+<p>    <tr><td>Desk Mat</td><td>NULL</td><td>Unknown Status</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------------------+----------------+------------------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-sql-functions.html">SQL Built-in Functions</a></li></p>
+<p>  <li><a href="13-group-by-and-having.html"><code>GROUP BY</code> & <code>HAVING</code> Clauses</a></li></p>
+<p>  <li><a href="17-subqueries.html">Subqueries & Nested Queries</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="15-sql-functions.html">← Previous: SQL Functions</a> | <a href="./">SQL Home</a> | <a href="17-subqueries.html">Next: Subqueries →</a></p>
+
+  </div>
+</body>
+</html>

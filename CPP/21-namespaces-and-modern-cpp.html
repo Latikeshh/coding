@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 namespaces and modern cpp - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Namespaces, <code>auto</code>, <code>constexpr</code> & <code>std::optional</code> in Modern C++</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>Modern C++ (C++11 through C++20) introduced major productivity features to write cleaner, safer, and faster code:</p>
+<p>1. <strong>Namespaces (<code>namespace</code>)</strong>: Prevent naming collisions by scoping functions and classes.</p>
+<p>2. <strong>Type Deduction (<code>auto</code>)</strong>: Deduces variable types automatically at compile time.</p>
+<p>3. <strong>Compile-Time Constants (<code>constexpr</code>)</strong>: Forces expression evaluation during compilation rather than runtime!</p>
+<p>4. <strong>Optional Values (<code>std::optional</code>)</strong> (C++17): Represents a value that may or may not be present without resorting to <code>NULL</code> or error codes.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Namespaces</strong>: Jab alag-alag libraries mein same naam ke functions hon (jaise do <code>display()</code> functions), toh collision se bachne ke liye <code>namespace Audio { void display(); }</code> aur <code>namespace Video { void display(); }</code> likhte hain.</li></p>
+<p>  <li><strong><code>constexpr</code></strong>: Compiler ko kehta hai ki calculation runtime par karne ke bajaye program compile hone ke waqt hi kar le.</li></p>
+<p>  <li><strong><code>std::optional</code></strong>: C++17 ka feature jo aisi value return karta hai jo ho bhi sakti hai aur nahi bhi (<code>std::nullopt</code>). Isse null pointer crashes nahi hote.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Namespaces</strong>: Name collisions taalnyasathi variables kiwa functions la eka scope madhye grouped karne.</li></p>
+<p>  <li><strong><code>constexpr</code></strong>: Calculations compile-time laas poorna krun thevane, jyamule runtime vishwasane वेगwan (fast) hoto.</li></p>
+<p>  <li><strong><code>std::optional</code></strong>: Value asu shakte kiwa nasu shakte (<code>nullopt</code>), jyamule null pointer crash hot nahit.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;optional&gt; // C++17</p>
+
+<p>// 1. Custom Namespaces</p>
+<p>namespace AudioEngine {</p>
+<p>    void init() {</p>
+<p>        std::cout &lt;&lt; &quot;[AudioEngine] Speaker subsystem initialized.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>namespace GraphicsEngine {</p>
+<p>    void init() {</p>
+<p>        std::cout &lt;&lt; &quot;[GraphicsEngine] GPU DirectX/Vulkan subsystem initialized.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>// 2. Compile-time constant evaluation (C++11/C++14)</p>
+<p>constexpr int calculateSquare(int x) {</p>
+<p>    return x * x; // Evaluated at compile time!</p>
+<p>}</p>
+
+<p>// 3. Helper function returning std::optional (C++17)</p>
+<p>std::optional&lt;std::string&gt; findUserById(int userId) {</p>
+<p>    if (userId == 101) {</p>
+<p>        return &quot;Rahul Sharma&quot;;</p>
+<p>    }</p>
+<p>    return std::nullopt; // Indicates no user found safely!</p>
+<p>}</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. NAMESPACES DEMO ---&quot; &lt;&lt; std::endl;</p>
+<p>    AudioEngine::init();</p>
+<p>    GraphicsEngine::init();</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 2. CONSTEXPR DEMO ---&quot; &lt;&lt; std::endl;</p>
+<p>    constexpr int sq = calculateSquare(12); // Computed by compiler!</p>
+<p>    std::cout &lt;&lt; &quot;Compile-time calculated square of 12: &quot; &lt;&lt; sq &lt;&lt; std::endl;</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 3. std::optional DEMO (C++17) ---&quot; &lt;&lt; std::endl;</p>
+<p>    auto user1 = findUserById(101);</p>
+<p>    auto user2 = findUserById(999);</p>
+
+<p>    if (user1.has_value()) {</p>
+<p>        std::cout &lt;&lt; &quot;User 101 Found: &quot; &lt;&lt; user1.value() &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    if (!user2) { // Evaluate directly as boolean</p>
+<p>        std::cout &lt;&lt; &quot;User 999 Not Found (Returned std::nullopt safely).&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>AudioEngine::init()</code> vs <code>GraphicsEngine::init()</code>: Scope resolution operator <code>::</code> disambiguates identically named functions across different namespaces.</li></p>
+<p>  <li><code>constexpr int sq</code>: Value <code>144</code> is computed at compile time by the compiler, incurring zero execution overhead at runtime!</li></p>
+<p>  <li><code>std::nullopt</code>: Type-safe alternative to returning null pointers or magic error numbers (<code>-1</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. NAMESPACES DEMO ---
+<p>[AudioEngine] Speaker subsystem initialized.</p>
+<p>[GraphicsEngine] GPU DirectX/Vulkan subsystem initialized.</p>
+
+<p>--- 2. CONSTEXPR DEMO ---</p>
+<p>Compile-time calculated square of 12: 144</p>
+
+<p>--- 3. std::optional DEMO (C++17) ---</p>
+<p>User 101 Found: Rahul Sharma</p>
+<p>User 999 Not Found (Returned std::nullopt safely).</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Polluting Global Scope with <code>using namespace std;</code> in Header Files</strong>:</li></p>
+<p></ul></p>
+<p>  Writing <code>using namespace std;</code> in header files (<code>.h</code>) forces every file including that header to pull the entire <code>std</code> namespace into global scope, leading to unexpected name conflicts!</p>
+<ul>
+<p>  <li><strong>Accessing <code>std::optional</code> Without Checking <code>.has_value()</code></strong>:</li></p>
+<p></ul></p>
+<p>  Calling <code>.value()</code> on an empty <code>std::optional</code> throws a <code>std::bad_optional_access</code> exception. Always verify <code>.has_value()</code> or <code>if (opt)</code> first.</p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Use <code>constexpr</code> for constants and pure mathematical lookup functions.</li></p>
+<p>  <li>Use <code>std::optional<T></code> for functions where a lookup or search operation might fail gracefully.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Define a <code>MathPhysics</code> namespace containing a <code>constexpr double GRAVITY = 9.81;</code>.</p>
+<p>2. Write a function <code>findFirstEvenNumber(const std::vector<int>& numbers)</code> that returns <code>std::optional<int></code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a configuration manager that reads settings by key (e.g. <code>"theme"</code>, <code>"fontsize"</code>) and returns <code>std::optional<std::string></code>. If key exists, print the value; otherwise print <code>"Setting Not Configured"</code>.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-functions.html">Functions in C++</a></li></p>
+<p>  <li><a href="22-move-semantics.html">Move Semantics</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="20-file-streams.html">← Previous: File Streams</a> | <a href="22-move-semantics.html">Next: Move Semantics →</a></p>
+
+
+  </div>
+</body>
+</html>

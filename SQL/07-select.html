@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 select - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1><code>SELECT</code> – Reading & Querying Data</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>SELECT</code></strong> statement is the primary <strong>Data Query Language (DQL)</strong> command in SQL. It is used to query, filter, project, and retrieve data records from one or more database tables.</p>
+
+<p><code>SELECT</code> queries do not modify or destroy table records on disk. Instead, the database engine evaluates your query instructions in memory and returns a temporary 2-dimensional result set (tabular view) consisting of rows and columns.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Database tables se data read aur retrieve karne ke liye <strong><code>SELECT</code></strong> query ka use hota hai. Aap saare columns (<code>SELECT *</code>) ya specific columns (<code>SELECT col1, col2</code>) choose kar sakte hain. Result table ke headers ko rename karne ke liye <strong>Column Aliases (<code>AS</code>)</strong>, duplicate rows ko hatane ke liye <strong><code>DISTINCT</code></strong>, aur do text fields ko jodne ke liye <strong><code>CONCAT()</code></strong> function ka use kiya jata hai. Math operations (jaise <code>salary * 12</code>) se dynamic result columns bante hain lekin table ka permanent data change nahi hota.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Database table madhun data vachnyasathi aani pahanyasathi <strong><code>SELECT</code></strong> query cha wapar kela jato. Pratyek column pahanyasathi <code>SELECT *</code> kiva vishisht columns sathi <code>SELECT col1, col2</code> vaparatat. Duplicate rows kadhnyasathi <strong><code>DISTINCT</code></strong>, output column la navin nav dhenyasathi <strong>Column Alias (<code>AS</code>)</strong>, aani text एकत्र karnyasathi <strong><code>CONCAT()</code></strong> function cha wapar hoto. Calculated columns (jaise <code>salary * 12</code>) mule temporary result milto, table madhil mool data badalat nahi.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p><code>SELECT</code> is the most frequently executed statement in database applications. It allows developers to:</p>
+
+<ul>
+<p>  <li>Fetch specific data fields required by web applications, mobile apps, and user interfaces.</li></p>
+<p>  <li>Perform dynamic calculations, currency conversions, and percentage markups on the fly.</li></p>
+<p>  <li>Combine text fields (e.g., merging <code>first_name</code> and <code>last_name</code> into <code>full_name</code>).</li></p>
+<p>  <li>Filter out duplicate records using <code>DISTINCT</code>.</li></p>
+<p>  <li>Prepare structured datasets for reporting dashboards and business intelligence analytics.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: The Library Catalog Search</h2>
+
+<p>Think of a database table as a <strong>Library Book Inventory</strong>:</p>
+
+<ul>
+<p>  <li>**<code>SELECT * FROM books;</code><strong>: Walking into the library and pulling every book off the shelf to inspect all details (Title, Author, ISBN, Price, Page Count, Genre).</li></p>
+<p>  <li></strong><code>SELECT title, author FROM books;</code>**: Looking at the library catalog card that displays *only* the Book Title and Author Name.</li></p>
+<p>  <li><strong>Column Alias (<code>title AS Book_Title</code>):</strong> Placing a temporary sticky label on the catalog card heading for display.</li></p>
+<p>  <li><strong><code>SELECT DISTINCT genre FROM books;</code></strong>: Browsing the catalog to get a unique list of genres available in the library without seeing "Fiction" repeated 500 times.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 <code>SELECT</code> Syntax Variations & Key Features</h2>
+
+<p>SQL provides several ways to customize how data columns are retrieved and presented:</p>
+
+<h3>1. Selecting All Columns (<code>SELECT *</code>)</h3>
+<p>The asterisk <code>*</code> wildcard instructs the engine to return every column defined in the table schema:</p>
+
+<pre><code class="language-sql">SELECT * FROM employees;</code></pre>
+
+<p>#### 💡 <code>SELECT *</code> vs Explicit Column Projection:</p>
+<ul>
+<p>  <li>**<code>SELECT *</code> Use Case:<strong> Great for quick ad-hoc exploration in phpMyAdmin, MySQL Workbench, or CLI tools.</li></p>
+<p>  <li>⚠️ </strong>Production Warning:** Avoid using <code>SELECT *</code> in backend application code! Explicitly listing needed columns (<code>SELECT first_name, salary</code>) reduces network bandwidth, decreases memory consumption, and prevents application code from breaking if new columns are added to the table schema later.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h3>2. Selecting Specific Columns</h3>
+<p>Explicitly project only the columns required for your application:</p>
+
+<pre><code class="language-sql">SELECT first_name, last_name, salary
+<p>FROM employees;</code></pre></p>
+
+<p>---</p>
+
+<h3>3. Column Aliases (<code>AS</code>)</h3>
+<p>Aliases allow you to temporarily rename column headings in the query result display:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    first_name AS Name,</p>
+<p>    salary AS MonthlySalary</p>
+<p>FROM employees;</code></pre></p>
+
+<blockquote><p>📌 <strong>Important Alias Rules:</strong></p></blockquote>
+<blockquote><p>1. Column aliases only rename the <strong>output result set header</strong>. They do <strong>not</strong> permanently rename the underlying table column on disk!</p></blockquote>
+<blockquote><p>2. The <code>AS</code> keyword is optional in MySQL (<code>first_name Name</code>), but explicitly writing <code>AS</code> is recommended for code clarity.</p></blockquote>
+<blockquote><p>3. If an alias contains spaces, enclose it in quotes: <code>salary AS 'Monthly Salary'</code>.</p></blockquote>
+
+<p>---</p>
+
+<h3>4. Eliminating Duplicates (<code>DISTINCT</code>)</h3>
+<p>The <code>DISTINCT</code> keyword filters out duplicate rows, returning only unique values:</p>
+
+<pre><code class="language-sql">SELECT DISTINCT department
+<p>FROM employees;</code></pre></p>
+
+<p>#### 🚨 Crucial Rule About <code>DISTINCT</code>:</p>
+<p><code>DISTINCT</code> applies to the <strong>combination of ALL selected columns</strong>, not just the first column!</p>
+
+<pre><code class="language-sql">-- Evaluates unique COMBINATIONS of (department + salary)
+<p>SELECT DISTINCT department, salary</p>
+<p>FROM employees;</code></pre></p>
+
+<p>*(Note: Unless an <code>ORDER BY</code> clause is used, the relational database engine does not guarantee any specific row order in the output set).*</p>
+
+<p>---</p>
+
+<h3>5. Calculated & Derived Columns</h3>
+<p>You can perform mathematical operations (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) directly inside a <code>SELECT</code> query:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    first_name,</p>
+<p>    salary,</p>
+<p>    salary * 12 AS annual_salary,</p>
+<p>    salary * 0.10 AS bonus_amount</p>
+<p>FROM employees;</code></pre></p>
+
+<blockquote><p>ℹ️ <strong>Memory Projection vs Table Storage:</strong> Arithmetic calculations generate temporary derived columns in memory for display purposes. They do <strong>not</strong> alter the actual <code>salary</code> records stored in the database table on disk! *(Also note that any arithmetic operation involving <code>NULL</code> yields <code>NULL</code>)*.</p></blockquote>
+
+<p>---</p>
+
+<h3>6. String Concatenation (<code>CONCAT()</code>)</h3>
+<p>MySQL provides the <strong><code>CONCAT(string1, string2, ...)</code></strong> function to merge multiple text fields or literal strings into a single column:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    CONCAT(first_name, &#39; &#39;, last_name) AS full_name,</p>
+<p>    department</p>
+<p>FROM employees;</code></pre></p>
+
+<p>---</p>
+
+<h3>7. Selecting Literal Values & Expressions</h3>
+<p>You can execute <code>SELECT</code> queries with static literal expressions without referencing any database table:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    &#39;Hello, SQL!&#39; AS message,</p>
+<p>    100 * 5 AS calculation_result;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+--------------------+
+<table>
+<p>  <thead><tr><th>message</th><th>calculation_result</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------------+</p>
+<table>
+<p>  <thead><tr><th>Hello, SQL!</th><th>500</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+--------------------+</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Complete Practical Workflow & Employee Example</h2>
+
+<p>Let's set up an <code>employees</code> table and run queries demonstrating explicit column selection, string concatenation, arithmetic calculations, and <code>DISTINCT</code>.</p>
+
+<pre><code class="language-sql">-- 1. Create table schema
+<p>CREATE TABLE IF NOT EXISTS employees (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    last_name VARCHAR(50) NOT NULL,</p>
+<p>    department VARCHAR(50) NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Insert sample records using explicit column syntax</p>
+<p>INSERT INTO employees (emp_id, first_name, last_name, department, salary)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Rahul&#39;, &#39;Dravid&#39;, &#39;Sports&#39;, 85000.00),</p>
+<p>    (2, &#39;Priya&#39;, &#39;Sharma&#39;, &#39;HR&#39;, 60000.00),</p>
+<p>    (3, &#39;Amit&#39;, &#39;Kumar&#39;, &#39;Sports&#39;, 85000.00),</p>
+<p>    (4, &#39;Sneha&#39;, &#39;Patel&#39;, &#39;Engineering&#39;, 95000.00),</p>
+<p>    (5, &#39;Kiran&#39;, &#39;Rao&#39;, &#39;HR&#39;, 60000.00);</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 1: Full Name Concatenation, Salary & 10% Hike Calculation</h3>
+
+<pre><code class="language-sql">SELECT 
+<p>    CONCAT(first_name, &#39; &#39;, last_name) AS full_name,</p>
+<p>    department,</p>
+<p>    salary,</p>
+<p>    salary * 1.10 AS salary_after_hike</p>
+<p>FROM employees;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+--------------+-------------+----------+-------------------+
+<table>
+<p>  <thead><tr><th>full_name</th><th>department</th><th>salary</th><th>salary_after_hike</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+-------------+----------+-------------------+</p>
+<table>
+<p>  <thead><tr><th>Rahul Dravid</th><th>Sports</th><th>85000.00</th><th>93500.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Priya Sharma</td><td>HR</td><td>60000.00</td><td>66000.00</td></tr></p>
+<p>    <tr><td>Amit Kumar</td><td>Sports</td><td>85000.00</td><td>93500.00</td></tr></p>
+<p>    <tr><td>Sneha Patel</td><td>Engineering</td><td>95000.00</td><td>104500.00</td></tr></p>
+<p>    <tr><td>Kiran Rao</td><td>HR</td><td>60000.00</td><td>66000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+-------------+----------+-------------------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 2: Retrieving Unique Departments (<code>DISTINCT</code>)</h3>
+
+<pre><code class="language-sql">SELECT DISTINCT department 
+<p>FROM employees;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+
+<table>
+<p>  <thead><tr><th>department</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+</p>
+<table>
+<p>  <thead><tr><th>Sports</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>HR</td></tr></p>
+<p>    <tr><td>Engineering</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 3: Multi-Column <code>DISTINCT</code> (Unique Department & Salary Combinations)</h3>
+
+<pre><code class="language-sql">SELECT DISTINCT department, salary 
+<p>FROM employees;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-------------+----------+
+<table>
+<p>  <thead><tr><th>department</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------+</p>
+<table>
+<p>  <thead><tr><th>Sports</th><th>85000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>HR</td><td>60000.00</td></tr></p>
+<p>    <tr><td>Engineering</td><td>95000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------+----------+</code></pre></p>
+
+<p>*(Note: Although <code>Rahul</code> and <code>Amit</code> are separate employees, both work in <code>Sports</code> for <code>85000.00</code>, so <code>DISTINCT department, salary</code> returns that unique pair once).*</p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error Message / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1054 (42S22): Unknown column 'firstname'</code></strong></td><td>Misspelling column names (<code>firstname</code> instead of <code>first_name</code>).</td><td>Verify exact column names using <code>DESCRIBE employees;</code>.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1064 (42000): Syntax Error</code></strong></td><td>Forgetting commas between selected columns (<code>SELECT first_name last_name</code>).</td><td>Ensure every selected column name except the last one is followed by a comma <code>,</code>.</td></tr></p>
+<p>    <tr><td><strong>Expecting <code>AS</code> Alias to Rename Table Column</strong></td><td>Assuming <code>SELECT salary AS pay</code> permanently renames the table column on disk.</td><td>Understand that aliases only rename output headings for that query result display.</td></tr></p>
+<p>    <tr><td><strong>Assuming Default Row Order</strong></td><td>Expecting <code>SELECT</code> to always return rows in insertion or primary key order without <code>ORDER BY</code>.</td><td>Use explicit <code>ORDER BY column_name</code> whenever specific row sequence is required.</td></tr></p>
+<p>    <tr><td><strong>Expecting Calculations to Update Table Data</strong></td><td>Expecting <code>SELECT salary * 12</code> to change stored values in the database.</td><td>Use <code>UPDATE</code> statements to permanently alter data stored on disk.</td></tr></p>
+<p>    <tr><td><strong>Arithmetic Operations with <code>NULL</code></strong></td><td>Performing calculations on nullable columns (<code>salary + bonus</code>) where <code>bonus</code> is <code>NULL</code>.</td><td>Use <code>COALESCE(bonus, 0)</code> to replace <code>NULL</code> values with zero before arithmetic operations.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Product Feeds:</strong> Running <code>SELECT product_name, price, price * 0.80 AS discounted_price FROM products</code> to compute sale prices dynamically on web pages.</li></p>
+<p>  <li><strong>User Profile Headers:</strong> Using <code>SELECT CONCAT(first_name, ' ', last_name) AS display_name FROM users</code> to display user profile names on mobile apps.</li></p>
+<p>  <li><strong>Analytics Reports:</strong> Running <code>SELECT DISTINCT country FROM customers</code> to identify global market reach.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Column Aliases</h3>
+<p>Write a <code>SELECT</code> statement to retrieve <code>first_name</code> and <code>salary</code> from the <code>employees</code> table, displaying the <code>salary</code> column under the alias <code>Monthly_Pay</code>.</p>
+
+<h3>Exercise 2: Unique Values</h3>
+<p>Write an SQL query to retrieve a list of all unique job departments represented in the <code>employees</code> table.</p>
+
+<h3>Exercise 3: Annual Income Calculation</h3>
+<p>Write a query displaying <code>first_name</code>, <code>salary</code>, and an estimated annual income column (<code>salary * 12</code>) aliased as <code>Annual_Income</code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a <code>SELECT</code> query that calculates an employee's estimated daily pay rate assuming <strong>22 working days per month</strong> (<code>salary / 22</code>).</p>
+
+<p>Project two columns in your query result:</p>
+<p>1. <code>full_name</code> (using <code>CONCAT(first_name, ' ', last_name)</code>)</p>
+<p>2. <code>daily_rate</code> (calculated as <code>salary / 22</code>)</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">SELECT first_name, salary AS Monthly_Pay 
+<p>FROM employees;</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<pre><code class="language-sql">SELECT DISTINCT department 
+<p>FROM employees;</code></pre></p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">SELECT first_name, salary, salary * 12 AS Annual_Income 
+<p>FROM employees;</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    CONCAT(first_name, &#39; &#39;, last_name) AS full_name,</p>
+<p>    salary / 22 AS daily_rate</p>
+<p>FROM employees;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+--------------+------------+
+<table>
+<p>  <thead><tr><th>full_name</th><th>daily_rate</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+------------+</p>
+<table>
+<p>  <thead><tr><th>Rahul Dravid</th><th>3863.6363</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Priya Sharma</td><td>2727.2727</td></tr></p>
+<p>    <tr><td>Amit Kumar</td><td>3863.6363</td></tr></p>
+<p>    <tr><td>Sneha Patel</td><td>4318.1818</td></tr></p>
+<p>    <tr><td>Kiran Rao</td><td>2727.2727</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+------------+</code></pre></p>
+
+<p>*(Note: <code>salary / 22</code> provides a simplified estimate of daily earnings for display purposes).*</p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
+<p>  <li><a href="06-insert.html"><code>INSERT</code> – Adding Data to Tables</a></li></p>
+<p>  <li><a href="08-where.html">Filtering Data with <code>WHERE</code></a></li></p>
+<p>  <li><a href="10-order-by-and-limit.html">Sorting & Limiting Results (<code>ORDER BY</code>, <code>LIMIT</code>)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="06-insert.html">← Previous: INSERT Data</a> | <a href="./">SQL Home</a> | <a href="08-where.html">Next: Filtering Data with WHERE →</a></p>
+
+  </div>
+</body>
+</html>

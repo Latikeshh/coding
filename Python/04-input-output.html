@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input and Output - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Input and Output in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Input and Output (I/O)</strong> allows Python programs to communicate with users. Output is displayed on the screen using the <strong><code>print()</code></strong> function, while user input is captured from the terminal using the <strong><code>input()</code></strong> function.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Screen par result dikhane ke liye <code>print()</code> function ka use hota hai. User se terminal input lene ke liye <code>input()</code> function ka use kiya jata hai. Note karein ki <code>input()</code> function hamesha <strong>String (<code>str</code>)</strong> value return karta hai, isliye numbers ke liye type conversion (<code>int()</code> / <code>float()</code>) karna padta hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Terminal varti output dakhvanyasathi <code>print()</code> vaparatat. User kadun input ghenyasathi <code>input()</code> function cha wapar hoto. <code>input()</code> hamesha String ch deto, mhanun numbers sathi <code>int()</code> vapara.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Interactive applications require user input (like names, passwords, amounts, search terms) to process calculations dynamically rather than relying on hardcoded static values.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>print()</code> as a digital megaphone that broadcasts messages from Python onto the user's screen. Think of <code>input()</code> as a receptionist asking the user a question and handing their written answer over to Python.</p>
+
+<h2>📝 1. Output with <code>print()</code></h2>
+
+<p>The <code>print()</code> function accepts multiple arguments and formatting options:</p>
+
+<ul>
+<p>  <li><strong><code>sep</code> parameter:</strong> Defines separator between printed items (default is space <code>' '</code>).</li></p>
+<p>  <li><strong><code>end</code> parameter:</strong> Defines ending character (default is newline <code>'\n'</code>).</li></p>
+<p>  <li><strong>f-strings (Formatted String Literals):</strong> <code>f"Hello {variable}"</code> (Python 3.6+).</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">name = &quot;Aarav&quot;
+<p>age = 22</p>
+
+<h1>Using f-strings (Best Practice)</h1>
+<p>print(f&quot;Name: {name} | Age: {age}&quot;)</p>
+
+<h1>Custom Separator and End</h1>
+<p>print(&quot;Python&quot;, &quot;Java&quot;, &quot;C++&quot;, sep=&quot; - &quot;)</p>
+<p>print(&quot;Processing...&quot;, end=&quot;&quot;) # Stays on same line!</p>
+<p>print(&quot;Done!&quot;)</code></pre></p>
+
+<h2>📝 2. Input with <code>input()</code> & Type Casting</h2>
+
+<p>The <code>input()</code> function pauses execution and waits for the user to type text and press <code>Enter</code>:</p>
+
+<pre><code class="language-python"># input() ALWAYS returns a string!
+<p>user_age_str = input(&quot;Enter your age: &quot;) </p>
+
+<h1>Converting string to integer for calculations</h1>
+<p>user_age = int(user_age_str)</code></pre></p>
+
+<h2>💡 Complete Example: Interactive Order Billing Console</h2>
+
+<pre><code class="language-python"># E-Commerce Billing Console
+<p>print(&quot;=== TECH STORE ORDER CONSOLE ===&quot;)</p>
+
+<h1>Capturing User Inputs</h1>
+<p>customer_name = input(&quot;Enter Customer Name : &quot;)</p>
+<p>product_name  = input(&quot;Enter Product Name  : &quot;)</p>
+
+<h1>Prompting and explicit numerical parsing</h1>
+<p>unit_price = float(input(&quot;Enter Unit Price (₹): &quot;))</p>
+<p>quantity   = int(input(&quot;Enter Quantity      : &quot;))</p>
+
+<h1>Calculating Financial Totals</h1>
+<p>subtotal = unit_price * quantity</p>
+<p>tax_amount = subtotal * 0.18 # 18% GST</p>
+<p>total_payable = subtotal + tax_amount</p>
+
+<h1>Displaying Formatted Receipt</h1>
+<p>print(&quot;\n&quot; + &quot;=&quot;*35)</p>
+<p>print(&quot;          ORDER RECEIPT          &quot;)</p>
+<p>print(&quot;=&quot;*35)</p>
+<p>print(f&quot;Customer Name : {customer_name}&quot;)</p>
+<p>print(f&quot;Product       : {product_name} (x{quantity})&quot;)</p>
+<p>print(f&quot;Unit Price    : ₹{unit_price:.2f}&quot;)</p>
+<p>print(f&quot;Subtotal      : ₹{subtotal:.2f}&quot;)</p>
+<p>print(f&quot;GST (18%)     : ₹{tax_amount:.2f}&quot;)</p>
+<p>print(&quot;-&quot; * 35)</p>
+<p>print(f&quot;Total Payable : ₹{total_payable:.2f}&quot;)</p>
+<p>print(&quot;=&quot;*35)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== TECH STORE ORDER CONSOLE ===
+<p>Enter Customer Name : Rahul Verma</p>
+<p>Enter Product Name  : Wireless Keyboard</p>
+<p>Enter Unit Price (₹): 1499.50</p>
+<p>Enter Quantity      : 2</p>
+
+<p>===================================</p>
+<p>          ORDER RECEIPT          </p>
+<p>===================================</p>
+<p>Customer Name : Rahul Verma</p>
+<p>Product       : Wireless Keyboard (x2)</p>
+<p>Unit Price    : ₹1499.50</p>
+<p>Subtotal      : ₹2999.00</p>
+<p>GST (18%)     : ₹539.82</p>
+<p>-----------------------------------</p>
+<p>Total Payable : ₹3538.82</p>
+<p>===================================</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to convert <code>input()</code> to <code>int</code> or <code>float</code> when doing math calculations (<code>"25" + "5"</code> results in string concatenation <code>"255"</code>, not addition <code>30</code>!).</li></p>
+<p>  <li>Passing non-numeric text into <code>int()</code> or <code>float()</code>, causing a <code>ValueError: invalid literal for int()</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>When formatting floating-point numbers in f-strings, use <code>:.2f</code> to round output neatly to 2 decimal places (e.g. <code>f"₹{amount:.2f}"</code>).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Command-line utilities, interactive setup wizards, installer prompts, terminal games, and user verification interfaces.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a program that asks for a user's name and birth year.</p>
+<p>2. Calculate and print their current age assuming current year is 2026.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Build a currency converter script that asks the user for an amount in USD ($) and converts it to INR (₹) using rate <code>1 USD = 86.50 INR</code>, displaying output formatted to 2 decimals.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="18-exception-handling.html">Exception Handling</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="03-variables-and-data-types.html">← Previous: Variables</a> | <a href="05-operators.html">Next: Operators and Expressions →</a></p>
+
+
+  </div>
+</body>
+</html>

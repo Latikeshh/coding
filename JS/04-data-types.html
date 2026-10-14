@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 data types - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Data Types & String Methods in JavaScript</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>JavaScript is dynamically typed, meaning variables can hold values of any data type without explicit type declarations. Data types in JavaScript are divided into <strong>Primitive Types</strong> (immutable values) and <strong>Reference / Object Types</strong> (mutable collections).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>JavaScript mein data types do categories mein divided hain: <strong>Primitive Types</strong> (<code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Undefined</code>, <code>Null</code>, <code>BigInt</code>, <code>Symbol</code>) aur <strong>Reference Types</strong> (<code>Object</code>, <code>Array</code>, <code>Function</code>). <code>typeof</code> operator se kisi variable ka data type check kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>JavaScript madhye data types don mukhya prakarat vibhagile ahet: <strong>Primitive Types</strong> aani <strong>Reference Types</strong>. Variable madhye kontya prakar cha data ahe he tapasnyasathi <code>typeof</code> operator cha wapar kela jato.</p>
+
+<h2>📝 Categories of Data Types</h2>
+
+<h3>1. Primitive Data Types (Stored directly by value)</h3>
+
+<ul>
+<p>  <li><strong>String:</strong> Textual data enclosed in quotes (<code>"Hello"</code>, <code>'World'</code>, `<code> </code>Template<code> </code><code>).</li></p>
+<p>  <li><strong>Number:</strong> Numeric values including integers and floating-point decimals (</code>25<code>, </code>99.99<code>).</li></p>
+<p>  <li><strong>Boolean:</strong> Logical values (</code>true<code> or </code>false<code>).</li></p>
+<p>  <li><strong>Undefined:</strong> Variable declared but not assigned a value.</li></p>
+<p>  <li><strong>Null:</strong> Intentional absence of any object value.</li></p>
+<p>  <li><strong>BigInt:</strong> Integers larger than $2^{53} - 1$ (</code>9007199254740991n<code>).</li></p>
+<p>  <li><strong>Symbol:</strong> Unique and immutable primitive value used for object property keys.</li></p>
+<p></ul></p>
+
+<h3>2. Reference Data Types (Stored by memory reference)</h3>
+
+<ul>
+<p>  <li><strong>Object:</strong> Key-value pairs (</code>{ name: "Rahul", age: 24 }<code>).</li></p>
+<p>  <li><strong>Array:</strong> Ordered list of values (</code>[10, 20, 30]<code>).</li></p>
+<p>  <li><strong>Function:</strong> Callable code block.</li></p>
+<p></ul></p>
+
+<h2>💡 Syntax & Complete Example</h2>
+
+<pre><code class="language-js">// Primitive Data Types
+<p>let username = &quot;Aarav&quot;;        // String</p>
+<p>let score = 95.5;              // Number</p>
+<p>let isLoggedIn = true;         // Boolean</p>
+<p>let unassignedVar;             // Undefined</p>
+<p>let emptyValue = null;         // Null</p>
+<p>let bigNumber = 123456789n;    // BigInt</p>
+
+<p>console.log(&quot;typeof username:&quot;, typeof username);   // &quot;string&quot;</p>
+<p>console.log(&quot;typeof score:&quot;, typeof score);         // &quot;number&quot;</p>
+<p>console.log(&quot;typeof isLoggedIn:&quot;, typeof isLoggedIn); // &quot;boolean&quot;</p>
+<p>console.log(&quot;typeof unassignedVar:&quot;, typeof unassignedVar); // &quot;undefined&quot;</p>
+<p>console.log(&quot;typeof emptyValue:&quot;, typeof emptyValue); // &quot;object&quot; (Historical JS quirk!)</p>
+
+<p>// String Operations and Methods</p>
+<p>let greeting = &quot;  Hello JavaScript Developer!  &quot;;</p>
+
+<p>console.log(&quot;Length:&quot;, greeting.length);              // 31</p>
+<p>console.log(&quot;Trimmed:&quot;, greeting.trim());             // &quot;Hello JavaScript Developer!&quot;</p>
+<p>console.log(&quot;Uppercase:&quot;, greeting.toUpperCase());    // &quot;  HELLO JAVASCRIPT DEVELOPER!  &quot;</p>
+<p>console.log(&quot;Includes &#39;JS&#39;:&quot;, greeting.includes(&quot;JS&quot;)); // false</p>
+<p>console.log(&quot;Includes &#39;JavaScript&#39;:&quot;, greeting.includes(&quot;JavaScript&quot;)); // true</p>
+<p>console.log(&quot;Slice (2, 7):&quot;, greeting.slice(2, 7));  // &quot;Hello&quot;</p>
+<p>console.log(&quot;Replace:&quot;, greeting.replace(&quot;Developer&quot;, &quot;Coder&quot;)); // &quot;  Hello JavaScript Coder!  &quot;</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">typeof username: string
+<p>typeof score: number</p>
+<p>typeof isLoggedIn: boolean</p>
+<p>typeof unassignedVar: undefined</p>
+<p>typeof emptyValue: object</p>
+<p>Length: 31</p>
+<p>Trimmed: Hello JavaScript Developer!</p>
+<p>Uppercase:   HELLO JAVASCRIPT DEVELOPER!  </p>
+<p>Includes &#39;JS&#39;: false</p>
+<p>Includes &#39;JavaScript&#39;: true</p>
+<p>Slice (2, 7): Hello</p>
+<p>Replace:   Hello JavaScript Coder!  </code></pre></p>
+
+<h2>🧠 String Escape Characters & Template Literals</h2>
+
+<ul>
+<p>  <li>Escape double quotes: </code>"She said, \"JavaScript is awesome!\""<code></li></p>
+<p>  <li>Newline: </code>"Line 1\nLine 2"<code></li></p>
+<p>  <li>Template Literal Interpolation: </code><code> </code>User ${username} scored ${score} points.<code> </code><code></li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a variable </code>city = "Mumbai"<code>.</p>
+<p>2. Print its length, convert it to uppercase, and check if it starts with </code>"M"<code> using </code>.startsWith("M")<code>.</p>
+<p>3. Check </code>typeof null<code> in your browser console and verify the result.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Expecting </code>typeof null<code> to return </code>"null"<code>. It returns </code>"object"<code> due to a legacy design bug from JavaScript's first release in 1995.</li></p>
+<p>  <li>Mutating strings directly (</code>str[0] = "X"` does not change string contents because primitive values are immutable).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data type checking ensures form input validation (e.g., verifying phone numbers are numbers before performing database operations).</p>
+
+<h2>💡 Remember</h2>
+
+<p>Primitives are compared by value, while Objects and Arrays are compared by memory reference.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="03-variables.html">← Previous: Variables</a> | <a href="05-operators.html">Next: Operators →</a></p>
+
+
+
+  </div>
+</body>
+</html>

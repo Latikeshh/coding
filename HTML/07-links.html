@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 links - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Links & Anchors (<code><a></code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The anchor element <strong><code><a></code></strong> creates hyperlinks that connect web pages, external websites, files, email addresses, phone numbers, or specific sections on the same webpage. Hyperlinks are the defining feature of the World Wide Web.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Hyperlinks are created using <code><a href="URL"></code>. Use relative file paths for local project files and absolute URLs for external websites. Always write descriptive anchor text.</p>
+
+<h3>Hindi</h3>
+<p>Hyperlinks banane ke liye <code><a href="URL"></code> ka use hota hai. Local project files ke liye relative paths aur external sites ke liye absolute URLs likhein. Link text descriptive hona chahiye.</p>
+
+<h3>Marathi</h3>
+<p>Hyperlinks tayar karanyasathi <code><a href="URL"></code> vapartat. Local files sathi relative paths ani bahercha websites sathi absolute URLs dya. Link text spashta ani descriptive asava.</p>
+
+<h2>🤔 Why Do We Use Links?</h2>
+
+<p>Links enable seamless navigation between web documents. They allow users to click from one page to another, download resources, send emails, make phone calls on mobile devices, or jump directly to specific chapters on a long page.</p>
+
+<h2>📐 Link Syntax & Destinations</h2>
+
+<h3>1. External Absolute URLs</h3>
+<p>Points to an external webpage on another domain:</p>
+<pre><code class="language-html">&lt;a href=&quot;https://code.visualstudio.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Download VS Code&lt;/a&gt;</code></pre>
+<ul>
+<p>  <li><strong><code>target="_blank"</code>:</strong> Opens the destination link in a new browser tab.</li></p>
+<p>  <li><strong><code>rel="noopener"</code>:</strong> Security best practice when opening links in a new tab to prevent security vulnerabilities (<code>window.opener</code> exploits).</li></p>
+<p></ul></p>
+
+<h3>2. Internal Relative File Links</h3>
+<p>Points to another HTML file within the same project directory:</p>
+<pre><code class="language-html">&lt;a href=&quot;about.html&quot;&gt;About Us&lt;/a&gt;
+<p>&lt;a href=&quot;contact.html&quot;&gt;Contact Us&lt;/a&gt;</code></pre></p>
+
+<h3>3. Fragment Links (Same-Page Jumps)</h3>
+<p>Jumps directly to an element on the current page with a matching <code>id</code> attribute:</p>
+<pre><code class="language-html">&lt;!-- Link pointing to element id --&gt;
+<p>&lt;a href=&quot;#faq-section&quot;&gt;Jump to FAQ Section&lt;/a&gt;</p>
+
+<p>&lt;!-- Target element elsewhere on the page --&gt;</p>
+<p>&lt;h2 id=&quot;faq-section&quot;&gt;Frequently Asked Questions&lt;/h2&gt;</code></pre></p>
+
+<h3>4. Email & Telephone Links</h3>
+<p>Launches the user's default email client or phone dialer app:</p>
+<pre><code class="language-html">&lt;!-- Email mailto link --&gt;
+<p>&lt;a href=&quot;mailto:support@example.com&quot;&gt;Email Customer Support&lt;/a&gt;</p>
+
+<p>&lt;!-- Phone tel link --&gt;</p>
+<p>&lt;a href=&quot;tel:+18005550199&quot;&gt;Call Support: +1 (800) 555-0199&lt;/a&gt;</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Student Resource Hub&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Student Resource Hub&lt;/h1&gt;</p>
+
+<p>  &lt;nav&gt;</p>
+<p>    &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt; |</p>
+<p>    &lt;a href=&quot;courses.html&quot;&gt;Courses&lt;/a&gt; |</p>
+<p>    &lt;a href=&quot;#contact&quot;&gt;Contact Us&lt;/a&gt;</p>
+<p>  &lt;/nav&gt;</p>
+
+<p>  &lt;hr&gt;</p>
+
+<p>  &lt;h2&gt;Official Documentation&lt;/h2&gt;</p>
+<p>  &lt;p&gt;Learn more about web standards at the &lt;a href=&quot;https://developer.mozilla.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MDN Web Docs&lt;/a&gt;.&lt;/p&gt;</p>
+
+<p>  &lt;h2 id=&quot;contact&quot;&gt;Get in Touch&lt;/h2&gt;</p>
+<p>  &lt;p&gt;Need help? Send an email to &lt;a href=&quot;mailto:help@college.edu&quot;&gt;help@college.edu&lt;/a&gt; or call &lt;a href=&quot;tel:+919876543210&quot;&gt;+91 98765 43210&lt;/a&gt;.&lt;/p&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>Clickable blue underlined text strings that navigate to external pages, jump down to the <code>#contact</code> heading on the same page, trigger email software, or launch phone dialing on mobile devices.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a main navigation bar with two internal links (<code>index.html</code>, <code>about.html</code>).</p>
+<p>2. Add an external link pointing to <code>https://github.com</code> opening in a new tab (<code>target="_blank" rel="noopener"</code>).</p>
+<p>3. Create an email link using <code>mailto:</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Writing uninformative link text:</strong> Writing <code><a href="menu.html">Click here</a></code> instead of descriptive text like <code><a href="menu.html">View Restaurant Menu</a></code>. Screen readers often navigate by listing links out of context.</li></p>
+<p>  <li><strong>Forgetting the <code>href</code> attribute:</strong> Writing <code><a>Contact Us</a></code> creates an unclickable placeholder without a target destination.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Every website uses links for global navigation bars, breadcrumbs, social media links, email contact buttons, and table-of-contents jumps.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-text-formatting.html">Text Formatting</a></li></p>
+<p>  <li><a href="08-images.html">Images</a></li></p>
+<p>  <li><a href="13-buttons.html">Buttons</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code>href</code> specifies the destination URL.</li></p>
+<p>  <li>Always use <code>rel="noopener"</code> with <code>target="_blank"</code>.</li></p>
+<p>  <li>Use descriptive anchor text for accessibility and SEO.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="06-text-formatting.html">← Previous: Text Formatting</a> | <a href="./">HTML Home</a> | <a href="08-images.html">Next: Images →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27 fonts - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Web Fonts (<code>font-family</code>, <code>@font-face</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Font properties control typefaces, weights, styles, and web font loading using <strong><code>font-family</code></strong>, <strong><code>font-weight</code></strong>, <strong><code>font-style</code></strong>, Google Fonts <code><link></code>, or custom <strong><code>@font-face</code></strong> rules.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Set typefaces with <code>font-family</code>. Always specify generic system fallback fonts (<code>sans-serif</code>, <code>serif</code>, <code>monospace</code>). Load custom web fonts using Google Fonts or <code>@font-face</code>.</p>
+
+<h3>Hindi</h3>
+<p><code>font-family</code> se font style tay karein. Font stack ke end mein fallback system font (jaise <code>sans-serif</code>) zaroor likhein. Google Fonts se naye fonts aasani se load kiye ja sakte hain.</p>
+
+<h3>Marathi</h3>
+<p><code>font-family</code> madhye main font ani shevati fallback font (jase <code>sans-serif</code>) lihava.</p>
+
+<h2>🤔 Why Do We Need Web Fonts & Fallbacks?</h2>
+
+<p>If you specify <code>font-family: 'Inter'</code>, but a visitor's computer does not have the "Inter" font installed locally, their browser will render the page in a default fallback font. Providing custom Web Fonts (via Google Fonts or <code>@font-face</code>) ensures your website looks identical on all devices.</p>
+
+<h2>🧠 Simple Explanation & Font Stack Concept</h2>
+
+<p>A <strong>Font Stack</strong> is a prioritized list of fallback fonts separated by commas:</p>
+
+<pre><code class="language-css">body {
+<p>  font-family: &#39;Inter&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif;</p>
+<p>}</code></pre></p>
+
+<p>1. <strong><code>'Inter'</code>:</strong> The custom web font you want to display first.</p>
+<p>2. <strong><code>system-ui</code>, <code>-apple-system</code>, <code>'Segoe UI'</code>:</strong> High-quality system fonts pre-installed on macOS, Windows, and Android.</p>
+<p>3. <strong><code>sans-serif</code>:</strong> The universal generic fallback category if no specific font is found.</p>
+
+<h2>📚 Generic Font Families</h2>
+
+<ul>
+<p>  <li><strong><code>sans-serif</code>:</strong> Clean fonts without end strokes/serifs (Arial, Helvetica, Inter, Roboto). Best for digital screens.</li></p>
+<p>  <li><strong><code>serif</code>:</strong> Traditional fonts with decorative end strokes (Times New Roman, Georgia). Best for print & editorial articles.</li></p>
+<p>  <li><strong><code>monospace</code>:</strong> Fixed-width character fonts (Courier New, Consolas, Fira Code). Best for code snippets.</li></p>
+<p></ul></p>
+
+<h2>📝 Loading Fonts with Google Fonts vs. <code>@font-face</code></h2>
+
+<h3>Method 1: Google Fonts <code><link></code> (Easiest)</h3>
+<pre><code class="language-html">&lt;!-- Inside HTML &lt;head&gt; --&gt;
+<p>&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;</p>
+<p>&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;</p>
+<p>&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</code></pre></p>
+
+<pre><code class="language-css">/* Inside style.css */
+<p>body {</p>
+<p>  font-family: &#39;Inter&#39;, sans-serif;</p>
+<p>}</code></pre></p>
+
+<h3>Method 2: Custom <code>@font-face</code> Rule</h3>
+<p>Used when hosting self-hosted font files (<code>.woff2</code>, <code>.woff</code>):</p>
+
+<pre><code class="language-css">@font-face {
+<p>  font-family: &#39;CustomFont&#39;;</p>
+<p>  src: url(&#39;fonts/custom-font.woff2&#39;) format(&#39;woff2&#39;),</p>
+<p>       url(&#39;fonts/custom-font.woff&#39;) format(&#39;woff&#39;);</p>
+<p>  font-weight: 400;</p>
+<p>  font-style: normal;</p>
+<p>  font-display: swap; /* Performance best practice: shows fallback font until custom font loads */</p>
+<p>}</p>
+
+<p>body {</p>
+<p>  font-family: &#39;CustomFont&#39;, sans-serif;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Web Fonts Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;</p>
+<p>  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;</p>
+<p>  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;h1&gt;Poppins Google Font&lt;/h1&gt;</p>
+<p>    &lt;p&gt;Loaded via Google Fonts API with font-display: swap for performance.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: &#39;Poppins&#39;, system-ui, sans-serif;</p>
+<p>  background-color: #f0f2f5;</p>
+<p>  padding: 40px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  padding: 30px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  max-width: 400px;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  font-weight: 700;</p>
+<p>  color: #1e293b;</p>
+<p>  margin-top: 0;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  font-weight: 400;</p>
+<p>  color: #64748b;</p>
+<p>  line-height: 1.6;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>The webpage renders styled typography using the custom Google Font <strong>Poppins</strong> with bold heading weights (<code>700</code>) and regular body weights (<code>400</code>).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Visit <a href="https://fonts.google.com">fonts.google.com</a> and search for a font (e.g. <code>Roboto</code> or <code>Montserrat</code>).</p>
+<p>2. Copy the generated <code><link></code> tags into your HTML <code><head></code> and update <code>font-family</code> in CSS.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting generic fallback font:</strong> Writing <code>font-family: 'MyFont'</code> without appending <code>, sans-serif</code> or <code>, serif</code>.</li></p>
+<p>  <li><strong>Forgetting multi-word quotes:</strong> Font names containing spaces must be enclosed in quotes: <code>font-family: 'Open Sans', sans-serif;</code>.</li></p>
+<p>  <li><strong>Omitting <code>font-display: swap</code>:</strong> Causes Flash of Invisible Text (FOIT) while font files download.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Modern web design systems host self-hosted <code>.woff2</code> font files using <code>@font-face</code> with <code>font-display: swap</code> to maximize Core Web Vitals performance scores.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="26-text-styling.html">Text Styling & Typography</a></li></p>
+<p>  <li><a href="32-functions.html">CSS Functions (<code>clamp()</code>)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Enclose font names with spaces in quotes (<code>'Open Sans'</code>).</li></p>
+<p>  <li>Always specify generic fallbacks (<code>sans-serif</code>, <code>serif</code>, <code>monospace</code>).</li></p>
+<p>  <li>Use <code>font-display: swap</code> in <code>@font-face</code> for performance.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="26-text-styling.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="28-transitions.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

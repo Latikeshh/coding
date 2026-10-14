@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing and Debugging - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Testing and Debugging in Python (<code>unittest</code> & <code>pdb</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Unit Testing:</strong> Automating the verification of individual isolated functions or modules using Python's built-in <strong><code>unittest</code></strong> framework.</li></p>
+<p>  <li><strong>Debugging:</strong> Isolating, inspecting, and fixing runtime bugs and logical errors using <strong><code>breakpoint()</code></strong> / <strong><code>pdb</code> (Python Debugger)</strong> or IDE debuggers.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Automated testing ke liye built-in <strong><code>unittest</code></strong> framework ka use hota hai. Code ko runtime par step-by-step debug karne ke liye Python 3.7+ mein <strong><code>breakpoint()</code></strong> function ka use kiya jata hai, jisse terminal par <code>pdb</code> interactive console open ho jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Automated testing sathi <code>unittest</code> framework vaparatat. Code debug karnyasathi <code>breakpoint()</code> vapara.</p>
+
+<h2>📝 1. Built-in <code>unittest</code> Framework</h2>
+
+<pre><code class="language-python">import unittest
+
+<p>def add(a, b):</p>
+<p>    return a + b</p>
+
+<p>class TestMathOperations(unittest.TestCase):</p>
+<p>    def test_add_positive_numbers(self):</p>
+<p>        self.assertEqual(add(2, 3), 5)</p>
+<p>        </p>
+<p>    def test_add_negative_numbers(self):</p>
+<p>        self.assertEqual(add(-1, -1), -2)</p>
+
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    unittest.main()</code></pre></p>
+
+<h3>Key Assertions in <code>unittest.TestCase</code>:</h3>
+<ul>
+<p>  <li><code>self.assertEqual(a, b)</code></li></p>
+<p>  <li><code>self.assertTrue(condition)</code> / <code>self.assertFalse(condition)</code></li></p>
+<p>  <li><code>self.assertIsNone(obj)</code> / <code>self.assertIsNotNone(obj)</code></li></p>
+<p>  <li><code>self.assertRaises(ExceptionType, func, *args)</code></li></p>
+<p></ul></p>
+
+<h2>📝 2. Programmatic Debugging with <code>breakpoint()</code> (Python 3.7+)</h2>
+
+<p>Placing <code>breakpoint()</code> pauses execution and opens the <strong><code>pdb</code> (Python Debugger)</strong> interactive shell:</p>
+
+<h3>Key <code>pdb</code> Debugger Commands:</h3>
+<ul>
+<p>  <li><code>n</code> (next): Executes current line and moves to next line.</li></p>
+<p>  <li><code>s</code> (step): Steps inside the called function.</li></p>
+<p>  <li><code>c</code> (continue): Resumes normal execution until next breakpoint.</li></p>
+<p>  <li><code>p variable</code>: Prints current variable value.</li></p>
+<p>  <li><code>q</code> (quit): Exits debugger.</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">def calculate_discount(price, percent):
+<p>    discount = price * (percent / 100)</p>
+<p>    breakpoint() # Pauses execution here in terminal!</p>
+<p>    return price - discount</code></pre></p>
+
+<h2>💡 Complete Example: Function & Unit Test Module</h2>
+
+<pre><code class="language-python">import unittest
+
+<h1>1. Code Module to Test</h1>
+<p>def divide(a, b):</p>
+<p>    if b == 0:</p>
+<p>        raise ZeroDivisionError(&quot;Cannot divide by zero.&quot;)</p>
+<p>    return a / b</p>
+
+<p>def is_palindrome(text):</p>
+<p>    if not isinstance(text, str):</p>
+<p>        raise TypeError(&quot;Input must be a string.&quot;)</p>
+<p>    clean_text = &quot;&quot;.join(c.lower() for c in text if c.isalnum())</p>
+<p>    return clean_text == clean_text[::-1]</p>
+
+<h1>2. Unit Test Suite</h1>
+<p>class TestUtilityFunctions(unittest.TestCase):</p>
+<p>    </p>
+<p>    def test_valid_division(self):</p>
+<p>        self.assertEqual(divide(10, 2), 5.0)</p>
+<p>        self.assertAlmostEqual(divide(1, 3), 0.3333333, places=4)</p>
+<p>        </p>
+<p>    def test_division_by_zero_raises_exception(self):</p>
+<p>        with self.assertRaises(ZeroDivisionError):</p>
+<p>            divide(10, 0)</p>
+<p>            </p>
+<p>    def test_palindrome_valid(self):</p>
+<p>        self.assertTrue(is_palindrome(&quot;A man, a plan, a canal: Panama&quot;))</p>
+<p>        self.assertFalse(is_palindrome(&quot;Python&quot;))</p>
+<p>        </p>
+<p>    def test_palindrome_invalid_type(self):</p>
+<p>        with self.assertRaises(TypeError):</p>
+<p>            is_palindrome(12321)</p>
+
+<h1>3. Test Execution Runner</h1>
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    print(&quot;=== RUNNING UNITTEST SUITE ===&quot;)</p>
+<p>    unittest.main()</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== RUNNING UNITTEST SUITE ===
+<p>....</p>
+<p>----------------------------------------------------------------------</p>
+<p>Ran 4 tests in 0.002s</p>
+
+<p>OK</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Writing unit tests that depend on execution order or external state (tests MUST remain independent!).</li></p>
+<p>  <li>Leaving <code>breakpoint()</code> statements in production deployment code!</li></p>
+<p>  <li>Asserting only happy-path inputs while ignoring edge cases and boundary conditions (e.g. <code>None</code>, <code>0</code>, negative numbers).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>In modern Python development, <strong><code>pytest</code></strong> (<code>pip install pytest</code>) is widely used alongside <code>unittest</code> for cleaner test syntax and rich assertion failure diffs.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>CI/CD deployment pipelines (GitHub Actions, Jenkins), regression testing during codebase refactoring, and debugging API issues.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function <code>square(x)</code> and a <code>unittest.TestCase</code> verifying <code>square(4) == 16</code>.</p>
+<p>2. Add a test asserting that <code>square(-3) == 9</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a unit test for a <code>BankAccount</code> class verifying that withdrawing an amount greater than balance raises an <code>InsufficientBalanceError</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="18-exception-handling.html">Exception Handling</a></li></p>
+<p>  <li><a href="30-project-structure-and-best-practices.html">Project Structure</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="27-type-hints-and-dataclasses.html">← Previous: Type Hints and Dataclasses</a> | <a href="29-virtual-environments-and-pip.html">Next: Virtual Environments and Pip →</a></p>
+
+
+  </div>
+</body>
+</html>

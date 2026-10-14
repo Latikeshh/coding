@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iterators and Generators - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Iterators and Generators in Python</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Iterator:</strong> An object representing a stream of data that returns one element at a time using the <code>next()</code> method until raising <code>StopIteration</code>.</li></p>
+<p>  <li><strong>Generator (<code>yield</code>):</strong> A special, memory-efficient function that uses the <strong><code>yield</code></strong> keyword to stream data values <strong>lazily on-demand</strong>, rather than calculating and storing entire datasets in RAM memory.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Large datasets ko memory efficiency ke saath process karne ke liye Generators ka use hota hai. Normal function <code>return</code> se saare results ek saath deta hai, jabki <strong>Generator Function (<code>yield</code>)</strong> ek waqt par sirf ek value lazily produce karta hai. Isse RAM memory consume nahi hoti.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Generators <strong><code>yield</code></strong> keyword cha wapar karun data memory madhye ekasathi na thevta ek-ek item laazily produce kartat.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>If you need to process 10 million log lines or stream a 5GB CSV file, building a list of 10 million items in memory will crash Python with a <code>MemoryError</code>. Generators stream items one by one without memory overhead.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a list as buying 1,000 canned sodas and storing all 1,000 cans in your small refrigerator at once (huge memory footprint). Think of a <strong>Generator</strong> as a vending machine: it manufactures and dispenses <strong>one cold soda on-demand</strong> only when you press the button (<code>next()</code>).</p>
+
+<h2>📝 1. Generator Functions (<code>yield</code> vs <code>return</code>)</h2>
+
+<ul>
+<p>  <li><code>return</code>: Exits the function permanently and returns a single value.</li></p>
+<p>  <li><code>yield</code>: Suspends function execution, saves local state, and yields a value. When <code>next()</code> is called again, execution resumes immediately after the <code>yield</code> line!</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">def simple_generator():
+<p>    yield &quot;First Item&quot;</p>
+<p>    yield &quot;Second Item&quot;</p>
+<p>    yield &quot;Third Item&quot;</p>
+
+<p>gen = simple_generator()</p>
+<p>print(next(gen)) # &quot;First Item&quot;</p>
+<p>print(next(gen)) # &quot;Second Item&quot;</code></pre></p>
+
+<h2>📝 2. Generator Expressions <code>(expression for item in iterable)</code></h2>
+
+<p>Constructs a generator using tuple-like parentheses syntax:</p>
+
+<pre><code class="language-python"># List Comprehension: Evaluates ALL 1,000,000 items in RAM immediately!
+<p>huge_list = [x * 2 for x in range(1000000)] # Consumes ~8MB RAM</p>
+
+<h1>Generator Expression: Evaluates ITEMS LAZILY ON-DEMAND!</h1>
+<p>huge_gen = (x * 2 for x in range(1000000))  # Consumes ~120 Bytes RAM!</code></pre></p>
+
+<h2>💡 Complete Example: Large Data Streaming & Infinite Sequence</h2>
+
+<pre><code class="language-python">import sys
+
+<h1>1. Generator Function for Fibonacci Sequence</h1>
+<p>def fibonacci_generator(limit):</p>
+<p>    &quot;&quot;&quot;Yields Fibonacci numbers up to limit.&quot;&quot;&quot;</p>
+<p>    a, b = 0, 1</p>
+<p>    count = 0</p>
+<p>    while count &lt; limit:</p>
+<p>        yield a</p>
+<p>        a, b = b, a + b</p>
+<p>        count += 1</p>
+
+<h1>2. Comparing Memory Usage: List vs Generator</h1>
+<p>def square_list(n):</p>
+<p>    return [i <strong> 2 for i in range(n)]</p>
+
+<p>def square_generator(n):</p>
+<p>    for i in range(n):</p>
+<p>        yield i </strong> 2</p>
+
+<p>print(&quot;=== GENERATOR MEMORY COMPARISON ===&quot;)</p>
+
+<p>N = 100000</p>
+<p>list_data = square_list(N)</p>
+<p>gen_data = square_generator(N)</p>
+
+<p>print(f&quot;List Memory Usage     : {sys.getsizeof(list_data):,} Bytes&quot;)</p>
+<p>print(f&quot;Generator Memory Usage: {sys.getsizeof(gen_data):,} Bytes&quot;)</p>
+
+<p>print(&quot;\n--- STREAMING FIBONACCI GENERATOR ---&quot;)</p>
+<p>for fib in fibonacci_generator(8):</p>
+<p>    print(fib, end=&quot; -&gt; &quot;)</p>
+<p>print(&quot;END&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== GENERATOR MEMORY COMPARISON ===
+<p>List Memory Usage     : 824,456 Bytes</p>
+<p>Generator Memory Usage: 112 Bytes</p>
+
+<p>--- STREAMING FIBONACCI GENERATOR ---</p>
+<p>0 -&gt; 1 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 5 -&gt; 8 -&gt; 13 -&gt; END</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Attempting to index a generator directly (<code>gen[0]</code> causes <code>TypeError: 'generator' object is not subscriptable</code>; use <code>next(gen)</code> or iterate with a <code>for</code> loop instead!).</li></p>
+<p>  <li>Attempting to re-use an exhausted generator. Once a generator finishes yielding all items, calling <code>next()</code> raises <code>StopIteration</code>. You must instantiate a new generator!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>All generators are iterators, but not all iterators are generators. Generators implement the iterator protocol (<code>__iter__()</code> and <code>__next__()</code>) automatically under the hood.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Processing massive CSV/log files line-by-line, streaming large database query rows, generating infinite sequence IDs, and processing audio/video frame pipelines.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a generator function <code>even_numbers(n)</code> that yields even numbers from <code>0</code> up to <code>n</code>.</p>
+<p>2. Iterate through the generator using a <code>for</code> loop and print each number.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a generator function <code>countdown(start)</code> that yields numbers counting down from <code>start</code> to <code>1</code>, then yields <code>"Liftoff!"</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-list-comprehensions.html">List Comprehensions</a></li></p>
+<p>  <li><a href="21-decorators.html">Decorators</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="19-object-oriented-programming.html">← Previous: Object-Oriented Programming</a> | <a href="21-decorators.html">Next: Decorators →</a></p>
+
+
+  </div>
+</body>
+</html>

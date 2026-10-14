@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 input output - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Input and Output in C</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Input and Output (I/O) operations allow C programs to display formatted output to the user terminal (<code>stdout</code>) and read formatted user input from standard input stream (<code>stdin</code>) using standard C library functions declared in <code><stdio.h></code>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>C uses functions from <code><stdio.h></code> for stream I/O. <code>printf()</code> formats and displays output. <code>scanf()</code> parses formatted user input and requires memory addresses (<code>&var</code>). For text strings containing spaces, <code>fgets()</code> is preferred over <code>scanf("%s")</code> to prevent buffer overflow vulnerabilities.</p>
+
+<h3>Hindi</h3>
+<p>C stream I/O ke liye <code><stdio.h></code> functions ka use karta hai. <code>printf()</code> output formatted way mein dikhata hai. <code>scanf()</code> user input read karta hai aur isme address-of operator (<code>&var</code>) dena padta hai. Multi-word strings ke liye <code>fgets()</code> ka upyog karna chahiye taaki buffer overflow se bacha ja sake.</p>
+
+<h3>Marathi</h3>
+<p>C madhye stream I/O sathi <code><stdio.h></code> mhadhil functions vaparali jatat. <code>printf()</code> output chaanglya format madhye dakhavate. <code>scanf()</code> user input vachnyasathi vaparatat aani tyasathi variable cha address (<code>&var</code>) dyava lagto. Full text inputs sathi <code>fgets()</code> vaparane safe aste.</p>
+
+<h3>Hinglish</h3>
+<p><code>printf()</code> terminal output dikhane ke liye hai aur <code>scanf()</code> user input padhne ke liye. <code>scanf()</code> mein primitive types ke sath <code>&</code> (address-of) lagana zaroori hota hai. Multi-word string inputs ke liye <code>scanf("%s")</code> unsafe hai, safe alternative <code>fgets()</code> hai.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Interactive software must receive inputs from users (such as account login details, transaction amounts, menu selections) and display feedback, error messages, and calculation results back on screen.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>printf</code> as a megaphone broadcasting messages to the screen. Think of <code>scanf</code> and <code>fgets</code> as a mailbox listener waiting for the user to type something on the keyboard and press Enter.</p>
+
+<h2>📝 Key Input/Output Functions</h2>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Purpose</th><th>Input/Output</th><th>Notes</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>printf()</code></td><td>Prints formatted text to console</td><td>Output</td><td>Uses format specifiers (<code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%s</code>)</td></tr></p>
+<p>    <tr><td><code>scanf()</code></td><td>Parses formatted primitives from keyboard</td><td>Input</td><td>Requires <code>&</code> for non-array variables; returns success count</td></tr></p>
+<p>    <tr><td><code>fgets()</code></td><td>Reads a full line of text safely</td><td>Input</td><td>Specifies maximum buffer size to prevent memory overflows</td></tr></p>
+<p>    <tr><td><code>getchar()</code></td><td>Reads a single character</td><td>Input</td><td>Reads next byte from <code>stdin</code></td></tr></p>
+<p>    <tr><td><code>putchar()</code></td><td>Writes a single character</td><td>Output</td><td>Writes one byte to <code>stdout</code></td></tr></p>
+<p>    <tr><td><code>puts()</code></td><td>Writes a string with an automatic newline</td><td>Output</td><td>Simpler alternative to <code>printf("%s\n", str)</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical user registration program that demonstrates safe string reading, integer input validation, and character stream handling:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;string.h&gt;</p>
+
+<p>int main(void) {</p>
+<p>    char fullName[50];</p>
+<p>    int userAge;</p>
+<p>    double monthlySalary;</p>
+
+<p>    // 1. Safe String Input using fgets</p>
+<p>    printf(&quot;Enter your full name: &quot;);</p>
+<p>    if (fgets(fullName, sizeof(fullName), stdin) != NULL) {</p>
+<p>        // Strip trailing newline character added by fgets</p>
+<p>        fullName[strcspn(fullName, &quot;\n&quot;)] = &#39;\0&#39;;</p>
+<p>    }</p>
+
+<p>    // 2. Formatted Integer Input with validation</p>
+<p>    printf(&quot;Enter your age: &quot;);</p>
+<p>    if (scanf(&quot;%d&quot;, &amp;userAge) != 1 || userAge &lt;= 0) {</p>
+<p>        printf(&quot;Error: Invalid age entered!\n&quot;);</p>
+<p>        return 1; // Exit with error code</p>
+<p>    }</p>
+
+<p>    // 3. Formatted Floating Point Input with validation</p>
+<p>    printf(&quot;Enter monthly salary ($): &quot;);</p>
+<p>    if (scanf(&quot;%lf&quot;, &amp;monthlySalary) != 1 || monthlySalary &lt; 0) {</p>
+<p>        printf(&quot;Error: Invalid salary entered!\n&quot;);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    // 4. Formatted Summary Display</p>
+<p>    printf(&quot;\n--- REGISTRATION CONFIRMATION ---\n&quot;);</p>
+<p>    printf(&quot;Full Name     : %s\n&quot;, fullName);</p>
+<p>    printf(&quot;Age           : %d years\n&quot;, userAge);</p>
+<p>    printf(&quot;Monthly Salary: $%.2lf\n&quot;, monthlySalary);</p>
+<p>    printf(&quot;Status        : Verified\n&quot;);</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>fgets(fullName, sizeof(fullName), stdin)</code>: Reads up to 49 characters plus the null terminator directly into <code>fullName</code> from standard input (<code>stdin</code>). This guarantees that user input never overflows array memory.</li></p>
+<p>  <li><code>fullName[strcspn(fullName, "\n")] = '\0'</code>: <code>strcspn</code> locates the position of the newline character <code>\n</code> captured by <code>fgets</code> and replaces it with <code>\0</code> (null terminator).</li></p>
+<p>  <li><code>if (scanf("%d", &userAge) != 1)</code>: <code>scanf()</code> returns the total number of items successfully scanned. Checking if the return value is <code>1</code> verifies that the user entered a valid integer rather than letters.</li></p>
+<p>  <li><code>&userAge</code>: The address-of operator <code>&</code> provides <code>scanf</code> with the exact memory address where the converted integer should be stored.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Enter your full name: Priya Sharma
+<p>Enter your age: 26</p>
+<p>Enter monthly salary ($): 4500.50</p>
+
+<p>--- REGISTRATION CONFIRMATION ---</p>
+<p>Full Name     : Priya Sharma</p>
+<p>Age           : 26 years</p>
+<p>Monthly Salary: $4500.50</p>
+<p>Status        : Verified</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>&</code> in <code>scanf</code>:</strong> Writing <code>scanf("%d", userAge)</code> instead of <code>scanf("%d", &userAge)</code> causes segmentation faults because <code>scanf</code> treats the uninitialized value of <code>userAge</code> as a memory address!</li></p>
+<p>  <li><strong>Unbounded <code>scanf("%s")</code>:</strong> <code>scanf("%s", buffer)</code> stops reading at spaces and does NOT check buffer bounds. Typing a long string will overwrite adjacent memory and cause security buffer overflow vulnerabilities.</li></p>
+<p>  <li><strong>Leftover Newline in <code>stdin</code>:</strong> After calling <code>scanf("%d", &age)</code>, pressing Enter leaves a <code>\n</code> character in the keyboard input buffer. Calling <code>fgets()</code> immediately afterwards will read that leftover <code>\n</code> as an empty line!</li></p>
+<p>  <li>*Fix:* Clear leftover input buffer characters before calling <code>fgets()</code> using <code>while (getchar() != '\n' && getchar() != EOF);</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always check the return value of <code>scanf()</code> to prevent uninitialized variable usage when user inputs invalid data.</li></p>
+<p>  <li>Never use legacy unsafe functions like <code>gets()</code> (removed from C11 standard entirely).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>CLI applications, database tools, interactive shell commands (like <code>git</code>, <code>docker</code>, <code>gcc</code>), and embedded terminal menus rely on structured C stream I/O.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a program that asks the user for a product name (<code>fgets</code>), quantity (<code>scanf</code>), and unit price (<code>scanf</code>).</p>
+<p>2. Calculate total bill amount (<code>quantity * unitPrice</code>) and display a clean receipt.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that inputs a temperature in Celsius from the user, validates that the input is a valid number, converts it to Fahrenheit (<code>(C * 9.0 / 5.0) + 32.0</code>), and prints both values formatted to 1 decimal place.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="05-operators.html">Operators</a></li></p>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="03-variables-and-data-types.html">← Previous: Variables</a> | <a href="05-operators.html">Next: Operators →</a></p>
+
+
+
+  </div>
+</body>
+</html>

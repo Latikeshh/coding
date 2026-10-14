@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Environments and Pip - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Virtual Environments and Package Management (<code>venv</code> & <code>pip</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Virtual Environment (<code>venv</code>):</strong> An isolated self-contained Python directory environment that allows a project to install specific library dependencies without affecting global system Python packages or other projects.</li></p>
+<p>  <li><strong><code>pip</code>:</strong> The official package installer for Python used to download and install packages from the <strong>Python Package Index (PyPI)</strong>.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Har Python project ke dependencies alag rakhne ke liye <strong>Virtual Environment (<code>venv</code>)</strong> ka use hota hai. Third-party packages (jaise <code>requests</code>, <code>pandas</code>, <code>flask</code>) install karne ke liye <strong><code>pip</code></strong> tool ka use hota hai. Project requirements save karne ke liye <code>pip freeze > requirements.txt</code> use kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Project dependencies isolate karnyasathi <strong>Virtual Environment</strong> vaparatat. Packages install karnyasathi <strong><code>pip</code></strong> aani requirements record sathi <code>requirements.txt</code> vaparatat.</p>
+
+<h2>📝 1. Creating & Activating Virtual Environments</h2>
+
+<h3>Step 1: Create Virtual Environment</h3>
+<p>Run in your project root folder:</p>
+
+<pre><code class="language-bash"># Creates a virtual environment directory named &#39;venv&#39;
+<p>python3 -m venv venv  # macOS/Linux</p>
+<p>py -m venv venv       # Windows</code></pre></p>
+
+<h3>Step 2: Activate Environment</h3>
+
+<pre><code class="language-bash"># On macOS / Linux Terminal:
+<p>source venv/bin/activate</p>
+
+<h1>On Windows Command Prompt (cmd):</h1>
+<p>venv\Scripts\activate.bat</p>
+
+<h1>On Windows PowerShell:</h1>
+<p>venv\Scripts\Activate.ps1</code></pre></p>
+
+<p>*(Once activated, your terminal prompt will display <code>(venv)</code> at the beginning!).*</p>
+
+<h3>Step 3: Deactivate Environment</h3>
+<pre><code class="language-bash">deactivate</code></pre>
+
+<h2>📝 2. Package Management with <code>pip</code></h2>
+
+<pre><code class="language-bash"># 1. Installing a package from PyPI
+<p>pip install requests</p>
+
+<h1>2. Installing specific version</h1>
+<p>pip install requests==2.31.0</p>
+
+<h1>3. Listing installed packages in project</h1>
+<p>pip list</p>
+
+<h1>4. Exporting installed dependencies to requirements.txt</h1>
+<p>pip freeze &gt; requirements.txt</p>
+
+<h1>5. Installing dependencies on a new machine from requirements.txt</h1>
+<p>pip install -r requirements.txt</code></pre></p>
+
+<h2>💡 Complete Example: Sample <code>requirements.txt</code> & Setup Script</h2>
+
+<h3>File: <code>requirements.txt</code></h3>
+<pre><code class="language-text">requests==2.31.0
+<p>pytest==7.4.3</p>
+<p>black==23.11.0</code></pre></p>
+
+<h3>Setup Workflow Commands:</h3>
+
+<pre><code class="language-bash"># 1. Clone or navigate to project
+<p>cd my_python_project</p>
+
+<h1>2. Create and activate virtual environment</h1>
+<p>python3 -m venv .venv</p>
+<p>source .venv/bin/activate</p>
+
+<h1>3. Upgrade pip and install requirements</h1>
+<p>pip install --upgrade pip</p>
+<p>pip install -r requirements.txt</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Installing third-party packages globally without activating a virtual environment first, resulting in system-wide package version conflicts across projects!</li></p>
+<p>  <li>Committing the entire <code>venv/</code> folder into Git repositories!</li></p>
+<p></ul></p>
+<p>  > 💡 <strong>Best Practice:</strong> Always add <code>venv/</code> and <code>.venv/</code> to your project's <strong><code>.gitignore</code></strong> file! Commit only <code>requirements.txt</code>.</p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>If PowerShell blocks activation on Windows with an ExecutionPolicy error, run <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code> in PowerShell to enable script activation.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>All professional Python projects (web applications, data science scripts, automation tools, microservices) use virtual environments and <code>requirements.txt</code> to guarantee reproducible builds.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Open your terminal and create a test virtual environment <code>python3 -m venv my_env</code>.</p>
+<p>2. Activate it, install <code>requests</code> using <code>pip install requests</code>, and run <code>pip freeze</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Export your virtual environment packages into <code>requirements.txt</code>, deactivate the environment, delete the folder, re-create a fresh environment, and install dependencies from <code>requirements.txt</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="30-project-structure-and-best-practices.html">Project Structure and Best Practices</a></li></p>
+<p>  <li><a href="31-mini-projects.html">Capstones & Mini Projects</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="28-testing-and-debugging.html">← Previous: Testing and Debugging</a> | <a href="30-project-structure-and-best-practices.html">Next: Project Structure →</a></p>
+
+
+  </div>
+</body>
+</html>

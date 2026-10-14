@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Type Hints and Dataclasses - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Type Hints and Dataclasses in Python</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Type Hints (PEP 484):</strong> Optional annotations <code>param: type -> return_type</code> that document expected variable and function types to improve IDE auto-completion and static analysis tools (<code>mypy</code>).</li></p>
+<p>  <li><strong>Dataclasses (<code>@dataclass</code> - PEP 557):</strong> A decorator introduced in Python 3.7 that automatically generates <code>__init__()</code>, <code>__repr__()</code>, <code>__eq__()</code>, and comparison methods for data-oriented classes.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Code readability aur IDE auto-completion ke liye <strong>Type Hints</strong> (<code>name: str -> int</code>) ka use hota hai. Plain data storage classes ke boilerplate code ko hatane ke liye Python 3.7+ mein <strong><code>@dataclass</code></strong> decorator ka use kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Type Hints (<code>name: str -> int</code>) mule IDE la types kalatat. Data storage classes saathi <code>@dataclass</code> decorator boilerplate code kami karto.</p>
+
+<h2>📝 1. Type Hints (<code>typing</code> Module)</h2>
+
+<p>Type hints do NOT enforce types at runtime (Python remains dynamically typed), but static type checkers (<code>mypy</code>) and IDEs use them to catch bugs:</p>
+
+<pre><code class="language-python">from typing import List, Dict, Optional, Union
+
+<h1>Primitive and Collection Type Hints</h1>
+<p>def calculate_average(scores: List[float]) -&gt; float:</p>
+<p>    return sum(scores) / len(scores)</p>
+
+<h1>Optional (Can be String or None)</h1>
+<p>def find_user(user_id: int) -&gt; Optional[str]:</p>
+<p>    if user_id == 501:</p>
+<p>        return &quot;Aarav&quot;</p>
+<p>    return None</code></pre></p>
+
+<h2>📝 2. Modern Dataclasses (<code>@dataclass</code>)</h2>
+
+<p>Replaces boilerplate <code>__init__</code>, <code>__repr__</code>, and <code>__eq__</code> implementations:</p>
+
+<pre><code class="language-python">from dataclasses import dataclass, field
+
+<p>@dataclass(frozen=True) # frozen=True makes instance immutable!</p>
+<p>class Product:</p>
+<p>    id: int</p>
+<p>    name: str</p>
+<p>    price: float</p>
+<p>    tags: List[str] = field(default_factory=list) # Mutable default factory</p>
+
+<p>p1 = Product(101, &quot;Mouse&quot;, 1200.0)</p>
+<p>print(p1) # Output: Product(id=101, name=&#39;Mouse&#39;, price=1200.0, tags=[])</code></pre></p>
+
+<h2>💡 Complete Example: Employee Inventory System</h2>
+
+<pre><code class="language-python">from dataclasses import dataclass, field
+<p>from typing import List, Optional</p>
+
+<p>@dataclass</p>
+<p>class Employee:</p>
+<p>    emp_id: int</p>
+<p>    name: str</p>
+<p>    department: str</p>
+<p>    salary: float</p>
+<p>    skills: List[str] = field(default_factory=list)</p>
+
+<p>    def apply_raise(self, percent: float) -&gt; None:</p>
+<p>        &quot;&quot;&quot;Applies a salary raise percentage.&quot;&quot;&quot;</p>
+<p>        if percent &gt; 0:</p>
+<p>            self.salary += self.salary * (percent / 100)</p>
+
+<p>@dataclass</p>
+<p>class DepartmentSummary:</p>
+<p>    dept_name: str</p>
+<p>    employees: List[Employee] = field(default_factory=list)</p>
+
+<p>    def get_total_payroll(self) -&gt; float:</p>
+<p>        return sum(e.salary for e in self.employees)</p>
+
+<h1>Testing Dataclasses</h1>
+<p>e1 = Employee(101, &quot;Aarav Mehta&quot;, &quot;Engineering&quot;, 85000.0, [&quot;Python&quot;, &quot;SQL&quot;])</p>
+<p>e2 = Employee(102, &quot;Sneha Kapoor&quot;, &quot;Engineering&quot;, 95000.0, [&quot;Java&quot;, &quot;Docker&quot;])</p>
+
+<p>dept = DepartmentSummary(&quot;Engineering&quot;, [e1, e2])</p>
+
+<p>print(&quot;=== DATACLASS DEPARTMENT SUMMARY ===&quot;)</p>
+<p>print(&quot;Department    :&quot;, dept.dept_name)</p>
+<p>print(&quot;Employee 1    :&quot;, e1)</p>
+<p>print(f&quot;Total Payroll : ₹{dept.get_total_payroll():.2f}&quot;)</p>
+
+<p>e1.apply_raise(10.0)</p>
+<p>print(f&quot;After 10% Raise: {e1.name} -&gt; ₹{e1.salary:.2f}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== DATACLASS DEPARTMENT SUMMARY ===
+<p>Department    : Engineering</p>
+<p>Employee 1    : Employee(emp_id=101, name=&#39;Aarav Mehta&#39;, department=&#39;Engineering&#39;, salary=85000.0, skills=[&#39;Python&#39;, &#39;SQL&#39;])</p>
+<p>Total Payroll : ₹180000.00</p>
+<p>After 10% Raise: Aarav Mehta -&gt; ₹93500.00</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Assuming type hints prevent invalid assignments at runtime (<code>age: int = "twenty"</code> will run in Python without raising a runtime error unless checked with <code>mypy</code>!).</li></p>
+<p>  <li>Using mutable defaults directly in dataclasses (<code>tags: List[str] = []</code> causes a <code>ValueError</code>; use <code>field(default_factory=list)</code> instead!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Pass <code>frozen=True</code> to <code>@dataclass</code> when creating immutable data transfer objects (DTOs) or domain value objects that need to be hashable and usable in sets or dictionary keys.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data Transfer Objects (DTOs) in API frameworks (FastAPI), data modeling in data science applications, and domain entities.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function <code>add_numbers(a: int, b: int) -> int</code> with type hints.</p>
+<p>2. Create a <code>@dataclass</code> named <code>Book</code> with attributes <code>title: str</code>, <code>author: str</code>, <code>price: float</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a <code>@dataclass(frozen=True)</code> named <code>GeoPoint</code> with <code>latitude: float</code> and <code>longitude: float</code>, and instantiate it inside a set.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="19-object-oriented-programming.html">Object-Oriented Programming</a></li></p>
+<p>  <li><a href="30-project-structure-and-best-practices.html">Project Structure</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="26-working-with-csv.html">← Previous: Working with CSV</a> | <a href="28-testing-and-debugging.html">Next: Testing and Debugging →</a></p>
+
+
+  </div>
+</body>
+</html>

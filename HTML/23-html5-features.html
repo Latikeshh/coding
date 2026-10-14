@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 html5 features - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Modern HTML Features & Built-in Validation</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The term <strong>"HTML5"</strong> refers to the major generation of HTML specifications introduced around the 2010s that brought semantic structural elements, native audio/video elements, interactive graphics (<code><canvas></code>, <code><svg></code>), offline storage APIs, and built-in client-side form validation. Today, the HTML specification evolves continuously as a <strong>Living Standard</strong> maintained by WHATWG.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>HTML5 introduced semantic tags, native audio/video, canvas graphics, and built-in form validation attributes (<code>required</code>, <code>pattern</code>, <code>type="email"</code>). Today's HTML evolves continuously as a Living Standard.</p>
+
+<h3>Hindi</h3>
+<p>HTML5 mein semantic tags, native media (audio/video), canvas, aur built-in form validation attributes (<code>required</code>, <code>pattern</code>, <code>type="email"</code>) mile. Aaj HTML ek continuously update hone wala WHATWG Living Standard hai.</p>
+
+<h3>Marathi</h3>
+<p>HTML5 mule audio, video, navin input types, ani built-in form validation (<code>required</code>, <code>pattern</code>) vaparne sope jhale. Aaj HTML he WHATWG 'Living Standard' mhanun update hot rahte.</p>
+
+<h2>🤔 Why Do We Use Modern HTML Features?</h2>
+
+<p>Modern HTML features eliminate the need for heavy third-party browser plugins (like Flash) for media playback and simplify form validation natively inside web browsers before submitting data to backend servers.</p>
+
+<h2>🚀 Key Innovations Introduced in HTML5</h2>
+
+<p>1. <strong>Simplified Document Boilerplate:</strong> Clean, short doctype declaration: <code><!DOCTYPE html></code>.</p>
+<p>2. <strong>Semantic Structural Tags:</strong> <code><header></code>, <code><nav></code>, <code><main></code>, <code><article></code>, <code><section></code>, <code><aside></code>, <code><footer></code>, <code><figure></code>.</p>
+<p>3. <strong>Native Media Elements:</strong> <code><audio></code>, <code><video></code>, and <code><track></code> without requiring third-party plugins.</p>
+<p>4. <strong>Enhanced Input Types:</strong> <code>email</code>, <code>url</code>, <code>tel</code>, <code>number</code>, <code>date</code>, <code>time</code>, <code>color</code>, <code>range</code>, <code>search</code>.</p>
+<p>5. <strong>Built-in Form Validation Attributes:</strong> <code>required</code>, <code>pattern</code>, <code>min</code>, <code>max</code>, <code>step</code>, <code>minlength</code>, <code>maxlength</code>.</p>
+<p>6. <strong>Graphics & Interactive Elements:</strong> <code><canvas></code> API, inline <code><svg></code>, <code><details></code>, and <code><summary></code>.</p>
+
+<h2>📝 Built-in Client-Side Form Validation</h2>
+
+<p>Before HTML5, verifying user email formatting or required fields required writing custom JavaScript. HTML5 handles client-side form validation natively in the browser:</p>
+
+<pre><code class="language-html">&lt;form&gt;
+<p>  &lt;!-- Compulsory text entry --&gt;</p>
+<p>  &lt;label for=&quot;username&quot;&gt;Username (required):&lt;/label&gt;</p>
+<p>  &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;user&quot; required minlength=&quot;3&quot; maxlength=&quot;15&quot;&gt;</p>
+
+<p>  &lt;!-- Validated email format --&gt;</p>
+<p>  &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;</p>
+<p>  &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;user@domain.com&quot;&gt;</p>
+
+<p>  &lt;!-- Regex pattern matching (e.g. 10-digit phone number) --&gt;</p>
+<p>  &lt;label for=&quot;phone&quot;&gt;Phone (10 digits):&lt;/label&gt;</p>
+<p>  &lt;input id=&quot;phone&quot; type=&quot;tel&quot; name=&quot;phone&quot; pattern=&quot;[0-9]{10}&quot; required placeholder=&quot;9876543210&quot;&gt;</p>
+
+<p>  &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;</p>
+<p>&lt;/form&gt;</code></pre></p>
+
+<p>When a user submits invalid data, modern browsers automatically block form submission and display a localized popup error bubble.</p>
+
+<h2>🛑 Important Security Rule: Client vs. Server Validation</h2>
+
+<p>While HTML5 client-side validation provides a fast, responsive user experience and immediate feedback:</p>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong>Client-side validation does NOT replace server-side validation.</strong> Users can easily bypass client-side HTML validation by disabling JavaScript or editing HTML in Developer Tools. Always validate and sanitize user data on the backend server for security.</p></blockquote>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;HTML5 Validation Demo&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;main&gt;</p>
+<p>    &lt;h1&gt;Event Registration&lt;/h1&gt;</p>
+
+<p>    &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;full-name&quot;&gt;Full Name:&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;input id=&quot;full-name&quot; type=&quot;text&quot; name=&quot;fullName&quot; required minlength=&quot;2&quot;&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;email&quot; required autocomplete=&quot;email&quot;&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;label for=&quot;ticket-count&quot;&gt;Number of Tickets (1–5):&lt;/label&gt;&lt;br&gt;</p>
+<p>        &lt;input id=&quot;ticket-count&quot; type=&quot;number&quot; name=&quot;tickets&quot; min=&quot;1&quot; max=&quot;5&quot; value=&quot;1&quot; required&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;button type=&quot;submit&quot;&gt;Complete Booking&lt;/button&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>    &lt;/form&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>An event booking form featuring native client-side validation. Attempting to submit an empty form or invalid email triggers automatic browser validation popups blocking submission.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Build a sign-up form utilizing HTML5 validation attributes:</p>
+<p>1. <code>type="email"</code> with <code>required</code>.</p>
+<p>2. <code>type="password"</code> with <code>minlength="8"</code>.</p>
+<p>3. <code>type="tel"</code> with <code>pattern="[0-9]{10}"</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Relying solely on client-side HTML validation for security:</strong> Always validate data on the backend server.</li></p>
+<p>  <li><strong>Using overly complex regex in <code>pattern</code> without testing:</strong> Unchecked regex patterns can lock out valid user inputs.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All modern web forms utilize built-in HTML5 validation attributes alongside server-side validation to ensure clean data entry.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="12-input-types.html">Input Types</a></li></p>
+<p>  <li><a href="22-semantic-html.html">Semantic HTML</a></li></p>
+<p>  <li><a href="28-advanced-form-controls.html">Advanced Form Controls</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>HTML is now maintained continuously as a WHATWG Living Standard.</li></p>
+<p>  <li>Built-in form validation (<code>required</code>, <code>pattern</code>) runs natively in browsers.</li></p>
+<p>  <li>ALWAYS perform backend server validation for security.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="22-semantic-html.html">← Previous: Semantic HTML</a> | <a href="./">HTML Home</a> | <a href="24-accessibility-basics.html">Next: Accessibility Basics →</a></p>
+
+
+
+  </div>
+</body>
+</html>

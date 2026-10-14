@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>34 devtools - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Browser Developer Tools for CSS</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Browser Developer Tools (DevTools)</strong> are a suite of web authoring and debugging tools built directly into modern web browsers (Chrome, Firefox, Edge, Safari) that allow inspecting DOM elements, editing CSS properties live in real-time, testing responsive device viewports, and auditing layout performance.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Inspect DOM elements, edit CSS live in real-time, audit computed Box Model dimensions, and test mobile responsive breakpoints using browser DevTools (<code>F12</code>).</p>
+
+<h3>Hindi</h3>
+<p>Browser DevTools (<code>F12</code>) se aap web page ke kisi bhi element ko inspect kar sakte hain, live CSS style badalkar test kar sakte hain aur Box Model check kar sakte hain.</p>
+
+<h3>Marathi</h3>
+<p>Browser DevTools (<code>F12</code>) vaprun live badal karun pahata yetat ani Box Model tapasda yete.</p>
+
+<h2>🤔 Why Are DevTools Essential for Developers?</h2>
+
+<p>Without DevTools, testing a 2px padding tweak requires editing <code>style.css</code>, saving the file, switching to the browser, and refreshing the page. With DevTools, you click the element, tweak values live in the browser, observe instant visual results, and only copy the final verified CSS back into your code editor.</p>
+
+<h2>🛠️ Opening DevTools & Key Shortcuts</h2>
+
+<ul>
+<p>  <li><strong>Shortcut Key:</strong> Press <code>F12</code> OR <code>Ctrl + Shift + I</code> (<code>Cmd + Option + I</code> on Mac).</li></p>
+<p>  <li><strong>Inspect Element:</strong> Right-click any element on a webpage and select <strong>Inspect</strong>.</li></p>
+<p>  <li><strong>Element Picker Shortcut:</strong> Press <code>Ctrl + Shift + C</code> (<code>Cmd + Shift + C</code> on Mac) and hover over any page element.</li></p>
+<p>  <li><strong>Toggle Device Responsive Toolbar:</strong> Press <code>Ctrl + Shift + M</code> (<code>Cmd + Shift + M</code> on Mac).</li></p>
+<p></ul></p>
+
+<h2>📚 Key DevTools Panels for CSS Debugging</h2>
+
+<table>
+<p>  <thead><tr><th>Panel / Tool</th><th>Purpose & Capability</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Elements Panel</strong></td><td>Inspects live HTML DOM tree and active CSS rule declarations</td></tr></p>
+<p>    <tr><td><strong>Styles Sub-panel</strong></td><td>Shows all matching CSS rules, specificity scores, and inherited styles</td></tr></p>
+<p>    <tr><td><strong>Computed Sub-panel</strong></td><td>Shows final computed property values after cascade resolution</td></tr></p>
+<p>    <tr><td><strong>Box Model Diagram</strong></td><td>Visual color-coded Box Model overlay (Content, Padding, Border, Margin)</td></tr></p>
+<p>    <tr><td><strong>Device Mode Toolbar</strong></td><td>Simulates mobile screen resolutions, touch events, and network speeds</td></tr></p>
+<p>    <tr><td><strong>Color Picker Swatch</strong></td><td>Pick colors, adjust opacity, and verify WCAG contrast ratios</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Live Inspection Workflow</h2>
+
+<pre><code class="language-text">1. Open page in Browser (Chrome / Edge / Firefox)
+<p>2. Press F12 -&gt; Select Elements Panel</p>
+<p>3. Click Element Picker (Ctrl + Shift + C) -&gt; Click a UI Card or Button</p>
+<p>4. Edit CSS declarations live in Styles Sub-panel</p>
+<p>5. Observe real-time visual changes</p>
+<p>6. Copy verified CSS declarations to your local style.css file</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;DevTools Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;test-card&quot;&gt;</p>
+<p>    &lt;h2&gt;DevTools Inspection Card&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Inspect this card in DevTools (F12) to inspect its Box Model dimensions and style declarations.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 30px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.test-card {</p>
+<p>  background-color: #ffffff;</p>
+<p>  border: 2px solid #3b82f6;</p>
+<p>  border-radius: 8px;</p>
+<p>  padding: 24px;</p>
+<p>  max-width: 400px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.1);</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  color: #1e40af;</p>
+<p>  margin-top: 0;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See in DevTools</h2>
+
+<p>1. In the <strong>Elements</strong> panel, <code>.test-card</code> is highlighted.</p>
+<p>2. In the <strong>Styles</strong> sub-panel, you see the active CSS rules (<code>background-color</code>, <code>border</code>, <code>padding</code>).</p>
+<p>3. At the bottom of Styles, the interactive <strong>Box Model Diagram</strong> shows <code>352px × 114px</code> content, <code>24px</code> padding, <code>2px</code> border, and <code>0px</code> margin.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Press <code>F12</code> on this page and inspect <code>.test-card</code>.</p>
+<p>2. Double-click <code>padding: 24px</code> in the Styles panel and change it to <code>48px</code>. Observe how the card inflates live in real-time!</p>
+<p>3. Click the color swatch next to <code>#3b82f6</code> to open the interactive color picker.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting that DevTools edits are temporary:</strong> Edits made inside DevTools live in browser memory and disappear when you refresh the page. Always copy your final CSS declarations back into your <code>style.css</code> file!</li></p>
+<p>  <li><strong>Not checking crossed-out CSS declarations:</strong> Crossed-out CSS lines in the Styles panel indicate rules that were overridden by higher specificity selectors or invalid syntax.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Professional web developers use DevTools daily to inspect layout bugs, test mobile responsive breakpoints, debug Flexbox/Grid layouts using interactive grid overlays, and verify WCAG color contrast ratings.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-specificity.html">Specificty, Cascade & Inheritance</a></li></p>
+<p>  <li><a href="16-box-model.html">The CSS Box Model</a></li></p>
+<p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Shortcut: Press <code>F12</code> or <code>Ctrl + Shift + I</code>.</li></p>
+<p>  <li>Device Mode shortcut: <code>Ctrl + Shift + M</code>.</li></p>
+<p>  <li>DevTools edits are temporary in-memory tests—copy final code back to your <code>.css</code> file.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="33-important.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="35-forms-and-inputs.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 advanced pointers - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Advanced Pointers & Pointer Arithmetic</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Advanced Pointer</strong> concepts in C encompass <strong>pointer arithmetic</strong> (moving pointers based on byte sizes), <strong>double pointers</strong> (<code><strong></code>), </strong>const qualifiers with pointers<strong>, </strong>generic void pointers** (<code>void*</code>), and <strong>function pointers</strong> (pointers holding memory addresses of executable code).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Pointer arithmetic operates on memory address offsets based on the byte size of the underlying data type (<code>sizeof(*ptr)</code>). Double pointers (<code>int **pptr</code>) store addresses of other pointers. <code>const</code> qualifiers control whether the pointer address or the underlying value can be modified. Generic <code>void*</code> pointers hold raw untyped addresses, while function pointers store execution addresses of functions.</p>
+
+<h3>Hindi</h3>
+<p>Pointer arithmetic memory address ko data type ke byte size (<code>sizeof(*ptr)</code>) ke anusar aage-peeche shift karta hai. Double pointer (<code>int **pptr</code>) kisi doosre pointer ka memory address hold karta hai. <code>const</code> qualifier se pointer ya uski value ko read-only banaya jata hai. <code>void*</code> generic pointer hota hai aur function pointer kisi function ka execution address hold karta hai.</p>
+
+<h3>Marathi</h3>
+<p>Pointer arithmetic madhye pointer typenusar (<code>sizeof(*ptr)</code>) aage-pudhe hoto. Double pointer (<code>int **pptr</code>) dusrya pointer cha address hold karto. <code>const</code> mulhe value kiva address lock kela jato. Generic <code>void*</code> madhye konta hi address thevta yeto, aani function pointer function cha execution address sathavato.</p>
+
+<h3>Hinglish</h3>
+<p>Pointer arithmetic mein <code>ptr + 1</code> karne par address <code>sizeof(T)</code> bytes aage badhta hai. Double pointers (<code><strong>pptr</code>) pointers ke address hold karte hain. Function pointers se functions ko as arguments paas kiya ja sakta hai. Dangling pointer (freed memory access) aur Use-After-Free serious memory bugs hote hain.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Advanced pointer patterns enable dynamic matrix management, plugin architectures, custom callbacks, generic sorting algorithms (like standard C <code>qsort()</code>), and low-level system drivers.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<ul>
+<p>  <li></strong>Pointer Arithmetic:<strong> If an <code>int</code> takes 4 bytes, <code>ptr + 1</code> skips 4 bytes forward to point to the next integer item in memory.</li></p>
+<p>  <li></strong>Double Pointer (<code><strong></code>):</strong> A box that holds the address of another pointer box.</li></p>
+<p>  <li><strong>Function Pointer:</strong> Storing the phone number of a specialist so you can call them on-demand later.</li></p>
+<p></ul></p>
+
+<h2>📝 Advanced Pointer Mechanics</h2>
+
+<h3>1. Pointer Arithmetic</h3>
+<p>Adding <code>1</code> to a pointer increases its memory address offset by <code>sizeof(type)</code> bytes:</p>
+<pre><code class="language-c">int arr[3] = {10, 20, 30};
+<p>int *ptr = arr; // Equivalent to &amp;arr[0]</p>
+<p>// ptr + 1 points to arr[1] (adds sizeof(int) = 4 bytes)</code></pre></p>
+
+<h3>2. Double Pointer (<code>**</code>)</h3>
+<p>A pointer storing the memory address of another pointer:</p>
+<pre><code class="language-c">int val = 100;
+<p>int *p = &amp;val;</p>
+<p>int **pp = &amp;p; // pp points to pointer p</code></pre></p>
+
+<h3>3. <code>const</code> and Pointers</h3>
+<ul>
+<p>  <li><code>const int *p</code>: Pointer to constant <code>int</code> (Value <code>*p</code> cannot be modified; pointer address <code>p</code> CAN change).</li></p>
+<p>  <li><code>int * const p</code>: Constant pointer to <code>int</code> (Pointer address <code>p</code> CANNOT change; value <code>*p</code> CAN change).</li></p>
+<p>  <li><code>const int * const p</code>: Constant pointer to constant <code>int</code> (Neither address nor value can change).</li></p>
+<p></ul></p>
+
+<h3>4. Generic Pointer (<code>void*</code>)</h3>
+<p>Untyped raw memory pointer. Must be explicitly cast before dereferencing:</p>
+<pre><code class="language-c">int num = 42;
+<p>void *gPtr = &amp;num;</p>
+<p>printf(&quot;%d\n&quot;, *(int*)gPtr); // Cast to int* before dereferencing</code></pre></p>
+
+<h3>5. Function Pointers</h3>
+<p>Stores memory address of an executable function:</p>
+<pre><code class="language-c">int add(int a, int b) { return a + b; }
+<p>int (*funcPtr)(int, int) = add; // Declaration and initialization</p>
+<p>int result = funcPtr(5, 3);      // Invokes &#39;add(5, 3)&#39;</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical program demonstrating pointer arithmetic, double pointers, generic <code>void*</code> pointers, function pointers as callbacks, and dangling pointer risks:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>// Functions for Function Pointer Callback Demonstration</p>
+<p>int add(int a, int b) { return a + b; }</p>
+<p>int multiply(int a, int b) { return a * b; }</p>
+
+<p>// Function accepting a Function Pointer as a Callback parameter</p>
+<p>void executeOperation(int (*op)(int, int), int x, int y, const char *opName) {</p>
+<p>    int result = op(x, y); // Invoke function via pointer</p>
+<p>    printf(&quot;Operation [%s] on (%d, %d) = %d\n&quot;, opName, x, y, result);</p>
+<p>}</p>
+
+<p>int main(void) {</p>
+<p>    // 1. Pointer Arithmetic &amp; Array Equivalence</p>
+<p>    printf(&quot;--- 1. POINTER ARITHMETIC &amp; ARRAYS ---\n&quot;);</p>
+<p>    int prices[3] = {150, 250, 350};</p>
+<p>    int *pPrice = prices; // Points to prices[0]</p>
+
+<p>    for (int i = 0; i &lt; 3; i++) {</p>
+<p>        // *(pPrice + i) is exactly identical to prices[i]</p>
+<p>        printf(&quot;Element [%d]: Address %p | Value: $%d\n&quot;, i, (void*)(pPrice + i), *(pPrice + i));</p>
+<p>    }</p>
+
+<p>    // 2. Double Pointer (Pointer to Pointer)</p>
+<p>    printf(&quot;\n--- 2. DOUBLE POINTERS ---\n&quot;);</p>
+<p>    int targetVal = 999;</p>
+<p>    int *p1 = &amp;targetVal;</p>
+<p>    int **p2 = &amp;p1; // Holds address of p1</p>
+
+<p>    printf(&quot;Original Value         : %d\n&quot;, targetVal);</p>
+<p>    printf(&quot;Value via *p1          : %d\n&quot;, *p1);</p>
+<p>    printf(&quot;Value via <strong>p2         : %d\n&quot;, </strong>p2);</p>
+
+<p>    // Modifying value through double pointer</p>
+<p>    <strong>p2 = 1234;</p>
+<p>    printf(&quot;Updated via </strong>p2       : %d\n&quot;, targetVal);</p>
+
+<p>    // 3. Generic Void Pointer</p>
+<p>    printf(&quot;\n--- 3. GENERIC VOID* POINTER ---\n&quot;);</p>
+<p>    double pi = 3.14159;</p>
+<p>    void *vPtr = &amp;pi;</p>
+<p>    printf(&quot;Dereferenced void*     : %.5lf\n&quot;, *(double*)vPtr);</p>
+
+<p>    // 4. Function Pointers (Callbacks)</p>
+<p>    printf(&quot;\n--- 4. FUNCTION POINTER CALLBACKS ---\n&quot;);</p>
+<p>    executeOperation(add, 12, 8, &quot;Addition&quot;);</p>
+<p>    executeOperation(multiply, 12, 8, &quot;Multiplication&quot;);</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>*(pPrice + i)</code>: Demonstrates that array indexing <code>prices[i]</code> is syntactic sugar for pointer arithmetic <code>*(prices + i)</code>. <code>pPrice + 1</code> advances the memory address by <code>1 * sizeof(int)</code> (4 bytes).</li></p>
+<p>  <li><code>int <strong>p2 = &p1;</code>: Declares a double pointer. <code></strong>p2</code> dereferences twice: first dereference gets pointer <code>p1</code>, second dereference gets integer <code>targetVal</code>.</li></p>
+<p>  <li><code>int (*op)(int, int)</code>: Declares a function pointer parameter that accepts any function matching signature <code>int func(int, int)</code>. This allows passing behavior (<code>add</code> or <code>multiply</code>) dynamically!</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. POINTER ARITHMETIC &amp; ARRAYS ---
+<p>Element [0]: Address 0x7ffde230a5c0 | Value: $150</p>
+<p>Element [1]: Address 0x7ffde230a5c4 | Value: $250</p>
+<p>Element [2]: Address 0x7ffde230a5c8 | Value: $350</p>
+
+<p>--- 2. DOUBLE POINTERS ---</p>
+<p>Original Value         : 999</p>
+<p>Value via *p1          : 999</p>
+<p>Value via <strong>p2         : 999</p>
+<p>Updated via </strong>p2       : 1234</p>
+
+<p>--- 3. GENERIC VOID* POINTER ---</p>
+<p>Dereferenced void*     : 3.14159</p>
+
+<p>--- 4. FUNCTION POINTER CALLBACKS ---</p>
+<p>Operation [Addition] on (12, 8) = 20</p>
+<p>Operation [Multiplication] on (12, 8) = 96</code></pre></p>
+
+<h2>⚠️ Common Pointer Bugs & Definitions</h2>
+
+<ul>
+<p>  <li><strong>Dangling Pointer:</strong> A pointer holding the address of memory that has been deallocated (freed) or gone out of scope. Dereferencing a dangling pointer causes undefined behavior.</li></p>
+<p></ul></p>
+<p>  ``<code>c</p>
+<p>  int *getDangling(void) {</p>
+<p>      int local = 50;</p>
+<p>      return &local; // DANGEROUS! 'local' is destroyed upon return!</p>
+<p>  }</p>
+<p>  </code>`<code></p>
+<ul>
+<p>  <li><strong>Use-After-Free:</strong> Accessing memory via a pointer after calling </code>free(ptr)<code>.</li></p>
+<p>  <li><strong>Double-Free:</strong> Calling </code>free(ptr)<code> twice on the same non-NULL pointer address, corrupting heap metadata.</li></p>
+<p>  <li><strong>Invalid Pointer Arithmetic:</strong> Incrementing a pointer beyond allocated array boundaries or subtracting pointers belonging to different arrays.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always set pointers to </code>NULL<code> immediately after freeing heap memory (</code>free(ptr); ptr = NULL;<code>).</li></p>
+<p>  <li>Never return the address of a local automatic variable from a function.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Function pointers implement event handlers in C GUI libraries, custom comparator callbacks in standard library </code>qsort()<code>, operating system dispatch tables, and virtual function tables (vtables) in C-based object-oriented designs.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare a </code>float<code> array of 3 item prices.</p>
+<p>2. Use a pointer </code>float *p = prices;<code> and pointer arithmetic </code>*(p + i)<code> to calculate total price sum.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a generic function </code>void printGeneric(void *data, char type)<code> that checks </code>type<code>: if </code>'i'<code>, prints an </code>int<code>; if </code>'f'<code>, prints a </code>float<code>; if </code>'c'<code>, prints a </code>char<code>. Test it with variables of each type in </code>main()`.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-pointers-basics.html">Pointers Basics</a></li></p>
+<p>  <li><a href="13-dynamic-memory-allocation.html">Dynamic Memory Allocation</a></li></p>
+<p>  <li><a href="14-structures.html">Structures</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="10-pointers-basics.html">← Previous: Pointers Basics</a> | <a href="12-strings.html">Next: Strings →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 move semantics - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Move Semantics, Lvalues, Rvalues & <code>std::move</code> in C++</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>Introduced in C++11, <strong>Move Semantics</strong> allows C++ to <strong>transfer (move) ownership</strong> of resources (like heap memory, file handles, or graphics buffers) from temporary objects directly to new objects instead of performing expensive deep copies.</p>
+<ul>
+<p>  <li><strong>Lvalue</strong>: An persistent object that occupies an identifiable location in memory (has a name and memory address).</li></p>
+<p>  <li><strong>Rvalue</strong>: A temporary, short-lived value that exists only during expression evaluation (has no persistent address).</li></p>
+<p>  <li><strong>Rvalue Reference (<code>T&&</code>)</strong>: Binds strictly to temporary rvalues.</li></p>
+<p>  <li><strong><code>std::move()</code></strong>: Casts an lvalue into an rvalue reference, enabling resource transfer.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Purani C++ mein jab hum kisi temporary object ko naye variable mein assign karte the, toh C++ poori memory ko duplicate (deep copy) karta tha. C++11 mein <strong>Move Semantics</strong> aaya. Isme naya object temporary object ki heap memory ka pointer <strong>chura (steal/transfer) leta hai</strong> aur purane temporary object ke pointer ko <code>nullptr</code> kar deta hai. Isse memory duplication nahi hoti aur program ki speed 100x tak badh jaati hai!</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Move Semantics C++11 cha ek atyantvegvan (fast) feature aahe. Deep Copy karne aivaji, <strong>Move Semantics</strong> mule temporary object chi heap memory n नवीन object kade <strong>transfer</strong> ke li jaate. Jyamule duplicate copy tayar hot nahi aani performance vadhato.</p>
+
+<p>---</p>
+
+<h2>📊 Copy Semantics vs Move Semantics</h2>
+
+<pre><code class="language-text">1. Deep Copy Semantics (Expensive O(N) allocation):
+<p>[Original Buffer] -&gt; Copy All Elements -&gt; [New Buffer Copy]</p>
+
+<p>2. Move Semantics (Lighting Fast O(1) Pointer Transfer):</p>
+<p>[Original Buffer Pointer] ----(Transfer Pointer)----&gt; [New Object Pointer]</p>
+<p>[Original Buffer Pointer] -&gt; Set to NULL (Empty)</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;utility&gt; // For std::move</p>
+<p>#include &lt;cstring&gt;</p>
+
+<p>class DynamicBuffer {</p>
+<p>private:</p>
+<p>    char* data;</p>
+<p>    size_t size;</p>
+
+<p>public:</p>
+<p>    // Constructor</p>
+<p>    DynamicBuffer(size_t sz) : size(sz) {</p>
+<p>        data = new char[size];</p>
+<p>        std::memset(data, &#39;A&#39;, size);</p>
+<p>        std::cout &lt;&lt; &quot;[CONSTRUCTOR] Allocated &quot; &lt;&lt; size &lt;&lt; &quot; bytes on heap.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // Destructor</p>
+<p>    ~DynamicBuffer() {</p>
+<p>        if (data != nullptr) {</p>
+<p>            std::cout &lt;&lt; &quot;[DESTRUCTOR] Deallocated &quot; &lt;&lt; size &lt;&lt; &quot; bytes.&quot; &lt;&lt; std::endl;</p>
+<p>            delete[] data;</p>
+<p>        } else {</p>
+<p>            std::cout &lt;&lt; &quot;[DESTRUCTOR] Empty moved-from object cleaned up safely.&quot; &lt;&lt; std::endl;</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    // 1. Copy Constructor (Expensive Deep Copy!)</p>
+<p>    DynamicBuffer(const DynamicBuffer&amp; other) : size(other.size) {</p>
+<p>        data = new char[size];</p>
+<p>        std::memcpy(data, other.data, size);</p>
+<p>        std::cout &lt;&lt; &quot;[DEEP COPY CONSTRUCTOR] Duplicated &quot; &lt;&lt; size &lt;&lt; &quot; bytes in memory.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // 2. Move Constructor (Lightning Fast O(1) Pointer Transfer!)</p>
+<p>    DynamicBuffer(DynamicBuffer&amp;&amp; other) noexcept </p>
+<p>        : data(other.data), size(other.size) // STEAL POINTER!</p>
+<p>    {</p>
+<p>        other.data = nullptr; // Nullify source pointer so it doesn&#39;t free the memory!</p>
+<p>        other.size = 0;</p>
+<p>        std::cout &lt;&lt; &quot;[MOVE CONSTRUCTOR] Transferred ownership of &quot; &lt;&lt; size &lt;&lt; &quot; bytes!&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    size_t getSize() const { return size; }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. DEEP COPYING AN OBJECT ---&quot; &lt;&lt; std::endl;</p>
+<p>    DynamicBuffer buf1(100000); // 100 KB Buffer</p>
+<p>    DynamicBuffer buf2 = buf1;  // Triggers DEEP COPY (Expensive!)</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 2. MOVING AN OBJECT (std::move) ---&quot; &lt;&lt; std::endl;</p>
+<p>    // std::move casts buf1 to an rvalue reference, triggering the MOVE CONSTRUCTOR!</p>
+<p>    DynamicBuffer buf3 = std::move(buf1); // Triggers MOVE CONSTRUCTOR (O(1) Fast!)</p>
+
+<p>    std::cout &lt;&lt; &quot;buf3 Size: &quot; &lt;&lt; buf3.getSize() &lt;&lt; &quot; bytes&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;buf1 Size after std::move: &quot; &lt;&lt; buf1.getSize() &lt;&lt; &quot; bytes (Empty)&quot; &lt;&lt; std::endl;</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- CLEANING UP ---&quot; &lt;&lt; std::endl;</p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>DynamicBuffer(DynamicBuffer&& other) noexcept</code>: Rvalue reference <code>&&</code> binds to temporary objects or <code>std::move()</code> outputs.</li></p>
+<p>  <li><code>other.data = nullptr;</code>: <strong>CRITICAL</strong>: Nullifying the source pointer ensures that when <code>other</code>'s destructor runs, <code>delete[] nullptr</code> executes safely without double-freeing the moved memory!</li></p>
+<p>  <li><code>std::move(buf1)</code>: Converts lvalue <code>buf1</code> into an rvalue reference, telling the compiler: *"I am done with buf1, feel free to steal its resources!"*</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. DEEP COPYING AN OBJECT ---
+<p>[CONSTRUCTOR] Allocated 100000 bytes on heap.</p>
+<p>[DEEP COPY CONSTRUCTOR] Duplicated 100000 bytes in memory.</p>
+
+<p>--- 2. MOVING AN OBJECT (std::move) ---</p>
+<p>[MOVE CONSTRUCTOR] Transferred ownership of 100000 bytes!</p>
+<p>buf3 Size: 100000 bytes</p>
+<p>buf1 Size after std::move: 0 bytes (Empty)</p>
+
+<p>--- CLEANING UP ---</p>
+<p>[DESTRUCTOR] Empty moved-from object cleaned up safely.</p>
+<p>[DESTRUCTOR] Deallocated 100000 bytes.</p>
+<p>[DESTRUCTOR] Deallocated 100000 bytes.</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using a Variable After <code>std::move</code></strong>: Once an object has been moved from (<code>std::move(obj)</code>), its internal resources belong to the target object. Reading or accessing fields on a moved-from object is unsafe!</li></p>
+<p>  <li><strong>Forgetting <code>noexcept</code> on Move Constructors</strong>: Standard library containers (like <code>std::vector</code>) will NOT use custom move constructors during reallocation unless marked <code>noexcept</code>!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always mark move constructors and move assignment operators <code>noexcept</code>.</li></p>
+<p>  <li>Prefer standard library types (<code>std::string</code>, <code>std::vector</code>) which already have move semantics built-in natively.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Measure the execution time difference between copying vs moving a <code>std::vector<int></code> with 10,000,000 elements.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a custom <code>String</code> class with a custom move constructor. Demonstrate moving string ownership from a temporary function return value directly into a global vector.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-smart-pointers.html">Smart Pointers</a></li></p>
+<p>  <li><a href="10-classes-and-oops.html">Classes & OOP</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="21-namespaces-and-modern-cpp.html">← Previous: Modern C++</a> | <a href="23-mini-projects.html">Next: Mini Projects →</a></p>
+
+
+  </div>
+</body>
+</html>

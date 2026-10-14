@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 fetch api and json - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Fetch API & Working with JSON</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>JSON (JavaScript Object Notation):</strong> A lightweight, text-based data format used to transmit structured data between client web applications and backend servers.</li></p>
+<p>  <li><strong>Fetch API:</strong> A modern browser API that provides an interface for making asynchronous HTTP requests (<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>).</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Server aur browser ke beech data transmit karne ke liye <strong>JSON</strong> format ka use hota hai. <code>JSON.stringify()</code> JS object ko JSON string mein convert karta hai aur <code>JSON.parse()</code> JSON string ko object mein convert karta hai. Web API se data fetch karne ke liye <code>fetch()</code> method ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Server kadun data annyasathi kiva dhenyasathi <strong>JSON</strong> format cha wapar kela jato. Browser madhun network request pathvanyasathi <code>fetch()</code> API cha wapar hoto.</p>
+
+<h2>📝 Essential JSON Methods</h2>
+
+<pre><code class="language-js">const userObj = { name: &quot;Kavita&quot;, role: &quot;Developer&quot; };
+
+<p>// Object -&gt; JSON String (Sending to server or saving in storage)</p>
+<p>const jsonString = JSON.stringify(userObj);</p>
+<p>console.log(typeof jsonString); // &quot;string&quot;</p>
+
+<p>// JSON String -&gt; JS Object (Parsing received data)</p>
+<p>const parsedObj = JSON.parse(jsonString);</p>
+<p>console.log(parsedObj.name); // &quot;Kavita&quot;</code></pre></p>
+
+<h2>🧠 CRITICAL: <code>fetch()</code> Error Handling Rules</h2>
+
+<p>A common mistake is assuming HTTP 404 or 500 errors cause <code>fetch()</code> to reject.</p>
+
+<blockquote><p>⚠️ <strong>Important:</strong> <code>fetch()</code> Promises <strong>ONLY reject on network failures</strong> (e.g., lost internet connection or DNS failure). For HTTP error codes (like 404 Not Found or 500 Server Error), <code>fetch()</code> resolves normally, and you must check <code>response.ok</code> or <code>response.status</code>!</p></blockquote>
+
+<h2>💡 Complete Example: Modern <code>async/await</code> Fetch Request</h2>
+
+<pre><code class="language-js">async function fetchPostDetails(postId) {
+<p>  const url = <code>https://jsonplaceholder.typicode.com/posts/${postId}</code>;</p>
+
+<p>  try {</p>
+<p>    const response = await fetch(url);</p>
+
+<p>    // Manual status check for HTTP 404/500 errors</p>
+<p>    if (!response.ok) {</p>
+<p>      throw new Error(<code>HTTP Error Status: ${response.status} (${response.statusText})</code>);</p>
+<p>    }</p>
+
+<p>    const postData = await response.json();</p>
+<p>    console.log(&quot;Post Title:&quot;, postData.title);</p>
+<p>    console.log(&quot;Post Body:&quot;, postData.body);</p>
+
+<p>  } catch (error) {</p>
+<p>    // Handles network failure OR manually thrown HTTP errors</p>
+<p>    console.error(&quot;Fetch Request Failed:&quot;, error.message);</p>
+<p>  }</p>
+<p>}</p>
+
+<p>fetchPostDetails(1);</code></pre></p>
+
+<h2>💡 Making POST Requests with Body Data</h2>
+
+<pre><code class="language-js">async function createNewPost(newPostData) {
+<p>  try {</p>
+<p>    const response = await fetch(&quot;https://jsonplaceholder.typicode.com/posts&quot;, {</p>
+<p>      method: &quot;POST&quot;,</p>
+<p>      headers: {</p>
+<p>        &quot;Content-Type&quot;: &quot;application/json&quot;</p>
+<p>      },</p>
+<p>      body: JSON.stringify(newPostData)</p>
+<p>    });</p>
+
+<p>    if (!response.ok) throw new Error(&quot;Failed to create post&quot;);</p>
+
+<p>    const result = await response.json();</p>
+<p>    console.log(&quot;Created Post ID:&quot;, result.id);</p>
+<p>  } catch (err) {</p>
+<p>    console.error(&quot;POST Error:&quot;, err.message);</p>
+<p>  }</p>
+<p>}</p>
+
+<p>createNewPost({ title: &quot;Learning JS&quot;, body: &quot;Fetch API is great!&quot;, userId: 1 });</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Post Title: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+<p>Post Body: quia et suscipit...</p>
+<p>Created Post ID: 101</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Fetch user data from <code>https://jsonplaceholder.typicode.com/users/1</code> and log the user's name and company name.</p>
+<p>2. Add a <code>try...catch</code> block and check <code>response.ok</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting <code>await response.json()</code> is an asynchronous operation itself that returns a Promise!</li></p>
+<p>  <li>Forgetting to check <code>if (!response.ok)</code> and assuming a 404 response automatically goes to the <code>catch</code> block.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Loading news feeds, submitting login forms, fetching weather updates, sending analytics events, and e-commerce checkout.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Check <code>response.ok</code> before calling <code>response.json()</code> to handle HTTP errors cleanly.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="15-promises-and-async-await.html">← Previous: Promises & Async/Await</a> | <a href="17-prototypes-and-this.html">Next: Prototypes & <code>this</code> →</a></p>
+
+
+
+  </div>
+</body>
+</html>

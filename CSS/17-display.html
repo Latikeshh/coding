@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 display - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Display Property (<code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>display</code></strong> property is the most fundamental layout property in CSS. It determines the outer layout behavior of an HTML element (<code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code>) and how its child elements are formatted (<code>flex</code>, <code>grid</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>block</code> takes 100% full width and starts on a new line. <code>inline</code> sits in text flow and ignores custom width/height. <code>inline-block</code> sits inline while allowing custom width/height sizing. <code>none</code> removes the element completely from layout rendering.</p>
+
+<h3>Hindi</h3>
+<p><code>block</code> poori chaudaai aur nayi line leta hai (<code><div></code>, <code><p></code>). <code>inline</code> line mein rehta hai aur width/height ko ignore karta hai (<code><span></code>). <code>inline-block</code> inline rehte hue width/height accept karta hai. <code>display: none</code> element ko poori tarah chhupa deta hai.</p>
+
+<h3>Marathi</h3>
+<p><code>display</code> mule element layout madhye kasa disel te tharte (<code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code>, <code>flex</code>, <code>grid</code>).</p>
+
+<h2>📚 Core Display Values Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Value</th><th>Line Behavior</th><th>Width / Height Respect</th><th>Default HTML Examples</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>block</code></strong></td><td>Always starts on a <strong>new line</strong>; spans 100% available width</td><td>Fully respects <code>width</code> & <code>height</code></td><td><code><div></code>, <code><p></code>, <code><h1></code>–<code><h6></code>, <code><header></code>, <code><section></code></td></tr></p>
+<p>    <tr><td><strong><code>inline</code></strong></td><td>Sits on <strong>same line</strong> alongside surrounding text</td><td>Ignores <code>width</code>, <code>height</code>, & vertical margins</td><td><code><span></code>, <code><a></code>, <code><strong></code>, <code><em></code></td></tr></p>
+<p>    <tr><td><strong><code>inline-block</code></strong></td><td>Sits on <strong>same line</strong> in text flow</td><td>Fully respects <code>width</code>, <code>height</code>, & padding</td><td><code><button></code>, <code><input></code>, <code><img></code></td></tr></p>
+<p>    <tr><td><strong><code>none</code></strong></td><td><strong>Removes element completely</strong> from DOM layout flow</td><td>Unrendered (takes 0 space)</td><td>Used for toggling dropdowns / modals</td></tr></p>
+<p>    <tr><td><strong><code>flex</code></strong></td><td>Enables 1D Flexbox container layout</td><td>Child flex items align in row/column</td><td>Navigation bars, toolbars, cards</td></tr></p>
+<p>    <tr><td><strong><code>grid</code></strong></td><td>Enables 2D Grid container layout</td><td>Child grid items align in rows & columns</td><td>Page layouts, photo galleries, card grids</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>⚔️ <code>display: none</code> vs. <code>visibility: hidden</code></h2>
+
+<ul>
+<p>  <li><strong><code>display: none</code>:</strong> Removes the element completely from layout calculation. Neighboring elements collapse into its space.</li></p>
+<p>  <li><strong><code>visibility: hidden</code>:</strong> Hides the element visually, but <strong>reserves its empty box space</strong> in the document layout.</li></p>
+<p></ul></p>
+
+<h2>💻 Examples</h2>
+
+<pre><code class="language-css">/* Making inline links behave like block buttons */
+<p>.nav-link {</p>
+<p>  display: inline-block;</p>
+<p>  padding: 10px 20px;</p>
+<p>  width: 120px; /* Fully respected because of inline-block */</p>
+<p>  background-color: #007bff;</p>
+<p>  color: white;</p>
+<p>  text-decoration: none;</p>
+<p>  text-align: center;</p>
+<p>}</p>
+
+<p>/* Hiding modal overlay */</p>
+<p>.modal-overlay {</p>
+<p>  display: none; /* Shown dynamically via JS by changing to display: flex */</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Display Property Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h2&gt;Inline-Block Badges Example&lt;/h2&gt;</p>
+<p>  &lt;p&gt;Status badges sit inside sentence text: </p>
+<p>    &lt;span class=&quot;badge badge-success&quot;&gt;Active&lt;/span&gt;</p>
+<p>    &lt;span class=&quot;badge badge-warning&quot;&gt;Pending&lt;/span&gt;</p>
+<p>  &lt;/p&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  padding: 20px;</p>
+<p>  background-color: #f8f9fa;</p>
+<p>}</p>
+
+<p>.badge {</p>
+<p>  display: inline-block; /* Sits in text flow but allows width/padding sizing */</p>
+<p>  padding: 4px 12px;</p>
+<p>  border-radius: 12px;</p>
+<p>  font-size: 14px;</p>
+<p>  font-weight: bold;</p>
+<p>  color: white;</p>
+<p>}</p>
+
+<p>.badge-success {</p>
+<p>  background-color: #28a745;</p>
+<p>}</p>
+
+<p>.badge-warning {</p>
+<p>  background-color: #ffc107;</p>
+<p>  color: #212529;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>Status badges ("Active" and "Pending") sit inline inside sentence text while respecting custom padding, rounded borders, and font sizing.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Change <code>display: inline-block</code> on <code>.badge</code> to <code>display: block</code>.</p>
+<p>2. Notice how each status badge now forces a new line and expands to 100% container width!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Attempting to set <code>width</code> or <code>height</code> on <code>display: inline</code> elements:</strong> Setting <code>width: 200px</code> on a plain <code><span></code> or <code><a></code> is ignored by browsers unless changed to <code>display: inline-block</code> or <code>display: block</code>.</li></p>
+<p>  <li><strong>Confusing <code>display: none</code> with <code>opacity: 0</code>:</strong> <code>opacity: 0</code> leaves the element invisible but fully interactive and taking up layout space.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Converting <code><a></code> anchor elements into <code>display: inline-block</code> or <code>display: flex</code> allows styling them with padding and background colors as clickable buttons and navigation links.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="../HTML/14-div-and-span.html">Generic Containers (<code><div></code> and <code><span></code>)</a></li></p>
+<p>  <li><a href="20-flexbox.html">Flexbox Layout</a></li></p>
+<p>  <li><a href="21-grid.html">CSS Grid Layout</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li><code>block</code> = New line + 100% full width.</li></p>
+<p>  <li><code>inline</code> = Same line + ignores custom width/height.</li></p>
+<p>  <li><code>inline-block</code> = Same line + respects width/height/padding.</li></p>
+<p>  <li><code>display: none</code> = Completely removes element from DOM rendering space.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="16-box-model.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="18-positioning.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>32 asynchronous programming asyncio - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>⚡ Asynchronous Programming in Python (<code>asyncio</code>, <code>async</code> & <code>await</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Asynchronous Programming</strong> in Python is a concurrent execution model enabled by the built-in <strong><code>asyncio</code> module</strong> using the <strong><code>async</code> and <code>await</code> keywords</strong>. It allows Python programs to handle non-blocking I/O operations (such as API HTTP requests, database queries, file reads, or web socket feeds) on a single thread without waiting or blocking main thread execution.</p>
+
+<p>---</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>In traditional synchronous Python, every network call or I/O operation blocks thread execution until a response arrives. <code>asyncio</code> introduces an Event Loop that pauses execution of an asynchronous task (<code>coroutine</code>) at an <code>await</code> checkpoint, yielding control to run other pending tasks concurrently while waiting for I/O responses.</p>
+
+<h3>Hindi (Roman Script)</h3>
+<p>Normal Python code line-by-line chalta hai aur Jab tak network call ya file read poori nahi hoti, Agla code block wait karta hai. <code>asyncio</code> se hum <code>async def</code> aur <code>await</code> use karke concurrent non-blocking tasks chala sakte hain. Isse Fast APIs (jaise FastAPI framework), web scrapers, aur microservices bohot fast execute hote hain.</p>
+
+<h3>Marathi (Roman Script)</h3>
+<p><code>asyncio</code> mule Python madhye asynchronous non-blocking code lihita yeto. <code>async def</code> ne coroutine tayar hote aani <code>await</code> ne I/O response chi wat paahat astana dusre pending tasks run hotaat. FastAPI aani backend microservices madhye <code>asyncio</code> cha khup wapar hoto.</p>
+
+<h3>Hinglish</h3>
+<p>High-performance Python backend apps (FastAPI, Web Sockets, Async DB Drivers like <code>asyncpg</code>) asynchronous programming par base hote hain. <code>time.sleep()</code> jaise blocking calls Event Loop ko freeze kar dete hain, isliye async code mein <code>await asyncio.sleep()</code> use karna zaroori hai.</p>
+
+<p>---</p>
+
+<h2>⚙️ Event Loop & Coroutine Architecture</h2>
+
+<pre><code class="language-text">[ Main Thread ] ──► [ Event Loop Starts ]
+<p>                           │</p>
+<p>    ┌──────────────────────┴──────────────────────┐</p>
+<p>    ▼                                             ▼</p>
+<p>[ Task 1: Fetch User API ]               [ Task 2: Fetch Orders API ]</p>
+<p>    │ (Pauses at await)                       │ (Executes concurrently)</p>
+<p>    ▼                                             ▼</p>
+<p>[ Yields Control to Event Loop ] ──► [ Task 2 Finishes ]</p>
+<p>    │                                             │</p>
+<p>    ▼                                             ▼</p>
+<p>[ Task 1 Data Arrives ──► Resumes Task 1 ] ──► [ Both Tasks Completed ]</code></pre></p>
+
+<ul>
+<p>  <li><strong>Coroutine</strong>: An asynchronous function defined with <code>async def</code>. It returns a coroutine object when called and must be run using <code>await</code> or <code>asyncio.run()</code>.</li></p>
+<p>  <li><strong>Event Loop</strong>: The central manager in <code>asyncio</code> that coordinates execution of coroutines and switches tasks when an I/O pause occurs.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Production Examples</h2>
+
+<h3>Example 1: Synchronous vs Asynchronous Execution Benchmark</h3>
+
+<pre><code class="language-python">import asyncio
+<p>import time</p>
+
+<h1>1. Asynchronous Task Definition</h1>
+<p>async def fetch_data(task_id: int, delay_seconds: int) -&gt; dict:</p>
+<p>    print(f&quot;[Task {task_id}] Started fetching data...&quot;)</p>
+<p>    </p>
+<p>    # Non-blocking async sleep (yields control to Event Loop)</p>
+<p>    await asyncio.sleep(delay_seconds)</p>
+<p>    </p>
+<p>    print(f&quot;[Task {task_id}] Finished in {delay_seconds}s!&quot;)</p>
+<p>    return {&quot;task_id&quot;: task_id, &quot;status&quot;: &quot;COMPLETED&quot;}</p>
+
+<h1>2. Main Async Entry Point</h1>
+<p>async def main():</p>
+<p>    start_time = time.perf_counter()</p>
+<p>    </p>
+<p>    # Run 3 async tasks concurrently using asyncio.gather()</p>
+<p>    results = await asyncio.gather(</p>
+<p>        fetch_data(1, 2), # 2 seconds</p>
+<p>        fetch_data(2, 3), # 3 seconds</p>
+<p>        fetch_data(3, 1)  # 1 second</p>
+<p>    )</p>
+<p>    </p>
+<p>    elapsed = time.perf_counter() - start_time</p>
+<p>    print(f&quot;\nAll tasks finished in {elapsed:.2f} seconds!&quot;)</p>
+<p>    print(&quot;Results:&quot;, results)</p>
+
+<h1>Execute event loop</h1>
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    asyncio.run(main())</code></pre></p>
+
+<p>#### Execution Output:</p>
+
+<pre><code class="language-text">[Task 1] Started fetching data...
+<p>[Task 2] Started fetching data...</p>
+<p>[Task 3] Started fetching data...</p>
+<p>[Task 3] Finished in 1s!</p>
+<p>[Task 1] Finished in 2s!</p>
+<p>[Task 2] Finished in 3s!</p>
+
+<p>All tasks finished in 3.01 seconds!</p>
+<p>Results: [{&#39;task_id&#39;: 1, &#39;status&#39;: &#39;COMPLETED&#39;}, {&#39;task_id&#39;: 2, &#39;status&#39;: &#39;COMPLETED&#39;}, {&#39;task_id&#39;: 3, &#39;status&#39;: &#39;COMPLETED&#39;}]</code></pre></p>
+
+<blockquote><p>⚡ <strong>Performance Note</strong>: Synchronous execution of tasks (1s + 2s + 3s) would take <strong>6 seconds</strong>. Asynchronous execution completes all 3 tasks concurrently in <strong>3 seconds</strong>!</p></blockquote>
+
+<p>---</p>
+
+<h3>Example 2: Handling Async Timeouts (<code>asyncio.wait_for</code>)</h3>
+
+<p>Cancel an API request if it takes longer than a specified timeout limit:</p>
+
+<pre><code class="language-python">import asyncio
+
+<p>async def long_running_api_request():</p>
+<p>    await asyncio.sleep(5) # Simulating a 5-second slow API response</p>
+<p>    return &quot;API Payload Delivered&quot;</p>
+
+<p>async def main():</p>
+<p>    try:</p>
+<p>        # Enforce a 2-second timeout</p>
+<p>        data = await asyncio.wait_for(long_running_api_request(), timeout=2.0)</p>
+<p>        print(&quot;Received Data:&quot;, data)</p>
+<p>    except asyncio.TimeoutError:</p>
+<p>        print(&quot;⚠️ Request timed out! Slow API server canceled.&quot;)</p>
+
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    asyncio.run(main())</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & Pitfalls</h2>
+
+<ul>
+<p>  <li><strong>Using Blocking Calls in Async Functions</strong>: Using synchronous blocking functions like <code>time.sleep(2)</code> or <code>requests.get()</code> inside <code>async def</code> freezes the Event Loop! Use non-blocking async equivalents (<code>await asyncio.sleep(2)</code> or <code>httpx</code> / <code>aiohttp</code>).</li></p>
+<p>  <li><strong>Forgetting <code>await</code> on Coroutines</strong>: Calling an async function without <code>await</code> (e.g. <code>fetch_data()</code>) returns an unexecuted coroutine object and throws a RuntimeWarning (<code>coroutine 'fetch_data' was never awaited</code>).</li></p>
+<p>  <li><strong>Calling <code>asyncio.run()</code> Inside an Already Running Event Loop</strong>: Calling <code>asyncio.run()</code> inside Jupyter Notebooks or nested async functions causes <code>RuntimeError: asyncio.run() cannot be called from a running event loop</code>. Use <code>await</code> directly in those environments.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself & Practice Exercises</h2>
+
+<p>1. Write an async coroutine <code>download_file(filename, download_time)</code> that simulates downloading 3 files (<code>file1.pdf</code> 2s, <code>file2.mp4</code> 4s, <code>file3.zip</code> 1s) concurrently using <code>asyncio.gather()</code>.</p>
+<p>2. Measure the total execution time and verify that all 3 downloads finish in ~4 seconds instead of 7 seconds.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Build an asynchronous currency converter simulator:</p>
+<ul>
+<p>  <li>Define an async function <code>fetch_exchange_rate(from_curr, to_curr)</code> that simulates fetching rates for <code>USD -> INR</code>, <code>EUR -> INR</code>, and <code>GBP -> INR</code> with random network delays (between 1 and 3 seconds).</li></p>
+<p>  <li>Use <code>asyncio.gather()</code> to fetch all 3 rates concurrently.</li></p>
+<p>  <li>Format and print the converted values as soon as all responses arrive.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-functions-advanced.html">Advanced Functions, Closures & Scope</a></li></p>
+<p>  <li><a href="20-iterators-and-generators.html">Iterators and Generators (<code>yield</code>)</a></li></p>
+<p>  <li><a href="28-testing-and-debugging.html">Testing and Debugging in Python</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="31-mini-projects.html">← Previous: Mini Projects</a> | <a href="./">Python Home →</a></p>
+
+  </div>
+</body>
+</html>

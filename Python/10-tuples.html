@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuples - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Tuples in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Tuple</strong> is an ordered, <strong>immutable</strong> (unchangeable) sequence of elements enclosed in round parentheses <code>()</code>. Once a tuple is created, its elements cannot be modified, added, or removed.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Tuple ek immutable (jo change nahi ho sakti) collection hai jiske elements round brackets <code>()</code> mein hote hain. Tuple create hone ke baad aap usme items add, remove, ya modify nahi kar sakte. Tuple execution fast hoti hai aur ise dictionary keys ke roop mein bhi use kiya ja sakta hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Tuple <strong>Immutable</strong> aste (tyat items badalta, add kiva remove karta yet nahit). Parentheses <code>()</code> cha wapar kela jato.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>1. <strong>Data Protection:</strong> Ensures sensitive data (like database credentials or geographic coordinates) cannot be accidentally overwritten or mutated by other functions.</p>
+<p>2. <strong>Performance:</strong> Tuples consume less memory and execute faster than lists.</p>
+<p>3. <strong>Dictionary Keys:</strong> Because tuples are immutable and hashable, they can be used as keys in Python dictionaries (unlike mutable lists!).</p>
+
+<h2>📝 1. Tuple Creation & Single-Element Syntax Trap</h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL SYNTAX TRAP:</strong> To create a tuple with <strong>a single element</strong>, you MUST include a trailing comma <code>,</code>! Without the comma, Python treats <code>(5)</code> as a plain integer in parentheses, NOT a tuple!</p></blockquote>
+
+<pre><code class="language-python"># Single element integer (NOT a tuple!)
+<p>not_a_tuple = (5)     # type is int</p>
+
+<h1>Single element Tuple (Comma is mandatory!)</h1>
+<p>single_tuple = (5,)   # type is tuple</p>
+
+<h1>Standard tuple</h1>
+<p>coordinates = (19.0760, 72.8777) # (Latitude, Longitude)</code></pre></p>
+
+<h2>📝 2. Tuple Unpacking & Variable Swapping</h2>
+
+<p>Python allows extracting tuple elements directly into individual variables:</p>
+
+<pre><code class="language-python">point = (10, 20, 30)
+<p>x, y, z = point # Unpacking elements</p>
+
+<p>print(f&quot;X: {x}, Y: {y}, Z: {z}&quot;)</p>
+
+<h1>Pythonic Variable Swapping (Implicit Tuple Unpacking!)</h1>
+<p>a, b = 5, 10</p>
+<p>a, b = b, a # Swaps values in one clean line!</p>
+<p>print(f&quot;a: {a}, b: {b}&quot;) # a: 10, b: 5</code></pre></p>
+
+<h2>📝 3. Extended Unpacking with <code>*</code> Operator</h2>
+
+<pre><code class="language-python">numbers = (1, 2, 3, 4, 5, 6)
+<p>first, *middle, last = numbers</p>
+
+<p>print(first)  # 1</p>
+<p>print(middle) # [2, 3, 4, 5] (Captured as list)</p>
+<p>print(last)   # 6</code></pre></p>
+
+<h2>💡 Complete Example: GPS Location & Database Configuration</h2>
+
+<pre><code class="language-python"># Database Configuration Tuple (Immutable Record)
+<p>db_config = (&quot;localhost&quot;, 5432, &quot;admin_user&quot;, &quot;db_production&quot;)</p>
+
+<h1>Unpacking Database Config</h1>
+<p>host, port, user, db_name = db_config</p>
+
+<p>print(&quot;=== DATABASE CONNECTION SETUP ===&quot;)</p>
+<p>print(f&quot;Host Server : {host}&quot;)</p>
+<p>print(f&quot;Port        : {port}&quot;)</p>
+<p>print(f&quot;User        : {user}&quot;)</p>
+<p>print(f&quot;Database    : {db_name}&quot;)</p>
+
+<h1>Tuple Methods: .count() and .index()</h1>
+<p>sample_data = (10, 20, 10, 30, 10, 40)</p>
+<p>print(f&quot;\nCount of 10 in Tuple  : {sample_data.count(10)}&quot;)</p>
+<p>print(f&quot;First Index of 30     : {sample_data.index(30)}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== DATABASE CONNECTION SETUP ===
+<p>Host Server : localhost</p>
+<p>Port        : 5432</p>
+<p>User        : admin_user</p>
+<p>Database    : db_production</p>
+
+<p>Count of 10 in Tuple  : 3</p>
+<p>First Index of 30     : 3</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Attempting to modify or assign a value to a tuple element (<code>tuple[0] = 5</code> causes a <code>TypeError: 'tuple' object does not support item assignment</code>).</li></p>
+<p>  <li>Forgetting the trailing comma when creating a single-element tuple (<code>a = ("admin")</code> is a <code>str</code>, whereas <code>a = ("admin",)</code> is a <code>tuple</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>If a tuple contains a <strong>mutable object</strong> (like a <code>list</code> inside a tuple <code>([1, 2], [3, 4])</code>), the internal list elements CAN still be mutated! The tuple only protects the reference pointer from being reassigned to a different list.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Returning multiple values from functions, storing database connection settings, fixed RGB color tuples <code>(255, 128, 0)</code>, and GPS coordinates <code>(lat, lon)</code>.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a tuple <code>dimensions = (1920, 1080)</code>. Unpack it into variables <code>width</code> and <code>height</code>.</p>
+<p>2. Verify that <code>(100)</code> is an <code>int</code> while <code>(100,)</code> is a <code>tuple</code> using <code>type()</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a function <code>get_circle_metrics(radius)</code> that returns a tuple containing area (<code>3.14159 * r**2</code>) and circumference (<code>2 * 3.14159 * r</code>), and unpack the returned values.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-lists.html">Lists</a></li></p>
+<p>  <li><a href="12-dictionaries.html">Dictionaries</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="09-lists.html">← Previous: Lists</a> | <a href="11-sets.html">Next: Sets →</a></p>
+
+
+  </div>
+</body>
+</html>

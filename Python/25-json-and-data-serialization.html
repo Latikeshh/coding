@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON and Data Serialization - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Working with JSON in Python (<code>json</code> Module)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>JSON (JavaScript Object Notation)</strong> is a lightweight, human-readable, text-based data format used to exchange structured data between client web applications, mobile apps, and backend servers. Python provides the built-in <strong><code>json</code></strong> module for serializing and deserializing data.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Server aur client ke beech data share karne ke liye <strong>JSON</strong> format ka use hota hai. Python Dictionary ko JSON string mein convert karne ke liye <code>json.dumps()</code> (<strong>Serialization</strong>) aur JSON string ko Python Dictionary mein convert karne ke liye <code>json.loads()</code> (<strong>Deserialization</strong>) ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>JSON format server sobat data share karnyasathi vaparatat. Python Dictionary la JSON string madhye convert karnyasathi <code>json.dumps()</code> aani parat dict madhye sathi <code>json.loads()</code> vaparatat.</p>
+
+<h2>📝 1. Python Datatypes vs JSON Equivalent Mapping</h2>
+
+<table>
+<p>  <thead><tr><th>Python Datatype</th><th>Equivalent JSON Type</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>dict</code></td><td>Object <code>{}</code></td></tr></p>
+<p>    <tr><td><code>list</code>, <code>tuple</code></td><td>Array <code>[]</code></td></tr></p>
+<p>    <tr><td><code>str</code></td><td>String <code>""</code></td></tr></p>
+<p>    <tr><td><code>int</code>, <code>float</code></td><td>Number</td></tr></p>
+<p>    <tr><td><code>True</code> / <code>False</code></td><td><code>true</code> / <code>false</code></td></tr></p>
+<p>    <tr><td><code>None</code></td><td><code>null</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Serialization & Deserialization Methods</h2>
+
+<ul>
+<p>  <li><strong><code>json.dumps(obj)</code>:</strong> Converts Python dict/object -> JSON <strong>String</strong> in memory.</li></p>
+<p>  <li><strong><code>json.dump(obj, file)</code>:</strong> Serializes Python dict -> Writes directly into a <strong>File</strong>.</li></p>
+<p>  <li><strong><code>json.loads(json_str)</code>:</strong> Parses JSON <strong>String</strong> -> Python dict in memory.</li></p>
+<p>  <li><strong><code>json.load(file)</code>:</strong> Reads JSON <strong>File</strong> -> Parses directly into Python dict.</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">import json
+
+<p>data_dict = {&quot;name&quot;: &quot;Aarav&quot;, &quot;age&quot;: 25, &quot;active&quot;: True}</p>
+
+<h1>Serialization (Python Dict -&gt; JSON String)</h1>
+<p>json_string = json.dumps(data_dict, indent=4)</p>
+
+<h1>Deserialization (JSON String -&gt; Python Dict)</h1>
+<p>parsed_dict = json.loads(json_string)</code></pre></p>
+
+<h2>💡 Complete Example: REST API Payload Serialization & File Storage</h2>
+
+<pre><code class="language-python">import json
+<p>import os</p>
+
+<h1>Python Nested Dictionary Payload</h1>
+<p>user_profile = {</p>
+<p>    &quot;user_id&quot;: 501,</p>
+<p>    &quot;full_name&quot;: &quot;Rahul Verma&quot;,</p>
+<p>    &quot;email&quot;: &quot;rahul@example.com&quot;,</p>
+<p>    &quot;is_premium&quot;: True,</p>
+<p>    &quot;roles&quot;: [&quot;DEVELOPER&quot;, &quot;ADMIN&quot;],</p>
+<p>    &quot;address&quot;: {</p>
+<p>        &quot;city&quot;: &quot;Mumbai&quot;,</p>
+<p>        &quot;zipcode&quot;: &quot;400001&quot;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>file_path = &quot;user_payload.json&quot;</p>
+
+<p>print(&quot;=== JSON SERIALIZATION ENGINE ===&quot;)</p>
+
+<h1>1. Serializing to File with pretty formatting (indent=4)</h1>
+<p>with open(file_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    json.dump(user_profile, file, indent=4)</p>
+<p>    </p>
+<p>print(f&quot;Successfully serialized data to &#39;{file_path}&#39;.&quot;)</p>
+
+<h1>2. Deserializing back from File</h1>
+<p>print(&quot;\n--- DESERIALIZING JSON FROM FILE ---&quot;)</p>
+
+<p>with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    loaded_data = json.load(file)</p>
+
+<p>print(f&quot;Loaded Name   : {loaded_data[&#39;full_name&#39;]}&quot;)</p>
+<p>print(f&quot;Is Premium?   : {loaded_data[&#39;is_premium&#39;]}&quot;)</p>
+<p>print(f&quot;City          : {loaded_data[&#39;address&#39;][&#39;city&#39;]}&quot;)</p>
+<p>print(f&quot;Primary Role  : {loaded_data[&#39;roles&#39;][0]}&quot;)</p>
+
+<h1>Cleanup demo file</h1>
+<p>if os.path.exists(file_path):</p>
+<p>    os.remove(file_path)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== JSON SERIALIZATION ENGINE ===
+<p>Successfully serialized data to &#39;user_payload.json&#39;.</p>
+
+<p>--- DESERIALIZING JSON FROM FILE ---</p>
+<p>Loaded Name   : Rahul Verma</p>
+<p>Is Premium?   : True</p>
+<p>City          : Mumbai</p>
+<p>Primary Role  : DEVELOPER</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Confusing <code>json.dumps()</code> (string serialization) with <code>json.dump()</code> (file serialization).</li></p>
+<p>  <li>Attempting to serialize non-standard custom Python objects (like custom class instances or <code>datetime</code> objects) without providing a custom <code>default</code> serializer function.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always pass <code>indent=4</code> to <code>json.dumps()</code> or <code>json.dump()</code> when creating JSON configuration files to make them human-readable.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>REST API endpoints (FastAPI/Django), configuration files (<code>config.json</code>), web scraping output storage, and microservice messaging payloads.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a dictionary with your name, age, and list of favorite programming languages.</p>
+<p>2. Convert it into a formatted JSON string using <code>json.dumps(data, indent=2)</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that reads a JSON string <code>{"items": [10, 20, 30], "status": "ok"}</code>, calculates the sum of items, and outputs <code>{"sum": 60, "status": "ok"}</code> as a new JSON string.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
+<p>  <li><a href="26-working-with-csv.html">Working with CSV</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="24-datetime.html">← Previous: Datetime</a> | <a href="26-working-with-csv.html">Next: Working with CSV →</a></p>
+
+
+  </div>
+</body>
+</html>

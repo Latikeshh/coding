@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables and Data Types - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Variables and Data Types in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In Python, a <strong>Variable</strong> is a named reference that points to an object in memory. Python is <strong>dynamically typed</strong>, meaning you do not need to declare variable data types explicitly—the Python interpreter automatically infers the data type at runtime based on the value assigned to it.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Python mein variables declare karte waqt datatype (<code>int</code>, <code>str</code>, etc.) nahi likhna padta. Python assignment ke aadhar par datatype khud determine kar leta hai. Datatype check karne ke liye <code>type()</code> function ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Python madhye variables saathi data type bolava lagat nahi (dynamic typing). Value kashi ahe tyavrun Python type tharavto. Type bghnyasathi <code>type()</code> vapara.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Variables allow programs to store, reference, update, and manipulate dynamic data values—such as user inputs, shopping cart totals, API responses, and database records.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a Python variable as a sticky name tag attached to a package in a warehouse. The name tag is the variable name (e.g., <code>user_age</code>), and the item inside the package is the object (e.g., <code>25</code>). You can easily peel off the sticky tag and attach it to a different package later.</p>
+
+<h2>📝 1. Core Primitive Data Types</h2>
+
+<p>Python provides built-in primitive data types:</p>
+
+<table>
+<p>  <thead><tr><th>Data Type</th><th>Category</th><th>Description</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>int</code></td><td>Integer</td><td>Whole numbers (arbitrary precision)</td><td><code>age = 25</code></td></tr></p>
+<p>    <tr><td><code>float</code></td><td>Floating Point</td><td>Real numbers with decimals</td><td><code>price = 999.50</code></td></tr></p>
+<p>    <tr><td><code>bool</code></td><td>Boolean</td><td>Logical state (<code>True</code> or <code>False</code>)</td><td><code>is_active = True</code></td></tr></p>
+<p>    <tr><td><code>str</code></td><td>Text String</td><td>Sequence of Unicode characters</td><td><code>name = "Rahul"</code></td></tr></p>
+<p>    <tr><td><code>NoneType</code></td><td>None</td><td>Represents absence of a value</td><td><code>result = None</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Type Checking & Type Casting</h2>
+
+<ul>
+<p>  <li><strong><code>type(var)</code>:</strong> Returns the exact class type of an object.</li></p>
+<p>  <li><strong><code>isinstance(var, Type)</code>:</strong> Returns <code>True</code> if variable matches specified type.</li></p>
+<p>  <li><strong>Type Conversion:</strong> Explicitly converting values using <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>bool()</code>.</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">score_str = &quot;95&quot;
+<p>score_int = int(score_str)  # Converts string &quot;95&quot; to integer 95</p>
+<p>price_float = float(100)    # Converts integer 100 to float 100.0</code></pre></p>
+
+<h2>📝 3. Variable Naming Rules (snake_case)</h2>
+
+<ul>
+<p>  <li>Use <strong><code>snake_case</code></strong> for Python variable names (<code>user_age</code>, <code>total_amount</code>).</li></p>
+<p>  <li>Names can contain letters, numbers, and underscores (<code>_</code>).</li></p>
+<p>  <li>Names <strong>cannot start with a number</strong>.</li></p>
+<p>  <li>Cannot use reserved Python keywords (<code>if</code>, <code>class</code>, <code>def</code>, <code>import</code>, <code>for</code>).</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: Variables, Types & Conversion</h2>
+
+<pre><code class="language-python"># Product E-Commerce Summary
+<p>product_name = &quot;Wireless Headphones&quot;  # str</p>
+<p>unit_price = 2499.00                 # float</p>
+<p>quantity_str = &quot;2&quot;                   # str (from input)</p>
+<p>in_stock = True                      # bool</p>
+<p>discount_code = None                 # NoneType</p>
+
+<h1>Type Conversion: Parsing quantity string to integer</h1>
+<p>quantity = int(quantity_str)</p>
+<p>total_cost = unit_price * quantity</p>
+
+<p>print(&quot;=== PRODUCT DETAILS ===&quot;)</p>
+<p>print(f&quot;Product Name : {product_name} (Type: {type(product_name).__name__})&quot;)</p>
+<p>print(f&quot;Unit Price   : ₹{unit_price} (Type: {type(unit_price).__name__})&quot;)</p>
+<p>print(f&quot;Quantity     : {quantity} (Type: {type(quantity).__name__})&quot;)</p>
+<p>print(f&quot;In Stock?    : {in_stock}&quot;)</p>
+<p>print(f&quot;Total Cost   : ₹{total_cost:.2f}&quot;)</p>
+
+<h1>Checking Type with isinstance()</h1>
+<p>print(f&quot;Is Total Cost a float? : {isinstance(total_cost, float)}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== PRODUCT DETAILS ===
+<p>Product Name : Wireless Headphones (Type: str)</p>
+<p>Unit Price   : ₹2499.0 (Type: float)</p>
+<p>Quantity     : 2 (Type: int)</p>
+<p>In Stock?    : True</p>
+<p>Total Cost   : ₹4998.00</p>
+<p>Is Total Cost a float? : True</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Trying to perform string concatenation with integers directly (<code>"Score: " + 95</code> causes <code>TypeError</code>; use f-string <code>f"Score: {95}"</code> or <code>str(95)</code>).</li></p>
+<p>  <li>Confusing the equality operator <code>==</code> (compares values) with the identity operator <code>is</code> (compares memory object ID).</li></p>
+<p>  <li>Using Python reserved words as variable names (e.g. naming a variable <code>list</code> or <code>type</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>In Python, numbers (<code>int</code>, <code>float</code>), booleans, strings, and tuples are <strong>immutable</strong> (their values cannot be changed in-place; modified variables point to new objects in memory).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data pipeline processing, handling REST API JSON responses, dynamic configuration settings, and data science dataframes.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare a variable <code>user_age = "24"</code>. Convert it to an integer, add <code>5</code> to it, and print <code>f"Age in 5 years: {user_age + 5}"</code>.</p>
+<p>2. Check <code>type(None)</code> in your terminal REPL.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that declares a floating-point temperature in Fahrenheit <code>temp_f = 98.6</code>, converts it to Celsius using formula <code>(temp_f - 32) * 5/9</code>, and prints the result rounded to 1 decimal place.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
+<p>  <li><a href="05-operators.html">Operators and Expressions</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="02-introduction-to-python.html">← Previous: Introduction to Python</a> | <a href="04-input-output.html">Next: Input and Output →</a></p>
+
+
+  </div>
+</body>
+</html>

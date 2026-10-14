@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 operator overloading - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Operator Overloading in C++ (<code>+</code>, <code>==</code>, <code><<</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Operator Overloading</strong> is a feature in C++ that enables custom user-defined meaning to built-in C++ operators (<code>+</code>, <code>-</code>, <code>==</code>, <code><<</code>, <code>[]</code>, <code>()</code>) when applied to custom objects. It allows user-defined classes (like <code>Complex</code>, <code>Vector2D</code>, <code>Matrix</code>, or <code>BigInt</code>) to be manipulated using standard mathematical operators seamlessly.</p>
+
+<p>---</p>
+
+<h2>I🇮🇳 Hindi Explanation</h2>
+
+<p>Operator Overloading ka matlab hai built-in operators (jaise <code>+</code> ya <code>==</code>) ko aapni custom Class ke liye kaam karwana. Jaise do integer numbers ko <code>a + b</code> se joda jata hai, waise hi Operator Overloading se aap do <code>Complex</code> numbers ya <code>Vector2D</code> objects ko bhi <code>c1 + c2</code> likh kar direct add kar sakte ho! Stream insertion operator <code><<</code> ko overload karke <code>std::cout << object;</code> directly print kiya ja sakta hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Operator Overloading mule C++ madhil built-in operators (<code>+</code>, <code>==</code>, <code><<</code>) aaplya sfi custom class che objects sathi vaparta yetat. Udaharanarth don <code>Complex</code> numbers kiwa 2D Coordinates direct <code>p1 + p2</code> lihun berij karta yetat. <code><<</code> operator overload karun <code>std::cout << obj;</code> sahajapane print karta yete.</p>
+
+<p>---</p>
+
+<h2>📝 Overloadable vs Non-Overloadable Operators</h2>
+
+<h3>Overloadable Operators</h3>
+<ul>
+<p>  <li>Arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li></p>
+<p>  <li>Comparison: <code>==</code>, <code>!=</code>, <code><</code>, <code>></code>, <code><=</code>, <code>>=</code></li></p>
+<p>  <li>I/O Stream Operators: <code><<</code>, <code>>></code></li></p>
+<p>  <li>Subscript & Call: <code>[]</code>, <code>()</code></li></p>
+<p></ul></p>
+
+<h3>Non-Overloadable Operators (Cannot be Overloaded in C++)</h3>
+<ul>
+<p>  <li>Scope Resolution: <code>::</code></li></p>
+<p>  <li>Member Selection: <code>.</code></li></p>
+<p>  <li>Member Pointer Selector: <code>.*</code></li></p>
+<p>  <li>Ternary Operator: <code>? :</code></li></p>
+<p>  <li><code>sizeof</code> and <code>typeid</code></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+<p>class Vector2D {</p>
+<p>private:</p>
+<p>    double x, y;</p>
+
+<p>public:</p>
+<p>    // Constructor</p>
+<p>    Vector2D(double xVal = 0.0, double yVal = 0.0) : x(xVal), y(yVal) {}</p>
+
+<p>    // 1. Overloading Binary &#39;+&#39; Operator (Member Function)</p>
+<p>    Vector2D operator+(const Vector2D&amp; rhs) const {</p>
+<p>        return Vector2D(x + rhs.x, y + rhs.y);</p>
+<p>    }</p>
+
+<p>    // 2. Overloading Comparison &#39;==&#39; Operator</p>
+<p>    bool operator==(const Vector2D&amp; rhs) const {</p>
+<p>        return (x == rhs.x) &amp;&amp; (y == rhs.y);</p>
+<p>    }</p>
+
+<p>    // 3. Overloading Stream Insertion Operator &#39;&lt;&lt;&#39; (Friend Function for cout)</p>
+<p>    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Vector2D&amp; vec) {</p>
+<p>        os &lt;&lt; &quot;(&quot; &lt;&lt; vec.x &lt;&lt; &quot;, &quot; &lt;&lt; vec.y &lt;&lt; &quot;)&quot;;</p>
+<p>        return os;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    Vector2D v1(3.0, 4.0);</p>
+<p>    Vector2D v2(1.5, 2.5);</p>
+
+<p>    // Using Overloaded &#39;+&#39; Operator!</p>
+<p>    Vector2D v3 = v1 + v2;</p>
+
+<p>    // Using Overloaded &#39;&lt;&lt;&#39; Operator for printing!</p>
+<p>    std::cout &lt;&lt; &quot;v1       : &quot; &lt;&lt; v1 &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;v2       : &quot; &lt;&lt; v2 &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;v1 + v2  : &quot; &lt;&lt; v3 &lt;&lt; std::endl;</p>
+
+<p>    // Using Overloaded &#39;==&#39; Operator!</p>
+<p>    if (v1 == v2) {</p>
+<p>        std::cout &lt;&lt; &quot;v1 and v2 are equal.&quot; &lt;&lt; std::endl;</p>
+<p>    } else {</p>
+<p>        std::cout &lt;&lt; &quot;v1 and v2 are NOT equal.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>Vector2D operator+(const Vector2D& rhs) const</code>: Overloads the <code>+</code> operator. <code>rhs</code> is the right-hand side operand. Returns a new <code>Vector2D</code> object.</li></p>
+<p>  <li><code>friend std::ostream& operator<<(std::ostream& os, const Vector2D& vec)</code>: Stream insertion requires access to <code>std::cout</code> (left operand) and <code>Vector2D</code> (right operand). Declared as a <code>friend</code> function so it can access private <code>x</code> and <code>y</code> fields.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">v1       : (3, 4)
+<p>v2       : (1.5, 2.5)</p>
+<p>v1 + v2  : (4.5, 6.5)</p>
+<p>v1 and v2 are NOT equal.</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Changing Precedence or Arity</strong>: Overloading <code>+</code> does not change its syntax or precedence. <code>+</code> remains a binary operator.</li></p>
+<p>  <li><strong>Forgetting Friend Keyword for <code><<</code> Operator</strong>: Since <code>std::cout</code> is the left operand in <code>std::cout << obj;</code>, member operator overloading won't work. It MUST be a non-member or friend function.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Preserve expected intuitive mathematical semantics (e.g. <code>+</code> should add, not subtract!).</li></p>
+<p>  <li>Always return stream references (<code>std::ostream&</code>) from <code>operator<<</code> to allow chaining (<code>std::cout << a << b << c;</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Complex</code> number class representing $a + bi$. Overload <code>+</code> and <code>-</code> operators to add and subtract complex numbers.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a <code>Money</code> class representing currency (<code>rupees, paise</code>). Overload <code>+</code>, <code>-</code>, and <code>==</code> operators handling 100 paise roll-over into 1 rupee.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-classes-and-oops.html">Classes & Objects</a></li></p>
+<p>  <li><a href="04-input-output.html">Stream I/O in C++</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="12-inheritance-and-polymorphism.html">← Previous: Inheritance</a> | <a href="14-smart-pointers.html">Next: Smart Pointers →</a></p>
+
+
+  </div>
+</body>
+</html>

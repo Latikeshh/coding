@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 html document structure - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>HTML Document Structure & Metadata</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Every standard HTML5 document follows a mandatory structural boilerplate. The document is split into two primary sections: the <strong><code><head></code></strong> section (which holds page metadata, title, favicons, character encoding, and settings invisible to users) and the <strong><code><body></code></strong> section (which contains all visible content shown on screen).</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>An HTML document is structured using <code><!DOCTYPE html></code>, <code><html></code>, <code><head></code>, and <code><body></code>. Metadata in <code><head></code> assists web browsers and search engines, while <code><body></code> contains all visible content.</p>
+
+<h3>Hindi</h3>
+<p>HTML document <code><!DOCTYPE html></code>, <code><html></code>, <code><head></code>, aur <code><body></code> se milkar banta hai. <code><head></code> mein metadata aur title hota hai, jabki <code><body></code> mein user ko dikhne wala sabhi content hota hai.</p>
+
+<h3>Marathi</h3>
+<p>HTML document <code><!DOCTYPE html></code>, <code><html></code>, <code><head></code>, ani <code><body></code> ne banlele aste. <code><head></code> madhye page chi mahiti (metadata) aste ani <code><body></code> madhye screen var disnara sarva content asto.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Without a standardized document structure, web browsers would struggle to parse text encodings, render responsive layouts on mobile screens, or display tab titles correctly. Proper metadata ensures high search engine visibility (SEO) and smooth social media link previews.</p>
+
+<h2>🧱 The Standard HTML Boilerplate</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;meta name=&quot;description&quot; content=&quot;A complete guide to HTML document structure and metadata for web developers.&quot;&gt;</p>
+<p>  &lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</p>
+<p>  &lt;title&gt;HTML Document Structure - Coding Notes&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h1&gt;Welcome to Web Development&lt;/h1&gt;</p>
+<p>  &lt;p&gt;This paragraph is visible inside the main browser window.&lt;/p&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>🔍 Detailed Breakdown of Boilerplate Elements</h2>
+
+<p>1. <strong><code><!DOCTYPE html></code>:</strong></p>
+<ul>
+<p>  <li><strong>Crucial Rule:</strong> This is a document type declaration, <strong>NOT an HTML tag</strong>.</li></p>
+<p>  <li>Instructs the web browser that the document is written in standard modern <strong>HTML5</strong>.</li></p>
+<p></ul></p>
+<p>2. <strong><code><html lang="en"></code>:</strong></p>
+<ul>
+<p>  <li>The root element wrapping all HTML code on the webpage.</li></p>
+<p>  <li>The <code>lang="en"</code> attribute declares the primary language of the document, aiding accessibility screen readers and translation tools.</li></p>
+<p></ul></p>
+<p>3. <strong><code><head></code>:</strong></p>
+<ul>
+<p>  <li>Contains machine-readable metadata, title tags, viewport settings, favicons, stylesheets, and scripts.</li></p>
+<p>  <li>Content inside <code><head></code> is not rendered directly inside the main browser viewing area (except the page title on the browser tab).</li></p>
+<p></ul></p>
+<p>4. <strong><code><meta charset="UTF-8"></code>:</strong></p>
+<ul>
+<p>  <li>Specifies UTF-8 character encoding, which supports almost all written human languages, mathematical symbols, and emojis (<code>😊</code>, <code>🚀</code>).</li></p>
+<p></ul></p>
+<p>5. <strong><code><meta name="viewport" content="width=device-width, initial-scale=1.0"></code>:</strong></p>
+<ul>
+<p>  <li>Sets the viewport width to match the screen width of the device. Essential for mobile responsiveness. Without this tag, mobile devices render pages zoomed-out as wide desktop views.</li></p>
+<p></ul></p>
+<p>6. <strong><code><meta name="description" content="..."></code>:</strong></p>
+<ul>
+<p>  <li>Provides a concise summary of the page for search engines. Search engines display this snippet below the page title in search results.</li></p>
+<p></ul></p>
+<p>7. <strong><code><link rel="icon" href="favicon.ico"></code>:</strong></p>
+<ul>
+<p>  <li>Links a small favicon image displayed on browser tab headers next to the page title.</li></p>
+<p></ul></p>
+<p>8. <strong><code><title></code>:</strong></p>
+<ul>
+<p>  <li>Sets the title text displayed on browser tab headers, browser bookmarks, and search engine results.</li></p>
+<p></ul></p>
+<p>9. <strong><code><body></code>:</strong></p>
+<ul>
+<p>  <li>Contains all visible user content: headings, text, images, buttons, forms, tables, audio, and video.</li></p>
+<p></ul></p>
+
+<h2>💻 Complete HTML Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;meta name=&quot;description&quot; content=&quot;Learn web development with structured HTML lessons.&quot;&gt;</p>
+<p>  &lt;title&gt;Web Development Course&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;HTML5 Document Structure&lt;/h1&gt;</p>
+<p>  &lt;/header&gt;</p>
+<p>  &lt;main&gt;</p>
+<p>    &lt;p&gt;Understanding head and body tags is essential for every developer.&lt;/p&gt;</p>
+<p>  &lt;/main&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>Browser tab displays: <strong>"Web Development Course"</strong>.</li></p>
+<p>  <li>Main page displays a large heading <strong>"HTML5 Document Structure"</strong> and paragraph text <strong>"Understanding head and body tags is essential for every developer."</strong>.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an <code>index.html</code> file in VS Code.</p>
+<p>2. Customize the <code><title></code> tag with your project name.</p>
+<p>3. Add a custom summary in <code><meta name="description"></code>.</p>
+<p>4. Add an <code><h1></code> heading and <code><p></code> paragraph inside <code><body></code>.</p>
+<p>5. Open Developer Tools in your browser (<code>F12</code>) to inspect the rendered <code><head></code> and <code><body></code> tags.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Placing visible content inside <code><head></code>:</strong> Placing <code><p></code> or <code><h1></code> tags inside <code><head></code> is invalid and breaks DOM parsing.</li></p>
+<p>  <li><strong>Omitting the viewport meta tag:</strong> Causes mobile screens to render desktop pages zoomed-out.</li></p>
+<p>  <li><strong>Forgetting <code><title></code>:</strong> Leaves browser tab headers displaying raw file paths (e.g., <code>file:///C:/index.html</code>).</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Every professional website on the internet includes boilerplate metadata to ensure search engine indexability, mobile device responsiveness, and social media card previews.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="02-introduction.html">Introduction to HTML</a></li></p>
+<p>  <li><a href="04-headings.html">Headings</a></li></p>
+<p>  <li><a href="27-meta-tags.html">Meta Tags & Head Metadata</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><head></code> holds metadata and browser settings (invisible on page).</li></p>
+<p>  <li><code><body></code> holds all visible content.</li></p>
+<p>  <li>Always include <code><meta name="viewport"></code> for mobile responsiveness.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="02-introduction.html">← Previous: Introduction</a> | <a href="./">HTML Home</a> | <a href="04-headings.html">Next: Headings →</a></p>
+
+
+
+  </div>
+</body>
+</html>

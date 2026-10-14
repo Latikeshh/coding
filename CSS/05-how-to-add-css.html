@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 how to add css - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>How to Add CSS (<code><link></code> Tag)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Adding external CSS involves placing a <code><link></code> element inside the <code><head></code> section of an HTML document, specifying <code>rel="stylesheet"</code> and the file path in <code>href="style.css"</code>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>The <code><link rel="stylesheet" href="style.css"></code> element connects HTML pages to external CSS stylesheets.</p>
+
+<h3>Hindi</h3>
+<p><code><link rel="stylesheet" href="style.css"></code> tag HTML aur CSS files ko aapas mein jodta hai.</p>
+
+<h3>Marathi</h3>
+<p><code><link></code> tag vaprun HTML ani CSS files ekmekanshi jodlya jaatat.</p>
+
+<h2>🤔 Why Is Proper Linking Important?</h2>
+
+<p>If the <code><link></code> tag is omitted or has a broken file path, the browser will render plain unstyled HTML without applying any colors, fonts, or layouts.</p>
+
+<h2>📝 Syntax & Attributes Breakdown</h2>
+
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</code></pre>
+
+<table>
+<p>  <thead><tr><th>Attribute</th><th>Meaning & Function</th><th>Required Value</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>rel</code></td><td>Specifies relationship between HTML and linked resource</td><td><code>rel="stylesheet"</code></td></tr></p>
+<p>    <tr><td><code>href</code></td><td>Specifies relative or absolute URL path to <code>.css</code> file</td><td><code>href="style.css"</code> or <code>href="css/main.css"</code></td></tr></p>
+<p>    <tr><td><code>type</code></td><td>(Optional) Specifies MIME type</td><td><code>type="text/css"</code> (Optional in HTML5)</td></tr></p>
+<p>    <tr><td><code>media</code></td><td>(Optional) Specifies media condition for loading stylesheet</td><td><code>media="all"</code> or <code>media="print"</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<h3>Scenario 1: HTML and CSS in the same folder</h3>
+<pre><code class="language-text">my-project/
+<p>├── index.html</p>
+<p>└── style.css</code></pre></p>
+
+<pre><code class="language-html">&lt;head&gt;
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</code></pre></p>
+
+<h3>Scenario 2: CSS inside a <code>css</code> subfolder (Recommended Project Structure)</h3>
+<pre><code class="language-text">my-project/
+<p>├── index.html</p>
+<p>└── css/</p>
+<p>    └── style.css</code></pre></p>
+
+<pre><code class="language-html">&lt;head&gt;
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</code></pre></p>
+
+<h2>🌐 Complete HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;How to Add CSS Example&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;h2&gt;CSS Connected Properly!&lt;/h2&gt;</p>
+<p>    &lt;p&gt;The layout and styling rules are loaded from css/style.css.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* css/style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f8f9fa;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  min-height: 100vh;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  padding: 30px;</p>
+<p>  border-radius: 10px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);</p>
+<p>  text-align: center;</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  color: #28a745;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A centered white card component on a soft light-gray screen with a green heading title confirming that CSS loaded successfully.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>css</code> subfolder in your project.</p>
+<p>2. Move <code>style.css</code> inside <code>css/style.css</code>.</p>
+<p>3. Update <code>href="style.css"</code> to <code>href="css/style.css"</code> in <code>index.html</code> and verify browser loading.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Incorrect file paths:</strong> Writing <code>href="style.css"</code> when the file is located inside <code>css/style.css</code>.</li></p>
+<p>  <li><strong>Misspelling file extensions:</strong> Saving the stylesheet as <code>style.css.txt</code> instead of <code>style.css</code>.</li></p>
+<p>  <li><strong>Typo in <code>rel</code> attribute:</strong> Writing <code>rel="styles"</code> or <code>rel="stylesheet.css"</code>.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Production websites often link multiple stylesheets (e.g. <code>reset.css</code>, <code>typography.css</code>, <code>components.css</code>, <code>main.css</code>) inside <code><head></code> to maintain modular, scalable web design.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-css.html">Set Up CSS Environment</a></li></p>
+<p>  <li><a href="04-types-of-css.html">Types of CSS</a></li></p>
+<p>  <li><a href="34-devtools.html">Browser Developer Tools for CSS</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Place <code><link rel="stylesheet" href="..."></code> inside <code><head></code>.</li></p>
+<p>  <li>Double-check file subfolder paths in <code>href="..."</code>.</li></p>
+<p>  <li>Open DevTools Network tab (<code>F12</code>) to verify if <code>style.css</code> returns HTTP status <code>200 OK</code>.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="04-types-of-css.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="06-css-syntax.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

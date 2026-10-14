@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 introduction to css - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Introduction to CSS</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS</strong> stands for <strong>Cascading Style Sheets</strong>. It is a style sheet language used to describe the presentation, visual styling, colors, typography, spacing, and layout of a document written in HTML.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>CSS styles HTML content by controlling colors, typography, margins, padding, layout positioning, and responsive design across different screen sizes.</p>
+
+<h3>Hindi</h3>
+<p>CSS web page ko sundar aur attractive banata hai - jaise colors, fonts, spacing (margin/padding), alignment, aur layout design karna.</p>
+
+<h3>Marathi</h3>
+<p>CSS mule HTML content la colors, fonts, spacing (margin/padding), layout ani animations deun attractive banvle jaate.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Without CSS, web pages would appear as unstyled black text and bulleted lists on a white background. CSS allows developers to:</p>
+<ul>
+<p>  <li>Transform raw HTML text into attractive, branded user interfaces.</li></p>
+<p>  <li>Build flexible layouts that adapt to desktop, tablet, and mobile screens.</li></p>
+<p>  <li>Maintain consistent styling across hundreds of pages using a single stylesheet.</li></p>
+<p></ul></p>
+
+<h2>🧠 Simple Explanation & House Analogy</h2>
+
+<p>Think of building a website like building a house:</p>
+<ul>
+<p>  <li><strong>HTML</strong> is the wooden or concrete structure (walls, doors, windows).</li></p>
+<p>  <li><strong>CSS</strong> is the interior design and paint (wall colors, tile patterns, carpet texture, window curtain styling).</li></p>
+<p>  <li><strong>JavaScript</strong> is the electrical and plumbing system (switches that turn lights on or off).</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax</h2>
+
+<pre><code class="language-css">selector {
+<p>  property: value;</p>
+<p>}</code></pre></p>
+
+<pre><code class="language-css">body {
+<p>  background-color: #f8f9fa;</p>
+<p>  color: #212529;</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  color: #0d6efd;</p>
+<p>  text-align: center;</p>
+<p>}</code></pre></p>
+
+<h2>📚 Core CSS Rule Components</h2>
+
+<table>
+<p>  <thead><tr><th>Component</th><th>Description</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Selector</strong></td><td>Targets the HTML element(s) to style</td><td><code>h1</code>, <code>.card</code>, <code>#logo</code></td></tr></p>
+<p>    <tr><td><strong>Property</strong></td><td>The visual feature you want to change</td><td><code>color</code>, <code>font-size</code>, <code>margin</code></td></tr></p>
+<p>    <tr><td><strong>Value</strong></td><td>The setting assigned to the property</td><td><code>blue</code>, <code>18px</code>, <code>20px</code></td></tr></p>
+<p>    <tr><td><strong>Declaration</strong></td><td>Property and value pair ended by a semicolon <code>;</code></td><td><code>color: blue;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<h3>HTML (<code>index.html</code>)</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Introduction&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Student Learning Portal&lt;/h1&gt;</p>
+<p>  &lt;p&gt;CSS makes web development fun and creative!&lt;/p&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h3>CSS (<code>style.css</code>)</h3>
+<pre><code class="language-css">body {
+<p>  background-color: #f0f4f8;</p>
+<p>  color: #102a43;</p>
+<p>  font-family: &#39;Segoe UI&#39;, Tahoma, Geneva, Verdana, sans-serif;</p>
+<p>  padding: 30px;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  color: #0b69a3;</p>
+<p>  border-bottom: 2px solid #bcccdc;</p>
+<p>  padding-bottom: 10px;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  font-size: 18px;</p>
+<p>  line-height: 1.6;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>The browser renders a soft blue-gray webpage with a deep blue title heading featuring an underline border, followed by comfortable body text with spacious line height.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Change <code>color: #0b69a3</code> to <code>color: #d9e2ec</code> or <code>color: darkred</code> in your <code>style.css</code> file and watch the heading title color update instantly.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting the semicolon <code>;</code>:</strong> Missing semicolons between declarations breaks following CSS rules.</li></p>
+<p>  <li><strong>Forgetting curly braces <code>{}</code>:</strong> CSS rules must be wrapped inside <code>{}</code> braces.</li></p>
+<p>  <li><strong>Not linking the CSS file in HTML:</strong> Forgetting <code><link rel="stylesheet" href="style.css"></code> inside HTML <code><head></code>.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Every modern site (Google, YouTube, Amazon, Wikipedia) uses CSS to format branding colors, grid layouts, mobile navigation drawers, and dark mode themes.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-css.html">Set Up CSS Environment</a></li></p>
+<p>  <li><a href="03-history-of-css.html">History & Standards of CSS</a></li></p>
+<p>  <li><a href="06-css-syntax.html">CSS Syntax & Rules</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>HTML provides structure; CSS provides style and presentation.</li></p>
+<p>  <li>CSS property declarations consist of <code>property: value;</code>.</li></p>
+<p>  <li>Semicolons <code>;</code> at the end of each declaration are required.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="01-setup-css.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="03-history-of-css.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

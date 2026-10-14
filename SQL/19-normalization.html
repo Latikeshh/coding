@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 normalization - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Database Relationships & Normalization</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Database Normalization</strong> is a systematic database design methodology used to organize tables, columns, and relationships in a Relational Database Management System (RDBMS). Its primary goals are to <strong>minimize data redundancy</strong> (unnecessary duplicate facts) and <strong>eliminate data anomalies</strong> during data operations.</p>
+
+<p>Normalization guides how real-world facts are divided across tables using Primary Keys, Foreign Keys, and Functional Dependencies.</p>
+
+<blockquote><p>💡 <strong>Design Process vs SQL Commands:</strong> Normalization is a <strong>schema design methodology</strong>, not a single SQL command. You apply normalization rules when designing your database structure with <code>CREATE TABLE</code> and <code>FOREIGN KEY</code> constraints.</p></blockquote>
+
+<p>---</p>
+
+<h2>🚨 Understanding Data Anomalies</h2>
+
+<p>When a database table is not normalized, data is repeated across hundreds of rows, leading to three classic <strong>Data Anomalies</strong>:</p>
+
+<p>1. <strong>Insertion Anomaly:</strong> Unable to record a new department's details unless at least one employee is hired into that department.</p>
+<p>2. <strong>Update Anomaly:</strong> Updating a department name requires editing hundreds of employee rows. If even one row is missed, the database becomes inconsistent.</p>
+<p>3. <strong>Deletion Anomaly:</strong> Deleting the last employee in a department accidentally wipes out the entire department's record from the database.</p>
+
+<pre><code class="language-text">UNNORMALIZED SPREADSHEET TABLE (Exhibits all 3 Anomalies):
+<p>+--------+------------+-----------------+-------------------+</p>
+<table>
+<p>  <thead><tr><th>emp_id</th><th>emp_name</th><th>department_name</th><th>department_head</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+-----------------+-------------------+</p>
+<table>
+<p>  <thead><tr><th>101</th><th>Rahul</th><th>Engineering</th><th>Dr. Roy</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>|    102 | Priya      | Engineering     | Dr. Roy           | &lt;-- Duplicate Dept Head!</p>
+<table>
+<p>  <thead><tr><th>103</th><th>Amit</th><th>Marketing</th><th>Sarah Jenkins</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+-----------------+-------------------+</code></pre></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p><strong>Database Normalization</strong> ek systematic table design technique hai jisse database mein faltu ki data duplication (redundancy) khatam hoti hai aur data update karte waqt hone waali galtiyan (anomalies) rukti hain. Normalization mein hum ek bade spreadsheet-style table ko chote related tables mein todte hain aur unhe <strong>Primary Keys</strong> aur <strong>Foreign Keys</strong> se connect karte hain. Isse data ki accuracy bani rehti hai aur ek jagah badlav karne par poore database mein consistency rehti hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p><strong>Database Normalization</strong> mhanje database chya tables chi ashhi rachana karne jyamule duplicate data (redundancy) kami hoto aani data update kartana ho-naarya chukya (anomalies) taltat. Normalization madhye ekach mothya table madhye mahiti bharanya aivaji, sambandhit mahiti veglya tables madhye thevun tyanla <strong>Primary Keys</strong> aani <strong>Foreign Keys</strong> ne jodle jate. Tyamule data eka thikani badallyas sarvatra consistency rahte.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>A well-normalized relational database schema provides key architectural benefits:</p>
+
+<ul>
+<p>  <li><strong>Single Source of Truth:</strong> Every business fact (e.g. a customer's email or a department's name) is stored in exactly <strong>one</strong> place on disk.</li></p>
+<p>  <li><strong>Data Integrity:</strong> Prevents orphaned records and mismatched department names.</li></p>
+<p>  <li><strong>Storage Efficiency:</strong> Replaces long repeated text strings (<code>"Human Resources Department"</code>) with small 4-byte integer Foreign Keys (<code>dept_id = 40</code>).</li></p>
+<p>  <li><strong>Simpler Maintenance:</strong> Modifying a customer's address requires updating only 1 row in <code>customers</code> rather than thousands of historical order rows.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Company Employee ID Badges</h2>
+
+<p>Imagine printing employee ID badges at a corporate office:</p>
+
+<ul>
+<p>  <li>❌ <strong>Unnormalized Approach:</strong></li></p>
+<p></ul></p>
+<p>  Printing the entire department address, floor map, and department manager's full biography on <strong>every single employee's ID badge</strong>. If the department moves to the 4th floor, you must re-print 500 employee ID badges!</p>
+
+<ul>
+<p>  <li>✅ <strong>Normalized Approach:</strong></li></p>
+<p></ul></p>
+<p>  Printing only a simple <strong>Department ID Code</strong> (<code>DEPT-10</code>) on the employee's ID badge. The floor map and manager biography are stored in <strong>one single Master Department Directory</strong> on the wall. If the department moves, you update only the master directory on the wall!</p>
+
+<p>---</p>
+
+<h2>📐 The Normal Forms (1NF, 2NF, 3NF)</h2>
+
+<p>Database normalization progresses through sequential stages called <strong>Normal Forms</strong>. A table must satisfy the requirements of each preceding normal form before advancing to the next.</p>
+
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+<p>│                            THIRD NORMAL FORM (3NF)                          │</p>
+<p>│               No Transitive Dependencies (Non-key -&gt; Non-key)               │</p>
+<p>│                                                                             │</p>
+<p>│   ┌─────────────────────────────────────────────────────────────────────┐   │</p>
+<p>│   │                       SECOND NORMAL FORM (2NF)                      │   │</p>
+<p>│   │            No Partial Dependencies (Part of Key -&gt; Non-key)        │   │</p>
+<p>│   │                                                                     │   │</p>
+<p>│   │   ┌─────────────────────────────────────────────────────────────┐   │   │</p>
+<p>│   │   │                  FIRST NORMAL FORM (1NF)                    │   │   │</p>
+<p>│   │   │            Atomic Values &amp; No Repeating Groups              │   │   │</p>
+<p>│   │   └─────────────────────────────────────────────────────────────┘   │   │</p>
+<p>│   └─────────────────────────────────────────────────────────────────────┘   │</p>
+<p>└─────────────────────────────────────────────────────────────────────────────┘</code></pre></p>
+
+<p>---</p>
+
+<h3>1️⃣ First Normal Form (1NF) — Atomicity & No Repeating Groups</h3>
+
+<p>#### 📜 Rules for 1NF:</p>
+<p>1. Every table column must contain <strong>atomic</strong> (indivisible) scalar values.</p>
+<p>2. There must be <strong>no repeating groups</strong> or comma-separated lists stored inside a single cell (e.g. <code>phone_numbers = '9876543210, 9123456789'</code>).</p>
+<p>3. Each row must be uniquely identifiable (Primary Key).</p>
+
+<p>#### ❌ Before 1NF (Violates 1NF — Comma-Separated List):</p>
+
+<pre><code class="language-text">students_unnormalized
+<p>+------------+--------------+----------------──────────────────+</p>
+<table>
+<p>  <thead><tr><th>student_id</th><th>student_name</th><th>enrolled_courses</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+--------------+----------------──────────────────+</p>
+<p>|          1 | Rahul        | Database Systems, Web Dev, Java  | &lt;-- Non-atomic list!</p>
+<table>
+<p>  <thead><tr><th>2</th><th>Priya</th><th>Database Systems, Python</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+--------------+----------------──────────────────+</code></pre></p>
+
+<p>#### ✅ After 1NF (Atomic Rows):</p>
+
+<pre><code class="language-text">students_1nf
+<p>+------------+--------------+------------------+</p>
+<table>
+<p>  <thead><tr><th>student_id</th><th>student_name</th><th>course_name</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+--------------+------------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Rahul</th><th>Database Systems</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>Rahul</td><td>Web Dev</td></tr></p>
+<p>    <tr><td>1</td><td>Rahul</td><td>Java</td></tr></p>
+<p>    <tr><td>2</td><td>Priya</td><td>Database Systems</td></tr></p>
+<p>    <tr><td>2</td><td>Priya</td><td>Python</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+--------------+------------------+</code></pre></p>
+
+<blockquote><p>💡 <strong>Understanding Atomicity:</strong> Atomicity depends on your business requirements. Storing <code>full_name = 'Rahul Dravid'</code> is atomic if your application never queries first and last names separately. If you need to search or sort by last name, split <code>full_name</code> into <code>first_name</code> and <code>last_name</code>.</p></blockquote>
+
+<p>---</p>
+
+<h3>2️⃣ Second Normal Form (2NF) — No Partial Dependencies</h3>
+
+<p>#### 📜 Rules for 2NF:</p>
+<p>1. The table must already be in <strong>1NF</strong>.</p>
+<p>2. <strong>No Partial Dependency:</strong> Every non-key column must depend on the <strong>entire candidate key</strong>, not just a part of a composite primary key.</p>
+
+<p>#### ❌ Before 2NF (Violates 2NF — Partial Dependency):</p>
+<p>Consider <code>course_enrollments</code> with Composite Primary Key <strong><code>(student_id, course_id)</code></strong>:</p>
+
+<pre><code class="language-text">course_enrollments_1nf
+<p>+------------+-----------+------------------+------------------+-------+</p>
+<table>
+<p>  <thead><tr><th>student_id</th><th>course_id</th><th>student_name</th><th>course_name</th><th>score</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+-----------+------------------+------------------+-------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>101</th><th>Rahul</th><th>Database Systems</th><th>85</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>102</td><td>Rahul</td><td>Web Dev</td><td>90</td></tr></p>
+<p>    <tr><td>2</td><td>101</td><td>Priya</td><td>Database Systems</td><td>92</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+-----------+------------------+------------------+-------+</code></pre></p>
+
+<p>#### 🔍 Partial Dependency Analysis:</p>
+<ul>
+<p>  <li><code>student_name</code> depends <strong>only</strong> on <code>student_id</code> (Part of the key!).</li></p>
+<p>  <li><code>course_name</code> depends <strong>only</strong> on <code>course_id</code> (Part of the key!).</li></p>
+<p>  <li>Only <code>score</code> depends on <strong>both</strong> <code>(student_id, course_id)</code>.</li></p>
+<p></ul></p>
+
+<p>#### ✅ After 2NF (Decomposed into 3 Tables):</p>
+
+<pre><code class="language-sql">-- Table 1: Students
+<p>CREATE TABLE students (</p>
+<p>    student_id INT PRIMARY KEY,</p>
+<p>    student_name VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>-- Table 2: Courses</p>
+<p>CREATE TABLE courses (</p>
+<p>    course_id INT PRIMARY KEY,</p>
+<p>    course_name VARCHAR(100) NOT NULL</p>
+<p>);</p>
+
+<p>-- Table 3: Course Enrollments (Junction Table in 2NF)</p>
+<p>CREATE TABLE course_enrollments (</p>
+<p>    student_id INT NOT NULL,</p>
+<p>    course_id INT NOT NULL,</p>
+<p>    score INT CHECK (score BETWEEN 0 AND 100),</p>
+<p>    PRIMARY KEY (student_id, course_id),</p>
+<p>    FOREIGN KEY (student_id) REFERENCES students(student_id),</p>
+<p>    FOREIGN KEY (course_id) REFERENCES courses(course_id)</p>
+<p>);</code></pre></p>
+
+<blockquote><p>📌 <strong>Single-Column Primary Key Rule:</strong> Any table that has a <strong>single-column Primary Key</strong> and is in 1NF is <strong>automatically in 2NF</strong> (because partial key dependencies cannot exist without a composite key)!</p></blockquote>
+
+<p>---</p>
+
+<h3>3️⃣ Third Normal Form (3NF) — No Transitive Dependencies</h3>
+
+<p>#### 📜 Rules for 3NF:</p>
+<p>1. The table must already be in <strong>2NF</strong>.</p>
+<p>2. <strong>No Transitive Dependency:</strong> No non-key column can depend on another non-key column ($A \rightarrow B \rightarrow C$).</p>
+
+<p>#### ❌ Before 3NF (Violates 3NF — Transitive Dependency):</p>
+
+<pre><code class="language-text">employees_2nf
+<p>+--------+------------+---------------+-----------------+</p>
+<table>
+<p>  <thead><tr><th>emp_id</th><th>first_name</th><th>department_id</th><th>department_name</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+---------------+-----------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Rahul</th><th>10</th><th>Engineering</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Priya</td><td>20</td><td>Marketing</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>|      3 | Amit       |            10 | Engineering     | &lt;-- Transitive Dependency!</p>
+<p>+--------+------------+---------------+-----------------+</code></pre></p>
+
+<p>#### 🔍 Transitive Dependency Analysis:</p>
+<ul>
+<p>  <li><code>emp_id</code> (Primary Key) determines <code>department_id</code> ($A \rightarrow B$).</li></p>
+<p>  <li><code>department_id</code> determines <code>department_name</code> ($B \rightarrow C$).</li></p>
+<p>  <li>Therefore, <code>department_name</code> depends on <code>department_id</code>, which is a non-key attribute!</li></p>
+<p></ul></p>
+
+<p>#### ✅ After 3NF (Decomposed into 2 Tables):</p>
+
+<pre><code class="language-sql">-- Table 1: Departments (3NF)
+<p>CREATE TABLE departments (</p>
+<p>    department_id INT PRIMARY KEY,</p>
+<p>    department_name VARCHAR(50) NOT NULL UNIQUE</p>
+<p>);</p>
+
+<p>-- Table 2: Employees (3NF)</p>
+<p>CREATE TABLE employees (</p>
+<p>    emp_id INT PRIMARY KEY,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    department_id INT NOT NULL,</p>
+<p>    FOREIGN KEY (department_id) REFERENCES departments(department_id)</p>
+<p>);</code></pre></p>
+
+<blockquote><p>🎓 <strong>Formal Definition of 3NF:</strong> A relation is in 3NF if, for every functional dependency $X \rightarrow A$, at least one of the following holds:</p></blockquote>
+<blockquote><p>1. $X \rightarrow A$ is a trivial functional dependency ($A \subseteq X$).</p></blockquote>
+<blockquote><p>2. $X$ is a <strong>Super Key</strong>.</p></blockquote>
+<blockquote><p>3. $A$ is a <strong>Prime Attribute</strong> (part of a candidate key).</p></blockquote>
+
+<p>---</p>
+
+<h2>🏗️ Complete Before-and-After E-Commerce Normalization Example</h2>
+
+<p>Let's normalize an unnormalized e-commerce order spreadsheet into a clean 4-table 3NF relational database.</p>
+
+<h3>❌ Unnormalized Order Record:</h3>
+<p><code>flat_orders (order_id, customer_name, customer_email, order_date, product_name, catalog_price, purchased_unit_price, quantity)</code></p>
+
+<h3>✅ Normalized 3NF MySQL Schema:</h3>
+
+<pre><code class="language-sql">-- 1. Drop existing sample tables in reverse dependency order
+<p>DROP TABLE IF EXISTS order_items;</p>
+<p>DROP TABLE IF EXISTS orders;</p>
+<p>DROP TABLE IF EXISTS products;</p>
+<p>DROP TABLE IF EXISTS customers;</p>
+
+<p>-- 2. Customers Table (Stores customer-specific facts)</p>
+<p>CREATE TABLE customers (</p>
+<p>    customer_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    customer_name VARCHAR(100) NOT NULL,</p>
+<p>    customer_email VARCHAR(100) NOT NULL UNIQUE</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 3. Products Table (Stores current catalog facts)</p>
+<p>CREATE TABLE products (</p>
+<p>    product_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    product_name VARCHAR(100) NOT NULL,</p>
+<p>    catalog_price DECIMAL(10, 2) NOT NULL CHECK (catalog_price &gt; 0)</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 4. Orders Table (Stores order header facts)</p>
+<p>CREATE TABLE orders (</p>
+<p>    order_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    order_date DATE NOT NULL,</p>
+<p>    CONSTRAINT fk_orders_customer</p>
+<p>        FOREIGN KEY (customer_id)</p>
+<p>        REFERENCES customers(customer_id)</p>
+<p>        ON DELETE RESTRICT</p>
+<p>        ON UPDATE CASCADE</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 5. Order Items Table (Junction Table for Line Items)</p>
+<p>CREATE TABLE order_items (</p>
+<p>    order_id INT NOT NULL,</p>
+<p>    product_id INT NOT NULL,</p>
+<p>    quantity INT NOT NULL CHECK (quantity &gt; 0),</p>
+<p>    purchased_unit_price DECIMAL(10, 2) NOT NULL CHECK (purchased_unit_price &gt;= 0),</p>
+<p>    </p>
+<p>    -- Composite Primary Key preventing duplicate product lines per order</p>
+<p>    PRIMARY KEY (order_id, product_id),</p>
+<p>    </p>
+<p>    CONSTRAINT fk_items_order</p>
+<p>        FOREIGN KEY (order_id)</p>
+<p>        REFERENCES orders(order_id)</p>
+<p>        ON DELETE CASCADE</p>
+<p>        ON UPDATE CASCADE,</p>
+<p>        </p>
+<p>    CONSTRAINT fk_items_product</p>
+<p>        FOREIGN KEY (product_id)</p>
+<p>        REFERENCES products(product_id)</p>
+<p>        ON DELETE RESTRICT</p>
+<p>        ON UPDATE CASCADE</p>
+<p>) ENGINE=InnoDB;</code></pre></p>
+
+<h3>💡 Crucial Business Rule: Historical Point-in-Time Price vs Normalization</h3>
+<p>Notice that <code>purchased_unit_price</code> is stored inside <code>order_items</code>, while <code>catalog_price</code> is stored inside <code>products</code>.</p>
+
+<p><strong>This is NOT a normalization flaw!</strong> </p>
+<ul>
+<p>  <li><code>catalog_price</code> in <code>products</code> is the <strong>current live price</strong> of the item today.</li></p>
+<p>  <li><code>purchased_unit_price</code> in <code>order_items</code> records the <strong>historical price</strong> charged at the exact moment the customer placed the order. If the product price increases next month, historical invoice totals must remain unchanged. Preserving historical point-in-time facts is a correct business rule.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Table Relationships & Junction Tables</h2>
+
+<p>Relational database tables connect using three cardinality patterns:</p>
+
+<p>1. <strong>One-to-One (1:1):</strong> A row in Table A connects to at most one row in Table B (e.g. <code>users</code> and <code>user_portraits</code>).</p>
+<p>2. <strong>One-to-Many (1:N):</strong> A row in Table A connects to multiple rows in Table B (e.g. <code>departments</code> to <code>employees</code>). Implemented by putting <code>department_id</code> Foreign Key in <code>employees</code>.</p>
+<p>3. <strong>Many-to-Many (N:M):</strong> Multiple rows in Table A connect to multiple rows in Table B (e.g. <code>students</code> and <code>courses</code>).</p>
+
+<h3>🌉 Many-to-Many Junction Table (<code>student_courses</code>)</h3>
+
+<p>A Many-to-Many relationship <strong>cannot</strong> be implemented with a single foreign key column! It requires a <strong>Junction Table / Linking Table</strong> containing Foreign Keys referencing both parent tables.</p>
+
+<pre><code class="language-sql">-- Querying a Many-to-Many relationship using 2 INNER JOINs:
+<p>SELECT </p>
+<p>    s.student_name,</p>
+<p>    c.course_name,</p>
+<p>    e.score</p>
+<p>FROM students AS s</p>
+<p>INNER JOIN course_enrollments AS e ON s.student_id = e.student_id</p>
+<p>INNER JOIN courses AS c ON e.course_id = c.course_id</p>
+<p>WHERE s.student_id = 1;</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Denormalization Trade-offs</h2>
+
+<table>
+<p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Storing Comma-Separated Values (1NF Violation)</strong></td><td>Storing <code>courses = 'Java, SQL, Web'</code> in a single cell.</td><td>Create a junction table with individual atomic rows per course.</td></tr></p>
+<p>    <tr><td><strong>Partial Key Dependencies (2NF Violation)</strong></td><td>Including <code>student_name</code> in a table with composite key <code>(student_id, course_id)</code>.</td><td>Move <code>student_name</code> to a standalone <code>students</code> table.</td></tr></p>
+<p>    <tr><td><strong>Transitive Dependencies (3NF Violation)</strong></td><td>Storing <code>department_name</code> alongside <code>department_id</code> in <code>employees</code>.</td><td>Move <code>department_name</code> to a standalone <code>departments</code> table.</td></tr></p>
+<p>    <tr><td><strong>Confusing Historical Facts with Redundancy</strong></td><td>Deleting <code>purchased_price</code> from order items assuming it duplicates <code>catalog_price</code>.</td><td>Keep <code>purchased_price</code> on <code>order_items</code> to preserve point-in-time financial records.</td></tr></p>
+<p>    <tr><td><strong>Over-Normalization</strong></td><td>Splitting simple attributes into dozens of micro-tables, causing slow 10-table <code>JOIN</code> queries.</td><td>Normalize to 3NF for transactional databases; use selective Denormalization for read-heavy Data Warehouses.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>OLTP Transactional Systems:</strong> E-commerce applications, banking systems, and healthcare platforms normalize database schemas to 3NF to guarantee high write performance and zero data anomalies.</li></p>
+<p>  <li><strong>OLAP Data Warehouses:</strong> Analytical reporting systems (e.g. Snowflake, Amazon Redshift) deliberately <strong>denormalize</strong> data into Star Schemas / Snowflake Schemas to speed up complex analytical aggregation queries.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Identifying 1NF Violation</h3>
+<p>A <code>contacts</code> table stores <code>full_name</code> and <code>phone_numbers = '9876543210, 9123456789'</code>. Explain why this violates 1NF and propose a normalized 1NF schema.</p>
+
+<h3>Exercise 2: Identifying 2NF Partial Dependency</h3>
+<p>A <code>project_assignments</code> table has a Composite Primary Key <code>(emp_id, project_id)</code> and columns <code>project_name</code>, <code>hours_worked</code>. Identify the partial dependency and show the 2NF solution.</p>
+
+<h3>Exercise 3: Identifying 3NF Transitive Dependency</h3>
+<p>An <code>inventory</code> table has Primary Key <code>item_id</code>, and columns <code>item_name</code>, <code>supplier_id</code>, <code>supplier_phone</code>. Identify the transitive dependency and write the 3NF SQL schema.</p>
+
+<h3>Exercise 4: Designing a Junction Table</h3>
+<p>Write the <code>CREATE TABLE</code> statement for a junction table <code>doctor_patients</code> connecting <code>doctors (doctor_id)</code> and <code>patients (patient_id)</code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge: Order Item Dependency Analysis</h2>
+
+<p>Analyze the unnormalized table below:</p>
+
+<p><code>order_line (order_id, product_id, product_name, quantity, product_catalog_price, purchased_price)</code></p>
+
+<p>Assume the composite key is <strong><code>(order_id, product_id)</code></strong>.</p>
+
+<p><strong>Your Tasks:</strong></p>
+<p>1. Identify attributes dependent on <code>order_id</code> alone.</p>
+<p>2. Identify attributes dependent on <code>product_id</code> alone.</p>
+<p>3. Identify attributes dependent on the complete composite key <code>(order_id, product_id)</code>.</p>
+<p>4. Provide the normalized 3NF schema tables.</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<ul>
+<p>  <li><strong>Violation:</strong> Comma-separated <code>phone_numbers</code> are non-atomic.</li></p>
+<p>  <li><strong>1NF Fix:</strong> Create a <code>customer_phones</code> table: <code>(phone_id INT PK, customer_id INT FK, phone_number VARCHAR(15))</code>.</li></p>
+<p></ul></p>
+
+<p>#### Exercise 2 Solution:</p>
+<ul>
+<p>  <li><strong>Partial Dependency:</strong> <code>project_name</code> depends *only* on <code>project_id</code> (part of key).</li></p>
+<p>  <li><strong>2NF Fix:</strong> Split into <code>projects (project_id PK, project_name)</code> and <code>project_assignments (emp_id, project_id, hours_worked)</code>.</li></p>
+<p></ul></p>
+
+<p>#### Exercise 3 Solution:</p>
+<ul>
+<p>  <li><strong>Transitive Dependency:</strong> <code>item_id</code> $\rightarrow$ <code>supplier_id</code> $\rightarrow$ <code>supplier_phone</code>. <code>supplier_phone</code> depends on <code>supplier_id</code> (non-key).</li></p>
+<p>  <li><strong>3NF Fix:</strong> Split into <code>suppliers (supplier_id PK, supplier_phone)</code> and <code>inventory (item_id PK, item_name, supplier_id FK)</code>.</li></p>
+<p></ul></p>
+
+<p>#### Exercise 4 Solution:</p>
+<pre><code class="language-sql">CREATE TABLE doctor_patients (
+<p>    doctor_id INT NOT NULL,</p>
+<p>    patient_id INT NOT NULL,</p>
+<p>    appointment_date DATE NOT NULL,</p>
+<p>    PRIMARY KEY (doctor_id, patient_id, appointment_date),</p>
+<p>    FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id),</p>
+<p>    FOREIGN KEY (patient_id) REFERENCES patients(patient_id)</p>
+<p>);</code></pre></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<p>1. <strong>Order Attributes (<code>order_id</code> alone):</strong> <code>order_date</code> (Header facts).</p>
+<p>2. <strong>Product Attributes (<code>product_id</code> alone):</strong> <code>product_name</code>, <code>product_catalog_price</code>.</p>
+<p>3. <strong>Composite Key Attributes <code>(order_id, product_id)</code>:</strong> <code>quantity</code>, <code>purchased_price</code> (Line item facts).</p>
+<p>4. <strong>Normalized 3NF Schema:</strong></p>
+<ul>
+<p>  <li><code>orders (order_id PK, customer_id FK, order_date)</code></li></p>
+<p>  <li><code>products (product_id PK, product_name, product_catalog_price)</code></li></p>
+<p>  <li><code>order_items (order_id FK, product_id FK, quantity, purchased_price, PRIMARY KEY (order_id, product_id))</code></li></p>
+<p></ul></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-keys.html">Primary Keys & Foreign Keys</a></li></p>
+<p>  <li><a href="18-set-operations.html">Set Operations: <code>UNION</code> & <code>EXCEPT</code></a></li></p>
+<p>  <li><a href="20-views.html">SQL Views & Virtual Tables</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="18-set-operations.html">← Previous: Set Operations</a> | <a href="./">SQL Home</a> | <a href="20-views.html">Next: Views →</a></p>
+
+  </div>
+</body>
+</html>

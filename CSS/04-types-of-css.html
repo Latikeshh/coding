@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 types of css - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Types of CSS (Inline, Internal, External)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>CSS can be applied to an HTML document using three distinct methods: <strong>Inline CSS</strong> (written directly inside HTML element <code>style</code> attributes), <strong>Internal CSS</strong> (written inside <code><style></code> tags in the HTML <code><head></code>), and <strong>External CSS</strong> (written in a separate <code>.css</code> file linked via <code><link></code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>External CSS (in a <code>.css</code> file) is the recommended best practice for production websites. Inline CSS is for single-element quick overrides, and Internal CSS is for single-page documents.</p>
+
+<h3>Hindi</h3>
+<p>Projects ke liye External CSS (<code>.css</code> file) sabse accha tareeqa hai. Inline CSS sirf ek element ke liye aur Internal CSS ek hi page ke liye hota hai.</p>
+
+<h3>Marathi</h3>
+<p>Mothya web projects sathi External CSS file (<code>.css</code>) vaparne sarvat yogya maantle jaate.</p>
+
+<h2>🤔 Why Do We Need Different Methods?</h2>
+
+<p>Different project requirements demand different approaches. A quick single-element test might use Inline CSS, a single HTML email template might use Internal CSS, but a multi-page production website should always use External CSS.</p>
+
+<h2>📝 Syntax & Comparison</h2>
+
+<table>
+<p>  <thead><tr><th>Method</th><th>Syntax Location</th><th>Reusability</th><th>Specificity Weight</th><th>Recommended Usage</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Inline CSS</strong></td><td><code>style="..."</code> attribute inside HTML tag</td><td>Single Element Only</td><td>Highest (1,0,0,0)</td><td>Rare quick tests / HTML email templates</td></tr></p>
+<p>    <tr><td><strong>Internal CSS</strong></td><td><code><style></code> block in HTML <code><head></code></td><td>Single Page Only</td><td>Moderate (0,1,0,0 or class)</td><td>Single standalone HTML files</td></tr></p>
+<p>    <tr><td><strong>External CSS</strong></td><td>Separate <code>.css</code> file linked via <code><link></code></td><td>Entire Website</td><td>Standard Cascade</td><td><strong>Production Best Practice</strong></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<h3>1. Inline CSS</h3>
+<pre><code class="language-html">&lt;p style=&quot;color: red; font-weight: bold;&quot;&gt;Inline Styled Text&lt;/p&gt;</code></pre>
+
+<h3>2. Internal CSS</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Internal CSS&lt;/title&gt;</p>
+<p>  &lt;style&gt;</p>
+<p>    body {</p>
+<p>      background-color: #f4f4f4;</p>
+<p>    }</p>
+<p>    h1 {</p>
+<p>      color: darkblue;</p>
+<p>    }</p>
+<p>  &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h1&gt;Internal Styled Page&lt;/h1&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h3>3. External CSS (Recommended)</h3>
+
+<p>#### HTML File (<code>index.html</code>):</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;External CSS&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h1&gt;External Styled Page&lt;/h1&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>#### CSS File (<code>style.css</code>):</p>
+<pre><code class="language-css">body {
+<p>  background-color: #f0f8ff;</p>
+<p>  color: #333333;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  color: #000080;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>All three methods render styled elements in the browser, but External CSS keeps HTML source code clean, readable, and cached by browsers for fast page loads.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create <code>index.html</code> with an <code><h1></code> element styled blue using Internal <code><style></code> tags.</p>
+<p>2. Add an inline <code>style="color: red;"</code> attribute to the same <code><h1></code> and see which color wins! (Inline CSS wins due to higher specificity).</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Overusing Inline CSS, making HTML bloated and impossible to update globally.</li></p>
+<p>  <li>Mixing up <code><style></code> tags (used for Internal CSS inside HTML <code><head></code>) with <code>.css</code> files (where <code><style></code> tags are invalid and should not be used).</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Professional developers use External CSS combined with build tools or modular stylesheets so changing a single color variable in <code>style.css</code> updates thousands of web pages instantly.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-how-to-add-css.html">How to Add CSS</a></li></p>
+<p>  <li><a href="09-specificity.html">Specificity, Cascade & Inheritance</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li><strong>External CSS</strong> is the gold standard for production web development.</li></p>
+<p>  <li>Inline CSS has high specificity and clutter; avoid it when possible.</li></p>
+<p>  <li>Separate <code>.css</code> files enable browser caching and global reusability.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="03-history-of-css.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="05-how-to-add-css.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

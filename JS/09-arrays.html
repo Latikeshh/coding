@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 arrays - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Arrays & Essential Methods in JavaScript</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Array</strong> is an ordered, zero-indexed collection of elements stored under a single variable name. Arrays can store mixed data types including numbers, strings, objects, and even other arrays.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Array ek ordered list hoti hai jisme multiple values store ki ja sakti hain. Indexing <code>0</code> se start hoti hai (<code>array[0]</code> pehla item hota hai). Elements add/remove karne aur manipulate karne ke liye built-in array methods hote hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Array madhye anek values kramawar (ordered list) saathavlya jaatat. Array chi suruvat index <code>0</code> pasun hote. Values add karnya sathi <code>.push()</code> aani kadhnyasathi <code>.pop()</code> cha wapar hota.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Storing 100 student names in 100 separate variables is unmanageable. An array lets you store, sort, filter, and iterate through 100 student names effortlessly.</p>
+
+<h2>📝 Essential Array Methods</h2>
+
+<table>
+<p>  <thead><tr><th>Method</th><th>Description</th><th>Mutates Original Array?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>push(item)</code></td><td>Adds item to the <strong>end</strong></td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>pop()</code></td><td>Removes item from the <strong>end</strong></td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>unshift(item)</code></td><td>Adds item to the <strong>beginning</strong></td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>shift()</code></td><td>Removes item from the <strong>beginning</strong></td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>slice(start, end)</code></td><td>Copies a portion of array</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>splice(start, count)</code></td><td>Adds/Removes items at specific index</td><td>✅ Yes</td></tr></p>
+<p>    <tr><td><code>includes(item)</code></td><td>Checks if item exists (<code>true</code>/<code>false</code>)</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>indexOf(item)</code></td><td>Finds index position of item</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>join(separator)</code></td><td>Combines array elements into string</td><td>❌ No</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">let shoppingCart = [&quot;Laptop&quot;, &quot;Mouse&quot;, &quot;Keyboard&quot;];
+
+<p>// Adding &amp; Removing Items</p>
+<p>shoppingCart.push(&quot;Monitor&quot;);        // [&quot;Laptop&quot;, &quot;Mouse&quot;, &quot;Keyboard&quot;, &quot;Monitor&quot;]</p>
+<p>shoppingCart.unshift(&quot;USB Cable&quot;);   // [&quot;USB Cable&quot;, &quot;Laptop&quot;, &quot;Mouse&quot;, &quot;Keyboard&quot;, &quot;Monitor&quot;]</p>
+<p>let removedItem = shoppingCart.pop(); // Removes &quot;Monitor&quot;</p>
+
+<p>console.log(&quot;Current Cart:&quot;, shoppingCart);</p>
+<p>console.log(&quot;Cart Size:&quot;, shoppingCart.length); // 4</p>
+
+<p>// Checking Existence &amp; Index</p>
+<p>console.log(&quot;Has Mouse?&quot;, shoppingCart.includes(&quot;Mouse&quot;)); // true</p>
+<p>console.log(&quot;Index of Laptop:&quot;, shoppingCart.indexOf(&quot;Laptop&quot;)); // 1</p>
+
+<p>// Slice (Non-mutating copy) vs Splice (Mutating edit)</p>
+<p>let copyTwo = shoppingCart.slice(1, 3); // Copies index 1 and 2</p>
+<p>console.log(&quot;Sliced Copy:&quot;, copyTwo);</p>
+
+<p>// Splice: Remove 1 item at index 0 and insert &quot;HDMI Adapter&quot;</p>
+<p>shoppingCart.splice(0, 1, &quot;HDMI Adapter&quot;);</p>
+<p>console.log(&quot;Cart after Splice:&quot;, shoppingCart);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Current Cart: [ &#39;USB Cable&#39;, &#39;Laptop&#39;, &#39;Mouse&#39;, &#39;Keyboard&#39; ]
+<p>Cart Size: 4</p>
+<p>Has Mouse? true</p>
+<p>Index of Laptop: 1</p>
+<p>Sliced Copy: [ &#39;Laptop&#39;, &#39;Mouse&#39; ]</p>
+<p>Cart after Splice: [ &#39;HDMI Adapter&#39;, &#39;Laptop&#39;, &#39;Mouse&#39;, &#39;Keyboard&#39; ]</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an array of your top 4 cities.</p>
+<p>2. Add a new city to the end using <code>.push()</code>.</p>
+<p>3. Use <code>.slice()</code> to create a new array with the middle two cities.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Confusing <code>slice()</code> (safe copy) with <code>splice()</code> (modifies original array directly!).</li></p>
+<p>  <li>Off-by-one errors when accessing the last item: use <code>arr[arr.length - 1]</code> or modern <code>arr.at(-1)</code>.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Product catalogs, shopping cart contents, message histories, search result sets, and tab navigation lists.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Arrays are zero-indexed (<code>0</code> to <code>length - 1</code>). Use <code>slice()</code> when you want a copy without altering the original array.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="08-functions.html">← Previous: Functions</a> | <a href="10-objects.html">Next: Objects →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 variables and data types - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Variables & Primitive Data Types in C++</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Variable</strong> is a named location in computer memory used to store data. C++ is a <strong>statically typed</strong> and <strong>strongly typed</strong> language, meaning every variable's data type must be declared at compile time and cannot change during program execution.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Variable computer ki memory mein ek box ki tarah hota hai jisme hum koi value store karte hain. C++ mein kisi bhi variable ko use karne se pehle uska type (<code>int</code>, <code>double</code>, <code>char</code>, <code>bool</code>, <code>std::string</code>) batana zaroori hota hai. Memory mein kitni jagah lagegi yeh data type par depend karta hai (jaise <code>int</code> 4 bytes leta hai).</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Variable mhanje computer cha memory madhla ek sthan (box) jyat aapan value store karto. C++ madhye variable vaparanyapurvi tyacha data type (<code>int</code>, <code>double</code>, <code>char</code>, <code>bool</code>) sangane bandhankarak aahe. Memory madhye tyala kiti जागा lagel he data type vr tharte.</p>
+
+<p>---</p>
+
+<h2>📊 Summary of Primitive Data Types</h2>
+
+<table>
+<p>  <thead><tr><th>Data Type</th><th>Typical Size</th><th>Description</th><th>Example Values</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>int</code></td><td>4 Bytes</td><td>Whole integers</td><td><code>-50</code>, <code>0</code>, <code>42</code></td></tr></p>
+<p>    <tr><td><code>float</code></td><td>4 Bytes</td><td>Single-precision floating point</td><td><code>3.14f</code>, <code>-0.01f</code></td></tr></p>
+<p>    <tr><td><code>double</code></td><td>8 Bytes</td><td>Double-precision floating point</td><td><code>3.1415926535</code></td></tr></p>
+<p>    <tr><td><code>char</code></td><td>1 Byte</td><td>Single ASCII character in single quotes</td><td><code>'A'</code>, <code>'z'</code>, <code>'9'</code></td></tr></p>
+<p>    <tr><td><code>bool</code></td><td>1 Byte</td><td>Boolean truth value</td><td><code>true</code> (<code>1</code>), <code>false</code> (<code>0</code>)</td></tr></p>
+<p>    <tr><td><code>std::string</code></td><td>Dynamic</td><td>Sequence of characters in double quotes</td><td><code>"Learn Coding"</code></td></tr></p>
+<p>    <tr><td><code>auto</code></td><td>Auto-inferred</td><td>Type deduced automatically by compiler (C++11)</td><td><code>auto x = 10;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy</h2>
+
+<p>Think of variable types as kitchen storage containers:</p>
+<ul>
+<p>  <li><strong><code>int</code></strong>: A egg carton designed strictly for whole eggs (no liquid or slices!).</li></p>
+<p>  <li><strong><code>double</code></strong>: A measuring cup for liquids with precise decimal levels.</li></p>
+<p>  <li><strong><code>char</code></strong>: A single key hook that holds exactly 1 key.</li></p>
+<p>  <li><strong><code>std::string</code></strong>: A word banner made of connected letters.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iomanip&gt;</p>
+
+<p>int main() {</p>
+<p>    // Variable Declarations &amp; Initializations</p>
+<p>    std::string playerName = &quot;Aria Blackwood&quot;;</p>
+<p>    int level = 42;</p>
+<p>    double healthPoints = 98.75;</p>
+<p>    char rankGrade = &#39;S&#39;;</p>
+<p>    bool isVIPMember = true;</p>
+
+<p>    // Printing variables</p>
+<p>    std::cout &lt;&lt; &quot;--- PLAYER PROFILE ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Name        : &quot; &lt;&lt; playerName &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Level       : &quot; &lt;&lt; level &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Health      : &quot; &lt;&lt; healthPoints &lt;&lt; &quot; HP&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Rank Grade  : &quot; &lt;&lt; rankGrade &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;VIP Status  : &quot; &lt;&lt; (isVIPMember ? &quot;Active&quot; : &quot;Inactive&quot;) &lt;&lt; std::endl;</p>
+
+<p>    // Type Deduction with auto (C++11)</p>
+<p>    auto score = 15000; // Inferred as int</p>
+<p>    std::cout &lt;&lt; &quot;Score       : &quot; &lt;&lt; score &lt;&lt; &quot; (Type auto-deduced)&quot; &lt;&lt; std::endl;</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>std::string</code>: Included from <code><string></code> header for working with text strings.</li></p>
+<p>  <li><code>bool</code>: Can store <code>true</code> or <code>false</code>. Printed as <code>1</code> or <code>0</code> by default.</li></p>
+<p>  <li><code>(isVIPMember ? "Active" : "Inactive")</code>: Ternary expression converts boolean <code>true</code> into human-readable string.</li></p>
+<p>  <li><code>auto score = 15000;</code>: Compiler automatically deduces <code>score</code> as integer at compile time.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- PLAYER PROFILE ---
+<p>Name        : Aria Blackwood</p>
+<p>Level       : 42</p>
+<p>Health      : 98.75 HP</p>
+<p>Rank Grade  : S</p>
+<p>VIP Status  : Active</p>
+<p>Score       : 15000 (Type auto-deduced)</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Single Quotes vs Double Quotes</strong>:</li></p>
+<p>  <li>Single quotes <code>'A'</code> are for <code>char</code>.</li></p>
+<p>  <li>Double quotes <code>"A"</code> are for <code>std::string</code>. Writing <code>char c = "A";</code> causes a compilation error!</li></p>
+<p>  <li><strong>Uninitialized Variables</strong>: Reading an uninitialized variable (<code>int x; std::cout << x;</code>) accesses garbage memory values!</li></p>
+<p>  <li><strong>Integer Division Truncation</strong>: <code>5 / 2</code> in C++ evaluates to <code>2</code> (integer division), NOT <code>2.5</code>! Write <code>5.0 / 2</code> for decimal float division.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always initialize variables upon declaration: <code>int score = 0;</code>.</li></p>
+<p>  <li>Use <code>const</code> or <code>constexpr</code> for variables that should never change: <code>const double PI = 3.14159;</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare an <code>int</code> for your birth year and calculate your current age.</p>
+<p>2. Store a product price in a <code>double</code> and print it with tax added.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that stores a bank account holder's name, account balance, and account active status, then prints a formatted account summary.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input & Output in C++</a></li></p>
+<p>  <li><a href="05-operators.html">Operators in C++</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="02-introduction-to-cpp.html">← Previous: Introduction</a> | <a href="04-input-output.html">Next: Input & Output →</a></p>
+
+
+  </div>
+</body>
+</html>

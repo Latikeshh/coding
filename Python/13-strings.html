@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Strings and Text Processing in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>String</strong> in Python is an <strong>immutable</strong> sequence of Unicode characters enclosed in single quotes <code>'...'</code>, double quotes <code>"..."</code>, or triple quotes <code>"""..."""</code>. Because strings are immutable, operations that appear to modify a string actually return a brand-new string object in memory.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>String textual data represent karti hai. Python mein String <strong>Immutable</strong> (non-changeable) hoti hai. String methods (jaise <code>.strip()</code>, <code>.replace()</code>) original string ko change karne ke bajaye nayi string return karte hain. Formatted output ke liye <strong>f-strings</strong> (<code>f"Hello {name}"</code>) sabse best practice hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>String <strong>Immutable</strong> aste (original string madhye badal hot nahi). Methods navin String object return kartat. Text formatting sathi f-strings vaparatat.</p>
+
+<h2>📝 1. Indexing, Slicing & Formatting</h2>
+
+<pre><code class="language-python">text = &quot;Python Programming&quot;
+
+<h1>Slicing syntax: text[start:stop:step]</h1>
+<p>print(text[0:6])     # &quot;Python&quot; (index 0 to 5)</p>
+<p>print(text[7:])      # &quot;Programming&quot;</p>
+<p>print(text[::-1])    # Reverses string: &quot;gnimmargorP nohtyP&quot;</p>
+
+<h1>Formatted f-string (Python 3.6+)</h1>
+<p>user = &quot;Aarav&quot;</p>
+<p>score = 98.5</p>
+<p>print(f&quot;User {user} scored {score:.1f}%&quot;) # &quot;User Aarav scored 98.5%&quot;</code></pre></p>
+
+<h2>📝 2. Essential String Methods</h2>
+
+<table>
+<p>  <thead><tr><th>Method</th><th>What It Does</th><th>Example Return</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>.lower()</code> / <code>.upper()</code></td><td>Converts case</td><td><code>"PYTHON" -> "python"</code></td></tr></p>
+<p>    <tr><td><code>.strip()</code></td><td>Removes leading and trailing whitespace</td><td><code>" hello "</code> -> <code>"hello"</code></td></tr></p>
+<p>    <tr><td><code>.replace(old, new)</code></td><td>Replaces substring occurrences</td><td><code>"py" -> "js"</code></td></tr></p>
+<p>    <tr><td><code>.split(delimiter)</code></td><td>Splits string into list of substrings</td><td><code>"a,b".split(",")</code> -> <code>['a', 'b']</code></td></tr></p>
+<p>    <tr><td><code>delimiter.join(list)</code></td><td>Joins list of strings with delimiter</td><td><code>"-".join(['a','b'])</code> -> <code>"a-b"</code></td></tr></p>
+<p>    <tr><td><code>.find(sub)</code></td><td>Returns first index position or <code>-1</code></td><td><code>"cat".find("a")</code> -> <code>1</code></td></tr></p>
+<p>    <tr><td><code>.startswith(prefix)</code></td><td>Checks if string begins with prefix</td><td><code>"http".startswith("http")</code> -> <code>True</code></td></tr></p>
+<p>    <tr><td><code>.isdigit()</code> / <code>.isalpha()</code></td><td>Validates numeric or alphabet content</td><td><code>"123".isdigit()</code> -> <code>True</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Complete Example: Cleaning & Formatting User Inputs</h2>
+
+<pre><code class="language-python"># User Profile Sanitization &amp; Normalization
+
+<p>raw_csv_record = &quot;  aarav_mehta ,  aarav@example.com ,  MUMBAI  &quot;</p>
+
+<p>print(&quot;=== RAW CSV SANITIZER ===&quot;)</p>
+<p>print(&quot;Raw Input Record :&quot;, repr(raw_csv_record))</p>
+
+<h1>1. Cleaning whitespace &amp; splitting</h1>
+<p>fields = raw_csv_record.split(&quot;,&quot;)</p>
+<p>clean_fields = [f.strip() for f in fields] # List comprehension strip</p>
+
+<p>username = clean_fields[0].lower()</p>
+<p>email = clean_fields[1].lower()</p>
+<p>city = clean_fields[2].title() # Capitalizes first letter</p>
+
+<h1>2. Re-joining into a clean CSV line</h1>
+<p>normalized_record = &quot;, &quot;.join([username, email, city])</p>
+
+<h1>3. String validation</h1>
+<p>is_valid_email = &quot;@&quot; in email and email.endswith(&quot;.com&quot;)</p>
+
+<p>print(&quot;\n--- SANITIZED RESULT ---&quot;)</p>
+<p>print(f&quot;Username    : {username}&quot;)</p>
+<p>print(f&quot;Email       : {email} (Valid? {is_valid_email})&quot;)</p>
+<p>print(f&quot;City        : {city}&quot;)</p>
+<p>print(f&quot;Clean Record: {normalized_record}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== RAW CSV SANITIZER ===
+<p>Raw Input Record : &#39;  aarav_mehta ,  aarav@example.com ,  MUMBAI  &#39;</p>
+
+<p>--- SANITIZED RESULT ---</p>
+<p>Username    : aarav_mehta</p>
+<p>Email       : aarav@example.com (Valid? True)</p>
+<p>City        : Mumbai</p>
+<p>Clean Record: aarav_mehta, aarav@example.com, Mumbai</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Expecting string modification methods to alter the string in-place without saving the return value (<code>text.strip()</code> does not change <code>text</code> unless assigned: <code>text = text.strip()</code>).</li></p>
+<p>  <li>Using <code>.strip()</code> to parse structured CSV files with quoted commas (use Python's built-in <code>csv</code> module instead!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>In Python 3, all strings are Unicode sequences by default. For raw binary data (like images or network packets), use the <code>bytes</code> type (<code>b"binary data"</code>).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Sanitizing web form inputs, parsing log files, extracting domain names from email strings, generating CSV reports, and cleaning natural language text for NLP.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a string <code>text = "  python web development  "</code>. Strip its whitespace and convert it to uppercase.</p>
+<p>2. Split <code>"apple,banana,orange"</code> by comma <code>,</code> and join them with <code> | </code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a sentence string and counts how many times the word <code>"python"</code> appears (case-insensitive) using <code>.lower()</code> and <code>.count()</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
+<p>  <li><a href="14-list-comprehensions.html">List Comprehensions</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="12-dictionaries.html">← Previous: Dictionaries</a> | <a href="14-list-comprehensions.html">Next: List Comprehensions →</a></p>
+
+
+  </div>
+</body>
+</html>

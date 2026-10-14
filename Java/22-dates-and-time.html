@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dates and Time - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Modern Date and Time API in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>java.time</code> API</strong> (introduced in Java 8 / JSR-310) provides an immutable, thread-safe framework for modeling dates, times, durations, periods, time zones, and timestamps. It completely replaces legacy mutable classes (<code>java.util.Date</code> and <code>java.util.Calendar</code>).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Modern Java (<code>java.time</code>) mein Date aur Time immutable aur thread-safe hote hain. Unzoned calendar dates ke liye <code>LocalDate</code>, wall-clock time ke liye <code>LocalTime</code>, global UTC timestamps ke liye <code>Instant</code>, aur timezone-aware time ke liye <code>ZonedDateTime</code> ka use kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Java 8 madhye <code>java.time</code> API aali. <code>LocalDate</code>, <code>LocalTime</code>, <code>Instant</code>, aani <code>ZonedDateTime</code> immutable ahet.</p>
+
+<h2>📝 1. Key <code>java.time</code> Class Categories</h2>
+
+<table>
+<p>  <thead><tr><th>Class</th><th>What It Models</th><th>Example Output</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>LocalDate</code></td><td>Date only (Year, Month, Day)</td><td><code>2026-10-04</code></td></tr></p>
+<p>    <tr><td><code>LocalTime</code></td><td>Time only (Hour, Minute, Second, Nano)</td><td><code>14:30:45.123</code></td></tr></p>
+<p>    <tr><td><code>LocalDateTime</code></td><td>Date and Time without time zone</td><td><code>2026-10-04T14:30:45</code></td></tr></p>
+<p>    <tr><td><code>ZonedDateTime</code></td><td>Date & Time with explicit Zone ID</td><td><code>2026-10-04T14:30:45+05:30[Asia/Kolkata]</code></td></tr></p>
+<p>    <tr><td><code>Instant</code></td><td>Point on timeline in UTC (Epoch milliseconds)</td><td><code>2026-10-04T09:00:00Z</code></td></tr></p>
+<p>    <tr><td><code>Period</code></td><td>Date-based amount of time (Years, Months, Days)</td><td><code>2 Years 3 Months</code></td></tr></p>
+<p>    <tr><td><code>Duration</code></td><td>Time-based amount of time (Seconds, Nanoseconds)</td><td><code>45 Minutes 30 Seconds</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Formatting & Parsing with <code>DateTimeFormatter</code></h2>
+
+<pre><code class="language-java">import java.time.LocalDateTime;
+<p>import java.time.format.DateTimeFormatter;</p>
+
+<p>LocalDateTime now = LocalDateTime.now();</p>
+
+<p>// Creating custom formatter pattern</p>
+<p>DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;dd/MM/yyyy HH:mm:ss&quot;);</p>
+
+<p>// Formatting Date-Time Object to String</p>
+<p>String formattedDate = now.format(formatter); // &quot;04/10/2026 14:30:00&quot;</p>
+
+<p>// Parsing String back into Date-Time Object</p>
+<p>LocalDateTime parsedDate = LocalDateTime.parse(&quot;15/08/2026 09:15:00&quot;, formatter);</code></pre></p>
+
+<h2>💡 Complete Example: Subscription Due Date & Duration Tracker</h2>
+
+<pre><code class="language-java">import java.time.*;
+<p>import java.time.format.DateTimeFormatter;</p>
+<p>import java.time.temporal.ChronoUnit;</p>
+
+<p>public class DateTimeMaster {</p>
+<p>    public static void main(String[] args) {</p>
+<p>        // 1. Current Date &amp; Time</p>
+<p>        LocalDate today = LocalDate.now();</p>
+<p>        ZonedDateTime currentUtcInstant = ZonedDateTime.now(ZoneId.of(&quot;UTC&quot;));</p>
+<p>        ZonedDateTime istDateTime = ZonedDateTime.now(ZoneId.of(&quot;Asia/Kolkata&quot;));</p>
+
+<p>        // 2. Subscription Due Date Calculation</p>
+<p>        LocalDate subscriptionStartDate = LocalDate.of(2026, 10, 1);</p>
+<p>        LocalDate renewalDueDate = subscriptionStartDate.plusMonths(1);</p>
+
+<p>        // Period difference in Days/Months</p>
+<p>        Period periodRemaining = Period.between(today, renewalDueDate);</p>
+<p>        long daysUntilRenewal = ChronoUnit.DAYS.between(today, renewalDueDate);</p>
+
+<p>        // 3. Measuring Duration Execution Time</p>
+<p>        Instant start = Instant.now();</p>
+<p>        // Simulate minor processing delay</p>
+<p>        try { Thread.sleep(50); } catch (InterruptedException ignored) {}</p>
+<p>        Instant end = Instant.now();</p>
+<p>        Duration processingTime = Duration.between(start, end);</p>
+
+<p>        // 4. Custom Formatting</p>
+<p>        DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern(&quot;dd-MMM-yyyy (EEEE)&quot;);</p>
+
+<p>        System.out.println(&quot;=== DATE AND TIME DASHBOARD ===&quot;);</p>
+<p>        System.out.println(&quot;Today&#39;s Date           : &quot; + today.format(customFormatter));</p>
+<p>        System.out.println(&quot;IST Time Zone          : &quot; + istDateTime.format(DateTimeFormatter.ISO_ZONED_DATE_TIME));</p>
+<p>        System.out.println(&quot;Renewal Due Date       : &quot; + renewalDueDate.format(customFormatter));</p>
+<p>        System.out.println(&quot;Days Until Renewal     : &quot; + daysUntilRenewal + &quot; days&quot;);</p>
+<p>        System.out.println(&quot;Processing Time        : &quot; + processingTime.toMillis() + &quot; ms&quot;);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== DATE AND TIME DASHBOARD ===
+<p>Today&#39;s Date           : 04-Oct-2026 (Sunday)</p>
+<p>IST Time Zone          : 2026-10-04T10:45:00+05:30[Asia/Kolkata]</p>
+<p>Renewal Due Date       : 01-Nov-2026 (Sunday)</p>
+<p>Days Until Renewal     : 28 days</p>
+<p>Processing Time        : 52 ms</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using legacy <code>java.util.Date</code> or <code>java.util.Calendar</code> in new code. They are mutable and not thread-safe!</li></p>
+<p>  <li>Using <code>LocalDateTime</code> for global scheduled events across different countries without specifying a <code>ZoneId</code> or <code>Instant</code>.</li></p>
+<p>  <li>Expecting <code>Period</code> to measure exact seconds/hours (<code>Period</code> handles years/months/days; use <code>Duration</code> for seconds/nanoseconds!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>All <code>java.time</code> classes are <strong>immutable</strong> and <strong>thread-safe</strong>. Methods like <code>.plusDays()</code> or <code>.minusMonths()</code> do not mutate the target instance; they return a brand-new Date object.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Calculating subscription renewal dates, recording database audit timestamps, scheduling multi-timezone calendar meetings, and computing SLA expiration countdowns.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>LocalDate</code> for your birthday. Calculate your age using <code>Period.between(birthday, LocalDate.now())</code>.</p>
+<p>2. Format today's date using pattern <code>"EEEE, MMMM dd, yyyy"</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes two timestamp strings and calculates the total duration difference in hours and minutes using <code>Duration</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="23-testing-and-debugging.html">Testing and Debugging</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="21-lambdas-and-streams.html">← Previous: Lambdas and Streams</a> | <a href="23-testing-and-debugging.html">Next: Testing and Debugging →</a></p>
+
+
+  </div>
+</body>
+</html>

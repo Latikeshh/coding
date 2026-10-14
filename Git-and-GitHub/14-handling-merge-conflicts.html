@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 handling merge conflicts - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Handling Merge Conflicts Step-by-Step</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Merge Conflict</strong> is an event in Git that occurs when merging two branches that contain competing, overlapping modifications to the <strong>exact same line(s)</strong> of a file, or when one branch modified a file that another branch deleted. Git pauses the merge automatically and requests human intervention to resolve the conflict.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Merge conflicts occur when two branches modify the same line in a file differently. Git pauses the merge and inserts conflict markers (<code><<<<<<<</code>, <code>=======</code>, <code>>>>>>>></code>) directly into the file. To resolve: edit the file to choose the correct code, remove conflict markers, stage the resolved file (<code>git add</code>), and complete the merge with <code>git commit</code>.</p>
+
+<h3>Hindi</h3>
+<p>Merge conflict tab hota hai jab do branches mein ek hi file ki same line ko alag-alag tarike se edit kiya gaya ho. Git automatic merge rok deta hai aur file mein Conflict Markers (<code><<<<<<<</code>, <code>=======</code>, <code>>>>>>>></code>) add kar deta hai. Resolve karne ke liye: file edit karke correct code dekhein, markers hatayein, <code>git add</code> karein, aur <code>git commit</code> run karein.</p>
+
+<h3>Marathi</h3>
+<p>Mazi don branches madhye ekach file chya tya line var vegvegale badal aslyas Merge Conflict yeto. Git automatic merge thambavto. Developer ne file ughadun yogya code thevava, conflict markers kadhave, <code>git add</code> karun <code>git commit</code> kareve.</p>
+
+<h3>Hinglish</h3>
+<p>Merge conflict se darna nahi hai, yeh Git ka normal feature hai. Jab do log ek hi line change karte hain, toh Git puchta hai: *"Aapko kiska code rakhna hai?"*. File open karke final code select karein, conflict markers delete karein, <code>git add .</code> karein aur <code>git commit</code> se resolve complete karein.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Git is smart, but it cannot read human minds. If Alice changes line 10 to <code>color: blue</code> and Bob changes line 10 to <code>color: red</code>, Git refuses to guess which color is correct and asks the human developer to decide.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a merge conflict like two co-authors editing a printed book draft:</p>
+<ul>
+<p>  <li>Co-author A writes *"The sky was blue"* on page 5.</li></p>
+<p>  <li>Co-author B writes *"The sky was dark grey"* on page 5.</li></p>
+<p>  <li>The editor (Git) flags page 5 with sticky notes asking: *"Which sentence should stay in the published book?"*.</li></p>
+<p></ul></p>
+
+<h2>📝 Conflict Markers Syntax Explained</h2>
+
+<p>When Git encounters a conflict, it modifies the file on disk by inserting Conflict Markers:</p>
+
+<pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Current Branch - e.g. main)
+<p>color: blue;</p>
+<p>=======</p>
+<p>color: red;</p>
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-theme (Incoming Branch)</code></pre></p>
+
+<ul>
+<p>  <li><strong><code><<<<<<< HEAD</code>:</strong> Marks the beginning of the conflicting code from your CURRENT active branch.</li></p>
+<p>  <li><strong><code>=======</code>:</strong> The separator dividing current branch code from incoming branch code.</li></p>
+<p>  <li><strong><code>>>>>>>> branch-name</code>:</strong> Marks the end of conflicting code from the INCOMING branch being merged.</li></p>
+<p></ul></p>
+
+<h2>💡 Step-by-Step Practical Conflict Resolution</h2>
+
+<h3>Step 1: Identify Conflicted Files</h3>
+<p>Run <code>git status</code> to list all files in "Unmerged paths":</p>
+
+<pre><code class="language-bash">git status
+<h1>Shows: Both modified: style.css</code></pre></h1>
+
+<h3>Step 2: Open and Edit the File</h3>
+<p>Open <code>style.css</code> in VS Code or any text editor. Modern editors like VS Code display 1-click resolution buttons above the conflict:</p>
+<ul>
+<p>  <li><strong>Accept Current Change</strong> (Keeps <code>color: blue;</code>)</li></p>
+<p>  <li><strong>Accept Incoming Change</strong> (Keeps <code>color: red;</code>)</li></p>
+<p>  <li><strong>Accept Both Changes</strong> (Keeps both lines)</li></p>
+<p></ul></p>
+
+<p>Or manually edit the text to your desired final code and <strong>delete all <code><<<<<<<</code>, <code>=======</code>, and <code>>>>>>>></code> lines</strong> completely!</p>
+
+<h3>Step 3: Stage the Resolved File</h3>
+<p>Tell Git the conflict has been resolved:</p>
+
+<pre><code class="language-bash">git add style.css</code></pre>
+
+<h3>Step 4: Finalize the Merge Commit</h3>
+<p>Execute commit without <code>-m</code> message flag (Git auto-generates a merge resolution message):</p>
+
+<pre><code class="language-bash">git commit</code></pre>
+
+<h2>🔍 Canceling a Conflicted Merge Safely</h2>
+
+<p>If you get overwhelmed during a complex merge conflict and want to abort completely, returning your repository to the clean state before the merge attempt:</p>
+
+<pre><code class="language-bash">git merge --abort</code></pre>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git merge feature-theme
+<p>Auto-merging style.css</p>
+<p>CONFLICT (content): Merge conflict in style.css</p>
+<p>Automatic merge failed; fix conflicts and then commit the result.</p>
+
+<h1>After editing style.css, staging, and committing:</h1>
+<p>$ git add style.css</p>
+<p>$ git commit -m &quot;Merge branch &#39;feature-theme&#39; resolving CSS color conflict&quot;</p>
+<p>[main c9d8e7f] Merge branch &#39;feature-theme&#39; resolving CSS color conflict</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Committing With Conflict Markers Remaining:</strong> Leaving <code><<<<<<< HEAD</code> or <code>=======</code> inside your code files and committing them! This causes severe syntax errors in your application runtime. Always search files for <code><<<<<<<</code> before staging!</li></p>
+<p>  <li><strong>Panicking and Deleting Files:</strong> Deleting conflicted files from disk instead of resolving the line edits or using <code>git merge --abort</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always run your application tests (<code>npm test</code>, <code>pytest</code>, build commands) AFTER resolving conflicts and BEFORE committing to ensure the combined code runs cleanly without bugs.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Handling merge conflicts is a daily routine for professional software developers working on active engineering teams with dozens of daily feature branches.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. In your <code>git-practice</code> repo on <code>main</code> branch, edit <code>README.md</code> line 1 to <code># Main Title</code>, stage and commit.</p>
+<p>2. Create and switch to <code>feature-conflict</code> branch: <code>git switch -c feature-conflict</code>.</p>
+<p>3. Edit <code>README.md</code> line 1 to <code># Conflict Title</code>, stage and commit.</p>
+<p>4. Switch back to <code>main</code>: <code>git switch main</code>.</p>
+<p>5. Edit <code>README.md</code> line 1 to <code># Different Main Title</code>, stage and commit.</p>
+<p>6. Run <code>git merge feature-conflict</code> to trigger a deliberate merge conflict!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Open <code>README.md</code>, resolve the conflict manually, remove all conflict markers (<code><<<<<<<</code>, <code>=======</code>, <code>>>>>>>></code>), stage with <code>git add README.md</code>, and complete the commit using <code>git commit</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-merging-branches.html">Merging Branches</a></li></p>
+<p>  <li><a href="15-git-rebase.html">Git Rebase</a></li></p>
+<p>  <li><a href="16-git-stash.html">Git Stash</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="13-merging-branches.html">← Previous: Merging</a> | <a href="15-git-rebase.html">Next: Git Rebase →</a></p>
+
+
+
+  </div>
+</body>
+</html>

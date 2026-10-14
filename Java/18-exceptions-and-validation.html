@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exceptions and Validation - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Exceptions and Validation in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Exception</strong> is an abnormal event occurring during program execution that disrupts the normal flow of instructions. Java provides a robust Exception Handling framework using <code>try</code>, <code>catch</code>, <code>finally</code>, <code>throw</code>, <code>throws</code>, and automatic resource management via <strong>Try-with-Resources</strong>.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Program crash hone se bachane ke liye <strong>Exception Handling</strong> ka use hota hai. Runtime errors ko <code>try...catch</code> block mein handle kiya jata hai. <strong>Checked Exceptions</strong> compile time par check hote hain (jaise <code>IOException</code>), jabki <strong>Unchecked Exceptions</strong> (<code>RuntimeException</code>) program execution ke dauran aate hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Application crash hone pasun vachvanyasathi <code>try...catch</code> block vaparatat. Custom exception tayar karnyasathi <code>extends Exception</code> cha wapar hoto.</p>
+
+<h2>📝 1. The <code>Throwable</code> Class Hierarchy Tree</h2>
+
+<pre><code class="language-text">                     +--------------------+
+
+<table>
+<p>  <thead><tr><th>java.lang.Object</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>                     +---------+----------+</p>
+
+<p>                               |</p>
+<p>                     +---------+----------+</p>
+
+<table>
+<p>  <thead><tr><th>Throwable</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>                     +----+----------+----+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>            +-------------+          +------------+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>  +---------+----------+                +---------+----------+</p>
+
+<table>
+<p>  <thead><tr><th>Error</th><th></th><th>Exception</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>  +--------------------+                +----+---------------+</p>
+<p>  (JVM OutOfMemory,                          |</p>
+<p>   StackOverflow)         +------------------+------------------+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>                +---------+----------+                +---------+----------+</p>
+
+<table>
+<p>  <thead><tr><th>Checked Exception</th><th></th><th>RuntimeException</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>                +--------------------+                +--------------------+</p>
+<p>                (IOException,                         (NullPointerException,</p>
+<p>                 SQLException)                         IllegalArgumentException)</code></pre></p>
+
+<ul>
+<p>  <li><strong>Checked Exceptions:</strong> Checked by compiler at compile time. Must be caught (<code>try-catch</code>) or declared (<code>throws</code>).</li></p>
+<p>  <li><strong>Unchecked Exceptions (<code>RuntimeException</code>):</strong> Logical or programming bugs (<code>NullPointerException</code>, <code>ArrayIndexOutOfBoundsException</code>, <code>IllegalArgumentException</code>).</li></p>
+<p></ul></p>
+
+<h2>📝 2. Exception Handling Blocks</h2>
+
+<ul>
+<p>  <li><code>try {}</code>: Contains risky code that might throw an exception.</li></p>
+<p>  <li><code>catch (ExceptionType e) {}</code>: Catches and handles specific exception types.</li></p>
+<p>  <li><code>finally {}</code>: <strong>Always executes</strong> (whether an exception occurred or not) for cleanup operations.</li></p>
+<p>  <li><strong>Try-with-Resources (Java 7+):</strong> Automatically closes resources implementing <code>AutoCloseable</code> (e.g. Streams, Database Connections).</li></p>
+<p></ul></p>
+
+<pre><code class="language-java">// Multi-Catch Block (Java 7+)
+<p>try {</p>
+<p>    // Risky I/O or Math operations</p>
+<p>} catch (IOException | NumberFormatException e) {</p>
+<p>    System.err.println(&quot;Handled multiple error types: &quot; + e.getMessage());</p>
+<p>}</code></pre></p>
+
+<h2>📝 3. Creating Custom Exceptions</h2>
+
+<pre><code class="language-java">// Custom Unchecked Exception
+<p>public class InsufficientBalanceException extends RuntimeException {</p>
+<p>    public InsufficientBalanceException(String message) {</p>
+<p>        super(message);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>💡 Complete Example: Account Withdrawal & Input Validation</h2>
+
+<pre><code class="language-java">public class ExceptionMaster {
+
+<p>    // Custom Exception</p>
+<p>    public static class InvalidAmountException extends Exception {</p>
+<p>        public InvalidAmountException(String message) {</p>
+<p>            super(message);</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static class InsufficientFundsException extends RuntimeException {</p>
+<p>        public InsufficientFundsException(String message) {</p>
+<p>            super(message);</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    // Business Method declaring Checked Exception via &#39;throws&#39;</p>
+<p>    public static double processWithdrawal(double balance, String amountStr) </p>
+<p>            throws InvalidAmountException {</p>
+<p>        </p>
+<p>        // 1. Validation &amp; Parsing</p>
+<p>        double amount;</p>
+<p>        try {</p>
+<p>            amount = Double.parseDouble(amountStr);</p>
+<p>        } catch (NumberFormatException e) {</p>
+<p>            throw new InvalidAmountException(&quot;Amount must be a valid numeric number.&quot;);</p>
+<p>        }</p>
+
+<p>        // 2. Business Rule Validation</p>
+<p>        if (amount &lt;= 0) {</p>
+<p>            throw new InvalidAmountException(&quot;Withdrawal amount must be greater than zero.&quot;);</p>
+<p>        }</p>
+
+<p>        if (amount &gt; balance) {</p>
+<p>            throw new InsufficientFundsException(</p>
+<p>                String.format(&quot;Requested ₹%.2f exceeds balance ₹%.2f&quot;, amount, balance));</p>
+<p>        }</p>
+
+<p>        return balance - amount;</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        double currentBalance = 5000.00;</p>
+
+<p>        // Test Case 1: Invalid Non-numeric String</p>
+<p>        try {</p>
+<p>            processWithdrawal(currentBalance, &quot;abc&quot;);</p>
+<p>        } catch (InvalidAmountException e) {</p>
+<p>            System.err.println(&quot;[TEST 1 ERROR] &quot; + e.getMessage());</p>
+<p>        }</p>
+
+<p>        // Test Case 2: Insufficient Funds (Unchecked)</p>
+<p>        try {</p>
+<p>            processWithdrawal(currentBalance, &quot;7500.00&quot;);</p>
+<p>        } catch (InvalidAmountException e) {</p>
+<p>            System.err.println(&quot;[ERROR] &quot; + e.getMessage());</p>
+<p>        } catch (InsufficientFundsException e) {</p>
+<p>            System.err.println(&quot;[TEST 2 ERROR] &quot; + e.getMessage());</p>
+<p>        } finally {</p>
+<p>            System.out.println(&quot;Test Case 2 Audit Completed.&quot;);</p>
+<p>        }</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">[TEST 1 ERROR] Amount must be a valid numeric number.
+<p>[TEST 2 ERROR] Requested ₹7500.00 exceeds balance ₹5000.00</p>
+<p>Test Case 2 Audit Completed.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Silently swallowing exceptions with an empty catch block (<code>catch (Exception e) {}</code>). Always log exceptions!</li></p>
+<p>  <li>Catching generic <code>Throwable</code> or <code>Error</code> (e.g. <code>OutOfMemoryError</code> cannot be recovered from gracefully!).</li></p>
+<p>  <li>Using exceptions for ordinary control flow logic instead of explicit validation checks (<code>if</code> statements).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always use <strong>Try-with-Resources</strong> when working with file readers, writers, database connections, or socket streams to prevent resource leaks.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Validating API request payloads, handling database connection timeouts, catching invalid payment card numbers, and processing missing file inputs.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a method <code>parseAge(String text)</code> that throws <code>IllegalArgumentException</code> if age is less than <code>0</code> or greater than <code>120</code>.</p>
+<p>2. Test the method with <code>"25"</code>, <code>"-5"</code>, and <code>"abc"</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a custom exception <code>InvalidEmailException</code> and write a validation method <code>validateEmail(String email)</code> that throws it if the email does not contain <code>@</code> or <code>.</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-input-and-output.html">Input and Output</a></li></p>
+<p>  <li><a href="20-file-input-and-output.html">File Input and Output</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="17-interfaces-and-abstract-classes.html">← Previous: Interfaces</a> | <a href="19-packages-and-project-organization.html">Next: Packages and Project Organization →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 conditionals - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Control Flow & Conditionals in C++ (<code>if</code>, <code>else</code>, <code>switch</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Conditional Statements</strong> allow a program to make decision choices and execute specific blocks of code depending on whether boolean conditions evaluate to <code>true</code> or <code>false</code>. C++ provides <code>if</code>, <code>else if</code>, <code>else</code>, and <code>switch</code> statements for control flow branch selection.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Conditionals ka matlab hai code ko shart (condition) ke hisaab se chalana. </p>
+<ul>
+<p>  <li><code>if</code> tab chalta hai jab condition <code>true</code> ho.</li></p>
+<p>  <li><code>else if</code> tab chalta hai jab pehli <code>if</code> condition <code>false</code> ho aur nayi condition check karni ho.</li></p>
+<p>  <li><code>else</code> tab chalta hai jab saari conditions <code>false</code> ho jayein.</li></p>
+<p>  <li><code>switch</code> ek hi variable ki alag-alag exact values (<code>case 1</code>, <code>case 2</code>) ko fast match karne ke liye use hota hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Conditionals cha vapar karun aapan conditions var aadharit code run karto.</p>
+<ul>
+<p>  <li><code>if</code>: Condition true aslyas chalte.</li></p>
+<p>  <li><code>else if</code>: Pahili condition false aslyas dusri condition tapasnyasathi.</li></p>
+<p>  <li><code>else</code>: Sarva conditions false aslyas.</li></p>
+<p>  <li><code>switch</code>: Eka variable chya nirdharit values (<code>case</code>) tapasnyasathi.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Syntax & Branching Structure</h2>
+
+<h3>1. <code>if - else if - else</code> Ladder</h3>
+<pre><code class="language-cpp">if (condition1) {
+<p>    // Code executed if condition1 is true</p>
+<p>} else if (condition2) {</p>
+<p>    // Code executed if condition2 is true</p>
+<p>} else {</p>
+<p>    // Code executed if all conditions are false</p>
+<p>}</code></pre></p>
+
+<h3>2. <code>switch - case</code> Statement</h3>
+<pre><code class="language-cpp">switch (expression) {
+<p>    case value1:</p>
+<p>        // Statements</p>
+<p>        break; // Prevents fall-through!</p>
+<p>    case value2:</p>
+<p>        // Statements</p>
+<p>        break;</p>
+<p>    default:</p>
+<p>        // Fallback statements</p>
+<p>        break;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+<p>int main() {</p>
+<p>    int score = 85;</p>
+<p>    char grade;</p>
+
+<p>    std::cout &lt;&lt; &quot;=== GRADE EVALUATION SYSTEM ===&quot; &lt;&lt; std::endl;</p>
+
+<p>    // 1. if - else if - else Ladder</p>
+<p>    if (score &gt;= 90) {</p>
+<p>        grade = &#39;A&#39;;</p>
+<p>    } else if (score &gt;= 80) {</p>
+<p>        grade = &#39;B&#39;;</p>
+<p>    } else if (score &gt;= 70) {</p>
+<p>        grade = &#39;C&#39;;</p>
+<p>    } else if (score &gt;= 60) {</p>
+<p>        grade = &#39;D&#39;;</p>
+<p>    } else {</p>
+<p>        grade = &#39;F&#39;;</p>
+<p>    }</p>
+
+<p>    std::cout &lt;&lt; &quot;Score: &quot; &lt;&lt; score &lt;&lt; &quot; | Assigned Grade: &quot; &lt;&lt; grade &lt;&lt; std::endl;</p>
+
+<p>    // 2. switch - case Statement</p>
+<p>    std::cout &lt;&lt; &quot;\n--- GRADE REMARKS ---&quot; &lt;&lt; std::endl;</p>
+<p>    switch (grade) {</p>
+<p>        case &#39;A&#39;:</p>
+<p>            std::cout &lt;&lt; &quot;Remark: Outstanding Performance!&quot; &lt;&lt; std::endl;</p>
+<p>            break;</p>
+<p>        case &#39;B&#39;:</p>
+<p>            std::cout &lt;&lt; &quot;Remark: Excellent Job!&quot; &lt;&lt; std::endl;</p>
+<p>            break;</p>
+<p>        case &#39;C&#39;:</p>
+<p>            std::cout &lt;&lt; &quot;Remark: Good Effort!&quot; &lt;&lt; std::endl;</p>
+<p>            break;</p>
+<p>        case &#39;D&#39;:</p>
+<p>            std::cout &lt;&lt; &quot;Remark: Needs Improvement.&quot; &lt;&lt; std::endl;</p>
+<p>            break;</p>
+<p>        case &#39;F&#39;:</p>
+<p>            std::cout &lt;&lt; &quot;Remark: Failed. Please retake the test.&quot; &lt;&lt; std::endl;</p>
+<p>            break;</p>
+<p>        default:</p>
+<p>            std::cout &lt;&lt; &quot;Invalid Grade.&quot; &lt;&lt; std::endl;</p>
+<p>            break;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>if (score >= 90)</code>: Evaluates first. Since <code>85 >= 90</code> is <code>false</code>, execution moves to the next branch <code>else if (score >= 80)</code>.</li></p>
+<p>  <li><code>score >= 80</code>: Evaluates to <code>true</code>, assigning <code>'B'</code> to <code>grade</code>. Subsequent <code>else if</code> branches are skipped.</li></p>
+<p>  <li><code>break</code> inside <code>switch</code>: Immediately exits the <code>switch</code> block. Without <code>break</code>, execution continues sequentially into the next <code>case</code> (known as <strong>fall-through</strong>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== GRADE EVALUATION SYSTEM ===
+<p>Score: 85 | Assigned Grade: B</p>
+
+<p>--- GRADE REMARKS ---</p>
+<p>Remark: Excellent Job!</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>break</code> in <code>switch</code> Cases</strong>:</li></p>
+<p></ul></p>
+<p>  Omitting <code>break</code> causes C++ to execute subsequent case statements even if their values do not match!</p>
+<ul>
+<p>  <li><strong>Using <code>switch</code> with Floating Point Numbers or Strings</strong>:</li></p>
+<p></ul></p>
+<p>  Standard C++ <code>switch</code> works strictly on integral types (<code>int</code>, <code>char</code>, <code>enum</code>). You cannot write <code>switch(double_val)</code> or <code>switch(string_val)</code>. Use <code>if-else</code> for strings and doubles.</p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always include a <code>default:</code> label in <code>switch</code> statements to handle unexpected or fallback values cleanly.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Input an integer from the user and check whether it is <strong>Positive</strong>, <strong>Negative</strong>, or <strong>Zero</strong>.</p>
+<p>2. Input a year and check if it is a <strong>Leap Year</strong> (<code>(year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)</code>).</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a mini calculator using a <code>switch</code> statement that inputs 2 numbers and an operator character (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) and prints the result.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-operators.html">Operators in C++</a></li></p>
+<p>  <li><a href="07-loops.html">Loops in C++</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="05-operators.html">← Previous: Operators</a> | <a href="07-loops.html">Next: Loops →</a></p>
+
+
+  </div>
+</body>
+</html>

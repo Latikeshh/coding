@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encapsulation and Composition - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Encapsulation and Composition in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Encapsulation:</strong> The OOP principle of bundling data fields and methods into a single class while restricting direct external access to internal state using <code>private</code> access modifiers and public getter/setter methods.</li></p>
+<p>  <li><strong>Composition:</strong> Designing complex objects by combining smaller collaborating object instances ("Has-A" relationship), preferred over inheritance ("Is-A" relationship).</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Encapsulation se data fields ko <code>private</code> rakha jata hai aur controlled access ke liye Getters/Setters ya validation methods diye jaate hain. Composition mein ek main object doosre smaller objects ka use karke larger functionality banata hai (<strong>"Has-A" Relationship</strong>).</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Encapsulation cha wapar data <code>private</code> thevun public methods dware validation karnyasathi hoto. Composition madhye ek object dusrya objects cha wapar karto.</p>
+
+<h2>📝 1. Access Modifiers Matrix</h2>
+
+<p>Java provides 4 levels of access control:</p>
+
+<table>
+<p>  <thead><tr><th>Modifier</th><th>Same Class</th><th>Same Package</th><th>Subclass (Outside Pkg)</th><th>World (Anywhere)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>private</code></td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td><td>❌ No</td></tr></p>
+<p>    <tr><td>Default (Package-Private)</td><td>✅ Yes</td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>protected</code></td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>public</code></td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Defensive Copying in Getters and Setters</h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL SECURITY CONCEPT:</strong> Simply returning a mutable reference (like <code>List</code> or <code>Date</code>) in a getter breaks encapsulation! Outside code can mutate your internal state directly without calling setters!</p></blockquote>
+<blockquote><p>> <strong>Solution:</strong> Use <strong>Defensive Copying</strong> by returning an unmodifiable view or a new object copy.</p></blockquote>
+
+<pre><code class="language-java">public class SecureClass {
+<p>    private final List&lt;String&gt; items;</p>
+
+<p>    public SecureClass(List&lt;String&gt; items) {</p>
+<p>        // Defensive Copy on Constructor</p>
+<p>        this.items = new ArrayList&lt;&gt;(items); </p>
+<p>    }</p>
+
+<p>    // Defensive Getter (Prevents external mutation!)</p>
+<p>    public List&lt;String&gt; getItems() {</p>
+<p>        return Collections.unmodifiableList(items);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>📝 3. Composition ("Has-A") vs Inheritance ("Is-A")</h2>
+
+<blockquote><p>💡 <strong>Design Principle:</strong> <strong>"Favor Composition over Inheritance"</strong></p></blockquote>
+<blockquote><p>- Inheritance (<code>extends</code>) creates tight coupling between parent and child classes.</p></blockquote>
+<blockquote><p>- Composition delegates work to contained component objects, enabling loose coupling and flexible runtime swapping.</p></blockquote>
+
+<pre><code class="language-text">INHERITANCE (&quot;Is-A&quot;)           COMPOSITION (&quot;Has-A&quot;)
+<p>+-------------------+          +-------------------+       +-------------------+</p>
+
+<table>
+<p>  <thead><tr><th>Vehicle</th><th></th><th>Car</th><th>----&gt;</th><th>Engine</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------+---------+          +-------------------+       +-------------------+</p>
+
+<table>
+<p>  <thead><tr><th></th><th>Transmission</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------+---------+                                      +-------------------+</p>
+
+<table>
+<p>  <thead><tr><th>Car</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-------------------+</code></pre></p>
+
+<h2>💡 Complete Example: E-Commerce Shopping Cart Composition</h2>
+
+<pre><code class="language-java">import java.util.*;
+
+<p>// Component 1: Product Class (Encapsulated)</p>
+<p>class Product {</p>
+<p>    private final String id;</p>
+<p>    private final String name;</p>
+<p>    private double price;</p>
+
+<p>    public Product(String id, String name, double price) {</p>
+<p>        this.id = id;</p>
+<p>        this.name = name;</p>
+<p>        setPrice(price); // Using setter for validation</p>
+<p>    }</p>
+
+<p>    public String getName() { return name; }</p>
+<p>    public double getPrice() { return price; }</p>
+
+<p>    public void setPrice(double price) {</p>
+<p>        if (price &lt;= 0) {</p>
+<p>            throw new IllegalArgumentException(&quot;Price must be greater than zero.&quot;);</p>
+<p>        }</p>
+<p>        this.price = price;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>// Component 2: CartItem (Composition of Product + Quantity)</p>
+<p>class CartItem {</p>
+<p>    private final Product product;</p>
+<p>    private int quantity;</p>
+
+<p>    public CartItem(Product product, int quantity) {</p>
+<p>        this.product = product;</p>
+<p>        setQuantity(quantity);</p>
+<p>    }</p>
+
+<p>    public Product getProduct() { return product; }</p>
+<p>    public int getQuantity() { return quantity; }</p>
+
+<p>    public void setQuantity(int quantity) {</p>
+<p>        if (quantity &lt;= 0) {</p>
+<p>            throw new IllegalArgumentException(&quot;Quantity must be at least 1.&quot;);</p>
+<p>        }</p>
+<p>        this.quantity = quantity;</p>
+<p>    }</p>
+
+<p>    public double getItemSubtotal() {</p>
+<p>        return product.getPrice() * quantity;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>// Main Composite Class: ShoppingCart (&quot;Has-A&quot; List of CartItems)</p>
+<p>public class ShoppingCart {</p>
+<p>    private final List&lt;CartItem&gt; items = new ArrayList&lt;&gt;();</p>
+
+<p>    public void addItem(Product product, int quantity) {</p>
+<p>        items.add(new CartItem(product, quantity));</p>
+<p>    }</p>
+
+<p>    public double calculateCartTotal() {</p>
+<p>        double total = 0.0;</p>
+<p>        for (CartItem item : items) {</p>
+<p>            total += item.getItemSubtotal();</p>
+<p>        }</p>
+<p>        return total;</p>
+<p>    }</p>
+
+<p>    // Defensive Copy Getter</p>
+<p>    public List&lt;CartItem&gt; getItems() {</p>
+<p>        return Collections.unmodifiableList(items);</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        Product p1 = new Product(&quot;P-101&quot;, &quot;Mechanical Keyboard&quot;, 4500.00);</p>
+<p>        Product p2 = new Product(&quot;P-102&quot;, &quot;Ergonomic Mouse&quot;, 1800.00);</p>
+
+<p>        ShoppingCart cart = new ShoppingCart();</p>
+<p>        cart.addItem(p1, 1);</p>
+<p>        cart.addItem(p2, 2);</p>
+
+<p>        System.out.println(&quot;=== SHOPPING CART SUMMARY ===&quot;);</p>
+<p>        for (CartItem item : cart.getItems()) {</p>
+<p>            System.out.printf(&quot; - %s (x%d) : ₹%.2f%n&quot;, </p>
+<p>                    item.getProduct().getName(), item.getQuantity(), item.getItemSubtotal());</p>
+<p>        }</p>
+<p>        System.out.printf(&quot;Total Cart Payable : ₹%.2f%n&quot;, cart.calculateCartTotal());</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== SHOPPING CART SUMMARY ===
+<ul>
+<p>  <li>Mechanical Keyboard (x1) : ₹4500.00</li></p>
+<p>  <li>Ergonomic Mouse (x2) : ₹3600.00</li></p>
+<p></ul></p>
+<p>Total Cart Payable : ₹8100.00</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Making fields <code>public</code> directly without getters/setters, allowing invalid data (e.g. <code>price = -500.00</code>).</li></p>
+<p>  <li>Returning raw mutable references (<code>Date</code>, <code>List</code>, <code>Map</code>) in getters without defensive copying.</li></p>
+<p>  <li>Using inheritance (<code>extends</code>) when composition ("Has-A") is a much cleaner architecture fit.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always keep access modifiers as restrictive as possible (<code>private</code> first, then default/<code>protected</code>, and <code>public</code> only for intended public APIs).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Enterprise application architectures: Order containing OrderItems, User containing Address, Computer containing Processor and RAM components.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Processor</code> class and a <code>Computer</code> class that uses composition (<code>Computer</code> Has-A <code>Processor</code>).</p>
+<p>2. Add validation to setter methods to prevent invalid values.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Build a <code>Library</code> class that contains a <code>List<Book></code> using composition and provides a defensive getter returning an unmodifiable list of books.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-classes-and-objects.html">Classes and Objects</a></li></p>
+<p>  <li><a href="16-inheritance-and-polymorphism.html">Inheritance and Polymorphism</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="14-classes-and-objects.html">← Previous: Classes and Objects</a> | <a href="16-inheritance-and-polymorphism.html">Next: Inheritance and Polymorphism →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loops - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Loops in Java</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Loops</strong> repeatedly execute a block of Java code as long as a specified control condition remains <code>true</code>. Java supports standard <code>for</code> loops, <code>while</code> loops (pre-test), <code>do-while</code> loops (post-test), enhanced <code>for-each</code> loops (iterating over arrays/collections), and control keywords (<code>break</code>, <code>continue</code>, <strong>Labeled Loops</strong>).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Repetitive tasks ko automate karne ke liye loops ka use hota hai. Counter-based iterations ke liye <code>for</code> loop, condition-based iteration ke liye <code>while</code> loop, kam se kam ek baar guaranteed execute karne ke liye <code>do-while</code> loop, aur arrays/collections iterate karne ke liye enhanced <code>for-each</code> loop use karein.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Code punha punha chalavnyasathi loops vaparatat. Counter sathi <code>for</code>, condition sathi <code>while</code>, aani arrays sathi <code>for-each</code> loop cha wapar hoto.</p>
+
+<h2>📝 1. Loop Types & Syntaxes</h2>
+
+<h3>A. Standard Counter <code>for</code> Loop</h3>
+<pre><code class="language-java">for (int i = 1; i &lt;= 5; i++) {
+<p>    System.out.println(&quot;Iteration: &quot; + i);</p>
+<p>}</code></pre></p>
+
+<h3>B. Pre-Test <code>while</code> Loop</h3>
+<pre><code class="language-java">int count = 3;
+<p>while (count &gt; 0) {</p>
+<p>    System.out.println(&quot;Countdown: &quot; + count);</p>
+<p>    count--;</p>
+<p>}</code></pre></p>
+
+<h3>C. Post-Test <code>do-while</code> Loop (Guaranteed at least 1 execution)</h3>
+<pre><code class="language-java">int attempts = 0;
+<p>do {</p>
+<p>    System.out.println(&quot;Processing login attempt #&quot; + (attempts + 1));</p>
+<p>    attempts++;</p>
+<p>} while (attempts &lt; 1);</code></pre></p>
+
+<h3>D. Enhanced <code>for-each</code> Loop (Iterating Elements)</h3>
+<pre><code class="language-java">String[] languages = {&quot;Java&quot;, &quot;Python&quot;, &quot;SQL&quot;, &quot;C++&quot;};
+<p>for (String lang : languages) {</p>
+<p>    System.out.println(&quot;Language: &quot; + lang);</p>
+<p>}</code></pre></p>
+
+<h2>🧠 2. Control Statements & Labeled Loops</h2>
+
+<ul>
+<p>  <li><code>break</code>: Terminates the loop immediately.</li></p>
+<p>  <li><code>continue</code>: Skips the rest of the current iteration and jumps to the next loop cycle.</li></p>
+<p>  <li><strong>Labeled Loops (<code>label:</code>):</strong> Allows <code>break</code> or <code>continue</code> to exit outer nested loops directly.</li></p>
+<p></ul></p>
+
+<pre><code class="language-java">outerLoop:
+<p>for (int row = 1; row &lt;= 3; row++) {</p>
+<p>    for (int col = 1; col &lt;= 3; col++) {</p>
+<p>        if (row == 2 &amp;&amp; col == 2) {</p>
+<p>            break outerLoop; // Exits the outer loop directly!</p>
+<p>        }</p>
+<p>        System.out.println(&quot;Row: &quot; + row + &quot;, Col: &quot; + col);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>💡 Complete Example: Processing Batch Transaction Data</h2>
+
+<pre><code class="language-java">public class BatchProcessor {
+<p>    public static void main(String[] args) {</p>
+<p>        double[] transactionAmounts = {1500.00, -200.00, 4500.50, 0.00, 8900.00, -9999.00};</p>
+<p>        double validTotal = 0.0;</p>
+<p>        int processedCount = 0;</p>
+
+<p>        System.out.println(&quot;=== PROCESSING TRANSACTION BATCH ===&quot;);</p>
+
+<p>        for (double amount : transactionAmounts) {</p>
+<p>            // Guard clause: Skip invalid negative transactions</p>
+<p>            if (amount &lt; 0) {</p>
+<p>                System.out.println(&quot;Warning: Invalid negative amount (&quot; + amount + &quot;) skipped.&quot;);</p>
+<p>                continue;</p>
+<p>            }</p>
+
+<p>            // Exit condition if zero sentinel encountered</p>
+<p>            if (amount == 0.0) {</p>
+<p>                System.out.println(&quot;Notice: Zero sentinel value encountered. Stopping batch.&quot;);</p>
+<p>                break;</p>
+<p>            }</p>
+
+<p>            validTotal += amount;</p>
+<p>            processedCount++;</p>
+<p>            System.out.printf(&quot;Processed Transaction #%d : ₹%.2f%n&quot;, processedCount, amount);</p>
+<p>        }</p>
+
+<p>        System.out.println(&quot;====================================&quot;);</p>
+<p>        System.out.printf(&quot;Total Valid Processed Amount : ₹%.2f%n&quot;, validTotal);</p>
+<p>        System.out.println(&quot;Total Valid Transactions     : &quot; + processedCount);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== PROCESSING TRANSACTION BATCH ===
+<p>Processed Transaction #1 : ₹1500.00</p>
+<p>Warning: Invalid negative amount (-200.0) skipped.</p>
+<p>Processed Transaction #2 : ₹4500.50</p>
+<p>Notice: Zero sentinel value encountered. Stopping batch.</p>
+<p>====================================</p>
+<p>Total Valid Processed Amount : ₹6000.50</p>
+<p>Total Valid Transactions     : 2</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Infinite Loops:</strong> Forgetting to update loop counter variables inside <code>while</code> or <code>do-while</code> loops (e.g. omitting <code>i++</code>).</li></p>
+<p>  <li><strong>Off-By-One Errors:</strong> Using <code>i <= array.length</code> instead of <code>i < array.length</code> when iterating indexed arrays.</li></p>
+<p>  <li><strong>Accidental Semicolon:</strong> Writing <code>for (int i = 0; i < 5; i++);</code> puts an empty statement in the loop body. The subsequent block <code>{ ... }</code> executes only *once* after the loop finishes!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Do NOT structurally add or remove items from a <code>java.util.Collection</code> inside an enhanced <code>for-each</code> loop; doing so will throw a <code>ConcurrentModificationException</code>! Use an <code>Iterator</code> or <code>removeIf()</code> method instead.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Batch database processing, streaming sensor records, rendering UI lists, retrying network connections, and traversing tree/graph data structures.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a <code>for</code> loop that prints all odd numbers from <code>1</code> to <code>20</code>.</p>
+<p>2. Write a <code>while</code> loop that calculates the sum of numbers from <code>1</code> to <code>100</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program using nested <code>for</code> loops that prints a 5-by-5 multiplication grid table formatted cleanly with tab columns (<code>\t</code>).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p>  <li><a href="09-arrays.html">Arrays</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="06-conditionals.html">← Previous: Conditionals</a> | <a href="08-methods.html">Next: Methods →</a></p>
+
+
+  </div>
+</body>
+</html>

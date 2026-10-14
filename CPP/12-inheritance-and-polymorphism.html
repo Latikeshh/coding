@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 inheritance and polymorphism - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Inheritance, Virtual Functions & Polymorphism (<code>virtual</code>, <code>override</code>, <code>= 0</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Inheritance</strong>: Allows a <strong>Derived (Child) Class</strong> to inherit properties and member functions from a <strong>Base (Parent) Class</strong>, promoting code reuse.</li></p>
+<p>  <li><strong>Polymorphism</strong>: The ability of a single interface (such as a Base Class pointer or reference) to execute different overridden implementations in Derived classes at runtime.</li></p>
+<p>  <li><strong>Virtual Functions (<code>virtual</code>)</strong>: Functions marked <code>virtual</code> in a base class enable <strong>Dynamic Runtime Dispatch</strong>.</li></p>
+<p>  <li><strong>Pure Virtual Functions (<code>= 0</code>)</strong>: A virtual function declared with <code>= 0</code> turns the base class into an <strong>Abstract Class</strong> (which cannot be instantiated directly).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Inheritance</strong>: Parents ki properties child class ko milna (jaise <code>Vehicle</code> base class se <code>Car</code> aur <code>Bike</code> banana).</li></p>
+<p>  <li><strong>Polymorphism</strong>: Parent class ke pointer ke zariye child class ka custom method run hona.</li></p>
+<p>  <li><strong><code>virtual</code> Keyword</strong>: Bataney ke liye ki is function ko child class override kar sakti hai.</li></p>
+<p>  <li><strong><code>override</code> Keyword</strong>: Child class mein likha jata hai taaki compiler check kare ki parent function sahi se override ho raha hai.</li></p>
+<p>  <li><strong>Pure Virtual Function (<code>virtual void speak() = 0;</code>)</strong>: Aisi method jiski koi body parent class mein nahi hoti. Child class ko ise compulsory implement karna padta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Inheritance</strong>: Base class madhil attributes Derived class ne swikaarne.</li></p>
+<p>  <li><strong>Polymorphism</strong>: Base class pointer cha vapar karun Derived class ce methods runtime la chalaavne.</li></p>
+<p>  <li><strong><code>virtual</code> Keyword</strong>: Runtime binding sathi vaparla jato.</li></p>
+<p>  <li><strong><code>override</code> Keyword</strong>: Derived class madhye function override zale ahe he spasht karnyansathi.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🏗️ Abstract Base Class Structure</h2>
+
+<pre><code class="language-text">               [ Abstract Shape Class ]
+<p>              (virtual getArea() = 0)</p>
+
+<p>                          |</p>
+<p>         +----------------+----------------+</p>
+
+<table>
+<p>  <thead><tr><th></th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>  [ Circle Class ]               [ Rectangle Class ]</p>
+<p>(override getArea())            (override getArea())</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;vector&gt;</p>
+<p>#include &lt;memory&gt;</p>
+
+<p>// 1. Abstract Base Class</p>
+<p>class Shape {</p>
+<p>public:</p>
+<p>    // Pure Virtual Function (Forces derived classes to implement getArea)</p>
+<p>    virtual double getArea() const = 0; </p>
+
+<p>    // Virtual Destructor IS MANDATORY for abstract base classes!</p>
+<p>    virtual ~Shape() {</p>
+<p>        std::cout &lt;&lt; &quot;[Shape Destructor] Base cleanup.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>// 2. Derived Class: Circle</p>
+<p>class Circle : public Shape {</p>
+<p>private:</p>
+<p>    double radius;</p>
+<p>public:</p>
+<p>    Circle(double r) : radius(r) {}</p>
+
+<p>    double getArea() const override {</p>
+<p>        return 3.14159265 * radius * radius;</p>
+<p>    }</p>
+
+<p>    ~Circle() override {</p>
+<p>        std::cout &lt;&lt; &quot;[Circle Destructor] Destroyed Circle.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>// 3. Derived Class: Rectangle</p>
+<p>class Rectangle : public Shape {</p>
+<p>private:</p>
+<p>    double width, height;</p>
+<p>public:</p>
+<p>    Rectangle(double w, double h) : width(w), height(h) {}</p>
+
+<p>    double getArea() const override {</p>
+<p>        return width * height;</p>
+<p>    }</p>
+
+<p>    ~Rectangle() override {</p>
+<p>        std::cout &lt;&lt; &quot;[Rectangle Destructor] Destroyed Rectangle.&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- POLYMORPHISM DEMO WITH SMART POINTERS ---&quot; &lt;&lt; std::endl;</p>
+
+<p>    // Vector storing base class unique_ptrs pointing to derived objects!</p>
+<p>    std::vector&lt;std::unique_ptr&lt;Shape&gt;&gt; shapes;</p>
+<p>    shapes.push_back(std::make_unique&lt;Circle&gt;(5.0));</p>
+<p>    shapes.push_back(std::make_unique&lt;Rectangle&gt;(4.0, 6.0));</p>
+
+<p>    // Dynamic Runtime Polymorphism in action!</p>
+<p>    for (const auto&amp; shape : shapes) {</p>
+<p>        std::cout &lt;&lt; &quot;Calculated Area: &quot; &lt;&lt; shape-&gt;getArea() &lt;&lt; &quot; sq units&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- CLEANING UP SHAPES ---&quot; &lt;&lt; std::endl;</p>
+<p>    // Memory and destructors are automatically handled safely by unique_ptr!</p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>virtual double getArea() const = 0;</code>: Pure virtual function turning <code>Shape</code> into an Abstract Class. You cannot write <code>Shape s;</code>.</li></p>
+<p>  <li><code>double getArea() const override</code>: The <code>override</code> keyword ensures signature matching with the base class. If parameters mismatch, compiler raises an error immediately!</li></p>
+<p>  <li><code>virtual ~Shape()</code>: Essential for avoiding memory leaks when deleting derived objects through base class pointers.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- POLYMORPHISM DEMO WITH SMART POINTERS ---
+<p>Calculated Area: 78.5398 sq units</p>
+<p>Calculated Area: 24 sq units</p>
+
+<p>--- CLEANING UP SHAPES ---</p>
+<p>[Circle Destructor] Destroyed Circle.</p>
+<p>[Shape Destructor] Base cleanup.</p>
+<p>[Rectangle Destructor] Destroyed Rectangle.</p>
+<p>[Shape Destructor] Base cleanup.</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting Virtual Destructor in Base Class</strong>: If the base class destructor is NOT <code>virtual</code>, deleting a derived object via a base pointer invokes only the base destructor, causing memory leaks for derived class fields!</li></p>
+<p>  <li><strong>Instantiation Error on Abstract Classes</strong>: Trying to write <code>Shape shapeObj;</code> triggers <code>'cannot declare variable of abstract type'</code> because of the pure virtual function <code>= 0</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always use the <code>override</code> keyword when overriding virtual methods in derived classes.</li></p>
+<p>  <li>Always make base class destructors <code>virtual</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an abstract base class <code>Animal</code> with <code>virtual void makeSound() = 0;</code>. Create derived classes <code>Dog</code> and <code>Cat</code> that override <code>makeSound()</code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create an <code>Employee</code> base class with a virtual <code>calculatePay()</code> method. Inherit <code>FullTimeEmployee</code> (salary based) and <code>Contractor</code> (hourly rate based). Render payroll totals using polymorphism.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-classes-and-oops.html">Classes & Objects</a></li></p>
+<p>  <li><a href="14-smart-pointers.html">Smart Pointers</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="11-constructors-and-destructors.html">← Previous: Constructors</a> | <a href="13-operator-overloading.html">Next: Operator Overloading →</a></p>
+
+
+  </div>
+</body>
+</html>

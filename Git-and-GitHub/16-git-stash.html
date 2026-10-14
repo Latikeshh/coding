@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 git stash - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Git Stash (<code>git stash</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code>git stash</code></strong> is a command used to temporarily shelve (save aside) uncommitted local modifications in your Working Directory and Staging Area into a temporary clipboard stack, clearing your working directory so you can switch branches or pull emergency hotfixes without making half-finished commits.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git stash</code> takes uncommitted changes and saves them on a temporary storage stack, returning your working directory to a clean <code>HEAD</code> state. Running <code>git stash pop</code> re-applies the stashed changes back onto your working directory and removes them from the stash stack. <code>git stash apply</code> re-applies changes while keeping them on the stack.</p>
+
+<h3>Hindi</h3>
+<p><code>git stash</code> aapke adhoore (uncommitted) code ko temporary clipboard par save karke aapki Working Directory ko ekdum clean kar deta hai. Isse aap emergency mein doosri branch par switch kar sakte hain. Wapas aakar <code>git stash pop</code> chalane se aapka adhoora code wapas aa jata hai.</p>
+
+<h3>Marathi</h3>
+<p><code>git stash</code> dware ardhvat zalela code temporary bajula sathavla jato aani Working Directory clean hote. Emergency madhye dusrya branch var jaanyasathi ha vaparla jato. Kaam zalya var <code>git stash pop</code> karun toch ardhvat code parat aanta yeto.</p>
+
+<h3>Hinglish</h3>
+<p>Jab aap adhoore feature par kaam kar rahe hon aur achanak boss kahe *"Urgent hotfix main branch par karo"*, toh bina half-baked commit kiye <code>git stash</code> chalaayein. Project clean ho jayega. Hotfix complete hone ke baad <code>git stash pop</code> karke purana adhoora kaam waapas le aayein.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Git prevents switching branches if you have uncommitted modifications that conflict with the destination branch. <code>git stash</code> lets you store uncommitted work safely without polluting commit history with temporary "wip" commits.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>git stash</code> like a drawer next to your desk:</p>
+<ul>
+<p>  <li>You are halfway through assembling a complex Lego set on your desk (<strong>Uncommitted Edits</strong>).</li></p>
+<p>  <li>Someone needs to use your desk immediately for an emergency meeting (<strong>Switch Branch</strong>).</li></p>
+<p>  <li>You sweep all Lego pieces into the drawer (<strong><code>git stash</code></strong>), clearing the desk.</li></p>
+<p>  <li>Once the meeting finishes, you open the drawer and place all Lego pieces back on the desk (<strong><code>git stash pop</code></strong>).</li></p>
+<p></ul></p>
+
+<h2>📝 Key <code>git stash</code> Commands</h2>
+
+<pre><code class="language-bash"># 1. Stash current uncommitted changes (tracked files)
+<p>git stash</p>
+
+<h1>2. Stash with a custom descriptive message (RECOMMENDED)</h1>
+<p>git stash push -m &quot;Half-finished login validation logic&quot;</p>
+
+<h1>3. Include untracked new files in the stash</h1>
+<p>git stash -u</p>
+
+<h1>4. List all saved stashes in the clipboard stack</h1>
+<p>git stash list</p>
+
+<h1>5. Apply most recent stash AND remove it from stash stack</h1>
+<p>git stash pop</p>
+
+<h1>6. Apply most recent stash WITHOUT removing it from stash stack</h1>
+<p>git stash apply</p>
+
+<h1>7. Apply a specific stash from list (e.g. stash@{1})</h1>
+<p>git stash apply stash@{1}</p>
+
+<h1>8. Delete a specific stash</h1>
+<p>git stash drop stash@{0}</p>
+
+<h1>9. Clear ALL stashes in clipboard permanently</h1>
+<p>git stash clear</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Step-by-step emergency hotfix workflow using <code>git stash</code>:</p>
+
+<pre><code class="language-bash"># 1. Working on feature branch with uncommitted edits
+<p>git switch feature-payment</p>
+<p>echo &quot;half finished payment code&quot; &gt;&gt; payment.js</p>
+
+<h1>2. Urgent request comes in! Stash uncommitted work</h1>
+<p>git stash push -m &quot;WIP payment gateway implementation&quot;</p>
+
+<h1>3. Switch to main branch and fix urgent bug</h1>
+<p>git switch main</p>
+<p>echo &quot;bug fix&quot; &gt;&gt; index.html</p>
+<p>git commit -am &quot;Fix urgent homepage header typo&quot;</p>
+
+<h1>4. Switch back to feature branch and restore stashed work</h1>
+<p>git switch feature-payment</p>
+<p>git stash pop</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git stash push -m "msg"</code>: Stores changes into <code>.git/refs/stash</code> stack with an index tag (<code>stash@{0}</code>, <code>stash@{1}</code>).</li></p>
+<p>  <li><code>git stash pop</code>: Re-applies <code>stash@{0}</code> changes and executes <code>git stash drop stash@{0}</code> automatically.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git stash push -m &quot;WIP payment gateway&quot;
+<p>Saved working directory and index state WIP on feature-payment: WIP payment gateway</p>
+
+<p>$ git stash list</p>
+<p>stash@{0}: On feature-payment: WIP payment gateway</p>
+<p>stash@{1}: On main: Unfinished footer styling</p>
+
+<p>$ git stash pop</p>
+<p>On branch feature-payment</p>
+<p>Changes not staged for commit:</p>
+<p>        modified:   payment.js</p>
+<p>Dropped refs/stash@{0} (1a2b3c4d...)</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting Stashed Work Exists:</strong> Stashing changes, working for weeks, and forgetting those stashes exist in <code>git stash list</code>.</li></p>
+<p>  <li><strong>Applying Stash on Wrong Branch:</strong> Running <code>git stash pop</code> while accidentally standing on a different branch, causing unexpected merge conflicts!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Plain <code>git stash</code> ONLY stashes *tracked* modified files by default. To include brand-new *untracked* files, always use <code>git stash -u</code> (or <code>--include-untracked</code>).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Developers use <code>git stash</code> multiple times daily when context-switching between code reviews, bug fixes, and feature development.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Edit <code>README.md</code> in your <code>git-practice</code> repo without staging or committing.</p>
+<p>2. Run <code>git stash push -m "Test stash"</code>.</p>
+<p>3. Verify with <code>git status</code> that your working tree is clean.</p>
+<p>4. Run <code>git stash pop</code> and notice your edits return to <code>README.md</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Run <code>git stash list</code> after popping your stash and confirm that <code>stash@{0}</code> was automatically dropped from the list.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-undoing-changes-and-git-restore.html">Undoing Local Changes with Git Restore</a></li></p>
+<p>  <li><a href="12-branching-basics.html">Branching Basics</a></li></p>
+<p>  <li><a href="15-git-rebase.html">Git Rebase</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="15-git-rebase.html">← Previous: Rebase</a> | <a href="17-remote-repositories-and-remotes.html">Next: Remote Repositories →</a></p>
+
+
+
+  </div>
+</body>
+</html>

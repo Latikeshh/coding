@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Tools and Mini Projects - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Build Tools and Capstone Mini Projects in Java</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Build Tools (Maven & Gradle):</strong> Automated project management tools that resolve external library dependencies, execute automated unit tests, compile Java source code, and package applications into executable <strong>JAR (Java Archive)</strong> files.</li></p>
+<p>  <li><strong>Capstone Mini Projects:</strong> Hands-on software applications that synthesize core Java concepts (OOP, Collections, Lambdas, Exception Handling, File I/O, Testing).</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Production Java development mein dependencies manage karne, test cases run karne, aur executable <code>.jar</code> files package karne ke liye <strong>Maven (<code>pom.xml</code>)</strong> ya <strong>Gradle (<code>build.gradle</code>)</strong> ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Project dependencies manage karnyasathi aani executable <code>.jar</code> file tayar karnyasathi <strong>Maven</strong> kiva <strong>Gradle</strong> build tools vaparatat.</p>
+
+<h2>📝 1. Apache Maven Architecture (<code>pom.xml</code>)</h2>
+
+<p>Maven uses a Project Object Model (<code>pom.xml</code>) configuration file to manage project dependencies:</p>
+
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;&gt;
+<p>    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</p>
+<p>    &lt;groupId&gt;com.techcorp.app&lt;/groupId&gt;</p>
+<p>    &lt;artifactId&gt;banking-app&lt;/artifactId&gt;</p>
+<p>    &lt;version&gt;1.0.0&lt;/version&gt;</p>
+
+<p>    &lt;properties&gt;</p>
+<p>        &lt;maven.compiler.source&gt;25&lt;/maven.compiler.source&gt;</p>
+<p>        &lt;maven.compiler.target&gt;25&lt;/maven.compiler.target&gt;</p>
+<p>    &lt;/properties&gt;</p>
+
+<p>    &lt;dependencies&gt;</p>
+<p>        &lt;!-- JUnit 5 Testing Dependency --&gt;</p>
+<p>        &lt;dependency&gt;</p>
+<p>            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;</p>
+<p>            &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;</p>
+<p>            &lt;version&gt;5.10.0&lt;/version&gt;</p>
+<p>            &lt;scope&gt;test&lt;/scope&gt;</p>
+<p>        &lt;/dependency&gt;</p>
+<p>    &lt;/dependencies&gt;</p>
+<p>&lt;/project&gt;</code></pre></p>
+
+<h3>Standard Maven Build Lifecycle Commands:</h3>
+<pre><code class="language-bash">mvn clean         # Deletes target/ build directory
+<p>mvn compile       # Compiles Java source files</p>
+<p>mvn test          # Runs automated JUnit unit tests</p>
+<p>mvn package       # Packages code into target/banking-app-1.0.0.jar</p>
+<p>java -jar target/banking-app-1.0.0.jar  # Launch executable JAR</code></pre></p>
+
+<h2>🏗️ Capstone Project 1: Interactive To-Do Manager CLI with File Persistence</h2>
+
+<p>A complete, multi-class command-line application demonstrating Records, Enums, File I/O, Collections, and Exception Handling.</p>
+
+<pre><code class="language-java">import java.io.IOException;
+<p>import java.nio.file.*;</p>
+<p>import java.util.*;</p>
+
+<p>public class TodoAppMaster {</p>
+
+<p>    public enum Status { PENDING, COMPLETED }</p>
+
+<p>    public record Task(int id, String title, Status status) {</p>
+<p>        public String toCsvLine() {</p>
+<p>            return id + &quot;,&quot; + title + &quot;,&quot; + status;</p>
+<p>        }</p>
+
+<p>        public static Task fromCsvLine(String line) {</p>
+<p>            String[] parts = line.split(&quot;,&quot;);</p>
+<p>            return new Task(</p>
+<p>                Integer.parseInt(parts[0]),</p>
+<p>                parts[1],</p>
+<p>                Status.valueOf(parts[2])</p>
+<p>            );</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    private static final Path DATA_FILE = Path.of(&quot;tasks_db.csv&quot;);</p>
+<p>    private static final List&lt;Task&gt; taskList = new ArrayList&lt;&gt;();</p>
+<p>    private static int nextId = 1;</p>
+
+<p>    public static void loadTasks() {</p>
+<p>        if (!Files.exists(DATA_FILE)) return;</p>
+<p>        try {</p>
+<p>            List&lt;String&gt; lines = Files.readAllLines(DATA_FILE);</p>
+<p>            taskList.clear();</p>
+<p>            for (String line : lines) {</p>
+<p>                if (!line.isBlank()) {</p>
+<p>                    Task t = Task.fromCsvLine(line);</p>
+<p>                    taskList.add(t);</p>
+<p>                    if (t.id() &gt;= nextId) nextId = t.id() + 1;</p>
+<p>                }</p>
+<p>            }</p>
+<p>        } catch (IOException e) {</p>
+<p>            System.err.println(&quot;Failed to load tasks: &quot; + e.getMessage());</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static void saveTasks() {</p>
+<p>        try {</p>
+<p>            List&lt;String&gt; lines = taskList.stream().map(Task::toCsvLine).toList();</p>
+<p>            Files.write(DATA_FILE, lines);</p>
+<p>        } catch (IOException e) {</p>
+<p>            System.err.println(&quot;Failed to save tasks: &quot; + e.getMessage());</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static void addTask(String title) {</p>
+<p>        Task task = new Task(nextId++, title, Status.PENDING);</p>
+<p>        taskList.add(task);</p>
+<p>        saveTasks();</p>
+<p>        System.out.println(&quot;Task Added : #&quot; + task.id() + &quot; - &quot; + task.title());</p>
+<p>    }</p>
+
+<p>    public static void listTasks() {</p>
+<p>        System.out.println(&quot;\n=== TASK LIST ===&quot;);</p>
+<p>        if (taskList.isEmpty()) {</p>
+<p>            System.out.println(&quot;No tasks found.&quot;);</p>
+<p>            return;</p>
+<p>        }</p>
+<p>        for (Task t : taskList) {</p>
+<p>            String check = (t.status() == Status.COMPLETED) ? &quot;[✔]&quot; : &quot;[ ]&quot;;</p>
+<p>            System.out.printf(&quot;%s #%d : %s%n&quot;, check, t.id(), t.title());</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        loadTasks();</p>
+<p>        System.out.println(&quot;=== TO-DO MANAGER CLI ===&quot;);</p>
+<p>        </p>
+<p>        addTask(&quot;Study Java Memory Model&quot;);</p>
+<p>        addTask(&quot;Practice Streams API&quot;);</p>
+<p>        listTasks();</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== TO-DO MANAGER CLI ===
+<p>Task Added : #1 - Study Java Memory Model</p>
+<p>Task Added : #2 - Practice Streams API</p>
+
+<p>=== TASK LIST ===</p>
+<p>[ ] #1 : Study Java Memory Model</p>
+<p>[ ] #2 : Practice Streams API</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Manual dependency management by copying raw <code>.jar</code> files into projects instead of using Maven/Gradle build tools.</li></p>
+<p>  <li>Committing generated build output folders (<code>target/</code> or <code>build/</code>) into Git repositories (add <code>target/</code> and <code>build/</code> to <code>.gitignore</code>!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always use Maven or Gradle Wrapper scripts (<code>./mvnw</code> or <code>./gradlew</code>) committed with your project to ensure team members run builds using identical build tool versions.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>All professional Java applications (Spring Boot microservices, Android apps, enterprise backend platforms) are built, tested, and packaged using Maven or Gradle pipelines.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add a method <code>markTaskCompleted(int id)</code> to the To-Do CLI project above.</p>
+<p>2. Verify that updated task statuses persist correctly when re-running the application.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Build a Student Marksheet Analyzer CLI that reads student records from a CSV file, calculates percentages using Java Streams, and saves a summary report file.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-file-input-and-output.html">File Input and Output</a></li></p>
+<p>  <li><a href="23-testing-and-debugging.html">Testing and Debugging</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="23-testing-and-debugging.html">← Previous: Testing and Debugging</a></p>
+
+
+  </div>
+</body>
+</html>

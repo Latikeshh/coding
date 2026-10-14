@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>43 css lists and tables - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Lists & Table Styling (<code>list-style</code>, <code>border-collapse</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSS Lists & Table Styling</strong> controls bullet markers, list spacing, table border collapsing, cell padding, zebra striping, and responsive table layout rules:</p>
+<ul>
+<p>  <li><strong>List Properties:</strong> <code>list-style-type</code>, <code>list-style-position</code>, <code>list-style-image</code>, <code>list-style: none</code>.</li></p>
+<p>  <li><strong>Table Properties:</strong> <code>border-collapse: collapse</code>, <code>border-spacing</code>, <code>caption-side</code>, <code>table-layout: fixed</code>.</li></p>
+<p></ul></p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Remove default list bullets using <code>list-style: none</code>. Combine <code>border-collapse: collapse</code>, padding, and zebra-striping (<code>tr:nth-child(even)</code>) for clean accessible table styling.</p>
+
+<h3>Hindi</h3>
+<p><code>list-style: none</code> se list ke default bullet points ko hataya jaata hai. Tables ko clean dikhane ke liye <code>border-collapse: collapse</code> aur <code>tr:nth-child(even)</code> zebra striping ka use karein.</p>
+
+<h3>Marathi</h3>
+<p>List sathi <code>list-style: none</code> vaprun bullets kadhlya jaatat. Table styling sathi <code>border-collapse: collapse</code> vapartaat.</p>
+
+<h2>📚 List Properties Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Value Options</th><th>Example Syntax</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>list-style-type</code></td><td>Controls bullet/number marker shape (<code>none</code>, <code>disc</code>, <code>circle</code>, <code>square</code>, <code>decimal</code>)</td><td><code>list-style-type: square;</code></td></tr></p>
+<p>    <tr><td><code>list-style-position</code></td><td>Bullet position relative to text (<code>outside</code>, <code>inside</code>)</td><td><code>list-style-position: inside;</code></td></tr></p>
+<p>    <tr><td><code>list-style-image</code></td><td>Replaces bullet points with a custom image URL</td><td><code>list-style-image: url("check.svg");</code></td></tr></p>
+<p>    <tr><td><code>list-style</code> (Shorthand)</td><td>Strips bullets and padding completely</td><td><code>list-style: none; padding: 0; margin: 0;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📚 Table Properties Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose & Value Options</th><th>Example Syntax</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>border-collapse</code></td><td>Combines adjacent table cell borders into a single border</td><td><code>border-collapse: collapse;</code></td></tr></p>
+<p>    <tr><td><code>border-spacing</code></td><td>Distance between separate table cell borders (when uncollapsing)</td><td><code>border-spacing: 10px;</code></td></tr></p>
+<p>    <tr><td><code>table-layout</code></td><td>Column width calculation (<code>auto</code>, <code>fixed</code>)</td><td><code>table-layout: fixed;</code></td></tr></p>
+<p>    <tr><td><code>caption-side</code></td><td>Position of <code><caption></code> title (<code>top</code>, <code>bottom</code>)</td><td><code>caption-side: bottom;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Lists and Table Styling Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;table-card&quot;&gt;</p>
+<p>    &lt;h2&gt;Student Grade Report&lt;/h2&gt;</p>
+<p>    &lt;table&gt;</p>
+<p>      &lt;caption&gt;Semester 1 Examination Results&lt;/caption&gt;</p>
+<p>      &lt;thead&gt;</p>
+<p>        &lt;tr&gt;</p>
+<p>          &lt;th&gt;Student Name&lt;/th&gt;</p>
+<p>          &lt;th&gt;Subject&lt;/th&gt;</p>
+<p>          &lt;th&gt;Grade&lt;/th&gt;</p>
+<p>        &lt;/tr&gt;</p>
+<p>      &lt;/thead&gt;</p>
+<p>      &lt;tbody&gt;</p>
+<p>        &lt;tr&gt;&lt;td&gt;Alex Kumar&lt;/td&gt;&lt;td&gt;Web Development&lt;/td&gt;&lt;td&gt;A+&lt;/td&gt;&lt;/tr&gt;</p>
+<p>        &lt;tr&gt;&lt;td&gt;Riya Sharma&lt;/td&gt;&lt;td&gt;Data Structures&lt;/td&gt;&lt;td&gt;A&lt;/td&gt;&lt;/tr&gt;</p>
+<p>        &lt;tr&gt;&lt;td&gt;David Miller&lt;/td&gt;&lt;td&gt;Database Systems&lt;/td&gt;&lt;td&gt;B+&lt;/td&gt;&lt;/tr&gt;</p>
+<p>        &lt;tr&gt;&lt;td&gt;Sara Khan&lt;/td&gt;&lt;td&gt;Cyber Security&lt;/td&gt;&lt;td&gt;A+&lt;/td&gt;&lt;/tr&gt;</p>
+<p>      &lt;/tbody&gt;</p>
+<p>    &lt;/table&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 30px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.table-card {</p>
+<p>  background: white;</p>
+<p>  padding: 25px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  width: 100%;</p>
+<p>  max-width: 600px;</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  margin-top: 0;</p>
+<p>  color: #111827;</p>
+<p>}</p>
+
+<p>/* Accessible Table Styling */</p>
+<p>table {</p>
+<p>  width: 100%;</p>
+<p>  border-collapse: collapse; /* Combines double borders into single clean lines */</p>
+<p>  margin-top: 15px;</p>
+<p>}</p>
+
+<p>caption {</p>
+<p>  caption-side: bottom;</p>
+<p>  padding-top: 10px;</p>
+<p>  font-size: 13px;</p>
+<p>  color: #6b7280;</p>
+<p>}</p>
+
+<p>th, td {</p>
+<p>  padding: 12px 16px;</p>
+<p>  text-align: left;</p>
+<p>  border-bottom: 1px solid #e5e7eb;</p>
+<p>}</p>
+
+<p>th {</p>
+<p>  background-color: #1e293b;</p>
+<p>  color: white;</p>
+<p>  font-weight: bold;</p>
+<p>}</p>
+
+<p>/* Zebra Striping using :nth-child(even) */</p>
+<p>tbody tr:nth-child(even) {</p>
+<p>  background-color: #f8fafc;</p>
+<p>}</p>
+
+<p>/* Row Hover Highlight */</p>
+<p>tbody tr:hover {</p>
+<p>  background-color: #f1f5f9;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A clean, accessible data table featuring a dark header row, collapsed single-line borders, spacious cell padding, alternating zebra-striped rows, and row highlight feedback on hover.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Remove <code>border-collapse: collapse</code> from <code>table</code> and see how double border spaces appear between table cells.</p>
+<p>2. Add <code>list-style: none; padding: 0; margin: 0;</code> to a <code><ul></code> list to create a clean, unbulleted flexbox link menu!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>border-collapse: collapse</code>:</strong> Causes table cells to render with ugly double borders.</li></p>
+<p>  <li><strong>Forgetting <code>list-style: none</code> reset on navigation <code><ul></code>:</strong> Leaves default bullet points floating over navigation menu links.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p><code>list-style: none; padding: 0; margin: 0;</code> is the standard reset applied to navigation lists (<code><nav> <ul></code>). <code>border-collapse: collapse</code> with zebra striping formats data tables, transaction histories, and analytics dashboards.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-borders.html">Borders, Border Radius & Box Shadows</a></li></p>
+<p>  <li><a href="24-pseudo-classes.html">Pseudo-classes (<code>:nth-child</code>)</a></li></p>
+<p>  <li><a href="37-navigation-bars.html">Navigation Bar Components</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>list-style: none; padding: 0; margin: 0;</code> to strip list bullets for navbars.</li></p>
+<p>  <li>Always declare <code>border-collapse: collapse</code> on <code><table></code> elements.</li></p>
+<p>  <li>Use <code>tbody tr:nth-child(even)</code> for readable zebra-striped data tables.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="42-overflow-and-visibility.html">← Previous</a> | <a href="./">CSS Home</a></p>
+
+
+
+  </div>
+</body>
+</html>

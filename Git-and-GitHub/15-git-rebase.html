@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 git rebase - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Git Rebase (<code>git rebase</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code>git rebase</code></strong> is an advanced Git command that takes all commits from a feature branch and re-applies them one by one on top of another base branch's latest commit, creating a clean, completely linear commit history without merge commits.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git rebase</code> rewrites commit history by changing the base commit of your current branch. While <code>git merge</code> creates a 3-way merge commit preserving true historical timelines, <code>git rebase</code> moves your feature commits to sit on top of <code>main</code>'s latest commit. Interactive rebase (<code>git rebase -i</code>) allows squashing multiple small commits into a single clean commit.</p>
+
+<h3>Hindi</h3>
+<p><code>git rebase</code> aapki branch ke commits ko <code>main</code> branch ke sabse naye commit ke upar re-apply karta hai. Isse commit history ekdum linear (straight line) ban jaati hai aur extra merge commit nahi banta. Interactive rebase (<code>git rebase -i</code>) se aap chhote commits ko combine (squash) kar sakte hain.</p>
+
+<h3>Marathi</h3>
+<p><code>git rebase</code> mule commit history kuthlihi phat nasleli ekas-ek (linear) bante. <code>git merge</code> madhye extra merge commit tayar hoto, parantu <code>git rebase</code> madhye feature commits <code>main</code> chya sarvat shevatchya commit var jaun bastat.</p>
+
+<h3>Hinglish</h3>
+<p><code>git merge</code> history ko branch graph mein preserve karta hai, jabki <code>git rebase</code> history ko rewrite karke linear line bana deta hai. Local feature branch par kaam khatam hone par multiple "wip" commits ko ek clean commit mein combine karne ke liye Interactive Rebase (<code>git rebase -i</code>) use karte hain.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>In large teams, frequent 3-way merge commits create a tangled "spiderweb" in <code>git log</code> graph history. Rebasing creates a clean, straight-line timeline that is much easier to read and audit.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of rebasing like moving the foundation pillars of a house:</p>
+<ul>
+<p>  <li>You built a 2-story room extension (<strong>Feature Commits</strong>) attached to the 1st floor (<strong>Old Main Base</strong>).</li></p>
+<p>  <li>Meanwhile, the main house grew to 3 stories (<strong>New Main Commits</strong>).</li></p>
+<p>  <li><strong>Rebase</strong> picks up your 2-story extension and places it directly on top of the new 3rd floor roof (<strong>New Base</strong>), making the building a tall single tower.</li></p>
+<p></ul></p>
+
+<h2>📝 Merge vs Rebase Comparison</h2>
+
+<pre><code class="language-text">BEFORE (Diverged Branch):
+<p>[main] ──&gt; C1 ──&gt; C2 ──&gt; C5 [main]</p>
+<p>                   └──&gt; C3 ──&gt; C4 [feature]</p>
+
+<p>AFTER GIT MERGE (<code>git merge feature</code> on <code>main</code>):</p>
+<p>[main] ──&gt; C1 ──&gt; C2 ──&gt; C5 ─────────&gt; C6 (Merge Commit) [main]</p>
+<p>                   └──&gt; C3 ──&gt; C4 ──────┘</p>
+
+<p>AFTER GIT REBASE (<code>git rebase main</code> on <code>feature</code>):</p>
+<p>[main] ──&gt; C1 ──&gt; C2 ──&gt; C5 ──&gt; C3&#39; ──&gt; C4&#39; [feature]  (Linear History!)</code></pre></p>
+
+<h2>💡 Key Rebase Commands</h2>
+
+<h3>1. Standard Rebase Workflow</h3>
+<pre><code class="language-bash"># 1. Switch to your feature branch
+<p>git switch feature-login</p>
+
+<h1>2. Rebase feature branch on top of updated main</h1>
+<p>git rebase main</p>
+
+<h1>3. Switch back to main and fast-forward merge clean feature</h1>
+<p>git switch main</p>
+<p>git merge feature-login</code></pre></p>
+
+<h3>2. Interactive Rebase (<code>git rebase -i</code>)</h3>
+<p>Allows squashing, editing, rewording, or dropping last N local commits:</p>
+<pre><code class="language-bash">git rebase -i HEAD~3</code></pre>
+
+<p>Interactive Todo List Commands in Editor:</p>
+<ul>
+<p>  <li><strong><code>pick</code> (p):</strong> Keep commit as-is.</li></p>
+<p>  <li><strong><code>squash</code> (s):</strong> Combine commit into previous commit (melts small commits together).</li></p>
+<p>  <li><strong><code>reword</code> (r):</strong> Keep commit, but edit commit message text.</li></p>
+<p>  <li><strong><code>drop</code> (d):</strong> Delete commit from history entirely.</li></p>
+<p></ul></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git rebase main</code>: Calculates diffs of feature branch commits, rewinds feature branch back to split point, and re-applies each commit sequentially onto <code>main</code>'s HEAD.</li></p>
+<p>  <li><code>git rebase --continue</code>: Resumes rebasing after resolving a line conflict during rebase step.</li></p>
+<p>  <li><code>git rebase --abort</code>: Cancels rebase and restores original pre-rebase branch state.</li></p>
+<p></ul></p>
+
+<h2>⚠️ THE GOLDEN RULE OF REBASING</h2>
+
+<blockquote><p>🚨 <strong>NEVER REBASE COMMITS THAT HAVE ALREADY BEEN PUSHED TO A PUBLIC / SHARED REMOTE REPOSITORY!</strong></p></blockquote>
+
+<p>Rebasing rewrites commit SHA hashes. If you rebase commits that teammates have already pulled onto their machines, you destroy their commit history base, creating massive merge conflict nightmares for your team.</p>
+
+<p>*Rule:* <strong>Rebase local unpushed feature branches only; Never rebase shared public branches!</strong></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash">$ git switch feature-login
+<p>$ git rebase main</p>
+<p>Successfully rebased and updated refs/heads/feature-login.</p>
+
+<p>$ git log --oneline --graph</p>
+<ul>
+<p>  <li>c4d3e2f (HEAD -&gt; feature-login) Add login validation</li></p>
+<p>  <li>a1b2c3d Add login form layout</li></p>
+<p>  <li>f9e8d7c (main) Update main dashboard</li></p>
+<p>  <li>3c2b1a0 Initial commit</code></pre></li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>If a conflict occurs during <code>git rebase</code>, Git pauses at the conflicting commit. Resolve the conflict, run <code>git add <file></code>, and then execute <code>git rebase --continue</code> (do NOT run <code>git commit</code>!).</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Open-source projects (like Linux Kernel or React) require contributors to rebase their feature PRs against <code>main</code> before merging to maintain a clean linear commit graph.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a branch <code>feature-rebase-demo</code> in your <code>git-practice</code> repo and make 2 small commits.</p>
+<p>2. Run <code>git rebase -i HEAD~2</code> in your terminal.</p>
+<p>3. Change the second commit word from <code>pick</code> to <code>squash</code> (or <code>s</code>), save and close the editor, and observe how Git combines the two commits into one!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Run <code>git log --oneline</code> after squashing and verify that the two small commits were replaced by a single combined commit.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="12-branching-basics.html">Branching Basics</a></li></p>
+<p>  <li><a href="13-merging-branches.html">Merging Branches</a></li></p>
+<p>  <li><a href="14-handling-merge-conflicts.html">Handling Merge Conflicts</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="14-handling-merge-conflicts.html">← Previous: Conflicts</a> | <a href="16-git-stash.html">Next: Git Stash →</a></p>
+
+
+
+  </div>
+</body>
+</html>

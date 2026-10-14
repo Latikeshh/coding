@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 pseudo elements - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Pseudo-elements (<code>::before</code>, <code>::after</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Pseudo-element</strong> is a keyword added to a selector (prefixed by double colons <code>::</code>) that styles a specific sub-part of an element (such as <code>::first-line</code>, <code>::selection</code>) or inserts virtual decorative content into the document before or after an element's content using <code>::before</code> and <code>::after</code>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Pseudo-elements style specific parts of an element (<code>::first-line</code>, <code>::selection</code>). <code>::before</code> and <code>::after</code> insert virtual decorative elements without cluttering HTML (always require <code>content: ""</code>).</p>
+
+<h3>Hindi</h3>
+<p>Pseudo-elements (<code>::before</code>, <code>::after</code>) bina extra HTML likhe virtual decorative content ya icons jodne ka kaam karte hain (<code>content: ""</code> likhna zaroori hai).</p>
+
+<h3>Marathi</h3>
+<p><code>::before</code> ani <code>::after</code> mule HTML na badalta design kiwa icons jodta yetat.</p>
+
+<h2>🤔 Why Do We Use Pseudo-elements?</h2>
+
+<p>Pseudo-elements allow adding decorative icons, accent underlines, blockquote quotation marks, or tooltips directly via CSS without cluttering HTML source code with meaningless <code><span></code> tags.</p>
+
+<h2>📚 Essential Pseudo-elements Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Pseudo-element</th><th>Target Sub-Part / Function</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>::before</code></strong></td><td>Inserts virtual child element <strong>before</strong> content</td><td><code>h2::before { content: "★ "; }</code></td></tr></p>
+<p>    <tr><td><strong><code>::after</code></strong></td><td>Inserts virtual child element <strong>after</strong> content</td><td><code>h2::after { content: ""; display: block; }</code></td></tr></p>
+<p>    <tr><td><strong><code>::first-line</code></strong></td><td>Styles only the <strong>first line</strong> of paragraph text</td><td><code>p::first-line { font-weight: bold; }</code></td></tr></p>
+<p>    <tr><td><strong><code>::first-letter</code></strong></td><td>Styles only the <strong>first letter</strong> (Drop Cap effect)</td><td><code>p::first-letter { font-size: 2rem; }</code></td></tr></p>
+<p>    <tr><td><strong><code>::selection</code></strong></td><td>Styles text when highlighted/selected by user</td><td><code>::selection { background: #ffc107; }</code></td></tr></p>
+<p>    <tr><td><strong><code>::placeholder</code></strong></td><td>Styles input placeholder hint text</td><td><code>input::placeholder { color: #888; }</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🔑 Crucial Rule for <code>::before</code> and <code>::after</code></h2>
+
+<p><code>::before</code> and <code>::after</code> generate inline pseudo-elements by default. <strong>They will NOT render unless the <code>content</code> property is explicitly specified</strong> (even if set to an empty string <code>content: ""</code>):</p>
+
+<pre><code class="language-css">/* Animated Accent Underline below Headings */
+<p>h2 {</p>
+<p>  position: relative;</p>
+<p>}</p>
+
+<p>h2::after {</p>
+<p>  content: &quot;&quot;;            /* MANDATORY PROPERTY! */</p>
+<p>  display: block;</p>
+<p>  width: 60px;</p>
+<p>  height: 4px;</p>
+<p>  background-color: #2563eb;</p>
+<p>  margin-top: 8px;</p>
+<p>  border-radius: 2px;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Pseudo-elements Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;article class=&quot;quote-card&quot;&gt;</p>
+<p>    &lt;blockquote&gt;</p>
+<p>      Simplicity is the soul of efficiency.</p>
+<p>    &lt;/blockquote&gt;</p>
+<p>    &lt;cite&gt;— Austin Freeman&lt;/cite&gt;</p>
+<p>  &lt;/article&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  padding: 40px;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>/* Text Selection Styling */</p>
+<p>::selection {</p>
+<p>  background-color: #3b82f6;</p>
+<p>  color: white;</p>
+<p>}</p>
+
+<p>.quote-card {</p>
+<p>  background: white;</p>
+<p>  padding: 30px 40px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  max-width: 500px;</p>
+<p>  position: relative;</p>
+<p>}</p>
+
+<p>blockquote {</p>
+<p>  margin: 0;</p>
+<p>  font-size: 1.25rem;</p>
+<p>  color: #1f2937;</p>
+<p>  font-style: italic;</p>
+<p>  position: relative;</p>
+<p>}</p>
+
+<p>/* Decorative Large Quote Mark using ::before */</p>
+<p>blockquote::before {</p>
+<p>  content: &quot;“&quot;;</p>
+<p>  font-size: 5rem;</p>
+<p>  color: #93c5fd;</p>
+<p>  position: absolute;</p>
+<p>  top: -30px;</p>
+<p>  left: -35px;</p>
+<p>  font-family: Georgia, serif;</p>
+<p>  line-height: 1;</p>
+<p>}</p>
+
+<p>cite {</p>
+<p>  display: block;</p>
+<p>  margin-top: 15px;</p>
+<p>  color: #6b7280;</p>
+<p>  font-style: normal;</p>
+<p>  font-weight: bold;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A quote card with a large, subtle blue decorative quotation mark (<code>“</code>) positioned automatically behind the blockquote text using <code>::before</code>, without any extra quote tags in HTML!</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Highlight paragraph text on your page with your mouse to observe the custom <code>::selection</code> background color!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>content: ""</code>:</strong> <code>::before</code> and <code>::after</code> remain completely invisible if <code>content</code> is missing.</li></p>
+<p>  <li><strong>Using single colon <code>:</code>:</strong> While older browsers tolerated <code>:before</code>, modern CSS specifications require double colons <code>::before</code> and <code>::after</code> to distinguish pseudo-elements from pseudo-classes.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Pseudo-elements power CSS-only icons, custom checkboxes/radios, animated underline link effects, tooltip arrows, and decorative banner ribbon accents.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="24-pseudo-classes.html">Pseudo-classes</a></li></p>
+<p>  <li><a href="28-transitions.html">CSS Transitions</a></li></p>
+<p>  <li><a href="29-transforms.html">CSS Transforms (2D & 3D)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Pseudo-elements use double colons <code>::</code>.</li></p>
+<p>  <li><code>::before</code> and <code>::after</code> MANDATORILY require <code>content: ""</code>.</li></p>
+<p>  <li><code>::selection</code> styles text when highlighted by users.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="24-pseudo-classes.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="26-text-styling.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

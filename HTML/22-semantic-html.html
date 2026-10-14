@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 semantic html - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Semantic HTML (<code><header></code>, <code><nav></code>, <code><main></code>, <code><article></code>, etc.)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Semantic HTML</strong> means using HTML elements that clearly describe the structural meaning and role of their content to web browsers, search engines (SEO), developers, and assistive screen readers, rather than wrapping everything inside meaningless generic <code><div></code> containers.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Semantic tags (<code><header></code>, <code><nav></code>, <code><main></code>, <code><article></code>, <code><section></code>, <code><aside></code>, <code><footer></code>, <code><time></code>, <code><details></code>) describe their structural content role to search engines and screen readers.</p>
+
+<h3>Hindi</h3>
+<p>Semantic tags generic <code><div></code> ke bajaye page layout sections ko meaningful names dete hain (jaise <code><header></code>, <code><nav></code>, <code><main></code>, <code><article></code>, <code><footer></code>), jo SEO aur accessibility (a11y) ke liye essential hain.</p>
+
+<h3>Marathi</h3>
+<p>Semantic tags generic <code><div></code> peksha page layout sections na arthapurna nave detat, jyashamule SEO ani accessibility (a11y) changli hote.</p>
+
+<h2>🤔 Why Do We Use Semantic HTML?</h2>
+
+<p>1. <strong>Accessibility Landmarks:</strong> Screen reader users navigate pages by jumping directly between semantic landmarks (skipping straight to <code><main></code> or <code><nav></code>).</p>
+<p>2. <strong>SEO Optimization:</strong> Search engine crawlers prioritize content inside <code><article></code> and <code><main></code> over footers or sidebars.</p>
+<p>3. <strong>Code Maintainability:</strong> Developers can read <code><article></code> and <code><nav></code> instantly without deciphering unlabelled <code><div></code> soup.</p>
+
+<h2>🧱 Key Semantic Layout Tags Reference</h2>
+
+<table>
+<p>  <thead><tr><th>Semantic Tag</th><th>Structural Purpose & Role</th><th>Best Practice Rule</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code><header></code></strong></td><td>Introductory header block for a page or section (contains logo, site title, search bar, navigation).</td><td>Can appear at top of page or top of an <code><article></code>.</td></tr></p>
+<p>    <tr><td><strong><code><nav></code></strong></td><td>Major navigation link blocks.</td><td>Use for main site menus, table of contents, or pagination links.</td></tr></p>
+<p>    <tr><td><strong><code><main></code></strong></td><td>Unique central content of the webpage.</td><td><strong>Strict Rule: Only ONE <code><main></code> tag per HTML page.</strong></td></tr></p>
+<p>    <tr><td><strong><code><section></code></strong></td><td>Standalone thematic grouping of content, usually with its own heading.</td><td>Use for chapters, major feature sections, or tabbed panels.</td></tr></p>
+<p>    <tr><td><strong><code><article></code></strong></td><td>Self-contained, independently reusable content unit (blog post, news article, forum comment, product card).</td><td>Should make complete sense even if syndicated outside the site.</td></tr></p>
+<p>    <tr><td><strong><code><aside></code></strong></td><td>Tangentially related side content (sidebar links, author bio, related posts, ads).</td><td>Positioned alongside main content.</td></tr></p>
+<p>    <tr><td><strong><code><footer></code></strong></td><td>Footer block containing copyright notices, privacy policy links, or contact info.</td><td>Positioned at bottom of page or section.</td></tr></p>
+<p>    <tr><td><strong><code><time></code></strong></td><td>Machine-readable date/time stamp using <code>datetime="YYYY-MM-DD"</code>.</td><td>Helps search engines parse publication dates.</td></tr></p>
+<p>    <tr><td><strong><code><details></code> & <code><summary></code></strong></td><td>Native interactive collapsible widget (accordion/FAQ toggle).</td><td><code><summary></code> defines the clickable header phrase.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Tech Blog - Semantic Layout&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;!-- Site Header &amp; Main Navigation --&gt;</p>
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;Tech Insights Blog&lt;/h1&gt;</p>
+<p>    &lt;nav&gt;</p>
+<p>      &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt; |</p>
+<p>      &lt;a href=&quot;articles.html&quot;&gt;Articles&lt;/a&gt; |</p>
+<p>      &lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt;</p>
+<p>    &lt;/nav&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;!-- Unique Central Page Content --&gt;</p>
+<p>  &lt;main&gt;</p>
+
+<p>    &lt;!-- Self-Contained Blog Post Article --&gt;</p>
+<p>    &lt;article&gt;</p>
+<p>      &lt;header&gt;</p>
+<p>        &lt;h2&gt;Getting Started with Semantic HTML5&lt;/h2&gt;</p>
+<p>        &lt;p&gt;Published on &lt;time datetime=&quot;2026-09-24&quot;&gt;September 24, 2026&lt;/time&gt;&lt;/p&gt;</p>
+<p>      &lt;/header&gt;</p>
+
+<p>      &lt;section&gt;</p>
+<p>        &lt;h3&gt;Why Semantics Matter&lt;/h3&gt;</p>
+<p>        &lt;p&gt;Semantic markup provides meaning to search engines and screen readers alike.&lt;/p&gt;</p>
+<p>      &lt;/section&gt;</p>
+
+<p>      &lt;!-- Native Collapsible FAQ Section --&gt;</p>
+<p>      &lt;details&gt;</p>
+<p>        &lt;summary&gt;Click here for Frequently Asked Questions&lt;/summary&gt;</p>
+<p>        &lt;p&gt;Semantic HTML tags are block-level elements by default and require no extra JavaScript to expand.&lt;/p&gt;</p>
+<p>      &lt;/details&gt;</p>
+<p>    &lt;/article&gt;</p>
+
+<p>    &lt;!-- Related Sidebar --&gt;</p>
+<p>    &lt;aside&gt;</p>
+<p>      &lt;h3&gt;Related Topics&lt;/h3&gt;</p>
+<p>      &lt;ul&gt;</p>
+<p>        &lt;li&gt;&lt;a href=&quot;css-flexbox.html&quot;&gt;CSS Flexbox Guide&lt;/a&gt;&lt;/li&gt;</p>
+<p>        &lt;li&gt;&lt;a href=&quot;accessibility.html&quot;&gt;Web Accessibility 101&lt;/a&gt;&lt;/li&gt;</p>
+<p>      &lt;/ul&gt;</p>
+<p>    &lt;/aside&gt;</p>
+
+<p>  &lt;/main&gt;</p>
+
+<p>  &lt;!-- Page Footer --&gt;</p>
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;&amp;copy; 2026 Tech Insights Blog. All rights reserved.&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A structured blog layout featuring a site header, navigation menu, main article post with publication date, native collapsible FAQ widget, related sidebar links, and a footer copyright bar.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Structure a personal blog layout using <code><header></code>, <code><nav></code>, <code><main></code>, <code><article></code>, <code><aside></code>, and <code><footer></code>.</p>
+<p>2. Add a <code><time datetime="YYYY-MM-DD"></code> publication timestamp inside the article.</p>
+<p>3. Add a native collapsible <code><details></code> and <code><summary></code> FAQ element.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using multiple <code><main></code> tags on a single page:</strong> Invalid HTML. Include exactly one <code><main></code> per document.</li></p>
+<p>  <li><strong>Using <code><section></code> without a heading:</strong> A <code><section></code> should almost always contain an <code><h2></code>–<code><h6></code> heading.</li></p>
+<p>  <li><strong>Assuming semantic HTML solves all accessibility needs:</strong> You still need proper form labels, keyboard focus, and high text contrast.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All modern websites and web applications use semantic HTML5 tags for clean architecture, SEO indexing, and screen reader accessibility.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-div-and-span.html">Div and Span</a></li></p>
+<p>  <li><a href="23-html5-features.html">Modern HTML5 Features</a></li></p>
+<p>  <li><a href="24-accessibility-basics.html">Accessibility Basics</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><main></code> = Unique primary page content (only ONE per page).</li></p>
+<p>  <li><code><article></code> = Self-contained post or card unit.</li></p>
+<p>  <li><code><header></code>, <code><nav></code>, <code><section></code>, <code><aside></code>, <code><footer></code> define page architecture.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="21-iframes.html">← Previous: Iframes</a> | <a href="./">HTML Home</a> | <a href="23-html5-features.html">Next: HTML5 Features →</a></p>
+
+
+
+  </div>
+</body>
+</html>

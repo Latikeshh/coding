@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>35 forms and inputs - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Styling Forms & Inputs</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Styling HTML form controls (<code><input></code>, <code><textarea></code>, <code><select></code>, <code><button></code>, <code><fieldset></code>) transforms browser default form elements into attractive, accessible, and responsive user interface controls using <code>padding</code>, <code>border-radius</code>, custom focus states (<code>:focus-visible</code>), and validation states (<code>:invalid</code>, <code>:disabled</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Style form controls using <code>box-sizing: border-box</code>, <code>padding</code>, <code>border-radius</code>, and custom focus rings (<code>:focus-visible</code>) for web accessibility.</p>
+
+<h3>Hindi</h3>
+<p>Form input fields ko style karne ke liye <code>box-sizing: border-box</code>, <code>padding</code>, <code>border-radius</code> ka use karein aur accessibility ke liye custom <code>:focus</code> outline dein.</p>
+
+<h3>Marathi</h3>
+<p>Input fields na <code>padding</code>, <code>border-radius</code> ani <code>:focus</code> state deun form aakarshak ani sahaj vaparnya-saraka banvava.</p>
+
+<h2>🤔 Why Do We Style Forms?</h2>
+
+<p>Default browser form inputs look dated and vary significantly between operating systems (Windows vs. iOS vs. Android). Custom CSS form styling establishes consistent brand aesthetics and improves usability by increasing touch target padding.</p>
+
+<h2>🧱 Key Form Styling Rules</h2>
+
+<p>1. <strong>Apply <code>box-sizing: border-box</code>:</strong> Ensures <code>width: 100%</code> inputs do not overflow parent form containers when padding is added.</p>
+<p>2. <strong>Increase Padding & Touch Targets:</strong> Set at least <code>10px</code>–<code>14px</code> padding inside text boxes so text doesn't touch border edges.</p>
+<p>3. <strong>Custom Accessible Focus States:</strong> Style <code>:focus-visible</code> to highlight active inputs when focused by keyboard <code>Tab</code> navigation.</p>
+<p>4. <strong>Style Placeholder Text:</strong> Use <code>::placeholder</code> to set subtle, readable contrast hint text.</p>
+
+<h2>📝 Syntax & Code Structure</h2>
+
+<pre><code class="language-css">/* Base Form Control Reset */
+<p>input[type=&quot;text&quot;],</p>
+<p>input[type=&quot;email&quot;],</p>
+<p>input[type=&quot;password&quot;],</p>
+<p>select,</p>
+<p>textarea {</p>
+<p>  width: 100%;</p>
+<p>  padding: 12px 16px;</p>
+<p>  border: 1px solid #d1d5db;</p>
+<p>  border-radius: 6px;</p>
+<p>  font-family: inherit;</p>
+<p>  font-size: 1rem;</p>
+<p>  background-color: #ffffff;</p>
+<p>  transition: border-color 0.2s ease, box-shadow 0.2s ease;</p>
+<p>}</p>
+
+<p>/* Custom Accessible Focus Ring */</p>
+<p>input:focus-visible,</p>
+<p>select:focus-visible,</p>
+<p>textarea:focus-visible {</p>
+<p>  outline: none;</p>
+<p>  border-color: #2563eb;</p>
+<p>  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);</p>
+<p>}</p>
+
+<p>/* Custom Placeholder Color */</p>
+<p>input::placeholder,</p>
+<p>textarea::placeholder {</p>
+<p>  color: #9ca3af;</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Styling Forms Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;form-card&quot;&gt;</p>
+<p>    &lt;h2&gt;Contact Us&lt;/h2&gt;</p>
+<p>    &lt;form action=&quot;#&quot; method=&quot;POST&quot;&gt;</p>
+
+<p>      &lt;div class=&quot;form-group&quot;&gt;</p>
+<p>        &lt;label for=&quot;name&quot;&gt;Full Name&lt;/label&gt;</p>
+<p>        &lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;Alex Kumar&quot; required&gt;</p>
+<p>      &lt;/div&gt;</p>
+
+<p>      &lt;div class=&quot;form-group&quot;&gt;</p>
+<p>        &lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;</p>
+<p>        &lt;input id=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;alex@example.com&quot; required&gt;</p>
+<p>      &lt;/div&gt;</p>
+
+<p>      &lt;div class=&quot;form-group&quot;&gt;</p>
+<p>        &lt;label for=&quot;subject&quot;&gt;Inquiry Subject&lt;/label&gt;</p>
+<p>        &lt;select id=&quot;subject&quot;&gt;</p>
+<p>          &lt;option value=&quot;general&quot;&gt;General Inquiry&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;support&quot;&gt;Technical Support&lt;/option&gt;</p>
+<p>          &lt;option value=&quot;billing&quot;&gt;Billing Question&lt;/option&gt;</p>
+<p>        &lt;/select&gt;</p>
+<p>      &lt;/div&gt;</p>
+
+<p>      &lt;div class=&quot;form-group&quot;&gt;</p>
+<p>        &lt;label for=&quot;message&quot;&gt;Your Message&lt;/label&gt;</p>
+<p>        &lt;textarea id=&quot;message&quot; rows=&quot;4&quot; placeholder=&quot;How can we help you?&quot;&gt;&lt;/textarea&gt;</p>
+<p>      &lt;/div&gt;</p>
+
+<p>      &lt;button type=&quot;submit&quot; class=&quot;submit-btn&quot;&gt;Send Message&lt;/button&gt;</p>
+
+<p>    &lt;/form&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>*, *::before, *::after {</p>
+<p>  box-sizing: border-box;</p>
+<p>}</p>
+
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  padding: 30px;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>}</p>
+
+<p>.form-card {</p>
+<p>  background: white;</p>
+<p>  padding: 30px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 16px rgba(0,0,0,0.08);</p>
+<p>  width: 100%;</p>
+<p>  max-width: 450px;</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  margin-top: 0;</p>
+<p>  color: #111827;</p>
+<p>}</p>
+
+<p>.form-group {</p>
+<p>  margin-bottom: 20px;</p>
+<p>}</p>
+
+<p>label {</p>
+<p>  display: block;</p>
+<p>  font-weight: bold;</p>
+<p>  font-size: 14px;</p>
+<p>  color: #374151;</p>
+<p>  margin-bottom: 6px;</p>
+<p>}</p>
+
+<p>input[type=&quot;text&quot;],</p>
+<p>input[type=&quot;email&quot;],</p>
+<p>select,</p>
+<p>textarea {</p>
+<p>  width: 100%;</p>
+<p>  padding: 12px 14px;</p>
+<p>  border: 1px solid #d1d5db;</p>
+<p>  border-radius: 6px;</p>
+<p>  font-size: 15px;</p>
+<p>  color: #1f2937;</p>
+<p>  transition: border-color 0.2s, box-shadow 0.2s;</p>
+<p>}</p>
+
+<p>input:focus-visible,</p>
+<p>select:focus-visible,</p>
+<p>textarea:focus-visible {</p>
+<p>  outline: none;</p>
+<p>  border-color: #2563eb;</p>
+<p>  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);</p>
+<p>}</p>
+
+<p>.submit-btn {</p>
+<p>  width: 100%;</p>
+<p>  padding: 12px;</p>
+<p>  background-color: #2563eb;</p>
+<p>  color: white;</p>
+<p>  border: none;</p>
+<p>  border-radius: 6px;</p>
+<p>  font-size: 16px;</p>
+<p>  font-weight: bold;</p>
+<p>  cursor: pointer;</p>
+<p>  transition: background-color 0.2s;</p>
+<p>}</p>
+
+<p>.submit-btn:hover {</p>
+<p>  background-color: #1d4ed8;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A modern contact form with spacious text inputs, a dropdown select box, a message textarea, and interactive blue focus halo rings when input boxes are clicked or tabbed into.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Press the <code>Tab</code> key repeatedly in your browser to navigate through the form inputs and observe the glowing blue <code>:focus-visible</code> halo rings!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Removing focus outlines without replacement (<code>outline: none</code>):</strong> Prevents keyboard users from knowing which input box is currently active. Always provide a custom focus style (like <code>box-shadow</code> or <code>border-color</code>).</li></p>
+<p>  <li><strong>Forgetting <code>display: block</code> on <code><label></code>:</strong> Causes labels to sit awkwardly beside text boxes instead of stacking neatly above them.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>E-commerce checkout forms and login modals use custom CSS form styling, floating labels, and instant validation indicators (<code>:invalid</code>) to guide users smoothly.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="24-pseudo-classes.html">Pseudo-classes</a></li></p>
+<p>  <li><a href="25-pseudo-elements.html">Pseudo-elements</a></li></p>
+<p>  <li><a href="38-mini-projects.html">CSS Mini Projects</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Use <code>box-sizing: border-box</code> so inputs with <code>width: 100%</code> fit inside parent containers.</li></p>
+<p>  <li>Add comfortable inner <code>padding: 12px</code> to increase input touch target size.</li></p>
+<p>  <li>Always provide accessible <code>:focus-visible</code> halo rings for keyboard navigation.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="34-devtools.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="36-card-layout.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

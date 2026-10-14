@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lambda, Map, Filter, and Reduce - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Functional Programming: Lambda, Map, Filter, and Reduce</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Functional programming in Python involves using <strong>Lambda Expressions</strong> (anonymous inline single-expression functions) alongside higher-order built-in functional tools:</p>
+<ul>
+<p>  <li><strong><code>map()</code>:</strong> Applies a function transformation to every element in an iterable.</li></p>
+<p>  <li><strong><code>filter()</code>:</strong> Selects elements from an iterable that satisfy a boolean predicate condition.</li></p>
+<p>  <li><strong><code>functools.reduce()</code>:</strong> Repeatedly applies a binary function to aggregate a sequence into a single cumulative value.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Lambda anonymous single-line functions hote hain: <code>lambda args: expression</code>. Data list ko transform karne ke liye <code>map()</code>, condition ke aadhar par filter karne ke liye <code>filter()</code>, aur single total value (jaise sum ya product) calculate karne ke liye <code>reduce()</code> ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Lambda mhanje ekach oolit lihilele anonymous function. Data rupantar sathi <code>map()</code>, gaalnyasathi (filter) <code>filter()</code>, aani eka value madhye combine karnyasathi <code>reduce()</code> vaparatat.</p>
+
+<h2>📝 1. Anonymous Lambda Functions (<code>lambda args: expr</code>)</h2>
+
+<p>Syntax: <code>lambda arg1, arg2: expression</code> (implicitly returns the expression result!).</p>
+
+<pre><code class="language-python"># Standard function
+<p>def square(x): return x <strong> 2</p>
+
+<h1>Equivalent Lambda function</h1>
+<p>square_lambda = lambda x: x </strong> 2</p>
+<p>print(square_lambda(5)) # 25</code></pre></p>
+
+<h2>📝 2. <code>map()</code>, <code>filter()</code>, and <code>functools.reduce()</code></h2>
+
+<pre><code class="language-python">from functools import reduce
+
+<p>numbers = [1, 2, 3, 4, 5, 6]</p>
+
+<h1>1. map(): Double each number -&gt; [2, 4, 6, 8, 10, 12]</h1>
+<p>doubled = list(map(lambda x: x * 2, numbers))</p>
+
+<h1>2. filter(): Keep only even numbers -&gt; [2, 4, 6]</h1>
+<p>evens = list(filter(lambda x: x % 2 == 0, numbers))</p>
+
+<h1>3. reduce(): Accumulate sum of all numbers -&gt; 21</h1>
+<p>total_sum = reduce(lambda acc, num: acc + num, numbers, 0)</code></pre></p>
+
+<h2>🧠 Readability Comparison: Loops vs Comprehensions vs Map/Filter</h2>
+
+<blockquote><p>💡 <strong>Pythonic Readability Rule:</strong> In modern Python, <strong>List Comprehensions</strong> are usually preferred over <code>map()</code> and <code>filter()</code> because they are easier to read!</p></blockquote>
+
+<pre><code class="language-python"># List Comprehension (Preferred for readability in Python!)
+<p>doubled_comp = [x * 2 for x in numbers if x % 2 == 0]</p>
+
+<h1>Equivalent map() + filter()</h1>
+<p>doubled_map = list(map(lambda x: x * 2, filter(lambda x: x % 2 == 0, numbers)))</code></pre></p>
+
+<h2>💡 Complete Example: E-Commerce Product Data Processing</h2>
+
+<pre><code class="language-python">from functools import reduce
+
+<h1>Product Dataset</h1>
+<p>products = [</p>
+<p>    {&quot;name&quot;: &quot;Gaming Laptop&quot;, &quot;price&quot;: 75000.00, &quot;category&quot;: &quot;Tech&quot;},</p>
+<p>    {&quot;name&quot;: &quot;Wireless Mouse&quot;, &quot;price&quot;: 1200.00, &quot;category&quot;: &quot;Tech&quot;},</p>
+<p>    {&quot;name&quot;: &quot;Coffee Mug&quot;, &quot;price&quot;: 350.00, &quot;category&quot;: &quot;Home&quot;},</p>
+<p>    {&quot;name&quot;: &quot;Mechanical Keyboard&quot;, &quot;price&quot;: 4500.00, &quot;category&quot;: &quot;Tech&quot;}</p>
+<p>]</p>
+
+<p>print(&quot;=== FUNCTIONAL DATA PROCESSING PIPELINE ===&quot;)</p>
+
+<h1>1. filter(): Get Tech category products</h1>
+<p>tech_products = list(filter(lambda p: p[&quot;category&quot;] == &quot;Tech&quot;, products))</p>
+
+<h1>2. map(): Extract prices of Tech products</h1>
+<p>tech_prices = list(map(lambda p: p[&quot;price&quot;], tech_products))</p>
+
+<h1>3. reduce(): Calculate total value of Tech inventory</h1>
+<p>total_tech_value = reduce(lambda acc, price: acc + price, tech_prices, 0.0)</p>
+
+<p>print(f&quot;Filtered Tech Products Count : {len(tech_products)}&quot;)</p>
+<p>print(f&quot;Tech Prices List             : {tech_prices}&quot;)</p>
+<p>print(f&quot;Total Tech Inventory Value   : ₹{total_tech_value:.2f}&quot;)</p>
+
+<h1>Sorting with Lambda Key</h1>
+<p>sorted_by_price = sorted(products, key=lambda p: p[&quot;price&quot;], reverse=True)</p>
+<p>print(&quot;\nHighest Price First:&quot;, sorted_by_price[0][&quot;name&quot;])</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== FUNCTIONAL DATA PROCESSING PIPELINE ===
+<p>Filtered Tech Products Count : 3</p>
+<p>Tech Prices List             : [75000.0, 1200.0, 4500.0]</p>
+<p>Total Tech Inventory Value   : ₹80700.00</p>
+
+<p>Highest Price First: Gaming Laptop</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting that <code>map()</code> and <code>filter()</code> return <strong>lazy iterator objects</strong> in Python 3! You must pass them to <code>list()</code> or iterate over them to view elements!</li></p>
+<p>  <li>Using complex multi-statement lambdas (Lambdas in Python are strictly restricted to a <strong>single expression</strong>!).</li></p>
+<p>  <li>Over-using nested <code>map()</code> and <code>filter()</code> where a clean list comprehension or <code>for</code> loop is much easier to read.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always provide an explicit initial value parameter (e.g. <code>0</code> or <code>0.0</code>) as the 3rd argument to <code>functools.reduce()</code> to prevent a <code>TypeError</code> if the input sequence is empty.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data transformation in PySpark / Pandas pipelines, custom sorting keys in <code>sorted(key=lambda x: ...)</code> / <code>list.sort()</code>, and data aggregation.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Given <code>numbers = [5, 12, 8, 20, 15]</code>, use <code>filter()</code> to select numbers greater than <code>10</code>.</p>
+<p>2. Given a list of words <code>["apple", "banana", "kiwi"]</code>, use <code>sorted(words, key=lambda w: len(w))</code> to sort words by length.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that uses <code>reduce()</code> to find the maximum number in a list <code>[14, 82, 35, 91, 56]</code> without using the built-in <code>max()</code> function.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-list-comprehensions.html">List Comprehensions</a></li></p>
+<p>  <li><a href="21-decorators.html">Decorators</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="21-decorators.html">← Previous: Decorators</a> | <a href="23-regular-expressions.html">Next: Regular Expressions →</a></p>
+
+
+  </div>
+</body>
+</html>

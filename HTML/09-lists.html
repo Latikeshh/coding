@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 lists - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Lists (<code><ul></code>, <code><ol></code>, <code><dl></code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>HTML provides three types of list elements to group related items:</p>
+<p>1. <strong>Unordered Lists (<code><ul></code>):</strong> Bulleted list items where sequence order does not matter.</p>
+<p>2. <strong>Ordered Lists (<code><ol></code>):</strong> Numbered list items where sequence order is important (e.g., step-by-step instructions).</p>
+<p>3. <strong>Description Lists (<code><dl></code>):</strong> Term-definition pairs used for glossaries, metadata, or term definitions.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Use <code><ul></code> for bulleted lists, <code><ol></code> for numbered sequential steps, and <code><dl></code> for key-value terms (<code><dt></code> for term name, <code><dd></code> for term description).</p>
+
+<h3>Hindi</h3>
+<p>Bulleted lists ke liye <code><ul></code>, numbered steps ke liye <code><ol></code>, aur term-definition pairs ke liye <code><dl></code> (<code><dt></code> + <code><dd></code>) tag use hota hai. Har list item <code><li></code> tag mein likha jata hai.</p>
+
+<h3>Marathi</h3>
+<p>Bulleted list sathi <code><ul></code>, numbered sequential steps sathi <code><ol></code>, ani definition pairs sathi <code><dl></code> (<code><dt></code> + <code><dd></code>) vaprtat. Pratyek ghatak <code><li></code> madhye asto.</p>
+
+<h2>🤔 Why Do We Use Lists?</h2>
+
+<p>Lists organize related information into structured, easy-to-read bullet points or numbered steps. Screen readers announce list item counts to visually impaired users (e.g., "List of 4 items"), enhancing accessibility.</p>
+
+<h2>📐 List Types & Syntax</h2>
+
+<h3>1. Unordered Bulleted List (<code><ul></code>)</h3>
+<p>Used when item order is interchangeable:</p>
+<pre><code class="language-html">&lt;h2&gt;Grocery List&lt;/h2&gt;
+<p>&lt;ul&gt;</p>
+<p>  &lt;li&gt;Fresh milk&lt;/li&gt;</p>
+<p>  &lt;li&gt;Whole wheat bread&lt;/li&gt;</p>
+<p>  &lt;li&gt;Organic eggs&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</code></pre></p>
+
+<h3>2. Ordered Numbered List (<code><ol></code>)</h3>
+<p>Used when exact step order is required:</p>
+<pre><code class="language-html">&lt;h2&gt;How to Bake Pancakes&lt;/h2&gt;
+<p>&lt;ol&gt;</p>
+<p>  &lt;li&gt;Mix dry ingredients in a large bowl.&lt;/li&gt;</p>
+<p>  &lt;li&gt;Pour milk, egg, and melted butter into the mix.&lt;/li&gt;</p>
+<p>  &lt;li&gt;Cook on a hot skillet until golden brown.&lt;/li&gt;</p>
+<p>&lt;/ol&gt;</code></pre></p>
+
+<h3>3. Description List (<code><dl></code>)</h3>
+<p>Pairs a term name (<code><dt></code>) with its description (<code><dd></code>):</p>
+<pre><code class="language-html">&lt;h2&gt;Web Development Concepts&lt;/h2&gt;
+<p>&lt;dl&gt;</p>
+<p>  &lt;dt&gt;HTML&lt;/dt&gt;</p>
+<p>  &lt;dd&gt;HyperText Markup Language — structures web content.&lt;/dd&gt;</p>
+
+<p>  &lt;dt&gt;CSS&lt;/dt&gt;</p>
+<p>  &lt;dd&gt;Cascading Style Sheets — formats visual presentation and layout.&lt;/dd&gt;</p>
+<p>&lt;/dl&gt;</code></pre></p>
+
+<h2>🌲 Nested Lists Example</h2>
+
+<p>Lists can be nested inside one another to create multi-level navigation menus or detailed outlines:</p>
+
+<pre><code class="language-html">&lt;h2&gt;College Course Curriculum&lt;/h2&gt;
+<p>&lt;ul&gt;</p>
+<p>  &lt;li&gt;Frontend Web Development</p>
+<p>    &lt;ol&gt;</p>
+<p>      &lt;li&gt;HTML5 Document Structure&lt;/li&gt;</p>
+<p>      &lt;li&gt;CSS3 Flexbox and Grid&lt;/li&gt;</p>
+<p>      &lt;li&gt;JavaScript ES6 Fundamentals&lt;/li&gt;</p>
+<p>    &lt;/ol&gt;</p>
+<p>  &lt;/li&gt;</p>
+<p>  &lt;li&gt;Backend Development</p>
+<p>    &lt;ol&gt;</p>
+<p>      &lt;li&gt;Node.js &amp; Express&lt;/li&gt;</p>
+<p>      &lt;li&gt;Database Management&lt;/li&gt;</p>
+<p>    &lt;/ol&gt;</p>
+<p>  &lt;/li&gt;</p>
+<p>&lt;/ul&gt;</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Lists Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Web Developer Roadmap&lt;/h1&gt;</p>
+
+<p>  &lt;h2&gt;Core Technologies (Unordered List)&lt;/h2&gt;</p>
+<p>  &lt;ul&gt;</p>
+<p>    &lt;li&gt;HTML5&lt;/li&gt;</p>
+<p>    &lt;li&gt;CSS3&lt;/li&gt;</p>
+<p>    &lt;li&gt;JavaScript&lt;/li&gt;</p>
+<p>  &lt;/ul&gt;</p>
+
+<p>  &lt;h2&gt;Learning Steps (Ordered List)&lt;/h2&gt;</p>
+<p>  &lt;ol&gt;</p>
+<p>    &lt;li&gt;Master HTML structure and semantic tags.&lt;/li&gt;</p>
+<p>    &lt;li&gt;Style pages with modern CSS Flexbox and Grid.&lt;/li&gt;</p>
+<p>    &lt;li&gt;Add interactivity using JavaScript.&lt;/li&gt;</p>
+<p>  &lt;/ol&gt;</p>
+
+<p>  &lt;h2&gt;Glossary (Description List)&lt;/h2&gt;</p>
+<p>  &lt;dl&gt;</p>
+<p>    &lt;dt&gt;DOM&lt;/dt&gt;</p>
+<p>    &lt;dd&gt;Document Object Model — the tree structure of an HTML page.&lt;/dd&gt;</p>
+<p>  &lt;/dl&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>Core Technologies displayed as bullet points (<code>• HTML5</code>).</li></p>
+<p>  <li>Learning Steps displayed as numbered steps (<code>1. Master HTML...</code>).</li></p>
+<p>  <li>Glossary displayed with bold terms and indented descriptions.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an unordered list (<code><ul></code>) of 4 skills you want to learn.</p>
+<p>2. Create an ordered list (<code><ol></code>) of 3 steps in your morning routine.</p>
+<p>3. Create a description list (<code><dl></code>) defining 2 technical terms.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Placing non-<code><li></code> elements directly inside <code><ul></code> or <code><ol></code>:</strong> Writing <code><ul><p>Item</p></ul></code> is invalid HTML. Only <code><li></code> tags can be direct children of <code><ul></code> and <code><ol></code>.</li></p>
+<p>  <li><strong>Forgetting <code><dt></code> and <code><dd></code> inside <code><dl></code>:</strong> Placing raw text directly inside <code><dl></code> breaks accessibility.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Lists form the underlying structural foundation of navigation menus, article table of contents, recipe ingredients, checkout steps, and footer link sections.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="04-headings.html">Headings</a></li></p>
+<p>  <li><a href="10-tables.html">Tables</a></li></p>
+<p>  <li><a href="22-semantic-html.html">Semantic HTML</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><ul></code> = Unordered bullet points.</li></p>
+<p>  <li><code><ol></code> = Ordered numbers (1, 2, 3).</li></p>
+<p>  <li>Direct children of <code><ul></code> and <code><ol></code> MUST be <code><li></code> elements.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="08-images.html">← Previous: Images</a> | <a href="./">HTML Home</a> | <a href="10-tables.html">Next: Tables →</a></p>
+
+
+
+  </div>
+</body>
+</html>

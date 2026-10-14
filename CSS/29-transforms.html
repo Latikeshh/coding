@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>29 transforms - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>CSS Transforms (2D & 3D)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code>transform</code></strong> property applies 2D or 3D visual spatial modifications to an element—including <strong>translating</strong> (moving), <strong>scaling</strong> (resizing), <strong>rotating</strong> (turning), or <strong>skewing</strong> (slanting)—without affecting the surrounding document layout flow.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>transform</code> modifies elements (<code>translate</code>, <code>scale</code>, <code>rotate</code>, <code>skew</code>) efficiently using GPU acceleration without disturbing surrounding document layout flow.</p>
+
+<h3>Hindi</h3>
+<p><code>transform</code> se elements ko hilaaya (<code>translate</code>), bada/chhota (<code>scale</code>), ya ghumaaya (<code>rotate</code>) ja sakta hai. Ye bina layout ko bigaade element ki position badalta hai.</p>
+
+<h3>Marathi</h3>
+<p><code>transform</code> dware element phirvta (<code>rotate</code>), halvta (<code>translate</code>) kiwa motha-lahan (<code>scale</code>) karta yeto.</p>
+
+<h2>🤔 Why Are Transforms Better Than Changing Margins or Positions?</h2>
+
+<p>Modifying <code>margin-top</code> or <code>top</code> during hover animations forces the browser to recalculate element geometry across the entire page layout (<strong>Reflow</strong>).</p>
+
+<p>In contrast, <code>transform: translateY()</code> processes on the GPU compositor layer, running at a fluid 60 Frames Per Second (60 FPS) without triggering layout reflows!</p>
+
+<h2>📚 Transform Functions Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Transform Function</th><th>Purpose & Effect</th><th>Example Syntax</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>translate(x, y)</code></td><td>Moves element along X and Y axes</td><td><code>transform: translate(10px, -20px);</code></td></tr></p>
+<p>    <tr><td><code>translateX(x)</code> / <code>translateY(y)</code></td><td>Moves element along single horizontal or vertical axis</td><td><code>transform: translateY(-5px);</code></td></tr></p>
+<p>    <tr><td><code>scale(x, y)</code></td><td>Resizes element proportionally (<code>1</code> = 100%, <code>1.1</code> = 110%)</td><td><code>transform: scale(1.05);</code></td></tr></p>
+<p>    <tr><td><code>rotate(deg)</code></td><td>Rotates element clockwise or counter-clockwise</td><td><code>transform: rotate(45deg);</code></td></tr></p>
+<p>    <tr><td><code>skew(x, y)</code></td><td>Slants/distorts element along axes</td><td><code>transform: skewX(-10deg);</code></td></tr></p>
+<p>    <tr><td><code>perspective(px)</code></td><td>Sets 3D depth perspective</td><td><code>perspective: 1000px;</code></td></tr></p>
+<p>    <tr><td><code>rotateY(deg)</code></td><td>3D card flip rotation around Y axis</td><td><code>transform: rotateY(180deg);</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🔑 Perfect Absolute Centering Pattern using <code>translate(-50%, -50%)</code></h2>
+
+<p>Before Flexbox and Grid, <code>transform: translate(-50%, -50%)</code> was the standard method to center an <code>absolute</code> element perfectly:</p>
+
+<pre><code class="language-css">.modal {
+<p>  position: absolute;</p>
+<p>  top: 50%;</p>
+<p>  left: 50%;</p>
+<p>  transform: translate(-50%, -50%); /* Shifts element back by 50% of its own width/height */</p>
+<p>}</code></pre></p>
+
+<h2>💻 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;CSS Transforms Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;div class=&quot;icon-box&quot;&gt;★&lt;/div&gt;</p>
+<p>    &lt;h2&gt;Interactive Card&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Hover over this card to observe combined scaling and translation transforms.&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  min-height: 100vh;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  padding: 30px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  text-align: center;</p>
+<p>  width: 280px;</p>
+<p>  /* Smooth transition for transform properties */</p>
+<p>  transition: transform 0.3s ease, box-shadow 0.3s ease;</p>
+<p>}</p>
+
+<p>.icon-box {</p>
+<p>  display: inline-block;</p>
+<p>  font-size: 32px;</p>
+<p>  color: #3b82f6;</p>
+<p>  transition: transform 0.3s ease;</p>
+<p>}</p>
+
+<p>/* Hover State Transforms */</p>
+<p>.card:hover {</p>
+<p>  transform: translateY(-8px) scale(1.02); /* Lifts up 8px and expands 2% */</p>
+<p>  box-shadow: 0 12px 24px rgba(0,0,0,0.12);</p>
+<p>}</p>
+
+<p>.card:hover .icon-box {</p>
+<p>  transform: rotate(360deg); /* Full 360 rotation on hover */</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>When hovering over the card, the entire card smoothly lifts up <code>8px</code> and expands by <code>2%</code>, while the star icon inside executes a full <code>360deg</code> rotation animation.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Change <code>transform: rotate(360deg)</code> to <code>transform: rotate(-45deg) scale(1.3)</code>.</p>
+<p>2. Observe how multiple transform functions can be chained together in a single <code>transform</code> declaration line!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting that multiple transform functions must be chained in one line:</strong> Writing <code>transform: translateY(-5px); transform: scale(1.1);</code> causes the second line to overwrite the first line! Write <code>transform: translateY(-5px) scale(1.1);</code> instead.</li></p>
+<p>  <li><strong>Applying transforms to inline elements:</strong> Inline <code><span></code> elements ignore <code>transform</code>. Set <code>display: inline-block</code> or <code>display: block</code> first.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Transforms power smooth 60 FPS UI animations: 3D card flips, off-canvas mobile menu sliding, button click compression, and loading spinner rotations.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="28-transitions.html">CSS Transitions</a></li></p>
+<p>  <li><a href="30-animations.html">CSS Animations (<code>@keyframes</code>)</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Transforms run on the GPU compositor layer without forcing page layout reflows.</li></p>
+<p>  <li>Chain multiple transform functions on a single line: <code>transform: translateY(-5px) scale(1.05);</code>.</li></p>
+<p>  <li>Inline elements must be set to <code>inline-block</code> or <code>block</code> to accept <code>transform</code>.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="28-transitions.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="30-animations.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

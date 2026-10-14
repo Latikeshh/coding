@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 git diff and inspecting changes - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Inspecting Changes (<code>git diff</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code>git diff</code></strong> is the command used to inspect line-by-line changes made to files across your Working Directory, Staging Area, previous commits, or different branches, displaying additions, deletions, and modifications before committing.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git diff</code> compares file contents line-by-line. Running <code>git diff</code> without flags compares your Working Directory changes against the Staging Area. Running <code>git diff --staged</code> (or <code>--cached</code>) compares your Staging Area against the latest commit snapshot (<code>HEAD</code>).</p>
+
+<h3>Hindi</h3>
+<p><code>git diff</code> command aapke files ke line-by-line badlav (additions/deletions) dikhata hai. Bina flags ke <code>git diff</code> run karne par Working Directory aur Staging Area ke beech ka farak dikhta hai. Staged changes check karne ke liye <code>git diff --staged</code> run karein.</p>
+
+<h3>Marathi</h3>
+<p><code>git diff</code> mhanje don files madhil kiva commit madhil badal (changes) pahane. Terminal madhye hirvya (green) rangat navin lines (<code>+</code>) aani lal (red) rangat kadhlesha lines (<code>-</code>) distat. Staged files pahanyasathi <code>git diff --staged</code> vaparatat.</p>
+
+<h3>Hinglish</h3>
+<p>Commit karne se pehle kya-kya changes huye hain woh dekhne ke liye <code>git diff</code> use karo. Green lines (<code>+</code>) added code dikhati hain aur Red lines (<code>-</code>) deleted code. <code>git diff --staged</code> se aap Staging Area ka diff dekh sakte hain.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Reviewing diffs before staging or committing prevents accidental code deletions, unwanted debug <code>console.log()</code> statements, and formatting mistakes from polluting repository history.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of <code>git diff</code> like a Track Changes feature in Microsoft Word or Google Docs. It highlights newly inserted text in green (<code>+</code>) and removed text in red (<code>-</code>).</p>
+
+<h2>📝 Key <code>git diff</code> Commands & Modes</h2>
+
+<pre><code class="language-bash"># 1. Compare Working Directory vs Staging Area (Unstaged changes)
+<p>git diff</p>
+
+<h1>2. Compare Working Directory for a single specific file</h1>
+<p>git diff index.html</p>
+
+<h1>3. Compare Staging Area vs Last Commit HEAD (Staged changes)</h1>
+<p>git diff --staged</p>
+
+<h1>4. Compare two specific commits using their SHA hashes</h1>
+<p>git diff a1b2c3d f9e8d7c</p>
+
+<h1>5. Compare two branches (e.g. main vs feature branch)</h1>
+<p>git diff main feature-login</p>
+
+<h1>6. Show summary list of changed files only (without line diffs)</h1>
+<p>git diff --stat</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Inspecting code edits in terminal:</p>
+
+<pre><code class="language-bash"># 1. Edit index.html
+<p>echo &quot;&lt;h2&gt;Subheading Added&lt;/h2&gt;&quot; &gt;&gt; index.html</p>
+
+<h1>2. View unstaged diff</h1>
+<p>git diff</code></pre></p>
+
+<h2>🔍 Understanding Unified Diff Output Format</h2>
+
+<pre><code class="language-text">diff --git a/index.html b/index.html
+<p>index e69de29..b45c21f 100644</p>
+<p>--- a/index.html  &lt;-- Original file version in Staging/HEAD</p>
+<p>+++ b/index.html  &lt;-- New file version in Working Directory</p>
+<p>@@ -1,3 +1,4 @@  &lt;-- Line numbers chunk header (-1,3 lines changed to +1,4 lines)</p>
+<p> &lt;h1&gt;Welcome Page&lt;/h1&gt;</p>
+<p> &lt;p&gt;Original text&lt;/p&gt;</p>
+<p>+&lt;h2&gt;Subheading Added&lt;/h2&gt;  &lt;-- Line added (Green +)</code></pre></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-text">$ git diff
+<p>--- a/README.md</p>
+<p>+++ b/README.md</p>
+<p>@@ -1 +1,2 @@</p>
+<p> # My Practice Project</p>
+<p>+Author: Rahul Sharma</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Blank Output Confusion:</strong> Running <code>git diff</code> after executing <code>git add .</code> and seeing no output at all!</li></p>
+<p>  <li>*Reason:* Plain <code>git diff</code> ONLY compares Working Directory against Staging Area. Once files are staged, <code>git diff</code> returns empty.</li></p>
+<p>  <li>*Fix:* Use <code>git diff --staged</code> to view staged changes!</li></p>
+<p>  <li><strong>Panic in Diff Pager:</strong> Getting stuck in terminal view when diff output is long. Press <strong><code>q</code></strong> to exit.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always run <code>git diff</code> or <code>git diff --staged</code> before executing <code>git commit</code> to ensure your commit message accurately describes the staged changes.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Pull Requests on GitHub, GitLab, and Bitbucket use the <code>git diff</code> engine to present clean visual side-by-side code reviews to reviewers before merging code into main branches.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Modify <code>README.md</code> in your <code>git-practice</code> directory by adding a line at the bottom.</p>
+<p>2. Run <code>git diff</code> and observe the green <code>+</code> additions.</p>
+<p>3. Stage <code>README.md</code> with <code>git add README.md</code> and run <code>git diff</code>. Notice it is empty.</p>
+<p>4. Run <code>git diff --staged</code> and see your changes again.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Run <code>git diff --stat</code> on a modified file and note down how many insertions (<code>+</code>) and deletions (<code>-</code>) are summarized.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="07-viewing-history-and-git-log.html">Viewing History</a></li></p>
+<p>  <li><a href="10-undoing-changes-and-git-restore.html">Undoing Local Changes with Git Restore</a></li></p>
+<p>  <li><a href="14-handling-merge-conflicts.html">Handling Merge Conflicts</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="08-ignoring-files-with-gitignore.html">← Previous: Gitignore</a> | <a href="10-undoing-changes-and-git-restore.html">Next: Undoing Changes →</a></p>
+
+
+
+  </div>
+</body>
+</html>

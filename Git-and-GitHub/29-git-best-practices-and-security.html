@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>29 git best practices and security - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Security Best Practices & Secret Protection</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Git Security & Best Practices</strong> encompass engineering standards, credential protection, repository hygiene, atomic commit conventions, and access control rules designed to prevent secret leaks, security breaches, and corrupted repository histories.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Security is paramount in version control. Never commit secret API keys, database passwords, or private SSH keys to Git. Plain <code>git rm</code> deletes a file from the current commit but leaves the secret exposed in past Git history! Use <code>.gitignore</code>, pre-commit hooks, and tools like <code>git-filter-repo</code> or BFG Repo-Cleaner to strip leaked credentials from entire repository histories.</p>
+
+<h3>Hindi</h3>
+<p>Git mein kabhi bhi private API keys, database passwords, ya <code>.env</code> files commit na karein. Agar koi secret tiyari se commit ho jaye, toh sirf <code>git rm</code> karne se woh purani commit history se delete nahi hota! Purani history se secret completely erase karne ke liye <code>git-filter-repo</code> tool use kiya jata hai.</p>
+
+<h3>Marathi</h3>
+<p>Git madhye kadihi secret passwords, API keys, kiva <code>.env</code> files commit karu nayet. Plain <code>git rm</code> kelyane file fakt chaluk commit madhun jaate, pan maghil commit history madhye secret rahto. Secrets poorna pne kadhanyasathi <code>git-filter-repo</code> sarkhe tools vaparale jatat.</p>
+
+<h3>Hinglish</h3>
+<p>GitHub par public repo mein <code>.env</code> file push karne par automated bots seconds ke andar aapke API keys aur AWS credentials steal karke galat upyog kar sakte hain. Always add <code>.env</code> in <code>.gitignore</code>. Secrets scan karne ke liye pre-commit hooks aur GitHub Secret Scanning enable karein.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Automated hacker bots constantly scan public GitHub commits 24/7/365 for leaked AWS keys, Stripe tokens, and database passwords. A single leaked credential can lead to server hijacking or massive cloud billing bills.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of Git history like concrete cement:</p>
+<ul>
+<p>  <li>When you write code in your Working Directory, the cement is wet.</li></p>
+<p>  <li>When you execute <code>git commit</code>, the cement hardens into stone.</li></p>
+<p>  <li>Dropping a key into wet cement and trying to scratch it off the surface later (<code>git rm</code>) leaves the key encased inside the hard block forever! You must crush the block (<strong><code>git-filter-repo</code></strong>) to extract the key completely.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Top 7 Git Security Rules</h2>
+
+<h3>Rule 1: Never Commit Secret Credentials</h3>
+<p>Always place environment configuration files (<code>.env</code>, <code>.env.local</code>, <code>credentials.json</code>, <code>id_rsa</code>) inside <code>.gitignore</code> BEFORE making your first commit.</p>
+
+<h3>Rule 2: Plain <code>git rm</code> DOES NOT Delete Secrets from History</h3>
+<p>If you commit <code>.env</code> and later run <code>git rm .env && git commit</code>, the password remains readable in past commits (<code>git checkout HEAD~1</code>).</p>
+<ul>
+<p>  <li><strong>To scrub a leaked secret completely from all commits:</strong></li></p>
+<p></ul></p>
+<p>  <pre><code class="language-bash">  # Use official git-filter-repo tool</p>
+<p>  python3 -m pip install git-filter-repo</p>
+<p>  git filter-repo --invert-paths --path .env</p>
+<p>  ``<code></p>
+<ul>
+<p>  <li>Immediately <strong>revoke / rotate</strong> the leaked API key or password on your cloud provider!</li></p>
+<p></ul></p>
+
+<h3>Rule 3: Use Pre-Commit Hooks</h3>
+<p>Install pre-commit hooks (like </code>gitleaks<code> or </code>git-secrets<code>) that intercept </code>git commit<code> and scan staged files for API key regex patterns before allowing a commit:</p>
+<p></code></pre>bash</p>
+<h1>Install Gitleaks pre-commit scanner</h1>
+<p>gitleaks protect --staged</p>
+<pre><code class="language-text">
+<h3>Rule 4: Enforce GitHub Branch Protection Rules</h3>
+<p>In GitHub Repo Settings -&gt; <strong>Branches</strong> -&gt; Add Rule for </code>main<code>:</p>
+<ul>
+<p>  <li>[✔] Require a pull request before merging</li></p>
+<p>  <li>[✔] Require status checks to pass before merging</li></p>
+<p>  <li>[✔] Require signed commits (GPG/SSH signature)</li></p>
+<p>  <li>[✔] Do not allow force pushes</li></p>
+<p></ul></p>
+
+<h3>Rule 5: Commit Atomic Changes</h3>
+<p>Make small, focused commits addressing a single issue. Avoid dumping 20 modified files into a single </code>git commit -m &quot;fixed stuff&quot;<code> commit.</p>
+
+<h3>Rule 6: Write Professional Commit Messages</h3>
+<p>Follow the Imperative Mood standard:</p>
+<ul>
+<p>  <li>✅ </code>&quot;Fix navigation dropdown mobile overflow&quot;<code></li></p>
+<p>  <li>❌ </code>&quot;fixed navigation&quot;<code></li></p>
+<p></ul></p>
+
+<h3>Rule 7: Pull Before You Push</h3>
+<p>Always pull latest remote changes (</code>git pull --rebase<code>) before pushing to avoid non-fast-forward push rejections.</p>
+
+<h2>💡 Practical Security Checklist</h2>
+<p></code></pre>text</p>
+<p>[✔] Is .env listed in .gitignore?</p>
+<p>[✔] Are API tokens loaded via environment variables (process.env / os.environ)?</p>
+<p>[✔] Are commit messages clear and imperative?</p>
+<p>[✔] Are GitHub Branch Protection rules enabled for 'main'?</p>
+<p>[✔] Is GitHub Secret Scanning enabled in Repo Settings -> Security?</p>
+<p></code>`<code></p>
+
+<h2>⚠️ Emergency Leak Response Checklist</h2>
+
+<p>If you accidentally push a live private key or API token to GitHub:</p>
+
+<p>1. <strong>REVOKE / INVALIDATE THE KEY IMMEDIATELY</strong> on AWS, Stripe, or Google Cloud dashboard.</p>
+<p>2. Scrub the secret from Git history using </code>git-filter-repo<code>.</p>
+<p>3. Force push scrubbed history: </code>git push origin --force --all<code>.</p>
+<p>4. Notify your security or DevOps team.</p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>GitHub automatically sends email alerts and blocks commits when its built-in <strong>GitHub Secret Scanning</strong> detects known cloud API token formats.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Enterprise security teams run automated secret scanners (TruffleHog, Checkov, Snyk) in CI/CD pipelines to block PRs containing hardcoded passwords.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Verify that </code>.env<code> is listed inside your </code>.gitignore<code> file.</p>
+<p>2. Run </code>git status<code> and verify that </code>.env` is never listed under Untracked files.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Explain why revoking / invalidating a leaked API key on your cloud provider dashboard is the #1 required emergency step if a key is pushed to public GitHub.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-ignoring-files-with-gitignore.html">Ignoring Files with Gitignore</a></li></p>
+<p>  <li><a href="22-ssh-keys-and-github-authentication.html">SSH Keys & Authentication</a></li></p>
+<p>  <li><a href="26-github-actions-and-ci-cd-basics.html">GitHub Actions Basics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="28-git-workflows-gitflow-and-trunk-based.html">← Previous: Workflows</a> | <a href="30-practical-projects-and-workflows.html">Next: Capstone Projects →</a></p>
+
+
+
+  </div>
+</body>
+</html>

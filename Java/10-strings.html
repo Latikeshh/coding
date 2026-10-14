@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Strings in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong><code>String</code></strong> in Java is an immutable reference object that represents a sequence of UTF-16 code units (characters). Because String objects are <strong>immutable</strong>, any operation that appears to modify a String actually creates a brand-new String object in memory.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Java mein <code>String</code> <strong>Immutable</strong> (non-changeable) hota hai. String operations (jaise <code>.toUpperCase()</code> ya <code>.replace()</code>) purani string ko change karne ke bajaye nayi String return karte hain. Strings compare karne ke liye <code>==</code> ke bajaye hamesha <code>.equals()</code> ka use karein.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Java madhye <code>String</code> <strong>Immutable</strong> aste. String operations navin String object tayar kartat. Values compare karnyasathi <code>==</code> na vaparta <code>.equals()</code> vapara.</p>
+
+<h2>🧠 String Constant Pool (SCP) Mechanics</h2>
+
+<p>To optimize memory usage, Java maintains a special area inside heap memory called the <strong>String Constant Pool (SCP)</strong>.</p>
+
+<ul>
+<p>  <li>When you declare a string literal <code>String s1 = "Java";</code>, Java checks if <code>"Java"</code> exists in the SCP. If yes, it reuses the existing reference!</li></p>
+<p>  <li>When you use <code>new String("Java")</code>, Java explicitly creates a brand-new object in general Heap memory outside the SCP!</li></p>
+<p></ul></p>
+
+<pre><code class="language-java">String s1 = &quot;Java&quot;;
+<p>String s2 = &quot;Java&quot;;</p>
+<p>String s3 = new String(&quot;Java&quot;);</p>
+
+<p>System.out.println(s1 == s2); // true  (Points to same SCP memory location!)</p>
+<p>System.out.println(s1 == s3); // false (s3 is a separate object in Heap!)</p>
+<p>System.out.println(s1.equals(s3)); // true (Compares actual character content!)</code></pre></p>
+
+<pre><code class="language-text">HEAP MEMORY
+<p>+--------------------------------------------+</p>
+
+<table>
+<p>  <thead><tr><th>s3 -------&gt; [ Object: &quot;Java&quot; ]</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td></td></tr></p>
+<p>    <tr><td>STRING CONSTANT POOL (SCP)</td></tr></p>
+<p>    <tr><td>s1 -------&gt; [ &quot;Java&quot; ] &lt;------- s2</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------------------------------------+</code></pre></p>
+
+<h2>📝 Essential <code>String</code> Methods</h2>
+
+<table>
+<p>  <thead><tr><th>Method</th><th>What It Does</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>.length()</code></td><td>Returns number of characters</td></tr></p>
+<p>    <tr><td><code>.charAt(index)</code></td><td>Returns character at specific zero-based index</td></tr></p>
+<p>    <tr><td><code>.substring(begin, end)</code></td><td>Returns extracted portion (end index excluded)</td></tr></p>
+<p>    <tr><td><code>.equals(other)</code></td><td>Compares character content for exact equality</td></tr></p>
+<p>    <tr><td><code>.equalsIgnoreCase(other)</code></td><td>Compares content ignoring uppercase/lowercase</td></tr></p>
+<p>    <tr><td><code>.contains(seq)</code></td><td>Checks if string contains substring (<code>true</code>/<code>false</code>)</td></tr></p>
+<p>    <tr><td><code>.startsWith(prefix)</code> / <code>.endsWith(suffix)</code></td><td>Checks prefix or suffix</td></tr></p>
+<p>    <tr><td><code>.replace(old, new)</code></td><td>Replaces character or sequence</td></tr></p>
+<p>    <tr><td><code>.strip()</code> / <code>.trim()</code></td><td>Removes leading and trailing whitespace</td></tr></p>
+<p>    <tr><td><code>.split(regex)</code></td><td>Splits string into array by delimiter</td></tr></p>
+<p>    <tr><td><code>String.join(delim, arr)</code></td><td>Joins array elements into single string</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 <code>String</code> vs <code>StringBuilder</code> vs <code>StringBuffer</code></h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th><code>String</code></th><th><code>StringBuilder</code></th><th><code>StringBuffer</code></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Mutability</td><td>❌ Immutable</td><td>✅ Mutable</td><td>✅ Immutable/Mutable</td></tr></p>
+<p>    <tr><td>Thread Safety</td><td>✅ Thread-safe</td><td>❌ Not Thread-safe</td><td>✅ Thread-safe (<code>synchronized</code>)</td></tr></p>
+<p>    <tr><td>Performance</td><td>Slower for loops</td><td>🚀 Fastest</td><td>Moderate</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<pre><code class="language-java">// Fast string manipulation inside heavy loops
+<p>StringBuilder sb = new StringBuilder(&quot;Hello&quot;);</p>
+<p>sb.append(&quot; &quot;);</p>
+<p>sb.append(&quot;World!&quot;);</p>
+<p>String result = sb.toString(); // &quot;Hello World!&quot;</code></pre></p>
+
+<h2>📝 Modern Java 15+ Text Blocks (<code>"""..."""</code>)</h2>
+
+<p>Multi-line strings without ugly string concatenation or <code>\n</code> escape characters:</p>
+
+<pre><code class="language-java">String jsonQuery = &quot;&quot;&quot;
+<p>    {</p>
+<p>      &quot;name&quot;: &quot;Aarav&quot;,</p>
+<p>      &quot;role&quot;: &quot;Developer&quot;,</p>
+<p>      &quot;status&quot;: &quot;Active&quot;</p>
+<p>    }</p>
+<p>    &quot;&quot;&quot;;</code></pre></p>
+
+<h2>💡 Complete Example: Text Processing & Sanitization</h2>
+
+<pre><code class="language-java">public class TextProcessor {
+<p>    public static void main(String[] args) {</p>
+<p>        String rawInput = &quot;  user_name: Rahul Verma , role: Developer  &quot;;</p>
+
+<p>        // 1. Cleaning whitespace</p>
+<p>        String cleaned = rawInput.strip();</p>
+
+<p>        // 2. Splitting and processing</p>
+<p>        String[] attributes = cleaned.split(&quot;,&quot;);</p>
+<p>        StringBuilder formattedSummary = new StringBuilder(&quot;User Details:\n&quot;);</p>
+
+<p>        for (String attr : attributes) {</p>
+<p>            String[] keyVal = attr.split(&quot;:&quot;);</p>
+<p>            if (keyVal.length == 2) {</p>
+<p>                String key = keyVal[0].strip().toUpperCase();</p>
+<p>                String val = keyVal[1].strip();</p>
+<p>                formattedSummary.append(&quot; - &quot;).append(key).append(&quot; -&gt; &quot;).append(val).append(&quot;\n&quot;);</p>
+<p>            }</p>
+<p>        }</p>
+
+<p>        System.out.println(formattedSummary.toString());</p>
+
+<p>        // 3. String formatting</p>
+<p>        String formattedLine = String.format(&quot;Status Code: %d | Message: %s&quot;, 200, &quot;SUCCESS&quot;);</p>
+<p>        System.out.println(formattedLine);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">User Details:
+<ul>
+<p>  <li>USER_NAME -&gt; Rahul Verma</li></p>
+<p>  <li>ROLE -&gt; Developer</li></p>
+<p></ul></p>
+
+<p>Status Code: 200 | Message: SUCCESS</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using <code>==</code> instead of <code>.equals()</code> to compare String text content.</li></p>
+<p>  <li>Expecting string modification methods to mutate the original string in-place without capturing the returned new string (<code>str.toUpperCase();</code> does nothing to <code>str</code> unless assigned: <code>str = str.toUpperCase();</code>).</li></p>
+<p>  <li>Using String concatenation (<code>+</code>) inside large loops instead of <code>StringBuilder</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Use <code>.strip()</code> instead of <code>.trim()</code> in modern Java (Java 11+) because <code>.strip()</code> is Unicode-aware and correctly removes Unicode whitespace characters.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Parsing CSV files, formatting REST API JSON payloads, sanitizing user form inputs, logging application events, and constructing database queries.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create string <code>"  hello java programmer  "</code>. Clean its whitespace, convert it to uppercase, and check if it contains <code>"JAVA"</code>.</p>
+<p>2. Extract substring <code>"java"</code> from <code>"hello java programmer"</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes a sentence string and counts the total number of vowels (<code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>) present using a loop and <code>.charAt()</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-arrays.html">Arrays</a></li></p>
+<p>  <li><a href="11-collections.html">Collections</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="09-arrays.html">← Previous: Arrays</a> | <a href="11-collections.html">Next: Collections →</a></p>
+
+
+  </div>
+</body>
+</html>

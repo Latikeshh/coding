@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 video - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Video (<code><video></code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code><video></code></strong> element embeds playable video files (such as MP4 or WebM videos) directly into a webpage with native play, pause, volume, seek timeline, and fullscreen controls.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Embed videos using <code><video controls width="640"></code>. Use <code><track></code> elements for subtitles and captions, and specify <code>poster</code> for a custom thumbnail image.</p>
+
+<h3>Hindi</h3>
+<p>Web page par video render karne ke liye <code><video controls></code> tag use karein. Video thumbnail ke liye <code>poster</code> attribute aur captions ke liye <code><track></code> tag use hota hai.</p>
+
+<h3>Marathi</h3>
+<p>Web page var video dakhavnyasathi <code><video controls></code> tag vapra. Thumbnail sathi <code>poster</code> attribute ani captions sathi <code><track></code> tag vaprtat.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p><code><video></code> provides native, plugin-free video playback across desktop and mobile browsers. It supports custom poster thumbnails, subtitle captions for accessibility, and responsive sizing.</p>
+
+<h2>📐 Key Attributes of <code><video></code></h2>
+
+<ul>
+<p>  <li><strong><code>controls</code>:</strong> Displays native browser playback controls (Play/Pause, scrub timeline, volume slider, fullscreen toggle).</li></p>
+<p>  <li><strong><code>width</code> & <code>height</code>:</strong> Defines player container dimensions in pixels.</li></p>
+<p>  <li><strong><code>poster="thumbnail.jpg"</code>:</strong> Displays a preview thumbnail image before the user presses play.</li></p>
+<p>  <li><strong><code>autoplay</code>:</strong> Automatically starts playing video on page load (<strong>Requires <code>muted</code> in modern browsers</strong>).</li></p>
+<p>  <li><strong><code>muted</code>:</strong> Silences the video audio track by default.</li></p>
+<p>  <li><strong><code>loop</code>:</strong> Restarts video playback automatically when finished.</li></p>
+<p>  <li><strong><code>preload="auto|metadata|none"</code>:</strong> Controls video buffering behavior.</li></p>
+<p></ul></p>
+
+<h2>💬 Subtitles & Captions with <code><track></code></h2>
+
+<p>For accessibility and international audience support, wrap <code><track></code> elements inside <code><video></code> to supply WebVTT (<code>.vtt</code>) subtitle files:</p>
+
+<pre><code class="language-html">&lt;video controls width=&quot;640&quot; poster=&quot;images/thumbnail.jpg&quot;&gt;
+<p>  &lt;source src=&quot;media/tutorial.mp4&quot; type=&quot;video/mp4&quot;&gt;</p>
+<p>  &lt;source src=&quot;media/tutorial.webm&quot; type=&quot;video/webm&quot;&gt;</p>
+<p>  </p>
+<p>  &lt;!-- English Subtitles --&gt;</p>
+<p>  &lt;track src=&quot;subtitles/en.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;</p>
+<p>  &lt;!-- Hindi Subtitles --&gt;</p>
+<p>  &lt;track src=&quot;subtitles/hi.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;hi&quot; label=&quot;Hindi&quot;&gt;</p>
+
+<p>  Your browser does not support the video tag.</p>
+<p>&lt;/video&gt;</code></pre></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Video Tutorial Example&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;HTML5 Video Showcase&lt;/h1&gt;</p>
+
+<p>  &lt;figure&gt;</p>
+<p>    &lt;video controls width=&quot;560&quot; height=&quot;315&quot; poster=&quot;images/html-thumb.jpg&quot; preload=&quot;metadata&quot;&gt;</p>
+<p>      &lt;source src=&quot;media/intro-html.mp4&quot; type=&quot;video/mp4&quot;&gt;</p>
+<p>      &lt;source src=&quot;media/intro-html.webm&quot; type=&quot;video/webm&quot;&gt;</p>
+<p>      &lt;track src=&quot;captions/en.vtt&quot; kind=&quot;captions&quot; srclang=&quot;en&quot; label=&quot;English Captions&quot; default&gt;</p>
+<p>      Your browser does not support HTML5 video.</p>
+<p>    &lt;/video&gt;</p>
+<p>    &lt;figcaption&gt;Video 1: Introduction to HTML5 Web Development.&lt;/figcaption&gt;</p>
+<p>  &lt;/figure&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A responsive video player displaying a custom thumbnail image (<code>poster</code>) with native playback controls, volume slider, fullscreen toggle, and selectable English captions.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a video element with <code>controls</code>, <code>width="480"</code>, and a custom <code>poster</code> image.</p>
+<p>2. Add two <code><source></code> tags for MP4 and WebM formats.</p>
+<p>3. Add a <code><track></code> element for WebVTT subtitle captions.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Omitting <code>muted</code> on <code>autoplay</code> videos:</strong> Writing <code><video autoplay></code> without <code>muted</code> causes modern browsers to block video playback completely.</li></p>
+<p>  <li><strong>Forgetting explicit <code>width</code> and <code>height</code>:</strong> Causes layout jumping while video metadata downloads.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>E-learning portals, news websites, product landing pages, and portfolio sites use <code><video></code> with poster thumbnails and captions for accessible video streaming.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="19-audio.html">Audio</a></li></p>
+<p>  <li><a href="21-iframes.html">Iframes</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Always include <code>controls</code> attribute.</li></p>
+<p>  <li>Use <code>poster</code> for preview thumbnail images.</li></p>
+<p>  <li>Autoplay requires <code>muted</code> attribute in modern browsers.</li></p>
+<p>  <li>Use <code><track></code> for WebVTT subtitle captions.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="19-audio.html">← Previous: Audio</a> | <a href="./">HTML Home</a> | <a href="21-iframes.html">Next: Iframes →</a></p>
+
+
+
+  </div>
+</body>
+</html>

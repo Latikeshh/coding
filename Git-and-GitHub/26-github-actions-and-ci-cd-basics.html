@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26 github actions and ci cd basics - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>GitHub Actions & CI/CD Automation Basics</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>GitHub Actions</strong> is a built-in Continuous Integration and Continuous Deployment (CI/CD) platform that allows developers to automate software build, testing, linting, security scanning, and deployment pipelines directly inside GitHub repositories triggered by GitHub events (such as <code>push</code> or <code>pull_request</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>GitHub Actions automates workflow tasks using YAML workflow files stored inside <code>.github/workflows/</code>. Continuous Integration (CI) automatically runs automated tests whenever code is pushed or a Pull Request is opened. If tests pass, Continuous Deployment (CD) can automatically deploy the application to production servers.</p>
+
+<h3>Hindi</h3>
+<p>GitHub Actions aapke code ko automatically test, build, aur deploy karta hai. Project root mein <code>.github/workflows/ci.yml</code> file banakar aap rules set kar sakte hain. Jab bhi koi code <code>push</code> karta hai ya <code>Pull Request</code> kholta hai, GitHub runner automatic server par test suite execute karta hai.</p>
+
+<h3>Marathi</h3>
+<p>GitHub Actions dware code automatic test, build, aani deploy kele jato. <code>.github/workflows/</code> folder madhye YAML file tayar karun automated steps lihatat. Code push kelyavar GitHub server automatic testing chalavto.</p>
+
+<h3>Hinglish</h3>
+<p>CI/CD automation ke liye GitHub Actions use hota hai. Whenever anyone opens a PR, GitHub Actions automatically runner machine par project checkout karta hai, tests run karta hai, aur agar tests fail hote hain toh PR merge karne se block kar deta hai.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Relying on humans to manually remember to run test suites or deploy code before merging PRs inevitably leads to human error and broken production deployments. CI/CD automates quality control.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of GitHub Actions like an automated quality control inspection line in a car factory:</p>
+<ul>
+<p>  <li>Every time a car part (code change) moves down the conveyor belt (<strong>Push / PR</strong>), robotic arms (<strong>GitHub Runners</strong>) automatically inspect the part, run crash tests (<strong>Automated Tests</strong>), and paint the car (<strong>Deploy to Cloud</strong>).</li></p>
+<p>  <li>If a part fails testing, the robot stops the assembly line immediately (<strong>Blocks Merge</strong>)!</li></p>
+<p></ul></p>
+
+<h2>📝 Anatomy of a GitHub Actions YAML Workflow</h2>
+
+<p>Workflow configuration files MUST be saved inside <code>.github/workflows/</code> directory in YAML (<code>.yml</code>) format:</p>
+
+<p>``<code>yaml</p>
+<h1>.github/workflows/ci.yml</h1>
+<p>name: Continuous Integration Pipeline</p>
+
+<h1>1. Event Triggers (When to run this workflow)</h1>
+<p>on:</p>
+<p>  push:</p>
+<p>    branches: [ main ]</p>
+<p>  pull_request:</p>
+<p>    branches: [ main ]</p>
+
+<h1>2. Jobs execution definitions</h1>
+<p>jobs:</p>
+<p>  build-and-test:</p>
+<p>    runs-on: ubuntu-latest # Cloud virtual machine runner</p>
+
+<p>    steps:</p>
+<p>      # Step 1: Checkout repository code onto runner machine</p>
+<ul>
+<p>  <li>name: Checkout Repository Code</li></p>
+<p></ul></p>
+<p>        uses: actions/checkout@v4</p>
+
+<p>      # Step 2: Set up Node.js runtime environment</p>
+<ul>
+<p>  <li>name: Set up Node.js Environment</li></p>
+<p></ul></p>
+<p>        uses: actions/setup-node@v4</p>
+<p>        with:</p>
+<p>          node-version: '20'</p>
+
+<p>      # Step 3: Install dependencies and run tests</p>
+<ul>
+<p>  <li>name: Install Dependencies</li></p>
+<p></ul></p>
+<p>        run: npm ci</p>
+
+<ul>
+<p>  <li>name: Execute Automated Test Suite</li></p>
+<p></ul></p>
+<p>        run: npm test</p>
+<pre><code class="language-text">
+<h2>💡 Practical Example</h2>
+
+<p>Here is a simple HTML validator workflow verifying that HTML files are error-free on every push:</p>
+<p></code></pre>yaml</p>
+<h1>.github/workflows/html-check.yml</h1>
+<p>name: Validate HTML Markup</p>
+
+<p>on: [push, pull_request]</p>
+
+<p>jobs:</p>
+<p>  validate:</p>
+<p>    runs-on: ubuntu-latest</p>
+<p>    steps:</p>
+<ul>
+<p>  <li>uses: actions/checkout@v4</li></p>
+<p>  <li>name: Check HTML Files</li></p>
+<p></ul></p>
+<p>        run: |</p>
+<p>          echo "Running automated HTML syntax verification..."</p>
+<p>          test -f index.html && echo "index.html exists!"</p>
+<pre><code class="language-text">
+<h2>🔍 Key YAML Terms Explained</h2>
+
+<ul>
+<p>  <li><strong></code>on:<code></strong>: Specifies trigger events (</code>push<code>, </code>pull_request<code>, </code>schedule<code>, </code>workflow_dispatch<code>).</li></p>
+<p>  <li><strong></code>runs-on: ubuntu-latest<code></strong>: Specifies the virtual machine operating system hosted by GitHub (Ubuntu, Windows Server, or macOS).</li></p>
+<p>  <li><strong></code>uses:<code></strong>: Imports reusable pre-built action modules from the GitHub Actions Marketplace (e.g. </code>actions/checkout@v4<code>).</li></p>
+<p>  <li><strong></code>run:<code></strong>: Executes shell terminal commands directly on the runner machine.</li></p>
+<p></ul></p>
+
+<h2>👀 GitHub Actions Execution UI</h2>
+<p></code></pre>text</p>
+<p>Actions / Workflows / Continuous Integration Pipeline</p>
+<p>✔ Checkout Repository Code (2s)</p>
+<p>✔ Set up Node.js Environment (3s)</p>
+<p>✔ Install Dependencies (12s)</p>
+<p>✔ Execute Automated Test Suite (5s)</p>
+<p>Status: All checks passed! [Green Checkmark]</p>
+<p></code>`<code></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Wrong File Location:</strong> Placing workflow YAML files outside </code>.github/workflows/<code> (e.g. placing in </code>.github/workflow/<code> or project root). Git will ignore the workflows!</li></p>
+<p>  <li><strong>YAML Indentation Errors:</strong> YAML uses strict 2-space indentation. Using tabs or incorrect spacing syntax causes </code>Invalid YAML<code> parsing errors.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>GitHub provides free GitHub Actions runner minutes for open-source public repositories.</li></p>
+<p>  <li>Secrets used in Actions (like AWS keys or SSH keys) must be stored safely in GitHub Settings -> <strong>Secrets and variables -> Actions</strong>, and referenced in YAML as </code>{% raw %}${{ secrets.AWS_ACCESS_KEY }}{% endraw %}<code>.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Companies use GitHub Actions to automatically run unit tests, check code style formatting, build mobile app binaries (</code>.apk<code>/</code>.ipa<code>), compile C/C++ projects, and deploy web applications to AWS, Azure, or Vercel.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Inside your </code>git-practice<code> repository, create directory structure </code>.github/workflows/<code>.</p>
+<p>2. Create a file named </code>.github/workflows/hello.yml<code>.</p>
+<p>3. Add a simple workflow:</p>
+<p>   </code>`<code>yaml</p>
+<p>   name: Hello World Workflow</p>
+<p>   on: [push]</p>
+<p>   jobs:</p>
+<p>     greet:</p>
+<p>       runs-on: ubuntu-latest</p>
+<p>       steps:</p>
+<ul>
+<p>  <li>run: echo "GitHub Actions is working!"</li></p>
+<p></ul></p>
+<p>   </code>`<code></p>
+<p>4. Commit and push to GitHub, then click the <strong>Actions</strong> tab on your GitHub repo page to view your live running workflow!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Edit </code>hello.yml<code> to add a second step that prints the current date and time using </code>run: date`. Push and inspect the updated workflow log output on GitHub.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-introduction-to-github.html">Introduction to GitHub</a></li></p>
+<p>  <li><a href="24-github-pages-and-hosting.html">Free Hosting with GitHub Pages</a></li></p>
+<p>  <li><a href="29-git-best-practices-and-security.html">Security Best Practices</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="25-git-tags-and-releases.html">← Previous: Tags & Releases</a> | <a href="27-git-aliases-and-shortcuts.html">Next: Git Aliases & Shortcuts →</a></p>
+
+
+
+  </div>
+</body>
+</html>

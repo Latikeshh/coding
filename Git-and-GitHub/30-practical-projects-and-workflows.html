@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30 practical projects and workflows - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Practical Team Workflows & Capstone Projects</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>This capstone lesson combines all Git and GitHub concepts — initialization, staging, atomic committing, <code>.gitignore</code>, branching, merging, merge conflict resolution, remotes, SSH authentication, GitHub Pages hosting, and GitHub Actions CI/CD — into end-to-end practical workflows simulating real-world software engineering practice.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>This lesson provides practical hands-on workflows simulating real-world developer tasks. By completing these 3 progressive capstone projects (Beginner: Personal web project publishing, Intermediate: Branching, conflict resolution, and GitHub Pages deployment, Advanced: Complete open-source contribution workflow with CI/CD and Pull Requests), you solidify end-to-end Git and GitHub engineering mastery.</p>
+
+<h3>Hindi</h3>
+<p>Yeh capstone lesson aapko real-world software companies ke workflows sikhata hai. Teen practical projects (Beginner: Personal project GitHub par push karna, Intermediate: Branching, conflict resolve karna aur GitHub Pages par site live karna, Advanced: Open-source contribution, PR, aur GitHub Actions CI/CD pipeline) se aapka Git confidence strong hoga.</p>
+
+<h3>Marathi</h3>
+<p>Ha capstone lesson kharya software industry madhye vaparale jaanare workflows dakhvato. Teen practical projects dware (Beginner, Intermediate, Advanced) Git aani GitHub chya sarv commands chi bhari practice hote.</p>
+
+<h3>Hinglish</h3>
+<p>Theories padhne ke baad real workflow practice zaroori hai. In 3 capstone projects ko apne terminal par execute karke aap end-to-end Git and GitHub mastery achieve kar sakte hain.</p>
+
+<p>---</p>
+
+<h2>🟢 WORKFLOW 1 (Beginner): Initializing & Publishing a Web Project</h2>
+
+<h3>🎯 Goal</h3>
+<p>Create a local web portfolio project, configure identity, ignore build/secret files, initialize Git, make clean atomic commits, and push to GitHub.</p>
+
+<h3>🧠 Skills Used</h3>
+<ul>
+<p>  <li><code>git config</code>, <code>git init</code>, <code>git add</code>, <code>git commit</code>, <code>.gitignore</code>, <code>git remote</code>, <code>git push -u</code></li></p>
+<p></ul></p>
+
+<h3>📝 Step-by-Step Execution Guide</h3>
+
+<pre><code class="language-bash"># 1. Create project directory
+<p>mkdir my-portfolio-app</p>
+<p>cd my-portfolio-app</p>
+
+<h1>2. Configure global author identity</h1>
+<p>git config --global user.name &quot;Your Name&quot;</p>
+<p>git config --global user.email &quot;your.email@example.com&quot;</p>
+<p>git config --global init.defaultBranch main</p>
+
+<h1>3. Initialize Git repository</h1>
+<p>git init</p>
+
+<h1>4. Create files and .gitignore</h1>
+<p>echo &quot;# My Web Portfolio&quot; &gt; README.md</p>
+<p>echo &quot;&lt;h1&gt;Developer Portfolio&lt;/h1&gt;&quot; &gt; index.html</p>
+<p>echo &quot;body { font-family: sans-serif; }&quot; &gt; style.css</p>
+<p>echo &quot;.env&quot; &gt; .gitignore</p>
+<p>echo &quot;*.log&quot; &gt;&gt; .gitignore</p>
+
+<h1>5. Inspect status and stage files</h1>
+<p>git status</p>
+<p>git add .</p>
+
+<h1>6. Make initial atomic commit</h1>
+<p>git commit -m &quot;Initialize web portfolio structure and landing page&quot;</p>
+
+<h1>7. Create repository on GitHub web, add remote and push</h1>
+<p>git remote add origin https://github.com/your-username/my-portfolio-app.git</p>
+<p>git push -u origin main</code></pre></p>
+
+<p>---</p>
+
+<h2>🟡 WORKFLOW 2 (Intermediate): Branching, Conflict Resolution & GitHub Pages Deployment</h2>
+
+<h3>🎯 Goal</h3>
+<p>Develop a dark mode feature on an isolated branch, simulate and resolve a deliberate merge conflict against <code>main</code>, and publish the live site on GitHub Pages.</p>
+
+<h3>🧠 Skills Used</h3>
+<ul>
+<p>  <li><code>git switch -c</code>, <code>git merge</code>, Conflict Resolution, <code>git push</code>, GitHub Pages Hosting</li></p>
+<p></ul></p>
+
+<h3>📝 Step-by-Step Execution Guide</h3>
+
+<pre><code class="language-bash"># 1. Ensure you are on main and create feature branch
+<p>git switch main</p>
+<p>git switch -c feature-dark-theme</p>
+
+<h1>2. Make feature edits on dark theme branch</h1>
+<p>echo &quot;body { background-color: #121212; color: #fff; }&quot; &gt;&gt; style.css</p>
+<p>git commit -am &quot;Implement dark mode stylesheet rules&quot;</p>
+
+<h1>3. Meanwhile, simulate a conflicting edit on main branch!</h1>
+<p>git switch main</p>
+<p>echo &quot;body { background-color: #f4f4f4; color: #333; }&quot; &gt;&gt; style.css</p>
+<p>git commit -am &quot;Update light theme background color&quot;</p>
+
+<h1>4. Merge feature branch into main to trigger conflict</h1>
+<p>git merge feature-dark-theme</p>
+<h1>Output: CONFLICT (content): Merge conflict in style.css</h1>
+
+<h1>5. Open style.css in VS Code, choose dark theme rules, and remove conflict markers</h1>
+<h1>Save style.css, then stage and finalize merge</h1>
+<p>git add style.css</p>
+<p>git commit -m &quot;Merge feature-dark-theme resolving CSS theme conflict&quot;</p>
+
+<h1>6. Push updated main to GitHub</h1>
+<p>git push origin main</code></pre></p>
+
+<p>*Next Step:* Enable GitHub Pages in Repository <strong>Settings -> Pages</strong> (Branch: <code>main</code>, Folder: <code>/root</code>) to view your live website hosted online!</p>
+
+<p>---</p>
+
+<h2>🔴 WORKFLOW 3 (Advanced): Open-Source Contribution with PR, Magic Keywords & GitHub Actions CI</h2>
+
+<h3>🎯 Goal</h3>
+<p>Fork an open-source project, set up upstream tracking, create a feature branch, fix a bug, write an automated GitHub Actions CI workflow, and open a Pull Request with magic issue closing keywords.</p>
+
+<h3>🧠 Skills Used</h3>
+<ul>
+<p>  <li>Forking, <code>git clone</code>, <code>git remote add upstream</code>, <code>git switch -c</code>, GitHub Actions YAML, <code>git push</code>, PR Review, Magic Keywords (<code>Fixes #N</code>)</li></p>
+<p></ul></p>
+
+<h3>📝 Step-by-Step Execution Guide</h3>
+
+<pre><code class="language-bash"># 1. Fork target open-source repository on GitHub web interface
+<h1>2. Clone your personal fork locally</h1>
+<p>git clone https://github.com/your-username/open-source-project.git</p>
+<p>cd open-source-project</p>
+
+<h1>3. Add upstream link to original parent repository</h1>
+<p>git remote add upstream https://github.com/original-author/open-source-project.git</p>
+<p>git fetch upstream</p>
+
+<h1>4. Create feature branch</h1>
+<p>git switch -c fix-mobile-nav-bug</p>
+
+<h1>5. Fix code and create a GitHub Actions CI workflow file</h1>
+<p>mkdir -p .github/workflows</p>
+<p>cat &lt;&lt; &#39;EOF&#39; &gt; .github/workflows/ci.yml</p>
+<p>name: CI Test Pipeline</p>
+<p>on: [push, pull_request]</p>
+<p>jobs:</p>
+<p>  test:</p>
+<p>    runs-on: ubuntu-latest</p>
+<p>    steps:</p>
+<ul>
+<p>  <li>uses: actions/checkout@v4</li></p>
+<p>  <li>run: echo &quot;Automated CI verification passed!&quot;</li></p>
+<p></ul></p>
+<p>EOF</p>
+
+<h1>6. Commit changes with atomic commit message</h1>
+<p>git add .</p>
+<p>git commit -m &quot;Fix mobile navigation dropdown touch event (Fixes #42)&quot;</p>
+
+<h1>7. Push feature branch to YOUR fork on GitHub</h1>
+<p>git push -u origin fix-mobile-nav-bug</code></pre></p>
+
+<p>*Final Step:* Navigate to original upstream repository on GitHub web, click <strong>"Compare & pull request"</strong>, fill out PR description, and submit your Pull Request! Notice that GitHub Actions runs CI checks automatically, and <code>Fixes #42</code> links your PR directly to Issue #42.</p>
+
+<p>---</p>
+
+<h2>🧪 Graduation Checklist</h2>
+
+<p>If you can successfully complete all 3 capstone workflows, you possess complete proficiency in:</p>
+
+<ul>
+<p>  <li>[x] Local Git mechanics (<code>init</code>, <code>add</code>, <code>commit</code>, <code>log</code>, <code>status</code>, <code>diff</code>, <code>restore</code>, <code>reset</code>, <code>revert</code>)</li></p>
+<p>  <li>[x] Branching & Merging (<code>branch</code>, <code>switch</code>, <code>merge</code>, conflict resolution, <code>rebase</code>, <code>stash</code>)</li></p>
+<p>  <li>[x] Remote Collaboration (<code>remote</code>, <code>push</code>, <code>pull</code>, <code>fetch</code>, SSH keys, upstream tracking)</li></p>
+<p>  <li>[x] GitHub Ecosystem (Issues, PRs, Forking, Code Reviews, GitHub Pages, GitHub Actions CI/CD)</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Master Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="29-git-best-practices-and-security.html">← Previous: Security</a></p>
+
+
+
+  </div>
+</body>
+</html>

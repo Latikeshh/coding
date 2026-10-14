@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packages and Project Organization - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Packages and Project Organization in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Package:</strong> A namespace mechanism that groups related Java classes, interfaces, enums, and sub-packages together into organized directory structures, preventing class naming collisions.</li></p>
+<p>  <li><strong>Java Module System (Java 9+ JPMS):</strong> A higher-level modularity system (<code>module-info.java</code>) that explicitly declares module dependencies and exports public package APIs.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Packages Java files ko organized folders mein group karte hain aur name collisions ko rokte hain. Naming standard reverse domain format follow karta hai (<code>com.company.project</code>). Package components ko access karne ke liye <code>import</code> keyword ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Packages classes la organized directory madhye group kartat. Imports sathi <code>import</code> keyword vaparatat.</p>
+
+<h2>📝 1. Package Naming Standards</h2>
+
+<p>Reverse Internet Domain Format is industry standard:</p>
+
+<pre><code class="language-text">com.company.projectname.module
+<p>e.g., com.techcorp.ecommerce.payment</code></pre></p>
+
+<h2>📝 2. Types of Imports</h2>
+
+<pre><code class="language-java">// 1. Explicit Single Class Import (Best Practice)
+<p>import java.util.List;</p>
+<p>import java.util.ArrayList;</p>
+
+<p>// 2. Wildcard Package Import (Imports all public classes in package)</p>
+<p>import java.util.*;</p>
+
+<p>// 3. Static Import (Direct access to static members without class name qualifier)</p>
+<p>import static java.lang.Math.PI;</p>
+<p>import static java.lang.Math.sqrt;</p>
+
+<p>public class MathTest {</p>
+<p>    double radius = 5.0;</p>
+<p>    double area = PI * radius * radius; // Direct PI access via static import!</p>
+<p>}</code></pre></p>
+
+<h2>📝 3. Standard Maven / Gradle Directory Structure</h2>
+
+<p>Modern Java software projects adhere to standard build directory layouts:</p>
+
+<pre><code class="language-text">my-java-app/
+<p>├── pom.xml                                 # Maven Build Configuration</p>
+<p>├── src/</p>
+<p>│   ├── main/</p>
+<p>│   │   ├── java/                           # Java Source Code Root</p>
+<p>│   │   │   └── com/techcorp/app/</p>
+<p>│   │   │       ├── Main.java               # Application Entry Point</p>
+<p>│   │   │       ├── model/                  # Data Models / Entities / Records</p>
+<p>│   │   │       │   └── User.java</p>
+<p>│   │   │       ├── service/                # Business Logic Services</p>
+<p>│   │   │       │   └── UserService.java</p>
+<p>│   │   │       └── util/                   # Utility Classes</p>
+<p>│   │   │           └── PasswordHasher.java</p>
+<p>│   │   └── resources/                      # Properties, Configs, SQL scripts</p>
+<p>│   │       └── application.properties</p>
+<p>│   └── test/</p>
+<p>│       └── java/                           # JUnit Automated Test Files</p>
+<p>│           └── com/techcorp/app/</p>
+<p>│               └── UserServiceTest.java</code></pre></p>
+
+<h2>💡 Complete Example: Package Organization Across Files</h2>
+
+<h3>File 1: <code>com/techcorp/model/User.java</code></h3>
+<pre><code class="language-java">package com.techcorp.model;
+
+<p>public record User(int id, String name, String email) {}</code></pre></p>
+
+<h3>File 2: <code>com/techcorp/service/UserService.java</code></h3>
+<pre><code class="language-java">package com.techcorp.service;
+
+<p>import com.techcorp.model.User; // Importing User model from another package!</p>
+<p>import java.util.ArrayList;</p>
+<p>import java.util.List;</p>
+
+<p>public class UserService {</p>
+<p>    private final List&lt;User&gt; users = new ArrayList&lt;&gt;();</p>
+
+<p>    public void registerUser(User user) {</p>
+<p>        users.add(user);</p>
+<p>        System.out.println(&quot;User Registered Successfully : &quot; + user.name());</p>
+<p>    }</p>
+
+<p>    public List&lt;User&gt; getAllUsers() {</p>
+<p>        return List.copyOf(users);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h3>File 3: <code>com/techcorp/app/MainApp.java</code></h3>
+<pre><code class="language-java">package com.techcorp.app;
+
+<p>import com.techcorp.model.User;</p>
+<p>import com.techcorp.service.UserService;</p>
+
+<p>public class MainApp {</p>
+<p>    public static void main(String[] args) {</p>
+<p>        UserService userService = new UserService();</p>
+<p>        </p>
+<p>        User u1 = new User(101, &quot;Rahul Sharma&quot;, &quot;rahul@example.com&quot;);</p>
+<p>        User u2 = new User(102, &quot;Ananya Roy&quot;, &quot;ananya@example.com&quot;);</p>
+
+<p>        userService.registerUser(u1);</p>
+<p>        userService.registerUser(u2);</p>
+
+<p>        System.out.println(&quot;\nTotal Registered Users Count : &quot; + userService.getAllUsers().size());</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">User Registered Successfully : Rahul Sharma
+<p>User Registered Successfully : Ananya Roy</p>
+
+<p>Total Registered Users Count : 2</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Placing <code>package</code> statements anywhere other than the <strong>very first non-comment line</strong> in a <code>.java</code> file.</li></p>
+<p>  <li>Disagreement between the <code>package com.techcorp.app;</code> declaration and the actual OS directory folder path (<code>com/techcorp/app/</code>).</li></p>
+<p>  <li>Overusing wildcard imports (<code>import java.util.*;</code>) causing accidental class name ambiguities.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p><code>java.lang</code> package classes (<code>String</code>, <code>System</code>, <code>Integer</code>, <code>Math</code>, <code>Exception</code>) are <strong>automatically imported</strong> into every Java file by default without needing explicit <code>import</code> statements.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>All enterprise application architectures (Spring Boot microservices, Android libraries, backend REST APIs) rely on package hierarchies to divide code by responsibility (<code>controller</code>, <code>service</code>, <code>repository</code>, <code>entity</code>, <code>dto</code>, <code>config</code>).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a sub-package <code>com.myapp.model</code> containing a record <code>Product</code>.</p>
+<p>2. Create <code>com.myapp.app.Main</code> and import <code>Product</code> to instantiate it.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a static import statement for <code>java.util.Collections.sort</code> and use it directly inside a main method without qualifying <code>Collections.</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-classes-and-objects.html">Classes and Objects</a></li></p>
+<p>  <li><a href="24-build-tools-and-mini-projects.html">Build Tools and Mini Projects</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="18-exceptions-and-validation.html">← Previous: Exceptions</a> | <a href="20-file-input-and-output.html">Next: File Input and Output →</a></p>
+
+
+  </div>
+</body>
+</html>

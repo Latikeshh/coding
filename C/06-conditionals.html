@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 conditionals - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Conditionals in C</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Conditional statements (<code>if</code>, <code>else if</code>, <code>else</code>, <code>switch</code>) control the execution flow of a C program by executing specific code blocks based on whether logical expressions evaluate to <strong>true</strong> (non-zero) or <strong>false</strong> (<code>0</code>).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>C uses <code>if-else</code> branches and <code>switch</code> statements to make decisions. In C, any non-zero numeric value evaluates as <code>true</code>, while <code>0</code> evaluates as <code>false</code>. <code>switch</code> statements require <code>break</code> keywords to prevent accidental fallthrough to subsequent cases.</p>
+
+<h3>Hindi</h3>
+<p>C program decision-making ke liye <code>if</code>, <code>else if</code>, <code>else</code> aur <code>switch</code> statements ka use karta hai. C mein zero (<code>0</code>) ka matlab <code>false</code> hota hai aur koi bhi non-zero number (jaise <code>1</code>, <code>100</code>, <code>-5</code>) <code>true</code> hota hai. <code>switch</code> statement mein <code>break</code> na lagane par fallthrough ho jata hai.</p>
+
+<h3>Marathi</h3>
+<p>C madhye decision-making sathi <code>if</code>, <code>else if</code>, <code>else</code> aani <code>switch</code> statements vaparali jatat. C madhye <code>0</code> mhanje <code>false</code> aani <code>0</code> vyatirikta konta hi number <code>true</code> manla jato. <code>switch</code> madhye <code>break</code> naslyas tya nantarche cases sudha execute hotat.</p>
+
+<h3>Hinglish</h3>
+<p>Program execution flow control karne ke liye <code>if-else</code> aur <code>switch</code> use hota hai. Comparison ke liye <code>if (score == 100)</code> likhein, <code>=</code> assignment ke sath mix mat karein. Short-circuit evaluation se pehli condition fail hone par logical AND <code>&&</code> doosri condition evaluation skip kar deta hai.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Real-world software is dynamic. A banking app must check if a user has sufficient account balance before approving a withdrawal. An ATM must present choices based on user menu selections. Conditionals allow code to make decisions based on changing data.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of conditionals as road signs:</p>
+<ul>
+<p>  <li><code>if (weather == RAINY)</code>: Take an umbrella.</li></p>
+<p>  <li><code>else if (weather == SUNNY)</code>: Wear sunglasses.</li></p>
+<p>  <li><code>else</code>: Wear normal clothes.</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & Decision Structures</h2>
+
+<h3>1. <code>if - else if - else</code> Ladder</h3>
+<pre><code class="language-c">if (condition1) {
+<p>    // Executes if condition1 is non-zero (true)</p>
+<p>} else if (condition2) {</p>
+<p>    // Executes if condition1 is 0 AND condition2 is non-zero</p>
+<p>} else {</p>
+<p>    // Executes if all preceding conditions evaluate to 0 (false)</p>
+<p>}</code></pre></p>
+
+<h3>2. <code>switch</code> Statement</h3>
+<p><code>switch</code> compares an integer or <code>char</code> expression against constant <code>case</code> values:</p>
+<pre><code class="language-c">switch (expression) {
+<p>    case CONSTANT1:</p>
+<p>        // Statements</p>
+<p>        break; // Exits switch block</p>
+<p>    case CONSTANT2:</p>
+<p>        // Statements</p>
+<p>        break;</p>
+<p>    default:</p>
+<p>        // Executes if no cases match</p>
+<p>        break;</p>
+<p>}</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical student grading and academic standing system demonstrating both <code>if-else</code> ladders and <code>switch</code> menus:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>int main(void) {</p>
+<p>    int studentMarks = 84;</p>
+<p>    char gradeLetter;</p>
+
+<p>    // 1. Determining Grade using if - else if - else Ladder</p>
+<p>    if (studentMarks &gt;= 90) {</p>
+<p>        gradeLetter = &#39;A&#39;;</p>
+<p>    } else if (studentMarks &gt;= 75) {</p>
+<p>        gradeLetter = &#39;B&#39;;</p>
+<p>    } else if (studentMarks &gt;= 60) {</p>
+<p>        gradeLetter = &#39;C&#39;;</p>
+<p>    } else if (studentMarks &gt;= 40) {</p>
+<p>        gradeLetter = &#39;D&#39;;</p>
+<p>    } else {</p>
+<p>        gradeLetter = &#39;F&#39;;</p>
+<p>    }</p>
+
+<p>    printf(&quot;Student Score : %d / 100\n&quot;, studentMarks);</p>
+<p>    printf(&quot;Grade Assigned: %c\n\n&quot;, gradeLetter);</p>
+
+<p>    // 2. Performance Feedback using switch</p>
+<p>    printf(&quot;--- ACADEMIC FEEDBACK ---\n&quot;);</p>
+<p>    switch (gradeLetter) {</p>
+<p>        case &#39;A&#39;:</p>
+<p>            printf(&quot;Remark: Outstanding performance! Eligible for scholarship.\n&quot;);</p>
+<p>            break;</p>
+<p>        case &#39;B&#39;:</p>
+<p>            printf(&quot;Remark: Good performance. Keep up the consistent work.\n&quot;);</p>
+<p>            break;</p>
+<p>        case &#39;C&#39;:</p>
+<p>            printf(&quot;Remark: Satisfactory performance. Room for improvement.\n&quot;);</p>
+<p>            break;</p>
+<p>        case &#39;D&#39;:</p>
+<p>            printf(&quot;Remark: Marginal pass. Academic counseling recommended.\n&quot;);</p>
+<p>            break;</p>
+<p>        case &#39;F&#39;:</p>
+<p>            printf(&quot;Remark: Failed course. Re-examination required.\n&quot;);</p>
+<p>            break;</p>
+<p>        default:</p>
+<p>            printf(&quot;Remark: Invalid grade specified!\n&quot;);</p>
+<p>            break;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>if (studentMarks >= 90)</code>: Checks conditions sequentially. Once a condition evaluates to <code>1</code> (<code>true</code>), its block executes, and C skips all remaining <code>else if</code> and <code>else</code> branches.</li></p>
+<p>  <li><code>switch (gradeLetter)</code>: Evaluates the single character variable <code>gradeLetter</code>.</li></p>
+<p>  <li><code>break</code>: Essential inside each <code>case</code>. It terminates execution of the <code>switch</code> statement and jumps out to the next statement outside the switch block.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Student Score : 84 / 100
+<p>Grade Assigned: B</p>
+
+<p>--- ACADEMIC FEEDBACK ---</p>
+<p>Remark: Good performance. Keep up the consistent work.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Accidental Assignment in Condition:</strong> Writing <code>if (mark = 100)</code> assigns <code>100</code> to <code>mark</code>. Since <code>100</code> is non-zero, the condition is always <code>true</code>! Always use <code>==</code> for comparisons: <code>if (mark == 100)</code>.</li></p>
+<p>  <li><strong>Missing <code>break</code> in <code>switch</code> (Fallthrough):</strong> Forgetting <code>break</code> causes execution to "fall through" and execute subsequent case blocks even if their case labels do not match!</li></p>
+<p></ul></p>
+<p>  <pre><code class="language-c">  switch (code) {</p>
+<p>      case 1: printf(&quot;One\n&quot;); // Missing break!</p>
+<p>      case 2: printf(&quot;Two\n&quot;); // Executes both &quot;One&quot; and &quot;Two&quot; if code is 1!</p>
+<p>  }</p>
+<p>  ``<code></p>
+<ul>
+<p>  <li><strong>Float in </code>switch<code>:</strong> </code>switch<code> statements only accept integral values (</code>int<code>, </code>char<code>, </code>enum<code>). Floating-point numbers (</code>float<code>, </code>double<code>) cannot be used in a </code>switch<code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Short-Circuit Evaluation</h2>
+
+<p>C uses <strong>Short-Circuit Evaluation</strong> for logical operators:</p>
+<ul>
+<p>  <li>In </code>A &amp;&amp; B<code>: If </code>A<code> evaluates to </code>0<code> (</code>false<code>), C will <strong>not</strong> evaluate </code>B<code> at all, because the overall result is guaranteed to be </code>false<code>.</li></p>
+<p>  <li>In </code>A || B<code>: If </code>A<code> evaluates to non-zero (</code>true<code>), C will <strong>not</strong> evaluate </code>B<code> at all.</li></p>
+<p></ul></p>
+
+<p>*Example Safety Guard:*</code></pre>c</p>
+<p>if (ptr != NULL && *ptr == 10) { // Safe! If ptr is NULL, *ptr is never evaluated, preventing crash</p>
+<p>    printf("Valid match\n");</p>
+<p>}</p>
+<p></code>`<code></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Conditionals drive user authorization checks, operating system kernel interrupt handling, game engine state machines, network packet routing, and error recovery handlers.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a C program that takes a number and checks if it is <strong>Positive</strong>, <strong>Negative</strong>, or <strong>Zero</strong>.</p>
+<p>2. Also check if the number is <strong>Even</strong> or <strong>Odd</strong> using </code>% 2 == 0<code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a menu-driven ATM program using </code>switch<code>. Present 3 choices:</p>
+<p>1. Check Balance</p>
+<p>2. Deposit Money</p>
+<p>3. Withdraw Money</p>
+<p>Input the user's menu choice and execute the selected action using a starting balance of </code>$1000.00`.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-operators.html">Operators</a></li></p>
+<p>  <li><a href="07-loops.html">Loops</a></li></p>
+<p>  <li><a href="08-functions.html">Functions</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="05-operators.html">← Previous: Operators</a> | <a href="07-loops.html">Next: Loops →</a></p>
+
+
+
+  </div>
+</body>
+</html>

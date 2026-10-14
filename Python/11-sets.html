@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sets - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Sets in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Set</strong> in Python is an <strong>unordered, mutable collection of unique, hashable elements</strong> enclosed in curly braces <code>{}</code>. Sets automatically discard duplicate values and support high-performance $O(1)$ lookup operations and mathematical set theory operations (Union, Intersection, Difference).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Set unique values ka an unordered collection hota hai. Set mein duplicates automatic remove ho jaate hain (<code>{1, 2, 2, 3}</code> -> <code>{1, 2, 3}</code>). Set ka primary use fast membership testing (<code>item in set</code>) aur duplicates remove karne ke liye hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Set mhanje <strong>Unique</strong> items cha unordered collection. Set madhye duplicates nahi astat. Empty Set tayar karnyasathi <code>set()</code> vaparatat (<code>{}</code> mhanje empty Dictionary aste!).</p>
+
+<h2>📝 1. Set Creation & The Empty Set Trap</h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL SYNTAX TRAP:</strong> Writing <code>{}</code> creates an <strong>empty Dictionary</strong>, NOT a Set! To create an empty Set, you MUST call <code>set()</code>!</p></blockquote>
+
+<pre><code class="language-python"># Creates an empty Dictionary (NOT a set!)
+<p>empty_dict = {}     # type is dict</p>
+
+<h1>Creates an empty Set</h1>
+<p>empty_set = set()   # type is set</p>
+
+<h1>Direct Set Creation (Duplicates automatically discarded)</h1>
+<p>unique_ids = {101, 102, 101, 103, 102}</p>
+<p>print(unique_ids)   # {101, 102, 103}</code></pre></p>
+
+<h2>📝 2. Mathematical Set Operations</h2>
+
+<p>Python provides operator shortcuts and methods for mathematical set operations:</p>
+
+<pre><code class="language-python">a = {1, 2, 3, 4}
+<p>b = {3, 4, 5, 6}</p>
+
+<h1>Union (Combines all items from both sets)</h1>
+<p>print(a | b)              # {1, 2, 3, 4, 5, 6}</p>
+<p>print(a.union(b))</p>
+
+<h1>Intersection (Items present in BOTH sets)</h1>
+<p>print(a &amp; b)              # {3, 4}</p>
+<p>print(a.intersection(b))</p>
+
+<h1>Difference (Items in &#39;a&#39; but NOT in &#39;b&#39;)</h1>
+<p>print(a - b)              # {1, 2}</p>
+<p>print(a.difference(b))</p>
+
+<h1>Symmetric Difference (Items in either set, but NOT in both)</h1>
+<p>print(a ^ b)              # {1, 2, 5, 6}</code></pre></p>
+
+<h2>📝 3. Adding & Removing Set Items</h2>
+
+<ul>
+<p>  <li><code>.add(item)</code>: Adds a single item.</li></p>
+<p>  <li><code>.update(iterable)</code>: Adds multiple items from a list or set.</li></p>
+<p>  <li><code>.remove(item)</code>: Removes item; <strong>raises <code>KeyError</code> if item is missing!</strong></li></p>
+<p>  <li><code>.discard(item)</code>: Removes item safely; <strong>does NOT raise error if missing!</strong></li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: Customer Tag Analytics & Deduplication</h2>
+
+<pre><code class="language-python"># User Skill Set Analysis System
+
+<p>skills_applicant_a = {&quot;Python&quot;, &quot;SQL&quot;, &quot;Git&quot;, &quot;Docker&quot;}</p>
+<p>skills_applicant_b = {&quot;Python&quot;, &quot;Java&quot;, &quot;Linux&quot;, &quot;Git&quot;}</p>
+
+<p>print(&quot;=== APPLICANT SKILL COMPARISON ===&quot;)</p>
+<p>print(&quot;Applicant A Skills :&quot;, skills_applicant_a)</p>
+<p>print(&quot;Applicant B Skills :&quot;, skills_applicant_b)</p>
+
+<h1>1. Common Skills (Intersection)</h1>
+<p>common_skills = skills_applicant_a &amp; skills_applicant_b</p>
+<p>print(&quot;\nShared Skills (A &amp; B)   :&quot;, common_skills)</p>
+
+<h1>2. Unique Skills in A (Difference)</h1>
+<p>unique_to_a = skills_applicant_a - skills_applicant_b</p>
+<p>print(&quot;Skills Unique to A      :&quot;, unique_to_a)</p>
+
+<h1>3. All Combined Skills (Union)</h1>
+<p>all_skills = skills_applicant_a | skills_applicant_b</p>
+<p>print(&quot;Total Combined Skill Set:&quot;, all_skills)</p>
+
+<h1>4. Deduplicating a List using set()</h1>
+<p>raw_tags = [&quot;python&quot;, &quot;sql&quot;, &quot;html&quot;, &quot;python&quot;, &quot;css&quot;, &quot;sql&quot;]</p>
+<p>clean_tags = list(set(raw_tags))</p>
+<p>print(&quot;\nDeduplicated Tag List   :&quot;, clean_tags)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== APPLICANT SKILL COMPARISON ===
+<p>Applicant A Skills : {&#39;Python&#39;, &#39;Git&#39;, &#39;SQL&#39;, &#39;Docker&#39;}</p>
+<p>Applicant B Skills : {&#39;Python&#39;, &#39;Git&#39;, &#39;Java&#39;, &#39;Linux&#39;}</p>
+
+<p>Shared Skills (A &amp; B)   : {&#39;Python&#39;, &#39;Git&#39;}</p>
+<p>Skills Unique to A      : {&#39;Docker&#39;, &#39;SQL&#39;}</p>
+<p>Total Combined Skill Set: {&#39;Python&#39;, &#39;Git&#39;, &#39;SQL&#39;, &#39;Docker&#39;, &#39;Java&#39;, &#39;Linux&#39;}</p>
+
+<p>Deduplicated Tag List   : [&#39;python&#39;, &#39;sql&#39;, &#39;html&#39;, &#39;css&#39;]</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using <code>{}</code> to initialize an empty set (creates a <code>dict</code> instead).</li></p>
+<p>  <li>Trying to add a mutable object (like a <code>list</code>) into a set (<code>set.add([1, 2])</code> causes <code>TypeError: unhashable type: 'list'</code>).</li></p>
+<p>  <li>Using <code>.remove()</code> on a missing item instead of safe <code>.discard()</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>If you need an <strong>immutable set</strong> that cannot be modified and can be used as a dictionary key or inside another set, use <strong><code>frozenset([1, 2, 3])</code></strong>.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Filtering unique visitor IP addresses, calculating common social media friends/followers, fast membership checks (<code>item in set</code>), and tag deduplication.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Deduplicate a list of numbers <code>[10, 20, 10, 30, 20, 40]</code> using <code>set()</code>.</p>
+<p>2. Find the common elements between <code>{1, 2, 3}</code> and <code>{2, 3, 4}</code> using <code>&</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that takes two customer interest sets and finds interests present in Customer A but missing from Customer B using the <code>-</code> difference operator.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-lists.html">Lists</a></li></p>
+<p>  <li><a href="12-dictionaries.html">Dictionaries</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="10-tuples.html">← Previous: Tuples</a> | <a href="12-dictionaries.html">Next: Dictionaries →</a></p>
+
+
+  </div>
+</body>
+</html>

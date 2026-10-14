@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 forking and pull requests - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Forking & Pull Requests (PRs)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Fork</strong> is a personal server-side copy of another user's GitHub repository created under your own account. A <strong>Pull Request (PR)</strong> is a formal proposal submitted on GitHub requesting the original repository maintainer to review, discuss, and merge code changes from your feature branch into their upstream project.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Forking copies a repository to your GitHub account. Pull Requests (PRs) are the core mechanism for open-source collaboration. You create a fork, clone it locally, make changes on a feature branch, push the branch to your fork, and submit a PR to the original repository for code review.</p>
+
+<h3>Hindi</h3>
+<p>Forking se aap kisi doosre ke GitHub project ka personal clone apne account mein bana sakte hain. Pull Request (PR) ek proposal hota hai jisme aap original project maintainer se request karte hain ki woh aapke dwara kiye gaye code changes ko unke main project mein merge karein.</p>
+
+<h3>Marathi</h3>
+<p>Forking mhanje dusryachya GitHub repository chi prat (copy) swatachya account var tayar karne. Pull Request (PR) dware aapan original project owner la sangto ki majhe badal tya mukhya project madhye merge kara.</p>
+
+<h3>Hinglish</h3>
+<p>Open-source projects mein contribution Forking aur Pull Request (PR) se hoti hai. Step 1: Repo Fork karein, Step 2: Local clone karke feature branch banayein, Step 3: Code edit karke apne fork par push karein, Step 4: GitHub par "Compare & Pull Request" click karke maintainer ko PR bhejein.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>In open-source software, maintainers cannot grant write access to thousands of stranger developers. Forking and Pull Requests allow anyone to propose code improvements safely without risking breaking the original repository.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a Pull Request like submitting a guest article to a newspaper editor:</p>
+<ul>
+<p>  <li><strong>Forking:</strong> Taking a blank copy of the newspaper layout to your desk.</li></p>
+<p>  <li><strong>Editing:</strong> Writing your article on your copy (<strong>Commit & Push</strong>).</li></p>
+<p>  <li><strong>Pull Request:</strong> Submitting your written article to the Editor-in-Chief (<strong>PR</strong>). The Editor reviews it (<strong>Code Review</strong>), suggests edits, and prints it in the Sunday newspaper (<strong>Merge</strong>).</li></p>
+<p></ul></p>
+
+<h2>📝 The Open-Source Contribution Workflow</h2>
+
+<pre><code class="language-text">[Original Upstream Repo]  ──────(Fork)──────&gt;  [Your Personal Fork]
+<p>         │                                              │</p>
+<p>         │                                          (git clone)</p>
+<p>         │                                              │</p>
+<p>         ▼                                              ▼</p>
+<p>[Upstream Commit Changes] &lt;───(Pull Request)─── [Your Local Workspace]</code></pre></p>
+
+<h3>Step-by-Step Execution Guide</h3>
+
+<p>#### Step 1: Fork the Repository</p>
+<p>On GitHub, navigate to the target open-source repository and click the <strong><code>Fork</code></strong> button in the top right.</p>
+
+<p>#### Step 2: Clone Your Personal Fork</p>
+<p>Clone your fork to your computer disk:</p>
+<pre><code class="language-bash">git clone https://github.com/your-username/repository-name.git
+<p>cd repository-name</code></pre></p>
+
+<p>#### Step 3: Configure Upstream Remote Link</p>
+<p>Link your local clone to the original parent repository to keep your code updated:</p>
+<pre><code class="language-bash">git remote add upstream https://github.com/original-author/repository-name.git</code></pre>
+
+<p>#### Step 4: Create a Feature Branch & Commit Changes</p>
+<pre><code class="language-bash">git switch -c fix-button-bug
+<p>echo &quot;color: green;&quot; &gt;&gt; style.css</p>
+<p>git commit -am &quot;Fix button hover color contrast issue&quot;</code></pre></p>
+
+<p>#### Step 5: Push Feature Branch to YOUR Fork</p>
+<pre><code class="language-bash">git push -u origin fix-button-bug</code></pre>
+
+<p>#### Step 6: Create Pull Request on GitHub</p>
+<p>Navigate to your fork on GitHub web. Click <strong>"Compare & pull request"</strong>, write a clear title and description explaining your fix, and click <strong>"Create pull request"</strong>.</p>
+
+<h2>💡 Code Review & Merge Process</h2>
+
+<p>1. <strong>Review:</strong> Project maintainers inspect your line-by-line <code>git diff</code>, run automated tests (CI/CD), and leave comments.</p>
+<p>2. <strong>Revisions:</strong> If maintainers request changes, make edits locally, commit, and push to your fork branch. The PR updates automatically!</p>
+<p>3. <strong>Merge:</strong> Once approved, the maintainer clicks <strong>"Merge pull request"</strong>, incorporating your code into the upstream project.</p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git clone <url></code>: Downloads remote repository, initializes local Git database, and sets <code>origin</code> remote.</li></p>
+<p>  <li><code>git remote add upstream <url></code>: Adds <code>upstream</code> shortcut referencing original parent repo.</li></p>
+<p></ul></p>
+
+<h2>👀 GitHub Pull Request UI</h2>
+
+<pre><code class="language-text">Pull Request #42: Fix button hover color contrast issue
+<p>Status: Open (1 review requested)</p>
+<p>Branch: your-username:fix-button-bug -&gt; original-author:main</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Submitting PR From <code>main</code> Branch:</strong> Creating a PR directly from your fork's <code>main</code> branch rather than a dedicated feature branch (<code>fix-button-bug</code>).</li></p>
+<p>  <li><strong>Ignoring PR Guidelines:</strong> Failing to read <code>CONTRIBUTING.md</code> guidelines provided by open-source projects before opening a PR.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>PRs remain open until merged or closed by maintainers. Pushing additional commits to your PR branch automatically updates the active PR.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Millions of open-source contributions to Linux, React, Python, Kubernetes, and VS Code occur daily through GitHub Pull Requests.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Search GitHub for an open-source repository or practice repo.</p>
+<p>2. Click <strong>Fork</strong> to create a copy under your account.</p>
+<p>3. Clone your fork locally using <code>git clone</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Run <code>git remote -v</code> inside your cloned fork and configure <code>upstream</code> link referencing the original repository URL using <code>git remote add upstream <parent-url></code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-introduction-to-github.html">Introduction to GitHub</a></li></p>
+<p>  <li><a href="22-ssh-keys-and-github-authentication.html">SSH Keys & Authentication</a></li></p>
+<p>  <li><a href="23-github-issues-and-project-boards.html">GitHub Issues & Project Boards</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="20-introduction-to-github.html">← Previous: GitHub Intro</a> | <a href="22-ssh-keys-and-github-authentication.html">Next: SSH Authentication →</a></p>
+
+
+
+  </div>
+</body>
+</html>

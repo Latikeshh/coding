@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Structure - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Project Structure and PEP 8 Best Practices in Python</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>PEP 8:</strong> The official <strong>Style Guide for Python Code</strong> that defines formatting conventions (indentation, naming styles, line length, docstrings) to ensure maximum code readability across the Python community.</li></p>
+<p>  <li><strong>Python Project Structure:</strong> Organizing source code, tests, documentation, dependencies, and configuration files into standardized professional directory layouts.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Clean aur maintainable Python projects banane ke liye <strong>PEP 8 Style Guide</strong> follow ki jaati hai. 4-space indentation, <code>snake_case</code> variable/function names, <code>PascalCase</code> class names, Docstrings (<code>"""Docstring"""</code>), aur modular project folder structures maintenance ko aasan banate hain.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Professional Python projects saathi <strong>PEP 8 Style Guide</strong> aani standardized directory structure vaparatat.</p>
+
+<h2>📝 1. PEP 8 Core Naming & Formatting Rules</h2>
+
+<table>
+<p>  <thead><tr><th>Code Element</th><th>PEP 8 Naming Style</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Variables & Functions</td><td><code>snake_case</code></td><td><code>user_age</code>, <code>calculate_total()</code></td></tr></p>
+<p>    <tr><td>Classes</td><td><code>PascalCase</code> / <code>CamelCase</code></td><td><code>BankAccount</code>, <code>UserProfile</code></td></tr></p>
+<p>    <tr><td>Constants</td><td><code>ALL_CAPS</code></td><td><code>MAX_CONNECTIONS = 10</code></td></tr></p>
+<p>    <tr><td>Modules & Packages</td><td><code>snake_case</code> (short)</td><td><code>calculator.py</code>, <code>utils</code></td></tr></p>
+<p>    <tr><td>Indentation</td><td><strong>4 Spaces</strong> (NO Tabs!)</td><td>4 spaces per block level</td></tr></p>
+<p>    <tr><td>Line Length</td><td>Max 79–88 characters</td><td>Black formatter standard</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Writing Clean Python Docstrings (PEP 257)</h2>
+
+<p>Use triple-quoted strings <code>""" ... """</code> directly under function and class declarations to document intent, parameters, and return types:</p>
+
+<pre><code class="language-python">def calculate_bmi(weight_kg: float, height_m: float) -&gt; float:
+<p>    &quot;&quot;&quot;Calculates Body Mass Index (BMI).</p>
+
+<p>    Args:</p>
+<p>        weight_kg (float): Weight in kilograms.</p>
+<p>        height_m (float): Height in meters.</p>
+
+<p>    Returns:</p>
+<p>        float: Calculated BMI value.</p>
+<p>    &quot;&quot;&quot;</p>
+<p>    if height_m &lt;= 0:</p>
+<p>        raise ValueError(&quot;Height must be positive.&quot;)</p>
+<p>    return weight_kg / (height_m ** 2)</code></pre></p>
+
+<h2>📝 3. Standard Professional Project Layout</h2>
+
+<pre><code class="language-text">my_python_project/
+<p>├── .gitignore                      # Git ignore patterns (venv/, __pycache__/)</p>
+<p>├── README.md                       # Project documentation &amp; setup guide</p>
+<p>├── requirements.txt                # Dependency package manifest</p>
+<p>├── setup.py / pyproject.toml       # Package build configuration</p>
+<p>├── src/                            # Source code directory</p>
+<p>│   └── my_project/</p>
+<p>│       ├── __init__.py             # Package marker</p>
+<p>│       ├── main.py                 # CLI/App Entry point</p>
+<p>│       ├── models.py               # Data models / Dataclasses</p>
+<p>│       └── utils.py                # Helper utilities</p>
+<p>└── tests/                          # Unit tests directory</p>
+<p>    ├── __init__.py</p>
+<p>    └── test_models.py</code></pre></p>
+
+<h2>💡 Complete Example: Well-Structured Clean Code Module</h2>
+
+<pre><code class="language-python"># src/my_project/models.py
+<p>from dataclasses import dataclass</p>
+<p>from typing import Optional</p>
+
+<p>CONSTANT_TAX_RATE = 0.18 # PEP 8 Constant</p>
+
+<p>@dataclass</p>
+<p>class InvoiceItem:</p>
+<p>    &quot;&quot;&quot;Represents an individual item in an e-commerce invoice.&quot;&quot;&quot;</p>
+<p>    product_name: str</p>
+<p>    unit_price: float</p>
+<p>    quantity: int = 1</p>
+
+<p>    def calculate_subtotal(self) -&gt; float:</p>
+<p>        &quot;&quot;&quot;Computes subtotal for the item.&quot;&quot;&quot;</p>
+<p>        return self.unit_price * self.quantity</p>
+
+<p>def format_currency(amount: float) -&gt; str:</p>
+<p>    &quot;&quot;&quot;Formats floating-point amount as currency string.&quot;&quot;&quot;</p>
+<p>    return f&quot;₹{amount:.2f}&quot;</p>
+
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    item = InvoiceItem(&quot;Wireless Keyboard&quot;, 1499.00, 2)</p>
+<p>    print(f&quot;Item: {item.product_name}&quot;)</p>
+<p>    print(f&quot;Subtotal: {format_currency(item.calculate_subtotal())}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Item: Wireless Keyboard
+<p>Subtotal: ₹2998.00</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Mixing tabs and spaces for indentation, leading to <code>TabError</code> crashes.</li></p>
+<p>  <li>Writing monolithic 1,000-line single script files instead of breaking logic into modular package files.</li></p>
+<p>  <li>Committing compiled bytecode folders (<code>__pycache__/</code>, <code>.pyc</code> files) into Git repositories.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Use automated code linting and formatting tools like <strong><code>black</code></strong> (<code>pip install black</code>) and <strong><code>flake8</code></strong> (<code>pip install flake8</code>) to auto-format your code to PEP 8 standards before pushing changes.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>All open-source Python libraries, enterprise backend repositories, and production software teams enforce PEP 8 linting and clean project structures.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Install <code>black</code> using <code>pip install black</code> in your virtual environment.</p>
+<p>2. Auto-format a Python file using command <code>black my_script.py</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Re-structure an unformatted Python script by renaming variable names to <code>snake_case</code>, class names to <code>PascalCase</code>, adding 4-space indentation, and adding a function docstring.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="29-virtual-environments-and-pip.html">Virtual Environments and Pip</a></li></p>
+<p>  <li><a href="31-mini-projects.html">Capstones & Mini Projects</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="29-virtual-environments-and-pip.html">← Previous: Virtual Environments and Pip</a> | <a href="31-mini-projects.html">Next: Mini Projects →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Python - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Introduction to Python 3</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Python</strong> is a high-level, general-purpose, dynamically-typed, interpreted programming language known for its clean syntax, readability, and vast standard library ecosystem.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Python ek beginner-friendly aur easy-to-read programming language hai. Python mein code blocks curly braces <code>{}</code> ke bajaye <strong>Indentation (4 spaces)</strong> se define hote hain. Python code line-by-line interpret hota hai, jisse debugging bahut aasan ho jaati hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Python chi syntax sopi aani vachnyasathi ekdam swachha aste. Code blocks sathi curly braces aivaji <strong>Indentation</strong> cha wapar kela jato.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Python prioritizes developer productivity and code readability (<strong>"Readability Counts"</strong>). Tasks that require 30 lines of code in C or Java can often be expressed in just 5 lines of Python code.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>If traditional programming languages like C++ or Java are like writing formal legal contracts with semicolons and strict brackets, Python is like writing plain English instructions with clear paragraphs (indentation).</p>
+
+<h2>📝 Key Python Syntax Rules</h2>
+
+<p>1. <strong>Indentation-Sensitive:</strong> Python uses whitespace (4 spaces per indentation level) instead of <code>{}</code> braces to define code blocks.</p>
+<p>2. <strong>Case-Sensitive:</strong> <code>Name</code>, <code>name</code>, and <code>NAME</code> are three completely distinct variables.</p>
+<p>3. <strong>No Semicolons Required:</strong> Statements end automatically at the end of a newline (semicolons <code>;</code> are optional and rarely used).</p>
+<p>4. <strong>Comments:</strong> Single-line comments start with <code>#</code>. Multi-line strings can be enclosed in <code>""" ... """</code>.</p>
+
+<pre><code class="language-python"># Single-line comment in Python
+
+<p>&quot;&quot;&quot;</p>
+<p>Multi-line comment string</p>
+<p>Explaining application logic</p>
+<p>&quot;&quot;&quot;</p>
+
+<p>user_name = &quot;Aarav&quot;</p>
+<p>if user_name == &quot;Aarav&quot;:</p>
+<p>    print(&quot;Welcome, Aarav!&quot;) # Indented 4 spaces inside the if block</code></pre></p>
+
+<h2>💡 Complete Example: Indentation & Basic Logic</h2>
+
+<pre><code class="language-python"># Employee Welcome Script
+<p>company_name = &quot;TechCorp Global&quot;</p>
+<p>employee_name = &quot;Priya Sharma&quot;</p>
+<p>experience_years = 3</p>
+
+<p>print(&quot;==================================&quot;)</p>
+<p>print(f&quot;       WELCOME TO {company_name}&quot;)</p>
+<p>print(&quot;==================================&quot;)</p>
+<p>print(f&quot;Employee Name : {employee_name}&quot;)</p>
+<p>print(f&quot;Experience    : {experience_years} Years&quot;)</p>
+
+<h1>Indentation Block</h1>
+<p>if experience_years &gt;= 2:</p>
+<p>    status = &quot;Senior Associate&quot;</p>
+<p>    print(f&quot;Designation   : {status}&quot;)</p>
+<p>else:</p>
+<p>    status = &quot;Junior Trainee&quot;</p>
+<p>    print(f&quot;Designation   : {status}&quot;)</p>
+
+<p>print(&quot;==================================&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">==================================
+<p>       WELCOME TO TechCorp Global</p>
+<p>==================================</p>
+<p>Employee Name : Priya Sharma</p>
+<p>Experience    : 3 Years</p>
+<p>Designation   : Senior Associate</p>
+<p>==================================</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong><code>IndentationError</code>:</strong> Mixing tabs and spaces, or using inconsistent spacing across code blocks (always stick to 4 spaces per indentation level!).</li></p>
+<p>  <li>Capitalization typos: Writing <code>Print("Hello")</code> instead of lowercase <code>print("Hello")</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Type <code>import this</code> in the Python REPL to read <strong>The Zen of Python</strong>—a collection of 19 guiding principles for writing clean Pythonic software.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Web development (Django, Flask, FastAPI), Artificial Intelligence & Machine Learning (PyTorch, TensorFlow), Data Analysis (Pandas, NumPy), DevOps automation scripts, and Web Scraping (BeautifulSoup).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a Python script declaring <code>student_name</code> and <code>marks = 85</code>.</p>
+<p>2. Print a message using an f-string: <code>f"{student_name} scored {marks}%"</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a Python script that calculates the area of a rectangle with <code>length = 12</code> and <code>width = 5</code>, and prints the result cleanly formatted.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-python.html">Set Up Python</a></li></p>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="01-setup-python.html">← Previous: Set Up Python</a> | <a href="03-variables-and-data-types.html">Next: Variables and Data Types →</a></p>
+
+
+  </div>
+</body>
+</html>

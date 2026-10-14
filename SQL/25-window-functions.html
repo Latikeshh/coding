@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 window functions - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Chapter 25 — SQL Window Functions</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition & Fundamental Concepts</h2>
+
+<p>An <strong>SQL Window Function</strong> performs a calculation across a set of table rows that are related to the current row (called a <strong>Window Frame</strong>).</p>
+
+<p>Unlike standard <code>GROUP BY</code> aggregate queries (which collapse multiple individual rows into a single summary row per group), <strong>Window Functions preserve the individual identity of every single row in the result set</strong> while appending calculated analytical metrics alongside them.</p>
+
+<pre><code class="language-text">1. GROUP BY (Collapses Rows):
+<p>   Input: 3 Tech Employees ---&gt; Output: 1 Single Summary Row (Tech Total)</p>
+
+<p>2. WINDOW FUNCTION (Preserves Rows!):</p>
+<p>   Input: 3 Tech Employees ---&gt; Output: ALL 3 Individual Rows Maintained</p>
+<p>                                        + Department Summary Column Added Beside Each Row!</code></pre></p>
+
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><strong>MySQL Target</strong>: Window functions require <strong>MySQL 8.0 or later</strong> (or MariaDB 10.2+). Verify your server version in phpMyAdmin using <code>SELECT VERSION();</code>. Syntax and optimization details can vary across database engines.</p></blockquote>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Window Functions multiple rows par analytical calculations karte hain, lekin <code>GROUP BY</code> ki tarah rows ko ek row mein sink/collapse nahi karte!</p>
+<ul>
+<p>  <li>Har employee ya transaction ki apni individual row result mein bani rehti hai.</li></p>
+<p>  <li>Uske bagal mein group ranking, running total, ya department average ka naya column add ho jata hai.</li></p>
+<p>  <li>Yeh <code>OVER (PARTITION BY ... ORDER BY ...)</code> syntax ke dwara kaam karti hain.</li></p>
+<p>  <li><code>PARTITION BY</code> data ko chote groups (windows) mein baant ta hai, aur <code>ORDER BY</code> window ke andar calculation ka sequence decide karta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Window Functions anaik rows var analytical calculations kartat, pan <code>GROUP BY</code> pramane rows collapse karat nahit!</p>
+<ul>
+<p>  <li>Pratyek employee kiwa transaction chi individual row result madhye tasich rahte.</li></p>
+<p>  <li>Tichya bajula ranking, running total, kiwa department average cha extra column disto.</li></p>
+<p>  <li>Ha <code>OVER (PARTITION BY ... ORDER BY ...)</code> clause cha vapar karun chalto.</li></p>
+<p>  <li><code>PARTITION BY</code> data cha chota group (window) tayar karto, aani <code>ORDER BY</code> window madhil calculation cha kram (sequence) tharavto.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 Reproducible Sample Setup Data</h2>
+
+<p>Run the following setup script in phpMyAdmin or MySQL Workbench to create and populate the sample tables used across this chapter:</p>
+
+<pre><code class="language-sql">-- Clean up pre-existing sample tables
+<p>DROP TABLE IF EXISTS daily_sales;</p>
+<p>DROP TABLE IF EXISTS products;</p>
+<p>DROP TABLE IF EXISTS bank_transactions;</p>
+<p>DROP TABLE IF EXISTS monthly_sales;</p>
+<p>DROP TABLE IF EXISTS employees;</p>
+
+<p>-- 1. Create employees table (Includes tied salaries for ranking demos)</p>
+<p>CREATE TABLE employees (</p>
+<p>    emp_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    emp_name VARCHAR(50) NOT NULL,</p>
+<p>    dept_name VARCHAR(50) NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Create monthly_sales table</p>
+<p>CREATE TABLE monthly_sales (</p>
+<p>    sale_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    sale_month VARCHAR(7) NOT NULL, -- Format: &#39;YYYY-MM&#39;</p>
+<p>    revenue DECIMAL(12, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 3. Create bank_transactions table</p>
+<p>CREATE TABLE bank_transactions (</p>
+<p>    trans_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    account_id VARCHAR(20) NOT NULL,</p>
+<p>    trans_date DATE NOT NULL,</p>
+<p>    amount DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 4. Create products table</p>
+<p>CREATE TABLE products (</p>
+<p>    product_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    product_name VARCHAR(50) NOT NULL,</p>
+<p>    category VARCHAR(50) NOT NULL,</p>
+<p>    price DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 5. Create daily_sales table</p>
+<p>CREATE TABLE daily_sales (</p>
+<p>    sale_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    sale_date DATE NOT NULL,</p>
+<p>    amount DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- Populate employees (Tied salaries: Rahul &amp; Amit both 90k in Tech; Neha &amp; Vikram both 65k in HR)</p>
+<p>INSERT INTO employees (emp_id, emp_name, dept_name, salary) VALUES</p>
+<p>(1, &#39;Rahul Sharma&#39;, &#39;Tech&#39;, 90000.00),</p>
+<p>(2, &#39;Amit Verma&#39;, &#39;Tech&#39;, 90000.00),     -- Tied with Rahul</p>
+<p>(3, &#39;Priya Patel&#39;, &#39;Tech&#39;, 70000.00),</p>
+<p>(4, &#39;Suresh Kumar&#39;, &#39;Sales&#39;, 85000.00),</p>
+<p>(5, &#39;Ananya Roy&#39;, &#39;Sales&#39;, 60000.00),</p>
+<p>(6, &#39;Neha Gupta&#39;, &#39;HR&#39;, 65000.00),</p>
+<p>(7, &#39;Vikram Singh&#39;, &#39;HR&#39;, 65000.00);     -- Tied with Neha</p>
+
+<p>-- Populate monthly_sales</p>
+<p>INSERT INTO monthly_sales (sale_id, sale_month, revenue) VALUES</p>
+<p>(1, &#39;2026-01&#39;, 50000.00),</p>
+<p>(2, &#39;2026-02&#39;, 65000.00),</p>
+<p>(3, &#39;2026-03&#39;, 60000.00),</p>
+<p>(4, &#39;2026-04&#39;, 80000.00);</p>
+
+<p>-- Populate bank_transactions (Includes multiple transactions on the same date)</p>
+<p>INSERT INTO bank_transactions (trans_id, account_id, trans_date, amount) VALUES</p>
+<p>(1001, &#39;ACC-101&#39;, &#39;2026-10-01&#39;, 1000.00),</p>
+<p>(1002, &#39;ACC-101&#39;, &#39;2026-10-02&#39;, -200.00),</p>
+<p>(1003, &#39;ACC-101&#39;, &#39;2026-10-02&#39;, 500.00),   -- Same date as 1002</p>
+<p>(1004, &#39;ACC-101&#39;, &#39;2026-10-03&#39;, -100.00),</p>
+<p>(1005, &#39;ACC-202&#39;, &#39;2026-10-01&#39;, 2500.00),</p>
+<p>(1006, &#39;ACC-202&#39;, &#39;2026-10-02&#39;, -400.00);</p>
+
+<p>-- Populate products</p>
+<p>INSERT INTO products (product_id, product_name, category, price) VALUES</p>
+<p>(1, &#39;Laptop&#39;, &#39;Electronics&#39;, 1200.00),</p>
+<p>(2, &#39;Smartphone&#39;, &#39;Electronics&#39;, 800.00),</p>
+<p>(3, &#39;Wireless Headphones&#39;, &#39;Electronics&#39;, 150.00),</p>
+<p>(4, &#39;Office Chair&#39;, &#39;Furniture&#39;, 250.00),</p>
+<p>(5, &#39;Standing Desk&#39;, &#39;Furniture&#39;, 450.00),</p>
+<p>(6, &#39;Bookshelf&#39;, &#39;Furniture&#39;, 150.00);</p>
+
+<p>-- Populate daily_sales</p>
+<p>INSERT INTO daily_sales (sale_id, sale_date, amount) VALUES</p>
+<p>(10, &#39;2026-02-01&#39;, 100.00),</p>
+<p>(11, &#39;2026-02-02&#39;, 200.00),</p>
+<p>(12, &#39;2026-02-03&#39;, 300.00),</p>
+<p>(13, &#39;2026-02-04&#39;, 400.00),</p>
+<p>(14, &#39;2026-02-05&#39;, 500.00);</code></pre></p>
+
+<p>---</p>
+
+<h2>📝 Window Function Syntax Step-by-Step</h2>
+
+<pre><code class="language-sql">function_name(expression) OVER (
+<p>    [PARTITION BY partition_column]</p>
+<p>    [ORDER BY sort_column [ASC|DESC]]</p>
+<p>    [ROWS|RANGE frame_specification]</p>
+<p>)</code></pre></p>
+
+<h3>Clause Breakdown:</h3>
+<p>1. <strong><code>function_name(expression)</code></strong>: The window calculation function (e.g. <code>SUM()</code>, <code>AVG()</code>, <code>ROW_NUMBER()</code>, <code>RANK()</code>, <code>LAG()</code>).</p>
+<p>2. <strong><code>OVER()</code></strong>: Mandatory clause signaling that the function operates as a window function rather than a standard aggregate.</p>
+<p>3. <strong><code>PARTITION BY</code></strong>: *(Optional)* Divides the result set into independent partitions (groups). Calculations restart for each partition.</p>
+<p>4. <strong><code>ORDER BY</code></strong>: *(Optional)* Defines the logical evaluation sequence of rows inside each partition.</p>
+<p>5. <strong>Window Frame Specification (<code>ROWS</code> / <code>RANGE</code>)</strong>: *(Optional)* Defines the explicit physical boundary of rows evaluated relative to the current row (e.g., <code>ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</code>).</p>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong>Window <code>ORDER BY</code> vs Query <code>ORDER BY</code></strong>:</p></blockquote>
+<blockquote><p>The <code>ORDER BY</code> inside <code>OVER(...)</code> controls the <strong>logical sequence of window calculations</strong> (e.g., running total calculation sequence). A top-level <code>ORDER BY</code> at the very end of the statement controls the <strong>final displayed output row order</strong>.</p></blockquote>
+
+<p>---</p>
+
+<h2>⚖️ GROUP BY vs Window Function Contrast</h2>
+
+<p>Let's compare standard <code>GROUP BY</code> aggregation against a Window Function using our <code>employees</code> sample table.</p>
+
+<h3>Query 1: Standard <code>GROUP BY</code> (Collapses Rows)</h3>
+<pre><code class="language-sql">SELECT dept_name, SUM(salary) AS total_dept_salary
+<p>FROM employees</p>
+<p>GROUP BY dept_name</p>
+<p>ORDER BY dept_name;</code></pre></p>
+
+<p>#### Output (Collapses 7 Employees into 3 Summary Rows)</p>
+<table>
+<p>  <thead><tr><th>dept_name</th><th>total_dept_salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>HR</td><td>130000.00</td></tr></p>
+<p>    <tr><td>Sales</td><td>145000.00</td></tr></p>
+<p>    <tr><td>Tech</td><td>250000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Query 2: Window Function (Preserves All 7 Individual Rows!)</h3>
+<pre><code class="language-sql">SELECT 
+<p>    emp_name,</p>
+<p>    dept_name,</p>
+<p>    salary,</p>
+<p>    SUM(salary) OVER (PARTITION BY dept_name) AS total_dept_salary</p>
+<p>FROM employees</p>
+<p>ORDER BY dept_name, salary DESC;</code></pre></p>
+
+<p>#### Output (All 7 Individual Rows Maintained + Total Appended)</p>
+<table>
+<p>  <thead><tr><th>emp_name</th><th>dept_name</th><th>salary</th><th>total_dept_salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Neha Gupta</td><td>HR</td><td>65000.00</td><td>130000.00</td></tr></p>
+<p>    <tr><td>Vikram Singh</td><td>HR</td><td>65000.00</td><td>130000.00</td></tr></p>
+<p>    <tr><td>Suresh Kumar</td><td>Sales</td><td>85000.00</td><td>145000.00</td></tr></p>
+<p>    <tr><td>Ananya Roy</td><td>Sales</td><td>60000.00</td><td>145000.00</td></tr></p>
+<p>    <tr><td>Rahul Sharma</td><td>Tech</td><td>90000.00</td><td>250000.00</td></tr></p>
+<p>    <tr><td>Amit Verma</td><td>Tech</td><td>90000.00</td><td>250000.00</td></tr></p>
+<p>    <tr><td>Priya Patel</td><td>Tech</td><td>70000.00</td><td>250000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🏆 Ranking Functions: <code>ROW_NUMBER</code>, <code>RANK</code>, and <code>DENSE_RANK</code></h2>
+
+<p>Ranking functions assign rank numbers to rows within each partition based on the specified window ordering.</p>
+
+<h3>Handling Tied Values (e.g. Salaries: $90k, 90k, 70k$):</h3>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Behavior on Tied Values</th><th>Example Ranks for (90k, 90k, 70k)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ROW_NUMBER()</code></strong></td><td>Assigns strict, unique sequential numbers. Never ties.</td><td><code>1, 2, 3</code></td></tr></p>
+<p>    <tr><td><strong><code>RANK()</code></strong></td><td>Assigns identical ranks to ties, <strong>leaves gaps</strong> in sequence.</td><td><code>1, 1, 3</code> *(Skips rank 2)*</td></tr></p>
+<p>    <tr><td><strong><code>DENSE_RANK()</code></strong></td><td>Assigns identical ranks to ties, <strong>NO gaps</strong> in sequence.</td><td><code>1, 1, 2</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>[!TIP]</p></blockquote>
+<blockquote><p><strong>Deterministic <code>ROW_NUMBER()</code> Ordering</strong>: Because <code>ROW_NUMBER()</code> assigns strictly unique numbers, if two rows have identical <code>salary</code> values, include a unique tie-breaker column in <code>ORDER BY</code> (e.g. <code>ORDER BY salary DESC, emp_id ASC</code>) to guarantee deterministic results across executions.</p></blockquote>
+
+<h3>Comprehensive Ranking Query</h3>
+<pre><code class="language-sql">SELECT 
+<p>    emp_name,</p>
+<p>    dept_name,</p>
+<p>    salary,</p>
+<p>    ROW_NUMBER() OVER (PARTITION BY dept_name ORDER BY salary DESC, emp_id ASC) AS row_num,</p>
+<p>    RANK()       OVER (PARTITION BY dept_name ORDER BY salary DESC) AS rnk,</p>
+<p>    DENSE_RANK() OVER (PARTITION BY dept_name ORDER BY salary DESC) AS dense_rnk</p>
+<p>FROM employees</p>
+<p>ORDER BY dept_name, salary DESC, emp_id ASC;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>emp_name</th><th>dept_name</th><th>salary</th><th>row_num</th><th>rnk</th><th>dense_rnk</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Neha Gupta</td><td>HR</td><td>65000.00</td><td>1</td><td><strong>1</strong></td><td><strong>1</strong></td></tr></p>
+<p>    <tr><td>Vikram Singh</td><td>HR</td><td>65000.00</td><td>2</td><td><strong>1</strong></td><td><strong>1</strong></td></tr></p>
+<p>    <tr><td>Suresh Kumar</td><td>Sales</td><td>85000.00</td><td>1</td><td>1</td><td>1</td></tr></p>
+<p>    <tr><td>Ananya Roy</td><td>Sales</td><td>60000.00</td><td>2</td><td>2</td><td>2</td></tr></p>
+<p>    <tr><td>Rahul Sharma</td><td>Tech</td><td>90000.00</td><td>1</td><td><strong>1</strong></td><td><strong>1</strong></td></tr></p>
+<p>    <tr><td>Amit Verma</td><td>Tech</td><td>90000.00</td><td>2</td><td><strong>1</strong></td><td><strong>1</strong></td></tr></p>
+<p>    <tr><td>Priya Patel</td><td>Tech</td><td>70000.00</td><td>3</td><td><strong>3</strong></td><td><strong>2</strong></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation of Tech Department Ranks:</p>
+<ul>
+<p>  <li>Rahul and Amit both earn $90,000.00$.</li></p>
+<p>  <li><code>RANK()</code> assigns both rank <code>1</code>, leaving a gap so Priya receives rank <code>3</code>.</li></p>
+<p>  <li><code>DENSE_RANK()</code> assigns both rank <code>1</code>, leaving <strong>no gap</strong> so Priya receives rank <code>2</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📈 Value Access Functions: <code>LAG()</code> and <code>LEAD()</code></h2>
+
+<p>Value functions access data from preceding (<code>LAG</code>) or succeeding (<code>LEAD</code>) rows within a window partition without self-joins.</p>
+
+<ul>
+<p>  <li><strong><code>LAG(column, offset, default)</code></strong>: Returns the value from $offset$ rows <strong>before</strong> the current row.</li></p>
+<p>  <li><strong><code>LEAD(column, offset, default)</code></strong>: Returns the value from $offset$ rows <strong>after</strong> the current row.</li></p>
+<p></ul></p>
+
+<h3>Example: Month-over-Month Revenue Analysis</h3>
+
+<pre><code class="language-sql">SELECT 
+<p>    sale_month,</p>
+<p>    revenue,</p>
+<p>    LAG(revenue, 1) OVER (ORDER BY sale_month) AS prev_month_revenue,</p>
+<p>    revenue - LAG(revenue, 1) OVER (ORDER BY sale_month) AS mom_revenue_change</p>
+<p>FROM monthly_sales</p>
+<p>ORDER BY sale_month;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>sale_month</th><th>revenue</th><th>prev_month_revenue</th><th>mom_revenue_change</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2026-01</td><td>50000.00</td><td>NULL</td><td>NULL</td></tr></p>
+<p>    <tr><td>2026-02</td><td>65000.00</td><td>50000.00</td><td>15000.00</td></tr></p>
+<p>    <tr><td>2026-03</td><td>60000.00</td><td>65000.00</td><td>-5000.00</td></tr></p>
+<p>    <tr><td>2026-04</td><td>80000.00</td><td>60000.00</td><td>20000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation of First Month NULL Handling:</p>
+<ul>
+<p>  <li>For the first row (<code>2026-01</code>), no preceding row exists in the window order. <code>LAG()</code> returns <code>NULL</code>, and <code>revenue - NULL</code> evaluates to <code>NULL</code>.</li></p>
+<p>  <li>If a default value of <code>0.00</code> is supplied (<code>LAG(revenue, 1, 0.00)</code>), the first row reports <code>0.00</code> for previous revenue and <code>+50000.00</code> for change. Returning <code>NULL</code> is mathematically clearer because no prior month exists.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💰 Running Totals & Moving Averages (Framing)</h2>
+
+<h3>1. Cumulative Account Running Balance</h3>
+<p>When computing running totals, always include a unique tie-breaker (like <code>trans_id</code>) in <code>ORDER BY</code> to maintain deterministic row-by-row sequence when dates are identical:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    trans_id,</p>
+<p>    account_id,</p>
+<p>    trans_date,</p>
+<p>    amount,</p>
+<p>    SUM(amount) OVER (</p>
+<p>        PARTITION BY account_id </p>
+<p>        ORDER BY trans_date, trans_id</p>
+<p>        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</p>
+<p>    ) AS running_balance</p>
+<p>FROM bank_transactions</p>
+<p>WHERE account_id = &#39;ACC-101&#39;</p>
+<p>ORDER BY trans_date, trans_id;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>trans_id</th><th>account_id</th><th>trans_date</th><th>amount</th><th>running_balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1001</td><td>ACC-101</td><td>2026-10-01</td><td>1000.00</td><td>1000.00</td></tr></p>
+<p>    <tr><td>1002</td><td>ACC-101</td><td>2026-10-02</td><td>-200.00</td><td>800.00</td></tr></p>
+<p>    <tr><td>1003</td><td>ACC-101</td><td>2026-10-02</td><td>500.00</td><td>1300.00</td></tr></p>
+<p>    <tr><td>1004</td><td>ACC-101</td><td>2026-10-03</td><td>-100.00</td><td>1200.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>2. Three-Row Moving Average</h3>
+
+<pre><code class="language-sql">SELECT 
+<p>    sale_date,</p>
+<p>    amount,</p>
+<p>    AVG(amount) OVER (</p>
+<p>        ORDER BY sale_date</p>
+<p>        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW</p>
+<p>    ) AS moving_avg_3_rows</p>
+<p>FROM daily_sales</p>
+<p>ORDER BY sale_date;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>sale_date</th><th>amount</th><th>moving_avg_3_rows</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2026-02-01</td><td>100.00</td><td>100.00</td></tr></p>
+<p>    <tr><td>2026-02-02</td><td>200.00</td><td>150.00</td></tr></p>
+<p>    <tr><td>2026-02-03</td><td>300.00</td><td>200.00</td></tr></p>
+<p>    <tr><td>2026-02-04</td><td>400.00</td><td>300.00</td></tr></p>
+<p>    <tr><td>2026-02-05</td><td>500.00</td><td>400.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation of Moving Frame Calculations:</p>
+<ul>
+<p>  <li>Row 1 (<code>2026-02-01</code>): Evaluates 1 row ($100 / 1 = 100.00$).</li></p>
+<p>  <li>Row 2 (<code>2026-02-02</code>): Evaluates 2 rows ($(100 + 200) / 2 = 150.00$).</li></p>
+<p>  <li>Row 3 (<code>2026-02-03</code>): Evaluates 3 rows ($(100 + 200 + 300) / 3 = 200.00$).</li></p>
+<p>  <li>Row 4 (<code>2026-02-04</code>): Evaluates 3 rows ($(200 + 300 + 400) / 3 = 300.00$).</li></p>
+<p></ul></p>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong><code>ROWS</code> vs Calendar Days</strong>:</p></blockquote>
+<blockquote><p><code>ROWS BETWEEN 2 PRECEDING AND CURRENT ROW</code> evaluates up to <strong>3 physical data rows</strong> (current row + 2 prior rows in sequence), NOT necessarily 3 calendar days. If date gaps exist (e.g. weekend breaks), physical row counting differs from calendar-day range evaluation.</p></blockquote>
+
+<p>---</p>
+
+<h2>🪟 Window Frames: <code>ROWS</code> vs <code>RANGE</code> & First/Last Values</h2>
+
+<h3><code>ROWS</code> vs <code>RANGE</code> Default Behavior:</h3>
+<ul>
+<p>  <li><strong><code>ROWS</code></strong>: Measures physical row counts (e.g. <code>ROWS BETWEEN 1 PRECEDING AND CURRENT ROW</code>).</li></p>
+<p>  <li><strong><code>RANGE</code></strong>: Measures logical range values. If no explicit frame is specified, MySQL defaults to <code>RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</code>.</li></p>
+<p>  <li><strong>Peer Row Caution</strong>: Under <code>RANGE</code>, if multiple rows have identical <code>ORDER BY</code> values (ties), <code>RANGE</code> evaluates all peer rows together, causing running totals to jump instead of stepping row-by-row! Always specify <code>ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</code> for deterministic step running totals.</li></p>
+<p></ul></p>
+
+<h3><code>FIRST_VALUE()</code> and <code>LAST_VALUE()</code> Example</h3>
+<p>To evaluate <code>LAST_VALUE()</code> across the entire partition rather than stopping at the current row, specify <code>ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</code>:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    product_name,</p>
+<p>    category,</p>
+<p>    price,</p>
+<p>    FIRST_VALUE(product_name) OVER (</p>
+<p>        PARTITION BY category ORDER BY price DESC</p>
+<p>        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</p>
+<p>    ) AS most_expensive_in_cat,</p>
+<p>    LAST_VALUE(product_name) OVER (</p>
+<p>        PARTITION BY category ORDER BY price DESC</p>
+<p>        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</p>
+<p>    ) AS cheapest_in_cat</p>
+<p>FROM products</p>
+<p>ORDER BY category, price DESC;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>product_name</th><th>category</th><th>price</th><th>most_expensive_in_cat</th><th>cheapest_in_cat</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Laptop</td><td>Electronics</td><td>1200.00</td><td>Laptop</td><td>Wireless Headphones</td></tr></p>
+<p>    <tr><td>Smartphone</td><td>Electronics</td><td>800.00</td><td>Laptop</td><td>Wireless Headphones</td></tr></p>
+<p>    <tr><td>Wireless Headphones</td><td>Electronics</td><td>150.00</td><td>Laptop</td><td>Wireless Headphones</td></tr></p>
+<p>    <tr><td>Standing Desk</td><td>Furniture</td><td>450.00</td><td>Standing Desk</td><td>Bookshelf</td></tr></p>
+<p>    <tr><td>Office Chair</td><td>Furniture</td><td>250.00</td><td>Standing Desk</td><td>Bookshelf</td></tr></p>
+<p>    <tr><td>Bookshelf</td><td>Furniture</td><td>150.00</td><td>Standing Desk</td><td>Bookshelf</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>⚡ Filtering Window Functions (Using CTEs)</h2>
+
+<p>Because window functions evaluate during the <strong><code>SELECT</code> phase</strong> (after <code>WHERE</code>, <code>GROUP BY</code>, and <code>HAVING</code>), you <strong>cannot</strong> write a window function directly inside a <code>WHERE</code> clause!</p>
+
+<p>To filter window results (e.g., *Find Top 2 Earners per Department*), wrap the query inside a <strong>Common Table Expression (CTE)</strong>:</p>
+
+<pre><code class="language-sql">WITH ranked_employees AS (
+<p>    SELECT </p>
+<p>        emp_id,</p>
+<p>        emp_name,</p>
+<p>        dept_name,</p>
+<p>        salary,</p>
+<p>        DENSE_RANK() OVER (PARTITION BY dept_name ORDER BY salary DESC) AS dense_rnk</p>
+<p>    FROM employees</p>
+<p>)</p>
+<p>SELECT emp_id, emp_name, dept_name, salary, dense_rnk</p>
+<p>FROM ranked_employees</p>
+<p>WHERE dense_rnk &lt;= 2</p>
+<p>ORDER BY dept_name, dense_rnk, emp_id;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>emp_id</th><th>emp_name</th><th>dept_name</th><th>salary</th><th>dense_rnk</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>6</td><td>Neha Gupta</td><td>HR</td><td>65000.00</td><td>1</td></tr></p>
+<p>    <tr><td>7</td><td>Vikram Singh</td><td>HR</td><td>65000.00</td><td>1</td></tr></p>
+<p>    <tr><td>4</td><td>Suresh Kumar</td><td>Sales</td><td>85000.00</td><td>1</td></tr></p>
+<p>    <tr><td>5</td><td>Ananya Roy</td><td>Sales</td><td>60000.00</td><td>2</td></tr></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>Tech</td><td>90000.00</td><td>1</td></tr></p>
+<p>    <tr><td>2</td><td>Amit Verma</td><td>Tech</td><td>90000.00</td><td>1</td></tr></p>
+<p>    <tr><td>3</td><td>Priya Patel</td><td>Tech</td><td>70000.00</td><td>2</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Ranking Filter Comparison (<code><= 2</code>):</p>
+<ul>
+<p>  <li><strong><code>ROW_NUMBER() <= 2</code></strong>: Limits output strictly to at most 2 rows per department.</li></p>
+<p>  <li><strong><code>RANK() <= 2</code></strong>: Retains ties at rank 1, but if two employees tie at rank 1, rank 2 is skipped so rank 3 is omitted.</li></p>
+<p>  <li><strong><code>DENSE_RANK() <= 2</code></strong>: Retains ties at rank 1 AND includes rank 2 (e.g. Priya Patel at $70,000.00$).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & Pitfalls</h2>
+
+<p>1. <strong>Attempting to Filter Window Functions in <code>WHERE</code></strong>: Writing <code>WHERE ROW_NUMBER() OVER(...) <= 2</code> raises a syntax error. Use a CTE or subquery wrapper.</p>
+<p>2. <strong>Omitting <code>ORDER BY</code> in Running Totals</strong>: Writing <code>SUM(amount) OVER (PARTITION BY acc_id)</code> without <code>ORDER BY</code> returns the grand partition total for every row instead of a cumulative step-by-step balance.</p>
+<p>3. <strong>Omitting Tie-Breaker Columns</strong>: Sorting by a non-unique column (like <code>trans_date</code>) without a tie-breaker (like <code>trans_id</code>) produces non-deterministic row ordering.</p>
+<p>4. <strong>Default <code>LAST_VALUE()</code> Frame Trap</strong>: Using <code>LAST_VALUE()</code> without specifying <code>ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</code> causes <code>LAST_VALUE()</code> to return the current row's value because the default frame ends at <code>CURRENT ROW</code>.</p>
+<p>5. <strong>Confusing Window <code>ORDER BY</code> with Main Query <code>ORDER BY</code></strong>: The <code>ORDER BY</code> inside <code>OVER()</code> sets calculation sequence; the final <code>ORDER BY</code> sets displayed row order.</p>
+
+<p>---</p>
+
+<h2>🧪 Step-by-Step Practice Exercises</h2>
+
+<p>Use the sample database script (<code>employees</code>, <code>products</code>, <code>monthly_sales</code>, <code>bank_transactions</code>, <code>daily_sales</code>) provided in this chapter.</p>
+
+<p>---</p>
+
+<h3>Exercise 1: Rank Products by Price within Category (<code>DENSE_RANK</code>)</h3>
+<p><strong>Task</strong>: Rank products by price in descending order within each category using <code>DENSE_RANK()</code>.  </p>
+<p><strong>Hint</strong>: Partition by <code>category</code> and order by <code>price DESC</code>.</p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT </p>
+<p>    product_name,</p>
+<p>    category,</p>
+<p>    price,</p>
+<p>    DENSE_RANK() OVER (PARTITION BY category ORDER BY price DESC) AS price_rank</p>
+<p>FROM products</p>
+<p>ORDER BY category, price_rank;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>product_name</th><th>category</th><th>price</th><th>price_rank</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Laptop</td><td>Electronics</td><td>1200.00</td><td>1</td></tr></p>
+<p>    <tr><td>Smartphone</td><td>Electronics</td><td>800.00</td><td>2</td></tr></p>
+<p>    <tr><td>Wireless Headphones</td><td>Electronics</td><td>150.00</td><td>3</td></tr></p>
+<p>    <tr><td>Standing Desk</td><td>Furniture</td><td>450.00</td><td>1</td></tr></p>
+<p>    <tr><td>Office Chair</td><td>Furniture</td><td>250.00</td><td>2</td></tr></p>
+<p>    <tr><td>Bookshelf</td><td>Furniture</td><td>150.00</td><td>3</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 2: Rank Employees by Salary within Department (<code>RANK</code>)</h3>
+<p><strong>Task</strong>: Rank employees by salary in descending order within their department using <code>RANK()</code>.</p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT </p>
+<p>    emp_name,</p>
+<p>    dept_name,</p>
+<p>    salary,</p>
+<p>    RANK() OVER (PARTITION BY dept_name ORDER BY salary DESC) AS rnk</p>
+<p>FROM employees</p>
+<p>ORDER BY dept_name, rnk;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>emp_name</th><th>dept_name</th><th>salary</th><th>rnk</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Neha Gupta</td><td>HR</td><td>65000.00</td><td>1</td></tr></p>
+<p>    <tr><td>Vikram Singh</td><td>HR</td><td>65000.00</td><td>1</td></tr></p>
+<p>    <tr><td>Suresh Kumar</td><td>Sales</td><td>85000.00</td><td>1</td></tr></p>
+<p>    <tr><td>Ananya Roy</td><td>Sales</td><td>60000.00</td><td>2</td></tr></p>
+<p>    <tr><td>Rahul Sharma</td><td>Tech</td><td>90000.00</td><td>1</td></tr></p>
+<p>    <tr><td>Amit Verma</td><td>Tech</td><td>90000.00</td><td>1</td></tr></p>
+<p>    <tr><td>Priya Patel</td><td>Tech</td><td>70000.00</td><td>3</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 3: Previous Month Revenue Comparison (<code>LAG</code>)</h3>
+<p><strong>Task</strong>: Display each month's revenue alongside the previous month's revenue using <code>LAG()</code>.</p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT </p>
+<p>    sale_month,</p>
+<p>    revenue,</p>
+<p>    LAG(revenue, 1) OVER (ORDER BY sale_month) AS prev_revenue</p>
+<p>FROM monthly_sales</p>
+<p>ORDER BY sale_month;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>sale_month</th><th>revenue</th><th>prev_revenue</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2026-01</td><td>50000.00</td><td>NULL</td></tr></p>
+<p>    <tr><td>2026-02</td><td>65000.00</td><td>50000.00</td></tr></p>
+<p>    <tr><td>2026-03</td><td>60000.00</td><td>65000.00</td></tr></p>
+<p>    <tr><td>2026-04</td><td>80000.00</td><td>60000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 4: Running Balance for Account <code>ACC-202</code></h3>
+<p><strong>Task</strong>: Calculate a running account balance for <code>ACC-202</code> ordered by transaction date and transaction ID.</p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT </p>
+<p>    trans_id,</p>
+<p>    account_id,</p>
+<p>    trans_date,</p>
+<p>    amount,</p>
+<p>    SUM(amount) OVER (</p>
+<p>        PARTITION BY account_id </p>
+<p>        ORDER BY trans_date, trans_id</p>
+<p>        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</p>
+<p>    ) AS running_balance</p>
+<p>FROM bank_transactions</p>
+<p>WHERE account_id = &#39;ACC-202&#39;</p>
+<p>ORDER BY trans_date, trans_id;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>trans_id</th><th>account_id</th><th>trans_date</th><th>amount</th><th>running_balance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1005</td><td>ACC-202</td><td>2026-10-01</td><td>2500.00</td><td>2500.00</td></tr></p>
+<p>    <tr><td>1006</td><td>ACC-202</td><td>2026-10-02</td><td>-400.00</td><td>2100.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 5: Moving Average of Daily Sales</h3>
+<p><strong>Task</strong>: Calculate a 3-row moving average of sales amounts ordered by <code>sale_date</code>.</p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT </p>
+<p>    sale_date,</p>
+<p>    amount,</p>
+<p>    ROUND(AVG(amount) OVER (</p>
+<p>        ORDER BY sale_date</p>
+<p>        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW</p>
+<p>    ), 2) AS moving_avg</p>
+<p>FROM daily_sales</p>
+<p>ORDER BY sale_date;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>sale_date</th><th>amount</th><th>moving_avg</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2026-02-01</td><td>100.00</td><td>100.00</td></tr></p>
+<p>    <tr><td>2026-02-02</td><td>200.00</td><td>150.00</td></tr></p>
+<p>    <tr><td>2026-02-03</td><td>300.00</td><td>200.00</td></tr></p>
+<p>    <tr><td>2026-02-04</td><td>400.00</td><td>300.00</td></tr></p>
+<p>    <tr><td>2026-02-05</td><td>500.00</td><td>400.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 6: Salary Difference from Department Maximum</h3>
+<p><strong>Task</strong>: Display each employee's salary alongside the highest salary in their department and the difference (<code>max_salary - salary</code>).</p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT </p>
+<p>    emp_name,</p>
+<p>    dept_name,</p>
+<p>    salary,</p>
+<p>    MAX(salary) OVER (PARTITION BY dept_name) AS max_dept_salary,</p>
+<p>    MAX(salary) OVER (PARTITION BY dept_name) - salary AS salary_diff</p>
+<p>FROM employees</p>
+<p>ORDER BY dept_name, salary DESC;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>emp_name</th><th>dept_name</th><th>salary</th><th>max_dept_salary</th><th>salary_diff</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Neha Gupta</td><td>HR</td><td>65000.00</td><td>65000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>Vikram Singh</td><td>HR</td><td>65000.00</td><td>65000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>Suresh Kumar</td><td>Sales</td><td>85000.00</td><td>85000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>Ananya Roy</td><td>Sales</td><td>60000.00</td><td>85000.00</td><td>25000.00</td></tr></p>
+<p>    <tr><td>Rahul Sharma</td><td>Tech</td><td>90000.00</td><td>90000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>Amit Verma</td><td>Tech</td><td>90000.00</td><td>90000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>Priya Patel</td><td>Tech</td><td>70000.00</td><td>90000.00</td><td>20000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Find each employee's salary alongside the <strong>highest salary in their department</strong> and the <strong>salary difference</strong> (<code>max_dept_salary - salary</code>).</p>
+
+<pre><code class="language-sql">-- Mini Challenge Solution
+<p>SELECT </p>
+<p>    emp_id,</p>
+<p>    emp_name,</p>
+<p>    dept_name,</p>
+<p>    salary,</p>
+<p>    MAX(salary) OVER (PARTITION BY dept_name) AS highest_dept_salary,</p>
+<p>    MAX(salary) OVER (PARTITION BY dept_name) - salary AS salary_difference</p>
+<p>FROM employees</p>
+<p>ORDER BY dept_name, salary DESC, emp_id;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>emp_id</th><th>emp_name</th><th>dept_name</th><th>salary</th><th>highest_dept_salary</th><th>salary_difference</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>6</td><td>Neha Gupta</td><td>HR</td><td>65000.00</td><td>65000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>7</td><td>Vikram Singh</td><td>HR</td><td>65000.00</td><td>65000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>4</td><td>Suresh Kumar</td><td>Sales</td><td>85000.00</td><td>85000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>5</td><td>Ananya Roy</td><td>Sales</td><td>60000.00</td><td>85000.00</td><td>25000.00</td></tr></p>
+<p>    <tr><td>1</td><td>Rahul Sharma</td><td>Tech</td><td>90000.00</td><td>90000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>2</td><td>Amit Verma</td><td>Tech</td><td>90000.00</td><td>90000.00</td><td>0.00</td></tr></p>
+<p>    <tr><td>3</td><td>Priya Patel</td><td>Tech</td><td>70000.00</td><td>90000.00</td><td>20000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation:</p>
+<ul>
+<p>  <li><code>MAX(salary) OVER (PARTITION BY dept_name)</code> computes the maximum salary for each department without collapsing rows.</li></p>
+<p>  <li>In the Tech department, maximum salary is $90,000.00$. Priya Patel ($70,000.00$) shows a difference of $90000 - 70000 = \$20,000.00$.</li></p>
+<p>  <li>In the Sales department, maximum salary is $85,000.00$. Ananya Roy ($60,000.00$) shows a difference of $85000 - 60000 = \$25,000.00$.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>⚡ Performance & Indexing Guidance</h2>
+
+<ul>
+<p>  <li><strong>Analytics Without Group Collapse</strong>: Window functions avoid extra self-joins and subqueries, leading to cleaner code.</li></p>
+<p>  <li><strong>Sorting & Partitioning Cost</strong>: Window functions require internal sorting/partitioning passes ($O(N \log N)$ complexity).</li></p>
+<p>  <li><strong>Index Optimization</strong>: Creating composite indexes matching <code>PARTITION BY</code> and <code>ORDER BY</code> columns (e.g. <code>INDEX (dept_name, salary)</code>) allows MySQL to evaluate windows without extra sorting passes.</li></p>
+<p>  <li><strong>Query Execution Inspection</strong>: Use <code>EXPLAIN</code> in MySQL 8.0 to inspect window evaluation steps:</li></p>
+<p></ul></p>
+<p>  ``<code>sql</p>
+<p>  EXPLAIN SELECT emp_name, RANK() OVER (PARTITION BY dept_name ORDER BY salary DESC) FROM employees;</p>
+<p>  </code>``</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="13-group-by-and-having.html">GROUP BY & HAVING</a></li></p>
+<p>  <li><a href="23-ctes.html">Common Table Expressions (CTEs)</a></li></p>
+<p>  <li><a href="17-subqueries.html">Subqueries & Nested Queries</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← SQL Home</a> | <a href="24-recursive-ctes.html">← Previous: Recursive CTEs</a> | <a href="26-stored-procedures.html">Next: Stored Procedures →</a></p>
+
+  </div>
+</body>
+</html>

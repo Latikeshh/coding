@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 input output - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Input & Output Streams in C++ (<code>std::cin</code>, <code>std::cout</code>, <code>getline</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>In C++, Input/Output (I/O) is performed using <strong>Streams</strong> provided by the <code><iostream></code> standard library. A Stream is an abstraction that represents a flow of data to or from a device:</p>
+<ul>
+<p>  <li><code>std::cout</code>: Standard Output Stream (prints data to terminal).</li></p>
+<p>  <li><code>std::cin</code>: Standard Input Stream (reads data from keyboard).</li></p>
+<p>  <li><code>std::cerr</code>: Standard Error Stream (unbuffered error logs).</li></p>
+<p>  <li><code>std::getline()</code>: Reads full sentences including spaces.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>C++ mein console par data print karne ke liye <code>std::cout</code> aur extraction operator <code><<</code> ka use hota hai. User se terminal par input lene ke liye <code>std::cin</code> aur insertion operator <code>>></code> ka use hota hai. Agar user se poora sentence (spaces ke saath) input lena ho, toh <code>std::getline(std::cin, string_variable)</code> ka use karte hain, kyunki <code>std::cin >></code> space milte hi ruk jata hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>C++ madhye screen vr text dakhavnyasathi <code>std::cout</code> aani <code><<</code> cha vapar kela jato. User kadun keyboard dwara input ghenyasathi <code>std::cin</code> aani <code>>></code> cha vapar kartat. Purna vaky (spaces sobat) input ghenyasathi <code>std::getline()</code> cha vapar karne garjeche aste, karanh <code>std::cin</code> space aalyavrach thambto.</p>
+
+<p>---</p>
+
+<h2>📊 Comparison: <code>std::cin >></code> vs <code>std::getline()</code></h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th><code>std::cin >> var</code></th><th><code>std::getline(std::cin, var)</code></th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Handles Spaces?</strong></td><td>❌ Stops at first whitespace/space</td><td>✅ Reads full line including spaces</td></tr></p>
+<p>    <tr><td><strong>Best Used For</strong></td><td>Single numbers (<code>int</code>, <code>double</code>) or single words</td><td>Full names, addresses, full sentences</td></tr></p>
+<p>    <tr><td><strong>Newline Buffer</strong></td><td>Leaves <code>\n</code> in buffer</td><td>Consumes the <code>\n</code> newline character</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;limits&gt;</p>
+
+<p>int main() {</p>
+<p>    std::string fullName;</p>
+<p>    int age;</p>
+<p>    double gpa;</p>
+
+<p>    std::cout &lt;&lt; &quot;=== STUDENT ENROLLMENT SYSTEM ===&quot; &lt;&lt; std::endl;</p>
+
+<p>    // Reading Numerical Input</p>
+<p>    std::cout &lt;&lt; &quot;Enter your Age: &quot;;</p>
+<p>    std::cin &gt;&gt; age;</p>
+
+<p>    std::cout &lt;&lt; &quot;Enter your GPA: &quot;;</p>
+<p>    std::cin &gt;&gt; gpa;</p>
+
+<p>    // CRITICAL: Clear the leftover &#39;\n&#39; newline character from the buffer!</p>
+<p>    std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), &#39;\n&#39;);</p>
+
+<p>    // Reading Full Sentence Input</p>
+<p>    std::cout &lt;&lt; &quot;Enter your Full Name (with spaces): &quot;;</p>
+<p>    std::getline(std::cin, fullName);</p>
+
+<p>    // Printing Final Output Summary</p>
+<p>    std::cout &lt;&lt; &quot;\n--- ENROLLED STUDENT DETAILS ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Full Name : &quot; &lt;&lt; fullName &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Age       : &quot; &lt;&lt; age &lt;&lt; &quot; years old&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;GPA       : &quot; &lt;&lt; gpa &lt;&lt; &quot; / 4.0&quot; &lt;&lt; std::endl;</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>std::cin >> age</code>: Reads integer input into <code>age</code>. Leaves the user's <code>Enter</code> keypress (<code>\n</code>) sitting in the keyboard buffer.</li></p>
+<p>  <li><code>std::cin.ignore(...)</code>: Flushes the leftover <code>\n</code> from the input stream. Without this, <code>std::getline()</code> immediately reads the leftover <code>\n</code> and skips user name input!</li></p>
+<p>  <li><code>std::getline(std::cin, fullName)</code>: Captures the entire full name string including spaces until <code>Enter</code> is pressed.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== STUDENT ENROLLMENT SYSTEM ===
+<p>Enter your Age: 20</p>
+<p>Enter your GPA: 3.85</p>
+<p>Enter your Full Name (with spaces): Rahul Vikram Sharma</p>
+
+<p>--- ENROLLED STUDENT DETAILS ---</p>
+<p>Full Name : Rahul Vikram Sharma</p>
+<p>Age       : 20 years old</p>
+<p>GPA       : 3.85 / 4.0</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Skipped <code>getline()</code> Bug</strong>: Forgetting <code>std::cin.ignore()</code> after reading numbers with <code>std::cin >></code> causes the subsequent <code>getline()</code> to be completely skipped!</li></p>
+<p>  <li><strong>Chaining Output Without Spaces</strong>: Writing <code>std::cout << age << gpa;</code> prints <code>203.85</code> instead of <code>20 3.85</code>. Always include separator spaces or <code>\n</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Prefer <code>\n</code> over <code>std::endl</code> inside heavy loops because <code>std::endl</code> forces a buffer flush every iteration, which degrades I/O performance.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a program that asks for a user's city and age, then calculates how many years remain until age 100.</p>
+<p>2. Read 2 floating point numbers from input and print their sum, product, and average.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create an interactive receipt calculator: Ask for item name (full line), item price, and quantity. Print a receipt with item name, total subtotal, 18% tax, and final grand total.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables & Data Types</a></li></p>
+<p>  <li><a href="05-operators.html">Operators in C++</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="03-variables-and-data-types.html">← Previous: Variables</a> | <a href="05-operators.html">Next: Operators →</a></p>
+
+
+  </div>
+</body>
+</html>

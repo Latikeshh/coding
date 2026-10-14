@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27 git aliases and shortcuts - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Terminal Productivity & Git Aliases</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Git Aliases</strong> are custom keyboard shortcuts and command abbreviations configured inside your Git configuration (<code>git config</code>) that replace long, complex, or frequently typed Git commands with short, memorable commands.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Git Aliases increase terminal productivity by creating shortcuts for multi-word Git commands. For example, setting <code>alias.st "status"</code> allows typing <code>git st</code> instead of <code>git status</code>. Advanced aliases can encapsulate long formatting strings for custom visual <code>git log</code> graphs.</p>
+
+<h3>Hindi</h3>
+<p>Git Aliases aapke terminal productivity ko fast karte hain. Aap lambe Git commands ke liye chhote shortcuts (jaise <code>git status</code> ke liye <code>git st</code>, <code>git commit</code> ke liye <code>git ci</code>) bana sakte hain. Custom aliases <code>.gitconfig</code> file mein save hote hain.</p>
+
+<h3>Marathi</h3>
+<p>Git Aliases dware lamb commands sathi chote shortcuts tayar karta yetat. Jasakhi <code>git status</code> sathi <code>git st</code> kiva <code>git checkout</code> sathi <code>git co</code>. Ya mule terminal madhye fast kaam karta yete.</p>
+
+<h3>Hinglish</h3>
+<p>Har baar <code>git log --oneline --graph --all</code> Type karne se pareshan hone ke bajaye ek short alias <code>git lg</code> configure karein. Keyboard typing speed badhane aur time save karne ke liye aliases professional developers ka secret tool hain.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Software developers execute dozens of Git commands every hour. Typing long commands repeatedly wastes time and increases typographical errors. Shortcuts streamline terminal workflows.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of Git Aliases like speed-dial contacts on your phone:</p>
+<ul>
+<p>  <li>Instead of manually dialing a 10-digit number (<code>git log --oneline --graph --all</code>), you press Speed Dial <code>1</code> (<strong><code>git lg</code></strong>), and your phone executes the full call instantly!</li></p>
+<p></ul></p>
+
+<h2>📝 Top Recommended Developer Aliases</h2>
+
+<h3>1. Basic Command Shortcuts</h3>
+<pre><code class="language-bash"># Shortcut for &#39;git status&#39;
+<p>git config --global alias.st &quot;status -s&quot;</p>
+
+<h1>Shortcut for &#39;git checkout&#39; / &#39;git switch&#39;</h1>
+<p>git config --global alias.co &quot;checkout&quot;</p>
+<p>git config --global alias.sw &quot;switch&quot;</p>
+
+<h1>Shortcut for &#39;git branch&#39;</h1>
+<p>git config --global alias.br &quot;branch&quot;</p>
+
+<h1>Shortcut for &#39;git commit&#39;</h1>
+<p>git config --global alias.ci &quot;commit&quot;</code></pre></p>
+
+<h3>2. Advanced Workflow Shortcuts</h3>
+<pre><code class="language-bash"># Shortcut to unstage files cleanly
+<p>git config --global alias.unstage &quot;restore --staged&quot;</p>
+
+<h1>Shortcut to view details of the last commit</h1>
+<p>git config --global alias.last &quot;log -1 HEAD&quot;</p>
+
+<h1>Shortcut to view pretty colorized visual commit tree</h1>
+<p>git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a terminal session using custom aliases:</p>
+
+<pre><code class="language-bash"># Using &#39;git st&#39; instead of &#39;git status&#39;
+<p>git st</p>
+
+<h1>Using custom &#39;git lg&#39; tree viewer</h1>
+<p>git lg</p>
+
+<h1>Using &#39;git unstage&#39; to unstage index.html</h1>
+<p>git unstage index.html</code></pre></p>
+
+<h2>🔍 Under the Hood: The <code>~/.gitconfig</code> File</h2>
+
+<p>Configured aliases are stored directly in your global <code>~/.gitconfig</code> text file under the <code>[alias]</code> section:</p>
+
+<p>``<code>ini</p>
+<h1>Contents of ~/.gitconfig:</h1>
+<p>[user]</p>
+<p>    name = Rahul Sharma</p>
+<p>    email = rahul@example.com</p>
+
+<p>[alias]</p>
+<p>    st = status -s</p>
+<p>    co = checkout</p>
+<p>    sw = switch</p>
+<p>    br = branch</p>
+<p>    ci = commit</p>
+<p>    unstage = restore --staged</p>
+<p>    last = log -1 HEAD</p>
+<p>    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit</p>
+<pre><code class="language-text">
+<h2>👀 Terminal Output</h2>
+<p></code></pre>bash</p>
+<p>$ git lg</p>
+<ul>
+<p>  <li>a1b2c3d - (HEAD -> main, origin/main) Add user login (2 hours ago) <Rahul Sharma></li></p>
+<p>  <li>f9e8d7c - Initial repository commit (1 day ago) <Rahul Sharma></li></p>
+<p></ul></p>
+<p></code>`<code></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Overwriting Built-in Git Commands:</strong> Trying to create an alias with the same name as a built-in Git command (e.g. </code>git config --global alias.status "log"<code>). Git refuses to overwrite built-in command names.</li></p>
+<p>  <li><strong>Forgetting Quotes in Complex Aliases:</strong> Omitting quotes when defining multi-word aliases containing spaces or flags.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>To remove a global alias:</li></p>
+<p></ul></p>
+<p>  </code>`<code>bash</p>
+<p>  git config --global --unset alias.st</p>
+<p>  </code>`<code></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Professional developers maintain personal dotfile repositories containing customized </code>.gitconfig<code> aliases that they sync across all their development laptops.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Set up a global shortcut for </code>git status<code>:</p>
+<p>   </code>git config --global alias.st "status"<code></p>
+<p>2. Run </code>git st<code> in your terminal and verify that it executes </code>git status<code> output cleanly!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Set up the custom </code>git lg<code> alias in your terminal using the command provided in this lesson, and run </code>git lg<code> in your </code>git-practice` repo to enjoy your new beautiful colorized tree view!</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-git-configuration.html">Git Configuration</a></li></p>
+<p>  <li><a href="07-viewing-history-and-git-log.html">Viewing History</a></li></p>
+<p>  <li><a href="28-git-workflows-gitflow-and-trunk-based.html">Industry Workflows</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="26-github-actions-and-ci-cd-basics.html">← Previous: GitHub Actions</a> | <a href="28-git-workflows-gitflow-and-trunk-based.html">Next: Git Workflows →</a></p>
+
+
+
+  </div>
+</body>
+</html>

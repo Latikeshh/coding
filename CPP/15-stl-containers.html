@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 stl containers - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>C++ Standard Template Library (STL) Containers (<code>vector</code>, <code>map</code>, <code>unordered_map</code>, <code>set</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong>Standard Template Library (STL)</strong> is a collection of C++ template classes providing standardized data structures and algorithms. <strong>STL Containers</strong> hold collections of objects in memory. They are categorized into:</p>
+<p>1. <strong>Sequence Containers</strong>: Sequential ordering (<code>std::vector</code>, <code>std::deque</code>, <code>std::list</code>).</p>
+<p>2. <strong>Associative Containers</strong>: Sorted key-value structures based on Red-Black Trees (<code>std::map</code>, <code>std::set</code>).</p>
+<p>3. <strong>Unordered Associative Containers</strong>: Unsorted key-value structures based on Hash Tables (<code>std::unordered_map</code>, <code>std::unordered_set</code>).</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>STL C++ ka sabse powerful part hai. Inme bane-banaye data structures hote hain:</p>
+<ul>
+<p>  <li><strong><code>std::vector</code></strong>: Dynamic array (fast random access $O(1)$).</li></p>
+<p>  <li><strong><code>std::map</code></strong>: Key-value pair ko <strong>sorted order</strong> mein rakhta hai ($O(\log N)$ search time).</li></p>
+<p>  <li><strong><code>std::unordered_map</code></strong>: Hash Table par based hota hai, isiliye fast lookup ($O(1)$) deta hai.</li></p>
+<p>  <li><strong><code>std::set</code></strong>: Duplicate elements ko automatically hata deta hai aur baki values ko <strong>sorted</strong> rakhta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>STL C++ cha ek atyant mahatvacha bhaag aahe. Yaat ready-made data structures astat:</p>
+<ul>
+<p>  <li><strong><code>std::vector</code></strong>: Dynamic array.</li></p>
+<p>  <li><strong><code>std::map</code></strong>: Key-value pairs <strong>sorted</strong> swaroopat store karto.</li></p>
+<p>  <li><strong><code>std::unordered_map</code></strong>: Hash table cha vapar karun fast lookup ($O(1)$) deto.</li></p>
+<p>  <li><strong><code>std::set</code></strong>: Unique aani sorted elements store karto (duplicates kadhto).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 Summary Comparison of Key STL Containers</h2>
+
+<table>
+<p>  <thead><tr><th>Container</th><th>Internal Data Structure</th><th>Ordering</th><th>Search Complexity</th><th>Unique Keys?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>std::vector</code></strong></td><td>Dynamic Array</td><td>Sequence Order</td><td>$O(N)$</td><td>❌ Allows Duplicates</td></tr></p>
+<p>    <tr><td><strong><code>std::map</code></strong></td><td>Red-Black Tree</td><td>Sorted by Key</td><td>$O(\log N)$</td><td>✅ Unique Keys</td></tr></p>
+<p>    <tr><td><strong><code>std::unordered_map</code></strong></td><td>Hash Table</td><td>Unordered</td><td>$O(1)$ Average</td><td>✅ Unique Keys</td></tr></p>
+<p>    <tr><td><strong><code>std::set</code></strong></td><td>Red-Black Tree</td><td>Sorted Values</td><td>$O(\log N)$</td><td>✅ Unique Values Only</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;vector&gt;</p>
+<p>#include &lt;map&gt;</p>
+<p>#include &lt;unordered_map&gt;</p>
+<p>#include &lt;set&gt;</p>
+<p>#include &lt;string&gt;</p>
+
+<p>int main() {</p>
+<p>    // 1. std::set (Unique, Auto-Sorted)</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. std::set (Unique &amp; Sorted) ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::set&lt;int&gt; uniqueNumbers = {40, 10, 20, 10, 30, 40}; // Duplicates ignored!</p>
+
+<p>    std::cout &lt;&lt; &quot;Set Elements (Auto-Sorted): &quot;;</p>
+<p>    for (int num : uniqueNumbers) {</p>
+<p>        std::cout &lt;&lt; num &lt;&lt; &quot; &quot;;</p>
+<p>    }</p>
+<p>    std::cout &lt;&lt; std::endl;</p>
+
+<p>    // 2. std::map (Ordered Key-Value Pair)</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 2. std::map (Sorted Key-Value Pairs) ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::map&lt;std::string, double&gt; studentGrades;</p>
+<p>    studentGrades[&quot;Rahul&quot;] = 92.5;</p>
+<p>    studentGrades[&quot;Alice&quot;] = 98.0;</p>
+<p>    studentGrades[&quot;Priya&quot;] = 88.0;</p>
+
+<p>    for (const auto&amp; [name, grade] : studentGrades) { // C++17 Structured Binding</p>
+<p>        std::cout &lt;&lt; name &lt;&lt; &quot; -&gt; Grade: &quot; &lt;&lt; grade &lt;&lt; &quot;%&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // 3. std::unordered_map (O(1) Hash Table Lookup)</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 3. std::unordered_map (O(1) Fast Lookup) ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::unordered_map&lt;std::string, std::string&gt; phoneBook;</p>
+<p>    phoneBook[&quot;Police&quot;] = &quot;100&quot;;</p>
+<p>    phoneBook[&quot;Ambulance&quot;] = &quot;102&quot;;</p>
+<p>    phoneBook[&quot;Fire&quot;] = &quot;101&quot;;</p>
+
+<p>    std::string query = &quot;Ambulance&quot;;</p>
+<p>    if (phoneBook.find(query) != phoneBook.end()) {</p>
+<p>        std::cout &lt;&lt; &quot;Emergency Number for &quot; &lt;&lt; query &lt;&lt; &quot; : &quot; &lt;&lt; phoneBook[query] &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>std::set<int></code>: Automatically discards duplicate <code>10</code> and <code>40</code>, storing <code>{10, 20, 30, 40}</code> in strictly ascending order.</li></p>
+<p>  <li><code>const auto& [name, grade]</code>: C++17 Structured Binding syntax cleanly unpacks key-value <code>std::pair</code> elements inside <code>for</code> loops.</li></p>
+<p>  <li><code>phoneBook.find(query) != phoneBook.end()</code>: The standard C++ idiomatic way to check whether a key exists in a map without accidentally inserting a blank entry!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. std::set (Unique &amp; Sorted) ---
+<p>Set Elements (Auto-Sorted): 10 20 30 40 </p>
+
+<p>--- 2. std::map (Sorted Key-Value Pairs) ---</p>
+<p>Alice -&gt; Grade: 98%</p>
+<p>Priya -&gt; Grade: 88%</p>
+<p>Rahul -&gt; Grade: 92.5%</p>
+
+<p>--- 3. std::unordered_map (O(1) Fast Lookup) ---</p>
+<p>Emergency Number for Ambulance : 102</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Accidental Insertion Bug with <code>map[key]</code></strong>:</li></p>
+<p></ul></p>
+<p>  Accessing <code>map["NonExistentKey"]</code> using square brackets <code>[]</code> <strong>inserts</strong> a default blank entry into the map if the key didn't exist! Use <code>.find(key)</code> or <code>.contains(key)</code> (C++20) for read-only lookup.</p>
+<ul>
+<p>  <li><strong>Choosing <code>std::map</code> when Order Doesn't Matter</strong>: <code>std::map</code> incurs $O(\log N)$ tree traversal overhead. Use <code>std::unordered_map</code> for faster $O(1)$ performance when ordering is not needed.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Use <code>std::vector</code> by default for sequential data.</li></p>
+<p>  <li>Use <code>std::unordered_map</code> when you need key-value lookups by unique IDs (like User ID -> User Data).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Store 5 duplicate integers in a <code>std::set</code> and verify its final size.</p>
+<p>2. Build a word frequency counter using <code>std::unordered_map<std::string, int></code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write an inventory management system using <code>std::map<int, std::string></code> (Product ID -> Product Name). Implement functions to add products, remove products by ID, and list all products sorted by ID.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="09-arrays-and-vectors.html">Arrays & Vectors</a></li></p>
+<p>  <li><a href="16-stl-algorithms.html">STL Algorithms</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="14-smart-pointers.html">← Previous: Smart Pointers</a> | <a href="16-stl-algorithms.html">Next: STL Algorithms →</a></p>
+
+
+  </div>
+</body>
+</html>

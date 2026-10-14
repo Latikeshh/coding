@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 git reset and git revert - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Undoing Commits (<code>git reset</code>, <code>git revert</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Undoing commits in Git is handled by two distinct commands: <strong><code>git reset</code></strong> (which rewrites commit history by moving the active <code>HEAD</code> pointer backwards) and <strong><code>git revert</code></strong> (which safely undoes a past commit by creating a brand-new inverse commit without destroying history).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git reset</code> rewrites history by moving <code>HEAD</code> to a previous commit. Modes include <code>--soft</code> (keeps changes staged), <code>--mixed</code> (default, keeps changes unstaged in Working Directory), and <code>--hard</code> (discards all changes permanently). <code>git revert <hash></code> is the safe choice for public/shared branches because it creates a new commit that undoes specified past changes without altering historical commits.</p>
+
+<h3>Hindi</h3>
+<p><code>git reset</code> commit history ko peeche le jata hai. <code>--soft</code> changes ko staged rakhta hai, <code>--mixed</code> changes ko working directory mein rakhta hai, aur <code>--hard</code> sabhi changes ko permanently delete kar deta hai. Public GitHub branches ke liye <code>git revert</code> sabse safe hai kyunki yeh history delete kiye bina ek naya inverse commit banata hai.</p>
+
+<h3>Marathi</h3>
+<p><code>git reset</code> dware commit history maghe ghetli jaate. <code>--soft</code> changes staged thevto, <code>--mixed</code> working directory madhye thevto, aani <code>--hard</code> sarv badal permanently kadhun takto. Remote GitHub branches sathi <code>git revert</code> vaparale pahije karan te navin commit tayar karun badal undo karte.</p>
+
+<h3>Hinglish</h3>
+<p>Unpublished local commits ke liye <code>git reset</code> use karein. Public/GitHub branches par kabhi bhi <code>git reset --hard</code> na chalayein; wahan <code>git revert</code> use karein. <code>git revert</code> ek naya commit add karta hai jo purane bug commit ke exact opposite changes apply karta hai.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>If you committed broken code locally before pushing, <code>git reset</code> lets you uncommit and fix it. If a bug was pushed to a shared production branch days ago, <code>git revert</code> safely rolls back the bug without disrupting team history.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<ul>
+<p>  <li><strong><code>git reset</code> (Time Machine / Rewrite):</strong> Erasing pages from a history book as if those events never happened. Fine for your personal diary (local branch), but dangerous if others have already read those pages!</li></p>
+<p>  <li><strong><code>git revert</code> (Correction Notice):</strong> Writing a new page in the history book saying *"The entry on page 10 was incorrect; page 12 cancels out those changes."*</li></p>
+<p></ul></p>
+
+<h2>📝 Modes & Syntax Comparison</h2>
+
+<h3>1. <code>git reset</code> Modes (Local Unpushed Commits Only!)</h3>
+<p>Moves <code>HEAD</code> pointer back by 1 commit (<code>HEAD~1</code>) or to a specific SHA hash:</p>
+
+<pre><code class="language-bash"># Soft Reset: Uncommits, but keeps all changes STAGED in Index
+<p>git reset --soft HEAD~1</p>
+
+<h1>Mixed Reset (Default): Uncommits, keeps changes UNSTAGED in Working Directory</h1>
+<p>git reset --mixed HEAD~1</p>
+<p>git reset HEAD~1</p>
+
+<h1>Hard Reset (DANGER!): Uncommits AND wipes out all working directory edits!</h1>
+<p>git reset --hard HEAD~1</code></pre></p>
+
+<h3>2. <code>git revert</code> (Safe for Shared Remote Branches!)</h3>
+<p>Creates a new inverse commit undoing specified commit:</p>
+<pre><code class="language-bash">git revert a1b2c3d</code></pre>
+
+<h2>💡 Practical Example</h2>
+
+<p>Comparison workflow between <code>reset</code> and <code>revert</code>:</p>
+
+<pre><code class="language-bash"># Scenario A: Local Soft Reset
+<h1>Undo last commit, keep changes staged to fix commit message or add missing file</h1>
+<p>git reset --soft HEAD~1</p>
+<p>git add missing_file.js</p>
+<p>git commit -m &quot;Corrected commit with missing file&quot;</p>
+
+<h1>Scenario B: Safe Public Revert</h1>
+<h1>Safely undo commit a1b2c3d on shared main branch</h1>
+<p>git revert a1b2c3d -m &quot;Revert broken authentication payment gateway&quot;</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>HEAD~1</code>: Relative notation meaning "1 commit prior to current <code>HEAD</code>". (<code>HEAD~2</code> = 2 commits back).</li></p>
+<p>  <li><code>git revert <hash></code>: Opens text editor asking for a commit message for the new reverting commit.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash"># Executing git revert:
+<p>$ git revert a1b2c3d</p>
+<p>[main e5f6g7h] Revert &quot;Add buggy discount calculation&quot;</p>
+<p> 1 file changed, 2 deletions(-)</p>
+
+<h1>Notice that git log now shows BOTH original commit AND reverting commit!</code></pre></h1>
+
+<h2>⚠️ Critical Danger Warning</h2>
+
+<ul>
+<p>  <li><strong>NEVER Reset Pushed Public Commits:</strong> Executing <code>git reset --hard</code> on commits already pushed to GitHub breaks history for all teammates pulling from origin. This forces chaotic merge conflicts for the entire team.</li></p>
+<p>  <li>*Golden Rule:* <strong>Reset for Local Unpushed Code; Revert for Shared Pushed Code!</strong></li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>If you accidentally execute <code>git reset --hard</code>, Git stores a safety backup log called <strong><code>git reflog</code></strong>. You can recover lost commits using <code>git reflog</code> within 30 days!</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>DevOps engineers use <code>git revert</code> during production incidents to instantly undo breaking deployment commits in main pipelines without rewriting git history.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. In your <code>git-practice</code> repo, make a dummy commit: <code>echo "Test" >> test.txt</code>, <code>git add .</code>, <code>git commit -m "Dummy commit"</code>.</p>
+<p>2. Run <code>git log --oneline</code> and notice your commit.</p>
+<p>3. Run <code>git reset --soft HEAD~1</code> and run <code>git status</code>. Notice <code>test.txt</code> is still staged!</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Commit <code>test.txt</code> again. Now run <code>git revert HEAD</code> and inspect <code>git log --oneline</code> to see the new reverting commit generated by Git.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-undoing-changes-and-git-restore.html">Undoing Local Changes with Git Restore</a></li></p>
+<p>  <li><a href="12-branching-basics.html">Branching Basics</a></li></p>
+<p>  <li><a href="13-merging-branches.html">Merging Branches</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="10-undoing-changes-and-git-restore.html">← Previous: Restore</a> | <a href="12-branching-basics.html">Next: Branching Basics →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 mini projects - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>HTML Mini Projects</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Practical mini projects allow you to combine all learned HTML concepts—document structure, headings, lists, tables, images, media, forms, accessibility labels, and semantic elements—into complete, real-world web pages.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Practice HTML by building complete mini projects: a Developer Resume, a Recipe Card page, and a Registration Form.</p>
+
+<h3>Hindi</h3>
+<p>Learned HTML concepts ko apply karne ke liye complete mini projects (Developer Resume, Recipe Card, Workshop Registration Form) practice karein.</p>
+
+<h3>Marathi</h3>
+<p>Shiklele HTML concepts apply karanyasathi 3 complete mini projects (Developer Resume, Recipe Card, Workshop Registration Form) practice kara.</p>
+
+<p>---</p>
+
+<h2>🏗️ Project 1: Developer Portfolio / Resume Page</h2>
+
+<p>A structured personal resume page using semantic HTML5 tags:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;meta name=&quot;description&quot; content=&quot;Alex Kumar - Web Developer Portfolio and Resume&quot;&gt;</p>
+<p>  &lt;title&gt;Alex Kumar - Developer Portfolio&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;Alex Kumar&lt;/h1&gt;</p>
+<p>    &lt;p&gt;Frontend Web Developer &amp;amp; Computer Science Student&lt;/p&gt;</p>
+<p>    &lt;nav&gt;</p>
+<p>      &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt; |</p>
+<p>      &lt;a href=&quot;#skills&quot;&gt;Skills&lt;/a&gt; |</p>
+<p>      &lt;a href=&quot;#projects&quot;&gt;Projects&lt;/a&gt; |</p>
+<p>      &lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;</p>
+<p>    &lt;/nav&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;hr&gt;</p>
+
+<p>  &lt;main&gt;</p>
+<p>    &lt;section id=&quot;about&quot;&gt;</p>
+<p>      &lt;h2&gt;About Me&lt;/h2&gt;</p>
+<p>      &lt;p&gt;Passionate computer science student dedicated to building clean, accessible, and high-performance web applications using modern HTML5, CSS3, and JavaScript.&lt;/p&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section id=&quot;skills&quot;&gt;</p>
+<p>      &lt;h2&gt;Technical Skills&lt;/h2&gt;</p>
+<p>      &lt;ul&gt;</p>
+<p>        &lt;li&gt;Frontend Development (HTML5, CSS3, JavaScript)&lt;/li&gt;</p>
+<p>        &lt;li&gt;Version Control (Git &amp;amp; GitHub)&lt;/li&gt;</p>
+<p>        &lt;li&gt;Web Accessibility (a11y) &amp;amp; Responsive Web Design&lt;/li&gt;</p>
+<p>      &lt;/ul&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section id=&quot;projects&quot;&gt;</p>
+<p>      &lt;h2&gt;Featured Projects&lt;/h2&gt;</p>
+
+<p>      &lt;article&gt;</p>
+<p>        &lt;h3&gt;1. Student Learning Portal&lt;/h3&gt;</p>
+<p>        &lt;p&gt;A web platform providing structured coding notes and tutorials for beginners.&lt;/p&gt;</p>
+<p>      &lt;/article&gt;</p>
+
+<p>      &lt;article&gt;</p>
+<p>        &lt;h3&gt;2. E-Commerce Food Ordering Site&lt;/h3&gt;</p>
+<p>        &lt;p&gt;An accessible frontend prototype featuring restaurant menus and order placement forms.&lt;/p&gt;</p>
+<p>      &lt;/article&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section id=&quot;contact&quot;&gt;</p>
+<p>      &lt;h2&gt;Contact Me&lt;/h2&gt;</p>
+<p>      &lt;p&gt;Email: &lt;a href=&quot;mailto:alex@example.com&quot;&gt;alex@example.com&lt;/a&gt;&lt;/p&gt;</p>
+<p>      &lt;p&gt;GitHub: &lt;a href=&quot;https://github.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github.com/example-user&lt;/a&gt;&lt;/p&gt;</p>
+<p>    &lt;/section&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>  &lt;hr&gt;</p>
+
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;&amp;copy; 2026 Alex Kumar. All rights reserved.&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h2>🏗️ Project 2: Restaurant Recipe Card Page</h2>
+
+<p>A recipe showcase page utilizing <code><figure></code>, <code><figcaption></code>, <code><dl></code>, and <code><ol></code>:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Fluffy Homemade Pancakes Recipe&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;Classic Fluffy Pancakes&lt;/h1&gt;</p>
+<p>    &lt;p&gt;A quick 15-minute breakfast pancake recipe for family mornings.&lt;/p&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;main&gt;</p>
+<p>    &lt;figure&gt;</p>
+<p>      &lt;img src=&quot;images/pancakes.jpg&quot; alt=&quot;Stack of golden fluffy pancakes topped with maple syrup and fresh berries&quot; width=&quot;500&quot; height=&quot;350&quot;&gt;</p>
+<p>      &lt;figcaption&gt;Figure 1: Golden fluffy pancakes served fresh with syrup.&lt;/figcaption&gt;</p>
+<p>    &lt;/figure&gt;</p>
+
+<p>    &lt;section&gt;</p>
+<p>      &lt;h2&gt;Recipe Quick Facts&lt;/h2&gt;</p>
+<p>      &lt;dl&gt;</p>
+<p>        &lt;dt&gt;Prep Time:&lt;/dt&gt;</p>
+<p>        &lt;dd&gt;10 minutes&lt;/dd&gt;</p>
+<p>        &lt;dt&gt;Cook Time:&lt;/dt&gt;</p>
+<p>        &lt;dd&gt;15 minutes&lt;/dd&gt;</p>
+<p>        &lt;dt&gt;Servings:&lt;/dt&gt;</p>
+<p>        &lt;dd&gt;4 servings&lt;/dd&gt;</p>
+<p>      &lt;/dl&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section&gt;</p>
+<p>      &lt;h2&gt;Ingredients&lt;/h2&gt;</p>
+<p>      &lt;ul&gt;</p>
+<p>        &lt;li&gt;1&#189; cups all-purpose flour&lt;/li&gt;</p>
+<p>        &lt;li&gt;3&#189; teaspoons baking powder&lt;/li&gt;</p>
+<p>        &lt;li&gt;1 tablespoon sugar&lt;/li&gt;</p>
+<p>        &lt;li&gt;1&#188; cups milk&lt;/li&gt;</p>
+<p>        &lt;li&gt;1 egg&lt;/li&gt;</p>
+<p>        &lt;li&gt;3 tablespoons melted butter&lt;/li&gt;</p>
+<p>      &lt;/ul&gt;</p>
+<p>    &lt;/section&gt;</p>
+
+<p>    &lt;section&gt;</p>
+<p>      &lt;h2&gt;Step-by-Step Instructions&lt;/h2&gt;</p>
+<p>      &lt;ol&gt;</p>
+<p>        &lt;li&gt;Sift flour, baking powder, and sugar together in a large bowl.&lt;/li&gt;</p>
+<p>        &lt;li&gt;Make a well in the center and pour in milk, egg, and melted butter; mix until smooth.&lt;/li&gt;</p>
+<p>        &lt;li&gt;Heat a lightly oiled griddle or frying pan over medium-high heat.&lt;/li&gt;</p>
+<p>        &lt;li&gt;Pour batter onto griddle; cook until bubbles form, then flip and brown second side.&lt;/li&gt;</p>
+<p>      &lt;/ol&gt;</p>
+<p>    &lt;/section&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;Recipe published by Food Corner Blog &amp;bull; &amp;copy; 2026&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h2>🏗️ Project 3: Student Registration Form Page</h2>
+
+<p>A comprehensive form combining <code><fieldset></code>, input validations, dropdowns, and textareas:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Workshop Registration Form&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;main&gt;</p>
+<p>    &lt;h1&gt;Web Development Workshop Registration&lt;/h1&gt;</p>
+<p>    &lt;p&gt;Fill out the form below to register for the upcoming web development bootcamp.&lt;/p&gt;</p>
+
+<p>    &lt;form action=&quot;/submit-registration&quot; method=&quot;POST&quot;&gt;</p>
+
+<p>      &lt;fieldset&gt;</p>
+<p>        &lt;legend&gt;Personal Information&lt;/legend&gt;</p>
+
+<p>        &lt;p&gt;</p>
+<p>          &lt;label for=&quot;name&quot;&gt;Full Name:&lt;/label&gt;&lt;br&gt;</p>
+<p>          &lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;fullName&quot; required placeholder=&quot;John Doe&quot;&gt;</p>
+<p>        &lt;/p&gt;</p>
+
+<p>        &lt;p&gt;</p>
+<p>          &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;&lt;br&gt;</p>
+<p>          &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;userEmail&quot; required placeholder=&quot;john@example.com&quot;&gt;</p>
+<p>        &lt;/p&gt;</p>
+
+<p>        &lt;p&gt;</p>
+<p>          &lt;label for=&quot;phone&quot;&gt;Phone Number:&lt;/label&gt;&lt;br&gt;</p>
+<p>          &lt;input id=&quot;phone&quot; type=&quot;tel&quot; name=&quot;userPhone&quot; pattern=&quot;[0-9]{10}&quot; placeholder=&quot;9876543210&quot; required&gt;</p>
+<p>        &lt;/p&gt;</p>
+<p>      &lt;/fieldset&gt;</p>
+
+<p>      &lt;fieldset&gt;</p>
+<p>        &lt;legend&gt;Workshop Details&lt;/legend&gt;</p>
+
+<p>        &lt;p&gt;</p>
+<p>          &lt;label for=&quot;track&quot;&gt;Select Learning Track:&lt;/label&gt;&lt;br&gt;</p>
+<p>          &lt;select id=&quot;track&quot; name=&quot;learningTrack&quot; required&gt;</p>
+<p>            &lt;option value=&quot;&quot;&gt;-- Choose a Track --&lt;/option&gt;</p>
+<p>            &lt;option value=&quot;html-css&quot;&gt;HTML5 &amp;amp; CSS3 Fundamentals&lt;/option&gt;</p>
+<p>            &lt;option value=&quot;javascript&quot;&gt;JavaScript ES6 &amp;amp; DOM&lt;/option&gt;</p>
+<p>            &lt;option value=&quot;fullstack&quot;&gt;Fullstack Web Development&lt;/option&gt;</p>
+<p>          &lt;/select&gt;</p>
+<p>        &lt;/p&gt;</p>
+
+<p>        &lt;p&gt;</p>
+<p>          &lt;label for=&quot;comments&quot;&gt;Why do you want to join this workshop?&lt;/label&gt;&lt;br&gt;</p>
+<p>          &lt;textarea id=&quot;comments&quot; name=&quot;reasons&quot; rows=&quot;4&quot; cols=&quot;50&quot; placeholder=&quot;Share your coding goals...&quot;&gt;&lt;/textarea&gt;</p>
+<p>        &lt;/p&gt;</p>
+<p>      &lt;/fieldset&gt;</p>
+
+<p>      &lt;p&gt;</p>
+<p>        &lt;button type=&quot;submit&quot;&gt;Complete Registration&lt;/button&gt;</p>
+<p>        &lt;button type=&quot;reset&quot;&gt;Clear Form&lt;/button&gt;</p>
+<p>      &lt;/p&gt;</p>
+
+<p>    &lt;/form&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>  &lt;footer&gt;</p>
+<p>    &lt;p&gt;Questions? Contact us at &lt;a href=&quot;mailto:workshops@college.edu&quot;&gt;workshops@college.edu&lt;/a&gt;&lt;/p&gt;</p>
+<p>  &lt;/footer&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="24-accessibility-basics.html">← Previous: Accessibility Basics</a> | <a href="./">HTML Home</a> | <a href="26-html-history.html">Next: HTML History →</a></p>
+
+
+
+  </div>
+</body>
+</html>

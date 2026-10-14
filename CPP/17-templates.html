@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 templates - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Templates & Generic Programming in C++ (<code>template<typename T></code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Templates</strong> are the foundation of <strong>Generic Programming</strong> in C++. A Template allows you to write a single blueprint function or class that operates on any data type (<code>int</code>, <code>double</code>, <code>std::string</code>, or custom classes) without duplicating code. The compiler generates specialized, type-safe binary code for each used type at compile time (a process called <strong>Template Instantiation</strong>).</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Templates C++ ka ek powerful feature hai jo aapko generic code likhne ki suvidha deta hai. Agar aapko ek <code>max()</code> function banana hai jo <code>int</code>, <code>double</code>, aur <code>string</code> sab ke liye kaam kare, toh aapko alag-alag 3 functions nahi likhne padenge. Aap <code>template <typename T></code> ka use karke ek hi generic function likh sakte ho. Compiler automatic type deduce karke executable code bana deta hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Template cha vapar karun aapan C++ madhye type-independent (generic) code lihuu shakto. <code>int</code>, <code>double</code> kiwa <code>string</code> sathi ekach prache function lihinyasathi <code>template <typename T></code> cha vapar kela jato. Compiler compile-time la lagnaara data type tayar karto.</p>
+
+<p>---</p>
+
+<h2>📝 Function Template & Class Template Syntax</h2>
+
+<pre><code class="language-cpp">// 1. Function Template Syntax
+<p>template &lt;typename T&gt;</p>
+<p>T add(T a, T b) {</p>
+<p>    return a + b;</p>
+<p>}</p>
+
+<p>// 2. Class Template Syntax</p>
+<p>template &lt;typename T&gt;</p>
+<p>class Box {</p>
+<p>private:</p>
+<p>    T content;</p>
+<p>public:</p>
+<p>    Box(T val) : content(val) {}</p>
+<p>    T getContent() const { return content; }</p>
+<p>};</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+
+<p>// 1. Generic Function Template</p>
+<p>template &lt;typename T&gt;</p>
+<p>T findMax(T a, T b) {</p>
+<p>    return (a &gt; b) ? a : b;</p>
+<p>}</p>
+
+<p>// 2. Generic Class Template (A simple Container Box)</p>
+<p>template &lt;typename T&gt;</p>
+<p>class StorageBox {</p>
+<p>private:</p>
+<p>    T item;</p>
+<p>public:</p>
+<p>    StorageBox(T val) : item(val) {}</p>
+
+<p>    void display() const {</p>
+<p>        std::cout &lt;&lt; &quot;[StorageBox] Stored Item: &quot; &lt;&lt; item &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. FUNCTION TEMPLATE DEMO ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Max Int    : &quot; &lt;&lt; findMax(10, 25) &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Max Double : &quot; &lt;&lt; findMax(88.5, 42.1) &lt;&lt; std::endl;</p>
+<p>    std::cout &lt;&lt; &quot;Max String : &quot; &lt;&lt; findMax(std::string(&quot;Banana&quot;), std::string(&quot;Apple&quot;)) &lt;&lt; std::endl;</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 2. CLASS TEMPLATE DEMO ---&quot; &lt;&lt; std::endl;</p>
+<p>    StorageBox&lt;int&gt; intBox(500);</p>
+<p>    StorageBox&lt;double&gt; doubleBox(99.99);</p>
+<p>    StorageBox&lt;std::string&gt; stringBox(&quot;C++20 Modules&quot;);</p>
+
+<p>    intBox.display();</p>
+<p>    doubleBox.display();</p>
+<p>    stringBox.display();</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>template <typename T></code>: Tells the compiler that <code>T</code> is a placeholder generic data type.</li></p>
+<p>  <li><code>findMax(10, 25)</code>: Compiler automatically deduces <code>T = int</code> and generates an integer version of <code>findMax()</code>.</li></p>
+<p>  <li><code>StorageBox<int></code>: Explicitly instantiates the <code>StorageBox</code> class template with <code>T = int</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. FUNCTION TEMPLATE DEMO ---
+<p>Max Int    : 25</p>
+<p>Max Double : 88.5</p>
+<p>Max String : Banana</p>
+
+<p>--- 2. CLASS TEMPLATE DEMO ---</p>
+<p>[StorageBox] Stored Item: 500</p>
+<p>[StorageBox] Stored Item: 99.99</p>
+<p>[StorageBox] Stored Item: C++20 Modules</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Separating Template Definitions into <code>.cpp</code> Files</strong>:</li></p>
+<p></ul></p>
+<p>  Templates must be fully defined in <strong>Header Files (<code>.h</code> / <code>.hpp</code>)</strong>! Separating template declarations in header files and implementations in <code>.cpp</code> files leads to <code>undefined reference</code> linker errors.</p>
+<ul>
+<p>  <li><strong>Incompatible Template Operator Operations</strong>:</li></p>
+<p></ul></p>
+<p>  If a template uses <code>a + b</code>, attempting to instantiate the template with a custom class that lacks an overloaded <code>+</code> operator results in a compilation error.</p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Use C++20 <strong>Concepts</strong> (<code>template <std::integral T></code>) to constrain template parameters and produce clean, clear compiler error messages when type requirements are violated.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a function template <code>swapValues(T& a, T& b)</code> that swaps two variables of any data type.</p>
+<p>2. Create a generic <code>Pair<T1, T2></code> class template that holds two values of potentially different data types.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Implement a custom generic <code>Stack<T></code> class template backed by <code>std::vector<T></code> with <code>push()</code>, <code>pop()</code>, <code>top()</code>, and <code>isEmpty()</code> methods.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="08-functions.html">Functions in C++</a></li></p>
+<p>  <li><a href="10-classes-and-oops.html">Classes & OOP</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="16-stl-algorithms.html">← Previous: STL Algorithms</a> | <a href="18-lambdas.html">Next: Lambdas →</a></p>
+
+
+  </div>
+</body>
+</html>

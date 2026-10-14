@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 variables and data types - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Variables and Data Types in C</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In C, a <strong>variable</strong> is a named storage location in memory used to hold data that can be read or modified during execution. C is a <strong>statically typed</strong> language, meaning every variable must be declared with an explicit <strong>data type</strong> before it can be used.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Variables store values in memory. C requires declaring variable types (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) at compile time. Format specifiers (like <code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) tell functions like <code>printf</code> how to interpret and display variable bytes in memory.</p>
+
+<h3>Hindi</h3>
+<p>Variables memory mein data store karne ki jagah hoti hain. C ek statically typed language hai, isliye variable use karne se pehle uska type (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) tay karna padta hai. <code>printf</code> mein sahi format specifier (jaise <code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) likhna zaroori hai.</p>
+
+<h3>Marathi</h3>
+<p>Variables mhanje memory madhye data sathavanyachi jaga. C madhye pratyek variable vaparanyapūrvi tyacha data type (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) sangana lagto. <code>printf</code> vapartanā yogya format specifier (<code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) vaparane avashyak aahe.</p>
+
+<h3>Hinglish</h3>
+<p>Variables memory blocks hote hain jisme hum values store karte hain. C static typing follow karta hai, toh variable declare karte waqt data type dena mandatory hota hai. Output format karne ke liye matching format specifiers (<code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) use kiye jaate hain.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Rather than hardcoding fixed raw numbers or characters into instructions, variables allow programs to process dynamic user inputs, track inventory, store student records, calculate account balances, and manage hardware state.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of memory as a huge warehouse filled with storage boxes.</p>
+<ul>
+<p>  <li>A <strong>Variable Name</strong> is the text label stuck on the box (e.g., <code>accountBalance</code>).</li></p>
+<p>  <li>A <strong>Data Type</strong> is the size and shape of the box (e.g., an <code>int</code> box holds whole numbers, a <code>float</code> box holds decimal values).</li></p>
+<p>  <li>The <strong>Value</strong> is what you put inside the box.</li></p>
+<p></ul></p>
+
+<h2>📝 Primitive Data Types in ISO C</h2>
+
+<p>The exact size of data types in C depends on the target hardware architecture and compiler implementation (C standard specifies minimum ranges, not fixed byte counts).</p>
+
+<table>
+<p>  <thead><tr><th>Data Type</th><th>Keyword</th><th>Typical Size (64-bit Systems)</th><th>Format Specifier</th><th>Range / Purpose</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Character</td><td><code>char</code></td><td>1 byte (8 bits)</td><td><code>%c</code></td><td>Single character or small integer (<code>-128</code> to <code>127</code>)</td></tr></p>
+<p>    <tr><td>Unsigned Character</td><td><code>unsigned char</code></td><td>1 byte (8 bits)</td><td><code>%c</code> or <code>%u</code></td><td><code>0</code> to <code>255</code> (Raw binary byte)</td></tr></p>
+<p>    <tr><td>Short Integer</td><td><code>short</code></td><td>2 bytes (16 bits)</td><td><code>%hd</code></td><td>Small whole numbers (<code>-32,768</code> to <code>32,767</code>)</td></tr></p>
+<p>    <tr><td>Integer</td><td><code>int</code></td><td>4 bytes (32 bits)</td><td><code>%d</code> or <code>%i</code></td><td>Standard whole numbers (<code>-2.14B</code> to <code>+2.14B</code>)</td></tr></p>
+<p>    <tr><td>Unsigned Integer</td><td><code>unsigned int</code></td><td>4 bytes (32 bits)</td><td><code>%u</code></td><td>Non-negative integers (<code>0</code> to <code>4,294,967,295</code>)</td></tr></p>
+<p>    <tr><td>Long Integer</td><td><code>long</code></td><td>4 or 8 bytes</td><td><code>%ld</code></td><td>Large whole numbers</td></tr></p>
+<p>    <tr><td>Long Long Integer</td><td><code>long long</code></td><td>8 bytes (64 bits)</td><td><code>%lld</code></td><td>Extremely large integers (<code>-9 * 10^18</code> to <code>+9 * 10^18</code>)</td></tr></p>
+<p>    <tr><td>Single Precision Float</td><td><code>float</code></td><td>4 bytes</td><td><code>%f</code></td><td>Floating point decimals (6-7 decimal digits)</td></tr></p>
+<p>    <tr><td>Double Precision Float</td><td><code>double</code></td><td>8 bytes</td><td><code>%lf</code></td><td>High precision decimals (15-17 decimal digits)</td></tr></p>
+<p>    <tr><td>Boolean</td><td><code>_Bool</code> / <code>bool</code></td><td>1 byte</td><td><code>%d</code></td><td><code>0</code> (<code>false</code>) or <code>1</code> (<code>true</code>) (requires <code><stdbool.h></code>)</td></tr></p>
+<p>    <tr><td>Size Type</td><td><code>size_t</code></td><td>4 or 8 bytes</td><td><code>%zu</code></td><td>Unsigned type used for memory sizes and <code>sizeof</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a realistic program tracking bank account details and product information:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;stdbool.h&gt;</p>
+
+<p>int main(void) {</p>
+<p>    // Variable Declarations and Initializations</p>
+<p>    int accountId = 88402;</p>
+<p>    double accountBalance = 15450.75;</p>
+<p>    float interestRate = 4.5f;</p>
+<p>    char accountTier = &#39;P&#39;; // &#39;P&#39; for Premium</p>
+<p>    bool isActive = true;</p>
+
+<p>    // Displaying values using appropriate format specifiers</p>
+<p>    printf(&quot;--- BANK ACCOUNT STATEMENT ---\n&quot;);</p>
+<p>    printf(&quot;Account ID     : %d\n&quot;, accountId);</p>
+<p>    printf(&quot;Account Balance: $%.2lf\n&quot;, accountBalance);</p>
+<p>    printf(&quot;Interest Rate  : %.1f%%\n&quot;, interestRate);</p>
+<p>    printf(&quot;Account Tier   : %c\n&quot;, accountTier);</p>
+<p>    printf(&quot;Account Active : %s\n&quot;, isActive ? &quot;Yes&quot; : &quot;No&quot;);</p>
+
+<p>    // Demonstrating sizeof operator for memory sizes</p>
+<p>    printf(&quot;\n--- MEMORY SIZE REPORT ---\n&quot;);</p>
+<p>    printf(&quot;Size of int    : %zu bytes\n&quot;, sizeof(int));</p>
+<p>    printf(&quot;Size of double : %zu bytes\n&quot;, sizeof(double));</p>
+<p>    printf(&quot;Size of float  : %zu bytes\n&quot;, sizeof(float));</p>
+<p>    printf(&quot;Size of char   : %zu bytes\n&quot;, sizeof(char));</p>
+<p>    printf(&quot;Size of bool   : %zu bytes\n&quot;, sizeof(bool));</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>double accountBalance = 15450.75;</code>: Declares a double-precision floating-point variable.</li></p>
+<p>  <li><code>float interestRate = 4.5f;</code>: The <code>f</code> suffix tells the compiler this literal is a single-precision <code>float</code> (without <code>f</code>, decimal literals default to <code>double</code>).</li></p>
+<p>  <li><code>sizeof(...)</code>: Unary operator that returns the memory consumption of a type or variable in bytes as a <code>size_t</code>.</li></p>
+<p>  <li><code>%zu</code>: The ISO C standard format specifier used to print <code>size_t</code> values returned by <code>sizeof</code>.</li></p>
+<p>  <li><code>%.2lf</code>: Formats a <code>double</code> output to exactly 2 decimal places.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- BANK ACCOUNT STATEMENT ---
+<p>Account ID     : 88402</p>
+<p>Account Balance: $15450.75</p>
+<p>Interest Rate  : 4.5%</p>
+<p>Account Tier   : P</p>
+<p>Account Active : Yes</p>
+
+<p>--- MEMORY SIZE REPORT ---</p>
+<p>Size of int    : 4 bytes</p>
+<p>Size of double : 8 bytes</p>
+<p>Size of float  : 4 bytes</p>
+<p>Size of char   : 1 bytes</p>
+<p>Size of bool   : 1 bytes</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Wrong Format Specifier:</strong> Printing a <code>float</code> with <code>%d</code> or an <code>int</code> with <code>%f</code> produces garbage values or output errors.</li></p>
+<p>  <li><strong>Single vs Double Quotes:</strong> Using double quotes for characters (<code>char c = "A";</code>) assigns a string pointer to a <code>char</code>, causing a compilation warning/error. Characters must use single quotes (<code>'A'</code>).</li></p>
+<p>  <li><strong>Assuming Fixed Byte Sizes:</strong> Assuming <code>int</code> is always 4 bytes or <code>long</code> is always 8 bytes across all platforms. Use <code>sizeof</code> or fixed-width integer types (<code><stdint.h></code> like <code>int32_t</code>, <code>int64_t</code>) when exact bit widths matter.</li></p>
+<p>  <li><strong>ASCII Assumption:</strong> C <code>char</code> stores integer code points corresponding to the execution character set. While ASCII is standard on modern platforms, assuming every system character is ASCII can lead to encoding issues.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li><strong>Uninitialized Variables:</strong> Local variables declared inside functions contain whatever random garbage data was previously left in that memory location. Always initialize variables before reading them!</li></p>
+<p></ul></p>
+<p>  ``<code>c</p>
+<p>  int score; // Garbage value!</p>
+<p>  printf("%d", score); // Undefined behavior!</p>
+<p>  </code>`<code></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Data types dictate memory alignment and cache efficiency in performance-critical software. For instance, graphics engines use 4-byte </code>float<code> for vector coordinates, while banking software uses 64-bit </code>long long<code> or fixed-point representations to eliminate floating-point rounding errors.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a C program that stores a student's </code>rollNumber<code> (</code>int<code>), </code>grade<code> (</code>char<code>), and </code>gpa<code> (</code>float<code>).</p>
+<p>2. Print all three variables cleanly formatted.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that uses </code>sizeof<code> to display the memory sizes of </code>short<code>, </code>int<code>, </code>long<code>, </code>long long<code>, </code>float<code>, </code>double<code>, and </code>long double` on your operating system.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="01-setup-c.html">Set Up C Environment</a></li></p>
+<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
+<p>  <li><a href="05-operators.html">Operators</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="02-introduction-to-c.html">← Previous: Introduction</a> | <a href="04-input-output.html">Next: Input & Output →</a></p>
+
+
+
+  </div>
+</body>
+</html>

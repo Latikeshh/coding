@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 dynamic memory allocation - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Dynamic Memory Allocation (<code>malloc</code>, <code>calloc</code>, <code>realloc</code>, <code>free</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Dynamic Memory Allocation</strong> in C allows programs to request variable amounts of memory from the <strong>Heap</strong> at runtime using standard functions declared in <code><stdlib.h></code>. Unlike <strong>Stack</strong> memory (which has fixed sizes determined at compile time), Heap allocations persist until explicitly released using <code>free()</code>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Dynamic memory allocation requests memory from the Heap during execution. Functions like <code>malloc</code>, <code>calloc</code>, and <code>realloc</code> return <code>void*</code> raw memory addresses. In idiomatic C, casting <code>malloc()</code> returns is unnecessary (<code>int *arr = malloc(n * sizeof *arr);</code>). Always verify allocation success against <code>NULL</code>, use temporary pointers during <code>realloc</code>, and call <code>free()</code> to prevent memory leaks.</p>
+
+<h3>Hindi</h3>
+<p>Dynamic Memory Allocation execution ke dauran Heap memory se space mangta hai. Idiomatic C mein <code>malloc()</code> ko explicit cast karna galat mana jata hai (<code>int *arr = malloc(n * sizeof *arr);</code> use karein). Allocation ke baad <code>NULL</code> check karna mandatory hai. Memory leaks se bachne ke liye kaam khatam hone par <code>free(ptr)</code> karein aur pointer ko <code>NULL</code> set karein.</p>
+
+<h3>Marathi</h3>
+<p>Dynamic memory allocation mule run time var Heap varun garjenusar memory milte. Idiomatic C madhye <code>malloc</code> la cast karanyachi garaj naste (<code>int *arr = malloc(n * sizeof *arr);</code> vāparave). Memory milalyavar <code>NULL</code> check karne avashyak aahe. Memory leaks talnyasathi <code>free(ptr)</code> karun pointer <code>NULL</code> karaava.</p>
+
+<h3>Hinglish</h3>
+<p>Stack memory ka size compile time par fixed hota hai, jabki Heap memory runtime par expand/shrink hoti hai. In C, <code>malloc()</code> to explicit cast mat karo. Always check <code>if (arr == NULL)</code> failure check. <code>realloc</code> karte waqt temp pointer use karo taaki original pointer leak na ho.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>If you write a program to process customer orders, you cannot know at compile time whether a user will enter 5 orders or 50,000 orders. Dynamic memory allows arrays and data structures to grow or shrink dynamically in response to actual runtime workload.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<ul>
+<p>  <li><strong>Stack Memory:</strong> Reserved hotel rooms booked weeks in advance. Fixed size, automatically cleaned up when function ends.</li></p>
+<p>  <li><strong>Heap Memory:</strong> A flexible storage warehouse where you rent exact space on-demand while working, and return the key (<code>free</code>) when finished. If you forget to return the key, the space remains locked forever (<strong>Memory Leak</strong>).</li></p>
+<p></ul></p>
+
+<h2>📝 Key Heap Functions (<code><stdlib.h></code>)</h2>
+
+<table>
+<p>  <thead><tr><th>Function</th><th>Signature / Usage</th><th>Initialized State</th><th>Notes</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>malloc()</code></td><td><code>ptr = malloc(bytes);</code></td><td>Uninitialized (garbage data)</td><td>Fast raw memory allocation</td></tr></p>
+<p>    <tr><td><code>calloc()</code></td><td><code>ptr = calloc(count, size);</code></td><td>Zero-initialized (<code>0</code>)</td><td>Slightly slower; clears memory bytes to 0</td></tr></p>
+<p>    <tr><td><code>realloc()</code></td><td><code>ptr = realloc(old_ptr, new_bytes);</code></td><td>Preserves existing data</td><td>Resizes existing heap block; returns new address</td></tr></p>
+<p>    <tr><td><code>free()</code></td><td><code>free(ptr);</code></td><td>N/A</td><td>Releases heap memory back to OS</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h3>Idiomatic C Allocation Syntax</h3>
+<p>Do <strong>NOT</strong> cast <code>malloc</code> in C! C automatically converts <code>void*</code> to any object pointer type.</p>
+<pre><code class="language-c">// RECOMMENDED IDIOMATIC C STYLE:
+<p>int *arr = malloc(n * sizeof *arr); // Uses pointer dereference type automatically</p>
+
+<p>// NOT RECOMMENDED IN C:</p>
+<p>// int *arr = (int *)malloc(n * sizeof(int));</code></pre></p>
+<p>*Why?* Unnecessary casts clutter code and can hide missing <code>#include <stdlib.h></code> bugs in older compiler standards.</p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical dynamic inventory expansion program demonstrating <code>malloc</code>, <code>calloc</code>, safe <code>realloc</code> with temporary pointer checking, <code>NULL</code> validation, and clean memory deallocation:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>#include &lt;stdlib.h&gt;</p>
+
+<p>int main(void) {</p>
+<p>    int initialCapacity = 3;</p>
+
+<p>    // 1. Allocating dynamic array on Heap using calloc (zero-initialized)</p>
+<p>    printf(&quot;--- 1. INITIAL HEAP ALLOCATION (calloc) ---\n&quot;);</p>
+<p>    int *inventory = calloc((size_t)initialCapacity, sizeof *inventory);</p>
+
+<p>    // ALWAYS check for allocation failure (returns NULL)</p>
+<p>    if (inventory == NULL) {</p>
+<p>        fprintf(stderr, &quot;Error: Initial heap memory allocation failed!\n&quot;);</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    // Populate initial items</p>
+<p>    inventory[0] = 101;</p>
+<p>    inventory[1] = 102;</p>
+<p>    inventory[2] = 103;</p>
+
+<p>    printf(&quot;Initial Capacity: %d items\n&quot;, initialCapacity);</p>
+<p>    printf(&quot;Items in Inventory: &quot;);</p>
+<p>    for (int i = 0; i &lt; initialCapacity; i++) {</p>
+<p>        printf(&quot;[%d] &quot;, inventory[i]);</p>
+<p>    }</p>
+<p>    printf(&quot;\n\n&quot;);</p>
+
+<p>    // 2. Resizing Array using realloc with SAFE TEMPORARY POINTER PATTERN</p>
+<p>    printf(&quot;--- 2. DYNAMIC RESIZING (realloc) ---\n&quot;);</p>
+<p>    int newCapacity = 6;</p>
+
+<p>    // SAFE PATTERN: Assign realloc return to a temporary pointer first!</p>
+<p>    int *temp = realloc(inventory, (size_t)newCapacity * sizeof *temp);</p>
+
+<p>    if (temp == NULL) {</p>
+<p>        fprintf(stderr, &quot;Error: Memory reallocation failed! Original data preserved.\n&quot;);</p>
+<p>        free(inventory); // Clean up original buffer before exiting</p>
+<p>        inventory = NULL;</p>
+<p>        return 1;</p>
+<p>    }</p>
+
+<p>    // Assign temporary pointer back to inventory after successful allocation</p>
+<p>    inventory = temp;</p>
+
+<p>    // Populate new capacity slots</p>
+<p>    inventory[3] = 104;</p>
+<p>    inventory[4] = 105;</p>
+<p>    inventory[5] = 106;</p>
+
+<p>    printf(&quot;Expanded Capacity: %d items\n&quot;, newCapacity);</p>
+<p>    printf(&quot;Items in Inventory: &quot;);</p>
+<p>    for (int i = 0; i &lt; newCapacity; i++) {</p>
+<p>        printf(&quot;[%d] &quot;, inventory[i]);</p>
+<p>    }</p>
+<p>    printf(&quot;\n\n&quot;);</p>
+
+<p>    // 3. Deallocating Heap Memory cleanly</p>
+<p>    printf(&quot;--- 3. CLEANING UP HEAP MEMORY ---\n&quot;);</p>
+<p>    free(inventory);</p>
+<p>    inventory = NULL; // Prevent Dangling Pointer access!</p>
+<p>    printf(&quot;Heap memory freed successfully. Pointer reset to NULL.\n&quot;);</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>sizeof *inventory</code>: Evaluates to <code>sizeof(int)</code> dynamically based on the type of pointer <code>inventory</code>. This eliminates hardcoded type names in allocation statements.</li></p>
+<p>  <li><code>if (temp == NULL)</code>: Crucial safe <code>realloc</code> pattern. If <code>realloc</code> fails and you wrote <code>inventory = realloc(inventory, ...)</code>, <code>inventory</code> would become <code>NULL</code>, losing the address of the original memory block and causing an untraceable memory leak!</li></p>
+<p>  <li><code>free(inventory); inventory = NULL;</code>: Calling <code>free()</code> returns memory to the OS. Setting <code>inventory = NULL</code> ensures that subsequent accidental reads/writes fail cleanly rather than causing corrupted memory bugs.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. INITIAL HEAP ALLOCATION (calloc) ---
+<p>Initial Capacity: 3 items</p>
+<p>Items in Inventory: [101] [102] [103] </p>
+
+<p>--- 2. DYNAMIC RESIZING (realloc) ---</p>
+<p>Expanded Capacity: 6 items</p>
+<p>Items in Inventory: [101] [102] [103] [104] [105] [106] </p>
+
+<p>--- 3. CLEANING UP HEAP MEMORY ---</p>
+<p>Heap memory freed successfully. Pointer reset to NULL.</code></pre></p>
+
+<h2>⚠️ Common Memory Bugs & Guardrails</h2>
+
+<ul>
+<p>  <li><strong>Memory Leak:</strong> Allocating heap memory with <code>malloc</code>/<code>calloc</code> and losing the pointer reference without calling <code>free()</code>. Memory remains allocated until process exit.</li></p>
+<p>  <li><strong>Use-After-Free:</strong> Reading or modifying heap memory via a pointer after calling <code>free(ptr)</code>.</li></p>
+<p>  <li><strong>Double-Free:</strong> Calling <code>free(ptr)</code> twice on the same non-NULL pointer address. Calling <code>free(NULL)</code> is a safe no-op.</li></p>
+<p>  <li><strong>Integer Overflow in Allocation Size:</strong> Calculating <code>n * sizeof(T)</code> where <code>n</code> is large enough to overflow <code>size_t</code>, resulting in allocating a tiny buffer that gets immediately overflowed!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Rules</h2>
+
+<p>1. Always check if returned pointer is <code>NULL</code> before dereferencing.</p>
+<p>2. For every <code>malloc</code>/<code>calloc</code>/<code>realloc</code>, ensure there is a matching <code>free()</code>.</p>
+<p>3. Never use raw pointers after calling <code>free()</code>; immediately set <code>ptr = NULL;</code>.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Dynamic memory powers database query result buffers, file loading trees, dynamic array implementations (<code>std::vector</code> equivalents in C), image decoding buffers, and network socket queues.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Ask the user for <code>N</code> (number of test scores).</p>
+<p>2. Dynamically allocate an <code>int</code> array of size <code>N</code> using <code>malloc</code>.</p>
+<p>3. Read <code>N</code> scores using a loop, calculate average, and <code>free</code> the memory.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that dynamically allocates memory for a string of 50 characters, reads a sentence from the user using <code>fgets()</code>, uses <code>realloc()</code> to shrink the memory block to the exact string length (<code>strlen + 1</code>), prints the string and updated buffer size, and frees the memory.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-pointers-basics.html">Pointers Basics</a></li></p>
+<p>  <li><a href="11-advanced-pointers.html">Advanced Pointers</a></li></p>
+<p>  <li><a href="14-structures.html">Structures</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="12-strings.html">← Previous: Strings</a> | <a href="14-structures.html">Next: Structures →</a></p>
+
+
+
+  </div>
+</body>
+</html>

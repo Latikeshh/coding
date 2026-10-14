@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inheritance and Polymorphism - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Inheritance and Polymorphism in Java</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Inheritance:</strong> An OOP mechanism where a child subclass derives fields and methods from a parent superclass using the <code>extends</code> keyword (<strong>"Is-A" Relationship</strong>).</li></p>
+<p>  <li><strong>Polymorphism:</strong> The ability of an object reference to take on many forms. <strong>Runtime Polymorphism (Dynamic Method Dispatch)</strong> allows a parent superclass reference variable to invoke overridden methods defined in specific child subclasses at runtime.</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Inheritance se Child Class, Parent Class ke fields aur methods ko inherit karti hai (<code>extends</code>). Polymorphism se hum Parent class ka reference variable declare karte hain, lekin call hone par Runtime par actual Subclass ka overridden method execute hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Inheritance madhye Child Class Parent Class kadun गुणधर्म (properties) ghete. Polymorphism mule Parent class reference varti call kelya varti Subclass cha method run hoto.</p>
+
+<h2>📝 1. Method Overriding vs Overloading</h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th>Method Overloading</th><th>Method Overriding</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Type</td><td>Compile-Time Polymorphism</td><td>Runtime Polymorphism</td></tr></p>
+<p>    <tr><td>Location</td><td>Same Class</td><td>Parent & Child Classes</td></tr></p>
+<p>    <tr><td>Method Signature</td><td><strong>Must vary</strong> (different parameter list)</td><td><strong>Must match exactly</strong> (same name & params)</td></tr></p>
+<p>    <tr><td>Inheritance Required?</td><td>❌ No</td><td>✅ Yes</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. The <code>super</code> Keyword</h2>
+
+<ul>
+<p>  <li><code>super()</code>: Calls parent superclass constructor (must be the first line in child constructor).</li></p>
+<p>  <li><code>super.method()</code>: Calls parent superclass method implementation.</li></p>
+<p></ul></p>
+
+<h2>📝 3. Pattern Matching for <code>instanceof</code> (Java 16+)</h2>
+
+<p>Eliminates manual downcasting boilerplate:</p>
+
+<pre><code class="language-java">// Traditional Downcasting
+<p>if (animal instanceof Dog) {</p>
+<p>    Dog d = (Dog) animal; // Manual downcast</p>
+<p>    d.bark();</p>
+<p>}</p>
+
+<p>// Modern Pattern Matching for instanceof (Java 16+)</p>
+<p>if (animal instanceof Dog d) {</p>
+<p>    d.bark(); // &#39;d&#39; is automatically downcast and available in scope!</p>
+<p>}</code></pre></p>
+
+<h2>🧠 4. Why Multiple Class Inheritance Is Not Allowed (The Diamond Problem)</h2>
+
+<p>Java does <strong>NOT</strong> support extending multiple classes (<code>class C extends A, B</code> is INVALID!). If Class A and Class B declare the same method <code>execute()</code>, Class C would not know which parent implementation to inherit (<strong>The Diamond Problem</strong>). Java solves this by allowing single class inheritance with multiple <strong>Interface</strong> implementation!</p>
+
+<pre><code class="language-text">       +------------------+
+
+<table>
+<p>  <thead><tr><th>SuperClass A</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>       +--------+---------+</p>
+
+<p>                |</p>
+<p>       +--------+---------+</p>
+<p>       |   SubClass B     |  &lt;-- Overrides execute()</p>
+<p>       +--------+---------+</p>
+
+<p>                |</p>
+<p>       +--------+---------+</p>
+<p>       |   SubClass C     |  &lt;-- Overrides execute()</p>
+<p>       +------------------+</code></pre></p>
+
+<h2>💡 Complete Example: Payment Gateway Polymorphism</h2>
+
+<pre><code class="language-java">// Parent Superclass
+<p>abstract class PaymentGateway {</p>
+<p>    protected String gatewayName;</p>
+
+<p>    public PaymentGateway(String gatewayName) {</p>
+<p>        this.gatewayName = gatewayName;</p>
+<p>    }</p>
+
+<p>    // Overridden Method</p>
+<p>    public abstract boolean processPayment(double amount);</p>
+<p>}</p>
+
+<p>// Subclass 1</p>
+<p>class CreditCardGateway extends PaymentGateway {</p>
+<p>    private final String cardNumber;</p>
+
+<p>    public CreditCardGateway(String cardNumber) {</p>
+<p>        super(&quot;Credit Card Gateway&quot;);</p>
+<p>        this.cardNumber = cardNumber;</p>
+<p>    }</p>
+
+<p>    @Override</p>
+<p>    public boolean processPayment(double amount) {</p>
+<p>        System.out.printf(&quot;[%s] Processing ₹%.2f via CardEnding #%s%n&quot;,</p>
+<p>                gatewayName, amount, cardNumber.substring(cardNumber.length() - 4));</p>
+<p>        return true;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>// Subclass 2</p>
+<p>class UpiGateway extends PaymentGateway {</p>
+<p>    private final String upiId;</p>
+
+<p>    public UpiGateway(String upiId) {</p>
+<p>        super(&quot;UPI Gateway&quot;);</p>
+<p>        this.upiId = upiId;</p>
+<p>    }</p>
+
+<p>    @Override</p>
+<p>    public boolean processPayment(double amount) {</p>
+<p>        System.out.printf(&quot;[%s] Processing ₹%.2f via VPA %s%n&quot;, gatewayName, amount, upiId);</p>
+<p>        return true;</p>
+<p>    }</p>
+<p>}</p>
+
+<p>public class PolymorphismMaster {</p>
+<p>    // Polymorphic Method: Accepts ANY PaymentGateway subclass!</p>
+<p>    public static void executeCheckout(PaymentGateway gateway, double orderTotal) {</p>
+<p>        System.out.println(&quot;\nInitiating Checkout...&quot;);</p>
+<p>        boolean success = gateway.processPayment(orderTotal);</p>
+<p>        if (success) {</p>
+<p>            System.out.println(&quot;Checkout Complete: Payment Received.&quot;);</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        PaymentGateway cardPayment = new CreditCardGateway(&quot;4532111122228921&quot;);</p>
+<p>        PaymentGateway upiPayment = new UpiGateway(&quot;rahul@upi&quot;);</p>
+
+<p>        // Runtime Polymorphism in Action</p>
+<p>        executeCheckout(cardPayment, 2499.00);</p>
+<p>        executeCheckout(upiPayment, 1250.00);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Initiating Checkout...
+<p>[Credit Card Gateway] Processing ₹2499.00 via CardEnding #8921</p>
+<p>Checkout Complete: Payment Received.</p>
+
+<p>Initiating Checkout...</p>
+<p>[UPI Gateway] Processing ₹1250.00 via VPA rahul@upi</p>
+<p>Checkout Complete: Payment Received.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting <code>@Override</code> annotation when overriding methods (causes compiler to miss typo errors in method signatures).</li></p>
+<p>  <li>Attempting to downcast an object without checking <code>instanceof</code> first, triggering a <code>ClassCastException</code>.</li></p>
+<p>  <li>Attempting to extend a class marked <code>final</code> (<code>final class SecurityManager</code> cannot be extended!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always use <code>@Override</code> annotations so the compiler verifies that your method signature matches the superclass method exactly.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Payment gateway integrations, database driver frameworks (<code>java.sql.Driver</code>), UI event frameworks, and pluggable export processors.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a parent class <code>Employee</code> with method <code>calculateBonus()</code>.</p>
+<p>2. Create subclasses <code>Manager</code> (20% bonus) and <code>Developer</code> (10% bonus) overriding <code>calculateBonus()</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a method <code>processSalaries(List<Employee> staff)</code> that polymorphically calculates total bonus payouts across mixed manager and developer instances.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-encapsulation-and-composition.html">Encapsulation and Composition</a></li></p>
+<p>  <li><a href="17-interfaces-and-abstract-classes.html">Interfaces and Abstract Classes</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="15-encapsulation-and-composition.html">← Previous: Encapsulation</a> | <a href="17-interfaces-and-abstract-classes.html">Next: Interfaces and Abstract Classes →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 set operations - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Chapter 18 — Set Operations: UNION, UNION ALL, INTERSECT & EXCEPT</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition & Fundamental Concepts</h2>
+
+<p>An <strong>SQL Set Operation</strong> combines the result sets of two or more independent <code>SELECT</code> queries into a single unified result.</p>
+
+<p>While <strong>SQL Joins</strong> combine data <strong>horizontally</strong> by attaching matching columns from related tables side-by-side, <strong>Set Operations</strong> combine data <strong>vertically</strong> by stacking rows from compatible queries on top of one another.</p>
+
+<pre><code class="language-text">1. HORIZONTAL COMBINATION (SQL JOINS):
+<p>   [ Table A Columns ] + [ Table B Columns ]  ---&gt; Combined Columns Side-by-Side</p>
+
+<p>2. VERTICAL COMBINATION (SET OPERATIONS):</p>
+<p>   [ Query 1 Result Rows ]</p>
+<p>            +                                 ---&gt; Combined Stacked Rows</p>
+<p>   [ Query 2 Result Rows ]</code></pre></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>SQL Set Operations do ya zyada alag-alag <code>SELECT</code> queries ke results ko vertically ek ke neeche ek jodti hain.</p>
+<ul>
+<p>  <li><strong>Joins</strong> do tables ke columns ko aamne-saamne (horizontally) jodte hain.</li></p>
+<p>  <li><strong>Set Operations</strong> queries ke rows ko upar-neeche (vertically) stack karti hain.</li></p>
+<p>  <li><code>UNION</code> saari unique rows ko ek sath laata hai aur duplicate rows hata deta hai.</li></p>
+<p>  <li><code>UNION ALL</code> bina duplicate hataye saari rows waise ki waise jodta hai.</li></p>
+<p>  <li><code>INTERSECT</code> sirf wo rows deta hai jo dono queries mein common hain.</li></p>
+<p>  <li><code>EXCEPT</code> pehli query ki wo rows deta hai jo doosri query mein nahi hain.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>SQL Set Operations don kiwa tyapeksha jast swatantra <code>SELECT</code> queries che results vertically ekamekanchya khali ekatra kartat.</p>
+<ul>
+<p>  <li><strong>Joins</strong> dona tables che columns aamne-saamne (horizontally) jodtat.</li></p>
+<p>  <li><strong>Set Operations</strong> queries chya rows khali-war (vertically) stack kartat.</li></p>
+<p>  <li><code>UNION</code> sarva unique rows ekatra karto aani duplicate rows kadhto.</li></p>
+<p>  <li><code>UNION ALL</code> duplicate na kadhta sarva rows aahe tya swaroopat thevto.</li></p>
+<p>  <li><code>INTERSECT</code> fatkt tyaach rows deto ja donhi queries madhye saman (common) ahet.</li></p>
+<p>  <li><code>EXCEPT</code> pahilya query madhil asha rows deto ja dusrya query madhye nahit.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📐 The Four Primary Set Operators</h2>
+
+<pre><code class="language-text">       UNION                     UNION ALL                  INTERSECT                  EXCEPT / MINUS
+<p>   +---+     +---+           +---+     +---+            +---+     +---+            +---+     +---+</p>
+<p>  / ### \   / ### \         / ### \   / ### \          /     \   /     \          / ### \   /     \</p>
+<table>
+<p>  <thead><tr><th>##### X #####</th><th></th><th>##### X #####</th><th></th><th>#####X#####</th><th></th><th>##### X</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>  \ ### /   \ ### /         \ ### /   \ ### /          \     /   \     /          \ ### /   \     /</p>
+<p>   +---+     +---+           +---+     +---+            +---+     +---+            +---+     +---+</p>
+<p>  Combines &amp; Removes        Combines &amp; Keeps          Returns ONLY Common          Returns First Minus</p>
+<p>      Duplicates               Duplicates                   Matches                   Second Matches</code></pre></p>
+
+<h3>1. <code>UNION</code></h3>
+<p>Combines result sets from multiple <code>SELECT</code> statements and <strong>eliminates duplicate rows</strong>.</p>
+
+<h3>2. <code>UNION ALL</code></h3>
+<p>Combines result sets from multiple <code>SELECT</code> statements and <strong>retains all rows</strong>, including duplicates.</p>
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><strong>Performance Insight</strong>: <code>UNION ALL</code> generally avoids the duplicate-elimination step (which involves sorting or hashing the intermediate result set) required by <code>UNION</code>. However, actual execution speed depends on data volume, query structure, indexes, and the database optimizer's execution plan.</p></blockquote>
+
+<h3>3. <code>INTERSECT</code></h3>
+<p>Returns only distinct rows that are present in <strong>both</strong> query results.</p>
+
+<h3>4. <code>EXCEPT</code> (or <code>MINUS</code> in Oracle)</h3>
+<p>Returns distinct rows from the first query that are <strong>absent</strong> from the second query.</p>
+
+<blockquote><p>[!IMPORTANT]</p></blockquote>
+<blockquote><p><strong>Whole-Row Duplicate Elimination</strong>: Duplicate evaluation in <code>UNION</code>, <code>INTERSECT</code>, and <code>EXCEPT</code> compares the <strong>entire selected row</strong> (every selected column in combination), NOT just a single column such as <code>name</code> or <code>email</code>.</p></blockquote>
+
+<p>---</p>
+
+<h2>📜 Essential Rules for Combining SELECT Statements</h2>
+
+<p>To combine two or more <code>SELECT</code> queries using set operations, all queries <strong>MUST</strong> strictly adhere to the following rules:</p>
+
+<p>1. <strong>Equal Number of Columns</strong>: Every participating <code>SELECT</code> statement must return the exact same number of columns.</p>
+<p>2. <strong>Compatible Data Types</strong>: Corresponding columns (1st with 1st, 2nd with 2nd) must have matching or implicitly convertible data types.</p>
+<p>3. <strong>Identical Logical Column Order</strong>: Columns must be positioned in the same logical order across all <code>SELECT</code> queries.</p>
+<p>4. <strong>Inherited Column Headers</strong>: Output column names in the final result set are inherited from the <strong>first <code>SELECT</code> statement</strong>.</p>
+<p>5. <strong>Sorting with <code>ORDER BY</code></strong>:</p>
+<ul>
+<p>  <li>A top-level <code>ORDER BY</code> clause appears at the <strong>very end</strong> of the compound query and sorts the entire combined result set.</li></p>
+<p>  <li>Individual <code>SELECT</code> statements cannot have standalone <code>ORDER BY</code> clauses unless enclosed in parentheses with a <code>LIMIT</code> clause (e.g. <code>(SELECT ... ORDER BY col LIMIT n) UNION (SELECT ... ORDER BY col LIMIT n)</code>), or used inside derived tables/subqueries.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>⚙️ MySQL Version Compatibility & Version Check</h2>
+
+<p>Different MySQL versions support different native set operators:</p>
+<ul>
+<p>  <li><strong><code>UNION</code> and <code>UNION ALL</code></strong>: Supported natively across <strong>ALL</strong> MySQL versions.</li></p>
+<p>  <li><strong><code>INTERSECT</code> and <code>EXCEPT</code></strong>: Supported natively starting with <strong>MySQL 8.0.31</strong> (released October 2022).</li></p>
+<p>  <li><strong>Older MySQL Versions (< 8.0.31)</strong>: Require alternative query patterns (such as <code>INNER JOIN</code>, <code>EXISTS</code>, or <code>NOT EXISTS</code>).</li></p>
+<p></ul></p>
+
+<p>To check the exact MySQL version running on your environment (e.g. WampServer or phpMyAdmin), execute:</p>
+
+<pre><code class="language-sql">SELECT VERSION();</code></pre>
+
+<p>---</p>
+
+<h2>📊 Reproducible Sample Setup Data</h2>
+
+<p>Run the following script to create and populate two sample tables: <code>current_clients</code> and <code>event_attendees</code>.</p>
+
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><code>DROP TABLE IF EXISTS</code> ensures the script is completely reproducible by removing any pre-existing tables and data before creation.</p></blockquote>
+
+<pre><code class="language-sql">-- Clean up pre-existing sample tables
+<p>DROP TABLE IF EXISTS event_attendees;</p>
+<p>DROP TABLE IF EXISTS current_clients;</p>
+
+<p>-- 1. Create current_clients table</p>
+<p>CREATE TABLE current_clients (</p>
+<p>    client_id INT PRIMARY KEY,</p>
+<p>    name VARCHAR(50) NOT NULL,</p>
+<p>    email VARCHAR(50) NOT NULL,</p>
+<p>    city VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>-- 2. Create event_attendees table</p>
+<p>CREATE TABLE event_attendees (</p>
+<p>    attendee_id INT PRIMARY KEY,</p>
+<p>    name VARCHAR(50) NOT NULL,</p>
+<p>    email VARCHAR(50) NOT NULL,</p>
+<p>    city VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>-- 3. Populate current_clients</p>
+<p>INSERT INTO current_clients (client_id, name, email, city) VALUES</p>
+<p>(1, &#39;Rahul Sharma&#39;, &#39;rahul@example.com&#39;, &#39;Mumbai&#39;),</p>
+<p>(2, &#39;Priya Patel&#39;, &#39;priya@example.com&#39;, &#39;Delhi&#39;),</p>
+<p>(3, &#39;Amit Verma&#39;, &#39;amit@example.com&#39;, &#39;Bangalore&#39;);</p>
+
+<p>-- 4. Populate event_attendees</p>
+<p>INSERT INTO event_attendees (attendee_id, name, email, city) VALUES</p>
+<p>(101, &#39;Priya Patel&#39;, &#39;priya@example.com&#39;, &#39;Delhi&#39;),    -- Exact match with client_id 2</p>
+<p>(102, &#39;Neha Gupta&#39;, &#39;neha@example.com&#39;, &#39;Pune&#39;),</p>
+<p>(103, &#39;Suresh Kumar&#39;, &#39;suresh@example.com&#39;, &#39;Mumbai&#39;);</code></pre></p>
+
+<p>---</p>
+
+<h2>🧭 Detailed Operators Breakdown with Examples & Outputs</h2>
+
+<h3>1. <code>UNION</code> (Combines & Removes Duplicate Rows)</h3>
+
+<p>Merges rows from both tables and removes exact duplicate rows across all selected columns.</p>
+
+<p>#### SQL Query (All MySQL Versions)</p>
+<pre><code class="language-sql">SELECT name, email, city FROM current_clients
+<p>UNION</p>
+<p>SELECT name, email, city FROM event_attendees</p>
+<p>ORDER BY name;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>name</th><th>email</th><th>city</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Amit Verma</td><td>amit@example.com</td><td>Bangalore</td></tr></p>
+<p>    <tr><td>Neha Gupta</td><td>neha@example.com</td><td>Pune</td></tr></p>
+<p>    <tr><td>Priya Patel</td><td>priya@example.com</td><td>Delhi</td></tr></p>
+<p>    <tr><td>Rahul Sharma</td><td>rahul@example.com</td><td>Mumbai</td></tr></p>
+<p>    <tr><td>Suresh Kumar</td><td>suresh@example.com</td><td>Mumbai</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation</p>
+<ul>
+<p>  <li><code>Priya Patel</code> (<code>priya@example.com</code>, <code>Delhi</code>) exists in both <code>current_clients</code> and <code>event_attendees</code>.</li></p>
+<p>  <li>Because <code>UNION</code> evaluates the entire row (<code>name</code>, <code>email</code>, <code>city</code>), it identifies <code>Priya Patel</code> as a duplicate and returns her <strong>once</strong>.</li></p>
+<p>  <li>Output contains <strong>5 distinct rows</strong>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h3>2. <code>UNION ALL</code> (Combines & Retains Duplicate Rows)</h3>
+
+<p>Merges rows from both queries and keeps every single row, including duplicates.</p>
+
+<p>#### SQL Query (All MySQL Versions)</p>
+<pre><code class="language-sql">SELECT name, email, city FROM current_clients
+<p>UNION ALL</p>
+<p>SELECT name, email, city FROM event_attendees</p>
+<p>ORDER BY name, email;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>name</th><th>email</th><th>city</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Amit Verma</td><td>amit@example.com</td><td>Bangalore</td></tr></p>
+<p>    <tr><td>Neha Gupta</td><td>neha@example.com</td><td>Pune</td></tr></p>
+<p>    <tr><td>Priya Patel</td><td>priya@example.com</td><td>Delhi</td></tr></p>
+<p>    <tr><td>Priya Patel</td><td>priya@example.com</td><td>Delhi</td></tr></p>
+<p>    <tr><td>Rahul Sharma</td><td>rahul@example.com</td><td>Mumbai</td></tr></p>
+<p>    <tr><td>Suresh Kumar</td><td>suresh@example.com</td><td>Mumbai</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation</p>
+<ul>
+<p>  <li><code>UNION ALL</code> bypasses duplicate removal.</li></p>
+<p>  <li><code>Priya Patel</code> appears <strong>twice</strong> (once from <code>current_clients</code> and once from <code>event_attendees</code>).</li></p>
+<p>  <li>Output contains all <strong>6 total rows</strong>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h3>3. <code>INTERSECT</code> (Returns Common Rows Only)</h3>
+
+<p>Returns only rows that exist in <strong>both</strong> query result sets.</p>
+
+<p>#### Native SQL Query (Requires MySQL 8.0.31 or Later)</p>
+<pre><code class="language-sql">-- Native INTERSECT (MySQL 8.0.31+)
+<p>SELECT name, email, city FROM current_clients</p>
+<p>INTERSECT</p>
+<p>SELECT name, email, city FROM event_attendees</p>
+<p>ORDER BY name;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>name</th><th>email</th><th>city</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Priya Patel</td><td>priya@example.com</td><td>Delhi</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Alternatives for Older MySQL Versions (< 8.0.31)</p>
+
+<p>##### Alternative A: Using <code>EXISTS</code> (Broadly Compatible)</p>
+<pre><code class="language-sql">-- Works in ALL MySQL versions
+<p>SELECT DISTINCT </p>
+<p>    c.name, </p>
+<p>    c.email, </p>
+<p>    c.city</p>
+<p>FROM current_clients AS c</p>
+<p>WHERE EXISTS (</p>
+<p>    SELECT 1 </p>
+<p>    FROM event_attendees AS a</p>
+<p>    WHERE a.name = c.name </p>
+<p>      AND a.email = c.email </p>
+<p>      AND a.city = c.city</p>
+<p>)</p>
+<p>ORDER BY c.name;</code></pre></p>
+
+<p>##### Alternative B: Using <code>INNER JOIN</code> with <code>DISTINCT</code></p>
+<pre><code class="language-sql">-- Works in ALL MySQL versions
+<p>SELECT DISTINCT </p>
+<p>    c.name, </p>
+<p>    c.email, </p>
+<p>    c.city</p>
+<p>FROM current_clients AS c</p>
+<p>INNER JOIN event_attendees AS a</p>
+<p>    ON c.name = a.name </p>
+<p>   AND c.email = a.email </p>
+<p>   AND c.city = a.city</p>
+<p>ORDER BY c.name;</code></pre></p>
+
+<p>---</p>
+
+<h3>4. <code>EXCEPT</code> (Returns Rows Exclusive to First Query)</h3>
+
+<p>Returns rows from the first query that do <strong>NOT</strong> appear in the second query.</p>
+
+<p>#### Native SQL Query (Requires MySQL 8.0.31 or Later)</p>
+<pre><code class="language-sql">-- Native EXCEPT (MySQL 8.0.31+)
+<p>SELECT name, email, city FROM current_clients</p>
+<p>EXCEPT</p>
+<p>SELECT name, email, city FROM event_attendees</p>
+<p>ORDER BY name;</code></pre></p>
+
+<p>#### Output</p>
+<table>
+<p>  <thead><tr><th>name</th><th>email</th><th>city</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Amit Verma</td><td>amit@example.com</td><td>Bangalore</td></tr></p>
+<p>    <tr><td>Rahul Sharma</td><td>rahul@example.com</td><td>Mumbai</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation</p>
+<ul>
+<p>  <li><code>Priya Patel</code> is present in <code>event_attendees</code>, so she is excluded.</li></p>
+<p>  <li><code>Amit Verma</code> and <code>Rahul Sharma</code> exist only in <code>current_clients</code>, so they are returned.</li></p>
+<p></ul></p>
+
+<p>#### Alternatives for Older MySQL Versions (< 8.0.31)</p>
+
+<p>##### Alternative A: Using <code>NOT EXISTS</code> (Recommended Anti-Join Pattern)</p>
+<pre><code class="language-sql">-- Works in ALL MySQL versions
+<p>SELECT DISTINCT </p>
+<p>    c.name, </p>
+<p>    c.email, </p>
+<p>    c.city</p>
+<p>FROM current_clients AS c</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 </p>
+<p>    FROM event_attendees AS a</p>
+<p>    WHERE a.name = c.name </p>
+<p>      AND a.email = c.email </p>
+<p>      AND a.city = c.city</p>
+<p>)</p>
+<p>ORDER BY c.name;</code></pre></p>
+
+<p>##### Alternative B: Anti-Join with <code>LEFT JOIN</code> and <code>IS NULL</code></p>
+<pre><code class="language-sql">-- Works in ALL MySQL versions
+<p>SELECT DISTINCT </p>
+<p>    c.name, </p>
+<p>    c.email, </p>
+<p>    c.city</p>
+<p>FROM current_clients AS c</p>
+<p>LEFT JOIN event_attendees AS a</p>
+<p>    ON c.name = a.name </p>
+<p>   AND c.email = a.email </p>
+<p>   AND c.city = a.city</p>
+<p>WHERE a.attendee_id IS NULL</p>
+<p>ORDER BY c.name;</code></pre></p>
+
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><strong>Caveats for Older MySQL Emulations</strong>:</p></blockquote>
+<blockquote><p>1. <code>WHERE a.attendee_id IS NULL</code> checks a non-nullable primary key to reliably identify unmatched rows.</p></blockquote>
+<blockquote><p>2. <code>SELECT DISTINCT</code> is required if the left table contains internal duplicates.</p></blockquote>
+<blockquote><p>3. Standard <code>=</code> comparisons treat <code>NULL = NULL</code> as <code>UNKNOWN</code>. In this sample dataset, all columns are defined <code>NOT NULL</code>. If columns can contain <code>NULL</code>s, use MySQL's NULL-safe equality operator <code><=></code> in join conditions.</p></blockquote>
+
+<p>---</p>
+
+<h2>🌍 Database Compatibility Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Database Engine</th><th><code>UNION</code> / <code>UNION ALL</code></th><th><code>INTERSECT</code></th><th><code>EXCEPT</code> / <code>MINUS</code></th><th>Notes</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>MySQL</strong></td><td>✅ All Versions</td><td>✅ 8.0.31+</td><td>✅ 8.0.31+</td><td>Use <code>EXISTS</code> / <code>NOT EXISTS</code> for older versions.</td></tr></p>
+<p>    <tr><td><strong>PostgreSQL</strong></td><td>✅ All Versions</td><td>✅ All Versions</td><td>✅ All Versions (<code>EXCEPT</code>)</td><td>Full ANSI SQL support.</td></tr></p>
+<p>    <tr><td><strong>SQLite</strong></td><td>✅ All Versions</td><td>✅ All Versions</td><td>✅ All Versions (<code>EXCEPT</code>)</td><td>Supported across all standard releases.</td></tr></p>
+<p>    <tr><td><strong>SQL Server (T-SQL)</strong></td><td>✅ All Versions</td><td>✅ All Versions</td><td>✅ All Versions (<code>EXCEPT</code>)</td><td>Full support for set operators.</td></tr></p>
+<p>    <tr><td><strong>Oracle DB</strong></td><td>✅ All Versions</td><td>✅ All Versions</td><td>✅ All Versions (<code>MINUS</code>)</td><td>Oracle uses the keyword <code>MINUS</code> instead of <code>EXCEPT</code>.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & How to Avoid Them</h2>
+
+<h3>1. Column Count Mismatch</h3>
+<pre><code class="language-sql">-- ❌ INCORRECT: First query returns 3 columns, second returns 2 columns!
+<p>SELECT name, email, city FROM current_clients</p>
+<p>UNION</p>
+<p>SELECT name, email FROM event_attendees;</p>
+
+<p>-- ✅ CORRECT: Both queries return exactly 3 columns</p>
+<p>SELECT name, email, city FROM current_clients</p>
+<p>UNION</p>
+<p>SELECT name, email, city FROM event_attendees;</code></pre></p>
+
+<h3>2. Incompatible Data Types or Misaligned Column Order</h3>
+<pre><code class="language-sql">-- ❌ INCORRECT: Matching name (VARCHAR) with client_id (INT)
+<p>SELECT name, client_id FROM current_clients</p>
+<p>UNION</p>
+<p>SELECT attendee_id, name FROM event_attendees;</p>
+
+<p>-- ✅ CORRECT: Align corresponding column types in the same logical order</p>
+<p>SELECT client_id, name FROM current_clients</p>
+<p>UNION</p>
+<p>SELECT attendee_id, name FROM event_attendees;</code></pre></p>
+
+<h3>3. Placing <code>ORDER BY</code> Inside Individual Statements</h3>
+<pre><code class="language-sql">-- ❌ INCORRECT: ORDER BY inside the first query causes syntax error!
+<p>SELECT name, email FROM current_clients ORDER BY name</p>
+<p>UNION</p>
+<p>SELECT name, email FROM event_attendees;</p>
+
+<p>-- ✅ CORRECT: Place ORDER BY once at the very end of the compound statement</p>
+<p>SELECT name, email FROM current_clients</p>
+<p>UNION</p>
+<p>SELECT name, email FROM event_attendees</p>
+<p>ORDER BY name;</code></pre></p>
+
+<h3>4. Assuming Duplicate Removal Compares Only One Column</h3>
+<pre><code class="language-sql">-- ❌ MISTAKE: Expecting UNION to deduplicate based solely on &#39;name&#39;
+<p>-- If emails or cities differ, two &#39;Rahul Sharma&#39; rows WILL be returned!</p>
+<p>SELECT name, email, city FROM current_clients</p>
+<p>UNION</p>
+<p>SELECT name, email, city FROM event_attendees;</p>
+
+<p>-- ✅ FACT: UNION compares every selected column in combination (entire row).</code></pre></p>
+
+<h3>5. Assuming Output Row Order Without <code>ORDER BY</code></h3>
+<pre><code class="language-sql">-- ❌ MISTAKE: Relying on default row order without ORDER BY
+<p>SELECT name FROM current_clients UNION SELECT name FROM event_attendees;</p>
+
+<p>-- ✅ CORRECT: Always add explicit ORDER BY when output order matters</p>
+<p>SELECT name FROM current_clients UNION SELECT name FROM event_attendees ORDER BY name;</code></pre></p>
+
+<p>---</p>
+
+<h2>🧪 Step-by-Step Practice Exercises</h2>
+
+<p>Run this setup script to create tables for the practice exercises:</p>
+
+<pre><code class="language-sql">DROP TABLE IF EXISTS event_subscribers;
+<p>DROP TABLE IF EXISTS online_subscribers;</p>
+
+<p>CREATE TABLE online_subscribers (</p>
+<p>    sub_id INT PRIMARY KEY,</p>
+<p>    full_name VARCHAR(50) NOT NULL,</p>
+<p>    email VARCHAR(50) NOT NULL,</p>
+<p>    city VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>CREATE TABLE event_subscribers (</p>
+<p>    sub_id INT PRIMARY KEY,</p>
+<p>    full_name VARCHAR(50) NOT NULL,</p>
+<p>    email VARCHAR(50) NOT NULL,</p>
+<p>    city VARCHAR(50) NOT NULL</p>
+<p>);</p>
+
+<p>INSERT INTO online_subscribers VALUES</p>
+<p>(1, &#39;Aarav Patel&#39;, &#39;aarav@example.com&#39;, &#39;Mumbai&#39;),</p>
+<p>(2, &#39;Diya Sen&#39;, &#39;diya@example.com&#39;, &#39;Kolkata&#39;),</p>
+<p>(3, &#39;Karan Roy&#39;, &#39;karan@example.com&#39;, &#39;Delhi&#39;);</p>
+
+<p>INSERT INTO event_subscribers VALUES</p>
+<p>(10, &#39;Diya Sen&#39;, &#39;diya@example.com&#39;, &#39;Kolkata&#39;),       -- Common subscriber</p>
+<p>(20, &#39;Rohan Verma&#39;, &#39;rohan@example.com&#39;, &#39;Bangalore&#39;),</p>
+<p>(30, &#39;Karan Roy&#39;, &#39;karan@example.com&#39;, &#39;Delhi&#39;);        -- Common subscriber</code></pre></p>
+
+<p>---</p>
+
+<h3>Exercise 1: Combine All Unique Contacts (<code>UNION</code>)</h3>
+<p><strong>Task</strong>: Retrieve a unified, deduplicated list of subscriber emails and full names from both online and event sources, sorted by full name.  </p>
+<p><strong>Required Columns</strong>: <code>full_name</code>, <code>email</code></p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT full_name, email FROM online_subscribers</p>
+<p>UNION</p>
+<p>SELECT full_name, email FROM event_subscribers</p>
+<p>ORDER BY full_name;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>full_name</th><th>email</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Aarav Patel</td><td>aarav@example.com</td></tr></p>
+<p>    <tr><td>Diya Sen</td><td>diya@example.com</td></tr></p>
+<p>    <tr><td>Karan Roy</td><td>karan@example.com</td></tr></p>
+<p>    <tr><td>Rohan Verma</td><td>rohan@example.com</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 2: Combine All Registrations Preserving Duplicates (<code>UNION ALL</code>)</h3>
+<p><strong>Task</strong>: Combine all registration records from both tables into a complete activity log without removing duplicate entries.  </p>
+<p><strong>Required Columns</strong>: <code>full_name</code>, <code>email</code>, <code>city</code></p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT full_name, email, city FROM online_subscribers</p>
+<p>UNION ALL</p>
+<p>SELECT full_name, email, city FROM event_subscribers</p>
+<p>ORDER BY full_name;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>full_name</th><th>email</th><th>city</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Aarav Patel</td><td>aarav@example.com</td><td>Mumbai</td></tr></p>
+<p>    <tr><td>Diya Sen</td><td>diya@example.com</td><td>Kolkata</td></tr></p>
+<p>    <tr><td>Diya Sen</td><td>diya@example.com</td><td>Kolkata</td></tr></p>
+<p>    <tr><td>Karan Roy</td><td>karan@example.com</td><td>Delhi</td></tr></p>
+<p>    <tr><td>Karan Roy</td><td>karan@example.com</td><td>Delhi</td></tr></p>
+<p>    <tr><td>Rohan Verma</td><td>rohan@example.com</td><td>Bangalore</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 3: Find Common Subscribers (<code>INTERSECT</code>)</h3>
+<p><strong>Task</strong>: Find subscribers who registered through <strong>both</strong> online and event channels.  </p>
+<p><strong>Required Columns</strong>: <code>full_name</code>, <code>email</code></p>
+
+<pre><code class="language-sql">-- Native Solution (MySQL 8.0.31+)
+<p>SELECT full_name, email FROM online_subscribers</p>
+<p>INTERSECT</p>
+<p>SELECT full_name, email FROM event_subscribers</p>
+<p>ORDER BY full_name;</p>
+
+<p>-- Alternative Solution (All MySQL Versions)</p>
+<p>SELECT DISTINCT o.full_name, o.email</p>
+<p>FROM online_subscribers AS o</p>
+<p>WHERE EXISTS (</p>
+<p>    SELECT 1 FROM event_subscribers AS e</p>
+<p>    WHERE e.full_name = o.full_name AND e.email = o.email</p>
+<p>)</p>
+<p>ORDER BY o.full_name;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>full_name</th><th>email</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Diya Sen</td><td>diya@example.com</td></tr></p>
+<p>    <tr><td>Karan Roy</td><td>karan@example.com</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 4: Find Online-Only Subscribers (<code>EXCEPT</code>)</h3>
+<p><strong>Task</strong>: Find subscribers who registered online but have <strong>never</strong> attended an event.  </p>
+<p><strong>Required Columns</strong>: <code>full_name</code>, <code>email</code></p>
+
+<pre><code class="language-sql">-- Native Solution (MySQL 8.0.31+)
+<p>SELECT full_name, email FROM online_subscribers</p>
+<p>EXCEPT</p>
+<p>SELECT full_name, email FROM event_subscribers</p>
+<p>ORDER BY full_name;</p>
+
+<p>-- Alternative Solution (All MySQL Versions)</p>
+<p>SELECT DISTINCT o.full_name, o.email</p>
+<p>FROM online_subscribers AS o</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 FROM event_subscribers AS e</p>
+<p>    WHERE e.full_name = o.full_name AND e.email = o.email</p>
+<p>)</p>
+<p>ORDER BY o.full_name;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>full_name</th><th>email</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Aarav Patel</td><td>aarav@example.com</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 5: Multi-Source City Directory with Sorting</h3>
+<p><strong>Task</strong>: Create a consolidated list of distinct cities where our subscribers live across both channels, sorted alphabetically.  </p>
+<p><strong>Required Columns</strong>: <code>city</code></p>
+
+<pre><code class="language-sql">-- Answer
+<p>SELECT city FROM online_subscribers</p>
+<p>UNION</p>
+<p>SELECT city FROM event_subscribers</p>
+<p>ORDER BY city;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>city</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Bangalore</td></tr></p>
+<p>    <tr><td>Delhi</td></tr></p>
+<p>    <tr><td>Kolkata</td></tr></p>
+<p>    <tr><td>Mumbai</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Find all products in the catalog that have <strong>never been ordered</strong> in any customer transaction.</p>
+
+<h3>Setup Data</h3>
+<pre><code class="language-sql">DROP TABLE IF EXISTS order_items;
+<p>DROP TABLE IF EXISTS products;</p>
+
+<p>CREATE TABLE products (</p>
+<p>    product_id INT PRIMARY KEY,</p>
+<p>    product_name VARCHAR(50) NOT NULL,</p>
+<p>    price DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>CREATE TABLE order_items (</p>
+<p>    item_id INT PRIMARY KEY,</p>
+<p>    order_id INT NOT NULL,</p>
+<p>    product_id INT NOT NULL,</p>
+<p>    quantity INT NOT NULL</p>
+<p>);</p>
+
+<p>INSERT INTO products (product_id, product_name, price) VALUES</p>
+<p>(101, &#39;Mechanical Keyboard&#39;, 89.99),</p>
+<p>(102, &#39;Ergonomic Mouse&#39;, 49.99),</p>
+<p>(103, &#39;4K Monitor&#39;, 349.99),</p>
+<p>(104, &#39;USB-C Hub&#39;, 29.99);</p>
+
+<p>INSERT INTO order_items (item_id, order_id, product_id, quantity) VALUES</p>
+<p>(1, 5001, 101, 1),</p>
+<p>(2, 5001, 102, 2),</p>
+<p>(3, 5002, 101, 1);</code></pre></p>
+
+<h3>Challenge Solution</h3>
+
+<p>#### Option A: Native <code>EXCEPT</code> Solution (MySQL 8.0.31+)</p>
+<pre><code class="language-sql">SELECT product_id, product_name FROM products
+<p>EXCEPT</p>
+<p>SELECT p.product_id, p.product_name </p>
+<p>FROM products AS p </p>
+<p>JOIN order_items AS oi ON p.product_id = oi.product_id</p>
+<p>ORDER BY product_id;</code></pre></p>
+
+<p>#### Option B: Broadly Compatible <code>NOT EXISTS</code> Anti-Join (All MySQL Versions)</p>
+<pre><code class="language-sql">SELECT p.product_id, p.product_name, p.price
+<p>FROM products AS p</p>
+<p>WHERE NOT EXISTS (</p>
+<p>    SELECT 1 </p>
+<p>    FROM order_items AS oi</p>
+<p>    WHERE oi.product_id = p.product_id</p>
+<p>)</p>
+<p>ORDER BY p.product_id;</code></pre></p>
+
+<p>#### Expected Output</p>
+<table>
+<p>  <thead><tr><th>product_id</th><th>product_name</th><th>price</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>103</td><td>4K Monitor</td><td>349.99</td></tr></p>
+<p>    <tr><td>104</td><td>USB-C Hub</td><td>29.99</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>[!TIP]</p></blockquote>
+<blockquote><p><strong>Why <code>NOT EXISTS</code> is Preferred Over <code>NOT IN</code></strong>:</p></blockquote>
+<blockquote><p>If a column evaluated inside <code>NOT IN (SELECT col FROM ...)</code> returns a single <code>NULL</code> value, the entire <code>NOT IN</code> expression evaluates to <code>UNKNOWN</code>, returning <strong>0 rows</strong>! Using <code>NOT EXISTS</code> evaluates row existence directly and is completely safe from the NULL trap.</p></blockquote>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="14-joins.html">SQL Joins</a></li></p>
+<p>  <li><a href="17-subqueries.html">Subqueries & Nested Queries</a></li></p>
+<p>  <li><a href="23-ctes.html">Common Table Expressions (CTEs)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← SQL Home</a> | <a href="17-subqueries.html">← Previous: Subqueries</a> | <a href="19-normalization.html">Next: Normalization →</a></p>
+
+  </div>
+</body>
+</html>

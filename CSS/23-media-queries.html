@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 media queries - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Media Queries & Container Queries</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Media Queries (<code>@media</code>):</strong> Apply conditional CSS rules based on device features, viewport width, screen resolution, orientation, or user color preferences (<code>prefers-color-scheme</code>).</li></p>
+<p>  <li><strong>Container Queries (<code>@container</code>):</strong> Modern CSS feature that applies styles based on the size of a parent container element rather than global viewport dimensions.</li></p>
+<p></ul></p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Media Queries (<code>@media</code>) adapt layouts based on global screen viewport size. Container Queries (<code>@container</code>) adapt child component styles based on parent container width.</p>
+
+<h3>Hindi</h3>
+<p>Media Queries (<code>@media</code>) global screen viewport size ke hisaab se styles badalti hain. Container Queries (<code>@container</code>) parent container box ki chaudaai ke hisaab se component ko responsive banati hain.</p>
+
+<h3>Marathi</h3>
+<p>Media Queries (<code>@media</code>) screen size nusar style badaltat. Container Queries parent box chya akara var avlambun aastat.</p>
+
+<h2>🤔 Why Do We Use Media and Container Queries?</h2>
+
+<p>Web components (like cards or widgets) often appear in multiple places on a page: in a wide main section, or in a narrow sidebar.</p>
+<ul>
+<p>  <li><strong>Media Queries:</strong> Reformat the layout based on global device screen width (Mobile vs. Desktop).</li></p>
+<p>  <li><strong>Container Queries:</strong> Reformat a component based on how much width its immediate parent container gives it, making UI components truly modular and self-contained.</li></p>
+<p></ul></p>
+
+<h2>📝 Common Viewport Breakpoints Guide</h2>
+
+<p>While breakpoints should ideally fit content needs, standard device category thresholds include:</p>
+
+<table>
+<p>  <thead><tr><th>Device Category</th><th>Min-Width Breakpoint</th><th>Target Devices</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Mobile Devices</strong></td><td>Default Base Styles (No Query)</td><td>Smartphones (Portrait / Landscape)</td></tr></p>
+<p>    <tr><td><strong>Tablets</strong></td><td><code>@media (min-width: 640px)</code> or <code>768px</code></td><td>iPads, Android tablets, large foldables</td></tr></p>
+<p>    <tr><td><strong>Laptops / Desktops</strong></td><td><code>@media (min-width: 1024px)</code></td><td>Laptops, desktop monitors</td></tr></p>
+<p>    <tr><td><strong>Large Screens</strong></td><td><code>@media (min-width: 1280px)</code></td><td>Ultrawide monitors, TV displays</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Code Examples</h2>
+
+<h3>1. Viewport Media Queries (<code>@media</code>)</h3>
+
+<pre><code class="language-css">/* Base Mobile Styles (1 Column) */
+<p>.card-list {</p>
+<p>  display: grid;</p>
+<p>  grid-template-columns: 1fr;</p>
+<p>  gap: 15px;</p>
+<p>}</p>
+
+<p>/* Tablet Breakpoint (2 Columns) */</p>
+<p>@media (min-width: 640px) {</p>
+<p>  .card-list {</p>
+<p>    grid-template-columns: repeat(2, 1fr);</p>
+<p>  }</p>
+<p>}</p>
+
+<p>/* Desktop Breakpoint (4 Columns) */</p>
+<p>@media (min-width: 1024px) {</p>
+<p>  .card-list {</p>
+<p>    grid-template-columns: repeat(4, 1fr);</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h3>2. Container Queries (<code>@container</code>)</h3>
+
+<p>To use container queries, declare a container context on the parent using <code>container-type</code>:</p>
+
+<pre><code class="language-css">/* 1. Declare container context on parent */
+<p>.widget-wrapper {</p>
+<p>  container-type: inline-size;</p>
+<p>  container-name: widget;</p>
+<p>}</p>
+
+<p>/* 2. Base component style (Stacked) */</p>
+<p>.card-item {</p>
+<p>  display: flex;</p>
+<p>  flex-direction: column;</p>
+<p>}</p>
+
+<p>/* 3. Container query triggers when parent width &gt;= 400px */</p>
+<p>@container widget (min-width: 400px) {</p>
+<p>  .card-item {</p>
+<p>    flex-direction: row; /* Switch to horizontal layout when parent box is wide enough */</p>
+<p>    align-items: center;</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Media &amp;amp; Container Queries Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header class=&quot;header&quot;&gt;</p>
+<p>    &lt;h1&gt;Responsive Breakpoints Demo&lt;/h1&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;!-- Parent Container --&gt;</p>
+<p>  &lt;div class=&quot;card-container&quot;&gt;</p>
+<p>    &lt;div class=&quot;profile-card&quot;&gt;</p>
+<p>      &lt;img src=&quot;https://via.placeholder.com/100&quot; alt=&quot;Profile Avatar&quot; class=&quot;profile-img&quot;&gt;</p>
+<p>      &lt;div class=&quot;profile-info&quot;&gt;</p>
+<p>        &lt;h3&gt;Sarah Jenkins&lt;/h3&gt;</p>
+<p>        &lt;p&gt;Lead UI/UX Designer &amp;amp; Frontend Architect&lt;/p&gt;</p>
+<p>      &lt;/div&gt;</p>
+<p>    &lt;/div&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  margin: 0;</p>
+<p>  padding: 20px;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>}</p>
+
+<p>.header {</p>
+<p>  text-align: center;</p>
+<p>  color: #1f2937;</p>
+<p>}</p>
+
+<p>/* Container Query Context Declaration */</p>
+<p>.card-container {</p>
+<p>  container-type: inline-size;</p>
+<p>  container-name: card-box;</p>
+<p>  width: 90%;</p>
+<p>  max-width: 800px;</p>
+<p>  margin: 0 auto;</p>
+<p>}</p>
+
+<p>/* Base Component Styling (Vertical Stack) */</p>
+<p>.profile-card {</p>
+<p>  display: flex;</p>
+<p>  flex-direction: column;</p>
+<p>  align-items: center;</p>
+<p>  text-align: center;</p>
+<p>  background: white;</p>
+<p>  padding: 20px;</p>
+<p>  border-radius: 12px;</p>
+<p>  box-shadow: 0 4px 12px rgba(0,0,0,0.08);</p>
+<p>  gap: 15px;</p>
+<p>}</p>
+
+<p>.profile-img {</p>
+<p>  border-radius: 50%;</p>
+<p>}</p>
+
+<p>/* Container Query: Activates when .card-container width &gt;= 450px */</p>
+<p>@container card-box (min-width: 450px) {</p>
+<p>  .profile-card {</p>
+<p>    flex-direction: row;</p>
+<p>    text-align: left;</p>
+<p>  }</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>When <code>.card-container</code> width is less than 450px, the profile card renders as a vertical stack. Once the container width expands to 450px or wider, it seamlessly transitions into a horizontal side-by-side row layout.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Resize your browser window and watch the card transition smoothly.</p>
+<p>2. Put the same <code>.profile-card</code> inside a narrow sidebar (<code>width: 300px</code>) and watch it remain gracefully in vertical stacked mode regardless of screen width!</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting <code>container-type: inline-size</code> on the parent:</strong> Container queries require <code>container-type</code> declared on the parent element.</li></p>
+<p>  <li><strong>Overusing desktop-first <code>max-width</code> queries:</strong> Mobile-first <code>min-width</code> queries lead to cleaner, less repetitive stylesheets.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Media queries format mobile navigation drawers, while Container Queries allow design systems (like Material Design or Shopify storefronts) to distribute self-contained UI components into sidebars or main feeds automatically.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
+<p>  <li><a href="41-css-architecture-and-dark-mode.html">CSS Architecture & Dark Mode</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li><code>@media (min-width: 768px)</code> targets global viewport window width.</li></p>
+<p>  <li><code>@container (min-width: 400px)</code> targets immediate parent element container width.</li></p>
+<p>  <li>Always declare <code>container-type: inline-size</code> on container query parent elements.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="22-responsive-design.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="24-pseudo-classes.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

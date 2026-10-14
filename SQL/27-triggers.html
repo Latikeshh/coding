@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27 triggers - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Chapter 27 — MySQL Triggers & Automated Event Auditing</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition & Fundamental Concepts</h2>
+
+<p>A <strong>Database Trigger</strong> is a named, automated database object associated with a specific table that fires (executes) automatically when a data modification event (<code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>) occurs on that table.</p>
+
+<p>Triggers are used to enforce business rules, validate data before insertion, generate automated audit trails, and synchronize summary tables.</p>
+
+<h3>Key Trigger Characteristics in MySQL:</h3>
+<p>1. <strong>Event-Driven</strong>: Triggers execute automatically in response to DML operations (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>).</p>
+<p>2. <strong>Row-Level Execution (<code>FOR EACH ROW</code>)</strong>: MySQL triggers execute once for <strong>every individual row</strong> affected by a SQL statement. (MySQL does NOT support statement-level triggers).</p>
+<p>3. <strong>Transactionally Coupled</strong>: Trigger statements execute inside the same transaction as the invoking SQL operation. If a trigger raises an error, the activating SQL statement (and open transaction) rolls back!</p>
+<p>4. <strong>Pseudo-Row References (<code>OLD</code> & <code>NEW</code>)</strong>: Triggers inspect column values before (<code>OLD</code>) and after (<code>NEW</code>) modification.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>MySQL Trigger ek aisa automated database code hota hai jo kisi table par <code>INSERT</code>, <code>UPDATE</code>, ya <code>DELETE</code> hone par <strong>apne aap (automatically)</strong> chalta hai.</p>
+<ul>
+<p>  <li><strong><code>BEFORE</code> Trigger</strong>: Data table mein save hone se <strong>pehle</strong> chalta hai (data validate ya modify karne ke liye).</li></p>
+<p>  <li><strong><code>AFTER</code> Trigger</strong>: Data table mein save hone ke <strong>baad</strong> chalta hai (audit log ya history record karne ke liye).</li></p>
+<p>  <li><strong><code>FOR EACH ROW</code></strong>: MySQL mein trigger statement ke dwara affect hone wali <strong>har ek row</strong> ke liye alag se chalta hai.</li></p>
+<p>  <li><strong><code>OLD</code> aur <code>NEW</code></strong>: <code>OLD.salary</code> purani value deta hai, aur <code>NEW.salary</code> nayi value deta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>MySQL Trigger mhanje table var <code>INSERT</code>, <code>UPDATE</code>, kiwa <code>DELETE</code> zalyavar <strong>apooap (automatically)</strong> chalnara database code.</p>
+<ul>
+<p>  <li><strong><code>BEFORE</code> Trigger</strong>: Data table madhye save honyapoorvi chalto (validation kiwa modification sathi).</li></p>
+<p>  <li><strong><code>AFTER</code> Trigger</strong>: Data table madhye save zalyanantar chalto (audit record kiwa history sathi).</li></p>
+<p>  <li><strong><code>FOR EACH ROW</code></strong>: MySQL madhye trigger statement mule badallelya <strong>pratyek row</strong> sathi swatantra run hoto.</li></p>
+<p>  <li><strong><code>OLD</code> aani <code>NEW</code></strong>: <code>OLD.salary</code> junya (old) value sathi aani <code>NEW.salary</code> n नवीन (new) value sathi vaparta yete.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📐 BEFORE vs AFTER Triggers & <code>OLD</code> / <code>NEW</code> Matrix</h2>
+
+<h3><code>BEFORE</code> vs <code>AFTER</code> Timing</h3>
+<ul>
+<p>  <li><strong><code>BEFORE</code> Trigger</strong>: Fires <strong>before</strong> the row operation is written to the table. In a <code>BEFORE</code> trigger, you can inspect AND modify <code>NEW.column_name</code> values directly before disk write.</li></p>
+<p>  <li><strong><code>AFTER</code> Trigger</strong>: Fires <strong>after</strong> the row operation is completed. An <code>AFTER</code> trigger cannot modify <code>NEW</code> values, making it ideal for logging and auditing.</li></p>
+<p></ul></p>
+
+<h3><code>OLD</code> and <code>NEW</code> Availability Matrix</h3>
+
+<table>
+<p>  <thead><tr><th>Event Type</th><th><code>OLD</code> Pseudo-Row Available?</th><th><code>NEW</code> Pseudo-Row Available?</th><th>Can Modify <code>NEW</code> Values?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>INSERT</code></strong></td><td>❌ No (No previous row exists)</td><td>✅ Yes (Values being inserted)</td><td>✅ Yes (In <code>BEFORE INSERT</code>)</td></tr></p>
+<p>    <tr><td><strong><code>UPDATE</code></strong></td><td>✅ Yes (Values before update)</td><td>✅ Yes (Values after update)</td><td>✅ Yes (In <code>BEFORE UPDATE</code>)</td></tr></p>
+<p>    <tr><td><strong><code>DELETE</code></strong></td><td>✅ Yes (Values being deleted)</td><td>❌ No (No new row exists)</td><td>❌ No</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>📊 Reproducible Sample Setup Data</h2>
+
+<p>Run the following setup script in phpMyAdmin or WampServer to create the <code>employees</code> and <code>salary_audit</code> tables:</p>
+
+<pre><code class="language-sql">-- Clean up pre-existing sample tables
+<p>DROP TABLE IF EXISTS salary_audit;</p>
+<p>DROP TABLE IF EXISTS employees;</p>
+
+<p>-- 1. Create employees table</p>
+<p>CREATE TABLE employees (</p>
+<p>    emp_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    last_name VARCHAR(50) NOT NULL,</p>
+<p>    email VARCHAR(100) NOT NULL,</p>
+<p>    department_id INT NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 2. Create salary_audit table</p>
+<p>CREATE TABLE salary_audit (</p>
+<p>    audit_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    emp_id INT NOT NULL,</p>
+<p>    old_salary DECIMAL(10, 2) NOT NULL,</p>
+<p>    new_salary DECIMAL(10, 2) NOT NULL,</p>
+<p>    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,</p>
+<p>    FOREIGN KEY (emp_id) REFERENCES employees(emp_id) ON DELETE CASCADE</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>-- 3. Populate employees</p>
+<p>INSERT INTO employees (emp_id, first_name, last_name, email, department_id, salary) VALUES</p>
+<p>(1, &#39;Rahul&#39;, &#39;Sharma&#39;, &#39;rahul@example.com&#39;, 3, 85000.00),</p>
+<p>(2, &#39;Priya&#39;, &#39;Patel&#39;, &#39;priya@example.com&#39;, 3, 95000.00),</p>
+<p>(3, &#39;Amit&#39;, &#39;Verma&#39;, &#39;amit@example.com&#39;, 2, 60000.00),</p>
+<p>(4, &#39;Neha&#39;, &#39;Gupta&#39;, &#39;neha@example.com&#39;, 2, 70000.00);</code></pre></p>
+
+<p>---</p>
+
+<h2>💡 Practical Examples</h2>
+
+<h3>Example 1: Salary Audit Trigger (<code>AFTER UPDATE</code>)</h3>
+
+<p>Create an <code>AFTER UPDATE</code> trigger that logs salary changes into <code>salary_audit</code> whenever an employee's salary changes:</p>
+
+<blockquote><p>[!NOTE]</p></blockquote>
+<blockquote><p><strong>Client Delimiter Note</strong>: The <code>DELIMITER //</code> command is used in CLI clients to change the statement delimiter from <code>;</code> to <code>//</code>, preventing the client from cutting off the trigger body at internal semicolons. In phpMyAdmin's <strong>Triggers</strong> tab, omit <code>DELIMITER //</code> and set <code>//</code> in the phpMyAdmin Delimiter input box!</p></blockquote>
+
+<pre><code class="language-sql">-- MySQL Salary Audit Trigger
+<p>DELIMITER //</p>
+
+<p>CREATE TRIGGER trg_employee_salary_audit</p>
+<p>AFTER UPDATE ON employees</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    -- Record audit row ONLY if salary value actually changed</p>
+<p>    IF OLD.salary &lt;&gt; NEW.salary THEN</p>
+<p>        INSERT INTO salary_audit (emp_id, old_salary, new_salary, changed_at)</p>
+<p>        VALUES (OLD.emp_id, OLD.salary, NEW.salary, CURRENT_TIMESTAMP);</p>
+<p>    END IF;</p>
+<p>END//</p>
+
+<p>DELIMITER ;</code></pre></p>
+
+<p>#### Code Breakdown:</p>
+<ul>
+<p>  <li><code>CREATE TRIGGER trg_employee_salary_audit</code>: Names the new database trigger.</li></p>
+<p>  <li><code>AFTER UPDATE ON employees</code>: Configures the trigger to fire immediately after an <code>UPDATE</code> operation completes on <code>employees</code>.</li></p>
+<p>  <li><code>FOR EACH ROW</code>: Instructs MySQL to execute the trigger logic once for every individual updated row.</li></p>
+<p>  <li><code>IF OLD.salary <> NEW.salary THEN</code>: Prevents generating unnecessary audit entries when an <code>UPDATE</code> statement sets <code>salary</code> to its existing value.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h3>Demonstrating & Verifying Trigger Executions</h3>
+
+<p>Let's test our trigger with 3 distinct <code>UPDATE</code> scenarios:</p>
+
+<pre><code class="language-sql">-- Test 1: Single-row update with actual salary change
+<p>UPDATE employees SET salary = 92000.00 WHERE emp_id = 1;</p>
+
+<p>-- Test 2: Update assigning identical existing salary (No salary change!)</p>
+<p>UPDATE employees SET salary = 95000.00 WHERE emp_id = 2;</p>
+
+<p>-- Test 3: Multi-row update (10% raise for department 2: Amit and Neha)</p>
+<p>UPDATE employees SET salary = salary * 1.10 WHERE department_id = 2;</code></pre></p>
+
+<p>#### Query Results (<code>SELECT * FROM salary_audit;</code>)</p>
+
+<table>
+<p>  <thead><tr><th>audit_id</th><th>emp_id</th><th>old_salary</th><th>new_salary</th><th>changed_at</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>1</td><td>85000.00</td><td>92000.00</td><td>2026-10-10 14:30:00</td></tr></p>
+<p>    <tr><td>2</td><td>3</td><td>60000.00</td><td>66000.00</td><td>2026-10-10 14:30:00</td></tr></p>
+<p>    <tr><td>3</td><td>4</td><td>70000.00</td><td>77000.00</td><td>2026-10-10 14:30:00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Analysis:</p>
+<p>1. <strong>Test 1</strong>: <code>emp_id 1</code> salary changed ($85000.00 \rightarrow 92000.00$), generating <code>audit_id 1</code>.</p>
+<p>2. <strong>Test 2</strong>: <code>emp_id 2</code> salary remained $95000.00$. <code>OLD.salary <> NEW.salary</code> evaluated to <code>FALSE</code>, skipping audit creation.</p>
+<p>3. <strong>Test 3</strong>: Multi-row update affected 2 rows in department 2 (<code>emp_id 3</code> and <code>emp_id 4</code>). The <code>FOR EACH ROW</code> trigger executed twice, generating <code>audit_id 2</code> and <code>audit_id 3</code>.</p>
+
+<p>---</p>
+
+<h3>Example A: Data Validation & Normalization (<code>BEFORE INSERT</code>)</h3>
+
+<p>Validate that inserted salaries are strictly positive, and normalize email strings to lowercase before writing to disk:</p>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE TRIGGER trg_employee_before_insert</p>
+<p>BEFORE INSERT ON employees</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    -- 1. Validate salary value</p>
+<p>    IF NEW.salary &lt;= 0 THEN</p>
+<p>        SIGNAL SQLSTATE &#39;45000&#39;</p>
+<p>        SET MESSAGE_TEXT = &#39;Validation Error: Employee salary must be greater than zero.&#39;;</p>
+<p>    END IF;</p>
+
+<p>    -- 2. Normalize email string to lowercase</p>
+<p>    SET NEW.email = LOWER(TRIM(NEW.email));</p>
+<p>END//</p>
+
+<p>DELIMITER ;</code></pre></p>
+
+<p>#### Testing Validation & Normalization</p>
+<pre><code class="language-sql">-- 1. Valid Insert (Email normalized automatically)
+<p>INSERT INTO employees (first_name, last_name, email, department_id, salary) </p>
+<p>VALUES (&#39;Karan&#39;, &#39;Johar&#39;, &#39;  KARAN@EXAMPLE.COM  &#39;, 1, 72000.00);</p>
+
+<p>-- Verify email normalization</p>
+<p>SELECT emp_id, first_name, email FROM employees WHERE first_name = &#39;Karan&#39;;</p>
+<p>-- Result: email = &#39;karan@example.com&#39;</p>
+
+<p>-- 2. Invalid Insert (Triggers error &amp; aborts insert)</p>
+<p>-- INSERT INTO employees (first_name, last_name, email, department_id, salary)</p>
+<p>-- VALUES (&#39;Test&#39;, &#39;User&#39;, &#39;test@example.com&#39;, 1, -5000.00);</p>
+<p>-- Result: ERROR 1644 (45000): Validation Error: Employee salary must be greater than zero.</code></pre></p>
+
+<p>---</p>
+
+<h3>Example B: Order Status Change Auditing (<code>AFTER UPDATE</code>)</h3>
+
+<pre><code class="language-sql">-- Setup orders and status audit tables
+<p>DROP TABLE IF EXISTS order_status_audit;</p>
+<p>DROP TABLE IF EXISTS orders;</p>
+
+<p>CREATE TABLE orders (</p>
+<p>    order_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    status VARCHAR(20) NOT NULL, -- &#39;PENDING&#39;, &#39;PROCESSING&#39;, &#39;SHIPPED&#39;, &#39;CANCELLED&#39;</p>
+<p>    total_amount DECIMAL(10, 2) NOT NULL</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>CREATE TABLE order_status_audit (</p>
+<p>    audit_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    order_id INT NOT NULL,</p>
+<p>    old_status VARCHAR(20) NOT NULL,</p>
+<p>    new_status VARCHAR(20) NOT NULL,</p>
+<p>    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,</p>
+<p>    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>INSERT INTO orders (order_id, customer_id, status, total_amount) VALUES</p>
+<p>(5001, 101, &#39;PENDING&#39;, 250.00),</p>
+<p>(5002, 102, &#39;PROCESSING&#39;, 1200.00);</p>
+
+<p>-- Create status audit trigger</p>
+<p>DELIMITER //</p>
+
+<p>CREATE TRIGGER trg_order_status_audit</p>
+<p>AFTER UPDATE ON orders</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    IF OLD.status &lt;&gt; NEW.status THEN</p>
+<p>        INSERT INTO order_status_audit (order_id, old_status, new_status, changed_at)</p>
+<p>        VALUES (OLD.order_id, OLD.status, NEW.status, CURRENT_TIMESTAMP);</p>
+<p>    END IF;</p>
+<p>END//</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Test update</p>
+<p>UPDATE orders SET status = &#39;SHIPPED&#39; WHERE order_id = 5001;</p>
+
+<p>-- Query audit results</p>
+<p>SELECT * FROM order_status_audit;</code></pre></p>
+
+<p>#### Output (<code>order_status_audit</code>)</p>
+<table>
+<p>  <thead><tr><th>audit_id</th><th>order_id</th><th>old_status</th><th>new_status</th><th>changed_at</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>5001</td><td>PENDING</td><td>SHIPPED</td><td>2026-10-10 14:30:00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🔒 Trigger Restrictions & Transaction Behavior in MySQL</h2>
+
+<p>1. <strong>Transactional Coupling</strong>: Triggers run inside the same transaction as the invoking SQL statement. If a trigger executes <code>SIGNAL SQLSTATE</code> or encounters a runtime error, the entire statement and transaction roll back.</p>
+<p>2. <strong>Same-Table Modification Restriction (MySQL Error 1442)</strong>: A trigger <strong>CANNOT</strong> issue <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statements against the <strong>same table</strong> that activated the trigger!</p>
+<p>   <pre><code class="language-text">   ERROR 1442 (HY000): Can&#39;t update table &#39;employees&#39; in stored function/trigger </p>
+<p>   because it is already used by statement which invoked this stored function/trigger.</p>
+<p>   ``<code></p>
+<p>3. <strong>No Direct Transaction Statements</strong>: Triggers cannot explicitly execute </code>START TRANSACTION<code>, </code>COMMIT<code>, or </code>ROLLBACK<code>.</p>
+<p>4. <strong>Cascading Foreign Keys Do Not Activate Triggers</strong>: In InnoDB, rows updated or deleted via </code>ON DELETE CASCADE<code> or </code>ON UPDATE CASCADE<code> do <strong>not</strong> fire triggers on the child table.</p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes &amp; Troubleshooting</h2>
+
+<p>1. <strong>Copying PostgreSQL Trigger Syntax into MySQL</strong>:</p>
+<p>   MySQL does NOT use </code>RETURNS TRIGGER<code>, </code>LANGUAGE plpgsql<code>, or </code>EXECUTE FUNCTION<code>. Use native </code>CREATE TRIGGER ... FOR EACH ROW BEGIN ... END<code>.</p>
+<p>2. <strong>Using </code>OLD<code> in </code>INSERT<code> or </code>NEW<code> in </code>DELETE<code></strong>:</p>
+<ul>
+<p>  <li></code>INSERT<code> triggers have no </code>OLD<code> row.</li></p>
+<p>  <li></code>DELETE<code> triggers have no </code>NEW<code> row.</li></p>
+<p></ul></p>
+<p>3. <strong>Modifying </code>NEW<code> Values in </code>AFTER<code> Triggers</strong>:</p>
+<p>   </code>SET NEW.col = val;<code> is allowed ONLY in </code>BEFORE<code> triggers.</p>
+<p>4. <strong>Forgetting Client Delimiting Commands</strong>:</p>
+<p>   Failing to set </code>DELIMITER //<code> in CLI clients causes syntax errors at internal semicolons.</p>
+<p>5. <strong>Generating Unnecessary Audit Logs</strong>:</p>
+<p>   Always compare </code>IF OLD.col &lt;&gt; NEW.col THEN<code> to skip recording updates where values didn&#39;t change.</p>
+
+<p>---</p>
+
+<h2>🧪 Step-by-Step Practice Exercises</h2>
+
+<p>Use the sample database script (</code>employees<code>, </code>salary_audit<code>, </code>orders<code>, </code>order_status_audit<code>) provided in this chapter.</p>
+
+<p>---</p>
+
+<h3>Exercise 1: Employee Registration Audit Trigger (</code>AFTER INSERT<code>)</h3>
+<p><strong>Task</strong>: Create a table </code>employee_insert_log<code> (</code>log_id<code>, </code>emp_id<code>, </code>full_name<code>, </code>created_at<code>) and an </code>AFTER INSERT<code> trigger on </code>employees<code> that logs new registrations.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>DROP TABLE IF EXISTS employee_insert_log;</p>
+<p>CREATE TABLE employee_insert_log (</p>
+<p>    log_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    emp_id INT NOT NULL,</p>
+<p>    full_name VARCHAR(100) NOT NULL,</p>
+<p>    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>DELIMITER //</p>
+
+<p>CREATE TRIGGER trg_employee_after_insert</p>
+<p>AFTER INSERT ON employees</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    INSERT INTO employee_insert_log (emp_id, full_name)</p>
+<p>    VALUES (NEW.emp_id, CONCAT(NEW.first_name, ' ', NEW.last_name));</p>
+<p>END//</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Test Insert</p>
+<p>INSERT INTO employees (first_name, last_name, email, department_id, salary)</p>
+<p>VALUES ('Suresh', 'Raina', 'suresh@example.com', 1, 68000.00);</p>
+
+<p>SELECT * FROM employee_insert_log;</p>
+<pre><code class="language-text">
+<p>#### Expected Output (</code>employee_insert_log<code>)</p>
+<table>
+<p>  <thead><tr><th>log_id</th><th>emp_id</th><th>full_name</th><th>created_at</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>5</td><td>Suresh Raina</td><td>2026-10-10 14:30:00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h3>Exercise 2: Salary Audit Trigger with Minimum Increase Check</h3>
+<p><strong>Task</strong>: Create a </code>BEFORE UPDATE<code> trigger that rejects salary decreases (raises </code>SIGNAL SQLSTATE &#39;45000&#39;<code>).</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>DELIMITER //</p>
+
+<p>CREATE TRIGGER trg_prevent_salary_decrease</p>
+<p>BEFORE UPDATE ON employees</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    IF NEW.salary < OLD.salary THEN</p>
+<p>        SIGNAL SQLSTATE '45000'</p>
+<p>        SET MESSAGE_TEXT = 'Validation Error: Salary reduction is not allowed!';</p>
+<p>    END IF;</p>
+<p>END//</p>
+
+<p>DELIMITER ;</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h3>Exercise 3: Order Status Transition Validation (</code>BEFORE UPDATE<code>)</h3>
+<p><strong>Task</strong>: Create a </code>BEFORE UPDATE<code> trigger on </code>orders<code> that prevents changing status from </code>&#39;SHIPPED&#39;<code> back to </code>&#39;PENDING&#39;<code>.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>DELIMITER //</p>
+
+<p>CREATE TRIGGER trg_prevent_invalid_status_reversal</p>
+<p>BEFORE UPDATE ON orders</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    IF OLD.status = 'SHIPPED' AND NEW.status = 'PENDING' THEN</p>
+<p>        SIGNAL SQLSTATE '45000'</p>
+<p>        SET MESSAGE_TEXT = 'Invalid State: Shipped orders cannot be reverted to pending.';</p>
+<p>    END IF;</p>
+<p>END//</p>
+
+<p>DELIMITER ;</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h3>Exercise 4: Predicting Multi-Row Audit Log Counts</h3>
+<p><strong>Task</strong>: If an </code>UPDATE employees SET salary = salary + 1000 WHERE department_id = 3;<code> statement affects 2 rows, how many times does an </code>AFTER UPDATE ... FOR EACH ROW<code> trigger execute?</p>
+
+<p>#### Answer &amp; Explanation</p>
+<p>The trigger executes <strong>2 times</strong> (once for each affected row), generating <strong>2 audit rows</strong> in </code>salary_audit<code> because MySQL triggers operate strictly at the row level.</p>
+
+<p>---</p>
+
+<h3>Exercise 5: Transaction Rollback Behavior Analysis</h3>
+<p><strong>Task</strong>: What happens to a successful </code>UPDATE employees<code> statement if its </code>AFTER UPDATE<code> trigger subsequently encounters an </code>INSERT<code> failure into </code>salary_audit<code>?</p>
+
+<p>#### Answer &amp; Explanation</p>
+<p>Because the trigger executes inside the <strong>same transaction</strong> as the triggering </code>UPDATE<code> statement, the failure in the trigger causes the entire </code>UPDATE<code> statement (and open transaction) to <strong>roll back completely</strong>. The employee salary is restored to its original value.</p>
+
+<p>---</p>
+
+<h3>Exercise 6: Deletion Audit Log (</code>AFTER DELETE<code>)</h3>
+<p><strong>Task</strong>: Create a table </code>deleted_employees_log<code> and an </code>AFTER DELETE<code> trigger on </code>employees<code> to record removed employee IDs and full names.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>DROP TABLE IF EXISTS deleted_employees_log;</p>
+<p>CREATE TABLE deleted_employees_log (</p>
+<p>    log_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    emp_id INT NOT NULL,</p>
+<p>    full_name VARCHAR(100) NOT NULL,</p>
+<p>    deleted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>DELIMITER //</p>
+
+<p>CREATE TRIGGER trg_employee_after_delete</p>
+<p>AFTER DELETE ON employees</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    INSERT INTO deleted_employees_log (emp_id, full_name)</p>
+<p>    VALUES (OLD.emp_id, CONCAT(OLD.first_name, ' ', OLD.last_name));</p>
+<p>END//</p>
+
+<p>DELIMITER ;</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Design an automated audit system for order status modifications.</p>
+
+<h3>Requirements:</h3>
+<p>1. Create </code>orders<code> and </code>order_status_audit<code> tables.</p>
+<p>2. Create an </code>AFTER UPDATE<code> trigger </code>trg_order_status_audit<code> that logs </code>order_id<code>, </code>old_status<code>, </code>new_status<code>, and </code>changed_at<code>.</p>
+<p>3. Prevent duplicate audit entries when </code>status<code> has not changed.</p>
+<p>4. Test with status changes and verify outputs.</p>
+<p></code></pre>sql</p>
+<p>-- Solution</p>
+<p>DROP TABLE IF EXISTS order_status_audit;</p>
+<p>DROP TABLE IF EXISTS orders;</p>
+
+<p>CREATE TABLE orders (</p>
+<p>    order_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    customer_id INT NOT NULL,</p>
+<p>    status VARCHAR(20) NOT NULL,</p>
+<p>    total_amount DECIMAL(10, 2) NOT NULL</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>CREATE TABLE order_status_audit (</p>
+<p>    audit_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    order_id INT NOT NULL,</p>
+<p>    old_status VARCHAR(20) NOT NULL,</p>
+<p>    new_status VARCHAR(20) NOT NULL,</p>
+<p>    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP</p>
+<p>) ENGINE=InnoDB;</p>
+
+<p>INSERT INTO orders VALUES (1001, 501, 'PENDING', 150.00);</p>
+
+<p>DELIMITER //</p>
+
+<p>CREATE TRIGGER trg_order_status_audit</p>
+<p>AFTER UPDATE ON orders</p>
+<p>FOR EACH ROW</p>
+<p>BEGIN</p>
+<p>    IF OLD.status <> NEW.status THEN</p>
+<p>        INSERT INTO order_status_audit (order_id, old_status, new_status, changed_at)</p>
+<p>        VALUES (OLD.order_id, OLD.status, NEW.status, CURRENT_TIMESTAMP);</p>
+<p>    END IF;</p>
+<p>END//</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Test statement</p>
+<p>UPDATE orders SET status = 'DELIVERED' WHERE order_id = 1001;</p>
+
+<p>SELECT * FROM order_status_audit;</p>
+<p></code>`<code></p>
+
+<p>#### Expected Output (</code>order_status_audit<code>)</p>
+<table>
+<p>  <thead><tr><th>audit_id</th><th>order_id</th><th>old_status</th><th>new_status</th><th>changed_at</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>1</td><td>1001</td><td>PENDING</td><td>DELIVERED</td><td>2026-10-10 14:30:00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>#### Explanation:</p>
+<p></code>OLD.status<code> captures </code>'PENDING'<code>, </code>NEW.status<code> captures </code>'DELIVERED'<code>, and </code>OLD.status <> NEW.status<code> evaluates to </code>TRUE`, writing the status transition audit entry.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="26-stored-procedures.html">Stored Procedures & Functions</a></li></p>
+<p>  <li><a href="05-keys.html">SQL Constraints</a></li></p>
+<p>  <li><a href="28-sql-security.html">SQL Security & Permissions</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← SQL Home</a> | <a href="26-stored-procedures.html">← Previous: Stored Procedures</a> | <a href="28-sql-security.html">Next: SQL Security →</a></p>
+
+  </div>
+</body>
+</html>

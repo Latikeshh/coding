@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 introduction to github - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Introduction to GitHub Platform</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>GitHub</strong> is a cloud-based web hosting platform for Git repositories that provides a graphical interface, collaboration tools, access controls, code review workflows, issue tracking, continuous integration (CI/CD), and open-source project management.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>GitHub hosts Git repositories online in the cloud. While Git is the local CLI tool that tracks version history, GitHub is the web platform where developers store backups, collaborate on team repositories, review Pull Requests, track bugs via Issues, and showcase portfolios.</p>
+
+<h3>Hindi</h3>
+<p>GitHub ek cloud platform hai jo aapke Git repositories ko online host karta hai. Git local tool hai aur GitHub online website hai jahan aap apna code backup rakh sakte hain, doosron ke saath collaborate kar sakte hain, aur apna developer portfolio bana sakte hain.</p>
+
+<h3>Marathi</h3>
+<p>GitHub mhanje Git repositories online cloud var sathavnyasathi asleli website. Git ha local tool aahe tar GitHub ha online platform aahe jithe code backup, team collaboration, aani portfolio tayar karta yeto.</p>
+
+<h3>Hinglish</h3>
+<p>Git local computer par chalta hai, jabki GitHub cloud web server hai. GitHub par aap public repositories banakar duniya ke saamne apna developer portfolio showcase kar sakte hain aur open-source projects mein contribute kar sakte hain.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>GitHub is the global developer social network and code ecosystem. Having a GitHub account allows you to backup projects safely, collaborate with remote teams, participate in open source, host static websites, and present your code to technical recruiters.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of Git vs GitHub like videos on a smartphone:</p>
+<ul>
+<p>  <li><strong>Git:</strong> The camera app on your phone recording videos locally on your phone storage.</li></p>
+<p>  <li><strong>GitHub:</strong> YouTube — the cloud platform where you upload your recorded videos so anyone in the world can watch, comment, share, or collaborate!</li></p>
+<p></ul></p>
+
+<h2>📝 GitHub Repository Setup Steps</h2>
+
+<h3>1. Creating a New Repository on GitHub</h3>
+<p>1. Sign in to your account at <a href="https://github.com">github.com</a>.</p>
+<p>2. Click the <strong><code>+</code></strong> icon in the top right corner -> Select <strong>New repository</strong>.</p>
+<p>3. Fill in Repository Details:</p>
+<ul>
+<p>  <li><strong>Repository Name:</strong> e.g. <code>my-web-portfolio</code></li></p>
+<p>  <li><strong>Visibility:</strong> <strong>Public</strong> (visible to anyone) or <strong>Private</strong> (restricted access).</li></p>
+<p>  <li><strong>Initialize Options:</strong> Uncheck README/gitignore if linking an existing local repository.</li></p>
+<p></ul></p>
+<p>4. Click <strong>Create repository</strong>.</p>
+
+<h3>2. Linking Local Repo to GitHub Repo</h3>
+<p>GitHub presents terminal instructions to link your local code:</p>
+
+<pre><code class="language-bash"># 1. Rename default local branch to main
+<p>git branch -M main</p>
+
+<h1>2. Add remote URL</h1>
+<p>git remote add origin https://github.com/your-username/my-web-portfolio.git</p>
+
+<h1>3. Push local commits to GitHub</h1>
+<p>git push -u origin main</code></pre></p>
+
+<h2>💡 Navigating the GitHub UI Tabs</h2>
+
+<table>
+<p>  <thead><tr><th>GitHub Tab</th><th>Purpose</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Code</strong></td><td>View repository directory tree, files, commits, branches, and releases</td></tr></p>
+<p>    <tr><td><strong>Issues</strong></td><td>Bug tracker, feature requests, and task discussions</td></tr></p>
+<p>    <tr><td><strong>Pull Requests</strong></td><td>Code review proposals submitted by team members or open-source contributors</td></tr></p>
+<p>    <tr><td><strong>Actions</strong></td><td>CI/CD automation pipelines (testing, building, deploying code)</td></tr></p>
+<p>    <tr><td><strong>Projects</strong></td><td>Kanban boards and sprint management planning</td></tr></p>
+<p>    <tr><td><strong>Settings</strong></td><td>Repository access control, secrets, webhooks, and domain settings</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git branch -M main</code>: Forces renaming current active branch to <code>main</code> (standard GitHub default).</li></p>
+<p>  <li><code>git push -u origin main</code>: Uploads local <code>main</code> branch code to GitHub <code>origin</code> remote.</li></p>
+<p></ul></p>
+
+<h2>👀 GitHub Web View</h2>
+
+<pre><code class="language-text">github.com/your-username/my-web-portfolio
+<p> ├── 📄 README.md        (Displayed on repository home page)</p>
+<p> ├── 📄 index.html</p>
+<p> ├── 🎨 style.css</p>
+<p> └── ⚙️ .gitignore</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Initializing README on GitHub AND Locally:</strong> Checking "Add a README.md file" on GitHub web wizard when creating a repo for code that ALREADY exists locally. This creates diverged histories and triggers <code>failed to push some refs</code> error.</li></p>
+<p>  <li>*Fix:* Leave GitHub wizard checkboxes UNCHECKED when linking existing local code.</li></p>
+<p>  <li><strong>Uploading Secret Keys:</strong> Uploading <code>.env</code> files containing private passwords or API tokens to public GitHub repositories.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Public repositories on GitHub are indexed by search engines. Never upload personal sensitive information or secrets.</li></p>
+<p>  <li>GitHub automatically renders markdown files (<code>README.md</code>) as structured documentation on repository homepages.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Tech companies evaluate job applicants by inspecting their public GitHub repositories, commit histories, code quality, and open-source contributions.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a free account on <a href="https://github.com">github.com</a> if you haven't already.</p>
+<p>2. Create a new public repository named <code>github-practice</code> on GitHub. Leave checkboxes unchecked.</p>
+<p>3. Link your local <code>git-practice</code> folder to your new GitHub repository using <code>git remote add origin <url></code> and execute <code>git push -u origin main</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Refresh your GitHub repository web page in your browser and verify that your committed files and README appear live on GitHub!</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="18-git-push-and-git-pull.html">Syncing Remotes with Push & Pull</a></li></p>
+<p>  <li><a href="21-forking-and-pull-requests.html">Forking & Pull Requests</a></li></p>
+<p>  <li><a href="24-github-pages-and-hosting.html">Free Hosting with GitHub Pages</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="19-git-fetch-and-remote-branches.html">← Previous: Fetching</a> | <a href="21-forking-and-pull-requests.html">Next: Forking & Pull Requests →</a></p>
+
+
+
+  </div>
+</body>
+</html>

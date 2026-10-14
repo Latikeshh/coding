@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 constructors and destructors - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Constructors, Member Initializer Lists & Destructors in C++</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Constructor</strong>: A special member function called automatically when an object is instantiated. It shares the exact name as the class, has no return type, and initializes the object's variables.</li></p>
+<p>  <li><strong>Member Initializer List</strong>: A clean, efficient initialization mechanism executed *before* the constructor body executes.</li></p>
+<p>  <li><strong>Destructor</strong>: A special member function prefixed with a tilde (<code>~</code>) called automatically when an object goes out of scope or is deleted. It cleans up allocated heap resources, closes file streams, and releases sockets.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Constructor</strong>: Class ka wo special method jo naya object banne par apne aap turant run hota hai. Iska kaam variables ko initial values dena hota hai.</li></p>
+<p>  <li><strong>Member Initializer List (<code>: var1(v1), var2(v2)</code>)</strong>: Variables ko initialize karne ka sabse fast aur modern C++ tareeka hai.</li></p>
+<p>  <li><strong>Destructor (<code>~ClassName()</code>)</strong>: Jab object ka kaam khatam ho jata hai aur wo scope se bahar jata hai, tab destructor apne aap call hota hai taaki memory leaks na ho.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Constructor</strong>: N नवीन object tayar hoinaahimatra apoaap run honara special function.</li></p>
+<p>  <li><strong>Member Initializer List</strong>: Variables la prarambhik (initial) value denya chi sarvadhik vegvan padhat.</li></p>
+<p>  <li><strong>Destructor (<code>~ClassName()</code>)</strong>: Object chi garaj samplyavar aani toh scope chya baher gelyavar memory clean karnyasathi apoaap call hoto.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Types of Constructors</h2>
+
+<p>1. <strong>Default Constructor</strong>: Takes no parameters.</p>
+<p>2. <strong>Parameterized Constructor</strong>: Takes arguments to initialize member fields.</p>
+<p>3. <strong>Copy Constructor</strong>: Initializes an object using another existing object of the same class (<code>ClassName(const ClassName& other)</code>).</p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+
+<p>class DatabaseConnection {</p>
+<p>private:</p>
+<p>    std::string dbName;</p>
+<p>    int connectionId;</p>
+
+<p>public:</p>
+<p>    // 1. Parameterized Constructor with Member Initializer List</p>
+<p>    DatabaseConnection(std::string name, int id) </p>
+<p>        : dbName(name), connectionId(id) // Member Initializer List!</p>
+<p>    {</p>
+<p>        std::cout &lt;&lt; &quot;[CONSTRUCTOR] Connected to Database: &quot; &lt;&lt; dbName &lt;&lt; &quot; (ID: &quot; &lt;&lt; connectionId &lt;&lt; &quot;)&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // 2. Copy Constructor</p>
+<p>    DatabaseConnection(const DatabaseConnection&amp; source)</p>
+<p>        : dbName(source.dbName + &quot;_COPY&quot;), connectionId(source.connectionId + 100)</p>
+<p>    {</p>
+<p>        std::cout &lt;&lt; &quot;[COPY CONSTRUCTOR] Created Duplicate DB Connection: &quot; &lt;&lt; dbName &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // 3. Destructor (Cleans up resources automatically)</p>
+<p>    ~DatabaseConnection() {</p>
+<p>        std::cout &lt;&lt; &quot;[DESTRUCTOR] Closed Connection to Database: &quot; &lt;&lt; dbName &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    void executeQuery(std::string sql) const {</p>
+<p>        std::cout &lt;&lt; &quot;Executing SQL on [&quot; &lt;&lt; dbName &lt;&lt; &quot;]: &quot; &lt;&lt; sql &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;=== SCOPE START ===&quot; &lt;&lt; std::endl;</p>
+<p>    {</p>
+<p>        // Object instantiated inside block scope</p>
+<p>        DatabaseConnection db1(&quot;ProductionDB&quot;, 101);</p>
+<p>        db1.executeQuery(&quot;SELECT * FROM users;&quot;);</p>
+
+<p>        // Copy constructor</p>
+<p>        DatabaseConnection db2 = db1;</p>
+<p>        db2.executeQuery(&quot;SELECT * FROM logs;&quot;);</p>
+
+<p>        std::cout &lt;&lt; &quot;Exiting inner block scope...&quot; &lt;&lt; std::endl;</p>
+<p>    } // db1 and db2 go out of scope HERE -&gt; Destructors called automatically!</p>
+<p>    </p>
+<p>    std::cout &lt;&lt; &quot;=== SCOPE END ===&quot; &lt;&lt; std::endl;</p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>: dbName(name), connectionId(id)</code>: Member Initializer List directly initializes fields during object creation, avoiding double assignment overhead.</li></p>
+<p>  <li><code>~DatabaseConnection()</code>: The destructor. Notice in output how <code>db2</code> and <code>db1</code> are destroyed in <strong>reverse order of creation</strong> (stack LIFO order) as soon as the inner <code>{ }</code> block ends!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== SCOPE START ===
+<p>[CONSTRUCTOR] Connected to Database: ProductionDB (ID: 101)</p>
+<p>Executing SQL on [ProductionDB]: SELECT * FROM users;</p>
+<p>[COPY CONSTRUCTOR] Created Duplicate DB Connection: ProductionDB_COPY</p>
+<p>Executing SQL on [ProductionDB_COPY]: SELECT * FROM logs;</p>
+<p>Exiting inner block scope...</p>
+<p>[DESTRUCTOR] Closed Connection to Database: ProductionDB_COPY</p>
+<p>[DESTRUCTOR] Closed Connection to Database: ProductionDB</p>
+<p>=== SCOPE END ===</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Writing Return Types on Constructors/Destructors</strong>: Writing <code>void ClassName()</code> or <code>int ~ClassName()</code> causes compilation errors. Constructors/Destructors <strong>have no return type</strong> (not even <code>void</code>).</li></p>
+<p>  <li><strong>Shallow Copy Bug in Raw Pointers</strong>: If a class allocates raw dynamic memory with <code>new</code> and lacks a custom Deep Copy constructor, copying an object leads to double-free crashes! Use <code>std::unique_ptr</code> or <code>std::vector</code> to prevent this completely.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always prefer Member Initializer Lists over assignment inside the constructor body.</li></p>
+<p>  <li>Follow the <strong>Rule of Zero / Rule of Five</strong> in modern C++: Use RAII objects (<code>std::vector</code>, <code>std::string</code>, <code>std::unique_ptr</code>) so you don't need custom raw destructors.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Book</code> class with <code>title</code> and <code>author</code>. Use a member initializer list in its constructor and print a message in its destructor when the book object is destroyed.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a <code>Logger</code> class that opens a simulated log file in its constructor, writes log messages via a <code>log(text)</code> method, and prints <code>"Log File Closed"</code> in its destructor.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="10-classes-and-oops.html">Classes & Objects</a></li></p>
+<p>  <li><a href="14-smart-pointers.html">Smart Pointers</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="10-classes-and-oops.html">← Previous: Classes & OOP</a> | <a href="12-inheritance-and-polymorphism.html">Next: Inheritance →</a></p>
+
+
+  </div>
+</body>
+</html>

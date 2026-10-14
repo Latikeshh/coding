@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26 stored procedures - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>⚙️ MySQL Stored Procedures & Functions</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In MySQL, <strong>Stored Procedures</strong> and <strong>Stored Functions</strong> are named SQL routines created and compiled directly inside the database server. They encapsulate reusable business logic, multi-step queries, transaction blocks, and data modifications into clean, executable database routines.</p>
+
+<p>While both procedures and functions are stored routines, they serve distinct architectural purposes:</p>
+
+<ul>
+<p>  <li><strong>Stored Procedure:</strong> A named database routine invoked using the <strong><code>CALL</code></strong> statement. It can accept <code>IN</code>, <code>OUT</code>, and <code>INOUT</code> parameters, execute DML (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>) and DDL statements, manage transactions, and return zero or multiple result sets.</li></p>
+<p>  <li><strong>Stored Function:</strong> A named routine invoked inside standard SQL expressions (<code>SELECT</code>, <code>WHERE</code>). It accepts <code>IN</code> parameters and <strong>must</strong> return a single scalar value using the <strong><code>RETURNS</code></strong> and <strong><code>RETURN</code></strong> statements.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>Database server ke andar save kiye gaye reusable SQL routines ko <strong>Stored Procedures</strong> aur <strong>Stored Functions</strong> kehte hain:</p>
+<ul>
+<p>  <li><strong>Stored Procedure:</strong> <code>CALL procedure_name(args)</code> se execute hoti hai. Yeh multiple statements execute kar sakti hai, <code>IN</code>, <code>OUT</code>, <code>INOUT</code> parameters accept karti hai, aur full transaction management (<code>COMMIT</code>/<code>ROLLBACK</code>) support karti hai.</li></p>
+<p>  <li><strong>Stored Function:</strong> Routine single scalar value return karti hai (<code>RETURNS data_type</code>) aur ise seedhe <code>SELECT</code> queries ke andar (<code>SELECT Multiply(5, 10);</code>) call kiya jata hai.</li></p>
+<p>  <li><strong><code>DELIMITER //</code>:</strong> MySQL CLI ya scripts mein stored procedure likhte waqt <code>DELIMITER //</code> ka use kiya jata hai taaki block ke andar ke semicolons <code>;</code> query ko beech mein hi terminate na kar dein.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Database server madhye save kelelya reusable SQL routines la <strong>Stored Procedures</strong> aani <strong>Stored Functions</strong> mhanat:</p>
+<ul>
+<p>  <li><strong>Stored Procedure:</strong> <strong><code>CALL procedure_name(args)</code></strong> dware execute hote. Hi parameter modes (<code>IN</code>, <code>OUT</code>, <code>INOUT</code>) vaparu shakte aani transactions manage karte.</li></p>
+<p>  <li><strong>Stored Function:</strong> Svatantra scalar value return karte (<code>RETURNS data_type</code>) aani tila <code>SELECT</code> query chya aat vaparta yete.</li></p>
+<p>  <li><strong><code>DELIMITER //</code>:</strong> Routine mhadhil code compile kartana semicolons <code>;</code> mule error yeu naye mhanun <code>DELIMITER //</code> vaparlo jato.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Encapsulating SQL logic into database routines offers key software architecture benefits:</p>
+
+<ul>
+<p>  <li><strong>Reduced Network Traffic:</strong> Instead of sending dozens of individual SQL queries over the network, the client application executes a single <code>CALL</code> command.</li></p>
+<p>  <li><strong>Centralized Business Rules:</strong> Ensures all application backends (Node.js, Python, Java, Mobile Apps) execute identical, audited data logic.</li></p>
+<p>  <li><strong>Enhanced Security:</strong> DBAs can grant users permission to execute specific procedures (<code>GRANT EXECUTE ON PROCEDURE ...</code>) without giving them direct <code>UPDATE</code> or <code>DELETE</code> table permissions.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: The Coffee Vending Machine</h2>
+
+<p>Think of SQL execution as an <strong>Office Coffee Machine</strong>:</p>
+
+<ul>
+<p>  <li><strong>Raw SQL Queries:</strong> Ordering individual ingredients manually step-by-step (get cup, pour 200ml hot water, add 2 spoons coffee, add milk, stir).</li></p>
+<p>  <li><strong>Stored Procedure:</strong> Pressing the single <strong>"Espresso"</strong> button (<code>CALL MakeEspresso('Double');</code>). The machine automatically executes the pre-programmed brewing routine internally and dispenses the final coffee!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 Stored Procedures vs Stored Functions Matrix</h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th>Stored Procedure (<code>CREATE PROCEDURE</code>)</th><th>Stored Function (<code>CREATE FUNCTION</code>)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Invocation Method</strong></td><td>Invoked explicitly using <strong><code>CALL routine_name()</code></strong>.</td><td>Called inline inside SQL expressions (<code>SELECT func()</code>).</td></tr></p>
+<p>    <tr><td><strong>Return Value</strong></td><td>Does not use <code>RETURN</code>. Can return 0, 1, or multiple result sets via <code>SELECT</code> or <code>OUT</code> parameters.</td><td><strong>Must</strong> return a single scalar value using <strong><code>RETURNS</code></strong> and <strong><code>RETURN</code></strong>.</td></tr></p>
+<p>    <tr><td><strong>Parameter Modes</strong></td><td>Supports <strong><code>IN</code></strong>, <strong><code>OUT</code></strong>, and <strong><code>INOUT</code></strong> parameters.</td><td>Supports <strong><code>IN</code></strong> parameters only.</td></tr></p>
+<p>    <tr><td><strong>DML / Transaction Capabilities</strong></td><td>Full support for <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>START TRANSACTION</code>, <code>COMMIT</code>, <code>ROLLBACK</code>.</td><td>Restricted in SQL statements. Cannot perform DML on tables queried by the caller.</td></tr></p>
+<p>    <tr><td><strong>Primary Purpose</strong></td><td>Performing complex multi-step data operations, batch processing, and payment workflows.</td><td>Performing reusable calculations, formatting, or scalar data transformations.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🛠️ Understanding the MySQL <code>DELIMITER</code> Command</h2>
+
+<p>When writing stored routines in a MySQL Command-Line Client, MySQL Workbench, or DBeaver, individual SQL statements inside the <code>BEGIN ... END</code> block end with semicolons <code>;</code>. </p>
+
+<p>Without changing the delimiter, the MySQL client would interpret the first semicolon inside the routine body as the end of the entire <code>CREATE PROCEDURE</code> statement, resulting in a syntax error (<code>ERROR 1064</code>).</p>
+
+<pre><code class="language-sql">-- 1. Change statement delimiter from ; to //
+<p>DELIMITER //</p>
+
+<p>CREATE PROCEDURE HelloWorld()</p>
+<p>BEGIN</p>
+<p>    SELECT &#39;Hello, MySQL Stored Procedures!&#39; AS Message;</p>
+<p>END // -- Ends the CREATE PROCEDURE block</p>
+
+<p>-- 2. Reset statement delimiter back to standard ;</p>
+<p>DELIMITER ;</p>
+
+<p>-- 3. Execute procedure</p>
+<p>CALL HelloWorld();</code></pre></p>
+
+<blockquote><p>🌐 <strong>phpMyAdmin GUI Notice:</strong> When creating routines in <strong>phpMyAdmin</strong>, if you use the web "Routines" GUI editor, phpMyAdmin provides a dedicated <strong>Delimiter</strong> input box below the text editor. You do not need to wrap your code in <code>DELIMITER //</code> when using phpMyAdmin's GUI Routine Form.</p></blockquote>
+
+<p>---</p>
+
+<h2>🏗️ Reproducible MySQL Setup Dataset (<code>employees</code> & <code>orders</code>)</h2>
+
+<p>Let's set up a clean, reproducible dataset containing <code>employees</code> and <code>orders</code> tables:</p>
+
+<pre><code class="language-sql">-- 1. Drop existing sample tables in reverse dependency order
+<p>DROP TABLE IF EXISTS orders;</p>
+<p>DROP TABLE IF EXISTS employees;</p>
+
+<p>-- 2. Create Employees Table Schema</p>
+<p>CREATE TABLE employees (</p>
+<p>    emp_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    first_name VARCHAR(50) NOT NULL,</p>
+<p>    department VARCHAR(50) NOT NULL,</p>
+<p>    salary DECIMAL(10, 2) NOT NULL</p>
+<p>);</p>
+
+<p>-- 3. Create Orders Table Schema</p>
+<p>CREATE TABLE orders (</p>
+<p>    order_id INT PRIMARY KEY AUTO_INCREMENT,</p>
+<p>    customer_name VARCHAR(100) NOT NULL,</p>
+<p>    total_amount DECIMAL(10, 2) NOT NULL,</p>
+<p>    order_status VARCHAR(20) NOT NULL DEFAULT &#39;PENDING&#39; -- &#39;PENDING&#39;, &#39;PAID&#39;, &#39;CANCELLED&#39;</p>
+<p>);</p>
+
+<p>-- 4. Insert Sample Employees</p>
+<p>INSERT INTO employees (emp_id, first_name, department, salary) VALUES</p>
+<p>    (101, &#39;Rahul&#39;, &#39;Engineering&#39;, 85000.00),</p>
+<p>    (102, &#39;Priya&#39;, &#39;HR&#39;, 60000.00),</p>
+<p>    (103, &#39;Amit&#39;, &#39;Engineering&#39;, 95000.00),</p>
+<p>    (104, &#39;Sneha&#39;, &#39;Marketing&#39;, 70000.00);</p>
+
+<p>-- 5. Insert Sample Orders</p>
+<p>INSERT INTO orders (order_id, customer_name, total_amount, order_status) VALUES</p>
+<p>    (1001, &#39;Aarav Mehta&#39;, 1500.00, &#39;PENDING&#39;),</p>
+<p>    (1002, &#39;Sneha Kapoor&#39;, 3500.00, &#39;PAID&#39;),</p>
+<p>    (1003, &#39;Rohan Sharma&#39;, 2000.00, &#39;PENDING&#39;);</code></pre></p>
+
+<p>---</p>
+
+<h2>1. ⚙️ Basic Stored Procedure (<code>IN</code> Parameter)</h2>
+
+<p>Let's create a procedure that accepts a department name as an <strong><code>IN</code> parameter</strong> and retrieves matching employees:</p>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE PROCEDURE GetEmployeesByDept(IN p_dept VARCHAR(50))</p>
+<p>BEGIN</p>
+<p>    SELECT emp_id, first_name, department, salary</p>
+<p>    FROM employees</p>
+<p>    WHERE department = p_dept;</p>
+<p>END //</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Calling the procedure</p>
+<p>CALL GetEmployeesByDept(&#39;Engineering&#39;);</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+--------+------------+-------------+----------+
+<table>
+<p>  <thead><tr><th>emp_id</th><th>first_name</th><th>department</th><th>salary</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+-------------+----------+</p>
+<table>
+<p>  <thead><tr><th>101</th><th>Rahul</th><th>Engineering</th><th>85000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>103</td><td>Amit</td><td>Engineering</td><td>95000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------+------------+-------------+----------+</code></pre></p>
+
+<p>---</p>
+
+<h2>2. 🔄 Parameter Modes: <code>IN</code>, <code>OUT</code>, and <code>INOUT</code></h2>
+
+<p>MySQL stored procedures support three distinct parameter modes:</p>
+
+<p>1. <strong><code>IN</code> (Input Parameter):</strong> Passes a value from the caller into the procedure. The procedure can read it, but changes made to <code>IN</code> parameters inside the procedure do not affect the caller.</p>
+<p>2. <strong><code>OUT</code> (Output Parameter):</strong> Returns a value from the procedure back to the caller session.</p>
+<p>3. <strong><code>INOUT</code> (Input/Output Parameter):</strong> Accepts an initial value from the caller, modifies it inside the procedure, and passes the updated value back to the caller session.</p>
+
+<p>---</p>
+
+<h3>A. Procedure with <code>OUT</code> Parameter</h3>
+<p>Count employees in a department and return the result through an <code>OUT</code> parameter:</p>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE PROCEDURE CountDeptEmployees(</p>
+<p>    IN p_dept VARCHAR(50),</p>
+<p>    OUT p_emp_count INT</p>
+<p>)</p>
+<p>BEGIN</p>
+<p>    SELECT COUNT(*) INTO p_emp_count</p>
+<p>    FROM employees</p>
+<p>    WHERE department = p_dept;</p>
+<p>END //</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Calling procedure with session variable @dept_count</p>
+<p>CALL CountDeptEmployees(&#39;Engineering&#39;, @dept_count);</p>
+
+<p>-- Inspect session variable output</p>
+<p>SELECT @dept_count AS engineering_staff_count;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+-----------------------+
+<table>
+<p>  <thead><tr><th>engineering_staff_count</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------------------+</p>
+<table>
+<p>  <thead><tr><th>2</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+-----------------------+</code></pre></p>
+
+<p>---</p>
+
+<h3>B. Procedure with <code>INOUT</code> Parameter</h3>
+<p>Accept an initial numeric value, apply a 10% raise, and return the updated value:</p>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE PROCEDURE ApplyBonus(</p>
+<p>    INOUT p_amount DECIMAL(10, 2),</p>
+<p>    IN p_bonus_pct DECIMAL(4, 2)</p>
+<p>)</p>
+<p>BEGIN</p>
+<p>    SET p_amount = p_amount * (1 + p_bonus_pct);</p>
+<p>END //</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Initialize session variable, pass to INOUT procedure, and inspect result</p>
+<p>SET @my_salary = 50000.00;</p>
+<p>CALL ApplyBonus(@my_salary, 0.10);</p>
+
+<p>SELECT @my_salary AS salary_after_bonus;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+--------------------+
+<table>
+<p>  <thead><tr><th>salary_after_bonus</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------------+</p>
+<table>
+<p>  <thead><tr><th>55000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------------+</code></pre></p>
+
+<blockquote><p>💡 <strong>Session Variables vs Local Variables:</strong> Variables prefixed with <code>@</code> (e.g. <code>@my_salary</code>) are <strong>Session Variables</strong> accessible throughout the connection. Variables declared inside a procedure with <code>DECLARE var_name data_type;</code> are <strong>Local Variables</strong> destroyed when the procedure finishes execution.</p></blockquote>
+
+<p>---</p>
+
+<h2>3. 🧮 MySQL Stored Functions (<code>CREATE FUNCTION</code>)</h2>
+
+<p>Unlike stored procedures, a <strong>Stored Function</strong> returns a single scalar value and can be called directly inside <code>SELECT</code> queries.</p>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE FUNCTION CalculateTax(price DECIMAL(10, 2), tax_rate DECIMAL(4, 2))</p>
+<p>RETURNS DECIMAL(10, 2)</p>
+<p>DETERMINISTIC</p>
+<p>BEGIN</p>
+<p>    RETURN price * tax_rate;</p>
+<p>END //</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Invoking Stored Function inside a SELECT query:</p>
+<p>SELECT </p>
+<p>    first_name, </p>
+<p>    salary, </p>
+<p>    CalculateTax(salary, 0.18) AS estimated_tax</p>
+<p>FROM employees;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+------------+----------+---------------+
+<table>
+<p>  <thead><tr><th>first_name</th><th>salary</th><th>estimated_tax</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+----------+---------------+</p>
+<table>
+<p>  <thead><tr><th>Rahul</th><th>85000.00</th><th>15300.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Priya</td><td>60000.00</td><td>10800.00</td></tr></p>
+<p>    <tr><td>Amit</td><td>95000.00</td><td>17100.00</td></tr></p>
+<p>    <tr><td>Sneha</td><td>70000.00</td><td>12600.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+------------+----------+---------------+</code></pre></p>
+
+<blockquote><p>🌐 <strong>MySQL Binary Logging & <code>DETERMINISTIC</code> Rule:</strong></p></blockquote>
+<blockquote><p>In MySQL, stored functions require declaring a deterministic characteristic (<code>DETERMINISTIC</code>, <code>READS SQL DATA</code>, or <code>NO SQL</code>).</p></blockquote>
+<blockquote><p>- <strong><code>DETERMINISTIC</code>:</strong> Declares that the function always returns the exact same result given identical input parameters.</p></blockquote>
+<blockquote><p>- If binary logging is enabled on your server, creating functions without declaring <code>DETERMINISTIC</code> or setting <code>SET GLOBAL log_bin_trust_function_creators = 1;</code> throws <code>ERROR 1418 (HY000)</code>.</p></blockquote>
+
+<p>---</p>
+
+<h2>4. 🏢 Meaningful Business Procedure: Payment Processing Routine</h2>
+
+<p>Let's build a realistic order payment processor that updates order statuses conditionally and returns status messages:</p>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE PROCEDURE ProcessOrderPayment(</p>
+<p>    IN p_order_id INT,</p>
+<p>    OUT p_result_message VARCHAR(100)</p>
+<p>)</p>
+<p>BEGIN</p>
+<p>    DECLARE v_current_status VARCHAR(20);</p>
+
+<p>    -- 1. Fetch current order status into local variable</p>
+<p>    SELECT order_status INTO v_current_status</p>
+<p>    FROM orders</p>
+<p>    WHERE order_id = p_order_id;</p>
+
+<p>    -- 2. Evaluate status logic</p>
+<p>    IF v_current_status IS NULL THEN</p>
+<p>        SET p_result_message = &#39;ERROR: Order ID not found.&#39;;</p>
+<p>    ELSEIF v_current_status = &#39;PAID&#39; THEN</p>
+<p>        SET p_result_message = &#39;NOTICE: Order is already paid.&#39;;</p>
+<p>    ELSEIF v_current_status = &#39;PENDING&#39; THEN</p>
+<p>        UPDATE orders</p>
+<p>        SET order_status = &#39;PAID&#39;</p>
+<p>        WHERE order_id = p_order_id;</p>
+
+<p>        SET p_result_message = &#39;SUCCESS: Order payment processed successfully.&#39;;</p>
+<p>    ELSE</p>
+<p>        SET p_result_message = &#39;ERROR: Invalid order status for processing.&#39;;</p>
+<p>    END IF;</p>
+<p>END //</p>
+
+<p>DELIMITER ;</code></pre></p>
+
+<h3>Testing Procedure Execution Scenarios:</h3>
+
+<pre><code class="language-sql">-- Scenario 1: Processing Pending Order #1001
+<p>CALL ProcessOrderPayment(1001, @msg1);</p>
+<p>SELECT @msg1 AS test_1_result;</p>
+
+<p>-- Scenario 2: Processing Already Paid Order #1002</p>
+<p>CALL ProcessOrderPayment(1002, @msg2);</p>
+<p>SELECT @msg2 AS test_2_result;</p>
+
+<p>-- Scenario 3: Processing Non-existent Order #9999</p>
+<p>CALL ProcessOrderPayment(9999, @msg3);</p>
+<p>SELECT @msg3 AS test_3_result;</code></pre></p>
+
+<p>#### 👀 Expected Execution Results:</p>
+
+<pre><code class="language-text">test_1_result: SUCCESS: Order payment processed successfully.
+<p>test_2_result: NOTICE: Order is already paid.</p>
+<p>test_3_result: ERROR: Order ID not found.</code></pre></p>
+
+<blockquote><p>📌 <strong>Real-World Payment Architecture Note:</strong> In production enterprise systems, database procedures update database transaction states, but actual credit card payment processing is handled by payment provider APIs (e.g. Stripe, Razorpay) prior to executing database status updates.</p></blockquote>
+
+<p>---</p>
+
+<h2>🔐 5. Transactions & Error Handling (<code>DECLARE ... HANDLER</code>)</h2>
+
+<p>Inside MySQL InnoDB stored procedures, use <code>DECLARE ... HANDLER</code> to catch SQL exceptions and automatically execute <code>ROLLBACK</code> when an error occurs.</p>
+
+<blockquote><p>🚨 <strong>MySQL Local Variable & Handler Declaration Order:</strong> In MySQL, all <code>DECLARE</code> statements (local variables, conditions, handlers, cursors) <strong>must appear at the very beginning</strong> of the <code>BEGIN ... END</code> block before any executable SQL statements (<code>START TRANSACTION</code>, <code>SELECT</code>, <code>UPDATE</code>). Placing <code>DECLARE</code> after an <code>UPDATE</code> statement causes <code>ERROR 1064</code>.</p></blockquote>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE PROCEDURE SafePaymentTransaction(</p>
+<p>    IN p_order_id INT,</p>
+<p>    OUT p_txn_status VARCHAR(100)</p>
+<p>)</p>
+<p>BEGIN</p>
+<p>    -- Declare Exception Handler to catch any SQL Error and ROLLBACK</p>
+<p>    DECLARE EXIT HANDLER FOR SQLEXCEPTION</p>
+<p>    BEGIN</p>
+<p>        ROLLBACK;</p>
+<p>        SET p_txn_status = &#39;ERROR: SQL Exception occurred. Transaction rolled back.&#39;;</p>
+<p>    END;</p>
+
+<p>    -- Start Transaction Block</p>
+<p>    START TRANSACTION;</p>
+
+<p>    -- Update order status</p>
+<p>    UPDATE orders</p>
+<p>    SET order_status = &#39;PAID&#39;</p>
+<p>    WHERE order_id = p_order_id AND order_status = &#39;PENDING&#39;;</p>
+
+<p>    -- Commit changes</p>
+<p>    COMMIT;</p>
+<p>    SET p_txn_status = &#39;SUCCESS: Order payment committed.&#39;;</p>
+<p>END //</p>
+
+<p>DELIMITER ;</code></pre></p>
+
+<p>---</p>
+
+<h2>🔒 6. Routine Security & Execution Privileges</h2>
+
+<p>MySQL routines include security attributes that control execution privileges:</p>
+
+<ul>
+<p>  <li><strong><code>SQL SECURITY DEFINER</code> (Default):</strong> The routine executes with the permissions of the user who <strong>created</strong> it (<code>DEFINER</code>).</li></p>
+<p>  <li><strong><code>SQL SECURITY INVOKER</code>:</strong> The routine executes with the permissions of the user who <strong>calls</strong> it (<code>INVOKER</code>).</li></p>
+<p></ul></p>
+
+<pre><code class="language-sql">-- Creating procedure with INVOKER security context
+<p>CREATE PROCEDURE ReadOrders()</p>
+<p>SQL SECURITY INVOKER</p>
+<p>BEGIN</p>
+<p>    SELECT * FROM orders;</p>
+<p>END;</code></pre></p>
+
+<blockquote><p>🛡️ <strong>Least Privilege Principle:</strong> Use <code>SQL SECURITY INVOKER</code> whenever possible so queries inside the routine cannot bypass table permissions granted to the calling user.</p></blockquote>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+
+<table>
+<p>  <thead><tr><th>Error Message / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>ERROR 1064 (42000): Syntax Error</code></strong></td><td>Forgetting <code>DELIMITER //</code> when compiling routines in MySQL CLI/Workbench.</td><td>Use <code>DELIMITER //</code> before <code>CREATE PROCEDURE</code> and reset with <code>DELIMITER ;</code>.</td></tr></p>
+<p>    <tr><td><strong>Invoking Procedure with <code>SELECT</code></strong></td><td>Executing <code>SELECT MyProcedure();</code> (Procedures cannot be called in <code>SELECT</code>!).</td><td>Always use <code>CALL MyProcedure();</code> for stored procedures.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1064</code> on <code>DECLARE</code> Position</strong></td><td>Placing <code>DECLARE</code> variable statements after <code>UPDATE</code> or <code>SELECT</code> lines.</td><td>Place all <code>DECLARE</code> statements at the very top of <code>BEGIN ... END</code> block.</td></tr></p>
+<p>    <tr><td><strong><code>ERROR 1418 (HY000): Function has no DETERMINISTIC</code></strong></td><td>Creating a stored function with binary logging enabled without declaring <code>DETERMINISTIC</code>.</td><td>Add <code>DETERMINISTIC</code> to function header or set <code>SET GLOBAL log_bin_trust_function_creators = 1;</code>.</td></tr></p>
+<p>    <tr><td><strong>Using <code>RETURN</code> in a Procedure</strong></td><td>Using <code>RETURN value;</code> inside a procedure (Procedures do not use <code>RETURN</code>).</td><td>Use <code>OUT</code> parameters for procedures, or use <code>CREATE FUNCTION</code> if returning values.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Order Fulfillment:</strong> Encapsulating inventory checks, order status updates, and invoice generation inside single transaction procedures.</li></p>
+<p>  <li><strong>Financial Banking Systems:</strong> Executing money transfer operations (<code>TransferFunds</code>) wrapped in <code>START TRANSACTION</code> and <code>DECLARE EXIT HANDLER FOR SQLEXCEPTION</code>.</li></p>
+<p>  <li><strong>Database Maintenance:</strong> Scheduling nightly maintenance procedures to clean expired sessions and rebuild analytics caches.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Structured Practice Exercises</h2>
+
+<p>Follow these 6 progressive practice exercises using the <code>employees</code> and <code>orders</code> tables created above:</p>
+
+<h3>Exercise 1: Basic Procedure Creation</h3>
+<p>Create a procedure <code>ListHREmployees()</code> that selects all employees working in the <code>'HR'</code> department.</p>
+
+<h3>Exercise 2: <code>OUT</code> Parameter Procedure</h3>
+<p>Create a procedure <code>GetSalaryByEmpId(IN p_id INT, OUT p_salary DECIMAL(10,2))</code> that returns an employee's salary through an <code>OUT</code> parameter.</p>
+
+<h3>Exercise 3: Stored Function Creation</h3>
+<p>Create a stored function <code>CalculateBonus(salary DECIMAL(10,2))</code> that returns a 10% bonus amount (<code>salary * 0.10</code>). Declare it <code>DETERMINISTIC</code>.</p>
+
+<h3>Exercise 4: Function Invocation in <code>SELECT</code></h3>
+<p>Write a <code>SELECT</code> statement calling <code>CalculateBonus(salary)</code> for all employees in <code>employees</code>.</p>
+
+<h3>Exercise 5: Conditional Status Procedure</h3>
+<p>Create a procedure <code>CancelOrder(IN p_order_id INT, OUT p_result VARCHAR(100))</code> that updates an order's status to <code>'CANCELLED'</code> if it is currently <code>'PENDING'</code>.</p>
+
+<h3>Exercise 6: Transaction Handler</h3>
+<p>Explain why <code>DECLARE EXIT HANDLER FOR SQLEXCEPTION</code> must appear at the top of a <code>BEGIN ... END</code> block.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge: Automated Payment Processor Routine</h2>
+
+<p>1. Ensure the <code>orders</code> table exists with <code>order_id</code>, <code>customer_name</code>, <code>total_amount</code>, and <code>order_status</code>.</p>
+<p>2. Write a stored procedure <code>ProcessPaymentChallenge(IN p_id INT, OUT p_out_msg VARCHAR(100))</code> that:</p>
+<ul>
+<p>  <li>Evaluates current <code>order_status</code>.</li></p>
+<p>  <li>If <code>'PENDING'</code>, updates status to <code>'PAID'</code> and sets <code>p_out_msg = 'SUCCESS: Order Marked as Paid'</code>.</li></p>
+<p>  <li>If <code>'PAID'</code>, sets <code>p_out_msg = 'NOTICE: Already Paid'</code>.</li></p>
+<p>  <li>If missing, sets <code>p_out_msg = 'ERROR: Order Not Found'</code>.</li></p>
+<p></ul></p>
+<p>3. Test all 3 test cases: Order 1001 (Pending), Order 1002 (Paid), Order 9999 (Missing).</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">DELIMITER //
+<p>CREATE PROCEDURE ListHREmployees()</p>
+<p>BEGIN</p>
+<p>    SELECT * FROM employees WHERE department = &#39;HR&#39;;</p>
+<p>END //</p>
+<p>DELIMITER ;</p>
+<p>-- Call: CALL ListHREmployees();</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<pre><code class="language-sql">DELIMITER //
+<p>CREATE PROCEDURE GetSalaryByEmpId(IN p_id INT, OUT p_salary DECIMAL(10,2))</p>
+<p>BEGIN</p>
+<p>    SELECT salary INTO p_salary FROM employees WHERE emp_id = p_id;</p>
+<p>END //</p>
+<p>DELIMITER ;</p>
+<p>-- Call: CALL GetSalaryByEmpId(101, @sal); SELECT @sal;</code></pre></p>
+
+<p>#### Exercise 3 Solution:</p>
+<pre><code class="language-sql">DELIMITER //
+<p>CREATE FUNCTION CalculateBonus(salary DECIMAL(10,2))</p>
+<p>RETURNS DECIMAL(10,2)</p>
+<p>DETERMINISTIC</p>
+<p>BEGIN</p>
+<p>    RETURN salary * 0.10;</p>
+<p>END //</p>
+<p>DELIMITER ;</code></pre></p>
+
+<p>#### Exercise 4 Solution:</p>
+<pre><code class="language-sql">SELECT first_name, salary, CalculateBonus(salary) AS bonus_amount FROM employees;</code></pre>
+
+<p>#### Exercise 5 Solution:</p>
+<pre><code class="language-sql">DELIMITER //
+<p>CREATE PROCEDURE CancelOrder(IN p_order_id INT, OUT p_result VARCHAR(100))</p>
+<p>BEGIN</p>
+<p>    DECLARE v_status VARCHAR(20);</p>
+<p>    SELECT order_status INTO v_status FROM orders WHERE order_id = p_order_id;</p>
+<p>    </p>
+<p>    IF v_status = &#39;PENDING&#39; THEN</p>
+<p>        UPDATE orders SET order_status = &#39;CANCELLED&#39; WHERE order_id = p_order_id;</p>
+<p>        SET p_result = &#39;SUCCESS: Order Cancelled&#39;;</p>
+<p>    ELSE</p>
+<p>        SET p_result = &#39;ERROR: Order cannot be cancelled&#39;;</p>
+<p>    END IF;</p>
+<p>END //</p>
+<p>DELIMITER ;</code></pre></p>
+
+<p>#### Exercise 6 Solution:</p>
+<ul>
+<p>  <li>In MySQL syntax, <code>DECLARE</code> statements define local routine scope and handlers, and parser rules require all <code>DECLARE</code> statements to be placed before any executable SQL statements (<code>UPDATE</code>, <code>SELECT</code>, <code>START TRANSACTION</code>).</li></p>
+<p></ul></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">DELIMITER //
+
+<p>CREATE PROCEDURE ProcessPaymentChallenge(</p>
+<p>    IN p_id INT,</p>
+<p>    OUT p_out_msg VARCHAR(100)</p>
+<p>)</p>
+<p>BEGIN</p>
+<p>    DECLARE v_curr_status VARCHAR(20);</p>
+
+<p>    SELECT order_status INTO v_curr_status</p>
+<p>    FROM orders</p>
+<p>    WHERE order_id = p_id;</p>
+
+<p>    IF v_curr_status IS NULL THEN</p>
+<p>        SET p_out_msg = &#39;ERROR: Order Not Found&#39;;</p>
+<p>    ELSEIF v_curr_status = &#39;PAID&#39; THEN</p>
+<p>        SET p_out_msg = &#39;NOTICE: Already Paid&#39;;</p>
+<p>    ELSEIF v_curr_status = &#39;PENDING&#39; THEN</p>
+<p>        UPDATE orders</p>
+<p>        SET order_status = &#39;PAID&#39;</p>
+<p>        WHERE order_id = p_id;</p>
+
+<p>        SET p_out_msg = &#39;SUCCESS: Order Marked as Paid&#39;;</p>
+<p>    ELSE</p>
+<p>        SET p_out_msg = &#39;ERROR: Cannot Process Order&#39;;</p>
+<p>    END IF;</p>
+<p>END //</p>
+
+<p>DELIMITER ;</p>
+
+<p>-- Test Calls:</p>
+<p>CALL ProcessPaymentChallenge(1001, @res1); SELECT @res1; -- SUCCESS: Order Marked as Paid</p>
+<p>CALL ProcessPaymentChallenge(1002, @res2); SELECT @res2; -- NOTICE: Already Paid</p>
+<p>CALL ProcessPaymentChallenge(9999, @res3); SELECT @res3; -- ERROR: Order Not Found</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="22-transactions.html">Transactions & ACID Properties</a></li></p>
+<p>  <li><a href="25-window-functions.html">SQL Window Functions</a></li></p>
+<p>  <li><a href="27-triggers.html">Triggers & Automated Events</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="25-window-functions.html">← Previous: Window Functions</a> | <a href="./">SQL Home</a> | <a href="27-triggers.html">Next: Triggers →</a></p>
+
+  </div>
+</body>
+</html>

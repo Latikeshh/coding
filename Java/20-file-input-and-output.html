@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Input and Output - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>File Input and Output in Java</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>File Input/Output (I/O)</strong> allows Java programs to read data from and write data to persistent storage files on disk. Modern Java provides high-performance <strong>NIO.2 APIs</strong> (<code>java.nio.file.Path</code> and <code>java.nio.file.Files</code>) alongside traditional Stream classes (<code>java.io</code>).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Files mein data write aur read karne ke liye File I/O ka use hota hai. Modern Java (NIO.2) mein <code>Path.of()</code> file location specify karne ke liye aur <code>Files.readString()</code> / <code>Files.writeString()</code> fast text file operations ke liye use hoti hain. Resource leak rokne ke liye <code>try-with-resources</code> compulsory use karein.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Disk varti file madhye data lihinya aani vachnyasathi File I/O vaparatat. Modern Java madhye <code>Path</code> aani <code>Files</code> API cha wapar sarvat sopa ahe.</p>
+
+<h2>📝 1. Modern Java NIO.2 APIs (<code>Path</code> & <code>Files</code>)</h2>
+
+<p>Java 7 & 11 introduced simplified helper methods inside <code>java.nio.file.Files</code>:</p>
+
+<pre><code class="language-java">import java.nio.file.Files;
+<p>import java.nio.file.Path;</p>
+<p>import java.nio.file.StandardOpenOption;</p>
+
+<p>Path filePath = Path.of(&quot;app_logs.txt&quot;);</p>
+
+<p>// Write string to file (Creates or overwrites)</p>
+<p>Files.writeString(filePath, &quot;System Started\n&quot;);</p>
+
+<p>// Append string to existing file</p>
+<p>Files.writeString(filePath, &quot;User Logged In\n&quot;, StandardOpenOption.APPEND);</p>
+
+<p>// Read complete file as string</p>
+<p>String content = Files.readString(filePath);</p>
+
+<p>// Read file as List of lines</p>
+<p>List&lt;String&gt; lines = Files.readAllLines(filePath);</code></pre></p>
+
+<h2>📝 2. High-Performance Stream Buffering (<code>BufferedReader</code> & <code>BufferedWriter</code>)</h2>
+
+<p>For processing large multi-gigabyte log files without loading the entire file into memory at once:</p>
+
+<pre><code class="language-java">Path bigFilePath = Path.of(&quot;large_dataset.csv&quot;);
+
+<p>// Reading line-by-line efficiently</p>
+<p>try (BufferedReader reader = Files.newBufferedReader(bigFilePath)) {</p>
+<p>    String line;</p>
+<p>    while ((line = reader.readLine()) != null) {</p>
+<p>        // Process line</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>📝 3. Object Serialization (<code>Serializable</code> & <code>transient</code>)</h2>
+
+<p>Serialization converts an object state in memory into a binary byte stream to store on disk or transmit across network sockets.</p>
+
+<ul>
+<p>  <li>Implement <code>java.io.Serializable</code> marker interface.</li></p>
+<p>  <li>Mark fields as <code>transient</code> if they should <strong>NOT</strong> be serialized (e.g. passwords, secret keys).</li></p>
+<p></ul></p>
+
+<pre><code class="language-java">import java.io.Serializable;
+
+<p>public class UserSession implements Serializable {</p>
+<p>    private static final long serialVersionUID = 1L; // Versioning</p>
+<p>    </p>
+<p>    private String username;</p>
+<p>    private transient String passwordHash; // Excluded from serialization!</p>
+<p>}</code></pre></p>
+
+<h2>💡 Complete Example: persistent Transaction Log Manager</h2>
+
+<pre><code class="language-java">import java.io.IOException;
+<p>import java.nio.file.*;</p>
+<p>import java.util.List;</p>
+
+<p>public class FileLogManager {</p>
+<p>    private static final Path LOG_FILE = Path.of(&quot;transactions.log&quot;);</p>
+
+<p>    public static void appendLogEntry(String logMessage) {</p>
+<p>        try {</p>
+<p>            String timestampedEntry = String.format(&quot;[%tF %&lt;tT] %s%n&quot;, </p>
+<p>                    System.currentTimeMillis(), logMessage);</p>
+<p>            </p>
+<p>            // Append entry cleanly using NIO.2 Files</p>
+<p>            Files.writeString(LOG_FILE, timestampedEntry, </p>
+<p>                    StandardOpenOption.CREATE, StandardOpenOption.APPEND);</p>
+<p>            </p>
+<p>            System.out.println(&quot;Log entry written successfully.&quot;);</p>
+<p>        } catch (IOException e) {</p>
+<p>            System.err.println(&quot;File Write Failed: &quot; + e.getMessage());</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static void displayLogs() {</p>
+<p>        if (!Files.exists(LOG_FILE)) {</p>
+<p>            System.out.println(&quot;No log file found.&quot;);</p>
+<p>            return;</p>
+<p>        }</p>
+
+<p>        try {</p>
+<p>            List&lt;String&gt; logLines = Files.readAllLines(LOG_FILE);</p>
+<p>            System.out.println(&quot;\n=== TRANSACTION AUDIT LOGS ===&quot;);</p>
+<p>            for (String line : logLines) {</p>
+<p>                System.out.println(line);</p>
+<p>            }</p>
+<p>            System.out.println(&quot;==============================&quot;);</p>
+<p>        } catch (IOException e) {</p>
+<p>            System.err.println(&quot;File Read Failed: &quot; + e.getMessage());</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    public static void main(String[] args) {</p>
+<p>        appendLogEntry(&quot;ACCOUNT_CREATED: ID #5012&quot;);</p>
+<p>        appendLogEntry(&quot;DEPOSIT_SUCCESS: ₹5000.00&quot;);</p>
+<p>        appendLogEntry(&quot;WITHDRAWAL_SUCCESS: ₹1200.00&quot;);</p>
+
+<p>        displayLogs();</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Log entry written successfully.
+<p>Log entry written successfully.</p>
+<p>Log entry written successfully.</p>
+
+<p>=== TRANSACTION AUDIT LOGS ===</p>
+<p>[2026-10-04 10:45:00] ACCOUNT_CREATED: ID #5012</p>
+<p>[2026-10-04 10:45:00] DEPOSIT_SUCCESS: ₹5000.00</p>
+<p>[2026-10-04 10:45:00] WITHDRAWAL_SUCCESS: ₹1200.00</p>
+<p>==============================</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Assuming relative file paths are relative to the <code>.java</code> source code file location instead of the <strong>current working process directory</strong>.</li></p>
+<p>  <li>Overwriting existing file data by omitting <code>StandardOpenOption.APPEND</code>.</li></p>
+<p>  <li>Forgetting to close low-level stream readers/writers (use Try-with-Resources!).</li></p>
+<p>  <li>Loading huge multi-gigabyte files completely into memory with <code>Files.readAllBytes()</code> instead of streaming lines with <code>Files.lines()</code>.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always specify explicit character encodings (<code>StandardCharsets.UTF-8</code>) when working with low-level file readers/writers to ensure cross-platform character rendering consistency across Windows and Linux servers.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Application error logging, exporting CSV reports, saving user preference configuration properties, batch file processing, and local database storage engines.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a program that creates a text file <code>tasks.txt</code> and writes 3 tasks into it.</p>
+<p>2. Read the file back using <code>Files.readAllLines()</code> and print each line with a line number prefix.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that searches through a text log file and counts how many lines contain the word <code>"ERROR"</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="18-exceptions-and-validation.html">Exceptions and Validation</a></li></p>
+<p>  <li><a href="19-packages-and-project-organization.html">Packages and Project Organization</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="19-packages-and-project-organization.html">← Previous: Packages</a> | <a href="21-lambdas-and-streams.html">Next: Lambdas and Streams →</a></p>
+
+
+  </div>
+</body>
+</html>

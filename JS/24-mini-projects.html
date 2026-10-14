@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 mini projects - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🚀 Capstone JavaScript Mini Projects</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The best way to consolidate your JavaScript knowledge is by building real-world, interactive web applications. These capstone mini projects combine variables, functions, DOM selection, event delegation, <code>async</code>/<code>await</code>, Fetch API, ES6 modules, and <code>localStorage</code> persistence.</p>
+
+<p>---</p>
+
+<h2>🌐 Multilingual Introduction</h2>
+
+<h3>English</h3>
+<p>In this capstone lesson, you will build 4 production-grade mini projects from scratch. These projects demonstrate real-world state management, event delegation, client-side data persistence, and asynchronous API integration.</p>
+
+<h3>Hindi (Roman Script)</h3>
+<p>Ab tak seekhe gaye sabhi JavaScript concepts (Variables, DOM Manipulation, Event Listeners, Async/Await, Web Storage) ko combine karke 4 complete interactive projects banayein. Yeh projects aapki portfolio aur job interviews ke liye tayyar karenge.</p>
+
+<h3>Marathi (Roman Script)</h3>
+<p>Aapn shiklele sarv JavaScript concepts (DOM, Events, Async API, LocalStorage) ektra karun 4 practical interactive apps banva. He projects tumcha portfolio tayar karnyasathi मदत kartil.</p>
+
+<h3>Hinglish</h3>
+<p>JavaScript ki real power practical applications mein dikhti hai. Is lesson mein hum To-Do App with LocalStorage, Live Weather Dashboard, Expense Tracker, aur Digital Clock with Stopwatch banayenge.</p>
+
+<p>---</p>
+
+<h2>🏗️ Project 1: Interactive Task Manager with LocalStorage & Event Delegation</h2>
+
+<p>An interactive task manager featuring state persistence in <code>localStorage</code>, status filtering (All, Active, Completed), and event delegation.</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;JS Task Master Pro&lt;/title&gt;</p>
+<p>  &lt;style&gt;</p>
+<p>    body { font-family: system-ui, sans-serif; max-width: 550px; margin: 40px auto; background: #0f172a; color: #f8fafc; }</p>
+<p>    h2 { color: #38bdf8; }</p>
+<p>    .input-group { display: flex; gap: 8px; margin-bottom: 20px; }</p>
+<p>    input[type=&quot;text&quot;] { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: #fff; }</p>
+<p>    button { padding: 10px 16px; background: #2563eb; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }</p>
+<p>    ul { list-style: none; padding: 0; }</p>
+<p>    li { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #1e293b; border-radius: 6px; margin-bottom: 8px; border: 1px solid #334155; }</p>
+<p>    .completed span { text-decoration: line-through; opacity: 0.5; }</p>
+<p>    .delete-btn { background: #ef4444; padding: 6px 12px; }</p>
+<p>    .toggle-btn { background: #10b981; padding: 6px 12px; margin-right: 4px; }</p>
+<p>  &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h2&gt;📝 JavaScript Task Master&lt;/h2&gt;</p>
+<p>  &lt;div class=&quot;input-group&quot;&gt;</p>
+<p>    &lt;input type=&quot;text&quot; id=&quot;taskInput&quot; placeholder=&quot;Enter new task description...&quot; required&gt;</p>
+<p>    &lt;button id=&quot;addBtn&quot;&gt;Add Task&lt;/button&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>  &lt;ul id=&quot;taskList&quot;&gt;&lt;/ul&gt;</p>
+
+<p>  &lt;script&gt;</p>
+<p>    const taskInput = document.querySelector(&quot;#taskInput&quot;);</p>
+<p>    const addBtn = document.querySelector(&quot;#addBtn&quot;);</p>
+<p>    const taskList = document.querySelector(&quot;#taskList&quot;);</p>
+
+<p>    // Load persistent state from LocalStorage</p>
+<p>    let tasks = JSON.parse(localStorage.getItem(&quot;app_tasks_v2&quot;)) || [</p>
+<p>      { id: 1, text: &quot;Master JavaScript ES6+&quot;, done: true },</p>
+<p>      { id: 2, text: &quot;Build Capstone Mini Projects&quot;, done: false }</p>
+<p>    ];</p>
+
+<p>    function saveAndRender() {</p>
+<p>      localStorage.setItem(&quot;app_tasks_v2&quot;, JSON.stringify(tasks));</p>
+<p>      </p>
+<p>      if (tasks.length === 0) {</p>
+<p>        taskList.innerHTML = <code>&lt;li style=&quot;justify-content:center; color:#64748b;&quot;&gt;No tasks found. Add one above!&lt;/li&gt;</code>;</p>
+<p>        return;</p>
+<p>      }</p>
+
+<p>      taskList.innerHTML = tasks.map((task) =&gt; <code></p>
+<p>        &lt;li class=&quot;${task.done ? &#39;completed&#39; : &#39;&#39;}&quot; data-id=&quot;${task.id}&quot;&gt;</p>
+<p>          &lt;span&gt;${escapeHtml(task.text)}&lt;/span&gt;</p>
+<p>          &lt;div&gt;</p>
+<p>            &lt;button class=&quot;toggle-btn&quot;&gt;${task.done ? &#39;Undo&#39; : &#39;Complete&#39;}&lt;/button&gt;</p>
+<p>            &lt;button class=&quot;delete-btn&quot;&gt;Delete&lt;/button&gt;</p>
+<p>          &lt;/div&gt;</p>
+<p>        &lt;/li&gt;</p>
+<p>      </code>).join(&#39;&#39;);</p>
+<p>    }</p>
+
+<p>    function escapeHtml(str) {</p>
+<p>      return str.replace(/&amp;/g, &#39;&amp;amp;&#39;).replace(/&lt;/g, &#39;&amp;lt;&#39;).replace(/&gt;/g, &#39;&amp;gt;&#39;).replace(/&quot;/g, &#39;&amp;quot;&#39;);</p>
+<p>    }</p>
+
+<p>    addBtn.addEventListener(&quot;click&quot;, () =&gt; {</p>
+<p>      const val = taskInput.value.trim();</p>
+<p>      if (!val) return;</p>
+<p>      tasks.push({ id: Date.now(), text: val, done: false });</p>
+<p>      taskInput.value = &quot;&quot;;</p>
+<p>      saveAndRender();</p>
+<p>    });</p>
+
+<p>    // Event Delegation on parent UL container</p>
+<p>    taskList.addEventListener(&quot;click&quot;, (e) =&gt; {</p>
+<p>      const li = e.target.closest(&quot;li&quot;);</p>
+<p>      if (!li || !li.dataset.id) return;</p>
+<p>      const taskId = Number(li.dataset.id);</p>
+
+<p>      if (e.target.classList.contains(&quot;delete-btn&quot;)) {</p>
+<p>        tasks = tasks.filter(t =&gt; t.id !== taskId);</p>
+<p>        saveAndRender();</p>
+<p>      } else if (e.target.classList.contains(&quot;toggle-btn&quot;)) {</p>
+<p>        tasks = tasks.map(t =&gt; t.id === taskId ? { ...t, done: !t.done } : t);</p>
+<p>        saveAndRender();</p>
+<p>      }</p>
+<p>    });</p>
+
+<p>    saveAndRender();</p>
+<p>  &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h2>🏗️ Project 2: Asynchronous Weather Dashboard (Fetch API)</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Async Weather Dashboard&lt;/title&gt;</p>
+<p>  &lt;style&gt;</p>
+<p>    body { font-family: sans-serif; max-width: 450px; margin: 40px auto; background: #020617; color: #f1f5f9; text-align: center; }</p>
+<p>    .card { background: #0f172a; padding: 24px; border-radius: 12px; border: 1px solid #1e293b; margin-top: 16px; }</p>
+<p>    .temp { font-size: 3rem; font-weight: bold; color: #38bdf8; margin: 12px 0; }</p>
+<p>  &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h2&gt;🌤️ Weather Finder&lt;/h2&gt;</p>
+<p>  &lt;input type=&quot;text&quot; id=&quot;cityInput&quot; placeholder=&quot;Enter city name (e.g. London, Mumbai)...&quot; style=&quot;padding:10px; width:60%;&quot;&gt;</p>
+<p>  &lt;button id=&quot;searchBtn&quot; style=&quot;padding:10px 16px; background:#0284c7; color:#fff; border:none; border-radius:6px; cursor:pointer;&quot;&gt;Search&lt;/button&gt;</p>
+
+<p>  &lt;div id=&quot;weatherCard&quot; class=&quot;card&quot; style=&quot;display:none;&quot;&gt;&lt;/div&gt;</p>
+
+<p>  &lt;script&gt;</p>
+<p>    const cityInput = document.querySelector(&quot;#cityInput&quot;);</p>
+<p>    const searchBtn = document.querySelector(&quot;#searchBtn&quot;);</p>
+<p>    const weatherCard = document.querySelector(&quot;#weatherCard&quot;);</p>
+
+<p>    async function getWeather(city) {</p>
+<p>      weatherCard.style.display = &quot;block&quot;;</p>
+<p>      weatherCard.innerHTML = <code>&lt;p style=&quot;color:#94a3b8;&quot;&gt;Fetching weather data...&lt;/p&gt;</code>;</p>
+
+<p>      try {</p>
+<p>        // Using Open-Meteo public free weather API (No API Key required)</p>
+<p>        // 1. Geocoding search</p>
+<p>        const geoRes = await fetch(<code>https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&amp;count=1</code>);</p>
+<p>        const geoData = await geoRes.json();</p>
+
+<p>        if (!geoData.results || geoData.results.length === 0) {</p>
+<p>          throw new Error(&quot;City not found. Please try another name.&quot;);</p>
+<p>        }</p>
+
+<p>        const { latitude, longitude, name, country } = geoData.results[0];</p>
+
+<p>        // 2. Fetch current weather</p>
+<p>        const weatherRes = await fetch(<code>https://api.open-meteo.com/v1/forecast?latitude=${latitude}&amp;longitude=${longitude}&amp;current_weather=true</code>);</p>
+<p>        const weatherData = await weatherRes.json();</p>
+<p>        const { temperature, windspeed } = weatherData.current_weather;</p>
+
+<p>        weatherCard.innerHTML = <code></p>
+<p>          &lt;h3&gt;${name}, ${country}&lt;/h3&gt;</p>
+<p>          &lt;div class=&quot;temp&quot;&gt;${temperature}&#176;C&lt;/div&gt;</p>
+<p>          &lt;p&gt;Wind Speed: &lt;strong&gt;${windspeed} km/h&lt;/strong&gt;&lt;/p&gt;</p>
+<p>        </code>;</p>
+<p>      } catch (err) {</p>
+<p>        weatherCard.innerHTML = <code>&lt;p style=&quot;color:#ef4444;&quot;&gt;⚠️ Error: ${err.message}&lt;/p&gt;</code>;</p>
+<p>      }</p>
+<p>    }</p>
+
+<p>    searchBtn.addEventListener(&quot;click&quot;, () =&gt; {</p>
+<p>      const city = cityInput.value.trim();</p>
+<p>      if (city) getWeather(city);</p>
+<p>    });</p>
+<p>  &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h2>🏗️ Project 3: Real-Time Digital Clock & Stopwatch</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Live Clock &amp; Stopwatch&lt;/title&gt;</p>
+<p>  &lt;style&gt;</p>
+<p>    body { font-family: monospace; max-width: 450px; margin: 40px auto; background: #0f172a; color: #f8fafc; text-align: center; }</p>
+<p>    .clock-display { font-size: 3rem; color: #38bdf8; background: #1e293b; padding: 20px; border-radius: 10px; margin-bottom: 20px; }</p>
+<p>    .stopwatch { background: #1e293b; padding: 20px; border-radius: 10px; }</p>
+<p>    .btn { padding: 8px 16px; margin: 4px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }</p>
+<p>    .start { background: #10b981; color: #fff; }</p>
+<p>    .stop { background: #ef4444; color: #fff; }</p>
+<p>    .reset { background: #64748b; color: #fff; }</p>
+<p>  &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h2&gt;⏰ Digital Clock &amp; Stopwatch&lt;/h2&gt;</p>
+<p>  &lt;div class=&quot;clock-display&quot; id=&quot;clock&quot;&gt;00:00:00&lt;/div&gt;</p>
+
+<p>  &lt;div class=&quot;stopwatch&quot;&gt;</p>
+<p>    &lt;h3&gt;Stopwatch: &lt;span id=&quot;timer&quot; style=&quot;color:#f59e0b;&quot;&gt;00:00.00&lt;/span&gt;&lt;/h3&gt;</p>
+<p>    &lt;button class=&quot;btn start&quot; id=&quot;startBtn&quot;&gt;Start&lt;/button&gt;</p>
+<p>    &lt;button class=&quot;btn stop&quot; id=&quot;stopBtn&quot;&gt;Stop&lt;/button&gt;</p>
+<p>    &lt;button class=&quot;btn reset&quot; id=&quot;resetBtn&quot;&gt;Reset&lt;/button&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>  &lt;script&gt;</p>
+<p>    // Live Digital Clock</p>
+<p>    function updateClock() {</p>
+<p>      const now = new Date();</p>
+<p>      const h = String(now.getHours()).padStart(2, &#39;0&#39;);</p>
+<p>      const m = String(now.getMinutes()).padStart(2, &#39;0&#39;);</p>
+<p>      const s = String(now.getSeconds()).padStart(2, &#39;0&#39;);</p>
+<p>      document.querySelector(&quot;#clock&quot;).textContent = <code>${h}:${m}:${s}</code>;</p>
+<p>    }</p>
+<p>    setInterval(updateClock, 1000);</p>
+<p>    updateClock();</p>
+
+<p>    // Stopwatch Timer</p>
+<p>    let timerInterval = null;</p>
+<p>    let elapsedMs = 0;</p>
+
+<p>    const timerDisplay = document.querySelector(&quot;#timer&quot;);</p>
+<p>    const startBtn = document.querySelector(&quot;#startBtn&quot;);</p>
+<p>    const stopBtn = document.querySelector(&quot;#stopBtn&quot;);</p>
+<p>    const resetBtn = document.querySelector(&quot;#resetBtn&quot;);</p>
+
+<p>    function renderTimer() {</p>
+<p>      const totalSec = Math.floor(elapsedMs / 1000);</p>
+<p>      const m = String(Math.floor(totalSec / 60)).padStart(2, &#39;0&#39;);</p>
+<p>      const s = String(totalSec % 60).padStart(2, &#39;0&#39;);</p>
+<p>      const ms = String(Math.floor((elapsedMs % 1000) / 10)).padStart(2, &#39;0&#39;);</p>
+<p>      timerDisplay.textContent = <code>${m}:${s}.${ms}</code>;</p>
+<p>    }</p>
+
+<p>    startBtn.addEventListener(&quot;click&quot;, () =&gt; {</p>
+<p>      if (timerInterval) return;</p>
+<p>      const startTime = Date.now() - elapsedMs;</p>
+<p>      timerInterval = setInterval(() =&gt; {</p>
+<p>        elapsedMs = Date.now() - startTime;</p>
+<p>        renderTimer();</p>
+<p>      }, 10);</p>
+<p>    });</p>
+
+<p>    stopBtn.addEventListener(&quot;click&quot;, () =&gt; {</p>
+<p>      clearInterval(timerInterval);</p>
+<p>      timerInterval = null;</p>
+<p>    });</p>
+
+<p>    resetBtn.addEventListener(&quot;click&quot;, () =&gt; {</p>
+<p>      clearInterval(timerInterval);</p>
+<p>      timerInterval = null;</p>
+<p>      elapsedMs = 0;</p>
+<p>      renderTimer();</p>
+<p>    });</p>
+<p>  &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h2>🧪 Next Steps & Portfolio Advice</h2>
+
+<p>1. Clone or fork these HTML/JS templates into local <code>.html</code> files.</p>
+<p>2. Customize CSS styles using Tailwind CSS or custom flexbox layout rules.</p>
+<p>3. Deploy your project repositories to <strong>GitHub Pages</strong> to showcase live working web apps on your developer resume!</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="19-dom-manipulation.html">DOM Selection & Manipulation</a></li></p>
+<p>  <li><a href="15-promises-and-async-await.html">Asynchronous JS, Promises & Async/Await</a></li></p>
+<p>  <li><a href="21-web-storage.html">Web Storage (localStorage & sessionStorage)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="23-modules.html">← Previous: JS Modules</a> | <a href="25-javascript-debugging.html">Next: JavaScript Debugging →</a></p>
+
+  </div>
+</body>
+</html>

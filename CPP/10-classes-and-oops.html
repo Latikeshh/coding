@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 classes and oops - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Classes & Object-Oriented Programming (OOP) in C++</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Object-Oriented Programming (OOP)</strong> is a design paradigm centered around <strong>Classes</strong> (user-defined blueprints) and <strong>Objects</strong> (real-world instances of classes holding state and behavior). The four core pillars of OOP are:</p>
+<p>1. <strong>Encapsulation</strong>: Bundling member variables and methods inside a class and restricting direct access via access specifiers (<code>private</code>, <code>public</code>, <code>protected</code>).</p>
+<p>2. <strong>Abstraction</strong>: Exposing only essential interface methods while hiding complex internal implementation logic.</p>
+<p>3. <strong>Inheritance</strong>: Creating new derived classes from existing base classes.</p>
+<p>4. <strong>Polymorphism</strong>: Overriding base class functions at runtime using virtual methods.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Class</strong>: Ek khali blueprint / format hota hai (jaise Bank Account ka form).</li></p>
+<p>  <li><strong>Object</strong>: Us blueprint se bana real instance (jaise Rahul ka Bank Account).</li></p>
+<p>  <li><strong>Encapsulation</strong>: Class ke sensitive variables (jaise <code>balance</code>) ko <code>private</code> rakhna taaki koi bahar se use directly change na kar sake. Access sirf <code>public</code> methods (<code>deposit()</code>, <code>withdraw()</code>) ke zariye milta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<ul>
+<p>  <li><strong>Class</strong>: Ek blueprint aahe (udaharanarth Car cha design).</li></p>
+<p>  <li><strong>Object</strong>: Tyapasun banavleli pratyaksh vastu (udaharanarth Tesla Car).</li></p>
+<p>  <li><strong>Encapsulation</strong>: Data safe thevnyasathi variables <code>private</code> thevane aani tyaana badalnyasathi <code>public</code> functions vaparne.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔑 Access Specifiers in C++</h2>
+
+<table>
+<p>  <thead><tr><th>Access Specifier</th><th>Accessible Inside Class?</th><th>Accessible In Derived Class?</th><th>Accessible Outside Class?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>private</code></td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>protected</code></td><td>✅ Yes</td><td>✅ Yes</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>public</code></td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;string&gt;</p>
+
+<p>// Class Definition (Blueprint)</p>
+<p>class BankAccount {</p>
+<p>private:</p>
+<p>    std::string accountNumber;</p>
+<p>    std::string accountHolder;</p>
+<p>    double balance; // Encapsulated private data!</p>
+
+<p>public:</p>
+<p>    // Constructor (Initializes Object State)</p>
+<p>    BankAccount(std::string accNum, std::string holder, double initialBalance) {</p>
+<p>        accountNumber = accNum;</p>
+<p>        accountHolder = holder;</p>
+<p>        balance = (initialBalance &gt;= 0.0) ? initialBalance : 0.0;</p>
+<p>    }</p>
+
+<p>    // Public Method: Deposit Money</p>
+<p>    void deposit(double amount) {</p>
+<p>        if (amount &gt; 0.0) {</p>
+<p>            balance += amount;</p>
+<p>            std::cout &lt;&lt; &quot;[SUCCESS] Deposited $&quot; &lt;&lt; amount &lt;&lt; &quot;. New Balance: $&quot; &lt;&lt; balance &lt;&lt; std::endl;</p>
+<p>        } else {</p>
+<p>            std::cout &lt;&lt; &quot;[ERROR] Deposit amount must be positive!&quot; &lt;&lt; std::endl;</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    // Public Method: Withdraw Money with Validation</p>
+<p>    void withdraw(double amount) {</p>
+<p>        if (amount &gt; 0.0 &amp;&amp; amount &lt;= balance) {</p>
+<p>            balance -= amount;</p>
+<p>            std::cout &lt;&lt; &quot;[SUCCESS] Withdrew $&quot; &lt;&lt; amount &lt;&lt; &quot;. Remaining Balance: $&quot; &lt;&lt; balance &lt;&lt; std::endl;</p>
+<p>        } else {</p>
+<p>            std::cout &lt;&lt; &quot;[ERROR] Insufficient funds or invalid amount!&quot; &lt;&lt; std::endl;</p>
+<p>        }</p>
+<p>    }</p>
+
+<p>    // Getter Method for Reading Encapsulated Balance</p>
+<p>    double getBalance() const {</p>
+<p>        return balance;</p>
+<p>    }</p>
+
+<p>    void displayDetails() const {</p>
+<p>        std::cout &lt;&lt; &quot;Acc Num: &quot; &lt;&lt; accountNumber &lt;&lt; &quot; | Holder: &quot; &lt;&lt; accountHolder &lt;&lt; &quot; | Balance: $&quot; &lt;&lt; balance &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- CREATING BANK ACCOUNT OBJECTS ---&quot; &lt;&lt; std::endl;</p>
+<p>    </p>
+<p>    // Instantiating BankAccount Object</p>
+<p>    BankAccount acc1(&quot;ACC-1001&quot;, &quot;Rahul Sharma&quot;, 1000.00);</p>
+
+<p>    acc1.displayDetails();</p>
+<p>    acc1.deposit(500.00);</p>
+<p>    acc1.withdraw(200.00);</p>
+<p>    acc1.withdraw(2000.00); // Triggers insufficient funds guard!</p>
+
+<p>    // Direct access to private member is blocked by compiler!</p>
+<p>    // acc1.balance = 500000.00; // COMPILATION ERROR!</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>class BankAccount</code>: Defines a custom data structure holding variables and methods.</li></p>
+<p>  <li><code>private:</code>: Protects <code>balance</code> from being directly altered from <code>main()</code>.</li></p>
+<p>  <li><code>deposit()</code> and <code>withdraw()</code>: Encapsulate valid business rules and data safety guards.</li></p>
+<p>  <li><code>double getBalance() const</code>: Read-only public method for querying current balance safely.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- CREATING BANK ACCOUNT OBJECTS ---
+<p>Acc Num: ACC-1001 | Holder: Rahul Sharma | Balance: $1000</p>
+<p>[SUCCESS] Deposited $500. New Balance: $1500</p>
+<p>[SUCCESS] Withdrew $200. Remaining Balance: $1300</p>
+<p>[ERROR] Insufficient funds or invalid amount!</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting Semicolon After Class Definition</strong>: Writing <code>class Car { ... }</code> without the ending semicolon <code>;</code> causes a confusing compilation error! Always end class definitions with <code>};</code>.</li></p>
+<p>  <li><strong>Default Access Specifier in <code>class</code> vs <code>struct</code></strong>:</li></p>
+<p>  <li>In a <code>class</code>, members are <strong><code>private</code> by default</strong>.</li></p>
+<p>  <li>In a <code>struct</code>, members are <strong><code>public</code> by default</strong>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Always keep member variables <code>private</code> and provide getters/setters as needed (Encapsulation Principle).</li></p>
+<p>  <li>Mark getter methods <code>const</code> if they do not alter any object variables (<code>double getBalance() const</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Student</code> class with private attributes <code>name</code>, <code>rollNumber</code>, and <code>marks</code>. Add a method <code>hasPassed()</code> that returns <code>true</code> if <code>marks >= 40</code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Design a <code>Rectangle</code> class with private members <code>length</code> and <code>width</code>. Include methods <code>setDimensions(l, w)</code>, <code>calculateArea()</code>, and <code>calculatePerimeter()</code>.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="11-constructors-and-destructors.html">Constructors & Destructors</a></li></p>
+<p>  <li><a href="12-inheritance-and-polymorphism.html">Inheritance & Polymorphism</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="09-arrays-and-vectors.html">← Previous: Arrays & Vectors</a> | <a href="11-constructors-and-destructors.html">Next: Constructors & Destructors →</a></p>
+
+
+  </div>
+</body>
+</html>

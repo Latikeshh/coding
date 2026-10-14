@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generics - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Generics in Java</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Generics</strong> enable classes, interfaces, and methods to take <strong>types as parameters</strong>. By parametrizing types (<code>List<String></code> instead of raw <code>List</code>), Generics enforce compile-time type safety, eliminate manual type casting, and catch invalid type assignments at compile time.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Generics Java code ko Type-Safe banate hain. Pre-Generics Java mein <code>List</code> kisi bhi object ko accept kar leta tha, jisse runtime par <code>ClassCastException</code> aata tha. Generics <code><T></code> se compiler check karta hai ki sirf specific type ka data hi store ho.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Generics mule code Type-Safe banto. Compile-time la chukiche types check kele jaatat.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without Generics, Java collection methods returned raw <code>Object</code> instances, requiring explicit type casting (<code>String s = (String) list.get(0);</code>) and risking catastrophic runtime <code>ClassCastException</code> crashes.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a generic class like a labeled shipping container <code>Container<T></code>. When you manufacture the container, you label it for Glassware <code>Container<Glass></code>. The security inspector (the compiler) refuses to let anyone load Heavy Machinery into a container marked for Glass.</p>
+
+<h2>📝 1. Generic Classes & Generic Methods</h2>
+
+<pre><code class="language-java">// Generic Class with Type Parameter &#39;T&#39;
+<p>public class DataBox&lt;T&gt; {</p>
+<p>    private T content;</p>
+
+<p>    public void setContent(T content) { this.content = content; }</p>
+<p>    public T getContent() { return content; }</p>
+<p>}</p>
+
+<p>// Generic Method</p>
+<p>public static &lt;E&gt; void printArray(E[] elements) {</p>
+<p>    for (E element : elements) {</p>
+<p>        System.out.print(element + &quot; &quot;);</p>
+<p>    }</p>
+<p>    System.out.println();</p>
+<p>}</code></pre></p>
+
+<h2>📝 2. Bounded Type Parameters (<code><T extends Number></code>)</h2>
+
+<p>Restricts the allowed type arguments to a specific superclass or interface:</p>
+
+<pre><code class="language-java">// Accepts ONLY classes extending Number (Integer, Double, Float, Long)
+<p>public class StatsCalculator&lt;T extends Number&gt; {</p>
+<p>    public double calculateAverage(T[] numbers) {</p>
+<p>        double sum = 0.0;</p>
+<p>        for (T num : numbers) {</p>
+<p>            sum += num.doubleValue(); // Double.doubleValue() available!</p>
+<p>        }</p>
+<p>        return sum / numbers.length;</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>📝 3. Wildcards & The PECS Principle</h2>
+
+<ul>
+<p>  <li><strong>Unbounded Wildcard (<code>?</code>):</strong> Accepts any type (<code>List<?></code>).</li></p>
+<p>  <li><strong>Upper Bounded Wildcard (<code>? extends T</code>):</strong> Read-only from producer.</li></p>
+<p>  <li><strong>Lower Bounded Wildcard (<code>? super T</code>):</strong> Write-only to consumer.</li></p>
+<p></ul></p>
+
+<blockquote><p>💡 <strong>The PECS Rule:</strong> <strong>Producer Extends, Consumer Super</strong></p></blockquote>
+<blockquote><p>- If your method reads/produces data from a collection, use <code>? extends T</code>.</p></blockquote>
+<blockquote><p>- If your method writes/consumes data into a collection, use <code>? super T</code>.</p></blockquote>
+
+<h2>🧠 4. Type Erasure Mechanics</h2>
+
+<blockquote><p>⚠️ <strong>IMPORTANT INTERVIEW CONCEPT:</strong> <strong>Generics exist ONLY at Compile-Time!</strong></p></blockquote>
+<blockquote><p>During compilation, the Java compiler applies <strong>Type Erasure</strong>—removing all generic type parameters <code><T></code> and replacing them with <code>Object</code> (or bounded types like <code>Number</code>). This guarantees backward compatibility with older legacy JVM versions.</p></blockquote>
+
+<h2>💡 Complete Example: Generic Result Wrapper & Repository</h2>
+
+<pre><code class="language-java">import java.util.List;
+
+<p>// Generic Result Wrapper Class for API/Database Operations</p>
+<p>public class ApiResponse&lt;T&gt; {</p>
+<p>    private final boolean success;</p>
+<p>    private final T data;</p>
+<p>    private final String errorMessage;</p>
+
+<p>    private ApiResponse(boolean success, T data, String errorMessage) {</p>
+<p>        this.success = success;</p>
+<p>        this.data = data;</p>
+<p>        this.errorMessage = errorMessage;</p>
+<p>    }</p>
+
+<p>    public static &lt;T&gt; ApiResponse&lt;T&gt; success(T data) {</p>
+<p>        return new ApiResponse&lt;&gt;(true, data, null);</p>
+<p>    }</p>
+
+<p>    public static &lt;T&gt; ApiResponse&lt;T&gt; error(String message) {</p>
+<p>        return new ApiResponse&lt;&gt;(false, null, message);</p>
+<p>    }</p>
+
+<p>    public boolean isSuccess() { return success; }</p>
+<p>    public T getData() { return data; }</p>
+<p>    public String getErrorMessage() { return errorMessage; }</p>
+<p>}</p>
+
+<p>public class GenericDemo {</p>
+<p>    public static void main(String[] args) {</p>
+<p>        // String Type Response</p>
+<p>        ApiResponse&lt;String&gt; nameResponse = ApiResponse.success(&quot;Rahul Verma&quot;);</p>
+<p>        </p>
+<p>        // List Type Response</p>
+<p>        List&lt;String&gt; cities = List.of(&quot;Mumbai&quot;, &quot;Delhi&quot;, &quot;Bengaluru&quot;);</p>
+<p>        ApiResponse&lt;List&lt;String&gt;&gt; listResponse = ApiResponse.success(cities);</p>
+
+<p>        // Error Response</p>
+<p>        ApiResponse&lt;User&gt; errorResponse = ApiResponse.error(&quot;User ID 99 Not Found!&quot;);</p>
+
+<p>        System.out.println(&quot;Name Response Success? : &quot; + nameResponse.isSuccess());</p>
+<p>        System.out.println(&quot;Data Received          : &quot; + nameResponse.getData());</p>
+<p>        System.out.println(&quot;List Received          : &quot; + listResponse.getData());</p>
+<p>        System.out.println(&quot;Error Message          : &quot; + errorResponse.getErrorMessage());</p>
+<p>    }</p>
+
+<p>    record User(int id, String name) {}</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Name Response Success? : true
+<p>Data Received          : Rahul Verma</p>
+<p>List Received          : [Mumbai, Delhi, Bengaluru]</p>
+<p>Error Message          : User ID 99 Not Found!</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using Primitive types directly as generic parameters (<code>List<int></code> is invalid; use <code>List<Integer></code>).</li></p>
+<p>  <li>Using raw types (<code>List list = new ArrayList();</code>), which disables compile-time type safety checking.</li></p>
+<p>  <li>Over-complicating method signatures with excessive nested wildcards.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Because of Type Erasure, you cannot instantiate generic arrays directly (<code>new T[10]</code> is invalid) or use <code>instanceof</code> with specific generic parameters (<code>obj instanceof List<String></code> is invalid).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Java Collections Framework (<code>List<T></code>, <code>Map<K,V></code>), Spring Framework <code>ResponseEntity<T></code>, Jackson JSON deserializers, and ORM repository interfaces (<code>Repository<T, ID></code>).</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a generic class <code>Pair<K, V></code> holding a key and a value.</p>
+<p>2. Instantiate <code>Pair<Integer, String></code> for an employee ID and name.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a generic method <code><T> void swapArrayElements(T[] array, int index1, int index2)</code> that swaps two elements in an array of any reference type.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="11-collections.html">Collections</a></li></p>
+<p>  <li><a href="14-classes-and-objects.html">Classes and Objects</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="12-enums-and-records.html">← Previous: Enums and Records</a> | <a href="14-classes-and-objects.html">Next: Classes and Objects →</a></p>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 advanced array methods - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Advanced Array Methods (<code>map</code>, <code>filter</code>, <code>reduce</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Functional array methods (<code>map</code>, <code>filter</code>, <code>reduce</code>, <code>find</code>, <code>findIndex</code>, <code>some</code>, <code>every</code>, <code>sort</code>) allow declarative transformation, filtering, and aggregation of array datasets without writing manual imperative <code>for</code> loops.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p><code>map()</code>, <code>filter()</code>, aur <code>reduce()</code> functional programming ke essential methods hain. <code>.map()</code> array ke har item ko transform karta hai, <code>.filter()</code> conditional search karta hai, aur <code>.reduce()</code> pooray array ko single value (jaise sum ya object) mein condense karta hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p><code>.map()</code> navin array tayar karto, <code>.filter()</code> tharavik kramacha data gaalun (filter) deto, aani <code>.reduce()</code> sarv values pasun ekach final value tayar karto.</p>
+
+<h2>📝 Method Summary Table</h2>
+
+<table>
+<p>  <thead><tr><th>Method</th><th>What It Does</th><th>Return Value</th><th>Mutates Array?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>map(fn)</code></td><td>Transforms every element</td><td>New array of same length</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>filter(fn)</code></td><td>Filters items matching condition</td><td>New array of matching items</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>reduce(fn, init)</code></td><td>Accumulates array into single value</td><td>Single value (number/object)</td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>find(fn)</code></td><td>Finds FIRST element matching condition</td><td>Single element or <code>undefined</code></td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>findIndex(fn)</code></td><td>Finds index of FIRST matching element</td><td>Index number or <code>-1</code></td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>some(fn)</code></td><td>Checks if AT LEAST ONE item matches</td><td><code>true</code> or <code>false</code></td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>every(fn)</code></td><td>Checks if ALL items match condition</td><td><code>true</code> or <code>false</code></td><td>❌ No</td></tr></p>
+<p>    <tr><td><code>sort(fn)</code></td><td>Sorts array elements</td><td>Sorted array</td><td>✅ <strong>Yes!</strong></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💡 Complete Example (Method Chaining)</h2>
+
+<pre><code class="language-js">const products = [
+<p>  { id: 1, name: &quot;Gaming Laptop&quot;, price: 75000, inStock: true, category: &quot;Tech&quot; },</p>
+<p>  { id: 2, name: &quot;Wireless Earbuds&quot;, price: 3000, inStock: true, category: &quot;Tech&quot; },</p>
+<p>  { id: 3, name: &quot;Coffee Mug&quot;, price: 400, inStock: false, category: &quot;Home&quot; },</p>
+<p>  { id: 4, name: &quot;Mechanical Keyboard&quot;, price: 4500, inStock: true, category: &quot;Tech&quot; }</p>
+<p>];</p>
+
+<p>// 1. Filter only in-stock Tech products</p>
+<p>const inStockTech = products.filter(p =&gt; p.inStock &amp;&amp; p.category === &quot;Tech&quot;);</p>
+
+<p>// 2. Map to extract product price list</p>
+<p>const prices = inStockTech.map(p =&gt; p.price);</p>
+
+<p>// 3. Reduce to calculate total cart price</p>
+<p>const totalInventoryValue = inStockTech.reduce((sum, p) =&gt; sum + p.price, 0);</p>
+
+<p>console.log(&quot;Filtered Products Count:&quot;, inStockTech.length);</p>
+<p>console.log(&quot;Tech Prices:&quot;, prices);</p>
+<p>console.log(&quot;Total Inventory Value:&quot;, totalInventoryValue);</p>
+
+<p>// 4. Sorting Numbers accurately (Requires comparator function!)</p>
+<p>const sortedPrices = [...prices].sort((a, b) =&gt; a - b);</p>
+<p>console.log(&quot;Sorted Prices (Ascending):&quot;, sortedPrices);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Filtered Products Count: 3
+<p>Tech Prices: [ 75000, 3000, 4500 ]</p>
+<p>Total Inventory Value: 82500</p>
+<p>Sorted Prices (Ascending): [ 3000, 4500, 75000 ]</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>Given <code>const numbers = [5, 12, 8, 130, 44]</code>:</p>
+<p>1. Use <code>.filter()</code> to get numbers greater than <code>10</code>.</p>
+<p>2. Use <code>.map()</code> to double each number.</p>
+<p>3. Use <code>.reduce()</code> to calculate the sum of all numbers.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting that <code>.sort()</code> sorts items <strong>alphabetically as strings by default</strong> unless a comparator function <code>(a, b) => a - b</code> is provided! (<code>[10, 2, 5].sort()</code> gives <code>[10, 2, 5]</code> without comparator!).</li></p>
+<p>  <li>Forgetting to provide an initial value (<code>0</code>) as the second argument to <code>.reduce()</code>.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Filtering product listings in e-commerce apps, calculating invoice subtotals, mapping database results to UI React components, and sorting leaderboard rankings.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Method chaining (<code>.filter().map().reduce()</code>) allows powerful, clean, single-statement data transformations.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="12-es6-features.html">← Previous: ES6 Features</a> | <a href="14-closures-and-callbacks.html">Next: Closures & Callbacks →</a></p>
+
+
+
+  </div>
+</body>
+</html>

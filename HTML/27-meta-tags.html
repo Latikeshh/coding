@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27 meta tags - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Meta Tags & Head Metadata</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Meta tags</strong> are <code><meta></code> elements placed inside the <code><head></code> section of an HTML document. They provide structured machine-readable metadata about the webpage—such as character encoding, viewport settings, search engine descriptions, author information, and social media preview properties—to browsers, search engine crawlers, and web services.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Meta tags inside <code><head></code> configure character encoding, mobile viewport scaling, SEO page descriptions, canonical URLs, and social media preview metadata.</p>
+
+<h3>Hindi</h3>
+<p><code><head></code> section ke andar <code><meta></code> tags character encoding, mobile viewport settings, search engine description (SEO), aur social media preview cards define karne ke liye hote hain.</p>
+
+<h3>Marathi</h3>
+<p><code><head></code> madhye aasnare <code><meta></code> tags character encoding, mobile screen settings, SEO description, ani social media preview metadata configure kartat.</p>
+
+<h2>🤔 Why Do We Use Meta Tags?</h2>
+
+<p>1. <strong>Mobile Responsiveness:</strong> Ensures webpages render correctly scaled on smartphones and tablets.</p>
+<p>2. <strong>Search Engine Optimization (SEO):</strong> Helps search engine crawlers index your page content and display informative summary snippets in search results.</p>
+<p>3. <strong>Social Media Cards:</strong> Controls how links look when shared on platforms like X (Twitter), LinkedIn, and WhatsApp.</p>
+<p>4. <strong>Security & Browser Instructions:</strong> Configures content security policies, refresh rates, and character encodings.</p>
+
+<h2>📐 Essential Meta Tags Reference</h2>
+
+<pre><code class="language-html">&lt;head&gt;
+<p>  &lt;!-- 1. Character Encoding (UTF-8 supports all languages, symbols, and emojis) --&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+
+<p>  &lt;!-- 2. Mobile Viewport (Essential for responsive CSS layouts) --&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+
+<p>  &lt;!-- 3. Search Engine Page Description (SEO snippet in search results) --&gt;</p>
+<p>  &lt;meta name=&quot;description&quot; content=&quot;A comprehensive guide to HTML meta tags, viewport settings, and head metadata for web developers.&quot;&gt;</p>
+
+<p>  &lt;!-- 4. Keywords (Legacy search metadata; lower priority today) --&gt;</p>
+<p>  &lt;meta name=&quot;keywords&quot; content=&quot;HTML, meta tags, head metadata, web development, SEO&quot;&gt;</p>
+
+<p>  &lt;!-- 5. Page Author --&gt;</p>
+<p>  &lt;meta name=&quot;author&quot; content=&quot;Latikesh Sharma&quot;&gt;</p>
+
+<p>  &lt;!-- 6. Search Engine Crawling Instructions (index, follow) --&gt;</p>
+<p>  &lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;</p>
+
+<p>  &lt;!-- 7. Favicon Icon Link --&gt;</p>
+<p>  &lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</p>
+
+<p>  &lt;!-- 8. Canonical URL (Prevents duplicate content penalties) --&gt;</p>
+<p>  &lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/html/27-meta-tags&quot;&gt;</p>
+
+<p>  &lt;!-- Document Title --&gt;</p>
+<p>  &lt;title&gt;Meta Tags &amp; Head Metadata - HTML Course&lt;/title&gt;</p>
+<p>&lt;/head&gt;</code></pre></p>
+
+<h2>🔍 Open Graph & Social Media Sharing Metadata</h2>
+
+<p>When users share your webpage link on WhatsApp, Facebook, LinkedIn, or Twitter, social platforms parse <strong>Open Graph (<code>og:</code>)</strong> and <strong>Twitter Card (<code>twitter:</code>)</strong> meta tags to generate rich visual card previews:</p>
+
+<pre><code class="language-html">&lt;!-- Open Graph Metadata for Facebook, WhatsApp, LinkedIn --&gt;
+<p>&lt;meta property=&quot;og:title&quot; content=&quot;Master HTML Meta Tags &amp; Head Metadata&quot;&gt;</p>
+<p>&lt;meta property=&quot;og:description&quot; content=&quot;Learn how to configure viewport, character encoding, SEO snippets, and social media cards in HTML.&quot;&gt;</p>
+<p>&lt;meta property=&quot;og:image&quot; content=&quot;https://example.com/images/meta-tags-banner.jpg&quot;&gt;</p>
+<p>&lt;meta property=&quot;og:url&quot; content=&quot;https://example.com/html/27-meta-tags&quot;&gt;</p>
+<p>&lt;meta property=&quot;og:type&quot; content=&quot;article&quot;&gt;</p>
+
+<p>&lt;!-- Twitter Card Metadata --&gt;</p>
+<p>&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;</p>
+<p>&lt;meta name=&quot;twitter:title&quot; content=&quot;Master HTML Meta Tags &amp; Head Metadata&quot;&gt;</p>
+<p>&lt;meta name=&quot;twitter:description&quot; content=&quot;Learn how to configure viewport and SEO snippets in HTML.&quot;&gt;</p>
+<p>&lt;meta name=&quot;twitter:image&quot; content=&quot;https://example.com/images/meta-tags-banner.jpg&quot;&gt;</code></pre></p>
+
+<h2>💻 Complete HTML Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;meta name=&quot;description&quot; content=&quot;Learn all about HTML meta tags and head metadata structure.&quot;&gt;</p>
+<p>  &lt;meta name=&quot;author&quot; content=&quot;Coding Notes&quot;&gt;</p>
+
+<p>  &lt;!-- Open Graph --&gt;</p>
+<p>  &lt;meta property=&quot;og:title&quot; content=&quot;HTML Meta Tags Guide&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:description&quot; content=&quot;Step-by-step tutorial on meta tags for responsive design and SEO.&quot;&gt;</p>
+<p>  &lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;</p>
+
+<p>  &lt;title&gt;HTML Meta Tags Tutorial&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;header&gt;</p>
+<p>    &lt;h1&gt;HTML Head Metadata Guide&lt;/h1&gt;</p>
+<p>  &lt;/header&gt;</p>
+
+<p>  &lt;main&gt;</p>
+<p>    &lt;p&gt;Meta tags inside the head section configure how search engines and social platforms view your site.&lt;/p&gt;</p>
+<p>  &lt;/main&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<ul>
+<p>  <li>The browser tab displays: <strong>"HTML Meta Tags Tutorial"</strong>.</li></p>
+<p>  <li>Search engine crawlers index the page description summary.</li></p>
+<p>  <li>Mobile devices scale the layout responsively to match device width.</li></p>
+<p>  <li>Social media apps display a rich card banner when the link is shared.</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an HTML file and add a custom <code><meta name="description"></code> summary.</p>
+<p>2. Add <code><meta name="viewport" content="width=device-width, initial-scale=1.0"></code>.</p>
+<p>3. Add Open Graph tags (<code>og:title</code>, <code>og:description</code>, <code>og:image</code>) and test sharing link previews.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Omitting the viewport tag:</strong> Causes mobile screens to render desktop pages zoomed-out.</li></p>
+<p>  <li><strong>Writing overly long meta descriptions:</strong> Search engines truncate descriptions longer than ~160 characters.</li></p>
+<p>  <li><strong>Placing <code><meta></code> tags inside <code><body></code>:</strong> Meta tags belong strictly inside the <code><head></code> section.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>All professional websites, e-commerce stores, and blog platforms use <code><meta></code> tags for mobile scaling, SEO rankings, and rich social media link sharing.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-html-document-structure.html">Document Structure</a></li></p>
+<p>  <li><a href="32-html-seo-and-open-graph.html">HTML SEO & Open Graph Metadata</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Place all <code><meta></code> tags inside <code><head></code>.</li></p>
+<p>  <li><code><meta name="viewport"></code> is required for mobile responsiveness.</li></p>
+<p>  <li>Open Graph tags (<code>og:</code>) customize social media link previews.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="26-html-history.html">← Previous: HTML History</a> | <a href="./">HTML Home</a> | <a href="28-advanced-form-controls.html">Next: Advanced Form Controls →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 classes and oop - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>ES6 Classes & Object-Oriented JS</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>ES6 <strong>Classes</strong> provide modern, clean syntactic sugar over JavaScript's prototype-based inheritance model. Classes encapsulate state (properties), behavior (methods), constructors, static methods, and private fields (<code>#</code>).</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>ES6 Classes Object-Oriented Programming (OOP) concepts ko implement karne ka ek simple tareeqa hain. Class mein <code>constructor</code>, methods, static methods, <code>#</code> se private fields, aur <code>extends</code> + <code>super()</code> ka use karke Inheritance apply ki jaati hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Classes mule Object-Oriented Programming (OOP) sarakha code lihita येतो. Class madhye <code>constructor</code>, methods, aani <code>extends</code> cha wapar karun Inheritance implement kele jaate.</p>
+
+<h2>📝 OOP Concepts in JavaScript</h2>
+
+<p>1. <strong>Encapsulation:</strong> Grouping data and related behavior inside class objects.</p>
+<p>2. <strong>Inheritance:</strong> Creating child subclasses that inherit properties and methods from parent classes (<code>extends</code>).</p>
+<p>3. <strong>Polymorphism:</strong> Overriding inherited parent methods in child classes.</p>
+<p>4. <strong>Private Fields (<code>#</code>):</strong> Properties inaccessible from outside the class instance.</p>
+
+<h2>💡 Complete Example: Class Inheritance & Private Fields</h2>
+
+<pre><code class="language-js">class BankAccount {
+<p>  // Private field (cannot be accessed outside class instance)</p>
+<p>  #accountPin;</p>
+
+<p>  constructor(accountHolder, balance, pin) {</p>
+<p>    this.accountHolder = accountHolder;</p>
+<p>    this.balance = balance;</p>
+<p>    this.#accountPin = pin;</p>
+<p>  }</p>
+
+<p>  deposit(amount) {</p>
+<p>    this.balance += amount;</p>
+<p>    return <code>Deposited ₹${amount}. Total Balance: ₹${this.balance}</code>;</p>
+<p>  }</p>
+
+<p>  // Method to verify pin safely</p>
+<p>  verifyPin(inputPin) {</p>
+<p>    return this.#accountPin === inputPin;</p>
+<p>  }</p>
+
+<p>  // Static Utility Method</p>
+<p>  static calculateInterest(amount, rate) {</p>
+<p>    return amount * (rate / 100);</p>
+<p>  }</p>
+<p>}</p>
+
+<p>// Subclass inheriting from BankAccount</p>
+<p>class SavingsAccount extends BankAccount {</p>
+<p>  constructor(accountHolder, balance, pin, interestRate = 4) {</p>
+<p>    // MUST call super() before accessing &#39;this&#39; in child constructor!</p>
+<p>    super(accountHolder, balance, pin);</p>
+<p>    this.interestRate = interestRate;</p>
+<p>  }</p>
+
+<p>  applyInterest() {</p>
+<p>    const interest = BankAccount.calculateInterest(this.balance, this.interestRate);</p>
+<p>    this.balance += interest;</p>
+<p>    return <code>Applied ${this.interestRate}% interest (₹${interest}). New Balance: ₹${this.balance}</code>;</p>
+<p>  }</p>
+<p>}</p>
+
+<p>const mySavings = new SavingsAccount(&quot;Anish Roy&quot;, 10000, 1234);</p>
+<p>console.log(mySavings.deposit(5000));</p>
+<p>console.log(mySavings.applyInterest());</p>
+<p>console.log(&quot;Pin Valid?&quot;, mySavings.verifyPin(1234));</p>
+<p>// console.log(mySavings.#accountPin); // SyntaxError: Private field &#39;#accountPin&#39; must be declared in an enclosing class</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Deposited ₹5000. Total Balance: ₹15000
+<p>Applied 4% interest (₹6000). New Balance: ₹15600</p>
+<p>Pin Valid? true</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a parent class <code>Vehicle</code> with <code>brand</code> and <code>start()</code> method.</p>
+<p>2. Create a subclass <code>Car</code> extending <code>Vehicle</code> with an additional <code>model</code> property.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to call <code>super()</code> inside child class constructors before using <code>this</code>.</li></p>
+<p>  <li>Expecting JavaScript classes to be fundamentally different from prototypes—classes are syntactical sugar built directly on prototypes!</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Building UI components, domain modeling in enterprise applications, custom SDKs, and state management models.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Use <code>class</code> for OOP design, <code>#</code> for private fields, <code>extends</code> for inheritance, and <code>super()</code> to initialize parent constructors.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="17-prototypes-and-this.html">← Previous: Prototypes & this</a> | <a href="19-dom-manipulation.html">Next: DOM Selection →</a></p>
+
+
+
+  </div>
+</body>
+</html>

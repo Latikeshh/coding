@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 borders - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Borders, Border Radius & Box Shadows</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong><code>border</code>:</strong> Draws boundary lines around an element's padding and content area (<code>width</code>, <code>style</code>, <code>color</code>).</li></p>
+<p>  <li><strong><code>border-radius</code>:</strong> Rounds the sharp outer corners of an element's border box.</li></p>
+<p>  <li><strong><code>box-shadow</code>:</strong> Applies 3D drop-shadow effects around an element's frame to create visual depth and elevation.</li></p>
+<p></ul></p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Define borders using <code>border: width style color</code>. Round corners with <code>border-radius: 8px</code> and add elevation drop shadows using <code>box-shadow: offset-x offset-y blur color</code>.</p>
+
+<h3>Hindi</h3>
+<p><code>border</code> se boundary line banti hai, <code>border-radius</code> se corners round hote hain, aur <code>box-shadow</code> se element ke neeche shadow (parchaai) banti hai.</p>
+
+<h3>Marathi</h3>
+<p><code>border</code> mule boundary line aakhli jaate, <code>border-radius</code> mule corners round hotat ani <code>box-shadow</code> mule shadow diyanaya sathi vapartaat.</p>
+
+<h2>🤔 Why Do We Use Borders & Shadows?</h2>
+
+<p>Borders and shadows group related UI elements, highlight card boundaries, indicate clickable buttons, and create visual depth hierarchy across web interfaces.</p>
+
+<h2>📝 Syntax & Properties Breakdown</h2>
+
+<h3>1. Border Shorthand Syntax</h3>
+<pre><code class="language-css">element {
+<p>  /* border: border-width border-style border-color; */</p>
+<p>  border: 2px solid #007bff;</p>
+<p>}</code></pre></p>
+<ul>
+<p>  <li><strong>Border Styles:</strong> <code>solid</code>, <code>dashed</code>, <code>dotted</code>, <code>double</code>, <code>none</code>.</li></p>
+<p></ul></p>
+
+<h3>2. Border Radius (Rounded Corners)</h3>
+<pre><code class="language-css">.card {
+<p>  border-radius: 12px; /* All 4 corners */</p>
+<p>}</p>
+
+<p>.avatar-circle {</p>
+<p>  border-radius: 50%; /* Perfect circle for square elements */</p>
+<p>}</code></pre></p>
+
+<h3>3. Box Shadow (Elevation)</h3>
+<pre><code class="language-css">/* box-shadow: offset-x offset-y blur-radius spread-radius color; */
+<p>.card {</p>
+<p>  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);</p>
+<p>}</code></pre></p>
+
+<h2>📚 Property Reference Table</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Purpose</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>border</code></td><td>Shorthand for width, style, and color</td><td><code>border: 1px solid #e0e0e0;</code></td></tr></p>
+<p>    <tr><td><code>border-top</code> / <code>border-bottom</code></td><td>Styles specific border edge only</td><td><code>border-bottom: 2px solid #007bff;</code></td></tr></p>
+<p>    <tr><td><code>border-radius</code></td><td>Rounds outer box corners</td><td><code>border-radius: 8px;</code></td></tr></p>
+<p>    <tr><td><code>box-shadow</code></td><td>Adds drop shadow elevation</td><td><code>box-shadow: 0 8px 24px rgba(0,0,0,0.12);</code></td></tr></p>
+<p>    <tr><td><code>outline</code></td><td>Draws line outside border (does not take box model space)</td><td><code>outline: 2px solid #007bff;</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<pre><code class="language-css">/* Modern elevated card component */
+<p>.ui-card {</p>
+<p>  background-color: #ffffff;</p>
+<p>  border: 1px solid #e5e7eb;</p>
+<p>  border-radius: 12px;</p>
+<p>  padding: 24px;</p>
+<p>  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);</p>
+<p>  transition: transform 0.2s ease, box-shadow 0.2s ease;</p>
+<p>}</p>
+
+<p>.ui-card:hover {</p>
+<p>  transform: translateY(-4px);</p>
+<p>  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);</p>
+<p>}</code></pre></p>
+
+<h2>🌐 HTML + CSS Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Borders and Shadows Demo&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;div class=&quot;card&quot;&gt;</p>
+<p>    &lt;img src=&quot;https://via.placeholder.com/80&quot; alt=&quot;Avatar&quot; class=&quot;avatar&quot;&gt;</p>
+<p>    &lt;h2&gt;Alex Kumar&lt;/h2&gt;</p>
+<p>    &lt;p&gt;Frontend Engineer &amp;amp; UI Designer&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<pre><code class="language-css">/* style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f3f4f6;</p>
+<p>  display: flex;</p>
+<p>  justify-content: center;</p>
+<p>  align-items: center;</p>
+<p>  min-height: 100vh;</p>
+<p>  margin: 0;</p>
+<p>}</p>
+
+<p>.card {</p>
+<p>  background: white;</p>
+<p>  border: 1px solid #e5e7eb;</p>
+<p>  border-radius: 16px;</p>
+<p>  padding: 30px;</p>
+<p>  text-align: center;</p>
+<p>  width: 300px;</p>
+<p>  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);</p>
+<p>}</p>
+
+<p>.avatar {</p>
+<p>  width: 80px;</p>
+<p>  height: 80px;</p>
+<p>  border-radius: 50%; /* Circle avatar */</p>
+<p>  border: 3px solid #3b82f6;</p>
+<p>}</p>
+
+<p>h2 {</p>
+<p>  margin: 15px 0 5px 0;</p>
+<p>  color: #1f2937;</p>
+<p>}</p>
+
+<p>p {</p>
+<p>  margin: 0;</p>
+<p>  color: #6b7280;</p>
+<p>  font-size: 14px;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>A card component featuring a circular profile image with a blue border ring and subtle 3D drop shadow elevation.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Add <code>border-radius: 50%</code> to a square image element to create a circular user avatar.</p>
+<p>2. Change the <code>box-shadow</code> rgba alpha value from <code>0.08</code> to <code>0.25</code> and see how the card elevation shadow becomes darker and heavier.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting border style:</strong> Writing <code>border: 2px #000;</code> without specifying <code>solid</code> or <code>dashed</code> renders no visible border!</li></p>
+<p>  <li><strong>Using harsh black box-shadows:</strong> Writing <code>box-shadow: 0 5px 10px #000000;</code> creates an unnatural dark smudge. Use semi-transparent RGBA shadows like <code>rgba(0, 0, 0, 0.08)</code> for realistic elevation.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Material Design and modern web interfaces use structured <code>box-shadow</code> elevation levels (<code>shadow-sm</code>, <code>shadow-md</code>, <code>shadow-lg</code>) to represent spatial layers (cards, dropdown menus, modals, tooltips).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="16-box-model.html">The CSS Box Model</a></li></p>
+<p>  <li><a href="28-transitions.html">CSS Transitions</a></li></p>
+<p>  <li><a href="36-card-layout.html">Card Layout Components</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Border shorthand format: <code>border: width style color;</code>.</li></p>
+<p>  <li>Use <code>border-radius: 50%</code> on equal width/height squares to create circles.</li></p>
+<p>  <li>Soft semi-transparent RGBA <code>box-shadow</code> values create realistic 3D elevation.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="12-backgrounds.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="14-margins.html">Next →</a></p>
+
+
+
+  </div>
+</body>
+</html>

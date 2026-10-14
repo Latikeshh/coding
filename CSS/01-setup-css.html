@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 setup css - Learn CSS</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Set Up CSS Environment</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>Setting up CSS involves creating a standalone <code>.css</code> file (such as <code>style.css</code>) and linking it to an HTML document using the <code><link rel="stylesheet" href="style.css"></code> tag placed inside the <code><head></code> section of the HTML file.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Connect CSS to HTML using <code><link rel="stylesheet" href="style.css"></code> inside the HTML <code><head></code> tag.</p>
+
+<h3>Hindi</h3>
+<p>HTML se CSS ko jodne ke liye HTML ke <code><head></code> tag ke andar <code><link rel="stylesheet" href="style.css"></code> ka use karein.</p>
+
+<h3>Marathi</h3>
+<p>HTML la CSS jodnyasathi HTML chya <code><head></code> tag madhye <code><link rel="stylesheet" href="style.css"></code> vapartat.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Keeping CSS code in a separate <code>.css</code> file separates page content (HTML) from visual presentation (CSS). This makes code cleaner, easier to maintain, and allows a single CSS file to style multiple HTML pages across a website.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of HTML as a plain text document and CSS as a design template. Linking <code>style.css</code> in <code><head></code> is like telling the browser: *"Before displaying this text, open <code>style.css</code> and apply all colors, fonts, and layouts specified inside it."*</p>
+
+<h2>📝 Syntax</h2>
+
+<pre><code class="language-html">&lt;!-- Inside index.html head section --&gt;
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;My Styled Page&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</code></pre></p>
+
+<pre><code class="language-css">/* Inside style.css */
+<p>body {</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  background-color: #f4f4f4;</p>
+<p>  color: #333333;</p>
+<p>}</code></pre></p>
+
+<h2>📚 Related Attributes</h2>
+
+<table>
+<p>  <thead><tr><th>Attribute</th><th>Purpose</th><th>Example</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>rel</code></td><td>Defines relationship between HTML and linked resource</td><td><code>rel="stylesheet"</code></td></tr></p>
+<p>    <tr><td><code>href</code></td><td>Specifies relative or absolute path to CSS file</td><td><code>href="css/style.css"</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>💻 Examples</h2>
+
+<h3>HTML File (<code>index.html</code>)</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>  &lt;title&gt;Setup CSS Example&lt;/title&gt;</p>
+<p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h1&gt;Welcome to CSS Setup&lt;/h1&gt;</p>
+<p>  &lt;p&gt;This paragraph is styled using an external CSS file.&lt;/p&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h3>CSS File (<code>style.css</code>)</h3>
+<pre><code class="language-css">body {
+<p>  background-color: #e3f2fd;</p>
+<p>  color: #0d47a1;</p>
+<p>  font-family: Arial, sans-serif;</p>
+<p>  padding: 20px;</p>
+<p>}</p>
+
+<p>h1 {</p>
+<p>  color: #1565c0;</p>
+<p>}</code></pre></p>
+
+<h2>👀 What You Will See</h2>
+
+<p>The browser displays a light blue background page with deep blue headings and body text formatted in a clean sans-serif font.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a project folder named <code>css-setup-practice</code>.</p>
+<p>2. Inside it, create <code>index.html</code> and <code>style.css</code>.</p>
+<p>3. Link <code>style.css</code> in <code>index.html</code>.</p>
+<p>4. Change the <code>background-color</code> in <code>style.css</code> to <code>#fff3e0</code> (light orange) and preview in your browser.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Incorrect file path:</strong> Writing <code>href="style.css"</code> when the file is inside a subfolder (<code>href="css/style.css"</code>).</li></p>
+<p>  <li><strong>Placing <code><link></code> in <code><body></code>:</strong> Placing <code><link></code> inside <code><body></code> causes layout re-renders. Always place it inside <code><head></code>.</li></p>
+<p>  <li><strong>Typo in <code>rel</code> attribute:</strong> Writing <code>rel="style"</code> or omitting <code>rel="stylesheet"</code>.</li></p>
+<p></ul></p>
+
+<h2>💡 Real-World Usage</h2>
+
+<p>Every professional production website connects modular external CSS stylesheets in the <code><head></code> section to style global navigation bars, footers, typography, and page layouts.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="02-introduction-to-css.html">Introduction to CSS</a></li></p>
+<p>  <li><a href="04-types-of-css.html">Types of CSS</a></li></p>
+<p>  <li><a href="05-how-to-add-css.html">How to Add CSS</a></li></p>
+<p></ul></p>
+
+<h2>✅ Remember</h2>
+
+<ul>
+<p>  <li>Always save your CSS file as <code>.css</code>.</li></p>
+<p>  <li>Place <code><link rel="stylesheet" href="style.css"></code> inside <code><head></code>.</li></p>
+<p>  <li>Press <code>Ctrl + S</code> in VS Code to save both HTML and CSS files before refreshing your browser.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← CSS Home</a> | <a href="02-introduction-to-css.html">Next: Introduction to CSS →</a></p>
+
+
+
+  </div>
+</body>
+</html>

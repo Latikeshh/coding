@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 audio - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Audio (<code><audio></code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong><code><audio></code></strong> element embeds playable sound files (MP3, OGG, or WAV audio tracks, podcasts, or music) directly into a webpage without requiring external plugins.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p>Embed audio files using <code><audio controls></code>. Provide multiple <code><source></code> tags for browser format support, and include written transcripts for accessibility.</p>
+
+<h3>Hindi</h3>
+<p>Web page par audio files play karne ke liye <code><audio controls></code> tag use hota hai. Multiple browser compatibility ke liye <code><source></code> tags dya aur accessibility ke liye written transcript include karein.</p>
+
+<h3>Marathi</h3>
+<p>Web page var audio files play karanyasathi <code><audio controls></code> tag vapartat. Alag-alag browser sathi <code><source></code> tags vapra ani accessibility sathi transcript dya.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p><code><audio></code> enables native audio playback in browsers with built-in controls (Play/Pause, volume, timeline scrubbing), supporting educational podcasts, pronunciation guides, music previews, and audiobooks.</p>
+
+<h2>📐 Key Attributes of <code><audio></code></h2>
+
+<ul>
+<p>  <li><strong><code>controls</code>:</strong> Displays standard browser audio playback controls (Play/Pause button, timeline scrubber, time counter, and volume slider).</li></p>
+<p>  <li><strong><code>autoplay</code>:</strong> Automatically starts playing audio when the page loads (<strong>Note:</strong> Modern browsers block unmuted autoplay).</li></p>
+<p>  <li><strong><code>muted</code>:</strong> Silences audio output by default.</li></p>
+<p>  <li><strong><code>loop</code>:</strong> Restarts audio playback automatically when finished.</li></p>
+<p>  <li><strong><code>preload="auto|metadata|none"</code>:</strong> Hints to the browser how much audio data to buffer before the user presses play.</li></p>
+<p></ul></p>
+
+<h2>🧱 Multiple Audio Sources & Fallbacks</h2>
+
+<p>Different browsers support different audio container formats. Providing multiple <code><source></code> tags ensures universal browser compatibility:</p>
+
+<pre><code class="language-html">&lt;audio controls preload=&quot;metadata&quot;&gt;
+<p>  &lt;source src=&quot;media/podcast-ep1.mp3&quot; type=&quot;audio/mpeg&quot;&gt;</p>
+<p>  &lt;source src=&quot;media/podcast-ep1.ogg&quot; type=&quot;audio/ogg&quot;&gt;</p>
+<p>  &lt;source src=&quot;media/podcast-ep1.wav&quot; type=&quot;audio/wav&quot;&gt;</p>
+<p>  Your browser does not support the audio element.</p>
+<p>&lt;/audio&gt;</code></pre></p>
+
+<h2>♿ Accessibility & Transcripts</h2>
+
+<p>Users who are deaf or hard of hearing cannot hear audio tracks. Always provide a written text transcript below any instructional or informational audio player:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Audio Lesson with Transcript&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;h1&gt;Lesson 1: Web Fundamentals Pronunciation&lt;/h1&gt;</p>
+
+<p>  &lt;figure&gt;</p>
+<p>    &lt;figcaption&gt;Listen to the audio lesson below:&lt;/figcaption&gt;</p>
+<p>    &lt;audio controls preload=&quot;metadata&quot;&gt;</p>
+<p>      &lt;source src=&quot;media/pronunciation.mp3&quot; type=&quot;audio/mpeg&quot;&gt;</p>
+<p>      Your browser does not support the audio element.</p>
+<p>    &lt;/audio&gt;</p>
+<p>  &lt;/figure&gt;</p>
+
+<p>  &lt;section&gt;</p>
+<p>    &lt;h2&gt;Audio Transcript&lt;/h2&gt;</p>
+<p>    &lt;p&gt;&lt;em&gt;&quot;Welcome to the web development audio guide. HTML provides structure, while CSS controls visual appearance.&quot;&lt;/em&gt;&lt;/p&gt;</p>
+<p>  &lt;/section&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A native audio player bar featuring Play/Pause controls, elapsed time display, timeline scrubber, and volume slider, accompanied by a readable text transcript below.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create an <code><audio controls></code> player element.</p>
+<p>2. Add <code>preload="metadata"</code> and two <code><source></code> tags for MP3 and OGG formats.</p>
+<p>3. Write a text transcript paragraph below the player widget.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting the <code>controls</code> attribute:</strong> Writing <code><audio src="music.mp3"></audio></code> renders an invisible player widget that users cannot control!</li></p>
+<p>  <li><strong>Relying on <code>autoplay</code> for unmuted audio:</strong> Modern browsers automatically block unmuted audio autoplay to protect users from unexpected loud noise.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Podcast platforms, language learning apps, music streaming services, and online educational courses use <code><audio></code> with written transcripts for accessible audio delivery.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="20-video.html">Video</a></li></p>
+<p>  <li><a href="21-iframes.html">Iframes</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li>Always include the <code>controls</code> attribute.</li></p>
+<p>  <li>Provide multiple <code><source></code> tags (MP3, OGG).</li></p>
+<p>  <li>Always include a written text transcript for accessibility.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="18-html-entities.html">← Previous: Entities</a> | <a href="./">HTML Home</a> | <a href="20-video.html">Next: Video →</a></p>
+
+
+
+  </div>
+</body>
+</html>

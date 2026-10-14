@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 variables - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Variables in JavaScript (<code>let</code>, <code>const</code>, <code>var</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>variable</strong> is a named container in computer memory used to store data values. In JavaScript, variables are declared using <code>const</code>, <code>let</code>, or the legacy keyword <code>var</code>.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Variable memory mein ek named box ki tarah hota hai jisme hum data store karte hain taaki usko pooray program mein dobara use ya update kar sakein. Modern JavaScript mein constant values ke liye <code>const</code> aur changeable values ke liye <code>let</code> use kiya jata hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Variable mhanje memory madhye data store karnya sathi dilele naav. Unchanging values sathi <code>const</code> aani badalnaraya values sathi <code>let</code> cha wapar kela jato. Legacy <code>var</code> cha wapar aajkal kela jaat nahi.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Instead of hardcoding values like user names, prices, or calculations multiple times in code, you store them in descriptive variables. This makes code clean, maintainable, and reusable.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a variable as a labeled container in your kitchen. The label is the variable name (e.g., <code>userScore</code>), and what you put inside is the value (e.g., <code>100</code>).</p>
+
+<h2>📝 Syntax & Keyword Rules</h2>
+
+<table>
+<p>  <thead><tr><th>Keyword</th><th>Scope</th><th>Reassignable?</th><th>Redeclarable?</th><th>Hoisted?</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>const</code></td><td>Block Scope</td><td>❌ No</td><td>❌ No</td><td>Yes (TDZ)</td></tr></p>
+<p>    <tr><td><code>let</code></td><td>Block Scope</td><td>✅ Yes</td><td>❌ No</td><td>Yes (TDZ)</td></tr></p>
+<p>    <tr><td><code>var</code></td><td>Function Scope</td><td>✅ Yes</td><td>✅ Yes</td><td>Yes (<code>undefined</code>)</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<pre><code class="language-js">// 1. const (Use by default for values that won&#39;t change)
+<p>const birthYear = 2002;</p>
+
+<p>// 2. let (Use for variables whose value will change later)</p>
+<p>let currentAge = 22;</p>
+<p>currentAge = 23; // Reassignment allowed</p>
+
+<p>// 3. var (Legacy - avoid in modern JavaScript code)</p>
+<p>var legacyVar = &quot;Old way&quot;;</code></pre></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">const productName = &quot;Wireless Mouse&quot;;
+<p>const unitPrice = 499;</p>
+<p>let quantity = 2;</p>
+
+<p>let totalCost = unitPrice * quantity;</p>
+<p>console.log(&quot;Product:&quot;, productName);</p>
+<p>console.log(&quot;Quantity:&quot;, quantity);</p>
+<p>console.log(&quot;Total Cost:&quot;, totalCost);</p>
+
+<p>// Updating quantity</p>
+<p>quantity = 3;</p>
+<p>totalCost = unitPrice * quantity;</p>
+<p>console.log(&quot;Updated Quantity:&quot;, quantity);</p>
+<p>console.log(&quot;Updated Total Cost:&quot;, totalCost);</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Product: Wireless Mouse
+<p>Quantity: 2</p>
+<p>Total Cost: 998</p>
+<p>Updated Quantity: 3</p>
+<p>Updated Total Cost: 1497</code></pre></p>
+
+<h2>🎯 Variable Naming Rules</h2>
+
+<ul>
+<p>  <li>Use <code>camelCase</code> for variable names (<code>userScore</code>, <code>totalAmount</code>).</li></p>
+<p>  <li>Names can contain letters, numbers, underscores (<code>_</code>), and dollar signs (<code>$</code>).</li></p>
+<p>  <li>Names <strong>cannot start with a number</strong>.</li></p>
+<p>  <li>Cannot use reserved keywords (<code>let</code>, <code>class</code>, <code>function</code>, <code>return</code>).</li></p>
+<p></ul></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Declare a <code>const</code> variable for your country name.</p>
+<p>2. Declare a <code>let</code> variable for your current savings balance.</p>
+<p>3. Update the savings balance variable and print both values.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Reassigning a <code>const</code> variable:</li></p>
+<p></ul></p>
+<p>  ``<code>javascript</p>
+<p>  const pi = 3.14;</p>
+<p>  pi = 3.14159; // TypeError: Assignment to constant variable.</p>
+<p>  </code>`<code></p>
+<ul>
+<p>  <li>Using </code>var<code> inside loops, leading to unintended variable leakage outside the block.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Variables store shopping cart items, user session information, form inputs, score counters in games, and UI toggles.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Default to </code>const<code> for all variable declarations. Switch to </code>let<code> only when you know the value will be reassigned. Avoid </code>var`.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="02-introduction-to-js.html">← Previous: Introduction</a> | <a href="04-data-types.html">Next: Data Types →</a></p>
+
+
+
+  </div>
+</body>
+</html>

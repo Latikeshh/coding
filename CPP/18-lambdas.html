@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 lambdas - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Lambda Expressions & Functional Programming in C++ (<code>[](){}</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>Introduced in C++11, a <strong>Lambda Expression</strong> is an anonymous (unnamed) inline function object that can be constructed right at its point of execution or passed directly as an argument to algorithms. Lambdas can capture local scope variables from their enclosing context using a <strong>Capture Clause (<code>[...]</code>)</strong>.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Lambda C++11 ka ek modern feature hai jo bina alag se function name banaye inline code likhne ki suvidha deta hai. Lambda ka basic syntax hota hai: <code><a href="parameters">capture</a> { body }</code>.</p>
+<ul>
+<p>  <li><code>[]</code>: Empty capture list.</li></p>
+<p>  <li><code>[=]</code>: Outer scope ki sabhi variables ko <strong>by-value</strong> (copy) capture karta hai.</li></p>
+<p>  <li><code>[&]</code>: Outer scope ki sabhi variables ko <strong>by-reference</strong> capture karta hai.</li></p>
+<p>  <li><code>[x, &y]</code>: <code>x</code> ko copy aur <code>y</code> ko reference se capture karta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>Lambda expression mhanje inline aani anonymous (nav नसलेला) function. Ha <code><algorithm></code> mhanalelya functions sathi khup garjecha ahe.</p>
+<p>Syntax: <code><a href="parameters">capture</a> -> return_type { body }</code>.</p>
+<ul>
+<p>  <li><code>[=]</code>: Baheril variables copy swaroopat ghenyasathi.</li></p>
+<p>  <li><code>[&]</code>: Baheril variables reference swaroopat ghenyasathi.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📝 Syntax & Anatomy</h2>
+
+<pre><code class="language-cpp">[ capture_clause ] ( parameters ) -&gt; return_type {
+<p>    // Lambda function body</p>
+<p>}</code></pre></p>
+
+<h3>Capture Clause Options</h3>
+<ul>
+<p>  <li><code>[]</code>: Capture nothing.</li></p>
+<p>  <li><code>[=]</code>: Capture all outer variables by value (read-only copies).</li></p>
+<p>  <li><code>[&]</code>: Capture all outer variables by reference (mutable originals).</li></p>
+<p>  <li><code>[factor]</code>: Capture specific variable <code>factor</code> by value.</li></p>
+<p>  <li><code>[&count]</code>: Capture specific variable <code>count</code> by reference.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;vector&gt;</p>
+<p>#include &lt;algorithm&gt;</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. BASIC INLINE LAMBDA ---&quot; &lt;&lt; std::endl;</p>
+<p>    // Defining a lambda assigned to auto</p>
+<p>    auto greet = [](std::string name) {</p>
+<p>        std::cout &lt;&lt; &quot;Hello &quot; &lt;&lt; name &lt;&lt; &quot; from C++ Lambda!&quot; &lt;&lt; std::endl;</p>
+<p>    };</p>
+<p>    greet(&quot;Aria&quot;);</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 2. LAMBDAS WITH STL ALGORITHMS ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::vector&lt;int&gt; scores = {12, 85, 45, 92, 33, 76};</p>
+
+<p>    // Filter and count scores &gt;= 50 using lambda inside std::count_if</p>
+<p>    int passCount = std::count_if(scores.begin(), scores.end(), [](int score) {</p>
+<p>        return score &gt;= 50;</p>
+<p>    });</p>
+<p>    std::cout &lt;&lt; &quot;Students Passed (Score &gt;= 50): &quot; &lt;&lt; passCount &lt;&lt; std::endl;</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 3. CAPTURING OUTER SCOPE VARIABLES ---&quot; &lt;&lt; std::endl;</p>
+<p>    int threshold = 80;</p>
+<p>    int matchCount = 0;</p>
+
+<p>    // Capture &#39;threshold&#39; BY VALUE and &#39;matchCount&#39; BY REFERENCE!</p>
+<p>    std::for_each(scores.begin(), scores.end(), <a href="int score">threshold, &amp;matchCount</a> {</p>
+<p>        if (score &gt;= threshold) {</p>
+<p>            matchCount++;</p>
+<p>        }</p>
+<p>    });</p>
+
+<p>    std::cout &lt;&lt; &quot;High Scorers (Score &gt;= &quot; &lt;&lt; threshold &lt;&lt; &quot;) : &quot; &lt;&lt; matchCount &lt;&lt; std::endl;</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>[](int score) { return score >= 50; }</code>: A predicate lambda passed to <code>std::count_if</code> that returns <code>true</code> for passing scores.</li></p>
+<p>  <li><code>[threshold, &matchCount]</code>: Captures <code>threshold</code> as a read-only value and <code>matchCount</code> as a mutable reference to count occurrences directly.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. BASIC INLINE LAMBDA ---
+<p>Hello Aria from C++ Lambda!</p>
+
+<p>--- 2. LAMBDAS WITH STL ALGORITHMS ---</p>
+<p>Students Passed (Score &gt;= 50): 4</p>
+
+<p>--- 3. CAPTURING OUTER SCOPE VARIABLES ---</p>
+<p>High Scorers (Score &gt;= 80) : 2</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Dangling Reference in Capture <code>[&]</code></strong>:</li></p>
+<p></ul></p>
+<p>  Capturing local variables by reference (<code>[&]</code>) inside a lambda that outlives the local scope causes dangling reference crashes! Use <code>[=]</code> (capture by value) if the lambda is stored or executed asynchronously.</p>
+<ul>
+<p>  <li><strong>Trying to Modify Value-Captured Variables</strong>:</li></p>
+<p></ul></p>
+<p>  Variables captured by value <code>[x]</code> are <code>const</code> inside the lambda body by default! Add the <code>mutable</code> keyword if you need to modify local value copies: <code>[x]() mutable { x++; }</code>.</p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Prefer explicit captures (<code>[x, &y]</code>) over default wildcard captures (<code>[=]</code> or <code>[&]</code>) for code clarity and safety.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Use <code>std::sort</code> with a custom lambda to sort a <code>std::vector<std::string></code> by string length (shortest to longest).</p>
+<p>2. Write a lambda that multiplies a number by a captured <code>multiplier</code> variable.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that uses <code>std::remove_if</code> and a lambda expression to strip all vowels (<code>a, e, i, o, u</code>) from a input string.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="16-stl-algorithms.html">STL Algorithms</a></li></p>
+<p>  <li><a href="08-functions.html">Functions in C++</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="17-templates.html">← Previous: Templates</a> | <a href="19-exception-handling.html">Next: Exception Handling →</a></p>
+
+
+  </div>
+</body>
+</html>

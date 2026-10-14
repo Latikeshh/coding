@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 merging branches - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Merging Branches (<code>git merge</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code>git merge</code></strong> is the command used to integrate independent commit histories from a source branch (e.g. <code>feature-login</code>) into a target branch (e.g. <code>main</code>), combining code modifications into a single unified timeline.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p><code>git merge</code> joins two branch histories. To merge <code>feature</code> into <code>main</code>, you must first switch to <code>main</code> (<code>git switch main</code>) and then execute <code>git merge feature</code>. If <code>main</code> has no new commits since the branch split, Git performs a <strong>Fast-Forward Merge</strong> (simply moving the branch pointer). If both branches have diverged, Git performs a <strong>3-Way Merge</strong> and generates an automatic <strong>Merge Commit</strong>.</p>
+
+<h3>Hindi</h3>
+<p>Feature branch ka kaam poora hone par use <code>main</code> branch mein milane ke liye <code>git merge</code> ka use hota hai. Pehle target branch (<code>main</code>) par switch karein (<code>git switch main</code>), phir <code>git merge feature-name</code> run karein. Agar donon branches mein alag-alag commits huye hain toh Git ek 3-Way Merge Commit banata hai.</p>
+
+<h3>Marathi</h3>
+<p>Feature branch madhil kaam <code>main</code> branch madhye aannyasathi <code>git merge</code> vaparatat. Pehle <code>git switch main</code> karun <code>main</code> branch var jaave, mag <code>git merge feature-name</code> command chalvavi.</p>
+
+<h3>Hinglish</h3>
+<p><code>feature</code> branch se code <code>main</code> branch mein combine karne ke liye <code>git merge</code> use hota hai. Rule simple hai: <strong>Hamesha us branch par khade hokar merge command chalayein jisme code AANA chahiye.</strong> (e.g., <code>main</code> branch par jaakar <code>git merge feature</code> run karein).</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Branching isolates development, but completed features must eventually be published to the main production codebase so users can access the new functionality. Merging brings those changes together.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of merging like two streams of a river joining together:</p>
+<ul>
+<p>  <li><code>main</code> is the primary river stream.</li></p>
+<p>  <li><code>feature</code> is a side canal that split off to collect new water.</li></p>
+<p>  <li>At the end of the feature project, the canal flows back into the primary river (<strong>Merge</strong>), making the river fuller and complete.</li></p>
+<p></ul></p>
+
+<h2>📝 The 2 Primary Merge Types</h2>
+
+<h3>1. Fast-Forward Merge</h3>
+<p>Occurs when the <code>main</code> branch has received NO new commits since the <code>feature</code> branch split off. Git simply moves the <code>main</code> branch pointer forward to match the <code>feature</code> commit. No extra merge commit is created.</p>
+
+<pre><code class="language-text">Before Merge:
+<p>[main] ──&gt; C1 ──&gt; C2</p>
+<p>                   └──&gt; C3 ──&gt; C4 [feature]</p>
+
+<p>After Fast-Forward Merge (<code>git merge feature</code> on <code>main</code>):</p>
+<p>[main] ──&gt; C1 ──&gt; C2 ──&gt; C3 ──&gt; C4 [feature]</code></pre></p>
+
+<h3>2. 3-Way Merge</h3>
+<p>Occurs when BOTH <code>main</code> and <code>feature</code> have received independent commits since splitting (diverged history). Git compares the common ancestor commit, <code>main</code>'s latest commit, and <code>feature</code>'s latest commit, generating a special <strong>Merge Commit</strong> with two parent commits.</p>
+
+<pre><code class="language-text">Before Merge:
+<p>[main] ──&gt; C1 ──&gt; C2 ──&gt; C5 [main]</p>
+<p>                   └──&gt; C3 ──&gt; C4 [feature]</p>
+
+<p>After 3-Way Merge:</p>
+<p>[main] ──&gt; C1 ──&gt; C2 ──&gt; C5 ─────────&gt; C6 (Merge Commit) [main]</p>
+<p>                   └──&gt; C3 ──&gt; C4 ──────┘</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Complete step-by-step terminal merging workflow:</p>
+
+<pre><code class="language-bash"># 1. Switch to destination branch (main)
+<p>git switch main</p>
+
+<h1>2. Ensure main is up to date</h1>
+<p>git pull origin main</p>
+
+<h1>3. Execute merge from feature branch</h1>
+<p>git merge feature-dark-mode</p>
+
+<h1>4. (Optional) Delete feature branch after successful merge</h1>
+<p>git branch -d feature-dark-mode</code></pre></p>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>git switch main</code>: Ensures you are standing on the receiving branch.</li></p>
+<p>  <li><code>git merge feature-dark-mode</code>: Pulls changes FROM <code>feature-dark-mode</code> INTO current active branch <code>main</code>.</li></p>
+<p>  <li><code>--no-ff</code>: Flag forcing Git to create a 3-Way Merge Commit even if a Fast-Forward merge is possible (preserves visual feature history).</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash"># Fast-Forward Output:
+<p>$ git merge feature-dark-mode</p>
+<p>Updating a1b2c3d..e5f6g7h</p>
+<p>Fast-forward</p>
+<p> dark.css | 5 +++++</p>
+<p> 1 file changed, 5 insertions(+)</p>
+<p> create mode 100644 dark.css</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Merging from Wrong Direction:</strong> Standing on <code>feature</code> branch and running <code>git merge main</code> when you intended to merge <code>feature</code> into <code>main</code>! Always verify active branch with <code>git branch</code> before merging.</li></p>
+<p>  <li><strong>Panic on Merge Conflicts:</strong> Getting scared when text conflicts occur. (Merge conflicts are normal and covered in the next lesson!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>If a 3-way merge is initiated and you want to cancel it safely before committing:</li></p>
+<p></ul></p>
+<p>  ``<code>bash</p>
+<p>  git merge --abort</p>
+<p>  </code>`<code></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>GitHub Pull Requests execute </code>git merge<code> automatically when an engineering lead clicks the green <strong>"Merge Pull Request"</strong> button on the GitHub website interface.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. In your </code>git-practice<code> repo, switch to </code>main<code> using </code>git switch main<code>.</p>
+<p>2. Merge your earlier </code>feature-signup<code> branch by running </code>git merge feature-signup<code>.</p>
+<p>3. Observe whether Git performed a Fast-Forward merge or 3-Way merge.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Run </code>git log --oneline --graph --all` after merging to visually inspect how the commit history nodes connected together.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="12-branching-basics.html">Branching Basics</a></li></p>
+<p>  <li><a href="14-handling-merge-conflicts.html">Handling Merge Conflicts</a></li></p>
+<p>  <li><a href="15-git-rebase.html">Git Rebase</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="12-branching-basics.html">← Previous: Branching</a> | <a href="14-handling-merge-conflicts.html">Next: Merge Conflicts →</a></p>
+
+
+
+  </div>
+</body>
+</html>

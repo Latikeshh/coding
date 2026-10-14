@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive Contribution Guide</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🤝 How to Contribute & Push Changes to Coding Repository</h1>
+
+<p>Thank you for your interest in contributing to <strong>Coding</strong>! 🎉</p>
+
+<p>This repository is a open-source educational resource designed to empower learners across Web Development, Systems Programming, Databases, and Version Control. Contributions from developers, learners, and educators of all skill levels are warmly welcome!</p>
+
+<p>---</p>
+
+<h2>📌 What You Can Contribute</h2>
+
+<p>You can contribute in many impactful ways:</p>
+
+<ul>
+<p>  <li>✍️ <strong>Add New Lessons or Topics</strong>: Expand existing tracks with new lessons or advanced concepts.</li></p>
+<p>  <li>💡 <strong>Improve Explanations</strong>: Make complex programming concepts easier to understand.</li></p>
+<p>  <li>🌍 <strong>Add Multilingual Translations</strong>: Enhance Hindi (Roman Script), Marathi (Roman Script), or Hinglish sections.</li></p>
+<p>  <li>🐛 <strong>Fix Mistakes or Typos</strong>: Correct code syntax errors, broken links, or grammatical issues.</li></p>
+<p>  <li>🧪 <strong>Add Code Examples & Projects</strong>: Provide practical, runnable code snippets or mini projects.</li></p>
+<p>  <li>🎨 <strong>Documentation & Styling</strong>: Improve markdown formatting, CSS theme, or documentation accessibility.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚀 Complete Step-by-Step Guide: How to Push Contributions</h2>
+
+<p>Follow this detailed Git and GitHub workflow to make your contribution and submit a Pull Request (PR):</p>
+
+<h3>Step 1: Fork the Repository</h3>
+
+<p>1. Go to the main repository page: <a href="https://github.com/Latikeshh/coding">https://github.com/Latikeshh/coding</a></p>
+<p>2. Click the <strong>Fork</strong> button near the top right corner.</p>
+<p>3. Select your GitHub account to create a copy of the repository in your profile.</p>
+
+<p>---</p>
+
+<h3>Step 2: Clone Your Fork to Your Local Machine</h3>
+
+<p>Open your terminal or command prompt and run:</p>
+
+<pre><code class="language-bash"># Clone your forked repository (replace &lt;your-username&gt; with your actual GitHub username)
+<p>git clone https://github.com/&lt;your-username&gt;/coding.git</p>
+
+<h1>Move into the project directory</h1>
+<p>cd coding</code></pre></p>
+
+<p>---</p>
+
+<h3>Step 3: Configure Upstream Remote</h3>
+
+<p>Set up a reference to the main original repository (upstream) so you can keep your fork updated:</p>
+
+<pre><code class="language-bash">git remote add upstream https://github.com/Latikeshh/coding.git
+
+<h1>Verify remotes</h1>
+<p>git remote -v</code></pre></p>
+
+<p>---</p>
+
+<h3>Step 4: Create a New Feature Branch</h3>
+
+<p>Always create a new branch for your changes rather than working on <code>main</code>:</p>
+
+<pre><code class="language-bash"># Create and switch to a descriptive new branch
+<p>git checkout -b feature/add-c-array-examples</code></pre></p>
+
+<p>---</p>
+
+<h3>Step 5: Make Your Changes & Follow Formatting Standards</h3>
+
+<p>Edit or create the files using your preferred code editor (VS Code, Android Studio, CLion, etc.).</p>
+
+<h4>📋 File & Content Formatting Standards:</h4>
+
+<ul>
+<p>  <li><strong>YAML Front Matter</strong>: Every Markdown file MUST start with valid YAML front matter:</li></p>
+<p></ul></p>
+<p>  ``<code>markdown</p>
+<p>  ---</p>
+<p>  layout: default</p>
+<p>  title: "Your Lesson or Page Title"</p>
+<p>  ---</p>
+<p>  <pre><code class="language-text">- <strong>Relative Links</strong>: Ensure all internal lesson links point to </code>.html<code> files (e.g., </code>01-setup-c.html<code>) and homepage links point to </code>./<code>.</p>
+<ul>
+<p>  <li><strong>Multilingual Structure</strong>: Include explanations in English, Hindi (Roman Script), Marathi (Roman Script), and Hinglish when creating or updating lessons.</li></p>
+<p>  <li><strong>Code Blocks</strong>: Specify language tags for syntax highlighting (e.g., </code> ``<code>c </code>, <code> </code>`<code>cpp </code>, <code> </code>`<code>python </code>, <code> </code>`<code>js </code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h3>Step 6: Stage and Commit Your Changes</h3>
+
+<p>Review your modified files and commit them with a clear, descriptive message:</p>
+<p></code></pre>bash</p>
+<h1>Check status of modified files</h1>
+<p>git status</p>
+
+<h1>Stage the changed files</h1>
+<p>git add .</p>
+
+<h1>Commit with a clear commit message</h1>
+<p>git commit -m "docs: add new dynamic memory allocation examples in C track"</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h3>Step 7: Push Branch to Your GitHub Fork</h3>
+
+<p>Push your local branch to your remote fork on GitHub:</p>
+<p></code></pre>bash</p>
+<p>git push origin feature/add-c-array-examples</p>
+<pre><code class="language-text">
+<p>---</p>
+
+<h3>Step 8: Open a Pull Request (PR)</h3>
+
+<p>1. Visit your forked repository on GitHub (<code>https://github.com/&lt;your-username&gt;/coding</code>).</p>
+<p>2. You will see a banner with a <strong>Compare &amp; pull request</strong> button. Click it!</p>
+<p>3. Provide a clear <strong>Title</strong> and <strong>Description</strong> explaining what changes you made and why.</p>
+<p>4. Click <strong>Create pull request</strong>.</p>
+
+<p>🎉 <strong>Congratulations!</strong> Your contribution is submitted. The maintainers will review your PR, provide feedback if needed, and merge it into the main repository.</p>
+
+<p>---</p>
+
+<h2>🔄 Keeping Your Local Fork Updated</h2>
+
+<p>Before creating a new branch or making new changes, sync your local <code>main</code> branch with the upstream repository:</p>
+<p></code></pre>bash</p>
+<h1>Switch to main branch</h1>
+<p>git checkout main</p>
+
+<h1>Fetch latest changes from upstream repository</h1>
+<p>git fetch upstream</p>
+
+<h1>Merge upstream main into your local main</h1>
+<p>git merge upstream/main</p>
+
+<h1>Push updated main to your GitHub fork</h1>
+<p>git push origin main</p>
+<p>```</p>
+
+<p>---</p>
+
+<h2>👥 Contributor Hall of Fame</h2>
+
+<p>All accepted contributors will be featured in the <strong>Contributors</strong> section of the main repository README!</p>
+
+<p>Thank you for helping make <strong>Coding</strong> a better resource for learners worldwide! 🚀</p>
+
+  </div>
+</body>
+</html>

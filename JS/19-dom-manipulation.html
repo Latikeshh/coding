@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 dom manipulation - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>🌳 DOM Selection, Modification & Dynamic Node Manipulation</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>The <strong>Document Object Model (DOM)</strong> is an object-oriented representation of an HTML document structured as a logical tree of nodes in memory. JavaScript interacts with the DOM API to dynamically select nodes, update text and HTML content, modify CSS styles, handle attributes, and create or destroy elements in response to user actions.</p>
+
+<p>---</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>When a browser loads an HTML page, it parses the markup and constructs an in-memory <strong>DOM Tree</strong>. JavaScript can query any node in this tree (such as <code><h1 id="title"></code>), read or modify its properties, toggle CSS utility classes, and append new elements dynamically without requiring a full web page refresh.</p>
+
+<h3>Hindi (Roman Script)</h3>
+<p>DOM HTML page ka ek Object Tree representation hai. JavaScript se hum Webpage ke kisi bhi element ko select kar sakte hain (<code>querySelector</code>), uska text change kar sakte hain (<code>textContent</code>), CSS styles badal sakte hain (<code>classList.toggle</code>), aur naye HTML elements create aur append kar sakte hain (<code>document.createElement</code>).</p>
+
+<h3>Marathi (Roman Script)</h3>
+<p>DOM mhanje HTML document cha tree structure. JavaScript cha wapar karun HTML elements badalne, navin elements tayar karne (<code>document.createElement</code>), aani CSS styles badalne shakya hote. <code>textContent</code> cha wapar karun safe text inject karta yete.</p>
+
+<h3>Hinglish</h3>
+<p>Dynamic web applications (jaise To-Do apps, shopping carts, live feeds) banane ke liye DOM manipulation sabse important concept hai. Elements ko select karke unme event listeners lagana aur output render karna DOM API se hota hai. <code>innerHTML</code> se bachen kyunki yeh XSS attacks ka khatra paida karta hai.</p>
+
+<p>---</p>
+
+<h2>🌳 The DOM Tree Hierarchy</h2>
+
+<pre><code class="language-text">[ document ]
+<p>    │</p>
+<p>    ▼</p>
+<p>[ &lt;html&gt; ]</p>
+<p>    ├── [ &lt;head&gt; ] ──► [ &lt;title&gt; ] ──► &quot;Page Title&quot;</p>
+<p>    └── [ &lt;body&gt; ]</p>
+<p>          ├── [ &lt;header&gt; ] ──► [ &lt;h1&gt; ] ──► &quot;Welcome&quot;</p>
+<p>          └── [ &lt;main&gt; ]   ──► [ &lt;ul id=&quot;list&quot;&gt; ]</p>
+<p>                                  ├── [ &lt;li class=&quot;item&quot;&gt; ] ──► &quot;Item 1&quot;</p>
+<p>                                  └── [ &lt;li class=&quot;item&quot;&gt; ] ──► &quot;Item 2&quot;</code></pre></p>
+
+<p>---</p>
+
+<h2>📝 Element Selection Methods Compared</h2>
+
+<table>
+<p>  <thead><tr><th>Selection Method</th><th>Description</th><th>Return Type</th><th>Performance</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>document.querySelector(selector)</code></td><td>Returns first matching CSS selector.</td><td>Single <code>Element</code> or <code>null</code></td><td>Fast & Universal</td></tr></p>
+<p>    <tr><td><code>document.querySelectorAll(selector)</code></td><td>Returns all matching CSS selectors.</td><td>Static <code>NodeList</code></td><td>Universal</td></tr></p>
+<p>    <tr><td><code>document.getElementById(id)</code></td><td>Returns element with exact ID.</td><td>Single <code>Element</code> or <code>null</code></td><td>Fastest</td></tr></p>
+<p>    <tr><td><code>document.getElementsByClassName(cls)</code></td><td>Returns elements with matching class name.</td><td>Live <code>HTMLCollection</code></td><td>Legacy</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Production Examples</h2>
+
+<h3>Example 1: Safe Content & Class Manipulation</h3>
+
+<pre><code class="language-js">// 1. Select elements
+<p>const mainHeading = document.querySelector(&quot;#main-heading&quot;);</p>
+<p>const cardContainer = document.querySelector(&quot;.card&quot;);</p>
+
+<p>// 2. Modify content safely using textContent (Prevents XSS Security Vulnerabilities)</p>
+<p>mainHeading.textContent = &quot;Updated Dynamic Dashboard&quot;;</p>
+
+<p>// 3. Manipulate Attributes</p>
+<p>mainHeading.setAttribute(&quot;data-status&quot;, &quot;verified&quot;);</p>
+<p>console.log(mainHeading.getAttribute(&quot;data-status&quot;)); // &quot;verified&quot;</p>
+
+<p>// 4. Manipulate CSS Classes cleanly via classList</p>
+<p>cardContainer.classList.add(&quot;active-card&quot;, &quot;shadow-lg&quot;);</p>
+<p>cardContainer.classList.remove(&quot;old-theme&quot;);</p>
+<p>cardContainer.classList.toggle(&quot;dark-mode&quot;); // Toggles on/off automatically</code></pre></p>
+
+<p>---</p>
+
+<h3>Example 2: Creating, Appending & Removing Nodes Dynamically</h3>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Dynamic Task List&lt;/title&gt;</p>
+<p>  &lt;style&gt;</p>
+<p>    .task-item { padding: 8px; margin: 4px 0; background: #1e293b; color: #38bdf8; border-radius: 4px; }</p>
+<p>    .completed { text-decoration: line-through; opacity: 0.6; }</p>
+<p>  &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>  &lt;h1&gt;Task Manager&lt;/h1&gt;</p>
+<p>  &lt;ul id=&quot;task-list&quot;&gt;&lt;/ul&gt;</p>
+<p>  &lt;button id=&quot;add-task-btn&quot;&gt;Add New Task&lt;/button&gt;</p>
+
+<p>  &lt;script&gt;</p>
+<p>    const taskList = document.querySelector(&quot;#task-list&quot;);</p>
+<p>    const addBtn = document.querySelector(&quot;#add-task-btn&quot;);</p>
+
+<p>    function createTask(taskText) {</p>
+<p>      // Step 1: Create element in memory</p>
+<p>      const li = document.createElement(&quot;li&quot;);</p>
+
+<p>      // Step 2: Configure content &amp; classes</p>
+<p>      li.textContent = taskText;</p>
+<p>      li.classList.add(&quot;task-item&quot;);</p>
+
+<p>      // Step 3: Add click-to-remove feature</p>
+<p>      li.addEventListener(&quot;click&quot;, () =&gt; {</p>
+<p>        li.remove(); // Removes node from DOM</p>
+<p>      });</p>
+
+<p>      // Step 4: Append to parent DOM container</p>
+<p>      taskList.appendChild(li);</p>
+<p>    }</p>
+
+<p>    addBtn.addEventListener(&quot;click&quot;, () =&gt; {</p>
+<p>      createTask(<code>Task item created at ${new Date().toLocaleTimeString()}</code>);</p>
+<p>    });</p>
+<p>  &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<p>---</p>
+
+<h3>Example 3: Optimized Bulk Insertion using DocumentFragment</h3>
+
+<p>Inserting 1,000 DOM items individually causes 1,000 browser reflows. Use <code>DocumentFragment</code> to perform a single batch insertion:</p>
+
+<pre><code class="language-js">const listContainer = document.querySelector(&quot;#large-list&quot;);
+
+<p>// Create an in-memory light container (causes ZERO browser reflows)</p>
+<p>const fragment = document.createDocumentFragment();</p>
+
+<p>for (let i = 1; i &lt;= 1000; i++) {</p>
+<p>  const li = document.createElement(&quot;li&quot;);</p>
+<p>  li.textContent = <code>User Record #${i}</code>;</p>
+<p>  li.classList.add(&quot;user-row&quot;);</p>
+<p>  fragment.appendChild(li); // Appends to in-memory fragment</p>
+<p>}</p>
+
+<p>// Perform a single reflow/repaint operation on the live DOM</p>
+<p>listContainer.appendChild(fragment);</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes & Security Vulnerabilities</h2>
+
+<ul>
+<p>  <li><strong>XSS Attacks via <code>innerHTML</code></strong>: Using <code>element.innerHTML = userInput;</code> allows attackers to inject malicious <code><script></code> tags or inline <code>onload</code> events. Always use <code>.textContent</code> or sanitize inputs.</li></p>
+<p>  <li><strong><code>textContent</code> vs <code>innerText</code> vs <code>innerHTML</code></strong>:</li></p>
+<p>  <li><code>.textContent</code>: Returns/sets raw text content (Fast & Safe).</li></p>
+<p>  <li><code>.innerText</code>: Returns human-readable text respecting CSS styling/visibility (Slower due to reflow).</li></p>
+<p>  <li><code>.innerHTML</code>: Parses string as HTML elements (Security risk if unsanitized).</li></p>
+<p>  <li><strong>Selecting Before DOM Ready</strong>: Running DOM selection scripts in <code><head></code> before HTML has parsed results in <code>null</code> errors. Solution: Place scripts at bottom of <code><body></code> or use <code><script defer src="..."></code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself & Practice Exercises</h2>
+
+<p>1. Use <code>document.querySelector</code> to select an element by class name, then change its background color to <code>#2563eb</code> using <code>.style.backgroundColor</code>.</p>
+<p>2. Write a script that creates a new <code><button></code> element with text <code>"Delete"</code>, adds class <code>"btn-danger"</code>, and appends it to a <code><div></code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Build a simple interactive counter web page containing:</p>
+<ul>
+<p>  <li>An <code><h1></code> element displaying count <code>0</code>.</li></p>
+<p>  <li>An "Increment" button that increases the count by 1 and changes text color to green.</li></p>
+<p>  <li>A "Decrement" button that decreases the count by 1 and changes text color to red if count goes below 0.</li></p>
+<p>  <li>A "Reset" button that resets count back to 0.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="18-classes-and-oop.html">ES6 Classes & Object-Oriented JS</a></li></p>
+<p>  <li><a href="20-event-delegation-and-web-apis.html">Event Bubbling, Delegation & Web APIs</a></li></p>
+<p>  <li><a href="21-web-storage.html">Web Storage (localStorage & sessionStorage)</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="18-classes-and-oop.html">← Previous: Classes & OOP</a> | <a href="20-event-delegation-and-web-apis.html">Next: Event Delegation →</a></p>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 git tags and releases - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Git Tags & GitHub Releases</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>Git Tag</strong> is a reference pointer that marks a specific commit in history with a human-readable release version label (such as <code>v1.0.0</code>). A <strong>GitHub Release</strong> packages a Git Tag with formal changelog release notes and compiled binary assets for users to download.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Git Tags mark software release milestones in commit history. <strong>Lightweight Tags</strong> are simple commit pointers. <strong>Annotated Tags</strong> (recommended) store tagger name, email, date, and a release message. Tags do not push to remotes automatically; you must explicitly run <code>git push origin v1.0.0</code> or <code>git push origin --tags</code>.</p>
+
+<h3>Hindi</h3>
+<p>Git Tags aapke commit history mein release milestones (jaise <code>v1.0.0</code>, <code>v2.0.0</code>) mark karte hain. Annotated tags (<code>git tag -a v1.0.0 -m "Release message"</code>) mein full author info aur release notes hote hain. Tags ko GitHub par upload karne ke liye <code>git push origin --tags</code> run karna zaroori hai.</p>
+
+<h3>Marathi</h3>
+<p>Git Tags cha vapar software releases (<code>v1.0.0</code>) mark karanyasathi hoto. Annotated tags (<code>git tag -a</code>) vaparne uttam aste. Tags GitHub var ghenyasathi <code>git push origin --tags</code> vaparatat.</p>
+
+<h3>Hinglish</h3>
+<p>Software versioning ke liye Semantic Versioning (<code>vMAJOR.MINOR.PATCH</code> e.g. <code>v1.2.0</code>) follow karein. Local tag banane ke baad <code>git push origin --tags</code> se GitHub par push karein, aur GitHub Releases tab par jaakar official release release notes ke sath publish karein.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Branches change constantly as new commits are added. Tags remain permanently fixed to a specific historical commit hash, allowing developers and deployment servers to instantly check out exact production release versions (<code>v1.0.0</code>).</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of commits like pages in a textbook:</p>
+<ul>
+<p>  <li>A <strong>Branch</strong> is a moving pencil bookmark showing where you are currently reading.</li></p>
+<p>  <li>A <strong>Tag</strong> is a permanent printed chapter marker stuck to Page 100 labeled <strong>"Chapter 1: Initial Release"</strong>. No matter how many pages are added later, Page 100 remains tagged as Chapter 1.</li></p>
+<p></ul></p>
+
+<h2>📝 Semantic Versioning (SemVer) Standard</h2>
+
+<p>Industry release version numbers follow the <code>vMAJOR.MINOR.PATCH</code> format:</p>
+
+<pre><code class="language-text">  v 2 . 4 . 1
+<p>    │   │   └── PATCH: Backward-compatible bug fixes</p>
+<p>    │   └────── MINOR: Backward-compatible new features</p>
+<p>    └────────── MAJOR: Breaking changes / Incompatible API updates</code></pre></p>
+
+<h2>💡 Key Tagging Commands</h2>
+
+<h3>1. Creating Annotated Tags (RECOMMENDED)</h3>
+<pre><code class="language-bash"># Create an annotated tag on current HEAD commit
+<p>git tag -a v1.0.0 -m &quot;Production Release Version 1.0.0&quot;</p>
+
+<h1>Tag a past specific commit SHA</h1>
+<p>git tag -a v0.9.0 a1b2c3d -m &quot;Beta release&quot;</code></pre></p>
+
+<h3>2. Listing & Inspecting Tags</h3>
+<pre><code class="language-bash"># List all tags
+<p>git tag</p>
+
+<h1>Filter tags matching pattern</h1>
+<p>git tag -l &quot;v1.*&quot;</p>
+
+<h1>Inspect detailed tag info and matching commit details</h1>
+<p>git show v1.0.0</code></pre></p>
+
+<h3>3. Pushing Tags to GitHub Remote</h3>
+<p>Tags are NOT pushed automatically by <code>git push</code>! You must push tags explicitly:</p>
+
+<pre><code class="language-bash"># Push a single specific tag
+<p>git push origin v1.0.0</p>
+
+<h1>Push ALL local tags to GitHub at once</h1>
+<p>git push origin --tags</code></pre></p>
+
+<h3>4. Deleting Tags</h3>
+<pre><code class="language-bash"># Delete local tag
+<p>git tag -d v1.0.0</p>
+
+<h1>Delete remote tag on GitHub</h1>
+<p>git push origin --delete v1.0.0</code></pre></p>
+
+<h2>🔍 Publishing a GitHub Release</h2>
+
+<p>1. Navigate to your GitHub repository web page -> Click <strong>Releases</strong> (right sidebar).</p>
+<p>2. Click <strong>Draft a new release</strong>.</p>
+<p>3. Select an existing tag (e.g. <code>v1.0.0</code>) or create a new tag.</p>
+<p>4. Add Release Title and detailed Markdown changelog release notes.</p>
+<p>5. (Optional) Drag and drop compiled executable binaries (<code>.zip</code>, <code>.exe</code>, <code>.apk</code>).</p>
+<p>6. Click <strong>Publish release</strong>.</p>
+
+<h2>👀 GitHub Release View</h2>
+
+<pre><code class="language-text">Release v1.0.0: Production Release [Latest]
+<p>Tag: v1.0.0 | Published 5 minutes ago by @Rahul</p>
+
+<p>Changelog:</p>
+<ul>
+<p>  <li>Added responsive navbar layout</li></p>
+<p>  <li>Fixed authentication session timeout bug</li></p>
+<p></ul></p>
+
+<p>Assets:</p>
+<p>📦 Source code (zip)</p>
+<p>📦 Source code (tar.gz)</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Forgetting to Push Tags:</strong> Creating local tags with <code>git tag -a v1.0.0</code> and expecting them to show up on GitHub automatically without running <code>git push origin --tags</code>.</li></p>
+<p>  <li><strong>Using Lightweight Tags for Official Releases:</strong> Using <code>git tag v1.0.0</code> (lightweight tag lacking author/date metadata) instead of annotated tags (<code>git tag -a v1.0.0 -m "msg"</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Annotated tags are stored as full objects in the Git database, checksummed with SHA hashes containing tagger name, email, date, and message payload.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Software deployment pipelines (Jenkins, GitHub Actions, Docker) trigger automated production server deployments whenever a new version tag (e.g., <code>v1.*</code>) is pushed to GitHub.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Inside your <code>git-practice</code> repo, create an annotated tag on your latest commit: <code>git tag -a v1.0.0 -m "Initial Release v1.0.0"</code>.</p>
+<p>2. Run <code>git tag</code> to list your tags.</p>
+<p>3. Run <code>git show v1.0.0</code> to inspect tag metadata.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Push your tag to GitHub using <code>git push origin v1.0.0</code> (or <code>git push origin --tags</code>), open your repo on GitHub web, and navigate to the <strong>Releases</strong> tab to view your live tag!</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="07-viewing-history-and-git-log.html">Viewing History</a></li></p>
+<p>  <li><a href="18-git-push-and-git-pull.html">Syncing Remotes with Push & Pull</a></li></p>
+<p>  <li><a href="26-github-actions-and-ci-cd-basics.html">GitHub Actions & CI/CD Basics</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="24-github-pages-and-hosting.html">← Previous: GitHub Pages</a> | <a href="26-github-actions-and-ci-cd-basics.html">Next: GitHub Actions →</a></p>
+
+
+
+  </div>
+</body>
+</html>

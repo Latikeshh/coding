@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 div and span - Learn HTML</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Generic Containers (<code><div></code> and <code><span></code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong><code><div></code></strong> (Division) is a generic <strong>block-level</strong> container used to group elements for layout styling, wrappers, or scripting. <strong><code><span></code></strong> is a generic <strong>inline-level</strong> container used to wrap small snippets of text or inline elements within a sentence without forcing line breaks.</p>
+
+<h2>🌍 Multilingual Summary</h2>
+
+<h3>English</h3>
+<p><code><div></code> is a generic block container (starts on a new line and takes 100% width). <code><span></code> is a generic inline container (stays in the same line). Prefer semantic tags when available.</p>
+
+<h3>Hindi</h3>
+<p><code><div></code> ek block-level container (naya paragraph/line leta hai) hai. <code><span></code> ek inline container (line ke andar text group karne ke liye) hai. Jahan possible ho, semantic tags prefer karein.</p>
+
+<h3>Marathi</h3>
+<p><code><div></code> ha block container (navin oliver suru hoto) aahe, tar <code><span></code> inline container aahe. Jithe shakya asel tithe semantic tags vapra.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p><code><div></code> and <code><span></code> serve as generic wrappers when no specific semantic HTML element (like <code><header></code>, <code><article></code>, or <code><strong></code>) applies. They provide targets for CSS styling and JavaScript DOM manipulations.</p>
+
+<h2>🧱 Block vs. Inline Elements Explained</h2>
+
+<table>
+<p>  <thead><tr><th>Property</th><th>Block-Level Elements (<code><div></code>, <code><p></code>, <code><h1></code>, <code><header></code>)</th><th>Inline-Level Elements (<code><span></code>, <code><a></code>, <code><strong></code>, <code><em></code>)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Line Behavior</strong></td><td>Always starts on a <strong>new line</strong> in the layout.</td><td>Stays on the <strong>same line</strong> alongside neighboring content.</td></tr></p>
+<p>    <tr><td><strong>Width Expansion</strong></td><td>Expands automatically to occupy <strong>100% full available width</strong>.</td><td>Occupies only as much width as its content requires.</td></tr></p>
+<p>    <tr><td><strong>Nesting Rules</strong></td><td>Can contain both block and inline elements.</td><td>Should contain only other inline elements or plain text.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>⚖️ When to Use <code><div></code> / <code><span></code> vs. Semantic Tags</h2>
+
+<p><code><div></code> and <code><span></code> have no inherent semantic meaning:</p>
+<ul>
+<p>  <li><strong>Prefer semantic HTML elements</strong> when a specific structural element exists:</li></p>
+<p>  <li>Use <code><header></code> for page headers.</li></p>
+<p>  <li>Use <code><nav></code> for navigation links.</li></p>
+<p>  <li>Use <code><main></code> for central page content.</li></p>
+<p>  <li>Use <code><article></code> for self-contained articles.</li></p>
+<p>  <li><strong>Use <code><div></code> or <code><span></code></strong> for purely visual styling wrappers, CSS Grid/Flexbox containers, or JavaScript targets.</li></p>
+<p></ul></p>
+
+<h2>💻 Code Example</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>&lt;html lang=&quot;en&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>  &lt;title&gt;Div and Span Practice&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+
+<p>  &lt;!-- Block division container grouping a card component --&gt;</p>
+<p>  &lt;div class=&quot;product-card&quot;&gt;</p>
+<p>    &lt;h2&gt;Wireless Gaming Mouse&lt;/h2&gt;</p>
+<p>    &lt;p&gt;High precision optical sensor with customizable RGB lighting.&lt;/p&gt;</p>
+<p>    &lt;p&gt;Price: &lt;span class=&quot;highlight-price&quot;&gt;$29.99&lt;/span&gt; &lt;span class=&quot;badge&quot;&gt;In Stock&lt;/span&gt;&lt;/p&gt;</p>
+<p>  &lt;/div&gt;</p>
+
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre></p>
+
+<h2>👀 Output / What You Will See</h2>
+
+<p>A block division container (<code><div></code>) wrapping a product card where the price <strong>"$29.99"</strong> and status <strong>"In Stock"</strong> are styled inside inline <code><span></code> elements on the same line.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code><div></code> wrapping a profile card component with heading and paragraph.</p>
+<p>2. Inside a paragraph, wrap a specific price or status word with <code><span></code>.</p>
+<p>3. Compare how <code><div></code> forces a new line while <code><span></code> stays inline.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>"Div Soup":</strong> Nesting dozens of unlabelled <code><div></code> containers when semantic structural tags (<code><header></code>, <code><section></code>, <code><article></code>, <code><footer></code>) fit better.</li></p>
+<p>  <li><strong>Wrapping block elements inside <code><span></code>:</strong> <code><span></code> should only wrap inline text fragments.</li></p>
+<p></ul></p>
+
+<h2>🌐 Real-World Usage</h2>
+
+<p>Web developers use <code><div></code> containers extensively as Flexbox and CSS Grid wrappers, and <code><span></code> elements for badge icons, price tags, and highlighted words.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="05-paragraphs.html">Paragraphs</a></li></p>
+<p>  <li><a href="15-html-attributes.html">HTML Attributes</a></li></p>
+<p>  <li><a href="22-semantic-html.html">Semantic HTML</a></li></p>
+<p></ul></p>
+
+<h2>💡 Remember</h2>
+
+<ul>
+<p>  <li><code><div></code> = Block-level container (new line, 100% width).</li></p>
+<p>  <li><code><span></code> = Inline-level container (same line, content width).</li></p>
+<p>  <li>Prefer semantic elements over generic <code><div></code> wrappers.</li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="13-buttons.html">← Previous: Buttons</a> | <a href="./">HTML Home</a> | <a href="15-html-attributes.html">Next: Attributes →</a></p>
+
+
+
+  </div>
+</body>
+</html>

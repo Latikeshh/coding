@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 enums - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Enumerations (<code>enum</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Enumeration</strong> (<code>enum</code>) is a custom user-defined data type in C consisting of a set of named integer constants. Enums replace raw "magic numbers" in code with self-documenting human-readable labels.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>An <code>enum</code> defines custom symbolic names for integer constants. By default, compiler assigns integer values starting from <code>0</code> incrementing by <code>1</code> (<code>0, 1, 2...</code>), but custom integer values can also be explicitly assigned. Enums improve code readability, simplify switch statements, and eliminate hardcoded magic numbers.</p>
+
+<h3>Hindi</h3>
+<p><code>enum</code> integer constants ko readable names dene ke liye use hota hai. Default rup se compiler <code>0</code> se ginti shuru karta hai (<code>0, 1, 2...</code>), par hum custom integer values (jaise <code>STATUS_OK = 200</code>) bhi assign kar sakte hain. <code>enum</code> se code readable banta hai aur magic numbers hat jaate hain.</p>
+
+<h3>Marathi</h3>
+<p><code>enum</code> mhanje numbers la manus-samjel ashi naave dene. Default value <code>0</code> pasun shuru hote (<code>0, 1, 2...</code>). Garaz aslyas aapan swatachi value (jase <code>200</code>) deu shakto. Code vachanasathi sopa honyasathi <code>enum</code> vapartat.</p>
+
+<h3>Hinglish</h3>
+<p>Raw integer numbers (<code>0</code>, <code>1</code>, <code>2</code>) ko code mein hardcode karne ke bajaye <code>enum</code> (<code>PENDING = 0</code>, <code>PROCESSING = 1</code>, <code>COMPLETED = 2</code>) use karo. <code>switch</code> statement ke saath <code>enum</code> combine karne par code highly readable aur maintainable ban jata hai.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Reading <code>if (orderStatus == 3)</code> tells a developer nothing about what state <code>3</code> represents. Reading <code>if (orderStatus == ORDER_SHIPPED)</code> makes the business logic immediately clear and prevents bugs caused by mistyping integer constants.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of an <code>enum</code> like traffic signal lights:</p>
+<ul>
+<p>  <li>Instead of remembering <code>0 = Red</code>, <code>1 = Yellow</code>, <code>2 = Green</code>, you define <code>enum TrafficLight { RED, YELLOW, GREEN };</code>.</li></p>
+<p>  <li>The code uses meaningful words (<code>RED</code>, <code>GREEN</code>) while the CPU handles the underlying numbers (<code>0</code>, <code>2</code>).</li></p>
+<p></ul></p>
+
+<h2>📝 Syntax & Declarations</h2>
+
+<pre><code class="language-c">// 1. Default enum (values: RED=0, YELLOW=1, GREEN=2)
+<p>typedef enum {</p>
+<p>    RED,</p>
+<p>    YELLOW,</p>
+<p>    GREEN</p>
+<p>} TrafficLight;</p>
+
+<p>// 2. Custom value enum</p>
+<p>typedef enum {</p>
+<p>    HTTP_OK = 200,</p>
+<p>    HTTP_BAD_REQUEST = 400,</p>
+<p>    HTTP_NOT_FOUND = 404,</p>
+<p>    HTTP_SERVER_ERROR = 500</p>
+<p>} HttpStatus;</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is an e-commerce order processing state machine demonstrating <code>enum</code> declarations, custom integer assignments, and integration with <code>switch</code> statements:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>// 1. Defining Order Status Enumeration</p>
+<p>typedef enum {</p>
+<p>    ORDER_PENDING = 1,</p>
+<p>    ORDER_PROCESSING, // Automatically assigned 2</p>
+<p>    ORDER_SHIPPED,    // Automatically assigned 3</p>
+<p>    ORDER_DELIVERED,  // Automatically assigned 4</p>
+<p>    ORDER_CANCELLED   // Automatically assigned 5</p>
+<p>} OrderStatus;</p>
+
+<p>// Function Prototype</p>
+<p>void displayOrderStatus(OrderStatus status);</p>
+
+<p>int main(void) {</p>
+<p>    // Declaring enum variables</p>
+<p>    OrderStatus currentOrder = ORDER_PENDING;</p>
+
+<p>    printf(&quot;--- E-COMMERCE ORDER TRACKING SYSTEM ---\n&quot;);</p>
+<p>    printf(&quot;Initial State:\n&quot;);</p>
+<p>    displayOrderStatus(currentOrder);</p>
+
+<p>    // Simulating order progression</p>
+<p>    printf(&quot;\nUpdating order status to SHIPPED...\n&quot;);</p>
+<p>    currentOrder = ORDER_SHIPPED;</p>
+<p>    displayOrderStatus(currentOrder);</p>
+
+<p>    // Printing underlying integer value</p>
+<p>    printf(&quot;\nUnderlying Integer Value of ORDER_SHIPPED: %d\n&quot;, currentOrder);</p>
+
+<p>    return 0;</p>
+<p>}</p>
+
+<p>void displayOrderStatus(OrderStatus status) {</p>
+<p>    printf(&quot;Order Status [%d]: &quot;, status);</p>
+<p>    switch (status) {</p>
+<p>        case ORDER_PENDING:</p>
+<p>            printf(&quot;Payment received. Awaiting warehouse fulfillment.\n&quot;);</p>
+<p>            break;</p>
+<p>        case ORDER_PROCESSING:</p>
+<p>            printf(&quot;Package is being packed at warehouse.\n&quot;);</p>
+<p>            break;</p>
+<p>        case ORDER_SHIPPED:</p>
+<p>            printf(&quot;Package handed over to courier. In transit.\n&quot;);</p>
+<p>            break;</p>
+<p>        case ORDER_DELIVERED:</p>
+<p>            printf(&quot;Package successfully delivered to customer.\n&quot;);</p>
+<p>            break;</p>
+<p>        case ORDER_CANCELLED:</p>
+<p>            printf(&quot;Order has been cancelled and refunded.\n&quot;);</p>
+<p>            break;</p>
+<p>        default:</p>
+<p>            printf(&quot;Unknown order status!\n&quot;);</p>
+<p>            break;</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>typedef enum { ORDER_PENDING = 1, ... } OrderStatus;</code>: Explicitly sets <code>ORDER_PENDING</code> to <code>1</code>. The compiler automatically assigns subsequent constants incremental values (<code>ORDER_PROCESSING = 2</code>, <code>ORDER_SHIPPED = 3</code>, etc.).</li></p>
+<p>  <li><code>switch (status)</code>: Enums integrate seamlessly with <code>switch</code> statements, allowing clean branching based on named state labels.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- E-COMMERCE ORDER TRACKING SYSTEM ---
+<p>Initial State:</p>
+<p>Order Status [1]: Payment received. Awaiting warehouse fulfillment.</p>
+
+<p>Updating order status to SHIPPED...</p>
+<p>Order Status [3]: Package handed over to courier. In transit.</p>
+
+<p>Underlying Integer Value of ORDER_SHIPPED: 3</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Assuming Strong Type Safety in C:</strong> Unlike C++ or Java, C treats <code>enum</code> types as basic integers. C will allow assigning raw integers or invalid numbers to an enum variable without triggering compile errors. Always validate enum inputs!</li></p>
+<p>  <li><strong>Duplicate Enum Name Conflicts:</strong> Enum constant names reside in the global scope within C. Defining <code>enum Light { RED, GREEN };</code> and <code>enum Color { RED, BLUE };</code> causes a compiler error due to duplicate <code>RED</code> definitions. Prefix constants with enum names (e.g., <code>LIGHT_RED</code>, <code>COLOR_RED</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Group state constants logically using prefix names (e.g. <code>STATUS_PENDING</code>, <code>STATUS_APPROVED</code>, <code>STATUS_REJECTED</code>) to avoid naming collisions across header files.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Enums define state machine transitions in game development, HTTP response status codes in web servers, system process states (<code>TASK_RUNNING</code>, <code>TASK_STOPPED</code> in operating system kernels), and protocol message types.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Define an <code>enum Days { MON = 1, TUE, WED, THU, FRI, SAT, SUN };</code>.</p>
+<p>2. Write a program that prints whether a day is a weekday or weekend using <code>switch</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program defining an <code>enum UserRole { ROLE_GUEST, ROLE_USER, ROLE_ADMIN };</code>. Write a function <code>void checkAccess(UserRole role)</code> that displays access privileges based on the role.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p>  <li><a href="14-structures.html">Structures</a></li></p>
+<p>  <li><a href="15-unions-and-bit-fields.html">Unions and Bit Fields</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="15-unions-and-bit-fields.html">← Previous: Unions</a> | <a href="17-file-handling.html">Next: File Handling →</a></p>
+
+
+
+  </div>
+</body>
+</html>

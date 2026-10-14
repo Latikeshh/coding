@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 smart pointers - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Smart Pointers & Memory Management in Modern C++ (<code>unique_ptr</code>, <code>shared_ptr</code>, <code>weak_ptr</code>)</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>In modern C++ (C++11 and beyond), <strong>Smart Pointers</strong> are container wrapper classes provided by <code><memory></code> that manage the lifetime of heap-allocated dynamic memory through <strong>RAII (Resource Acquisition Is Initialization)</strong>. Smart pointers automatically deallocate heap memory when their scope ends, completely eliminating manual <code>delete</code> statements, raw pointer dangling bugs, and memory leaks!</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>Purane C++ mein jab hum <code>new</code> se heap memory allocate karte the, toh humein <code>delete</code> karke memory free karni padti thi. Agar <code>delete</code> bhool gaye, toh memory leak ho jata tha. <strong>Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>)</strong> modern C++ ka sabse zaroori feature hain. Yeh raw pointers ko wrap kar lete hain aur jaise hi pointer scope se bahar jata hai, heap memory ko <strong>apne aap <code>delete</code> kar dete hain</strong>!</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>C++11 paasun raw pointers aani manual <code>delete</code> vaparanyapradhane <strong>Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>)</strong> vaparale jaataat. Smart pointer mhanje eka dynamic memory vr wrapper. Object cha scope samplyavar smart pointer aapoap heap memory <code>delete</code> karto, jyamule memory leaks hot nahit.</p>
+
+<p>---</p>
+
+<h2>📊 The 3 Smart Pointer Types Compared</h2>
+
+<table>
+<p>  <thead><tr><th>Smart Pointer</th><th>Ownership Rule</th><th>Copyable?</th><th>Movable?</th><th>Ideal Use Case</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>std::unique_ptr</code></strong></td><td><strong>Exclusive Ownership</strong> (1 owner only!)</td><td>❌ No</td><td>✅ Yes (<code>std::move</code>)</td><td>Default choice! Fast, zero overhead</td></tr></p>
+<p>    <tr><td><strong><code>std::shared_ptr</code></strong></td><td><strong>Shared Ownership</strong> (Ref-counted)</td><td>✅ Yes</td><td>✅ Yes</td><td>Shared resources across multiple owners</td></tr></p>
+<p>    <tr><td><strong><code>std::weak_ptr</code></strong></td><td><strong>Non-owning Observer</strong></td><td>✅ Yes</td><td>✅ Yes</td><td>Breaks circular reference deadlocks</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;memory&gt;</p>
+<p>#include &lt;string&gt;</p>
+
+<p>class Resource {</p>
+<p>private:</p>
+<p>    std::string name;</p>
+<p>public:</p>
+<p>    Resource(std::string resName) : name(resName) {</p>
+<p>        std::cout &lt;&lt; &quot;[ALLOCATED] Heap Resource: &quot; &lt;&lt; name &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    ~Resource() {</p>
+<p>        std::cout &lt;&lt; &quot;[DESTROYED] Heap Resource: &quot; &lt;&lt; name &lt;&lt; &quot; (Auto-freed!)&quot; &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    void doWork() const {</p>
+<p>        std::cout &lt;&lt; &quot;Working with Resource: &quot; &lt;&lt; name &lt;&lt; std::endl;</p>
+<p>    }</p>
+<p>};</p>
+
+<p>int main() {</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. DEMO: std::unique_ptr (Exclusive Ownership) ---&quot; &lt;&lt; std::endl;</p>
+<p>    {</p>
+<p>        // Recommended helper: std::make_unique (C++14)</p>
+<p>        std::unique_ptr&lt;Resource&gt; uPtr1 = std::make_unique&lt;Resource&gt;(&quot;UniqueDB&quot;);</p>
+<p>        uPtr1-&gt;doWork();</p>
+
+<p>        // std::unique_ptr CANNOT be copied!</p>
+<p>        // std::unique_ptr&lt;Resource&gt; uPtr2 = uPtr1; // COMPILATION ERROR!</p>
+
+<p>        // Ownership can be MOVED using std::move</p>
+<p>        std::unique_ptr&lt;Resource&gt; uPtr2 = std::move(uPtr1); // uPtr1 is now empty/null</p>
+<p>        </p>
+<p>        if (!uPtr1) {</p>
+<p>            std::cout &lt;&lt; &quot;uPtr1 is now NULL after std::move.&quot; &lt;&lt; std::endl;</p>
+<p>        }</p>
+<p>        uPtr2-&gt;doWork();</p>
+<p>    } // uPtr2 goes out of scope HERE -&gt; Destructor called automatically!</p>
+
+<p>    std::cout &lt;&lt; &quot;\n--- 2. DEMO: std::shared_ptr (Shared Reference Counting) ---&quot; &lt;&lt; std::endl;</p>
+<p>    {</p>
+<p>        std::shared_ptr&lt;Resource&gt; sPtr1 = std::make_shared&lt;Resource&gt;(&quot;SharedCache&quot;);</p>
+<p>        std::cout &lt;&lt; &quot;Reference Count: &quot; &lt;&lt; sPtr1.use_count() &lt;&lt; std::endl;</p>
+
+<p>        {</p>
+<p>            // Copying std::shared_ptr INCREMENTS reference counter!</p>
+<p>            std::shared_ptr&lt;Resource&gt; sPtr2 = sPtr1;</p>
+<p>            std::cout &lt;&lt; &quot;Reference Count inside inner scope: &quot; &lt;&lt; sPtr1.use_count() &lt;&lt; std::endl;</p>
+<p>            sPtr2-&gt;doWork();</p>
+<p>        } // sPtr2 goes out of scope HERE -&gt; Ref count decremented back to 1!</p>
+
+<p>        std::cout &lt;&lt; &quot;Reference Count after inner scope ends: &quot; &lt;&lt; sPtr1.use_count() &lt;&lt; std::endl;</p>
+<p>    } // sPtr1 goes out of scope HERE -&gt; Ref count reaches 0 -&gt; Memory freed automatically!</p>
+
+<p>    std::cout &lt;&lt; &quot;--- END OF MAIN ---&quot; &lt;&lt; std::endl;</p>
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>std::make_unique<Resource>("UniqueDB")</code>: Allocates <code>Resource</code> on the heap and wraps it inside a <code>unique_ptr</code>.</li></p>
+<p>  <li><code>std::move(uPtr1)</code>: Transfers exclusive ownership from <code>uPtr1</code> to <code>uPtr2</code>.</li></p>
+<p>  <li><code>sPtr1.use_count()</code>: Inspects the internal reference counter of <code>std::shared_ptr</code>. When <code>use_count()</code> drops to <code>0</code>, <code>delete</code> executes automatically.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. DEMO: std::unique_ptr (Exclusive Ownership) ---
+<p>[ALLOCATED] Heap Resource: UniqueDB</p>
+<p>Working with Resource: UniqueDB</p>
+<p>uPtr1 is now NULL after std::move.</p>
+<p>Working with Resource: UniqueDB</p>
+<p>[DESTROYED] Heap Resource: UniqueDB (Auto-freed!)</p>
+
+<p>--- 2. DEMO: std::shared_ptr (Shared Reference Counting) ---</p>
+<p>[ALLOCATED] Heap Resource: SharedCache</p>
+<p>Reference Count: 1</p>
+<p>Reference Count inside inner scope: 2</p>
+<p>Working with Resource: SharedCache</p>
+<p>Reference Count after inner scope ends: 1</p>
+<p>[DESTROYED] Heap Resource: SharedCache (Auto-freed!)</p>
+<p>--- END OF MAIN ---</code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Using Raw <code>new</code> and <code>delete</code> in Modern C++</strong>: Manual memory management leads to dangling pointers and memory leaks. Use <code>std::make_unique</code> or <code>std::make_shared</code> instead.</li></p>
+<p>  <li><strong>Circular Reference Memory Leak with <code>shared_ptr</code></strong>:</li></p>
+<p></ul></p>
+<p>  If Object A holds a <code>shared_ptr</code> to Object B, and Object B holds a <code>shared_ptr</code> to Object A, their reference counts never reach 0! Use <code>std::weak_ptr</code> for back-references to break circular loops.</p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Make <code>std::unique_ptr</code> your default smart pointer choice unless shared ownership is strictly required.</li></p>
+<p>  <li>Always use factory functions <code>std::make_unique</code> (C++14) and <code>std::make_shared</code> (C++11) for safety and exception performance.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Allocate a dynamic <code>std::vector<int></code> inside a <code>std::unique_ptr</code>, populate 5 numbers, and iterate over them.</p>
+<p>2. Inspect <code>use_count()</code> of a <code>std::shared_ptr</code> as you pass it to functions by value vs by reference.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Implement a <code>TreeNode</code> class where a parent node owns its children using <code>std::vector<std::unique_ptr<TreeNode>></code>. Demonstrate tree creation and automated cleanup.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="11-constructors-and-destructors.html">Constructors & Destructors</a></li></p>
+<p>  <li><a href="12-inheritance-and-polymorphism.html">Inheritance & Polymorphism</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="13-operator-overloading.html">← Previous: Operator Overloading</a> | <a href="15-stl-containers.html">Next: STL Containers →</a></p>
+
+
+  </div>
+</body>
+</html>

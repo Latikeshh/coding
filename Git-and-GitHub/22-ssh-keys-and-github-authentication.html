@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 ssh keys and github authentication - Learn Git & GitHub</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>SSH Keys & GitHub Authentication</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>SSH (Secure Shell)</strong> authentication uses an asymmetric cryptographic key pair — a <strong>Private Key</strong> kept secure on your local computer and a <strong>Public Key</strong> uploaded to GitHub — to authenticate terminal <code>git push</code> and <code>git pull</code> operations securely without entering account passwords or Personal Access Tokens (PATs).</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>GitHub requires secure authentication for git operations. Password authentication for HTTPS git pushes was deprecated by GitHub in 2021. Setting up an SSH Key pair (<code>Ed25519</code> algorithm) establishes passwordless, encrypted communication between your computer terminal and GitHub servers.</p>
+
+<h3>Hindi</h3>
+<p>GitHub par HTTPS password-based authentication band ho chuka hai. SSH Key Setup karne se aap bina har baar password ya token daale surakshit tarike se <code>git push</code> aur <code>git pull</code> kar sakte hain. SSH mein ek Public Key (jo GitHub par save hoti hai) aur ek Private Key (jo aapke laptop mein hoti hai) banti hai.</p>
+
+<h3>Marathi</h3>
+<p>GitHub var HTTPS password baddal SSH Keys kiva Personal Access Tokens (PAT) vaparale jatat. SSH Keys mule password n takta secure <code>git push</code> karta yete. Public Key GitHub var takli jaate aani Private Key aaplya computer var rahte.</p>
+
+<h3>Hinglish</h3>
+<p>Har baar <code>git push</code> karte waqt GitHub password maangne se pareshan hone ke bajaye SSH Key configure karein. <code>ssh-keygen</code> command se Key Pair generate karein, Public Key (<code>.pub</code>) ko GitHub settings mein add karein, aur permanent passwordless push access enjoy karein.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Personal Access Tokens (PATs) expire periodically and require manual credential helper configuration. SSH keys provide permanent, zero-friction, hardware-tied security that authenticates your terminal pushes automatically.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of SSH Key authentication like a physical lock and key:</p>
+<ul>
+<p>  <li><strong>Public Key (<code>.pub</code>):</strong> The lock installed on the GitHub front door. Anyone can see the lock.</li></p>
+<p>  <li><strong>Private Key (no extension):</strong> The physical key sitting inside your pocket.</li></p>
+<p>  <li>When you run <code>git push</code>, your local key turns the lock on GitHub. If they match, GitHub lets you in instantly!</li></p>
+<p></ul></p>
+
+<h2>📝 Step-by-Step SSH Setup Guide</h2>
+
+<h3>Step 1: Generate a New SSH Key Pair</h3>
+<p>Open Git Bash or Terminal and run the modern <code>Ed25519</code> algorithm command:</p>
+
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code></pre>
+<p>*Press Enter to accept default file location (<code>~/.ssh/id_ed25519</code>) and optionally set a passphrase.*</p>
+
+<h3>Step 2: Start SSH Agent and Add Private Key</h3>
+<pre><code class="language-bash"># Start background ssh-agent process
+<p>eval &quot;$(ssh-agent -s)&quot;</p>
+
+<h1>Add your private key to agent memory</h1>
+<p>ssh-add ~/.ssh/id_ed25519</code></pre></p>
+
+<h3>Step 3: Copy Your Public Key Content</h3>
+<p>Display and copy your public key text string:</p>
+
+<pre><code class="language-bash">cat ~/.ssh/id_ed25519.pub</code></pre>
+
+<h3>Step 4: Add Public Key to GitHub Account</h3>
+<p>1. Log in to GitHub -> Click your profile avatar (top right) -> <strong>Settings</strong>.</p>
+<p>2. Select <strong>SSH and GPG keys</strong> in left sidebar.</p>
+<p>3. Click <strong>New SSH key</strong>.</p>
+<p>4. Set Title (e.g. <code>Work Laptop</code>), paste copied key string into <strong>Key</strong> field, and click <strong>Add SSH key</strong>.</p>
+
+<h3>Step 5: Test Connection to GitHub</h3>
+<pre><code class="language-bash">ssh -T git@github.com</code></pre>
+
+<h3>Step 6: Convert Local Repository from HTTPS to SSH</h3>
+<pre><code class="language-bash">git remote set-url origin git@github.com:your-username/repository-name.git</code></pre>
+
+<h2>🔍 Command Breakdown</h2>
+
+<ul>
+<p>  <li><code>ssh-keygen -t ed25519</code>: Generates a high-security Ed25519 elliptic-curve SSH key pair.</li></p>
+<p>  <li><code>cat ~/.ssh/id_ed25519.pub</code>: Prints the <strong>Public Key</strong> content (ends in <code>.pub</code>).</li></p>
+<p>  <li><code>git@github.com:user/repo.git</code>: The SSH format URL for remote repositories.</li></p>
+<p></ul></p>
+
+<h2>👀 Terminal Output</h2>
+
+<pre><code class="language-bash"># Testing SSH Connection Output:
+<p>$ ssh -T git@github.com</p>
+<p>Hi your-username! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre></p>
+
+<h2>⚠️ Common Mistakes & Security Warnings</h2>
+
+<ul>
+<p>  <li><strong>NEVER Share Private Key:</strong> Uploading or emailing your Private Key (<code>~/.ssh/id_ed25519</code> without <code>.pub</code>). Anyone with your private key has full access to your GitHub account!</li></p>
+<p>  <li><strong>Permission Denied Error (<code>Permission denied (publickey)</code>):</strong> Running <code>git push</code> with an SSH URL when your public key has NOT been added to GitHub Settings yet, or when <code>ssh-agent</code> is not running.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li><strong>Public Key (<code>id_ed25519.pub</code>):</strong> Safe to share and upload to GitHub/GitLab servers.</li></p>
+<p>  <li><strong>Private Key (<code>id_ed25519</code>):</strong> STRICTLY CONFIDENTIAL. Never share or commit!</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Enterprise engineering environments enforce mandatory SSH key authentication with hardware security keys (e.g. YubiKey) for all code pushes.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Check if you already have existing SSH keys by running <code>ls -la ~/.ssh</code>.</p>
+<p>2. Generate an Ed25519 key pair using <code>ssh-keygen -t ed25519 -C "your_email@example.com"</code>.</p>
+<p>3. Display your public key using <code>cat ~/.ssh/id_ed25519.pub</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Add your SSH Public Key to your GitHub Settings and verify successful authentication by running <code>ssh -T git@github.com</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-remote-repositories-and-remotes.html">Remote Repositories</a></li></p>
+<p>  <li><a href="18-git-push-and-git-pull.html">Syncing Remotes with Push & Pull</a></li></p>
+<p>  <li><a href="29-git-best-practices-and-security.html">Security Best Practices</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Home</a> | <a href="21-forking-and-pull-requests.html">← Previous: Forking & PRs</a> | <a href="23-github-issues-and-project-boards.html">Next: GitHub Issues & Projects →</a></p>
+
+
+
+  </div>
+</body>
+</html>

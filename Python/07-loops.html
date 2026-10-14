@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loops - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Loops in Python (<code>for</code>, <code>while</code>, <code>range</code>, <code>else</code>)</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Loops</strong> repeatedly execute a block of code as long as a condition holds true or for each item in a sequence (like a list, string, or range). Python supports <code>for</code> loops (sequence iteration), <code>while</code> loops (pre-test condition), <code>break</code>, <code>continue</code>, <code>pass</code>, and a unique <strong><code>for...else</code> / <code>while...else</code></strong> clause.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Repeated tasks ko automate karne ke liye <code>for</code> aur <code>while</code> loops ka use hota hai. Counter sequences ke liye <code>range(start, stop, step)</code> use karein. Python mein <code>for...else</code> block tabhi chalta hai jab loop bina <code>break</code> hit kiye naturally complete hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Code punha punha chalavnyasathi <code>for</code> aani <code>while</code> loops vaparatat. Sequences sathi <code>range()</code> aani loop skip sathi <code>continue</code> vapara.</p>
+
+<h2>📝 1. Sequence Iteration & <code>range()</code></h2>
+
+<p>The <code>range(start, stop, step)</code> function generates a sequence of numbers (the <code>stop</code> number is <strong>excluded</strong>!).</p>
+
+<pre><code class="language-python"># Iterates 1, 2, 3, 4 (5 is excluded)
+<p>for i in range(1, 5):</p>
+<p>    print(&quot;Count:&quot;, i)</p>
+
+<h1>Step sequence: 0, 2, 4, 6, 8</h1>
+<p>for even in range(0, 10, 2):</p>
+<p>    print(&quot;Even:&quot;, even)</code></pre></p>
+
+<h2>📝 2. Loop Control Keywords</h2>
+
+<ul>
+<p>  <li><code>break</code>: Exits the loop immediately.</li></p>
+<p>  <li><code>continue</code>: Skips the rest of the current iteration and jumps to the next cycle.</li></p>
+<p>  <li><code>pass</code>: Placeholder statement that does nothing (used when syntax requires a statement).</li></p>
+<p></ul></p>
+
+<h2>📝 3. Unique Python Feature: <code>for...else</code></h2>
+
+<p>In Python, an <code>else</code> block attached to a loop executes <strong>ONLY if the loop finishes all iterations naturally without hitting a <code>break</code> statement!</strong></p>
+
+<pre><code class="language-python">numbers = [1, 3, 5, 7]
+<p>target = 4</p>
+
+<p>for num in numbers:</p>
+<p>    if num == target:</p>
+<p>        print(&quot;Found target!&quot;)</p>
+<p>        break</p>
+<p>else:</p>
+<p>    # Runs ONLY if target was not found and loop didn&#39;t break!</p>
+<p>    print(&quot;Target not found in list.&quot;)</code></pre></p>
+
+<h2>💡 Complete Example: Searching & Batch Processing</h2>
+
+<pre><code class="language-python"># Batch Processing &amp; Inventory Search System
+<p>inventory = [</p>
+<p>    {&quot;name&quot;: &quot;Laptop&quot;, &quot;stock&quot;: 15, &quot;price&quot;: 55000.00},</p>
+<p>    {&quot;name&quot;: &quot;Mouse&quot;, &quot;stock&quot;: 0, &quot;price&quot;: 499.00},   # Out of stock</p>
+<p>    {&quot;name&quot;: &quot;Keyboard&quot;, &quot;stock&quot;: 25, &quot;price&quot;: 1499.00},</p>
+<p>    {&quot;name&quot;: &quot;Monitor&quot;, &quot;stock&quot;: 8, &quot;price&quot;: 12500.00}</p>
+<p>]</p>
+
+<p>print(&quot;=== INVENTORY BATCH SUMMARY ===&quot;)</p>
+
+<h1>1. Processing Inventory with for loop &amp; continue</h1>
+<p>for item in inventory:</p>
+<p>    if item[&quot;stock&quot;] == 0:</p>
+<p>        print(f&quot;Skipping {item[&#39;name&#39;]}: Out of Stock!&quot;)</p>
+<p>        continue  # Skip out-of-stock items</p>
+<p>        </p>
+<p>    print(f&quot;Item: {item[&#39;name&#39;]:&lt;10} | Stock: {item[&#39;stock&#39;]:&lt;3} | Value: ₹{item[&#39;stock&#39;] * item[&#39;price&#39;]:.2f}&quot;)</p>
+
+<h1>2. Search Target Item with for...else</h1>
+<p>search_name = &quot;Keyboard&quot;</p>
+<p>print(f&quot;\nSearching for &#39;{search_name}&#39;...&quot;)</p>
+
+<p>for item in inventory:</p>
+<p>    if item[&quot;name&quot;].lower() == search_name.lower():</p>
+<p>        print(f&quot;FOUND: {item[&#39;name&#39;]} - ₹{item[&#39;price&#39;]} ({item[&#39;stock&#39;]} in stock)&quot;)</p>
+<p>        break</p>
+<p>else:</p>
+<p>    print(f&quot;NOT FOUND: &#39;{search_name}&#39; is not in inventory.&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== INVENTORY BATCH SUMMARY ===
+<p>Item: Laptop     | Stock: 15  | Value: ₹825000.00</p>
+<p>Skipping Mouse: Out of Stock!</p>
+<p>Item: Keyboard   | Stock: 25  | Value: ₹37475.00</p>
+<p>Item: Monitor    | Stock: 8   | Value: ₹100000.00</p>
+
+<p>Searching for &#39;Keyboard&#39;...</p>
+<p>FOUND: Keyboard - ₹1499.0 (25 in stock)</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Infinite Loops:</strong> Forgetting to update counter variables inside a <code>while</code> loop.</li></p>
+<p>  <li><strong>Off-By-One Errors:</strong> Forgetting that <code>range(1, 10)</code> generates numbers from 1 to 9 (10 is excluded!).</li></p>
+<p>  <li>Modifying a list structurally (adding or removing items) while iterating over it with a <code>for</code> loop.</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>When you need both element indices and values during list iteration, use <code>enumerate(sequence)</code> instead of manual index counters:</p>
+
+<pre><code class="language-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+<p>for index, fruit in enumerate(fruits, start=1):</p>
+<p>    print(f&quot;{index}. {fruit}&quot;)</code></pre></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Traversing database query results, retrying network requests, reading text log files line-by-line, and rendering list UI templates.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a <code>for</code> loop using <code>range()</code> that prints all multiples of 5 from <code>5</code> to <code>50</code>.</p>
+<p>2. Write a <code>while</code> loop that calculates the sum of digits of <code>1234</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that uses <code>for...else</code> to check whether a given integer is a Prime Number (divisible only by 1 and itself).</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p>  <li><a href="09-lists.html">Lists</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="06-conditionals.html">← Previous: Conditionals</a> | <a href="08-functions.html">Next: Functions →</a></p>
+
+
+  </div>
+</body>
+</html>

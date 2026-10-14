@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 data types and null - Learn SQL</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>SQL Data Types & NULL Values</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>In SQL, every column in a database table must be assigned an explicit <strong>Data Type</strong> that defines the nature of data it can store (whole numbers, exact decimals, variable text, dates) and how much storage memory it consumes.</p>
+
+<p>Understanding data types also requires mastering <strong><code>NULL</code></strong>—the special SQL keyword used to signify missing, unknown, or unrecorded information.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi (Roman Script)</h2>
+
+<p>SQL Table mein har column ka ek Data Type hota hai jo decide karta hai ki usme kaisa data store hoga (jaise <code>INT</code> integers ke liye, <code>DECIMAL</code> paise/amount ke liye, <code>VARCHAR</code> text ke liye, aur <code>DATE</code> tarikh ke liye). Missing ya unknown values ko represent karne ke liye <strong><code>NULL</code></strong> ka use hota hai. Dhyan rakhein ki <code>NULL</code> zero (<code>0</code>) ya empty string (<code>''</code>) ke barabar nahi hota, aur <code>NULL</code> ko compare karne ke liye <code>=</code> ki jagah <strong><code>IS NULL</code></strong> ya <strong><code>IS NOT NULL</code></strong> ka use kiya jata hai.</p>
+
+<p>---</p>
+
+<h2>🚩 Marathi (Roman Script)</h2>
+
+<p>Table madhye pratyek column sathi Data Type nivadava lagto (jasakhi <code>INT</code> sankhyansathi, <code>DECIMAL</code> paishansathi, <code>VARCHAR</code> navansathi, aani <code>DATE</code> tarikhesathi). Missing kiva mahit naslelya data sathi <strong><code>NULL</code></strong> cha wapar kela jato. <code>NULL</code> mhanje zero (<code>0</code>) kiva empty space (<code>''</code>) nahi. <code>NULL</code> sodvnyasathi <code>=</code> na vaparta <strong><code>IS NULL</code></strong> kiva <strong><code>IS NOT NULL</code></strong> chya wapar kele jato.</p>
+
+<p>---</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Selecting the correct data types and handling missing values properly is essential because:</p>
+
+<ul>
+<p>  <li><strong>Data Integrity:</strong> Prevents invalid data entries (e.g., stopping alphabetical text from being stored in an age or price column).</li></p>
+<p>  <li><strong>Storage & Memory Efficiency:</strong> Allocates appropriate disk space (e.g., using 1 byte for small status flags instead of 8 bytes).</li></p>
+<p>  <li><strong>Exact Financial Calculations:</strong> Prevents floating-point rounding errors when processing monetary transactions.</li></p>
+<p>  <li><strong>Accurate Business Analytics:</strong> Distinguishes between a customer having a <strong>budget of $0.00</strong> versus an <strong>unknown budget (<code>NULL</code>)</strong>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧠 Simple Analogy: Passport Application Form</h2>
+
+<p>Think of a table definition as a <strong>Passport Application Form</strong>:</p>
+
+<ul>
+<p>  <li><strong>Age Field:</strong> Accepts whole numbers only $\rightarrow$ <code>INT</code></li></p>
+<p>  <li><strong>Applicant Name:</strong> Accepts variable-length text $\rightarrow$ <code>VARCHAR(100)</code></li></p>
+<p>  <li><strong>Country Code:</strong> Accepts exact 2-letter codes (<code>IN</code>, <code>US</code>) $\rightarrow$ <code>CHAR(2)</code></li></p>
+<p>  <li><strong>Date of Birth:</strong> Accepts calendar dates $\rightarrow$ <code>DATE</code></li></p>
+<p>  <li><strong>Middle Name:</strong> Optional field $\rightarrow$ If left blank, it is recorded as <strong><code>NULL</code></strong> *(Missing/Unknown, NOT "Zero" and NOT an empty string)*.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔢 1. Numeric Data Types</h2>
+
+<p>SQL numeric types are divided into <strong>Exact Integers</strong>, <strong>Exact Decimals</strong>, and <strong>Approximate Floating-Point Numbers</strong>.</p>
+
+<h3>A. Integers (Whole Numbers)</h3>
+<ul>
+<p>  <li><strong><code>INT</code> / <code>INTEGER</code>:</strong> Standard 4-byte integer. Range: <code>-2,147,483,648</code> to <code>2,147,483,647</code>. Best for IDs, ages, quantities.</li></p>
+<p>  <li><strong><code>BIGINT</code>:</strong> 8-byte integer for massive numbers. Best for global transaction IDs or large system metrics.</li></p>
+<p></ul></p>
+
+<h3>B. Exact Fixed-Point Decimals (Money & Currency)</h3>
+<ul>
+<p>  <li><strong><code>DECIMAL(p, s)</code> / <code>NUMERIC(p, s)</code>:</strong> Stores exact numeric values without floating-point rounding errors.</li></p>
+<p>  <li><strong>Precision ($p$):</strong> Total maximum number of digits stored (both left and right of the decimal point).</li></p>
+<p>  <li><strong>Scale ($s$):</strong> Maximum number of digits stored to the right of the decimal point.</li></p>
+<p></ul></p>
+
+<blockquote><p>💡 <strong>Example:</strong> <code>DECIMAL(10, 2)</code> permits <strong>10 total digits</strong>, with <strong>2 digits after the decimal point</strong>. The largest value it can store is <code>99,999,999.99</code>. Always use <code>DECIMAL</code> for product prices, account balances, and tax calculations!</p></blockquote>
+
+<h3>C. Approximate Floating-Point Numbers</h3>
+<ul>
+<p>  <li><strong><code>FLOAT</code> / <code>DOUBLE</code>:</strong> Stores approximate scientific floating-point numbers.</li></p>
+<p>  <li>⚠️ <strong>Warning:</strong> Never use <code>FLOAT</code> or <code>DOUBLE</code> for financial or currency calculations due to binary hardware rounding inaccuracies (e.g., <code>0.1 + 0.2</code> returning <code>0.30000000000000004</code>).</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🔤 2. String & Text Data Types</h2>
+
+<h3>A. <code>VARCHAR(n)</code> (Variable-Length Text)</h3>
+<p>Stores variable-length text up to a maximum of $n$ characters.</p>
+<ul>
+<p>  <li><strong>Behavior:</strong> If you store <code>'Rahul'</code> (5 characters) in a <code>VARCHAR(100)</code> column, it consumes only 5 characters of storage plus 1 length-byte.</li></p>
+<p>  <li><strong>Best Used For:</strong> Names, email addresses, street names, cities.</li></p>
+<p></ul></p>
+
+<h3>B. <code>CHAR(n)</code> (Fixed-Length Text)</h3>
+<p>Stores fixed-length text strings of exact length $n$.</p>
+<ul>
+<p>  <li><strong>Behavior:</strong> If you store <code>'IN'</code> in a <code>CHAR(10)</code> column, the database engine pads it with 8 trailing spaces to fill all 10 characters.</li></p>
+<p>  <li><strong>Best Used For:</strong> Fixed-length codes like 2-letter state/country codes (<code>IN</code>, <code>US</code>), status flags (<code>Y</code>/<code>N</code>), or hash strings.</li></p>
+<p></ul></p>
+
+<h3>C. <code>TEXT</code> (Long Documents)</h3>
+<p>Stores long text up to 65,535 characters (in MySQL). Used for product descriptions, blog posts, or support tickets.</p>
+
+<blockquote><p>📌 <strong>Rule of Thumb for Phone Numbers:</strong> Phone numbers (e.g., <code>+919876543210</code>, <code>02212345678</code>) should <strong>always</strong> be stored as <code>VARCHAR</code> (strings), <strong>never</strong> as integers (<code>INT</code>)! Integer types strip leading zeros (<code>022</code> becomes <code>22</code>), cannot store <code>+</code> country codes, and reject formatting dashes.</p></blockquote>
+
+<p>---</p>
+
+<h2>📅 3. Date & Time Data Types</h2>
+
+<table>
+<p>  <thead><tr><th>Data Type</th><th>Format</th><th>Example</th><th>Description & Best Use Case</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong><code>DATE</code></strong></td><td><code>YYYY-MM-DD</code></td><td><code>'2026-10-09'</code></td><td>Calendar date without time. Best for birthdays, hire dates.</td></tr></p>
+<p>    <tr><td><strong><code>TIME</code></strong></td><td><code>HH:MM:SS</code></td><td><code>'14:30:00'</code></td><td>Time of day or elapsed time interval. Best for shift hours.</td></tr></p>
+<p>    <tr><td><strong><code>DATETIME</code></strong></td><td><code>YYYY-MM-DD HH:MM:SS</code></td><td><code>'2026-10-09 14:30:00'</code></td><td>Static date and time (Year 1000 to 9999). Unaffected by timezones.</td></tr></p>
+<p>    <tr><td><strong><code>TIMESTAMP</code></strong></td><td><code>YYYY-MM-DD HH:MM:SS</code></td><td><code>'2026-10-09 09:00:00'</code></td><td>UTC timezone-aware timestamp (1970 to 2038). Auto-converts between UTC and local timezone.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<blockquote><p>🌐 <strong>MySQL <code>DATETIME</code> vs <code>TIMESTAMP</code>:</strong> In MySQL, <code>TIMESTAMP</code> values are converted from the local session timezone to <strong>UTC</strong> for storage on disk, and back to the client's local timezone upon retrieval. <code>DATETIME</code> stores raw static dates regardless of server timezone settings.</p></blockquote>
+
+<p>---</p>
+
+<h2>🧠 Deep Dive: Understanding <code>NULL</code> in SQL</h2>
+
+<p><strong><code>NULL</code></strong> represents missing, unknown, or unrecorded information.</p>
+
+<h3>What <code>NULL</code> Is NOT:</h3>
+<ul>
+<p>  <li>❌ <code>NULL</code> is <strong>NOT</strong> equal to zero (<code>0</code>). Zero is a known number.</li></p>
+<p>  <li>❌ <code>NULL</code> is <strong>NOT</strong> equal to an empty string (<code>''</code>). An empty string is a known text value of zero length.</li></p>
+<p>  <li>❌ <code>NULL</code> is <strong>NOT</strong> equal to the literal string <code>'NULL'</code>.</li></p>
+<p></ul></p>
+
+<pre><code class="language-text">┌─────────────────┬─────────────────────────────────────────────────┐
+<p>│ Value           │ Real-World Interpretation                       │</p>
+<p>├─────────────────┼─────────────────────────────────────────────────┤</p>
+<p>│ budget = 0.00   │ Customer explicitly stated their budget is $0   │</p>
+<p>│ budget = &#39;&#39;     │ Empty string text (Invalid numeric type)        │</p>
+<p>│ budget = NULL   │ Customer HAS NOT stated their budget yet (Unknown)│</p>
+<p>└─────────────────┴─────────────────────────────────────────────────┘</code></pre></p>
+
+<h3>Three-Valued Logic (3VL) & <code>NULL</code> Comparisons</h3>
+
+<p>In SQL, boolean logic evaluates to three possible states: <strong><code>TRUE</code></strong>, <strong><code>FALSE</code></strong>, or <strong><code>UNKNOWN</code></strong>.</p>
+
+<p>Any mathematical calculation or equality comparison involving <code>NULL</code> returns <code>NULL</code> / <code>UNKNOWN</code>:</p>
+
+<pre><code class="language-sql">-- Arithmetic with NULL returns NULL:
+<p>SELECT 10 + NULL;  -- Result: NULL</p>
+
+<p>-- Equality comparison with NULL yields UNKNOWN (Fails in WHERE clause!):</p>
+<p>SELECT * FROM customer_leads WHERE phone_number = NULL; -- ❌ WRONG! Returns 0 rows!</code></pre></p>
+
+<h3>Correct <code>NULL</code> Operators: <code>IS NULL</code> & <code>IS NOT NULL</code></h3>
+
+<p>To check for missing values in SQL, you must use <strong><code>IS NULL</code></strong> or <strong><code>IS NOT NULL</code></strong>:</p>
+
+<pre><code class="language-sql">-- ✅ Correct: Selects leads with missing phone numbers
+<p>SELECT * FROM customer_leads WHERE phone_number IS NULL;</p>
+
+<p>-- ✅ Correct: Selects leads with valid, known phone numbers</p>
+<p>SELECT * FROM customer_leads WHERE phone_number IS NOT NULL;</code></pre></p>
+
+<p>---</p>
+
+<h2>🛠️ Practical Working Example: <code>customer_leads</code> Table</h2>
+
+<p>Let's create a MySQL-compatible <code>customer_leads</code> table and explore <code>NULL</code> filtering and <code>COALESCE</code> functions.</p>
+
+<pre><code class="language-sql">-- 1. Create table schema
+<p>CREATE TABLE customer_leads (</p>
+<p>    lead_id INT PRIMARY KEY,</p>
+<p>    full_name VARCHAR(100) NOT NULL,</p>
+<p>    phone_number VARCHAR(15), -- NULL allowed (optional field)</p>
+<p>    estimated_budget DECIMAL(10, 2), -- NULL allowed (unknown budget)</p>
+<p>    signup_date DATE DEFAULT (CURRENT_DATE)</p>
+<p>);</p>
+
+<p>-- 2. Insert sample records containing available and NULL values</p>
+<p>INSERT INTO customer_leads (lead_id, full_name, phone_number, estimated_budget, signup_date)</p>
+<p>VALUES </p>
+<p>    (1, &#39;Aarav Mehta&#39;, &#39;9876543210&#39;, 50000.00, &#39;2026-10-01&#39;),</p>
+<p>    (2, &#39;Sneha Kapoor&#39;, NULL, 75000.00, &#39;2026-10-02&#39;),          -- Missing phone</p>
+<p>    (3, &#39;Rohan Sharma&#39;, &#39;9123456789&#39;, NULL, &#39;2026-10-03&#39;),        -- Unknown budget</p>
+<p>    (4, &#39;Priya Singh&#39;, NULL, NULL, &#39;2026-10-04&#39;);                 -- Missing phone &amp; budget</code></pre></p>
+
+<h3>Query 1: Find Leads with Missing Phone Numbers (<code>IS NULL</code>)</h3>
+
+<pre><code class="language-sql">SELECT lead_id, full_name, estimated_budget
+<p>FROM customer_leads</p>
+<p>WHERE phone_number IS NULL;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+---------+--------------+------------------+
+<table>
+<p>  <thead><tr><th>lead_id</th><th>full_name</th><th>estimated_budget</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------+--------------+------------------+</p>
+<table>
+<p>  <thead><tr><th>2</th><th>Sneha Kapoor</th><th>75000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>4</td><td>Priya Singh</td><td>NULL</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------+--------------+------------------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 2: Find Leads with Known Budgets (<code>IS NOT NULL</code>)</h3>
+
+<pre><code class="language-sql">SELECT lead_id, full_name, estimated_budget
+<p>FROM customer_leads</p>
+<p>WHERE estimated_budget IS NOT NULL;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+---------+--------------+------------------+
+<table>
+<p>  <thead><tr><th>lead_id</th><th>full_name</th><th>estimated_budget</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------+--------------+------------------+</p>
+<table>
+<p>  <thead><tr><th>1</th><th>Aarav Mehta</th><th>50000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>2</td><td>Sneha Kapoor</td><td>75000.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+---------+--------------+------------------+</code></pre></p>
+
+<p>---</p>
+
+<h3>Query 3: Replacing <code>NULL</code> Display Values using <code>COALESCE</code></h3>
+
+<p>The <strong><code>COALESCE(expr1, expr2, ...)</code></strong> function evaluates arguments in order and returns the <strong>first non-NULL expression</strong>.</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    full_name,</p>
+<p>    COALESCE(phone_number, &#39;N/A&#39;) AS contact_info,</p>
+<p>    COALESCE(estimated_budget, 0.00) AS display_budget</p>
+<p>FROM customer_leads;</code></pre></p>
+
+<p>#### 👀 Expected Output:</p>
+
+<pre><code class="language-text">+--------------+--------------+----------------+
+<table>
+<p>  <thead><tr><th>full_name</th><th>contact_info</th><th>display_budget</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+--------------+----------------+</p>
+<table>
+<p>  <thead><tr><th>Aarav Mehta</th><th>9876543210</th><th>50000.00</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Sneha Kapoor</td><td>N/A</td><td>75000.00</td></tr></p>
+<p>    <tr><td>Rohan Sharma</td><td>9123456789</td><td>0.00</td></tr></p>
+<p>    <tr><td>Priya Singh</td><td>N/A</td><td>0.00</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+--------------+----------------+</code></pre></p>
+
+<blockquote><p>📌 <strong>Important Clarification on <code>COALESCE</code>:</strong> Displaying <code>0.00</code> for <code>Rohan Sharma</code> using <code>COALESCE(estimated_budget, 0.00)</code> is only a display rule for user interfaces. It does <strong>not</strong> alter the underlying database table record, which remains <code>NULL</code> (unknown).</p></blockquote>
+
+<p>---</p>
+
+<h2>📊 Concise Data Types & NULL Comparison Matrix</h2>
+
+<table>
+<p>  <thead><tr><th>Comparison Category</th><th>Feature A</th><th>Feature B</th><th>Key Difference</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><strong>Numeric Precision</strong></td><td><code>INT</code> (Whole integer)</td><td><code>DECIMAL(10,2)</code> (Exact decimal)</td><td><code>INT</code> stores whole numbers; <code>DECIMAL</code> stores exact money/prices.</td></tr></p>
+<p>    <tr><td><strong>Financial Safety</strong></td><td><code>DECIMAL</code> (Exact fixed-point)</td><td><code>FLOAT</code> / <code>DOUBLE</code> (Approximate)</td><td><code>DECIMAL</code> is exact; <code>FLOAT</code> suffers binary rounding errors.</td></tr></p>
+<p>    <tr><td><strong>String Allocation</strong></td><td><code>CHAR(10)</code> (Fixed length)</td><td><code>VARCHAR(10)</code> (Variable length)</td><td><code>CHAR</code> pads trailing spaces; <code>VARCHAR</code> uses only required bytes.</td></tr></p>
+<p>    <tr><td><strong>Timezone Behavior</strong></td><td><code>DATETIME</code> (Static date/time)</td><td><code>TIMESTAMP</code> (UTC aware)</td><td><code>DATETIME</code> stays fixed; <code>TIMESTAMP</code> converts to client timezone.</td></tr></p>
+<p>    <tr><td><strong>Missing Values</strong></td><td><code>NULL</code> (Unknown / Missing)</td><td><code>0</code> or <code>''</code> (Known values)</td><td><code>NULL</code> means unknown; <code>0</code> is numeric zero; <code>''</code> is empty text.</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>🛠️ Common Mistakes & Best Practices</h2>
+
+<p>1. ❌ <strong>Writing <code>WHERE column = NULL</code></strong>:</p>
+<ul>
+<p>  <li>*Fix:* Always use <code>WHERE column IS NULL</code> or <code>WHERE column IS NOT NULL</code>.</li></p>
+<p></ul></p>
+<p>2. ❌ <strong>Storing Phone Numbers or Postal Codes as <code>INT</code></strong>:</p>
+<ul>
+<p>  <li>*Fix:* Always store phone numbers, zip codes, and credit card numbers as <code>VARCHAR</code> to preserve leading zeros (<code>022</code>) and special characters (<code>+</code>).</li></p>
+<p></ul></p>
+<p>3. ❌ <strong>Using <code>FLOAT</code> or <code>DOUBLE</code> for Money Calculations</strong>:</p>
+<ul>
+<p>  <li>*Fix:* Use <code>DECIMAL(10,2)</code> for prices and monetary accounts to prevent floating-point rounding errors.</li></p>
+<p></ul></p>
+<p>4. ❌ <strong>Confusing <code>NULL</code> with Zero or Empty Text</strong>:</p>
+<ul>
+<p>  <li>*Fix:* Treat <code>NULL</code> as unknown data. Avoid converting <code>NULL</code> to <code>0</code> inside table storage unless a zero value is factually accurate.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<ul>
+<p>  <li><strong>E-Commerce Applications:</strong> Uses <code>DECIMAL(10,2)</code> for item pricing, <code>TIMESTAMP</code> for order checkout logs, and <code>NULL</code> for optional customer discount codes.</li></p>
+<p>  <li><strong>Healthcare Records:</strong> Uses <code>DATE</code> for birth dates, <code>DECIMAL(5,2)</code> for body weight/temperature, and <code>NULL</code> for unrecorded patient allergies.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Learning Exercises & Self-Checks</h2>
+
+<h3>Exercise 1: Finding Missing Data</h3>
+<p>Write an SQL query on the <code>customer_leads</code> table to retrieve all columns for leads who have <strong>both</strong> a missing phone number (<code>IS NULL</code>) and a missing budget (<code>IS NULL</code>).</p>
+
+<h3>Exercise 2: Data Type Selection</h3>
+<p>Choose the single best SQL data type for each of the following real-world attributes:</p>
+<p>1. Product Price (e.g., <code>$1,499.99</code>): <code>________________</code></p>
+<p>2. Customer Age (e.g., <code>25</code>): <code>________________</code></p>
+<p>3. US State Abbreviation (e.g., <code>'CA'</code>, <code>'NY'</code>): <code>________________</code></p>
+<p>4. User Bio / Product Description: <code>________________</code></p>
+<p>5. International Phone Number (e.g., <code>'+91-9876543210'</code>): <code>________________</code></p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write an SQL query on <code>customer_leads</code> that returns two columns:</p>
+<p>1. <code>full_name</code></p>
+<p>2. <code>lead_status</code>: If <code>phone_number</code> is <code>NULL</code>, display <code>'Action Needed: Missing Phone'</code>; otherwise display <code>'Contact Info Available'</code>.</p>
+
+<p>*(Hint: Use <code>COALESCE</code> or <code>IS NULL</code> logic).*</p>
+
+<details>
+<summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
+
+<h3>Answer Key:</h3>
+
+<p>#### Exercise 1 Solution:</p>
+<pre><code class="language-sql">SELECT *
+<p>FROM customer_leads</p>
+<p>WHERE phone_number IS NULL </p>
+<p>  AND estimated_budget IS NULL;</code></pre></p>
+
+<p>#### Exercise 2 Solution:</p>
+<p>1. Product Price $\rightarrow$ <code>DECIMAL(10,2)</code></p>
+<p>2. Customer Age $\rightarrow$ <code>INT</code> (or <code>TINYINT</code>)</p>
+<p>3. US State Abbreviation $\rightarrow$ <code>CHAR(2)</code></p>
+<p>4. Product Description $\rightarrow$ <code>TEXT</code> (or <code>VARCHAR(500)</code>)</p>
+<p>5. Phone Number $\rightarrow$ <code>VARCHAR(20)</code></p>
+
+<p>#### Mini Challenge Solution:</p>
+
+<pre><code class="language-sql">SELECT 
+<p>    full_name,</p>
+<p>    CASE </p>
+<p>        WHEN phone_number IS NULL THEN &#39;Action Needed: Missing Phone&#39;</p>
+<p>        ELSE &#39;Contact Info Available&#39;</p>
+<p>    END AS lead_status</p>
+<p>FROM customer_leads;</code></pre></p>
+
+<p><strong>Expected Output:</strong></p>
+
+<pre><code class="language-text">+--------------+------------------------------+
+<table>
+<p>  <thead><tr><th>full_name</th><th>lead_status</th></tr></thead></p>
+<p>  <tbody></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+------------------------------+</p>
+<table>
+<p>  <thead><tr><th>Aarav Mehta</th><th>Contact Info Available</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Sneha Kapoor</td><td>Action Needed: Missing Phone</td></tr></p>
+<p>    <tr><td>Rohan Sharma</td><td>Contact Info Available</td></tr></p>
+<p>    <tr><td>Priya Singh</td><td>Action Needed: Missing Phone</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+<p>+--------------+------------------------------+</code></pre></p>
+
+<p></details></p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>)</a></li></p>
+<p>  <li><a href="05-keys.html">Database Keys (Primary, Foreign & Candidate Keys)</a></li></p>
+<p>  <li><a href="06-insert.html"><code>INSERT</code> – Adding Data to Tables</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="03-databases-and-tables.html">← Previous: Database & Table Basics</a> | <a href="./">SQL Home</a> | <a href="05-keys.html">Next: Database Keys →</a></p>
+
+  </div>
+</body>
+</html>

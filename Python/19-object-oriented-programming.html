@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object-Oriented Programming - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Object-Oriented Programming (OOP) in Python</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Object-Oriented Programming (OOP)</strong> is a paradigm that structures software around <strong>Classes</strong> (blueprints) and <strong>Objects</strong> (instances created from blueprints). OOP encapsulates state (data attributes) and behavior (methods) into reusable objects, supporting <strong>Encapsulation</strong>, <strong>Inheritance</strong>, and <strong>Polymorphism</strong>.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>OOP mein <strong>Class</strong> ek design/blueprint hoti hai aur <strong>Object</strong> us design se bane actual instances hote hain. Instance variables initialize karne ke liye <code>__init__()</code> constructor method ka use hota hai, aur <code>self</code> parameter current object instance ko point karta hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Class mhanje blueprint aani Object mhanje instance. Objects create honyasathi <code>__init__()</code> constructor vaparatat, aani <code>self</code> current instance la point karto.</p>
+
+<h2>🤔 Why Do We Use It?</h2>
+
+<p>Procedural programming keeps data variables and functions separated, leading to fragmented code as applications grow. OOP packages data and functions together into self-contained objects, reflecting real-world entities.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<p>Think of a <strong>Class</strong> as a factory architectural blueprint for a smartphone. The blueprint defines attributes (<code>model</code>, <code>storage</code>, <code>battery_level</code>) and methods (<code>make_call()</code>, <code>charge()</code>). An <strong>Object</strong> is the actual physical phone manufactured from that blueprint.</p>
+
+<h2>📝 1. The <code>__init__</code> Constructor & <code>self</code> Parameter</h2>
+
+<ul>
+<p>  <li><strong><code>__init__(self, ...)</code>:</strong> Automatically invoked when an object instance is created with <code>new_obj = ClassName()</code>.</li></p>
+<p>  <li><strong><code>self</code>:</strong> Explicit parameter representing the <strong>current instance of the object</strong> (must be the first parameter in instance methods!).</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">class BankAccount:
+<p>    # Constructor</p>
+<p>    def __init__(self, owner, balance=0.0):</p>
+<p>        self.owner = owner          # Instance attribute</p>
+<p>        self.balance = balance      # Instance attribute</p>
+
+<p>    # Instance Method</p>
+<p>    def deposit(self, amount):</p>
+<p>        if amount &gt; 0:</p>
+<p>            self.balance += amount</p>
+<p>            print(f&quot;Deposited ₹{amount:.2f}. New Balance: ₹{self.balance:.2f}&quot;)</code></pre></p>
+
+<h2>📝 2. Class Attributes vs Instance Attributes</h2>
+
+<ul>
+<p>  <li><strong>Instance Attributes (<code>self.attr</code>):</strong> Unique to each individual object instance.</li></p>
+<p>  <li><strong>Class Attributes:</strong> Defined directly in class body; shared globally across <strong>ALL</strong> object instances!</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">class Student:
+<p>    school_name = &quot;Delhi Public School&quot; # Class attribute (shared)</p>
+
+<p>    def __init__(self, name):</p>
+<p>        self.name = name # Instance attribute (unique)</code></pre></p>
+
+<h2>📝 3. Inheritance (<code>super()</code>) & Encapsulation Conventions</h2>
+
+<ul>
+<p>  <li><strong>Inheritance:</strong> <code>class SubClass(ParentClass):</code> inherits parent methods.</li></p>
+<p>  <li><strong><code>super().__init__()</code>:</strong> Calls parent class constructor.</li></p>
+<p>  <li><strong>Protected Convention (<code>_attr</code>):</strong> Single underscore signals internal use.</li></p>
+<p>  <li><strong>Private Name Mangling (<code>__attr</code>):</strong> Double underscore mangles name to prevent external access.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example: E-Commerce Product & Electronics Subclass</h2>
+
+<pre><code class="language-python"># OOP E-Commerce System
+
+<p>class Product:</p>
+<p>    &quot;&quot;&quot;Parent Superclass representing general store items.&quot;&quot;&quot;</p>
+<p>    def __init__(self, product_id, name, price):</p>
+<p>        self.product_id = product_id</p>
+<p>        self.name = name</p>
+<p>        self._price = max(0.0, price) # Protected attribute</p>
+<p>        </p>
+<p>    def get_price(self):</p>
+<p>        return self._price</p>
+
+<p>    def display_details(self):</p>
+<p>        return f&quot;[{self.product_id}] {self.name} - ₹{self._price:.2f}&quot;</p>
+
+<h1>Subclass Inheriting from Product</h1>
+<p>class ElectronicsProduct(Product):</p>
+<p>    &quot;&quot;&quot;Subclass adding warranty attributes and method overriding.&quot;&quot;&quot;</p>
+<p>    def __init__(self, product_id, name, price, warranty_months):</p>
+<p>        # Calling parent constructor using super()</p>
+<p>        super().__init__(product_id, name, price)</p>
+<p>        self.warranty_months = warranty_months</p>
+
+<p>    # Overriding Parent Method (Polymorphism)</p>
+<p>    def display_details(self):</p>
+<p>        base_details = super().display_details()</p>
+<p>        return f&quot;{base_details} | Warranty: {self.warranty_months} Months&quot;</p>
+
+<h1>Testing OOP Classes</h1>
+<p>if __name__ == &quot;__main__&quot;:</p>
+<p>    p1 = Product(&quot;P-101&quot;, &quot;Coffee Mug&quot;, 350.00)</p>
+<p>    p2 = ElectronicsProduct(&quot;E-201&quot;, &quot;Gaming Mouse&quot;, 1800.00, 24)</p>
+
+<p>    print(&quot;=== E-COMMERCE PRODUCT CATALOG ===&quot;)</p>
+<p>    print(p1.display_details())</p>
+<p>    print(p2.display_details())</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== E-COMMERCE PRODUCT CATALOG ===
+<p>[P-101] Coffee Mug - ₹350.00</p>
+<p>[E-201] Gaming Mouse - ₹1800.00 | Warranty: 24 Months</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting to include <code>self</code> as the first parameter in instance methods (<code>def my_method():</code> causes <code>TypeError: my_method() takes 0 positional arguments but 1 was given</code> when called on an instance!).</li></p>
+<p>  <li>Modifying a class attribute on an instance (<code>instance.class_attr = val</code>), which creates a new instance attribute instead of updating the shared class variable!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Python relies on <strong>Duck Typing</strong> ("If it walks like a duck and quacks like a duck, it's a duck"). Polymorphism in Python does not require strict interface inheritance—any object that provides the required method name can be used polymorphically.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Django database models, custom exception classes, UI widget hierarchies, API response wrappers, and machine learning pipelines.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Car</code> class with attributes <code>brand</code> and <code>model</code>, and a method <code>drive()</code>.</p>
+<p>2. Instantiate two distinct <code>Car</code> objects and invoke <code>drive()</code> on both.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create a <code>BankAccount</code> class with private attribute <code>__balance</code>, and provide <code>deposit(amount)</code>, <code>withdraw(amount)</code>, and <code>get_balance()</code> methods with input validation.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-functions-advanced.html">Functions Advanced</a></li></p>
+<p>  <li><a href="21-decorators.html">Decorators</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="18-exception-handling.html">← Previous: Exception Handling</a> | <a href="20-iterators-and-generators.html">Next: Iterators and Generators →</a></p>
+
+
+  </div>
+</body>
+</html>

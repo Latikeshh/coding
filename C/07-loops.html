@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 loops - Learn C</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Loops in C</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>A <strong>loop</strong> repeatedly executes a block of C code as long as a specified control condition evaluates to <strong>true</strong> (non-zero). C provides three loop constructs: <code>for</code>, <code>while</code>, and <code>do-while</code>.</p>
+
+<h2>🌐 Multilingual Explanation</h2>
+
+<h3>English</h3>
+<p>Loops automate repetitive execution in C. Use <code>for</code> loops when the exact number of iterations is known in advance. Use <code>while</code> loops when looping depends on a dynamic condition. Use <code>do-while</code> loops when the code block must run at least once before checking the condition.</p>
+
+<h3>Hindi</h3>
+<p>Repeated task ko automate karne ke liye C mein loops ka use hota hai. Jab iteration count pehle se pata ho toh <code>for</code> loop use karein. Jab condition ke aadhar par repeat karna ho toh <code>while</code> loop use karein. Code ko kam se kam ek baar chalane ke liye <code>do-while</code> loop ka upyog kiya jata hai.</p>
+
+<h3>Marathi</h3>
+<p>Ekach gosht punha punha karanyasathi C madhye loops vaparale jatat. Jevha iterations chi sankhya mahit aste tevha <code>for</code> loop vaparatat. Condition varti avalambun aslyas <code>while</code> loop vaparatat. Code kamiat kami ekda chalavanyasathi <code>do-while</code> loop vaparatat.</p>
+
+<h3>Hinglish</h3>
+<p>Iteration count fixed ho toh <code>for</code> loop best hai. Condition-based iteration ke liye <code>while</code> loop use hota hai. <code>do-while</code> loop post-condition check karta hai, isliye body kam se kam ek baar guaranteed execute hoti hai. <code>break</code> loop terminate karta hai aur <code>continue</code> current iteration skip karta hai.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Writing repetitive code manually (like printing 100 invoice records or reading 1000 sensor readings) is inefficient and error-prone. Loops allow a few lines of code to process millions of records in milliseconds.</p>
+
+<h2>🧠 Simple Explanation</h2>
+
+<ul>
+<p>  <li><strong><code>for</code> loop:</strong> Used when you know beforehand exactly how many times you need to repeat a task. Like a fitness coach telling you to do precisely 10 push-ups, it automatically manages the starting point, the ending limit, and the counting step.</li></p>
+<p>  <li><strong><code>while</code> loop:</strong> Used when you don't know how many repetitions are needed in advance, but you know the stopping condition. Like checking your phone battery: "Keep playing music as long as the battery percentage is above 5%," stopping the moment it hits 0%.</li></p>
+<p>  <li><strong><code>do-while</code> loop:</strong> Similar to a <code>while</code> loop, but with a guarantee that the code block will run at least once before checking the condition. Like a secure login prompt: ask the user for their password at least once, and then repeat asking if they entered the wrong one.</li></p>
+<p></ul></p>
+
+<h2>📝 Loop Constructs & Syntax</h2>
+
+<h3>1. <code>for</code> Loop</h3>
+<p>Best when counter limits are known:</p>
+<pre><code class="language-c">for (initialization; condition; increment/decrement) {
+<p>    // Code block executed repeatedly</p>
+<p>}</code></pre></p>
+
+<h3>2. <code>while</code> Loop (Pre-test Loop)</h3>
+<p>Evaluates condition <strong>before</strong> entering loop body:</p>
+<pre><code class="language-c">while (condition) {
+<p>    // Code block</p>
+<p>    // Must modify loop control variable to avoid infinite loop!</p>
+<p>}</code></pre></p>
+
+<h3>3. <code>do-while</code> Loop (Post-test Loop)</h3>
+<p>Executes loop body <strong>first</strong>, then evaluates condition at the bottom (guarantees at least 1 execution):</p>
+<pre><code class="language-c">do {
+<p>    // Code block executed at least once</p>
+<p>} while (condition);</code></pre></p>
+
+<h2>💡 Practical Example</h2>
+
+<p>Here is a practical inventory processing script that demonstrates all three loop types, along with <code>break</code> and <code>continue</code>:</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<p>int main(void) {</p>
+<p>    // 1. FOR LOOP: Processing monthly inventory additions</p>
+<p>    printf(&quot;--- 1. FOR LOOP: Monthly Inventory Summary ---\n&quot;);</p>
+<p>    int weeklyStock[] = {120, 85, 0, 140}; // 0 indicates out-of-stock week</p>
+<p>    int totalStock = 0;</p>
+
+<p>    for (int week = 0; week &lt; 4; week++) {</p>
+<p>        if (weeklyStock[week] == 0) {</p>
+<p>            printf(&quot;Week %d: Out of stock! Skipping calculation.\n&quot;, week + 1);</p>
+<p>            continue; // Skip rest of current iteration</p>
+<p>        }</p>
+<p>        totalStock += weeklyStock[week];</p>
+<p>        printf(&quot;Week %d: Stock Added = %d | Running Total = %d\n&quot;, week + 1, weeklyStock[week], totalStock);</p>
+<p>    }</p>
+
+<p>    // 2. WHILE LOOP: ATM Retry Attempts</p>
+<p>    printf(&quot;\n--- 2. WHILE LOOP: User PIN Verification ---\n&quot;);</p>
+<p>    int attempts = 0;</p>
+<p>    int maxAttempts = 3;</p>
+<p>    int enteredPin = 1234; // Simulated user PIN entry</p>
+<p>    int correctPin = 9999;</p>
+
+<p>    while (attempts &lt; maxAttempts) {</p>
+<p>        attempts++;</p>
+<p>        printf(&quot;Attempt %d of %d: Testing PIN %d...\n&quot;, attempts, maxAttempts, enteredPin);</p>
+<p>        </p>
+<p>        if (enteredPin == correctPin) {</p>
+<p>            printf(&quot;PIN Correct! Access granted.\n&quot;);</p>
+<p>            break; // Exit loop immediately</p>
+<p>        } else {</p>
+<p>            printf(&quot;Incorrect PIN!\n&quot;);</p>
+<p>        }</p>
+<p>    }</p>
+<p>    if (attempts == maxAttempts) {</p>
+<p>        printf(&quot;Card Locked due to 3 failed attempts.\n&quot;);</p>
+<p>    }</p>
+
+<p>    // 3. DO-WHILE LOOP: Menu Loop (Runs at least once)</p>
+<p>    printf(&quot;\n--- 3. DO-WHILE LOOP: User Confirmation ---\n&quot;);</p>
+<p>    int userChoice = 0; // 0 = Exit</p>
+<p>    int loopCount = 0;</p>
+
+<p>    do {</p>
+<p>        loopCount++;</p>
+<p>        printf(&quot;Displaying Interactive Menu (Iteration %d)\n&quot;, loopCount);</p>
+<p>        // Menu choice updated to 0 to simulate user exiting</p>
+<p>        userChoice = 0; </p>
+<p>    } while (userChoice != 0);</p>
+
+<p>    printf(&quot;Exited Menu Loop successfully.\n&quot;);</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>continue</code>: Skips remaining statements in the current iteration of the <code>for</code> loop and immediately moves to the next week increment (<code>week++</code>).</li></p>
+<p>  <li><code>break</code>: Forces an immediate exit from the <code>while</code> loop when a specific condition (e.g. correct PIN entered or card locked) is met.</li></p>
+<p>  <li><code>do { ... } while (userChoice != 0);</code>: Guarantees that the menu displays at least once even though <code>userChoice</code> starts at <code>0</code>.</li></p>
+<p></ul></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. FOR LOOP: Monthly Inventory Summary ---
+<p>Week 1: Stock Added = 120 | Running Total = 120</p>
+<p>Week 2: Stock Added = 85 | Running Total = 205</p>
+<p>Week 3: Out of stock! Skipping calculation.</p>
+<p>Week 4: Stock Added = 140 | Running Total = 345</p>
+
+<p>--- 2. WHILE LOOP: User PIN Verification ---</p>
+<p>Attempt 1 of 3: Testing PIN 1234...</p>
+<p>Incorrect PIN!</p>
+<p>Attempt 2 of 3: Testing PIN 1234...</p>
+<p>Incorrect PIN!</p>
+<p>Attempt 3 of 3: Testing PIN 1234...</p>
+<p>Incorrect PIN!</p>
+<p>Card Locked due to 3 failed attempts.</p>
+
+<p>--- 3. DO-WHILE LOOP: User Confirmation ---</p>
+<p>Displaying Interactive Menu (Iteration 1)</p>
+<p>Exited Menu Loop successfully.</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Infinite Loops:</strong> Forgetting to update the loop control variable inside a <code>while</code> loop (e.g. forgetting <code>i++</code>) causes the loop to run forever, freezing the CPU or terminal.</li></p>
+<p>  <li><strong>Off-By-One Errors:</strong> Loop boundary errors like using <code><= size</code> instead of <code>< size</code> when iterating over array elements starting at index <code>0</code>.</li></p>
+<p>  <li><strong>Accidental Semicolon After Loop Header:</strong> Writing <code>for (int i = 0; i < 10; i++);</code> puts an empty statement in the loop body. The code inside <code>{ ... }</code> executes only *once* after the loop completes!</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<ul>
+<p>  <li>Always ensure that every loop has a clear, reachable termination condition.</li></p>
+<p>  <li>When nesting loops (e.g. outer loop running 1,000 times, inner loop running 1,000 times), total executions equal <code>1,000 * 1,000 = 1,000,000</code>. Mind the computational complexity ($O(N^2)$)!</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Loops iterate through database records, process pixels in image processing filters, handle game engine render loops (<code>while (!quit)</code>), and process hardware network packets.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Write a <code>for</code> loop that prints all even numbers from <code>2</code> to <code>20</code>.</p>
+<p>2. Write a <code>while</code> loop that calculates the factorial of a number <code>N</code> (<code>e.g. 5! = 5 * 4 * 3 * 2 * 1 = 120</code>).</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program using nested <code>for</code> loops to print a multiplication table grid for numbers <code>1</code> through <code>5</code> formatted cleanly in columns using <code>\t</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p>  <li><a href="08-functions.html">Functions</a></li></p>
+<p>  <li><a href="09-arrays.html">Arrays</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C Home</a> | <a href="06-conditionals.html">← Previous: Conditionals</a> | <a href="08-functions.html">Next: Functions →</a></p>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 operators - Learn JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Operators in JavaScript</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>Operators</strong> are special symbols used to perform computations, assign values, compare variables, and evaluate logical conditions.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Operators computer program mein calculations karne, values check karne, aur logic combine karne ke liye use hote hain. JavaScript mein strict equality (<code>===</code>) aur loose equality (<code>==</code>) ke beech ka difference samajhna sabse zaroori hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Operators cha wapar calculations karne, values compare karne, aani logic check karnya sathi kela jato. Nehamhi strict equality (<code>===</code>) cha wapar kara, jyane value aani data type donhi check hotat.</p>
+
+<h2>🤔 Why Do We Use Them?</h2>
+
+<p>Without operators, a program cannot calculate totals, compare user inputs, evaluate true/false conditions, or control application flow.</p>
+
+<h2>📝 Categories of Operators</h2>
+
+<h3>1. Arithmetic Operators</h3>
+<p><code>+</code> (Add), <code>-</code> (Subtract), <code>*</code> (Multiply), <code>/</code> (Divide), <code>%</code> (Modulus / Remainder), <code>**</code> (Exponentiation)</p>
+
+<h3>2. Assignment Operators</h3>
+<p><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></p>
+
+<h3>3. Comparison Operators</h3>
+<ul>
+<p>  <li>Strict Equality (<code>===</code>): Checks <strong>Value AND Type</strong>.</li></p>
+<p>  <li>Strict Inequality (<code>!==</code>): Checks <strong>Value AND Type NOT equal</strong>.</li></p>
+<p>  <li>Loose Equality (<code>==</code>): Performs type coercion before checking value (Avoid!).</li></p>
+<p>  <li>Greater / Less than: <code>></code>, <code><</code>, <code>>=</code>, <code><=</code></li></p>
+<p></ul></p>
+
+<h3>4. Logical Operators</h3>
+<ul>
+<p>  <li><code>&&</code> (AND): Returns <code>true</code> if ALL conditions are <code>true</code>.</li></p>
+<p>  <li><code>||</code> (OR): Returns <code>true</code> if AT LEAST ONE condition is <code>true</code>.</li></p>
+<p>  <li><code>!</code> (NOT): Inverts boolean state.</li></p>
+<p></ul></p>
+
+<h3>5. Modern Operators</h3>
+<ul>
+<p>  <li>Nullish Coalescing (<code>??</code>): Returns right-hand side if left-hand side is <code>null</code> or <code>undefined</code>.</li></p>
+<p>  <li>Optional Chaining (<code>?.</code>): Safely accesses nested object properties without throwing error if <code>null</code>/<code>undefined</code>.</li></p>
+<p></ul></p>
+
+<h2>💡 Complete Example</h2>
+
+<pre><code class="language-js">// Arithmetic &amp; Modulus
+<p>let itemPrice = 250;</p>
+<p>let taxRate = 0.18;</p>
+<p>let totalPrice = itemPrice + (itemPrice * taxRate);</p>
+<p>console.log(&quot;Total Price:&quot;, totalPrice); // 295</p>
+
+<p>// Strict vs Loose Equality</p>
+<p>console.log(&quot;10 === &#39;10&#39;:&quot;, 10 === &quot;10&quot;); // false (Number vs String)</p>
+<p>console.log(&quot;10 == &#39;10&#39;:&quot;, 10 == &quot;10&quot;);   // true (Loose - auto converted)</p>
+
+<p>// Logical Operators</p>
+<p>let userAge = 20;</p>
+<p>let hasID = true;</p>
+<p>let canEnterClub = (userAge &gt;= 18) &amp;&amp; hasID;</p>
+<p>console.log(&quot;Can enter club:&quot;, canEnterClub); // true</p>
+
+<p>// Nullish Coalescing (??)</p>
+<p>let userSetting = null;</p>
+<p>let defaultSetting = &quot;Dark Mode&quot;;</p>
+<p>let activeTheme = userSetting ?? defaultSetting;</p>
+<p>console.log(&quot;Active Theme:&quot;, activeTheme); // &quot;Dark Mode&quot;</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Total Price: 295
+<p>10 === &#39;10&#39;: false</p>
+<p>10 == &#39;10&#39;: true</p>
+<p>Can enter club: true</p>
+<p>Active Theme: Dark Mode</code></pre></p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Test <code>console.log(5 == "5")</code> vs <code>console.log(5 === "5")</code> in your console.</p>
+<p>2. Calculate the remainder when <code>17</code> is divided by <code>5</code> using <code>%</code>.</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using loose equality <code>==</code> which leads to unexpected type coercion bugs:</li></p>
+<p></ul></p>
+<p>  ``<code>javascript</p>
+<p>  0 == ""      // true!</p>
+<p>  0 == false   // true!</p>
+<p>  null == undefined // true!</p>
+<p>  </code>`<code></p>
+<ul>
+<p>  <li>Confusing single assignment </code>=<code> with comparison </code>===<code>.</li></p>
+<p></ul></p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Shopping cart totals, discount calculations, age gate validations, and theme preference fallbacks.</p>
+
+<h2>💡 Remember</h2>
+
+<p>Always use strict equality (</code>===<code> and </code>!==`) to prevent hidden type conversion bugs in your JavaScript code.</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← JS Home</a> | <a href="04-data-types.html">← Previous: Data Types</a> | <a href="06-conditionals.html">Next: Conditionals →</a></p>
+
+
+
+  </div>
+</body>
+</html>

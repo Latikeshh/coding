@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working with CSV - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Working with CSV Files in Python (<code>csv</code> Module)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p><strong>CSV (Comma-Separated Values)</strong> is a universal, tabular text format used to store table data where each row represents a record and columns are separated by commas or delimiters. Python's built-in <strong><code>csv</code></strong> module provides <code>csv.reader</code>, <code>csv.writer</code>, <code>csv.DictReader</code>, and <code>csv.DictWriter</code> for processing tabular spreadsheet datasets.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Tabular spreadsheet data (Excel files) process karne ke liye <strong><code>csv</code> module</strong> ka use hota hai. Dictionaries ke saath kaam karne ke liye <code>csv.DictReader</code> aur <code>csv.DictWriter</code> sabse best aur clean tools hain. File open karte waqt <code>newline=""</code> compulsory set karein.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Tabular data (Excel CSV) read aani write karnyasathi <code>csv</code> module vaparatat. <code>DictReader</code> aani <code>DictWriter</code> sope padtat.</p>
+
+<h2>📝 1. <code>csv.reader</code> vs <code>csv.DictReader</code></h2>
+
+<ul>
+<p>  <li><strong><code>csv.reader</code>:</strong> Reads each CSV row as a <strong>list of strings</strong> (<code>['101', 'Aarav', '95']</code>).</li></p>
+<p>  <li><strong><code>csv.DictReader</code> (Best Practice):</strong> Reads each CSV row as a <strong>dictionary</strong> mapping header column names to values (<code>{"id": "101", "name": "Aarav", "marks": "95"}</code>).</li></p>
+<p></ul></p>
+
+<pre><code class="language-python">import csv
+
+<h1>Reading with DictReader</h1>
+<p>with open(&quot;students.csv&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    reader = csv.DictReader(file)</p>
+<p>    for row in reader:</p>
+<p>        print(row[&quot;name&quot;], row[&quot;marks&quot;])</code></pre></p>
+
+<h2>📝 2. Writing CSV Files (<code>newline=""</code>)</h2>
+
+<blockquote><p>⚠️ <strong>CRITICAL RULE:</strong> Always specify <strong><code>newline=""</code></strong> when opening a CSV file for writing!</p></blockquote>
+<blockquote><p>Without <code>newline=""</code>, Windows operating systems will insert blank extra newline rows between every single record line!</p></blockquote>
+
+<pre><code class="language-python">import csv
+
+<p>fieldnames = [&quot;id&quot;, &quot;name&quot;, &quot;salary&quot;]</p>
+<p>data = [{&quot;id&quot;: 1, &quot;name&quot;: &quot;Rahul&quot;, &quot;salary&quot;: 85000}]</p>
+
+<p>with open(&quot;output.csv&quot;, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    writer = csv.DictWriter(file, fieldnames=fieldnames)</p>
+<p>    writer.writeheader() # Writes &quot;id,name,salary&quot; header row</p>
+<p>    writer.writerows(data)</code></pre></p>
+
+<h2>💡 Complete Example: Student CSV Report Generator</h2>
+
+<pre><code class="language-python">import csv
+<p>import os</p>
+
+<p>csv_file = &quot;student_report.csv&quot;</p>
+
+<h1>Sample Student Dataset</h1>
+<p>students = [</p>
+<p>    {&quot;student_id&quot;: &quot;STU-101&quot;, &quot;name&quot;: &quot;Aarav Mehta&quot;, &quot;score&quot;: 85, &quot;status&quot;: &quot;PASS&quot;},</p>
+<p>    {&quot;student_id&quot;: &quot;STU-102&quot;, &quot;name&quot;: &quot;Sneha Kapoor&quot;, &quot;score&quot;: 92, &quot;status&quot;: &quot;PASS&quot;},</p>
+<p>    {&quot;student_id&quot;: &quot;STU-103&quot;, &quot;name&quot;: &quot;Rohan Sharma&quot;, &quot;score&quot;: 42, &quot;status&quot;: &quot;FAIL&quot;}</p>
+<p>]</p>
+
+<p>headers = [&quot;student_id&quot;, &quot;name&quot;, &quot;score&quot;, &quot;status&quot;]</p>
+
+<p>print(&quot;=== CSV REPORT GENERATOR ===&quot;)</p>
+
+<h1>1. Writing Data using DictWriter</h1>
+<p>with open(csv_file, &quot;w&quot;, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    writer = csv.DictWriter(file, fieldnames=headers)</p>
+<p>    writer.writeheader()</p>
+<p>    writer.writerows(students)</p>
+
+<p>print(f&quot;Successfully generated CSV file &#39;{csv_file}&#39;.&quot;)</p>
+
+<h1>2. Reading &amp; Parsing Data using DictReader</h1>
+<p>print(&quot;\n--- PARSING CSV REPORT ---&quot;)</p>
+
+<p>with open(csv_file, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:</p>
+<p>    reader = csv.DictReader(file)</p>
+<p>    for row in reader:</p>
+<p>        score_val = int(row[&quot;score&quot;])</p>
+<p>        print(f&quot;ID: {row[&#39;student_id&#39;]} | Name: {row[&#39;name&#39;]:&lt;15} | Score: {score_val} | Status: {row[&#39;status&#39;]}&quot;)</p>
+
+<h1>Cleanup demo file</h1>
+<p>if os.path.exists(csv_file):</p>
+<p>    os.remove(csv_file)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== CSV REPORT GENERATOR ===
+<p>Successfully generated CSV file &#39;student_report.csv&#39;.</p>
+
+<p>--- PARSING CSV REPORT ---</p>
+<p>ID: STU-101 | Name: Aarav Mehta     | Score: 85 | Status: PASS</p>
+<p>ID: STU-102 | Name: Sneha Kapoor    | Score: 92 | Status: PASS</p>
+<p>ID: STU-103 | Name: Rohan Sharma    | Score: 42 | Status: FAIL</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Omitting <code>newline=""</code> when writing CSV files on Windows, creating extra empty blank lines.</li></p>
+<p>  <li>Treating numeric CSV column fields as integers automatically (<code>DictReader</code> returns all column values as <strong>strings</strong>; you must explicitly parse them using <code>int()</code> or <code>float()</code>).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>For advanced data analysis or multi-gigabyte CSV datasets with complex transformations, use the <strong>Pandas</strong> library (<code>import pandas as pd</code>).</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>Exporting database tables to Excel spreadsheets, downloading invoice reports, reading user batch import files, and data processing.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a script that writes 3 contacts (<code>name</code>, <code>phone</code>) to a <code>contacts.csv</code> file using <code>DictWriter</code>.</p>
+<p>2. Read <code>contacts.csv</code> using <code>DictReader</code> and print each contact.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that reads a CSV file containing employee salaries, calculates the average salary across all records, and prints the result.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
+<p>  <li><a href="25-json-and-data-serialization.html">JSON Data Serialization</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="25-json-and-data-serialization.html">← Previous: JSON Data Serialization</a> | <a href="27-type-hints-and-dataclasses.html">Next: Type Hints and Dataclasses →</a></p>
+
+
+  </div>
+</body>
+</html>

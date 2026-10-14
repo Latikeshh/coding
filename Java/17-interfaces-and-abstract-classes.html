@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaces and Abstract Classes - Learn Java</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Interfaces and Abstract Classes in Java</h1>
+
+<blockquote><p>🔴 Advanced</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<ul>
+<p>  <li><strong>Abstract Class (<code>abstract class</code>):</strong> A restricted parent class that <strong>cannot be directly instantiated</strong> using <code>new</code>. It provides partial implementation (can have instance state fields, constructors, concrete methods, and <code>abstract</code> methods).</li></p>
+<p>  <li><strong>Interface (<code>interface</code>):</strong> A 100% contract specification defined using the <code>interface</code> keyword. Multiple interfaces can be implemented by a single class (<code>implements InterfaceA, InterfaceB</code>).</li></p>
+<p></ul></p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Abstract Class partial abstraction deti hai (isme fields, constructors, aur concrete methods ho sakte hain). Interface full contract specification deta hai (0% instance state). Java mein ek class multiple interfaces implement kar sakti hai (<code>implements A, B</code>), jo Multiple Inheritance achieve karne ka clean tareeqa hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Abstract Class bhagashaha implementation deto. Interface ekapeksha jast interfaces implement karto (<code>implements A, B</code>).</p>
+
+<h2>📝 1. Comparison Matrix: Abstract Class vs Interface</h2>
+
+<table>
+<p>  <thead><tr><th>Feature</th><th>Abstract Class</th><th>Interface (Modern Java 8/9+)</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td>Instantiation</td><td>❌ Cannot be instantiated</td><td>❌ Cannot be instantiated</td></tr></p>
+<p>    <tr><td>Multiple Inheritance</td><td>❌ Single Class (<code>extends</code>)</td><td>✅ Multiple Interfaces (<code>implements</code>)</td></tr></p>
+<p>    <tr><td>Fields</td><td>Any fields (<code>private</code>, <code>static</code>, mutable)</td><td>Only <code>public static final</code> constants</td></tr></p>
+<p>    <tr><td>Constructors</td><td>✅ Has constructors</td><td>❌ No constructors</td></tr></p>
+<p>    <tr><td>Methods</td><td>Abstract & Concrete methods</td><td>Abstract, <code>default</code>, <code>static</code>, <code>private</code></td></tr></p>
+<p>    <tr><td>Default Keyword</td><td><code>extends</code></td><td><code>implements</code></td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<h2>📝 2. Modern Interface Features (Java 8, 9 & 11)</h2>
+
+<p>1. <strong><code>default</code> Methods (Java 8+):</strong> Allows adding new methods to interfaces with default concrete implementation without breaking existing implementing classes!</p>
+<p>2. <strong><code>static</code> Methods (Java 8+):</strong> Utility methods associated with the interface itself.</p>
+<p>3. <strong><code>private</code> Methods (Java 9+):</strong> Helper methods used internally inside <code>default</code> interface methods.</p>
+<p>4. <strong><code>@FunctionalInterface</code>:</strong> Interface with <strong>exactly one abstract method</strong> (used in Lambda expressions).</p>
+
+<pre><code class="language-java">@FunctionalInterface
+<p>public interface Validator&lt;T&gt; {</p>
+<p>    boolean validate(T input); // Single Abstract Method (SAM)</p>
+<p>    </p>
+<p>    // Default method (Java 8+)</p>
+<p>    default Validator&lt;T&gt; and(Validator&lt;T&gt; other) {</p>
+<p>        return input -&gt; validate(input) &amp;&amp; other.validate(input);</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>💡 Complete Example: Pluggable Notification & Auditing Architecture</h2>
+
+<pre><code class="language-java">import java.util.List;
+
+<p>// 1. Interface Contract 1</p>
+<p>interface NotificationChannel {</p>
+<p>    void sendNotification(String recipient, String message);</p>
+<p>}</p>
+
+<p>// 2. Interface Contract 2</p>
+<p>interface AuditLoggable {</p>
+<p>    default void logAudit(String event) {</p>
+<p>        System.out.println(&quot;[AUDIT LOG] &quot; + System.currentTimeMillis() + &quot; : &quot; + event);</p>
+<p>    }</p>
+<p>}</p>
+
+<p>// 3. Abstract Parent Class</p>
+<p>abstract class BaseNotifier implements NotificationChannel, AuditLoggable {</p>
+<p>    protected String serviceName;</p>
+
+<p>    public BaseNotifier(String serviceName) {</p>
+<p>        this.serviceName = serviceName;</p>
+<p>    }</p>
+
+<p>    // Concrete shared method</p>
+<p>    public void printServiceHeader() {</p>
+<p>        System.out.println(&quot;=== Service: &quot; + serviceName + &quot; ===&quot;);</p>
+<p>    }</p>
+<p>}</p>
+
+<p>// 4. Concrete Implementation Class 1</p>
+<p>class EmailNotifier extends BaseNotifier {</p>
+<p>    public EmailNotifier() { super(&quot;Email Service&quot;); }</p>
+
+<p>    @Override</p>
+<p>    public void sendNotification(String recipient, String message) {</p>
+<p>        printServiceHeader();</p>
+<p>        System.out.println(&quot;Sending Email to &quot; + recipient + &quot; : &quot; + message);</p>
+<p>        logAudit(&quot;EMAIL_SENT to &quot; + recipient);</p>
+<p>    }</p>
+<p>}</p>
+
+<p>// 5. Concrete Implementation Class 2</p>
+<p>class SmsNotifier extends BaseNotifier {</p>
+<p>    public SmsNotifier() { super(&quot;SMS Gateway&quot;); }</p>
+
+<p>    @Override</p>
+<p>    public void sendNotification(String recipient, String message) {</p>
+<p>        printServiceHeader();</p>
+<p>        System.out.println(&quot;Dispatching SMS to &quot; + recipient + &quot; : &quot; + message);</p>
+<p>        logAudit(&quot;SMS_DISPATCHED to &quot; + recipient);</p>
+<p>    }</p>
+<p>}</p>
+
+<p>public class InterfaceMaster {</p>
+<p>    public static void main(String[] args) {</p>
+<p>        List&lt;NotificationChannel&gt; channels = List.of(</p>
+<p>            new EmailNotifier(),</p>
+<p>            new SmsNotifier()</p>
+<p>        );</p>
+
+<p>        String user = &quot;user@example.com&quot;;</p>
+<p>        String alertMsg = &quot;Your security OTP is 982104&quot;;</p>
+
+<p>        for (NotificationChannel channel : channels) {</p>
+<p>            channel.sendNotification(user, alertMsg);</p>
+<p>            System.out.println();</p>
+<p>        }</p>
+<p>    }</p>
+<p>}</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">=== Service: Email Service ===
+<p>Sending Email to user@example.com : Your security OTP is 982104</p>
+<p>[AUDIT LOG] 1728038000000 : EMAIL_SENT to user@example.com</p>
+
+<p>=== Service: SMS Gateway ===</p>
+<p>Dispatching SMS to user@example.com : Your security OTP is 982104</p>
+<p>[AUDIT LOG] 1728038000000 : SMS_DISPATCHED to user@example.com</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Forgetting that interface methods are implicitly <code>public abstract</code>, so implementing methods must be declared <code>public</code> (reducing visibility causes a compilation error!).</li></p>
+<p>  <li>Instantiating an Abstract Class or Interface directly using <code>new AbstractClass()</code> (must use an implementing subclass or anonymous class!).</li></p>
+<p>  <li>Declaring instance mutable state fields inside an interface (interface fields are implicitly <code>public static final</code> constants!).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Use <strong>Interfaces</strong> when defining "Can-Do" capabilities across unrelated classes (<code>Serializable</code>, <code>Comparable</code>, <code>AutoCloseable</code>). Use <strong>Abstract Classes</strong> when subclasses share close structural state and code implementation.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>JDBC Driver APIs (<code>java.sql.Connection</code>, <code>Statement</code>), Spring Framework service contracts, Jackson JSON custom serializers, and reactive event listeners.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Create a <code>Printable</code> interface with method <code>print()</code>.</p>
+<p>2. Implement <code>Printable</code> across two distinct classes: <code>Invoice</code> and <code>ShippingLabel</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Create an abstract class <code>DatabaseConnector</code> with an abstract <code>connect()</code> method, and implement concrete <code>MySQLConnector</code> and <code>PostgreSQLConnector</code> subclasses.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="16-inheritance-and-polymorphism.html">Inheritance and Polymorphism</a></li></p>
+<p>  <li><a href="23-testing-and-debugging.html">Testing and Debugging</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Java Home</a> | <a href="16-inheritance-and-polymorphism.html">← Previous: Inheritance</a> | <a href="18-exceptions-and-validation.html">Next: Exceptions and Validation →</a></p>
+
+
+  </div>
+</body>
+</html>

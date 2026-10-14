@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16 stl algorithms - Learn C++</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>C++ STL Algorithms (<code>std::sort</code>, <code>std::find</code>, <code>std::accumulate</code>, <code>std::transform</code>)</h1>
+
+<blockquote><p>🟡 Intermediate</p></blockquote>
+
+<p>---</p>
+
+<h2>📖 Definition</h2>
+
+<p>The C++ Standard Template Library provides <strong>STL Algorithms</strong> in the <code><algorithm></code> and <code><numeric></code> headers. STL algorithms operate on ranges of elements using <strong>Iterators</strong> (<code>begin()</code>, <code>end()</code>). They provide highly optimized implementations for sorting, searching, transforming, counting, and aggregating container elements.</p>
+
+<p>---</p>
+
+<h2>🇮🇳 Hindi Explanation</h2>
+
+<p>STL Algorithms C++ ke banae-banaye high-speed functions hain jo arrays ya vectors par kaam karte hain.</p>
+<ul>
+<p>  <li><code>std::sort()</code>: Elements ko ascending ya descending order mein sort karta hai ($O(N \log N)$ IntroSort).</li></p>
+<p>  <li><code>std::find()</code>: Kisi value ko search karta hai.</li></p>
+<p>  <li><code>std::accumulate()</code>: Saare numbers ka sum (total) karta hai.</li></p>
+<p>  <li><code>std::transform()</code>: Every element par function apply karke naya result generate karta hai.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🚩 Marathi Explanation</h2>
+
+<p>STL Algorithms mhanje <code><algorithm></code> madhye uplabdh aslele vegvan ready-made functions.</p>
+<ul>
+<p>  <li><code>std::sort()</code>: Container madhil elements sort karnyasathi.</li></p>
+<p>  <li><code>std::find()</code>: Specific value shodhnayasathi.</li></p>
+<p>  <li><code>std::accumulate()</code>: Element chi berij (sum) karnyasathi.</li></p>
+<p>  <li><code>std::transform()</code>: Elements transform/modify karnyasathi.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>📊 Summary Table of Essential STL Algorithms</h2>
+
+<table>
+<p>  <thead><tr><th>Algorithm</th><th>Header</th><th>Complexity</th><th>Description</th></tr></thead></p>
+<p>  <tbody></p>
+<p>    <tr><td><code>std::sort(first, last)</code></td><td><code><algorithm></code></td><td>$O(N \log N)$</td><td>Sorts elements in ascending/custom order</td></tr></p>
+<p>    <tr><td><code>std::find(first, last, val)</code></td><td><code><algorithm></code></td><td>$O(N)$</td><td>Searches for matching value</td></tr></p>
+<p>    <tr><td><code>std::accumulate(first, last, init)</code></td><td><code><numeric></code></td><td>$O(N)$</td><td>Calculates sum of elements from initial value</td></tr></p>
+<p>    <tr><td><code>std::count(first, last, val)</code></td><td><code><algorithm></code></td><td>$O(N)$</td><td>Counts occurrences of matching value</td></tr></p>
+<p>    <tr><td><code>std::transform(first, last, out, op)</code></td><td><code><algorithm></code></td><td>$O(N)$</td><td>Applies operation/transformation to elements</td></tr></p>
+<p>    <tr><td><code>std::reverse(first, last)</code></td><td><code><algorithm></code></td><td>$O(N)$</td><td>Reverses element sequence in-place</td></tr></p>
+<p>  </tbody></p>
+<p></table></p>
+
+<p>---</p>
+
+<h2>💡 Practical Example</h2>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+<p>#include &lt;vector&gt;</p>
+<p>#include &lt;algorithm&gt; // For std::sort, std::find, std::transform</p>
+<p>#include &lt;numeric&gt;   // For std::accumulate</p>
+
+<p>int main() {</p>
+<p>    std::vector&lt;int&gt; numbers = {45, 12, 85, 32, 89, 12, 67};</p>
+
+<p>    // 1. Sorting Elements</p>
+<p>    std::cout &lt;&lt; &quot;--- 1. SORTING ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::sort(numbers.begin(), numbers.end()); // Ascending sort</p>
+
+<p>    std::cout &lt;&lt; &quot;Sorted Numbers: &quot;;</p>
+<p>    for (int num : numbers) {</p>
+<p>        std::cout &lt;&lt; num &lt;&lt; &quot; &quot;;</p>
+<p>    }</p>
+<p>    std::cout &lt;&lt; std::endl;</p>
+
+<p>    // 2. Searching with std::find</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 2. SEARCHING ---&quot; &lt;&lt; std::endl;</p>
+<p>    int target = 85;</p>
+<p>    auto it = std::find(numbers.begin(), numbers.end(), target);</p>
+<p>    if (it != numbers.end()) {</p>
+<p>        std::cout &lt;&lt; &quot;Found target &quot; &lt;&lt; target &lt;&lt; &quot; at index: &quot; &lt;&lt; std::distance(numbers.begin(), it) &lt;&lt; std::endl;</p>
+<p>    }</p>
+
+<p>    // 3. Accumulating Sum with std::accumulate</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 3. ACCUMULATE (SUM) ---&quot; &lt;&lt; std::endl;</p>
+<p>    int totalSum = std::accumulate(numbers.begin(), numbers.end(), 0);</p>
+<p>    std::cout &lt;&lt; &quot;Total Sum of Elements: &quot; &lt;&lt; totalSum &lt;&lt; std::endl;</p>
+
+<p>    // 4. Transforming Elements (Doubling every value using lambda)</p>
+<p>    std::cout &lt;&lt; &quot;\n--- 4. TRANSFORMING ---&quot; &lt;&lt; std::endl;</p>
+<p>    std::vector&lt;int&gt; doubledNumbers(numbers.size());</p>
+<p>    std::transform(numbers.begin(), numbers.end(), doubledNumbers.begin(), [](int x) {</p>
+<p>        return x * 2;</p>
+<p>    });</p>
+
+<p>    std::cout &lt;&lt; &quot;Doubled Numbers: &quot;;</p>
+<p>    for (int val : doubledNumbers) {</p>
+<p>        std::cout &lt;&lt; val &lt;&lt; &quot; &quot;;</p>
+<p>    }</p>
+<p>    std::cout &lt;&lt; std::endl;</p>
+
+<p>    return 0;</p>
+<p>}</code></pre></p>
+
+<p>---</p>
+
+<h2>🔍 Code Breakdown</h2>
+
+<ul>
+<p>  <li><code>numbers.begin()</code>, <code>numbers.end()</code>: Iterators pointing to the start and end boundary of the container.</li></p>
+<p>  <li><code>std::accumulate(..., 0)</code>: Starts accumulating with initial seed value <code>0</code>.</li></p>
+<p>  <li><code>[](int x) { return x * 2; }</code>: A C++ Lambda function passed directly into <code>std::transform</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">--- 1. SORTING ---
+<p>Sorted Numbers: 12 12 32 45 67 85 89 </p>
+
+<p>--- 2. SEARCHING ---</p>
+<p>Found target 85 at index: 5</p>
+
+<p>--- 3. ACCUMULATE (SUM) ---</p>
+<p>Total Sum of Elements: 342</p>
+
+<p>--- 4. TRANSFORMING ---</p>
+<p>Doubled Numbers: 24 24 64 90 134 170 178 </code></pre></p>
+
+<p>---</p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li><strong>Writing Custom Loops Instead of STL Algorithms</strong>: Handwritten loops are longer, bug-prone, and often less optimized than STL algorithms.</li></p>
+<p>  <li><strong>Forgetting <code><numeric></code> Header for <code>accumulate</code></strong>: <code>std::accumulate</code> is inside <code><numeric></code>, NOT <code><algorithm></code>!</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🛡️ Best Practices</h2>
+
+<ul>
+<p>  <li>Use <code>std::sort</code> with custom comparators or lambdas to sort objects by specific fields: <code>std::sort(v.begin(), v.end(), [](const Item& a, const Item& b) { return a.price < b.price; });</code>.</li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Sort a <code>std::vector<int></code> in <strong>descending order</strong> using <code>std::greater<int>()</code>.</p>
+<p>2. Count how many times the number <code>12</code> appears in a vector using <code>std::count()</code>.</p>
+
+<p>---</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write a program that uses <code>std::remove_if</code> and vector <code>.erase()</code> (Erase-Remove Idiom) to remove all odd numbers from a <code>std::vector<int></code>.</p>
+
+<p>---</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="15-stl-containers.html">STL Containers</a></li></p>
+<p>  <li><a href="18-lambdas.html">Lambda Expressions</a></li></p>
+<p></ul></p>
+
+<p>---</p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← C++ Home</a> | <a href="15-stl-containers.html">← Previous: STL Containers</a> | <a href="17-templates.html">Next: Templates →</a></p>
+
+
+  </div>
+</body>
+</html>

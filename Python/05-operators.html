@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operators - Learn Python 3</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body class="main-content">
+  <div class="content-wrapper">
+<h1>Operators and Expressions in Python</h1>
+
+<blockquote><p>🟢 Beginner</p></blockquote>
+
+<h2>📖 Definition</h2>
+
+<p>An <strong>Operator</strong> is a special symbol used to perform calculations, assign values, compare variables, check logical conditions, and inspect object membership or identity. An <strong>Expression</strong> combines variables, constants, and operators to evaluate a resulting value.</p>
+
+<h2>🇮🇳 Hindi</h2>
+
+<p>Operators calculations karne, values compare karne, aur logical conditions check karne ke kaam aate hain. Python mein special division operators hote hain: <code>/</code> (float division) aur <code>//</code> (floor/integer division). Membership checking ke liye <code>in</code> aur <code>not in</code> ka use hota hai.</p>
+
+<h2>🚩 Marathi</h2>
+
+<p>Operators cha wapar calculations, comparison, aani logical checks karnyasathi hoto. List kiva string madhye item shodhnyasathi <code>in</code> aani <code>not in</code> operator vaparatat.</p>
+
+<h2>📝 Operator Categories</h2>
+
+<h3>1. Arithmetic Operators</h3>
+<ul>
+<p>  <li><code>+</code> (Add), <code>-</code> (Subtract), <code>*</code> (Multiply)</li></p>
+<p>  <li><code>/</code> (Float Division): Returns float (<code>10 / 4</code> -> <code>2.5</code>)</li></p>
+<p>  <li><code>//</code> (Floor / Integer Division): Truncates decimal part (<code>10 // 4</code> -> <code>2</code>)</li></p>
+<p>  <li><code>%</code> (Modulus / Remainder): Returns remainder (<code>10 % 4</code> -> <code>2</code>)</li></p>
+<p>  <li><code><strong></code> (Exponentiation / Power): <code>2 </strong> 3</code> -> <code>8</code></li></p>
+<p></ul></p>
+
+<h3>2. Relational / Comparison Operators</h3>
+<p><code>==</code> (Equal), <code>!=</code> (Not Equal), <code>></code> (Greater), <code><</code> (Less), <code>>=</code> (Greater Equal), <code><=</code> (Less Equal)</p>
+
+<h3>3. Logical Operators (Word-based)</h3>
+<ul>
+<p>  <li><code>and</code>: Returns <code>True</code> if <strong>both</strong> conditions are true (short-circuits).</li></p>
+<p>  <li><code>or</code>: Returns <code>True</code> if <strong>at least one</strong> condition is true (short-circuits).</li></p>
+<p>  <li><code>not</code>: Inverts boolean state (<code>not True</code> -> <code>False</code>).</li></p>
+<p></ul></p>
+
+<h3>4. Membership Operators (<code>in</code>, <code>not in</code>)</h3>
+<p>Checks if a value or substring exists inside a string, list, tuple, or set:</p>
+
+<pre><code class="language-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+<p>print(&quot;banana&quot; in fruits) # True</p>
+<p>print(&quot;z&quot; not in &quot;python&quot;)  # True</code></pre></p>
+
+<h3>5. Identity Operators (<code>is</code>, <code>is not</code>)</h3>
+<p>Checks if two variables refer to the <strong>exact same object in memory</strong> (compares <code>id()</code>, unlike <code>==</code> which compares value content).</p>
+
+<h2>💡 Complete Example: Operator Evaluation</h2>
+
+<pre><code class="language-python"># Operator Evaluation Demo
+<p>total_items = 17</p>
+<p>box_capacity = 5</p>
+
+<h1>Division Comparison</h1>
+<p>boxes_filled = total_items // box_capacity  # 3 (Floor division)</p>
+<p>remaining_items = total_items % box_capacity # 2 (Modulus)</p>
+
+<p>print(f&quot;Boxes Filled     : {boxes_filled}&quot;)</p>
+<p>print(f&quot;Remaining Items  : {remaining_items}&quot;)</p>
+
+<h1>Logical &amp; Membership Checking</h1>
+<p>user_role = &quot;ADMIN&quot;</p>
+<p>active_roles = [&quot;ADMIN&quot;, &quot;MANAGER&quot;, &quot;SUPERUSER&quot;]</p>
+<p>is_account_active = True</p>
+
+<h1>Logical Evaluation</h1>
+<p>can_access_dashboard = (user_role in active_roles) and is_account_active</p>
+<p>print(f&quot;Access Allowed?  : {can_access_dashboard}&quot;)</p>
+
+<h1>Chained Comparison Syntax (Pythonic Feature!)</h1>
+<p>age = 22</p>
+<p>is_adult_working_age = 18 &lt;= age &lt;= 60 # Equivalent to (18 &lt;= age and age &lt;= 60)</p>
+<p>print(f&quot;Working Age?     : {is_adult_working_age}&quot;)</code></pre></p>
+
+<h2>👀 Output</h2>
+
+<pre><code class="language-text">Boxes Filled     : 3
+<p>Remaining Items  : 2</p>
+<p>Access Allowed?  : True</p>
+<p>Working Age?     : True</code></pre></p>
+
+<h2>⚠️ Common Mistakes</h2>
+
+<ul>
+<p>  <li>Using single assignment <code>=</code> instead of comparison <code>==</code> inside <code>if</code> statements.</li></p>
+<p>  <li>Confusing <code>==</code> (compares value equality) with <code>is</code> (compares memory object identity).</li></p>
+<p>  <li>Expecting integer division <code>/</code> in Python 3 to return an integer (in Python 3, <code>/</code> ALWAYS returns a <code>float</code>! Use <code>//</code> for integer division).</li></p>
+<p></ul></p>
+
+<h2>🛡️ Safety / Important Notes</h2>
+
+<p>Always use parentheses <code>()</code> when combining multiple <code>and</code> and <code>or</code> logical operations in a single expression to make evaluation order explicit and readable.</p>
+
+<h2>🌍 Real-World Usage</h2>
+
+<p>E-commerce discount eligibility checks, permission checks in web apps, searching strings/tags using <code>in</code>, and mathematical data analytics.</p>
+
+<h2>🧪 Try It Yourself</h2>
+
+<p>1. Test <code>print(10 / 3)</code> vs <code>print(10 // 3)</code>.</p>
+<p>2. Test <code>"Py" in "Python"</code> vs <code>"Java" in "Python"</code>.</p>
+
+<h2>🎯 Mini Challenge</h2>
+
+<p>Write an expression using <code>% 2 == 0</code> that checks whether a given number is even, and combine it with <code>and</code> to check if it is also greater than <code>10</code>.</p>
+
+<h2>🔗 Related Topics</h2>
+
+<ul>
+<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
+<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p></ul></p>
+
+<h2>🧭 Navigation</h2>
+
+<p><a href="./">← Python Home</a> | <a href="04-input-output.html">← Previous: Input and Output</a> | <a href="06-conditionals.html">Next: Conditionals →</a></p>
+
+
+  </div>
+</body>
+</html>
