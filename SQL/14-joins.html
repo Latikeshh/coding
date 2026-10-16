@@ -3,14 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>14 joins - Learn SQL</title>
+  <title>14 joins - SQL Database</title>
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/components.css">
 </head>
-<body class="main-content">
-  <div class="content-wrapper">
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../index.html" class="mobile-brand">
+        <span class="brand-logo">ðŸ’»</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">â˜°</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-brand">
+          <span class="brand-logo">ðŸ’»</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">ðŸ”</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">â†</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">30 Lessons</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Learn SQL Database & Querying</span></a></li>
+  <li class="nav-item"><a href="01-setup-sql.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Set Up SQL Environment</span></a></li>
+  <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
+  <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
+  <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
+  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
+  <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
+  <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
+  <li class="nav-item"><a href="09-operators.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Operators in SQL</span></a></li>
+  <li class="nav-item"><a href="10-order-by-and-limit.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Sorting & Limiting Results (`ORDER BY`, `LIMIT`)</span></a></li>
+  <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
+  <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
+  <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
+  <li class="nav-item"><a href="14-joins.html" class="nav-link active"><span class="nav-bullet">â€¢</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
+  <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
+  <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
+  <li class="nav-item"><a href="18-set-operations.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 18 — Set Operations: UNION, UNION ALL, INTERSECT & EXCEPT</span></a></li>
+  <li class="nav-item"><a href="19-normalization.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Database Relationships & Normalization</span></a></li>
+  <li class="nav-item"><a href="20-views.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 20 — Views & Virtual Tables in SQL</span></a></li>
+  <li class="nav-item"><a href="21-indexes-and-performance.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">SQL Indexes & Query Performance Tuning</span></a></li>
+  <li class="nav-item"><a href="22-transactions.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 22 — Transactions & ACID in SQL</span></a></li>
+  <li class="nav-item"><a href="23-ctes.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 23 — Common Table Expressions (CTEs) & WITH Clause</span></a></li>
+  <li class="nav-item"><a href="24-recursive-ctes.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Recursive CTEs in SQL</span></a></li>
+  <li class="nav-item"><a href="25-window-functions.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 25 — SQL Window Functions</span></a></li>
+  <li class="nav-item"><a href="26-stored-procedures.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">️ MySQL Stored Procedures & Functions</span></a></li>
+  <li class="nav-item"><a href="27-triggers.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 27 — MySQL Triggers & Automated Event Auditing</span></a></li>
+  <li class="nav-item"><a href="28-sql-security.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">SQL Security, Roles & Permissions</span></a></li>
+  <li class="nav-item"><a href="29-json-data-in-sql.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 29 — Working with JSON Data in MySQL</span></a></li>
+  <li class="nav-item"><a href="30-sql-projects.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Chapter 30 — Practical SQL Capstone Projects</span></a></li>
+</ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
 <h1>SQL Joins & Table Relationships</h1>
 
 <blockquote><p>🟡 Intermediate</p></blockquote>
@@ -149,7 +235,7 @@
 <p></table></p>
 <p>   +---------+     +---------+</code></pre></p>
 
-<p>#### SQL Query:</p>
+<h4>SQL Query:</h4>
 <pre><code class="language-sql">SELECT 
 <p>    e.emp_id, </p>
 <p>    e.emp_name, </p>
@@ -159,7 +245,7 @@
 <p>INNER JOIN departments AS d</p>
 <p>    ON e.dept_id = d.dept_id;</code></pre></p>
 
-<p>#### 👀 Expected Result Table:</p>
+<h4>👀 Expected Result Table:</h4>
 
 <table>
 <p>  <thead><tr><th>emp_id</th><th>emp_name</th><th>dept_id</th><th>dept_name</th></tr></thead></p>
@@ -170,7 +256,7 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<p>#### 🔍 Explanation:</p>
+<h4>🔍 Explanation:</h4>
 <ul>
 <p>  <li>Rahul and Amit match <code>dept_id = 10</code> (<code>Engineering</code>).</li></p>
 <p>  <li>Priya matches <code>dept_id = 20</code> (<code>Marketing</code>).</li></p>
@@ -201,7 +287,7 @@
 <p></table></p>
 <p>   +---------+     +---------+</code></pre></p>
 
-<p>#### SQL Query:</p>
+<h4>SQL Query:</h4>
 <pre><code class="language-sql">SELECT 
 <p>    e.emp_id, </p>
 <p>    e.emp_name, </p>
@@ -211,7 +297,7 @@
 <p>LEFT JOIN departments AS d</p>
 <p>    ON e.dept_id = d.dept_id;</code></pre></p>
 
-<p>#### 👀 Expected Result Table:</p>
+<h4>👀 Expected Result Table:</h4>
 
 <table>
 <p>  <thead><tr><th>emp_id</th><th>emp_name</th><th>emp_dept_id</th><th>dept_name</th></tr></thead></p>
@@ -223,7 +309,7 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<p>#### 🔍 Explanation:</p>
+<h4>🔍 Explanation:</h4>
 <ul>
 <p>  <li>All 4 employees are preserved in the result set.</li></p>
 <p>  <li>Neha appears in the output even though she has no assigned department; her <code>dept_name</code> is returned as <code>NULL</code>.</li></p>
@@ -253,7 +339,7 @@
 <p></table></p>
 <p>   +---------+     +---------+</code></pre></p>
 
-<p>#### SQL Query:</p>
+<h4>SQL Query:</h4>
 <pre><code class="language-sql">SELECT 
 <p>    e.emp_id, </p>
 <p>    e.emp_name, </p>
@@ -263,7 +349,7 @@
 <p>RIGHT JOIN departments AS d</p>
 <p>    ON e.dept_id = d.dept_id;</code></pre></p>
 
-<p>#### 👀 Expected Result Table:</p>
+<h4>👀 Expected Result Table:</h4>
 
 <table>
 <p>  <thead><tr><th>emp_id</th><th>emp_name</th><th>dept_id</th><th>dept_name</th></tr></thead></p>
@@ -276,7 +362,7 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<p>#### 🔍 Explanation:</p>
+<h4>🔍 Explanation:</h4>
 <ul>
 <p>  <li>All 4 departments (<code>Engineering</code>, <code>Marketing</code>, <code>Sales</code>, <code>Human Resources</code>) are included in the result.</li></p>
 <p>  <li><code>Sales</code> and <code>Human Resources</code> have no assigned employees, so <code>emp_id</code> and <code>emp_name</code> return as <code>NULL</code>.</li></p>
@@ -306,7 +392,7 @@
 <p></table></p>
 <p>   +---------+     +---------+</code></pre></p>
 
-<p>#### 🌐 MySQL Compatibility & Emulation Notice:</p>
+<h4>🌐 MySQL Compatibility & Emulation Notice:</h4>
 <p>MySQL does <strong>not</strong> natively support <code>FULL OUTER JOIN</code> syntax (<code>ERROR 1064</code>). In MySQL and MariaDB, you emulate a <code>FULL OUTER JOIN</code> by combining a <code>LEFT JOIN</code> and a <code>RIGHT JOIN</code> using the <strong><code>UNION</code></strong> operator:</p>
 
 <pre><code class="language-sql">-- MySQL Emulation of FULL OUTER JOIN
@@ -320,7 +406,7 @@
 <p>FROM employees AS e</p>
 <p>RIGHT JOIN departments AS d ON e.dept_id = d.dept_id;</code></pre></p>
 
-<p>#### 👀 Expected Result Table (6 Rows Total):</p>
+<h4>👀 Expected Result Table (6 Rows Total):</h4>
 
 <table>
 <p>  <thead><tr><th>emp_id</th><th>emp_name</th><th>dept_id</th><th>dept_name</th></tr></thead></p>
@@ -344,14 +430,14 @@
 
 <p>If Table A has 4 rows and Table B has 4 rows, the result contains <strong>4 × 4 = 16 rows</strong>.</p>
 
-<p>#### SQL Query:</p>
+<h4>SQL Query:</h4>
 <pre><code class="language-sql">SELECT 
 <p>    e.emp_name, </p>
 <p>    d.dept_name</p>
 <p>FROM employees AS e</p>
 <p>CROSS JOIN departments AS d;</code></pre></p>
 
-<p>#### 👀 Partial Result Sample (First 6 of 16 Rows):</p>
+<h4>👀 Partial Result Sample (First 6 of 16 Rows):</h4>
 
 <table>
 <p>  <thead><tr><th>emp_name</th><th>dept_name</th></tr></thead></p>
@@ -372,7 +458,7 @@
 
 <p>A <strong><code>SELF JOIN</code></strong> joins a table with <strong>itself</strong> using table aliases (<code>e</code> and <code>m</code>). This is used to query hierarchical relationships stored in a single table, such as linking employees to their respective managers.</p>
 
-<p>#### Setup Table: <code>staff</code></p>
+<h4>Setup Table: <code>staff</code></h4>
 
 <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS staff (
 <p>    emp_id INT PRIMARY KEY,</p>
@@ -386,7 +472,7 @@
 <p>    (3, &#39;Rohan&#39;, 1),     -- Managed by Vikram</p>
 <p>    (4, &#39;Ananya&#39;, 2);    -- Managed by Suresh</code></pre></p>
 
-<p>#### SQL Query:</p>
+<h4>SQL Query:</h4>
 <pre><code class="language-sql">SELECT 
 <p>    e.emp_name AS employee,</p>
 <p>    COALESCE(m.emp_name, &#39;Top Boss (No Manager)&#39;) AS manager</p>
@@ -394,7 +480,7 @@
 <p>LEFT JOIN staff AS m</p>
 <p>    ON e.manager_id = m.emp_id;</code></pre></p>
 
-<p>#### 👀 Expected Result Table:</p>
+<h4>👀 Expected Result Table:</h4>
 
 <table>
 <p>  <thead><tr><th>employee</th><th>manager</th></tr></thead></p>
@@ -425,7 +511,7 @@
 <h3>1. Anti-Join (Finding Unmatched / Orphaned Records)</h3>
 <p>An <strong>Anti-Join</strong> identifies rows in one table that have <strong>no matching records</strong> in another table. This is achieved using a <code>LEFT JOIN</code> combined with a <code>WHERE right_table.primary_key IS NULL</code> filter.</p>
 
-<p>#### Scenario A: Find Employees Without an Assigned Department</p>
+<h4>Scenario A: Find Employees Without an Assigned Department</h4>
 <pre><code class="language-sql">SELECT e.emp_id, e.emp_name
 <p>FROM employees AS e</p>
 <p>LEFT JOIN departments AS d ON e.dept_id = d.dept_id</p>
@@ -434,7 +520,7 @@
 <p>  <li><strong>Output:</strong> <code>104 | Neha</code></li></p>
 <p></ul></p>
 
-<p>#### Scenario B: Find Departments With No Assigned Employees</p>
+<h4>Scenario B: Find Departments With No Assigned Employees</h4>
 <pre><code class="language-sql">SELECT d.dept_id, d.dept_name
 <p>FROM departments AS d</p>
 <p>LEFT JOIN employees AS e ON d.dept_id = e.dept_id</p>
@@ -567,23 +653,23 @@
 
 <h3>Answer Key:</h3>
 
-<p>#### Exercise 1 Solution:</p>
+<h4>Exercise 1 Solution:</h4>
 <pre><code class="language-sql">SELECT c.customer_name, o.order_id, o.order_date
 <p>FROM customers AS c</p>
 <p>INNER JOIN orders AS o ON c.customer_id = o.customer_id;</code></pre></p>
 
-<p>#### Exercise 2 Solution:</p>
+<h4>Exercise 2 Solution:</h4>
 <pre><code class="language-sql">SELECT c.customer_id, c.customer_name
 <p>FROM customers AS c</p>
 <p>LEFT JOIN orders AS o ON c.customer_id = o.customer_id</p>
 <p>WHERE o.order_id IS NULL;</code></pre></p>
 
-<p>#### Exercise 3 Solution:</p>
+<h4>Exercise 3 Solution:</h4>
 <pre><code class="language-sql">SELECT e.emp_name AS employee, m.emp_name AS manager
 <p>FROM staff AS e</p>
 <p>LEFT JOIN staff AS m ON e.manager_id = m.emp_id;</code></pre></p>
 
-<p>#### Mini Challenge Solution:</p>
+<h4>Mini Challenge Solution:</h4>
 
 <pre><code class="language-sql">-- Step 1: Create sample university tables
 <p>CREATE TABLE IF NOT EXISTS students (</p>
@@ -660,6 +746,62 @@
 
 <p><a href="13-group-by-and-having.html">← Previous: GROUP BY & HAVING</a> | <a href="./">SQL Home</a> | <a href="15-sql-functions.html">Next: SQL Functions →</a></p>
 
+      </div>
+    </main>
   </div>
+
+  <!-- Mobile Sidebar & Search Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.getElementById('sidebar-toggle');
+      var sidebar = document.getElementById('sidebar');
+      var overlay = document.getElementById('sidebar-overlay');
+
+      function openSidebar() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function toggleSidebar() {
+        if (sidebar.classList.contains('active')) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleSidebar);
+      }
+      if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+      }
+
+      var navLinks = sidebar ? sidebar.querySelectorAll('a') : [];
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 868) {
+            closeSidebar();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+          closeSidebar();
+        }
+      });
+    });
+  </script>
+  <script src="../assets/js/search-data.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/contributors.js"></script>
 </body>
 </html>

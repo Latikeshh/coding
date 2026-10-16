@@ -3,14 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>19 storage classes - Learn C</title>
+  <title>19 storage classes - C Language</title>
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/components.css">
 </head>
-<body class="main-content">
-  <div class="content-wrapper">
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../index.html" class="mobile-brand">
+        <span class="brand-logo">ðŸ’»</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">â˜°</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-brand">
+          <span class="brand-logo">ðŸ’»</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">ðŸ”</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">â†</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">23 Lessons</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Learn C Programming</span></a></li>
+  <li class="nav-item"><a href="01-setup-c.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Set Up C Environment</span></a></li>
+  <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Introduction to C</span></a></li>
+  <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Variables and Data Types in C</span></a></li>
+  <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Input and Output in C</span></a></li>
+  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Arrays in C</span></a></li>
+  <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Pointers Basics in C</span></a></li>
+  <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
+  <li class="nav-item"><a href="12-strings.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Strings in C (`<string.h>`)</span></a></li>
+  <li class="nav-item"><a href="13-dynamic-memory-allocation.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Dynamic Memory Allocation (`malloc`, `calloc`, `realloc`, `free`)</span></a></li>
+  <li class="nav-item"><a href="14-structures.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Structures (`struct`) & `typedef`</span></a></li>
+  <li class="nav-item"><a href="15-unions-and-bit-fields.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Unions & Bit Fields in C</span></a></li>
+  <li class="nav-item"><a href="16-enums.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Enumerations (`enum`)</span></a></li>
+  <li class="nav-item"><a href="17-file-handling.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">File Handling (`fopen`, `fread`, `fwrite`)</span></a></li>
+  <li class="nav-item"><a href="18-preprocessor-and-macros.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">C Preprocessor & Macros (`#define`, `#ifdef`)</span></a></li>
+  <li class="nav-item"><a href="19-storage-classes.html" class="nav-link active"><span class="nav-bullet">â€¢</span><span class="nav-title">Storage Classes & Qualifiers in C</span></a></li>
+  <li class="nav-item"><a href="20-command-line-arguments.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Command Line Arguments (`argc`, `argv`)</span></a></li>
+  <li class="nav-item"><a href="21-multi-file-projects.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Multi-file Projects & Header Files (`.h`)</span></a></li>
+  <li class="nav-item"><a href="22-error-handling.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Error Handling & Debugging (`errno`, `perror`)</span></a></li>
+  <li class="nav-item"><a href="23-mini-projects.html" class="nav-link"><span class="nav-bullet">â€¢</span><span class="nav-title">Comprehensive C Mini Projects</span></a></li>
+</ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
 <h1>Storage Classes & Qualifiers in C</h1>
 
 <blockquote><p>🔴 Advanced</p></blockquote>
@@ -181,6 +260,62 @@
 
 
 
+      </div>
+    </main>
   </div>
+
+  <!-- Mobile Sidebar & Search Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.getElementById('sidebar-toggle');
+      var sidebar = document.getElementById('sidebar');
+      var overlay = document.getElementById('sidebar-overlay');
+
+      function openSidebar() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function toggleSidebar() {
+        if (sidebar.classList.contains('active')) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleSidebar);
+      }
+      if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+      }
+
+      var navLinks = sidebar ? sidebar.querySelectorAll('a') : [];
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 868) {
+            closeSidebar();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+          closeSidebar();
+        }
+      });
+    });
+  </script>
+  <script src="../assets/js/search-data.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/contributors.js"></script>
 </body>
 </html>
