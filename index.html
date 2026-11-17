@@ -3,329 +3,427 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Coding — Practical, Accurate & Multilingual Programming Resource</title>
+  <title>Learn Coding â€” Practical &amp; Multilingual Developer Hub</title>
   <link rel="stylesheet" href="assets/css/custom.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
 </head>
-<body class="main-content">
-  <div class="content-wrapper">
-<h1>💻 Learn Coding — Practical & Multilingual Developer Hub
-</h1>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-<blockquote><p><strong>A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development, Systems Programming, Databases, and Version Control.</strong>
-</p></blockquote>
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search 260+ lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-section-label">Programming Languages</div>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="C/index.html" class="nav-link"><span class="nav-icon">&#9881;</span><span class="nav-title">C Language</span><span class="nav-badge">23 Lessons</span></a></li>
+          <li class="nav-item"><a href="CPP/index.html" class="nav-link"><span class="nav-icon">&#128640;</span><span class="nav-title">C++</span><span class="nav-badge">23 Lessons</span></a></li>
+          <li class="nav-item"><a href="HTML/index.html" class="nav-link"><span class="nav-icon">&#127760;</span><span class="nav-title">HTML5</span><span class="nav-badge">32 Lessons</span></a></li>
+          <li class="nav-item"><a href="CSS/index.html" class="nav-link"><span class="nav-icon">&#127912;</span><span class="nav-title">CSS3</span><span class="nav-badge">43 Lessons</span></a></li>
+          <li class="nav-item"><a href="JS/index.html" class="nav-link"><span class="nav-icon">&#9889;</span><span class="nav-title">JavaScript</span><span class="nav-badge">25 Lessons</span></a></li>
+          <li class="nav-item"><a href="Python/index.html" class="nav-link"><span class="nav-icon">&#128013;</span><span class="nav-title">Python</span><span class="nav-badge">32 Lessons</span></a></li>
+          <li class="nav-item"><a href="Java/index.html" class="nav-link"><span class="nav-icon">&#9749;</span><span class="nav-title">Java</span><span class="nav-badge">24 Lessons</span></a></li>
+          <li class="nav-item"><a href="SQL/index.html" class="nav-link"><span class="nav-icon">&#128452;</span><span class="nav-title">SQL</span><span class="nav-badge">30 Lessons</span></a></li>
+          <li class="nav-item"><a href="Git-and-GitHub/index.html" class="nav-link"><span class="nav-icon">&#128368;</span><span class="nav-title">Git &amp; GitHub</span><span class="nav-badge">30 Lessons</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
 
-<p>Welcome to <strong>Coding</strong> — a structured, technically rigorous, and beginner-first open-source hub created for self-taught developers, computer science students, educators, and software engineers.</p>
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+<h1>💻 Learn Coding — Practical & Multilingual Developer Hub</h1>
 
-<p>Every lesson combines formal definitions, <strong>4-language explanations</strong> (English, Roman Hindi, Roman Marathi, Hinglish), runnable production-ready code examples, common pitfall warnings, real-world usage contexts, hands-on exercises, and capstone mini projects.</p>
+<blockquote><p><strong>A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development, Systems Programming, Databases, and Version Control.</strong></p></blockquote>
 
-<p>---</p>
+Welcome to <strong>Coding</strong> — a structured, technically rigorous, and beginner-first open-source hub created for self-taught developers, computer science students, educators, and software engineers.
 
-<h2>📚 Explore Programming Languages & Tracks
-</h2>
+Every lesson combines formal definitions, <strong>4-language explanations</strong> (English, Roman Hindi, Roman Marathi, Hinglish), runnable production-ready code examples, common pitfall warnings, real-world usage contexts, hands-on exercises, and capstone mini projects.
 
-<p>Discover our 9 comprehensive technology tracks comprising <strong>260+ structured lessons</strong>:</p>
+---
+
+<h2>📚 Explore Programming Languages & Tracks</h2>
+
+Discover our 9 comprehensive technology tracks comprising <strong>260+ structured lessons</strong>:
 
 <div class="language-grid">
 
-<p>  <a href="C/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">⚙️</span></p>
-<p>        <h3 class="card-title">C Language</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">23 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">ISO C11, Pointers, Dynamic Memory (malloc/free), Structs, File I/O & Persistent Binary Database Engine.</p></p>
-<p>    <span class="card-link-text">Explore C Track →</span></p>
-<p>  </a></p>
+  <a href="C/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">⚙️</span>
+        <h3 class="card-title">C Language</h3>
+      </div>
+      <span class="card-badge">23 Lessons</span>
+    </div>
+    <p class="card-desc">ISO C11, Pointers, Dynamic Memory (malloc/free), Structs, File I/O & Persistent Binary Database Engine.</p>
+    <span class="card-link-text">Explore C Track →</span>
+  </a>
 
-<p>  <a href="CPP/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">🚀</span></p>
-<p>        <h3 class="card-title">C++</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">23 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">ISO C++17/20, Modern OOP, RAII, Smart Pointers, STL Containers, Templates & Move Semantics.</p></p>
-<p>    <span class="card-link-text">Explore C++ Track →</span></p>
-<p>  </a></p>
+  <a href="CPP/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🚀</span>
+        <h3 class="card-title">C++</h3>
+      </div>
+      <span class="card-badge">23 Lessons</span>
+    </div>
+    <p class="card-desc">ISO C++17/20, Modern OOP, RAII, Smart Pointers, STL Containers, Templates & Move Semantics.</p>
+    <span class="card-link-text">Explore C++ Track →</span>
+  </a>
 
-<p>  <a href="HTML/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">🌐</span></p>
-<p>        <h3 class="card-title">HTML5</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">32 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">Document Structure, Semantic Tags, Forms & Validations, Media, Accessibility (ARIA) & SEO.</p></p>
-<p>    <span class="card-link-text">Explore HTML Track →</span></p>
-<p>  </a></p>
+  <a href="HTML/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🌐</span>
+        <h3 class="card-title">HTML5</h3>
+      </div>
+      <span class="card-badge">32 Lessons</span>
+    </div>
+    <p class="card-desc">Document Structure, Semantic Tags, Forms & Validations, Media, Accessibility (ARIA) & SEO.</p>
+    <span class="card-link-text">Explore HTML Track →</span>
+  </a>
 
-<p>  <a href="CSS/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">🎨</span></p>
-<p>        <h3 class="card-title">CSS3</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">43 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">Box Model, Specificity, Flexbox, CSS Grid, Media Queries, Keyframes, Dark Mode & Variables.</p></p>
-<p>    <span class="card-link-text">Explore CSS Track →</span></p>
-<p>  </a></p>
+  <a href="CSS/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🎨</span>
+        <h3 class="card-title">CSS3</h3>
+      </div>
+      <span class="card-badge">43 Lessons</span>
+    </div>
+    <p class="card-desc">Box Model, Specificity, Flexbox, CSS Grid, Media Queries, Keyframes, Dark Mode & Variables.</p>
+    <span class="card-link-text">Explore CSS Track →</span>
+  </a>
 
-<p>  <a href="JS/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">⚡</span></p>
-<p>        <h3 class="card-title">JavaScript</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">25 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">Modern ES6+, Scoping, Closures, Promises, Async/Await, Fetch API, DOM Manipulation & Web Storage.</p></p>
-<p>    <span class="card-link-text">Explore JavaScript Track →</span></p>
-<p>  </a></p>
+  <a href="JS/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">⚡</span>
+        <h3 class="card-title">JavaScript</h3>
+      </div>
+      <span class="card-badge">25 Lessons</span>
+    </div>
+    <p class="card-desc">Modern ES6+, Scoping, Closures, Promises, Async/Await, Fetch API, DOM Manipulation & Web Storage.</p>
+    <span class="card-link-text">Explore JavaScript Track →</span>
+  </a>
 
-<p>  <a href="Python/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">🐍</span></p>
-<p>        <h3 class="card-title">Python</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">32 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">Python 3 Fundamentals, Data Structures, OOP, Decorators, Iterators, File Handling, Testing & Projects.</p></p>
-<p>    <span class="card-link-text">Explore Python Track →</span></p>
-<p>  </a></p>
+  <a href="Python/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🐍</span>
+        <h3 class="card-title">Python</h3>
+      </div>
+      <span class="card-badge">32 Lessons</span>
+    </div>
+    <p class="card-desc">Python 3 Fundamentals, Data Structures, OOP, Decorators, Iterators, File Handling, Testing & Projects.</p>
+    <span class="card-link-text">Explore Python Track →</span>
+  </a>
 
-<p>  <a href="Java/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">☕</span></p>
-<p>        <h3 class="card-title">Java</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">24 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">General Java (Java SE / JDK 25), Primitive Types, Control Flow, Collections, OOP, Streams, Lambdas & Testing.</p></p>
-<p>    <span class="card-link-text">Explore Java Track →</span></p>
-<p>  </a></p>
+  <a href="Java/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">☕</span>
+        <h3 class="card-title">Java</h3>
+      </div>
+      <span class="card-badge">24 Lessons</span>
+    </div>
+    <p class="card-desc">General Java (Java SE / JDK 25), Primitive Types, Control Flow, Collections, OOP, Streams, Lambdas & Testing.</p>
+    <span class="card-link-text">Explore Java Track →</span>
+  </a>
 
-<p>  <a href="SQL/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">🗄️</span></p>
-<p>        <h3 class="card-title">SQL</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">30 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">Relational Databases, CRUD, Joins, Aggregations, CTEs, Window Functions, Views & Transactions.</p></p>
-<p>    <span class="card-link-text">Explore SQL Track →</span></p>
-<p>  </a></p>
+  <a href="SQL/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🗄️</span>
+        <h3 class="card-title">SQL</h3>
+      </div>
+      <span class="card-badge">30 Lessons</span>
+    </div>
+    <p class="card-desc">Relational Databases, CRUD, Joins, Aggregations, CTEs, Window Functions, Views & Transactions.</p>
+    <span class="card-link-text">Explore SQL Track →</span>
+  </a>
 
-<p>  <a href="Git-and-GitHub/00-README.html" class="language-card"></p>
-<p>    <div class="card-header"></p>
-<p>      <div class="card-title-group"></p>
-<p>        <span class="card-icon">🔀</span></p>
-<p>        <h3 class="card-title">Git & GitHub</h3></p>
-<p>      </div></p>
-<p>      <span class="card-badge">30 Lessons</span></p>
-<p>    </div></p>
-<p>    <p class="card-desc">Git CLI, Branching, Merging, Rebase, Stash, Conflict Resolution, PRs, SSH, Pages & Actions CI/CD.</p></p>
-<p>    <span class="card-link-text">Explore Git & GitHub Track →</span></p>
-<p>  </a></p>
+  <a href="Git-and-GitHub/index.html" class="language-card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <span class="card-icon">🔀</span>
+        <h3 class="card-title">Git & GitHub</h3>
+      </div>
+      <span class="card-badge">30 Lessons</span>
+    </div>
+    <p class="card-desc">Git CLI, Branching, Merging, Rebase, Stash, Conflict Resolution, PRs, SSH, Pages & Actions CI/CD.</p>
+    <span class="card-link-text">Explore Git & GitHub Track →</span>
+  </a>
 
-<p></div></p>
+</div>
 
-<p>---</p>
+---
 
-<h2>🗺️ Recommended Learning Roadmap
-</h2>
+<h2>🗺️ Recommended Learning Roadmap</h2>
 
-<p>For beginners entering software development, we recommend following this progressive sequence:</p>
+For beginners entering software development, we recommend following this progressive sequence:
 
 <div class="roadmap-flow">
-<p>  <div class="roadmap-card"></p>
-<p>    <div class="roadmap-header"></p>
-<p>      <span class="step-num">Step 1</span></p>
-<p>      <h3 class="step-title">Version Control & Web Fundamentals</h3></p>
-<p>    </div></p>
-<p>    <div class="step-tags"></p>
-<p>      <span class="tech-tag">🔀 Git & GitHub</span></p>
-<p>      <span class="roadmap-arrow">➔</span></p>
-<p>      <span class="tech-tag">🌐 HTML5</span></p>
-<p>      <span class="roadmap-arrow">➔</span></p>
-<p>      <span class="tech-tag">🎨 CSS3 (Flexbox & Grid)</span></p>
-<p>    </div></p>
-<p>  </div></p>
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 1</span>
+      <h3 class="step-title">Version Control & Web Fundamentals</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">🔀 Git & GitHub</span>
+      <span class="roadmap-arrow">➔</span>
+      <span class="tech-tag">🌐 HTML5</span>
+      <span class="roadmap-arrow">➔</span>
+      <span class="tech-tag">🎨 CSS3 (Flexbox & Grid)</span>
+    </div>
+  </div>
 
-<p>  <div class="roadmap-connector">↓</div></p>
+  <div class="roadmap-connector">↓</div>
 
-<p>  <div class="roadmap-card"></p>
-<p>    <div class="roadmap-header"></p>
-<p>      <span class="step-num">Step 2</span></p>
-<p>      <h3 class="step-title">Dynamic Logic & Programming Languages</h3></p>
-<p>    </div></p>
-<p>    <div class="step-tags"></p>
-<p>      <span class="tech-tag">⚡ JavaScript (ES6+ & Async)</span></p>
-<p>      <span class="tech-tag">🐍 Python</span></p>
-<p>      <span class="tech-tag">☕ Java</span></p>
-<p>    </div></p>
-<p>  </div></p>
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 2</span>
+      <h3 class="step-title">Dynamic Logic & Programming Languages</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">⚡ JavaScript (ES6+ & Async)</span>
+      <span class="tech-tag">🐍 Python</span>
+      <span class="tech-tag">☕ Java</span>
+    </div>
+  </div>
 
-<p>  <div class="roadmap-connector">↓</div></p>
+  <div class="roadmap-connector">↓</div>
 
-<p>  <div class="roadmap-card"></p>
-<p>    <div class="roadmap-header"></p>
-<p>      <span class="step-num">Step 3</span></p>
-<p>      <h3 class="step-title">Databases & Data Persistence</h3></p>
-<p>    </div></p>
-<p>    <div class="step-tags"></p>
-<p>      <span class="tech-tag">🗄️ SQL (Relational Databases, Joins & Queries)</span></p>
-<p>    </div></p>
-<p>  </div></p>
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 3</span>
+      <h3 class="step-title">Databases & Data Persistence</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">🗄️ SQL (Relational Databases, Joins & Queries)</span>
+    </div>
+  </div>
 
-<p>  <div class="roadmap-connector">↓</div></p>
+  <div class="roadmap-connector">↓</div>
 
-<p>  <div class="roadmap-card"></p>
-<p>    <div class="roadmap-header"></p>
-<p>      <span class="step-num">Step 4</span></p>
-<p>      <h3 class="step-title">Systems Programming & Low-Level Memory</h3></p>
-<p>    </div></p>
-<p>    <div class="step-tags"></p>
-<p>      <span class="tech-tag">⚙️ C (Pointers & Memory Allocation)</span></p>
-<p>      <span class="roadmap-arrow">➔</span></p>
-<p>      <span class="tech-tag">🚀 C++ (Modern OOP, STL & Move Semantics)</span></p>
-<p>    </div></p>
-<p>  </div></p>
-<p></div></p>
+  <div class="roadmap-card">
+    <div class="roadmap-header">
+      <span class="step-num">Step 4</span>
+      <h3 class="step-title">Systems Programming & Low-Level Memory</h3>
+    </div>
+    <div class="step-tags">
+      <span class="tech-tag">⚙️ C (Pointers & Memory Allocation)</span>
+      <span class="roadmap-arrow">➔</span>
+      <span class="tech-tag">🚀 C++ (Modern OOP, STL & Move Semantics)</span>
+    </div>
+  </div>
+</div>
 
-<h3>Text Diagram Representation:
-</h3>
+<h3>Text Diagram Representation:</h3>
 
 <pre><code class="language-text">[1. Version Control &amp; Web Fundamentals]
-<p>   Git &amp; GitHub ──&gt; HTML (Structure) ──&gt; CSS (Styling, Flexbox &amp; Grid)</p>
-<p>                                              │</p>
-<p>                                              ▼</p>
-<p>[2. Dynamic Logic &amp; Data]          JavaScript / Python / Java</p>
-<p>                                              │</p>
-<p>                                              ▼</p>
-<p>[3. Databases &amp; Persistence]       SQL (Relational Databases &amp; Queries)</p>
-<p>                                              │</p>
-<p>                                              ▼</p>
-<p>[4. Systems &amp; Low-Level Memory]    C (Pointers, Memory &amp; Structs) ──&gt; C++ (Modern OOP &amp; STL)</code></pre></p>
+   Git &amp; GitHub ──&gt; HTML (Structure) ──&gt; CSS (Styling, Flexbox &amp; Grid)
+                                              │
+                                              ▼
+[2. Dynamic Logic &amp; Data]          JavaScript / Python / Java
+                                              │
+                                              ▼
+[3. Databases &amp; Persistence]       SQL (Relational Databases &amp; Queries)
+                                              │
+                                              ▼
+[4. Systems &amp; Low-Level Memory]    C (Pointers, Memory &amp; Structs) ──&gt; C++ (Modern OOP &amp; STL)</code></pre>
 
-<p>---</p>
+---
 
-<h2>📢 Share & Connect
-</h2>
+<h2>📢 Share & Connect</h2>
 
-<p>If you find this repository helpful, support the project by starring it and sharing it with fellow learners:</p>
-
-<table>
-<p>  <thead><tr><th>Platform</th><th>Action / Link</th><th>Description</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td>⭐ <strong>GitHub Stars</strong></td><td><a href="https://img.shields.io/github/stars/Latikeshh/coding?style=social">![GitHub Stars</a>](https://github.com/Latikeshh/coding/stargazers)</td><td>Star the repository on GitHub</td></tr></p>
-<p>    <tr><td>🔀 <strong>GitHub Forks</strong></td><td><a href="https://img.shields.io/github/forks/Latikeshh/coding?style=social">![GitHub Forks</a>](https://github.com/Latikeshh/coding/network/members)</td><td>Fork and contribute to the repository</td></tr></p>
-<p>    <tr><td>💼 <strong>LinkedIn</strong></td><td><a href="https://img.shields.io/badge/Share_on_LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white">![Share on LinkedIn</a>](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)</td><td>Share with professional network</td></tr></p>
-<p>    <tr><td>💬 <strong>WhatsApp</strong></td><td><a href="https://img.shields.io/badge/Share_on_WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white">![Share on WhatsApp</a>](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding)</td><td>Share with student study groups</td></tr></p>
-<p>    <tr><td>✈️ <strong>Telegram</strong></td><td><a href="https://img.shields.io/badge/Share_on_Telegram-26A5E4?style=flat&logo=telegram&logoColor=white">![Share on Telegram</a>](https://t.me/share/url?url=https://github.com/Latikeshh/coding&text=Check%20out%20this%20free%20multilingual%20programming%20resource!)</td><td>Forward to developer channels</td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
-
-<p>---</p>
-
-<h2>🤝 Contribution & How to Contribute
-</h2>
-
-<p>We welcome open-source contributions from developers, learners, and educators worldwide! Whether you want to fix a typo, add new lesson examples, improve multilingual explanations, or build capstone projects, your help is deeply appreciated.</p>
-
-<h3>📌 Quick Contribution Summary:
-</h3>
-<p>1. <strong>Fork</strong> this repository to your GitHub account.</p>
-<p>2. <strong>Clone</strong> your fork locally: <code>git clone https://github.com/<your-username>/coding.git</code></p>
-<p>3. <strong>Create a branch</strong>: <code>git checkout -b feature/my-new-contribution</code></p>
-<p>4. <strong>Commit & Push</strong>: <code>git add .</code> -> <code>git commit -m "feat: add new lesson"</code> -> <code>git push origin feature/my-new-contribution</code></p>
-<p>5. <strong>Open a Pull Request</strong>: Submit your PR on GitHub!</p>
-
-<p>📖 <strong>For deep step-by-step instructions on git commands, local setup, file formatting rules, and PR submission, read our full guide:</strong></p>
-<p>👉 <strong><a href="_pages/contributing.html">Read Step-by-Step Contribution Guide (CONTRIBUTING.html)</a></strong></p>
-
-<p>---</p>
-
-<h2>👥 Creator & Contributors
-</h2>
-
-<h3>🌟 Contributor Hall of Fame
-</h3>
-<p>View all community members and developers who have contributed to this project:</p>
-<p>👉 <strong><a href="_pages/contributors.html">View Full Contributors Hall of Fame (CONTRIBUTORS.html)</a></strong></p>
-
-<h3>👨‍💻 Created & Maintained By
-</h3>
+If you find this repository helpful, support the project by starring it and sharing it with fellow learners:
 
 <table>
-<p>  <thead><tr><th>Creator</th><th>Profile</th><th>Connect</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><strong>Latikesh Marathe</strong></td><td><a href="https://github.com/Latikeshh">@Latikeshh</a></td><td><a href="https://www.linkedin.com/in/latikesh-marathe-966218374">LinkedIn Profile</a></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Platform</th><th>Action / Link</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>⭐ <strong>GitHub Stars</strong></td><td><a href="https://img.shields.io/github/stars/Latikeshh/coding?style=social">![GitHub Stars</a>](https://github.com/Latikeshh/coding/stargazers)</td><td>Star the repository on GitHub</td></tr>
+    <tr><td>🔀 <strong>GitHub Forks</strong></td><td><a href="https://img.shields.io/github/forks/Latikeshh/coding?style=social">![GitHub Forks</a>](https://github.com/Latikeshh/coding/network/members)</td><td>Fork and contribute to the repository</td></tr>
+    <tr><td>💼 <strong>LinkedIn</strong></td><td><a href="https://img.shields.io/badge/Share_on_LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white">![Share on LinkedIn</a>](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Latikeshh/coding)</td><td>Share with professional network</td></tr>
+    <tr><td>💬 <strong>WhatsApp</strong></td><td><a href="https://img.shields.io/badge/Share_on_WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white">![Share on WhatsApp</a>](https://api.whatsapp.com/send?text=Learn%20programming%20for%20free%20with%20multilingual%20tutorials:%20https://github.com/Latikeshh/coding)</td><td>Share with student study groups</td></tr>
+    <tr><td>✈️ <strong>Telegram</strong></td><td><a href="https://img.shields.io/badge/Share_on_Telegram-26A5E4?style=flat&logo=telegram&logoColor=white">![Share on Telegram</a>](https://t.me/share/url?url=https://github.com/Latikeshh/coding&text=Check%20out%20this%20free%20multilingual%20programming%20resource!)</td><td>Forward to developer channels</td></tr>
+  </tbody>
+</table>
 
-<h3>Curriculum Contributors
-</h3>
+---
 
-<table>
-<p>  <thead><tr><th>Contributor</th><th>Profile</th><th>Contribution</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><strong>Prathamesh Misar</strong></td><td><a href="https://github.com/git-pratham">@git-pratham</a></td><td>Added the <a href="Python/00-README.html">Python</a> and <a href="Java/00-README.html">Java</a> learning paths.</td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+<h2>🤝 Contribution & How to Contribute</h2>
 
-<p>---</p>
+We welcome open-source contributions from developers, learners, and educators worldwide! Whether you want to fix a typo, add new lesson examples, improve multilingual explanations, or build capstone projects, your help is deeply appreciated.
 
-<h2>🌐 Official Documentation & Authoritative References
-</h2>
+<h3>📌 Quick Contribution Summary:</h3>
+1. <strong>Fork</strong> this repository to your GitHub account.
+2. <strong>Clone</strong> your fork locally: <code>git clone https://github.com/<your-username>/coding.git</code>
+3. <strong>Create a branch</strong>: <code>git checkout -b feature/my-new-contribution</code>
+4. <strong>Commit & Push</strong>: <code>git add .</code> -> <code>git commit -m "feat: add new lesson"</code> -> <code>git push origin feature/my-new-contribution</code>
+5. <strong>Open a Pull Request</strong>: Submit your PR on GitHub!
 
-<p>To help learners explore original language specifications, standards, and vendor documentation, every curriculum track aligns with official developer references:</p>
+📖 <strong>For deep step-by-step instructions on git commands, local setup, file formatting rules, and PR submission, read our full guide:</strong>
+👉 <strong><a href="_pages/contributing.html">Read Step-by-Step Contribution Guide (CONTRIBUTING.html)</a></strong>
 
-<table>
-<p>  <thead><tr><th>Track / Technology</th><th>Official Reference & Documentation Link</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td>🐍 <strong>Python 3</strong></td><td><a href="https://docs.python.org/3/">Python 3 Official Documentation & Standard Library</a></td></tr></p>
-<p>    <tr><td>☕ <strong>Java (SE JDK 25)</strong></td><td><a href="https://docs.oracle.com/en/java/">Oracle Java SE JDK Official Documentation</a></td></tr></p>
-<p>    <tr><td>🌐 <strong>HTML5 & Web</strong></td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN Web Docs — HTML Specification</a></td></tr></p>
-<p>    <tr><td>🎨 <strong>CSS3 & Layouts</strong></td><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN Web Docs — CSS Grid & Flexbox Reference</a></td></tr></p>
-<p>    <tr><td>⚙️ <strong>C Language (ISO C11)</strong></td><td><a href="https://en.cppreference.com/w/c">ISO C Standard Reference (cppreference.com)</a></td></tr></p>
-<p>    <tr><td>🚀 <strong>C++ (ISO C++20)</strong></td><td><a href="https://en.cppreference.com/w/cpp">Modern ISO C++ Reference (cppreference.com)</a></td></tr></p>
-<p>    <tr><td>⚡ <strong>JavaScript (ES6+)</strong></td><td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN Web Docs — JavaScript Reference</a></td></tr></p>
-<p>    <tr><td>🗄️ <strong>SQL Databases</strong></td><td><a href="https://www.postgresql.org/docs/">PostgreSQL Documentation</a> \</td><td><a href="https://dev.mysql.com/doc/">MySQL Reference Manual</a></td></tr></p>
-<p>    <tr><td>🔀 <strong>Git & GitHub</strong></td><td><a href="https://git-scm.com/doc">Git Official Reference Manual</a> \</td><td><a href="https://docs.github.com">GitHub Docs</a></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+---
 
-<p>---</p>
+<h2>👥 Creator & Contributors</h2>
 
-<h2>🧭 Quick Track Links & Navigation
-</h2>
+<h3>🌟 Contributor Hall of Fame</h3>
+View all community members and developers who have contributed to this project:
+👉 <strong><a href="_pages/contributors.html">View Full Contributors Hall of Fame (CONTRIBUTORS.html)</a></strong>
+
+<h3>👨‍💻 Created & Maintained By</h3>
 
 <table>
-<p>  <thead><tr><th>Technology Track</th><th>Total Lessons</th><th>Level Range</th><th>Direct Path Link</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td>🐍 <strong>Python 3</strong></td><td>32 Lessons</td><td>Beginner → Practical</td><td><a href="Python/00-README.html">Explore Python Path</a></td></tr></p>
-<p>    <tr><td>☕ <strong>Java (SE JDK 25)</strong></td><td>24 Lessons</td><td>Beginner → Practical</td><td><a href="Java/00-README.html">Explore Java Path</a></td></tr></p>
-<p>    <tr><td>🌐 <strong>HTML5</strong></td><td>32 Lessons</td><td>Beginner → Web</td><td><a href="HTML/00-README.html">Explore HTML Path</a></td></tr></p>
-<p>    <tr><td>🎨 <strong>CSS3</strong></td><td>43 Lessons</td><td>Beginner → Advanced</td><td><a href="CSS/00-README.html">Explore CSS Path</a></td></tr></p>
-<p>    <tr><td>🔀 <strong>Git & GitHub</strong></td><td>30 Lessons</td><td>Beginner → DevOps</td><td><a href="Git-and-GitHub/00-README.html">Explore Git & GitHub Path</a></td></tr></p>
-<p>    <tr><td>⚙️ <strong>C Language</strong></td><td>23 Lessons</td><td>Beginner → Systems</td><td><a href="C/00-README.html">Explore C Systems Path</a></td></tr></p>
-<p>    <tr><td>⚡ <strong>JavaScript (ES6+)</strong></td><td>25 Lessons</td><td>Beginner → Advanced</td><td><a href="JS/00-README.html">Explore JavaScript Path</a></td></tr></p>
-<p>    <tr><td>🚀 <strong>C++ (ISO C++20)</strong></td><td>23 Lessons</td><td>Beginner → Systems</td><td><a href="CPP/00-README.html">Explore C++ Path</a></td></tr></p>
-<p>    <tr><td>🗄️ <strong>SQL Database</strong></td><td>30 Lessons</td><td>Beginner → Databases</td><td><a href="SQL/00-README.html">Explore SQL Path</a></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Creator</th><th>Profile</th><th>Connect</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Latikesh Marathe</strong></td><td><a href="https://github.com/Latikeshh">@Latikeshh</a></td><td><a href="https://www.linkedin.com/in/latikesh-marathe-966218374">LinkedIn Profile</a></td></tr>
+  </tbody>
+</table>
 
+<h3>Curriculum Contributors</h3>
+
+<table>
+  <thead><tr><th>Contributor</th><th>Profile</th><th>Contribution</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Pratham</strong></td><td><a href="https://github.com/git-pratham">@git-pratham</a></td><td>Added the <a href="Python/index.html">Python</a> and <a href="Java/index.html">Java</a> learning paths.</td></tr>
+  </tbody>
+</table>
+
+---
+
+<h2>🌐 Official Documentation & Authoritative References</h2>
+
+To help learners explore original language specifications, standards, and vendor documentation, every curriculum track aligns with official developer references:
+
+<table>
+  <thead><tr><th>Track / Technology</th><th>Official Reference & Documentation Link</th></tr></thead>
+  <tbody>
+    <tr><td>🐍 <strong>Python 3</strong></td><td><a href="https://docs.python.org/3/">Python 3 Official Documentation & Standard Library</a></td></tr>
+    <tr><td>☕ <strong>Java (SE JDK 25)</strong></td><td><a href="https://docs.oracle.com/en/java/">Oracle Java SE JDK Official Documentation</a></td></tr>
+    <tr><td>🌐 <strong>HTML5 & Web</strong></td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN Web Docs — HTML Specification</a></td></tr>
+    <tr><td>🎨 <strong>CSS3 & Layouts</strong></td><td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN Web Docs — CSS Grid & Flexbox Reference</a></td></tr>
+    <tr><td>⚙️ <strong>C Language (ISO C11)</strong></td><td><a href="https://en.cppreference.com/w/c">ISO C Standard Reference (cppreference.com)</a></td></tr>
+    <tr><td>🚀 <strong>C++ (ISO C++20)</strong></td><td><a href="https://en.cppreference.com/w/cpp">Modern ISO C++ Reference (cppreference.com)</a></td></tr>
+    <tr><td>⚡ <strong>JavaScript (ES6+)</strong></td><td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN Web Docs — JavaScript Reference</a></td></tr>
+    <tr><td>🗄️ <strong>SQL Databases</strong></td><td><a href="https://www.postgresql.org/docs/">PostgreSQL Documentation</a> \</td><td><a href="https://dev.mysql.com/doc/">MySQL Reference Manual</a></td></tr>
+    <tr><td>🔀 <strong>Git & GitHub</strong></td><td><a href="https://git-scm.com/doc">Git Official Reference Manual</a> \</td><td><a href="https://docs.github.com">GitHub Docs</a></td></tr>
+  </tbody>
+</table>
+
+---
+
+<h2>🧭 Quick Track Links & Navigation</h2>
+
+<table>
+  <thead><tr><th>Technology Track</th><th>Total Lessons</th><th>Level Range</th><th>Direct Path Link</th></tr></thead>
+  <tbody>
+    <tr><td>🐍 <strong>Python 3</strong></td><td>32 Lessons</td><td>Beginner → Practical</td><td><a href="Python/index.html">Explore Python Path</a></td></tr>
+    <tr><td>☕ <strong>Java (SE JDK 25)</strong></td><td>24 Lessons</td><td>Beginner → Practical</td><td><a href="Java/index.html">Explore Java Path</a></td></tr>
+    <tr><td>🌐 <strong>HTML5</strong></td><td>32 Lessons</td><td>Beginner → Web</td><td><a href="HTML/index.html">Explore HTML Path</a></td></tr>
+    <tr><td>🎨 <strong>CSS3</strong></td><td>43 Lessons</td><td>Beginner → Advanced</td><td><a href="CSS/index.html">Explore CSS Path</a></td></tr>
+    <tr><td>🔀 <strong>Git & GitHub</strong></td><td>30 Lessons</td><td>Beginner → DevOps</td><td><a href="Git-and-GitHub/index.html">Explore Git & GitHub Path</a></td></tr>
+    <tr><td>⚙️ <strong>C Language</strong></td><td>23 Lessons</td><td>Beginner → Systems</td><td><a href="C/index.html">Explore C Systems Path</a></td></tr>
+    <tr><td>⚡ <strong>JavaScript (ES6+)</strong></td><td>25 Lessons</td><td>Beginner → Advanced</td><td><a href="JS/index.html">Explore JavaScript Path</a></td></tr>
+    <tr><td>🚀 <strong>C++ (ISO C++20)</strong></td><td>23 Lessons</td><td>Beginner → Systems</td><td><a href="CPP/index.html">Explore C++ Path</a></td></tr>
+    <tr><td>🗄️ <strong>SQL Database</strong></td><td>30 Lessons</td><td>Beginner → Databases</td><td><a href="SQL/index.html">Explore SQL Path</a></td></tr>
+  </tbody>
+</table>
+
+      </div>
+    </main>
   </div>
+
+  <!-- Mobile Sidebar & Search Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleBtn = document.getElementById('sidebar-toggle');
+      var sidebar = document.getElementById('sidebar');
+      var overlay = document.getElementById('sidebar-overlay');
+
+      function openSidebar() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function toggleSidebar() {
+        if (sidebar.classList.contains('active')) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleSidebar);
+      }
+      if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+      }
+
+      var navLinks = sidebar ? sidebar.querySelectorAll('a') : [];
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 868) {
+            closeSidebar();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+          closeSidebar();
+        }
+      });
+    });
+  </script>
+  <script src="assets/js/search-data.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/contributors.js"></script>
 </body>
 </html>
