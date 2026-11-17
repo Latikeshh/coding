@@ -1,8 +1,146 @@
 /* ==============================================================================
-   Main Stylesheet - Learn Coding (Modular Entry Point)
+   Main Stylesheet & Premium UI Enhancements - Learn Coding
    Imports modular sub-stylesheets: base.css, layout.css, and components.css
    ============================================================================== */
 
 @import "base.css";
 @import "layout.css";
 @import "components.css";
+
+/* 🌟 Premium Status Pill & Hero Badges */
+.status-pill, .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+/* 🚀 Hero Action Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem 0;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #3b82f6;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.5);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1e293b;
+  color: #f8fafc !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none !important;
+  border: 1px solid #334155;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hero-secondary:hover {
+  transform: translateY(-3px);
+  background-color: #334155;
+  border-color: #38bdf8;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* 🎴 Elevated Card Micro-Animations & Glows */
+.language-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.language-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.language-card:hover {
+  transform: translateY(-5px) !important;
+  background-color: #1e293b !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 15px rgba(37, 99, 235, 0.2) !important;
+  border-color: #3b82f6 !important;
+}
+
+.language-card:hover::before {
+  opacity: 1;
+}
+
+/* ⌨️ Physical Keycap Keyboard Shortcut Styling */
+.search-shortcut, kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  background: #1e293b !important;
+  color: #38bdf8 !important;
+  padding: 0.2rem 0.45rem !important;
+  border-radius: 0.35rem !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 2px 0 #0f172a, inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 💻 Window Top Bar Styling for Code Blocks */
+pre, div.highlight pre {
+  position: relative;
+  border: 1px solid #1e293b !important;
+  border-top: 2px solid #334155 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 🗺️ Roadmap Step Badges & Timeline Glow */
+.roadmap-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.roadmap-card:hover {
+  transform: translateX(4px);
+  border-color: #38bdf8;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.step-num {
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+}
