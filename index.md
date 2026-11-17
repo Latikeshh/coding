@@ -6,21 +6,40 @@ permalink: /
 
 # 💻 Learn Coding — Practical & Multilingual Developer Hub
 
+<div class="status-pill">✨ 100% FREE &amp; MULTILINGUAL DEVELOPER RESOURCE</div>
+
 > **A comprehensive, open-source educational resource designed to take learners from absolute beginners to software engineering proficiency across Web Development, Systems Programming, Databases, and Version Control.**
 
 Welcome to **Coding** — a structured, technically rigorous, and beginner-first open-source hub created for self-taught developers, computer science students, educators, and software engineers.
+
+<div class="hero-actions">
+  <a href="#explore-tracks" class="btn-hero-primary">🚀 Start Learning</a>
+  <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">⭐ Star on GitHub</a>
+</div>
+
+<div class="tech-stack-strip">
+  <span class="tech-pill">⚙️ C</span>
+  <span class="tech-pill">🚀 C++</span>
+  <span class="tech-pill">🌐 HTML5</span>
+  <span class="tech-pill">🎨 CSS3</span>
+  <span class="tech-pill">⚡ JavaScript</span>
+  <span class="tech-pill">🐍 Python</span>
+  <span class="tech-pill">☕ Java</span>
+  <span class="tech-pill">🗄️ SQL</span>
+  <span class="tech-pill">🔀 Git &amp; GitHub</span>
+</div>
 
 Every lesson combines formal definitions, **4-language explanations** (English, Roman Hindi, Roman Marathi, Hinglish), runnable production-ready code examples, common pitfall warnings, real-world usage contexts, hands-on exercises, and capstone mini projects.
 
 ---
 
-## 📚 Explore Programming Languages & Tracks
+<h2 id="explore-tracks">📚 Explore Programming Languages &amp; Tracks</h2>
 
 Discover our 9 comprehensive technology tracks comprising **260+ structured lessons**:
 
 <div class="language-grid">
 
-  <a href="{{ '/C/' | relative_url }}" class="language-card">
+  <a href="{{ '/C/' | relative_url }}" class="language-card card-c">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">⚙️</span>
@@ -32,7 +51,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore C Track →</span>
   </a>
 
-  <a href="{{ '/CPP/' | relative_url }}" class="language-card">
+  <a href="{{ '/CPP/' | relative_url }}" class="language-card card-cpp">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🚀</span>
@@ -44,7 +63,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore C++ Track →</span>
   </a>
 
-  <a href="{{ '/HTML/' | relative_url }}" class="language-card">
+  <a href="{{ '/HTML/' | relative_url }}" class="language-card card-html">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🌐</span>
@@ -56,7 +75,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore HTML Track →</span>
   </a>
 
-  <a href="{{ '/CSS/' | relative_url }}" class="language-card">
+  <a href="{{ '/CSS/' | relative_url }}" class="language-card card-css">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🎨</span>
@@ -68,7 +87,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore CSS Track →</span>
   </a>
 
-  <a href="{{ '/JS/' | relative_url }}" class="language-card">
+  <a href="{{ '/JS/' | relative_url }}" class="language-card card-js">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">⚡</span>
@@ -80,7 +99,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore JavaScript Track →</span>
   </a>
 
-  <a href="{{ '/Python/' | relative_url }}" class="language-card">
+  <a href="{{ '/Python/' | relative_url }}" class="language-card card-python">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🐍</span>
@@ -92,7 +111,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore Python Track →</span>
   </a>
 
-  <a href="{{ '/Java/' | relative_url }}" class="language-card">
+  <a href="{{ '/Java/' | relative_url }}" class="language-card card-java">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">☕</span>
@@ -104,7 +123,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore Java Track →</span>
   </a>
 
-  <a href="{{ '/SQL/' | relative_url }}" class="language-card">
+  <a href="{{ '/SQL/' | relative_url }}" class="language-card card-sql">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🗄️</span>
@@ -116,7 +135,7 @@ Discover our 9 comprehensive technology tracks comprising **260+ structured less
     <span class="card-link-text">Explore SQL Track →</span>
   </a>
 
-  <a href="{{ '/Git-and-GitHub/' | relative_url }}" class="language-card">
+  <a href="{{ '/Git-and-GitHub/' | relative_url }}" class="language-card card-git">
     <div class="card-header">
       <div class="card-title-group">
         <span class="card-icon">🔀</span>
@@ -256,7 +275,7 @@ View all community members and developers who have contributed to this project:
 
 | Contributor | Profile | Contribution |
 |---|---|---|
-| **Pratham** | [@git-pratham](https://github.com/git-pratham) | Added the [Python]({{ '/Python/' | relative_url }}) and [Java]({{ '/Java/' | relative_url }}) learning paths. |
+| **Prathamesh Misar** | [@git-pratham](https://github.com/git-pratham) | Added the [Python]({{ '/Python/' | relative_url }}) and [Java]({{ '/Java/' | relative_url }}) learning paths. |
 
 ---
 

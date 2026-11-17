@@ -15,14 +15,14 @@
   background: rgba(56, 189, 248, 0.1);
   color: #38bdf8;
   border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 0.35rem 0.9rem;
+  padding: 0.4rem 1.1rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.785rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
 }
 
 /* 🚀 Hero Action Buttons */
@@ -42,17 +42,17 @@
   color: #ffffff !important;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.6rem;
   text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.45);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid #3b82f6;
 }
 
 .btn-hero-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
   background: linear-gradient(135deg, #1d4ed8, #1e40af);
 }
 
@@ -64,8 +64,8 @@
   color: #f8fafc !important;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.6rem;
   text-decoration: none !important;
   border: 1px solid #334155;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,10 +76,40 @@
   background-color: #334155;
   border-color: #38bdf8;
   color: #ffffff !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
-/* 🎴 Elevated Card Micro-Animations & Glows */
+/* 🏷️ Tech Stack Strip */
+.tech-stack-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0 2rem 0;
+  padding: 0.75rem 1rem;
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 0.75rem;
+}
+
+.tech-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #1e293b;
+  color: #f1f5f9;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.375rem;
+  border: 1px solid #334155;
+  transition: all 0.2s ease;
+}
+
+.tech-pill:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+/* 🎴 Elevated Card Micro-Animations & Color-Coded Glows */
 .language-card {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease !important;
   position: relative;
@@ -109,6 +139,34 @@
   opacity: 1;
 }
 
+/* Color-Coded Card Glows */
+.card-python:hover { border-color: #10b981 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(16, 185, 129, 0.25) !important; }
+.card-python::before { background: linear-gradient(90deg, #34d399, #10b981); }
+
+.card-sql:hover { border-color: #3b82f6 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(59, 130, 246, 0.25) !important; }
+.card-sql::before { background: linear-gradient(90deg, #60a5fa, #3b82f6); }
+
+.card-js:hover { border-color: #eab308 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(234, 179, 8, 0.25) !important; }
+.card-js::before { background: linear-gradient(90deg, #fde047, #eab308); }
+
+.card-html:hover { border-color: #f97316 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(249, 115, 22, 0.25) !important; }
+.card-html::before { background: linear-gradient(90deg, #fb923c, #f97316); }
+
+.card-css:hover { border-color: #06b6d4 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(6, 182, 212, 0.25) !important; }
+.card-css::before { background: linear-gradient(90deg, #22d3ee, #06b6d4); }
+
+.card-c:hover { border-color: #14b8a6 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(20, 184, 166, 0.25) !important; }
+.card-c::before { background: linear-gradient(90deg, #2dd4bf, #14b8a6); }
+
+.card-cpp:hover { border-color: #a855f7 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(168, 85, 247, 0.25) !important; }
+.card-cpp::before { background: linear-gradient(90deg, #c084fc, #a855f7); }
+
+.card-java:hover { border-color: #f43f5e !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(244, 63, 94, 0.25) !important; }
+.card-java::before { background: linear-gradient(90deg, #fb7185, #f43f5e); }
+
+.card-git:hover { border-color: #ec4899 !important; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 18px rgba(236, 72, 153, 0.25) !important; }
+.card-git::before { background: linear-gradient(90deg, #f472b6, #ec4899); }
+
 /* ⌨️ Physical Keycap Keyboard Shortcut Styling */
 .search-shortcut, kbd {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
@@ -122,7 +180,7 @@
   box-shadow: 0 2px 0 #0f172a, inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 💻 Window Top Bar Styling for Code Blocks */
+/* 💻 Terminal Top Bar Styling for Code Blocks */
 pre, div.highlight pre {
   position: relative;
   border: 1px solid #1e293b !important;
@@ -130,17 +188,30 @@ pre, div.highlight pre {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* 🗺️ Roadmap Step Badges & Timeline Glow */
+/* 🗺️ Roadmap Timeline Path & Step Badges */
+.roadmap-flow {
+  position: relative;
+}
+
 .roadmap-card {
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
 }
 
 .roadmap-card:hover {
-  transform: translateX(4px);
+  transform: translateX(6px);
   border-color: #38bdf8;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .step-num {
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
 }
