@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Database Keys - SQL</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">05 Keys</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Keys Overview</span></a></li>
+          <li class="nav-item"><a href="primary-foreign-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Primary & Foreign Keys</span></a></li>
+          <li class="nav-item"><a href="candidate-surrogate-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Candidate, Composite & Surrogate Keys</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>05. Relational Database Keys in SQL</h1>
+        <p>Database keys enforce entity integrity, prevent duplicate records, and establish relational links between SQL tables. Key constraints include Primary Keys, Foreign Keys, Candidate Keys, Composite Keys, and Surrogate Keys.</p>
+
+        <h2>Sub-Topics in Database Keys</h2>
+        <div class="subtopics-grid">
+          <a href="primary-foreign-keys.html" class="card">
+            <h3>Primary & Foreign Keys</h3>
+            <p>Master unique row identification via <code>PRIMARY KEY</code> and relational table linking via <code>FOREIGN KEY</code> constraints.</p>
+          </a>
+          <a href="candidate-surrogate-keys.html" class="card">
+            <h3>Candidate, Composite & Surrogate Keys</h3>
+            <p>Explore candidate keys, multi-column composite keys, and auto-incrementing surrogate keys.</p>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

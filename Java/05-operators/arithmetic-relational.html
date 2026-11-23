@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arithmetic & Relational Operators - Java SE</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Java SE</span>
+          <span class="course-header-badge">05 Operators</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators Overview</span></a></li>
+          <li class="nav-item"><a href="arithmetic-relational.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arithmetic, Relational & Logical Operators</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Arithmetic & Relational Operators in Java SE</h1>
+        <blockquote><p>🟢 Beginner Level | Strongly-Typed Java Arithmetic</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p><strong>Arithmetic Operators</strong> (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>) compute mathematical values in Java. Integer division (<code>int / int</code>) truncates fractional values toward zero. <strong>Relational Operators</strong> (<code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>) evaluate to boolean <code>true</code> or <code>false</code>.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Provides strongly-typed numerical calculations and logical branching checks across JVM application threads.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In Java, <code>5 / 2</code> evaluates to integer <code>2</code>. To retain precision, cast one operand to <code>double</code> (e.g. <code>(double)5 / 2 = 2.5</code>).</p>
+        <h3>Hindi</h3>
+        <p>Java mein <code>5 / 2</code> result integer <code>2</code> deta hai. Precision ke liye explicit double casting <code>(double)5 / 2</code> require hoti hai.</p>
+        <h3>Marathi</h3>
+        <p>Integer division decimal truncation kartat.</p>
+        <h3>Hinglish</h3>
+        <p>Explicit cast: <code>double res = (double)count / total;</code> precision loss prevent karta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-java">int a = 9, b = 2;
+int div = a / b;            // 4
+double exact = (double)a / b; // 4.5
+boolean test = (a > b);    // true</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>JVM loads primitive stack values via bytecode instructions (`idiv`, `fdiv`).</li>
+          <li>Performs mathematical calculation or relational comparison.</li>
+          <li>Pushes resulting integer or boolean `1`/`0` value onto evaluation stack.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Precision Division & String Concatenation</h3>
+        <pre><code class="language-java">public class OperatorDemo {
+    public static void main(String[] args) {
+        int items = 10;
+        int rate = 3;
+
+        System.out.println("Truncated Div: " + (items / rate));
+        System.out.println("Exact Div: " + ((double)items / rate));
+    }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Truncated Div: 3
+Exact Div: 3.3333333333333335</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>items / rate</code>: Evaluates integer division `10 / 3 = 3`.</li>
+          <li><code>(double)items / rate</code>: Promotes operand to double for full floating-point precision.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Using <code>==</code> on Java objects compares memory references (addresses), NOT object contents! Use <code>.equals()</code> for object equality.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Comparing Strings with `==`:</strong> Writing <code>str1 == str2</code> tests reference identity, which fails when string instances differ in heap memory.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Financial calculations and pagination offset calculations.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a Java snippet calculating the remainder of 45 divided by 6 using `%`.</li>
+          <li><strong>Intermediate:</strong> Use explicit double casting to calculate exact percentage.</li>
+          <li><strong>Advanced:</strong> Explain why `str1.equals(str2)` is required instead of `str1 == str2`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

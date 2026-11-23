@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primary & Foreign Keys - SQL</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">05 Keys</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Keys Overview</span></a></li>
+          <li class="nav-item"><a href="primary-foreign-keys.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Primary & Foreign Keys</span></a></li>
+          <li class="nav-item"><a href="candidate-surrogate-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Candidate, Composite & Surrogate Keys</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Primary & Foreign Keys in SQL Databases</h1>
+        <blockquote><p>🟢 Beginner Level | Relational Integrity Constraints</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Primary Key</strong> (<code>PRIMARY KEY</code>) uniquely identifies every row in a table and cannot contain <code>NULL</code> values. A <strong>Foreign Key</strong> (<code>FOREIGN KEY</code>) links a column in one table to the primary key of another table, maintaining referential integrity.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Ensures zero duplicate table rows and prevents orphan child records when performing relational database operations.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Primary keys enforce uniqueness and non-null constraints. Foreign keys enforce referential integrity between parent and child tables.</p>
+        <h3>Hindi</h3>
+        <p>Primary key <code>PRIMARY KEY</code> row ko uniquely identify karti hai. Foreign key <code>FOREIGN KEY</code> do tables ko connect karti hai.</p>
+        <h3>Marathi</h3>
+        <p>Primary key uniquely row identify karte, foreign key don tables madhye relation tayar karte.</p>
+        <h3>Hinglish</h3>
+        <p>Relational constraint: <code>FOREIGN KEY (user_id) REFERENCES users(id)</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-sql">CREATE TABLE users (
+    user_id INT PRIMARY KEY,
+    user_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    user_id INT,
+    total_amount DECIMAL(10, 2),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>SQL database engine creates a unique B-Tree index for `PRIMARY KEY`.</li>
+          <li>Upon `INSERT` into child table, engine checks parent table index for foreign key match.</li>
+          <li>If foreign key value is missing in parent table, `FOREIGN KEY` constraint rejection occurs.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Parent-Child Table Relationship</h3>
+        <pre><code class="language-sql">CREATE TABLE departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50) NOT NULL,
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+);</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Tables 'departments' and 'employees' created successfully with PRIMARY KEY and FOREIGN KEY constraints.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>dept_id INT PRIMARY KEY</code>: Defines non-null unique identifier for department.</li>
+          <li><code>FOREIGN KEY (dept_id) REFERENCES departments(dept_id)</code>: Links employee department to valid parent ID.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Cascading actions (`ON DELETE CASCADE`, `ON UPDATE CASCADE`) automatically update or delete child rows when a parent row changes.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Inserting Invalid Foreign Key:</strong> Attempting to insert a child row with a `dept_id` that does not exist in `departments` raises a `FOREIGN KEY Constraint Failure`.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>E-commerce order and user account link schema design.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a SQL `CREATE TABLE` statement defining a primary key on `student_id`.</li>
+          <li><strong>Intermediate:</strong> Add a foreign key constraint pointing `course_id` to a `courses` table.</li>
+          <li><strong>Advanced:</strong> Create a table with `ON DELETE CASCADE` on its foreign key constraint.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

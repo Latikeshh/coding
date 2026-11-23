@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strict Equality & Logical Short-Circuit - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">05 Operators</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators Overview</span></a></li>
+          <li class="nav-item"><a href="arithmetic-assignment.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arithmetic & Compound Assignment</span></a></li>
+          <li class="nav-item"><a href="comparison-logical.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Strict Equality & Logical Short-Circuit</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Strict Equality & Logical Short-Circuiting in JavaScript</h1>
+        <blockquote><p>🟢 Beginner Level | Type Coercion & Logical Operators</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p><strong>Strict Equality</strong> (<code>===</code>) checks value AND data type equality without coercion. <strong>Logical Operators</strong> (<code>&&</code>, <code>||</code>, <code>!</code>) perform short-circuit evaluations, returning operand values directly.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Prevents unpredictable type coercion bugs and provides clean default value assignments (`let name = user.name || "Guest"`).</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Always use <code>===</code> and <code>!==</code> instead of loose <code>==</code>. <code>||</code> returns the first truthy value; <code>&&</code> returns the first falsy value.</p>
+        <h3>Hindi</h3>
+        <p>Strict equality <code>===</code> value aur data type dono check karta hai. Loose <code>==</code> type coercion karta hai (jaise <code>5 == "5"</code> is true).</p>
+        <h3>Marathi</h3>
+        <p>Strict equality <code>===</code> cha vapar karava, loose <code>==</code> mule bugs yetat.</p>
+        <h3>Hinglish</h3>
+        <p>Short-circuit pattern: <code>const name = inputName || "Anonymous";</code> default value assignment deta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">5 === "5";   // false (different types)
+5 == "5";    // true (coercion occurs)
+
+let displayName = userName || "Default User";
+let isAdult = age >= 18 && hasID;</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Strict comparison `===` tests type equality first; if types differ, returns `false` immediately.</li>
+          <li>`A || B` evaluates `A`. If truthy, returns `A` instantly without evaluating `B` (short-circuit).</li>
+          <li>`A && B` evaluates `A`. If falsy, returns `A` instantly without evaluating `B`.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Short-Circuit Fallback & Strict Equality</h3>
+        <pre><code class="language-js">let input = "";
+let name = input || "Guest User";
+
+let val1 = 42;
+let val2 = "42";
+
+console.log("Resolved Name:", name);
+console.log("Strict Check (===):", val1 === val2);
+console.log("Loose Check (==):", val1 == val2);</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Resolved Name: Guest User
+Strict Check (===): false
+Loose Check (==): true</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>input || "Guest User"</code>: Evaluates empty string `""` (falsy), short-circuits to `"Guest User"`.</li>
+          <li><code>val1 === val2</code>: Evaluates `number === string` (false).</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>The Nullish Coalescing Operator <code>??</code> evaluates fallback ONLY for `null` or `undefined` (unlike `||` which includes `0` and `""`).</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Using Loose Equality `==`:</strong> Loose comparison coerces values unpredictably (e.g. <code>false == 0</code> is `true`, <code>"" == 0</code> is `true`).</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>React conditional rendering (<code>{isLoggedIn &amp;&amp; &lt;Dashboard /&gt;}</code>).</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Test `0 === false` vs `0 == false` in JS console.</li>
+          <li><strong>Intermediate:</strong> Use `&&` to safely execute a function only if an object exists.</li>
+          <li><strong>Advanced:</strong> Compare `||` behavior with `??` when handling numerical `0` configuration values.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arithmetic & Comparison Operators - Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">05 Operators</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators Overview</span></a></li>
+          <li class="nav-item"><a href="arithmetic-comparison.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arithmetic, Floor Division & Comparison</span></a></li>
+          <li class="nav-item"><a href="logical-membership.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Logical, Identity & Membership Operators</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Arithmetic & Comparison Operators in Python 3</h1>
+        <blockquote><p>🟢 Beginner Level | Pythonic Mathematics</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>In Python 3, division <code>/</code> ALWAYS returns a <code>float</code>. Floor division <code>//</code> truncates toward negative infinity returning an integer. Exponentiation is calculated via <code>**</code>. Python uniquely supports <strong>Chained Comparisons</strong> (e.g. <code>10 < x < 50</code>).</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Enables clear mathematical calculations and chained range checks without redundant <code>and</code> operators.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Python 3 standard division <code>7 / 2</code> evaluates to float <code>3.5</code>. Floor division <code>7 // 2</code> yields integer <code>3</code>.</p>
+        <h3>Hindi</h3>
+        <p>Python 3 mein <code>7 / 2</code> always float <code>3.5</code> hota hai. Integer division ke liye floor division <code>7 // 2</code> write karein.</p>
+        <h3>Marathi</h3>
+        <p>Float division <code>/</code> aani floor division <code>//</code> madhye farak asato.</p>
+        <h3>Hinglish</h3>
+        <p>Chained comparison: <code>if 18 <= age <= 65:</code> syntax clean and readable hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python">real_div = 7 / 2    # 3.5 (float)
+floor_div = 7 // 2  # 3 (int)
+power = 2 ** 5      # 32
+
+# Chained Comparison
+age = 25
+valid = 18 <= age <= 60  # True</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Python bytecode instruction `BINARY_TRUE_DIVIDE` yields floating point result.</li>
+          <li>`BINARY_FLOOR_DIVIDE` applies floor math calculation.</li>
+          <li>Chained comparison `18 <= age <= 60` expands internally into `(18 <= age) and (age <= 60)` with short-circuiting.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Floor Division vs Float Division</h3>
+        <pre><code class="language-python">val1 = 15
+val2 = 4
+
+print("True Division (/):", val1 / val2)
+print("Floor Division (//):", val1 // val2)
+print("Power (**):", val2 ** 3)</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">True Division (/): 3.75
+Floor Division (//): 3
+Power (**): 64</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>val1 / val2</code>: Produces exact floating point value `3.75`.</li>
+          <li><code>val1 // val2</code>: Truncates decimal toward negative infinity to return `3`.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Floor division with negative numbers truncates downward: <code>-7 // 2</code> evaluates to <code>-4</code> (not -3!).</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Expecting Integer Division with `/`:</strong> Expecting <code>7 / 2</code> to return integer `3` as in C or Java; in Python 3 it always returns float `3.5`.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Grid coordinate calculation and pagination total page count math.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Calculate $3^4$ in Python using `**`.</li>
+          <li><strong>Intermediate:</strong> Use chained comparison to test if a score is between 50 and 100 inclusive.</li>
+          <li><strong>Advanced:</strong> Compare results of `-11 // 3` vs `int(-11 / 3)` in Python.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

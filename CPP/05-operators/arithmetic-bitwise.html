@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arithmetic, Bitwise & Scope Resolution Operators - C++</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C++</span>
+          <span class="course-header-badge">05 Operators</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators Overview</span></a></li>
+          <li class="nav-item"><a href="arithmetic-bitwise.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arithmetic, Bitwise & Scope Resolution ::</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Arithmetic, Bitwise & Scope Resolution Operators in C++</h1>
+        <blockquote><p>🟢 Intermediate Level | Modern C++ Operator System</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>In C++, arithmetic and bitwise operators execute low-level CPU computations. The <strong>Scope Resolution Operator</strong> (<code>::</code>) specifies global or namespace scope, distinguishing global variables or class static members from local variables.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Enables clear name resolution across namespaces and classes without identifier collision.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Scope resolution <code>::var</code> accesses global variables when shadowed by local variables inside a function scope.</p>
+        <h3>Hindi</h3>
+        <p>Scope resolution operator <code>::</code> global variable ya namespace members (jaise <code>std::cout</code>) access karne ke liye use hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Global variable access karnyansathi <code>::</code> operator vaparato.</p>
+        <h3>Hinglish</h3>
+        <p>Global scope access: <code>::x</code> syntax shadowed local variable override karta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-cpp">int count = 100; // Global
+
+int main() {
+    int count = 5; // Local
+    std::cout &lt;&lt; "Local: " &lt;&lt; count &lt;&lt; "\n";
+    std::cout &lt;&lt; "Global: " &lt;&lt; ::count &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Compiler resolves `count` to innermost local function scope frame.</li>
+          <li>Compiler resolves `::count` to outermost global static data segment memory.</li>
+          <li>Pushes address onto stream output stack.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Global vs Local Scope Resolution</h3>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int val = 50;
+
+int main() {
+    int val = 10;
+
+    std::cout &lt;&lt; "Local val: " &lt;&lt; val &lt;&lt; "\n";
+    std::cout &lt;&lt; "Global ::val: " &lt;&lt; ::val &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Local val: 10
+Global ::val: 50</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>val</code>: Resolves to local variable `10`.</li>
+          <li><code>::val</code>: Uses scope resolution operator `::` to access global variable `50`.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>In C++, custom classes can overload operators (e.g. `operator+`) to define domain-specific mathematical behavior for user types.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Confusing Bitwise Shift `<<` with Stream Insertion `<<`:</strong> Overloading stream operators require non-member function signatures.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Disambiguating static class members and namespace scopes (`std::`, `boost::`).</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C++ program using `::` to print a global variable shadowed by a local variable.</li>
+          <li><strong>Intermediate:</strong> Use bitwise AND `&` to check if a number is odd or even in C++.</li>
+          <li><strong>Advanced:</strong> Overload the `+` operator for a custom `Complex` number class.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>
