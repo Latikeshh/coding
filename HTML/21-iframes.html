@@ -125,12 +125,12 @@
 <h2>📐 Key Attributes of <code><iframe></code></h2>
 
 <ul>
-<p>  <li><strong><code>src</code>:</strong> The target URL of the external webpage or embedded widget.</li></p>
-<p>  <li><strong><code>title</code> (Mandatory for Accessibility):</strong> Describes the embedded frame content so screen reader users understand its purpose.</li></p>
-<p>  <li><strong><code>width</code> & <code>height</code>:</strong> Specifies frame container dimensions in pixels or percentages.</li></p>
-<p>  <li><strong><code>loading="lazy"</code>:</strong> Defers loading iframe content until the user scrolls near it, improving initial page loading speed.</li></p>
-<p>  <li><strong><code>sandbox</code>:</strong> Restricts script execution, form submissions, and popups inside the embedded frame for security (<code>sandbox="allow-scripts allow-same-origin"</code>).</li></p>
-<p>  <li><strong><code>allowfullscreen</code>:</strong> Permits embedded video players to enter full-screen mode.</li></p>
+<li><strong><code>src</code>:</strong> The target URL of the external webpage or embedded widget.</li>
+<li><strong><code>title</code> (Mandatory for Accessibility):</strong> Describes the embedded frame content so screen reader users understand its purpose.</li>
+<li><strong><code>width</code> & <code>height</code>:</strong> Specifies frame container dimensions in pixels or percentages.</li>
+<li><strong><code>loading="lazy"</code>:</strong> Defers loading iframe content until the user scrolls near it, improving initial page loading speed.</li>
+<li><strong><code>sandbox</code>:</strong> Restricts script execution, form submissions, and popups inside the embedded frame for security (<code>sandbox="allow-scripts allow-same-origin"</code>).</li>
+<li><strong><code>allowfullscreen</code>:</strong> Permits embedded video players to enter full-screen mode.</li>
 <p></ul></p>
 
 <h2>🔒 Security & Framing Restrictions</h2>
@@ -177,7 +177,7 @@
 <p>  &lt;/section&gt;</p>
 
 <p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre></p>
+<p>&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 
@@ -192,8 +192,8 @@
 <h2>⚠️ Common Mistakes</h2>
 
 <ul>
-<p>  <li><strong>Forgetting the <code>title</code> attribute:</strong> Writing <code><iframe src="..."></code> without <code>title="Description"</code> breaks accessibility standards.</li></p>
-<p>  <li><strong>Attempting to embed sites that block framing:</strong> Trying to embed <code>https://google.com</code> results in a blank box due to <code>X-Frame-Options</code> security headers set by Google.</li></p>
+<li><strong>Forgetting the <code>title</code> attribute:</strong> Writing <code><iframe src="..."></code> without <code>title="Description"</code> breaks accessibility standards.</li>
+<li><strong>Attempting to embed sites that block framing:</strong> Trying to embed <code>https://google.com</code> results in a blank box due to <code>X-Frame-Options</code> security headers set by Google.</li>
 <p></ul></p>
 
 <h2>🌐 Real-World Usage</h2>
@@ -203,16 +203,16 @@
 <h2>🔗 Related Topics</h2>
 
 <ul>
-<p>  <li><a href="20-video.html">Video</a></li></p>
-<p>  <li><a href="24-accessibility-basics.html">Accessibility Basics</a></li></p>
+<li><a href="20-video.html">Video</a></li>
+<li><a href="24-accessibility-basics.html">Accessibility Basics</a></li>
 <p></ul></p>
 
 <h2>💡 Remember</h2>
 
 <ul>
-<p>  <li>Always provide a descriptive <code>title</code> attribute on every <code><iframe></code>.</li></p>
-<p>  <li>Use <code>loading="lazy"</code> to defer loading off-screen iframes.</li></p>
-<p>  <li>Some websites block iframe embedding using security headers.</li></p>
+<li>Always provide a descriptive <code>title</code> attribute on every <code><iframe></code>.</li>
+<li>Use <code>loading="lazy"</code> to defer loading off-screen iframes.</li>
+<li>Some websites block iframe embedding using security headers.</li>
 <p></ul></p>
 
 <h2>🧭 Navigation</h2>

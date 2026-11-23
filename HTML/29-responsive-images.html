@@ -146,7 +146,7 @@
 <p>  alt=&quot;Developer working at a laptop workstation&quot; </p>
 <p>  width=&quot;1200&quot; </p>
 <p>  height=&quot;600&quot; </p>
-<p>  loading=&quot;lazy&quot;&gt;</code></pre></p>
+<p>  loading=&quot;lazy&quot;&gt;</code></pre>
 
 <p>How it works: The browser inspects device screen width and pixel density, consults <code>sizes</code>, and automatically downloads only the most appropriate image source file from <code>srcset</code>.</p>
 
@@ -167,14 +167,14 @@
 <p>  </p>
 <p>  &lt;!-- Mobile default fallback img tag --&gt;</p>
 <p>  &lt;img src=&quot;images/hero-mobile-portrait.jpg&quot; alt=&quot;Team meeting around a conference table&quot; width=&quot;400&quot; height=&quot;500&quot; loading=&quot;lazy&quot;&gt;</p>
-<p>&lt;/picture&gt;</code></pre></p>
+<p>&lt;/picture&gt;</code></pre>
 
 <h2>⚡ Performance Optimization Attributes
 </h2>
 
 <ul>
-<p>  <li><strong><code>loading="lazy"</code>:</strong> Defers downloading images located off-screen until the user scrolls near them, reducing initial page load time and saving bandwidth.</li></p>
-<p>  <li><strong><code>decoding="async"</code>:</strong> Allows browsers to decode image bytes asynchronously off the main thread, preventing UI stuttering.</li></p>
+<li><strong><code>loading="lazy"</code>:</strong> Defers downloading images located off-screen until the user scrolls near them, reducing initial page load time and saving bandwidth.</li>
+<li><strong><code>decoding="async"</code>:</strong> Allows browsers to decode image bytes asynchronously off the main thread, preventing UI stuttering.</li>
 <p></ul></p>
 
 <h2>💻 Code Example
@@ -201,7 +201,7 @@
 <p>  &lt;/figure&gt;</p>
 
 <p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre></p>
+<p>&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See
 </h2>
@@ -218,8 +218,8 @@
 </h2>
 
 <ul>
-<p>  <li><strong>Forgetting fallback <code><img></code> inside <code><picture></code>:</strong> Without a fallback <code><img></code>, the <code><picture></code> element renders nothing if media queries fail or browser support is limited.</li></p>
-<p>  <li><strong>Forgetting <code>width</code> and <code>height</code>:</strong> Causes Cumulative Layout Shift (CLS) as images load into the viewport.</li></p>
+<li><strong>Forgetting fallback <code><img></code> inside <code><picture></code>:</strong> Without a fallback <code><img></code>, the <code><picture></code> element renders nothing if media queries fail or browser support is limited.</li>
+<li><strong>Forgetting <code>width</code> and <code>height</code>:</strong> Causes Cumulative Layout Shift (CLS) as images load into the viewport.</li>
 <p></ul></p>
 
 <h2>🌐 Real-World Usage
@@ -231,18 +231,18 @@
 </h2>
 
 <ul>
-<p>  <li><a href="08-images.html">Images</a></li></p>
-<p>  <li><a href="23-html5-features.html">Modern HTML5 Features</a></li></p>
+<li><a href="08-images.html">Images</a></li>
+<li><a href="23-html5-features.html">Modern HTML5 Features</a></li>
 <p></ul></p>
 
 <h2>💡 Remember
 </h2>
 
 <ul>
-<p>  <li>Use <code>srcset</code> and <code>sizes</code> for resolution density switching.</li></p>
-<p>  <li>Use <code><picture></code> for art direction (cropped mobile vs desktop images).</li></p>
-<p>  <li>Always include a fallback <code><img></code> inside <code><picture></code>.</li></p>
-<p>  <li>Add <code>loading="lazy"</code> for off-screen images.</li></p>
+<li>Use <code>srcset</code> and <code>sizes</code> for resolution density switching.</li>
+<li>Use <code><picture></code> for art direction (cropped mobile vs desktop images).</li>
+<li>Always include a fallback <code><img></code> inside <code><picture></code>.</li>
+<li>Add <code>loading="lazy"</code> for off-screen images.</li>
 <p></ul></p>
 
 <h2>🧭 Navigation

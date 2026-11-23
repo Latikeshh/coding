@@ -137,48 +137,48 @@
 <p>  &lt;h1&gt;Welcome to Web Development&lt;/h1&gt;</p>
 <p>  &lt;p&gt;This paragraph is visible inside the main browser window.&lt;/p&gt;</p>
 <p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre></p>
+<p>&lt;/html&gt;</code></pre>
 
 <h2>🔍 Detailed Breakdown of Boilerplate Elements</h2>
 
 <p>1. <strong><code><!DOCTYPE html></code>:</strong></p>
 <ul>
-<p>  <li><strong>Crucial Rule:</strong> This is a document type declaration, <strong>NOT an HTML tag</strong>.</li></p>
-<p>  <li>Instructs the web browser that the document is written in standard modern <strong>HTML5</strong>.</li></p>
+<li><strong>Crucial Rule:</strong> This is a document type declaration, <strong>NOT an HTML tag</strong>.</li>
+<li>Instructs the web browser that the document is written in standard modern <strong>HTML5</strong>.</li>
 <p></ul></p>
 <p>2. <strong><code><html lang="en"></code>:</strong></p>
 <ul>
-<p>  <li>The root element wrapping all HTML code on the webpage.</li></p>
-<p>  <li>The <code>lang="en"</code> attribute declares the primary language of the document, aiding accessibility screen readers and translation tools.</li></p>
+<li>The root element wrapping all HTML code on the webpage.</li>
+<li>The <code>lang="en"</code> attribute declares the primary language of the document, aiding accessibility screen readers and translation tools.</li>
 <p></ul></p>
 <p>3. <strong><code><head></code>:</strong></p>
 <ul>
-<p>  <li>Contains machine-readable metadata, title tags, viewport settings, favicons, stylesheets, and scripts.</li></p>
-<p>  <li>Content inside <code><head></code> is not rendered directly inside the main browser viewing area (except the page title on the browser tab).</li></p>
+<li>Contains machine-readable metadata, title tags, viewport settings, favicons, stylesheets, and scripts.</li>
+<li>Content inside <code><head></code> is not rendered directly inside the main browser viewing area (except the page title on the browser tab).</li>
 <p></ul></p>
 <p>4. <strong><code><meta charset="UTF-8"></code>:</strong></p>
 <ul>
-<p>  <li>Specifies UTF-8 character encoding, which supports almost all written human languages, mathematical symbols, and emojis (<code>😊</code>, <code>🚀</code>).</li></p>
+<li>Specifies UTF-8 character encoding, which supports almost all written human languages, mathematical symbols, and emojis (<code>😊</code>, <code>🚀</code>).</li>
 <p></ul></p>
 <p>5. <strong><code><meta name="viewport" content="width=device-width, initial-scale=1.0"></code>:</strong></p>
 <ul>
-<p>  <li>Sets the viewport width to match the screen width of the device. Essential for mobile responsiveness. Without this tag, mobile devices render pages zoomed-out as wide desktop views.</li></p>
+<li>Sets the viewport width to match the screen width of the device. Essential for mobile responsiveness. Without this tag, mobile devices render pages zoomed-out as wide desktop views.</li>
 <p></ul></p>
 <p>6. <strong><code><meta name="description" content="..."></code>:</strong></p>
 <ul>
-<p>  <li>Provides a concise summary of the page for search engines. Search engines display this snippet below the page title in search results.</li></p>
+<li>Provides a concise summary of the page for search engines. Search engines display this snippet below the page title in search results.</li>
 <p></ul></p>
 <p>7. <strong><code>&lt;link rel="icon" href="favicon.ico"&gt;</code>:</strong></p>
 <ul>
-<p>  <li>Links a small favicon image displayed on browser tab headers next to the page title.</li></p>
+<li>Links a small favicon image displayed on browser tab headers next to the page title.</li>
 <p></ul></p>
 <p>8. <strong><code><title></code>:</strong></p>
 <ul>
-<p>  <li>Sets the title text displayed on browser tab headers, browser bookmarks, and search engine results.</li></p>
+<li>Sets the title text displayed on browser tab headers, browser bookmarks, and search engine results.</li>
 <p></ul></p>
 <p>9. <strong><code><body></code>:</strong></p>
 <ul>
-<p>  <li>Contains all visible user content: headings, text, images, buttons, forms, tables, audio, and video.</li></p>
+<li>Contains all visible user content: headings, text, images, buttons, forms, tables, audio, and video.</li>
 <p></ul></p>
 
 <h2>💻 Complete HTML Example</h2>
@@ -199,13 +199,13 @@
 <p>    &lt;p&gt;Understanding head and body tags is essential for every developer.&lt;/p&gt;</p>
 <p>  &lt;/main&gt;</p>
 <p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre></p>
+<p>&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 
 <ul>
-<p>  <li>Browser tab displays: <strong>"Web Development Course"</strong>.</li></p>
-<p>  <li>Main page displays a large heading <strong>"HTML5 Document Structure"</strong> and paragraph text <strong>"Understanding head and body tags is essential for every developer."</strong>.</li></p>
+<li>Browser tab displays: <strong>"Web Development Course"</strong>.</li>
+<li>Main page displays a large heading <strong>"HTML5 Document Structure"</strong> and paragraph text <strong>"Understanding head and body tags is essential for every developer."</strong>.</li>
 <p></ul></p>
 
 <h2>🧪 Try It Yourself</h2>
@@ -219,9 +219,9 @@
 <h2>⚠️ Common Mistakes</h2>
 
 <ul>
-<p>  <li><strong>Placing visible content inside <code><head></code>:</strong> Placing <code><p></code> or <code><h1></code> tags inside <code><head></code> is invalid and breaks DOM parsing.</li></p>
-<p>  <li><strong>Omitting the viewport meta tag:</strong> Causes mobile screens to render desktop pages zoomed-out.</li></p>
-<p>  <li><strong>Forgetting <code><title></code>:</strong> Leaves browser tab headers displaying raw file paths (e.g., <code>file:///C:/index.html</code>).</li></p>
+<li><strong>Placing visible content inside <code><head></code>:</strong> Placing <code><p></code> or <code><h1></code> tags inside <code><head></code> is invalid and breaks DOM parsing.</li>
+<li><strong>Omitting the viewport meta tag:</strong> Causes mobile screens to render desktop pages zoomed-out.</li>
+<li><strong>Forgetting <code><title></code>:</strong> Leaves browser tab headers displaying raw file paths (e.g., <code>file:///C:/index.html</code>).</li>
 <p></ul></p>
 
 <h2>🌐 Real-World Usage</h2>
@@ -231,17 +231,17 @@
 <h2>🔗 Related Topics</h2>
 
 <ul>
-<p>  <li><a href="02-introduction.html">Introduction to HTML</a></li></p>
-<p>  <li><a href="04-headings.html">Headings</a></li></p>
-<p>  <li><a href="27-meta-tags.html">Meta Tags & Head Metadata</a></li></p>
+<li><a href="02-introduction.html">Introduction to HTML</a></li>
+<li><a href="04-headings.html">Headings</a></li>
+<li><a href="27-meta-tags.html">Meta Tags & Head Metadata</a></li>
 <p></ul></p>
 
 <h2>💡 Remember</h2>
 
 <ul>
-<p>  <li><code><head></code> holds metadata and browser settings (invisible on page).</li></p>
-<p>  <li><code><body></code> holds all visible content.</li></p>
-<p>  <li>Always include <code><meta name="viewport"></code> for mobile responsiveness.</li></p>
+<li><code><head></code> holds metadata and browser settings (invisible on page).</li>
+<li><code><body></code> holds all visible content.</li>
+<li>Always include <code><meta name="viewport"></code> for mobile responsiveness.</li>
 <p></ul></p>
 
 <h2>🧭 Navigation</h2>

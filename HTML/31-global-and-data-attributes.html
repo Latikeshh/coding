@@ -162,17 +162,17 @@
 <p>  data-price=&quot;299&quot; </p>
 <p>  data-in-stock=&quot;true&quot;&gt;</p>
 <p>  &lt;h3&gt;Wireless Headphones&lt;/h3&gt;</p>
-<p>&lt;/article&gt;</code></pre></p>
+<p>&lt;/article&gt;</code></pre>
 
 <p>In JavaScript, you can read these values instantly via the element's <code>.dataset</code> object:</p>
 <pre><code class="language-js">const item = document.querySelector(&#39;.product-item&#39;);
 <p>console.log(item.dataset.category); // Outputs: &quot;electronics&quot;</p>
-<p>console.log(item.dataset.price);    // Outputs: &quot;299&quot;</code></pre></p>
+<p>console.log(item.dataset.price);    // Outputs: &quot;299&quot;</code></pre>
 
 <p>In CSS, you can target elements based on data attributes:</p>
 <pre><code class="language-css">article[data-in-stock=&quot;true&quot;] {
 <p>  border-left: 4px solid green;</p>
-<p>}</code></pre></p>
+<p>}</code></pre>
 
 <h2>💻 Code Example
 </h2>
@@ -214,14 +214,14 @@
 <p>  &lt;/section&gt;</p>
 
 <p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre></p>
+<p>&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See
 </h2>
 
 <ul>
-<p>  <li>An interactive, editable text box where visitors can type directly on screen.</li></p>
-<p>  <li>A focusable product card containing tooltip descriptions, keyboard tabbing capabilities, and stored <code>data-*</code> attributes for JavaScript processing.</li></p>
+<li>An interactive, editable text box where visitors can type directly on screen.</li>
+<li>A focusable product card containing tooltip descriptions, keyboard tabbing capabilities, and stored <code>data-*</code> attributes for JavaScript processing.</li>
 <p></ul></p>
 
 <h2>🧪 Try It Yourself
@@ -235,8 +235,8 @@
 </h2>
 
 <ul>
-<p>  <li>**Using uppercase letters in <code>data-*</code> names:<strong> <code>data-userID</code> is converted to lowercase <code>dataset.userid</code> in JavaScript, causing bug confusion. Use lowercase hyphens <code>data-user-id</code>.</li></p>
-<p>  <li></strong>Using positive <code>tabindex</code> values (e.g. <code>tabindex="4"</code>):** Disrupts natural document keyboard navigation order.</li></p>
+<li>**Using uppercase letters in <code>data-*</code> names:<strong> <code>data-userID</code> is converted to lowercase <code>dataset.userid</code> in JavaScript, causing bug confusion. Use lowercase hyphens <code>data-user-id</code>.</li>
+<li></strong>Using positive <code>tabindex</code> values (e.g. <code>tabindex="4"</code>):** Disrupts natural document keyboard navigation order.</li>
 <p></ul></p>
 
 <h2>🌐 Real-World Usage
@@ -248,18 +248,18 @@
 </h2>
 
 <ul>
-<p>  <li><a href="15-html-attributes.html">HTML Attributes</a></li></p>
-<p>  <li><a href="14-div-and-span.html">Div and Span</a></li></p>
+<li><a href="15-html-attributes.html">HTML Attributes</a></li>
+<li><a href="14-div-and-span.html">Div and Span</a></li>
 <p></ul></p>
 
 <h2>💡 Remember
 </h2>
 
 <ul>
-<p>  <li>Global attributes apply to ALL HTML elements.</li></p>
-<p>  <li><code>contenteditable="true"</code> makes text editable in the browser.</li></p>
-<p>  <li>Use <code>data-*</code> attributes to store custom data for JavaScript (<code>element.dataset</code>).</li></p>
-<p>  <li>Avoid positive <code>tabindex</code> values.</li></p>
+<li>Global attributes apply to ALL HTML elements.</li>
+<li><code>contenteditable="true"</code> makes text editable in the browser.</li>
+<li>Use <code>data-*</code> attributes to store custom data for JavaScript (<code>element.dataset</code>).</li>
+<li>Avoid positive <code>tabindex</code> values.</li>
 <p></ul></p>
 
 <h2>🧭 Navigation
