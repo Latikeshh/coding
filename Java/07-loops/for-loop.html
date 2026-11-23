@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The for Loop - Java SE</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Java SE</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>for</code> Loop in Java</h1>
+        <blockquote><p>🟢 Beginner Level | Counting & Array Traversal</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>for</code> loop</strong> in Java executes a statement block repeatedly for a fixed number of iterations governed by counter initialization, boolean condition testing, and step updates.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>When the number of iterations is known—such as processing all elements in a Java array or collection—a <code>for</code> loop provides a structured control header.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Java's standard <code>for (int i = 0; i < N; i++)</code> declares a local loop variable <code>i</code> scoped strictly to the loop header and body.</p>
+        <h3>Hindi</h3>
+        <p>Java mein <code>for (int i = 0; i < 5; i++)</code> syntax counter variable <code>i</code> ko 0 se initialize karta hai aur jab tak <code>i < 5</code> true rehta hai, block execute hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Java madhye <code>for</code> loop cha wapar counting ani array elements iterate karnyasaathi kela jato.</p>
+        <h3>Hinglish</h3>
+        <p>Index-based array iteration ke liye <code>for (int i = 0; i < array.length; i++)</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-java">for (initialization; booleanCondition; update) {
+    // Loop body statements
+}</code></pre>
+        <ul>
+          <li><code>initialization</code>: Declares loop control variable (e.g. <code>int i = 0</code>).</li>
+          <li><code>booleanCondition</code>: Evaluated before each iteration. Must return a primitive <code>boolean</code>.</li>
+          <li><code>update</code>: Modifies counter variable after each iteration (e.g. <code>i++</code>).</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li><code>initialization</code> executes once.</li>
+          <li><code>booleanCondition</code> is evaluated. If <code>false</code>, loop terminates.</li>
+          <li>The statements inside <code>{ ... }</code> execute.</li>
+          <li>The <code>update</code> expression executes, and control returns to condition evaluation.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Basic Counting</h3>
+        <pre><code class="language-java">public class LoopDemo {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Java Loop Count: " + i);
+        }
+    }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Java Loop Count: 1
+Java Loop Count: 2
+Java Loop Count: 3</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>int i = 1</code>: Declares primitive <code>int</code> loop control variable.</li>
+          <li><code>i <= 3</code>: Evaluates if <code>i</code> is less than or equal to 3.</li>
+          <li><code>System.out.println(...)</code>: Prints iteration count to standard output stream.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>In Java 5+, the **Enhanced `for-each` loop** (<code>for (String item : array)</code>) simplifies reading elements without manual index management.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>ArrayIndexOutOfBoundsException:</strong> Accessing <code>array[array.length]</code> inside a <code>for (int i = 0; i <= array.length; i++)</code> loop throws a runtime exception because Java arrays are 0-indexed.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Accumulating values in a list:</p>
+        <pre><code class="language-java">int[] prices = {100, 200, 300};
+int total = 0;
+
+for (int i = 0; i < prices.length; i++) {
+    total += prices[i];
+}
+System.out.println("Total Cart Price: $" + total);</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a Java `for` loop printing numbers from 5 down to 1.</li>
+          <li><strong>Intermediate:</strong> Write a `for` loop calculating the factorial of a given integer.</li>
+          <li><strong>Advanced:</strong> Write a `for` loop iterating over a 2D integer array and printing a matrix layout.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

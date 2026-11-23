@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation - HTML5</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">HTML5</span>
+          <span class="course-header-badge">11 Forms</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">HTML Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Forms Overview</span></a></li>
+          <li class="nav-item"><a href="form-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Form Basics</span></a></li>
+          <li class="nav-item"><a href="input-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Input Types</span></a></li>
+          <li class="nav-item"><a href="validation.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Validation</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>HTML5 Built-in Form Validation</h1>
+        <blockquote><p>🟢 Intermediate Level | Client-Side Form Constraints</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p><strong>HTML5 Form Validation</strong> checks user input data against constraints defined by attributes (such as <code>required</code>, <code>pattern</code>, <code>min</code>, <code>max</code>, <code>minlength</code>, and <code>maxlength</code>) directly in the browser before submitting to a server.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Provides instant visual feedback to users when input values are invalid, reducing unnecessary backend network server requests.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Attributes like <code>required</code> block form submission until filled. <code>pattern="[A-Za-z]+"</code> enforces regex constraint matching.</p>
+        <h3>Hindi</h3>
+        <p>HTML5 validation attributes (<code>required</code>, <code>pattern</code>) Bina JavaScript ke form submission validation automate karte hain.</p>
+        <h3>Marathi</h3>
+        <p>Browser madhye <code>required</code> mule empty input form submit hot nahi.</p>
+        <h3>Hinglish</h3>
+        <p>Regex matching: <code>&lt;input type="text" pattern="[0-9]{10}" placeholder="10 digit phone"&gt;</code> pattern use karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-html">&lt;form action="/submit" method="POST"&gt;
+  &lt;input type="text" name="username" required minlength="3" maxlength="15"&gt;
+  &lt;input type="text" name="zip" pattern="[0-9]{5}" title="Five digit ZIP code"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>User clicks submit button.</li>
+          <li>Browser intercepts submission and validates input fields against constraint attributes.</li>
+          <li>If invalid, browser focuses the first invalid element and displays a native constraint tooltip popup.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Regex Pattern Enforced Input</h3>
+        <pre><code class="language-html">&lt;form action="/save" method="POST"&gt;
+  &lt;label for="phone"&gt;Phone Number (10 Digits):&lt;/label&gt;
+  &lt;input type="tel" id="phone" name="user_phone" pattern="[0-9]{10}" required&gt;
+  &lt;button type="submit"&gt;Save&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">[ Form displaying 'Please match the requested format' tooltip if non-numeric characters entered ]</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>pattern="[0-9]{10}"</code>: Restricts input strictly to exactly 10 numeric digits.</li>
+          <li><code>required</code>: Prevents submitting empty string values.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Adding <code>novalidate</code> attribute to <code>&lt;form novalidate&gt;</code> disables browser built-in validation for custom JavaScript validation handling.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Relying SOLELY on Client Validation:</strong> Client-side validation can be bypassed by malicious users. Always implement secondary server-side validation!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Password complexity and telephone input formatting.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Add `required` to all mandatory fields in a contact form.</li>
+          <li><strong>Intermediate:</strong> Use `min="18"` and `max="65"` to validate age range input.</li>
+          <li><strong>Advanced:</strong> Combine `pattern` regex with CSS pseudo-classes `:valid` and `:invalid` for custom input styling.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

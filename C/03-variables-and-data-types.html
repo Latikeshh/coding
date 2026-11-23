@@ -59,8 +59,8 @@
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
   <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
   <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Variables and Data Types in C</h1>
+<h1>Variables and Data Types in C
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In C, a <strong>variable</strong> is a named storage location in memory used to hold data that can be read or modified during execution. C is a <strong>statically typed</strong> language, meaning every variable must be declared with an explicit <strong>data type</strong> before it can be used.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Variables store values in memory. C requires declaring variable types (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) at compile time. Format specifiers (like <code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) tell functions like <code>printf</code> how to interpret and display variable bytes in memory.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Variables memory mein data store karne ki jagah hoti hain. C ek statically typed language hai, isliye variable use karne se pehle uska type (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) tay karna padta hai. <code>printf</code> mein sahi format specifier (jaise <code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) likhna zaroori hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Variables mhanje memory madhye data sathavanyachi jaga. C madhye pratyek variable vaparanyapūrvi tyacha data type (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) sangana lagto. <code>printf</code> vapartanā yogya format specifier (<code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) vaparane avashyak aahe.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Variables memory blocks hote hain jisme hum values store karte hain. C static typing follow karta hai, toh variable declare karte waqt data type dena mandatory hota hai. Output format karne ke liye matching format specifiers (<code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%zu</code>) use kiye jaate hain.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Rather than hardcoding fixed raw numbers or characters into instructions, variables allow programs to process dynamic user inputs, track inventory, store student records, calculate account balances, and manage hardware state.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of memory as a huge warehouse filled with storage boxes.</p>
 <ul>
@@ -125,7 +135,8 @@
 <p>  <li>The <strong>Value</strong> is what you put inside the box.</li></p>
 <p></ul></p>
 
-<h2>📝 Primitive Data Types in ISO C</h2>
+<h2>📝 Primitive Data Types in ISO C
+</h2>
 
 <p>The exact size of data types in C depends on the target hardware architecture and compiler implementation (C standard specifies minimum ranges, not fixed byte counts).</p>
 
@@ -146,7 +157,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a realistic program tracking bank account details and product information:</p>
 
@@ -180,7 +192,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>double accountBalance = 15450.75;</code>: Declares a double-precision floating-point variable.</li></p>
@@ -190,7 +203,8 @@
 <p>  <li><code>%.2lf</code>: Formats a <code>double</code> output to exactly 2 decimal places.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- BANK ACCOUNT STATEMENT ---
 <p>Account ID     : 88402</p>
@@ -206,7 +220,8 @@
 <p>Size of char   : 1 bytes</p>
 <p>Size of bool   : 1 bytes</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Wrong Format Specifier:</strong> Printing a <code>float</code> with <code>%d</code> or an <code>int</code> with <code>%f</code> produces garbage values or output errors.</li></p>
@@ -215,7 +230,8 @@
 <p>  <li><strong>ASCII Assumption:</strong> C <code>char</code> stores integer code points corresponding to the execution character set. While ASCII is standard on modern platforms, assuming every system character is ASCII can lead to encoding issues.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li><strong>Uninitialized Variables:</strong> Local variables declared inside functions contain whatever random garbage data was previously left in that memory location. Always initialize variables before reading them!</li></p>
@@ -225,20 +241,24 @@
 <p>  printf("%d", score); // Undefined behavior!</p>
 <p>  </code>`<code></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Data types dictate memory alignment and cache efficiency in performance-critical software. For instance, graphics engines use 4-byte </code>float<code> for vector coordinates, while banking software uses 64-bit </code>long long<code> or fixed-point representations to eliminate floating-point rounding errors.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a C program that stores a student's </code>rollNumber<code> (</code>int<code>), </code>grade<code> (</code>char<code>), and </code>gpa<code> (</code>float<code>).</p>
 <p>2. Print all three variables cleanly formatted.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that uses </code>sizeof<code> to display the memory sizes of </code>short<code>, </code>int<code>, </code>long<code>, </code>long long<code>, </code>float<code>, </code>double<code>, and </code>long double` on your operating system.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="01-setup-c.html">Set Up C Environment</a></li></p>
@@ -246,7 +266,8 @@
 <p>  <li><a href="05-operators.html">Operators</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="02-introduction-to-c.html">← Previous: Introduction</a> | <a href="04-input-output.html">Next: Input & Output →</a></p>
 

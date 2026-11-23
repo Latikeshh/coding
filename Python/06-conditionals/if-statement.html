@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The if Statement - Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>if</code> Statement in Python 3</h1>
+        <blockquote><p>🟢 Beginner Level | Pythonic Control Flow</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>if</code> statement</strong> in Python evaluates a expression and executes an indented code block if the condition evaluates to a truthy value. Unlike C or JavaScript, Python uses strict <strong>4-space Indentation</strong> instead of curly braces <code>{ }</code> to define code blocks.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Conditionals enable Python programs to perform dynamic decision making—such as checking if a user authentication token is valid or checking if a database query returned results.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In Python, an <code>if</code> statement ends with a colon <code>:</code>. Statements within the <code>if</code> block must be indented by exactly 4 spaces. Any non-indented statement marks the end of the block.</p>
+        <h3>Hindi</h3>
+        <p>Python mein <code>if condition:</code> ke baad 4-space indentation aavashyak hai. Python mein <code>{ }</code> braces nahi hote, code grouping purely indentation se hoti hai.</p>
+        <h3>Marathi</h3>
+        <p>Python madhye <code>if</code> statement saathi colon <code>:</code> ani 4-space indentation vaparatat. Code block indentation varun tharto.</p>
+        <h3>Hinglish</h3>
+        <p>Decision making ke liye <code>if user_is_active:</code> use karein. Inconsistent spacing <code>IndentationError</code> throw karti hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python">if condition:
+    # Indented block (4 spaces)
+    pass</code></pre>
+        <ul>
+          <li><code>condition</code>: Any expression evaluating to a boolean or truthy/falsy object.</li>
+          <li><code>:</code> (colon): Mandatory syntax marker indicating the start of an indented block.</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Python evaluates the expression following <code>if</code>.</li>
+          <li>Implicit truthiness is determined (empty sequences <code>[]</code>, <code>""</code>, <code>0</code>, and <code>None</code> evaluate to <code>False</code>).</li>
+          <li>If <code>True</code>, all indented lines following the colon execute sequentially.</li>
+          <li>If <code>False</code>, Python skips the indented block.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Truthy Sequence Verification</h3>
+        <pre><code class="language-python">items = ["Python", "JavaScript", "C"]
+
+if items:
+    print(f"List contains {len(items)} learning modules.")</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">List contains 3 learning modules.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>items = [...]</code>: Instantiates non-empty list.</li>
+          <li><code>if items:</code>: Evaluates list truthiness (non-empty list yields <code>True</code>).</li>
+          <li><code>print(...)</code>: Executes indented formatted string output.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>In Python, falsy values include <code>False</code>, <code>None</code>, <code>0</code>, <code>0.0</code>, <code>""</code>, <code>[]</code>, <code>()</code>, and <code>{}</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Tab/Space Mixing:</strong> Mixing tabs and spaces results in an <code>IndentationError: unindent does not match any outer indentation level</code>.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Verifying API responses:</p>
+        <pre><code class="language-python">response = {"status": 200, "data": "OK"}
+
+if response.get("status") == 200:
+    print("API request successful!")</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write an `if` statement checking if a number is positive.</li>
+          <li><strong>Intermediate:</strong> Write an `if` statement checking if a key exists in a dictionary before accessing it.</li>
+          <li><strong>Advanced:</strong> Use Python's `all()` function inside an `if` statement to verify that all inputs in a list meet validation criteria.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

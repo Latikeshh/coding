@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The switch Statement - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="if-else-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if...else Statement</span></a></li>
+          <li class="nav-item"><a href="else-if-ladder.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; else if Ladder</span></a></li>
+          <li class="nav-item"><a href="switch-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>switch</code> Statement in JavaScript</h1>
+        <blockquote><p>🟢 Intermediate Level | Multi-Branch Matching</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>switch</code> statement</strong> evaluates an expression and matches its evaluated result against discrete <code>case</code> clauses using strict equality (<code>===</code>).</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>When comparing a single variable against multiple specific constant values (such as HTTP status codes, day names, or menu command actions), a <code>switch</code> block is far cleaner and more readable than a long chain of <code>else if</code> statements.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>A <code>switch</code> evaluates an expression once, comparing its value sequentially to each <code>case</code> value using strict equality (<code>===</code>). A <code>break</code> statement terminates the switch; omitting it causes fallthrough execution.</p>
+        <h3>Hindi</h3>
+        <p><code>switch</code> statement ek variable ki value ko multiple <code>case</code> values ke sath compare karta hai. Strict comparison (<code>===</code>) use hota hai. Case complete hone par <code>break</code> lagana zaroori hota hai taaki doosre cases execute na hon.</p>
+        <h3>Marathi</h3>
+        <p><code>switch</code> madhye ekach value la anek <code>case</code> barobar compare kela jato. Strict equality (<code>===</code>) chapa wapar hoto. Block samptaana <code>break</code> dilyas nantarche cases execute hot nahit.</p>
+        <h3>Hinglish</h3>
+        <p>Discrete values compare karne ke liye <code>switch(day) { case 1: ... break; }</code> best structure hai. <code>default</code> fallback path serve karta hai jab koi case match na kare.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">switch (expression) {
+  case value1:
+    // Code executed if expression === value1
+    break;
+  case value2:
+    // Code executed if expression === value2
+    break;
+  default:
+    // Code executed if no cases match
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The <code>expression</code> is evaluated once.</li>
+          <li>JavaScript compares the result against <code>value1</code> using strict equality (<code>===</code>).</li>
+          <li>If matched, the statements following <code>case value1:</code> execute until a <code>break</code> is encountered.</li>
+          <li>If no <code>case</code> matches, execution jumps to the optional <code>default:</code> label.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Day of the Week Lookup</h3>
+        <pre><code class="language-js">let dayCode = 3;
+
+switch (dayCode) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  default:
+    console.log("Invalid day code");
+}</code></pre>
+
+        <h3>Example 2: Intentional Fallthrough for Grouped Cases</h3>
+        <pre><code class="language-js">let userRole = "EDITOR";
+
+switch (userRole) {
+  case "ADMIN":
+  case "EDITOR":
+    console.log("Access Granted: Content Management Rights.");
+    break;
+  case "VIEWER":
+    console.log("Access Granted: Read Only.");
+    break;
+  default:
+    console.log("Access Denied.");
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Wednesday
+Access Granted: Content Management Rights.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>switch (dayCode)</code>: Evaluates variable <code>dayCode</code> (3).</li>
+          <li><code>case 3:</code>: Strict equality <code>3 === 3</code> yields <code>true</code>.</li>
+          <li><code>console.log("Wednesday")</code>: Outputs "Wednesday".</li>
+          <li><code>break;</code>: Exits the switch block immediately.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Because <code>switch</code> uses strict equality (<code>===</code>), <code>switch ("5")</code> will NOT match <code>case 5:</code> (string vs number!).</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Missing `break` (Accidental Fallthrough):</strong> Omitting <code>break</code> causes execution to spill over into subsequent case blocks regardless of whether their case labels match!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Handling Redux actions or state machine transitions:</p>
+        <pre><code class="language-js">function reducer(state, action) {
+  switch (action.type) {
+    case "LOGIN_SUCCESS":
+      return { ...state, user: action.payload };
+    case "LOGOUT":
+      return { ...state, user: null };
+    default:
+      return state;
+  }
+}</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a <code>switch</code> block converting grade letters ('A', 'B', 'C', 'F') to descriptive text.</li>
+          <li><strong>Intermediate:</strong> Write a <code>switch</code> statement that maps HTTP status codes (200, 404, 500) to user messages.</li>
+          <li><strong>Advanced:</strong> Create a mini calculator evaluating operators ('+', '-', '*', '/') on two operands via <code>switch</code>.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

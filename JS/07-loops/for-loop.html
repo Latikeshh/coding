@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The for Loop - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+          <li class="nav-item"><a href="while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; while Loop</span></a></li>
+          <li class="nav-item"><a href="do-while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; do...while Loop</span></a></li>
+          <li class="nav-item"><a href="for-of-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for...of Loop</span></a></li>
+          <li class="nav-item"><a href="for-in-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for...in Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>for</code> Loop in JavaScript</h1>
+        <blockquote><p>🟢 Beginner Level | Counter Iteration</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>for</code> loop</strong> repeats a block of code a specific number of times using an initialization variable, a termination condition, and a step increment expression.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>When you know in advance how many times an operation must repeat—such as processing all elements in an array of size $N$—a <code>for</code> loop provides a concise counter-driven control structure.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>A <code>for</code> loop consists of three expressions enclosed in parentheses: <code>for (initialization; condition; increment)</code>. The initialization runs once, the condition checks before every iteration, and the increment executes after every loop body completion.</p>
+        <h3>Hindi</h3>
+        <p><code>for</code> loop teen parts se banta hai: <code>let i = 0</code> (initialization), <code>i < 5</code> (condition test), aur <code>i++</code> (update). Code body evaluate hone ke baad counter automatically increment hota hai.</p>
+        <h3>Marathi</h3>
+        <p><code>for</code> loop cha wapar jenvha iteration chi sankhya mahit aste tenvha kela jato. Loop cha counter <code>i++</code> mule dar iteration nantar vadhla jato.</p>
+        <h3>Hinglish</h3>
+        <p>Count-based repetition ke liye <code>for (let i = 0; i < n; i++)</code> use karein. Index-based array traversal ke liye step-by-step execution follow hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">for (initialization; condition; increment) {
+  // Code executed on each iteration
+}</code></pre>
+        <ul>
+          <li><code>initialization</code>: Executed once before loop starts (e.g. <code>let i = 0</code>).</li>
+          <li><code>condition</code>: Evaluated before each iteration. If false, loop terminates.</li>
+          <li><code>increment</code>: Executed after each iteration body (e.g. <code>i++</code>).</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li><strong>Step 1: Initialization</strong> — <code>let i = 0</code> executes once.</li>
+          <li><strong>Step 2: Condition Check</strong> — JavaScript tests <code>i < 5</code>. If <code>false</code>, exit loop.</li>
+          <li><strong>Step 3: Body Execution</strong> — The statements inside <code>{ ... }</code> run.</li>
+          <li><strong>Step 4: Increment</strong> — <code>i++</code> runs, increasing counter by 1. Repeat from Step 2.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Basic Counter</h3>
+        <pre><code class="language-js">for (let i = 0; i < 3; i++) {
+  console.log("Iteration count: " + i);
+}</code></pre>
+
+        <h3>Example 2: Array Index Traversal</h3>
+        <pre><code class="language-js">let fruits = ["Apple", "Banana", "Cherry"];
+
+for (let i = 0; i < fruits.length; i++) {
+  console.log("Fruit at index " + i + ": " + fruits[i]);
+}</code></pre>
+
+        <h3>Example 3: Nested Loops (Grid Generation)</h3>
+        <pre><code class="language-js">for (let row = 1; row <= 2; row++) {
+  for (let col = 1; col <= 2; col++) {
+    console.log("Cell (" + row + ", " + col + ")");
+  }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Iteration count: 0
+Iteration count: 1
+Iteration count: 2
+Fruit at index 0: Apple
+Fruit at index 1: Banana
+Fruit at index 2: Cherry
+Cell (1, 1)
+Cell (1, 2)
+Cell (2, 1)
+Cell (2, 2)</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>let i = 0</code>: Initializes counter variable <code>i</code> to 0 in block scope.</li>
+          <li><code>i < 3</code>: Evaluates if <code>i</code> is strictly less than 3.</li>
+          <li><code>console.log(...)</code>: Logs current iteration count.</li>
+          <li><code>i++</code>: Increases <code>i</code> by 1 after each loop body execution.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>If the termination condition is initially false (e.g. <code>i < 0</code> when <code>i = 0</code>), the loop body executes zero times!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Infinite Loops & Off-by-One Errors:</strong> Forgetting to increment the loop variable (e.g. omitting <code>i++</code>) causes an infinite loop that freezes the browser tab. Using <code>i <= array.length</code> leads to an <code>undefined</code> out-of-bounds index access.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Batch processing data records:</p>
+        <pre><code class="language-js">let transactions = [100, 250, 75];
+let total = 0;
+
+for (let i = 0; i < transactions.length; i++) {
+  total += transactions[i];
+}
+console.log("Total Revenue: $" + total);</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a <code>for</code> loop printing even numbers from 2 to 10.</li>
+          <li><strong>Intermediate:</strong> Write a <code>for</code> loop that reverses an array without using the built-in <code>.reverse()</code> method.</li>
+          <li><strong>Advanced:</strong> Create a <code>for</code> loop that checks if a given integer is a prime number.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

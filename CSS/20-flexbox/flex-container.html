@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Container Properties - CSS3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">CSS3</span>
+          <span class="course-header-badge">20 Flexbox</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Flexbox Overview</span></a></li>
+          <li class="nav-item"><a href="flex-container.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Flex Container</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Flex Container Properties in CSS3</h1>
+        <blockquote><p>🟢 Intermediate Level | 1D Layout Alignment</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Flex Container</strong> is created by applying <code>display: flex</code> or <code>display: inline-flex</code> to a parent HTML element. It turns all immediate children into flex items laid out along the Main Axis and Cross Axis.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Flexbox simplifies centering elements both horizontally and vertically, building responsive navigation bars, and creating adaptable card layouts without CSS floats.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Applying <code>display: flex</code> establishes a flex formatting context. Key container properties include <code>flex-direction</code> (row vs column), <code>justify-content</code> (main axis alignment), and <code>align-items</code> (cross axis alignment).</p>
+        <h3>Hindi</h3>
+        <p>Parent element par <code>display: flex</code> lagane se flexbox formatting environment chalu hota hai. Main axis alignment ke liye <code>justify-content</code> aur cross axis alignment ke liye <code>align-items</code> use hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Flexbox madhye <code>display: flex</code> muli elements एका ओळीत किंव्हा कॉलम मध्ये सहज align होतात.</p>
+        <h3>Hinglish</h3>
+        <p>Perfect centering pattern: <code>display: flex; justify-content: center; align-items: center;</code> layout issues solve karta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-css">.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The browser establishes a Flex Formatting Context for <code>.container</code>.</li>
+          <li>The Main Axis is determined by <code>flex-direction</code> (default: <code>row</code>, horizontal left-to-right).</li>
+          <li>Flex items are positioned along the Main Axis via <code>justify-content</code>.</li>
+          <li>Items are aligned along the perpendicular Cross Axis via <code>align-items</code>.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Centered Navbar</h3>
+        <pre><code class="language-css">.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e293b;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">[ Navbar with logo on far left and navigation menu links pushed to far right ]</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>display: flex;</code>: Activates Flexbox on parent container.</li>
+          <li><code>justify-content: space-between;</code>: Distributes items evenly; first item at start, last item at end.</li>
+          <li><code>align-items: center;</code>: Vertically aligns logo and links along cross axis.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Flexbox is 1-dimensional (row OR column). For complex 2-dimensional layouts (rows AND columns simultaneously), CSS Grid is preferred.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Applying Properties to Wrong Element:</strong> Writing <code>justify-content</code> on a child flex item instead of the parent flex container element!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Responsive media object cards and hero headers.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write CSS to center a single <code>&lt;div&gt;</code> inside a 300px box using Flexbox.</li>
+          <li><strong>Intermediate:</strong> Create a responsive navigation bar with 4 items using `justify-content: space-around`.</li>
+          <li><strong>Advanced:</strong> Build a flexible multi-row tag layout using `flex-wrap: wrap` and `gap: 0.5rem`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

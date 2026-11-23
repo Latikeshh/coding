@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The for Loop - Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>for</code> Loop in Python 3</h1>
+        <blockquote><p>🟢 Beginner Level | Sequence Traversal</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>for</code> loop</strong> in Python iterates over the items of any sequence (such as a list, tuple, string, or range object) in the order that they appear.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Unlike traditional counter-based loops in C, Python's <code>for</code> loop acts as a high-level iterator, eliminating manual index management when traversing collections.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Python's <code>for variable in iterable:</code> syntax assigns each element of the iterable sequentially to <code>variable</code> and runs the indented code block.</p>
+        <h3>Hindi</h3>
+        <p>Python mein <code>for item in list:</code> syntax har item ko बारी-बारी <code>item</code> variable mein hold karke block ko execute karta hai. Numerical counting ke liye <code>range(start, stop, step)</code> use hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Python madhye <code>for</code> loop cha wapar sequence madhil pratyek element varan jaanyasathi kela jato. Index chi garaj naste.</p>
+        <h3>Hinglish</h3>
+        <p>Collection iteration ke liye <code>for item in collection:</code> best pythonic pattern hai. <code>range(5)</code> 0 se 4 tak integer stream generate karta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python">for item in sequence:
+    # Indented body statements
+    pass</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Python requests an iterator from the <code>sequence</code> object.</li>
+          <li>For each element, Python binds it to <code>item</code>.</li>
+          <li>The indented loop body executes with <code>item</code> bound to the current value.</li>
+          <li>When <code>StopIteration</code> is encountered, the loop completes naturally.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Sequence Iteration</h3>
+        <pre><code class="language-python">frameworks = ["Django", "FastAPI", "Flask"]
+
+for fw in frameworks:
+    print(f"Backend framework: {fw}")</code></pre>
+
+        <h3>Example 2: Range Counting</h3>
+        <pre><code class="language-python">for i in range(1, 4):
+    print(f"Counting: {i}")</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Backend framework: Django
+Backend framework: FastAPI
+Backend framework: Flask
+Counting: 1
+Counting: 2
+Counting: 3</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>frameworks = [...]</code>: Instantiates list of string objects.</li>
+          <li><code>for fw in frameworks:</code>: Sequentially binds each element to local variable <code>fw</code>.</li>
+          <li><code>print(f"...")</code>: Formats and outputs string representation.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Python supports a <code>for...else</code> clause: the <code>else</code> block executes ONLY if the loop completes without hitting a <code>break</code> statement!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Modifying List While Iterating:</strong> Mutating (adding or removing elements from) a list while iterating over it with a <code>for</code> loop causes skipped elements or unexpected behavior.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Data processing and filtering:</p>
+        <pre><code class="language-python">prices = [19.99, 5.50, 100.00, 45.00]
+discounted = []
+
+for p in prices:
+    if p > 20.0:
+        discounted.append(p * 0.9)
+
+print("Discounted prices:", discounted)</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a `for` loop printing numbers from 10 down to 1 using `range()`.</li>
+          <li><strong>Intermediate:</strong> Write a `for` loop that counts the number of vowels in a given string.</li>
+          <li><strong>Advanced:</strong> Use `enumerate()` inside a `for` loop to print both index positions and values of a list.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

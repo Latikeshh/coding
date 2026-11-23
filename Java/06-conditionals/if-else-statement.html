@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The if-else Statement - Java SE</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Java SE</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-else-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if-else Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>if-else</code> Statement in Java</h1>
+        <blockquote><p>🟢 Beginner Level | Java Strongly-Typed Control Flow</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>if-else</code> statement</strong> in Java executes a code block if a test condition evaluates to Boolean <code>true</code>, or executes an alternative <code>else</code> block if it evaluates to <code>false</code>.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>In enterprise Java applications, strictly typed boolean checks—such as validating user permissions or verifying payment gateway transaction status—determine execution pathways.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In Java, the condition inside <code>if (condition)</code> must strictly evaluate to Java's primitive type <code>boolean</code>. Integers like <code>0</code> or <code>1</code> cannot be implicitly cast to <code>boolean</code>.</p>
+        <h3>Hindi</h3>
+        <p>Java mein <code>if (condition)</code> hamesha <code>true</code> ya <code>false</code> evaluate honi chahiye. C/C++ ki tarah <code>0</code> ya <code>1</code> non-zero numbers automatically boolean mein convert nahi hote.</p>
+        <h3>Marathi</h3>
+        <p>Java madhye condition hamesha explicit <code>boolean</code> pahije. Number la boolean mhanun waparata yet nahi.</p>
+        <h3>Hinglish</h3>
+        <p>Strict typing: <code>if (balance >= amount) { ... } else { ... }</code> execute hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-java">if (booleanExpression) {
+    // Executed if booleanExpression is true
+} else {
+    // Executed if booleanExpression is false
+}</code></pre>
+        <ul>
+          <li><code>booleanExpression</code>: Expression yielding primitive Java <code>boolean</code>.</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Java evaluates <code>booleanExpression</code>.</li>
+          <li>If <code>true</code>, the <code>if</code> block executes, and the <code>else</code> block is skipped.</li>
+          <li>If <code>false</code>, the <code>if</code> block is skipped, and the <code>else</code> block executes.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Bank Balance Check</h3>
+        <pre><code class="language-java">public class BankCheck {
+    public static void main(String[] args) {
+        double balance = 450.00;
+        double withdrawal = 500.00;
+
+        if (balance >= withdrawal) {
+            System.out.println("Transaction approved!");
+        } else {
+            System.out.println("Error: Insufficient funds.");
+        }
+    }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Error: Insufficient funds.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>double balance = 450.00;</code>: Declares double primitive variable.</li>
+          <li><code>if (balance >= withdrawal)</code>: Evaluates <code>450.0 >= 500.0</code>, yielding <code>false</code>.</li>
+          <li><code>System.out.println(...)</code>: Outputs error string inside <code>else</code> block.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Java requires brackets <code>{ }</code> for blocks with multiple statements. Omitting brackets applies the <code>if</code> condition to only the single immediate statement following it!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Type Mismatch Error:</strong> Writing <code>if (1)</code> results in a Java compilation error: <code>incompatible types: int cannot be converted to boolean</code>.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Spring Boot Security authorization check:</p>
+        <pre><code class="language-java">if (user.hasRole("ADMIN")) {
+    renderAdminDashboard();
+} else {
+    throw new AccessDeniedException("Unauthorized user role");
+}</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a Java program checking if a number is even or odd using `%` operator and `if-else`.</li>
+          <li><strong>Intermediate:</strong> Write an `if-else if` ladder grading marks (90+ A, 75+ B, 50+ C, else F).</li>
+          <li><strong>Advanced:</strong> Create an `if-else` check verifying if a string is non-null and non-empty before invoking `.toUpperCase()`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

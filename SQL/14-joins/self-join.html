@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SELF JOIN - SQL Database</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">14 Joins</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Joins Overview</span></a></li>
+          <li class="nav-item"><a href="inner-join.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; INNER JOIN</span></a></li>
+          <li class="nav-item"><a href="outer-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; OUTER JOINs</span></a></li>
+          <li class="nav-item"><a href="self-join.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; SELF JOIN</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>SQL <code>SELF JOIN</code> Queries</h1>
+        <blockquote><p>🟢 Intermediate Level | Hierarchical Data Querying</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong><code>SELF JOIN</code></strong> is a regular join operation in which a database table is joined with itself using distinct table aliases (e.g. <code>table AS t1</code> and <code>table AS t2</code>).</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Used to query hierarchical or recursive relationships stored within a single table—such as matching employees with their respective managers in an organizational chart.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>A <code>SELF JOIN</code> treats a single table as two separate virtual instances, allowing comparisons between rows in the same table.</p>
+        <h3>Hindi</h3>
+        <p>Jab ek hi table ko khud se join karke parent-child ya manager-employee relationship query karni ho, tab <code>SELF JOIN</code> use hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Ekach table la don alag-alag alias deun join karnyala <code>SELF JOIN</code> mhanatad.</p>
+        <h3>Hinglish</h3>
+        <p>Self join query: <code>SELECT e.name, m.name FROM employees e LEFT JOIN employees m ON e.manager_id = m.emp_id</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-sql">SELECT e1.column_name, e2.column_name
+FROM table_name e1
+JOIN table_name e2
+  ON e1.foreign_key = e2.primary_key;</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>SQL query engine instantiates two alias references (<code>e1</code> and <code>e2</code>) for the table.</li>
+          <li>Pairs rows where <code>e1.manager_id = e2.employee_id</code>.</li>
+          <li>Outputs combined hierarchical record rows.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Employee and Manager Lookup</h3>
+        <pre><code class="language-sql">SELECT emp.emp_name AS Employee, mgr.emp_name AS Manager
+FROM employees emp
+LEFT JOIN employees mgr
+  ON emp.manager_id = mgr.emp_id;</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">+----------+---------+
+| Employee | Manager |
++----------+---------+
+| Latikesh | Alex    |
+| Alex     | NULL    |
++----------+---------+</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>FROM employees emp LEFT JOIN employees mgr</code>: Aliases table as <code>emp</code> (subordinates) and <code>mgr</code> (supervisors).</li>
+          <li><code>ON emp.manager_id = mgr.emp_id</code>: Pairs employee records with supervisor records.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Always use unique table aliases (<code>emp</code> vs <code>mgr</code>); omitting aliases causes an ambiguous table reference error!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Ambiguous Column Name Error:</strong> Querying <code>SELECT emp_name</code> without specifying the alias (<code>SELECT emp.emp_name</code>) fails because SQL cannot determine which instance to select.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Organizational tree structures and multi-level referral tracking.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a `SELF JOIN` finding employees who share the same department ID.</li>
+          <li><strong>Intermediate:</strong> Write a `SELF JOIN` finding products in the same category priced higher than average.</li>
+          <li><strong>Advanced:</strong> Create a recursive `SELF JOIN` tracking multi-tier affiliate referral trees.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

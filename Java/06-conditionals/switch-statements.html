@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch Statements & Expressions - Java SE</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Java SE</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-else-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if-else Statement</span></a></li>
+          <li class="nav-item"><a href="switch-statements.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statements</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Switch Statements & Modern Switch Expressions in Java</h1>
+        <blockquote><p>🟢 Intermediate Level | Java Multi-Branch Selection</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong><code>switch</code> statement</strong> in Java matches an expression against discrete constant values. Modern Java (JDK 14+) introduces <strong>Switch Expressions</strong> with arrow <code>-&gt;</code> syntax, eliminating accidental fallthrough and returning values using <code>yield</code>.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Replaces lengthy <code>if-else if</code> chains when checking enums, strings, or integer codes against discrete constant choices.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Classic Java <code>switch</code> uses colon <code>case VALUE: break;</code>. Modern Java switch expressions use <code>case VALUE -&gt; result;</code> without needing <code>break</code> keywords.</p>
+        <h3>Hindi</h3>
+        <p>Classic <code>switch</code> mein <code>break</code> zaroori hota hai. Modern Java (JDK 14+) mein <code>case VALUE -&gt;</code> syntax se fallthrough completely eliminate ho jata hai.</p>
+        <h3>Marathi</h3>
+        <p>Modern Java madhye arrow <code>-&gt;</code> switch expressions mule code saapha aani fallthrough-free banto.</p>
+        <h3>Hinglish</h3>
+        <p>Modern Java pattern: <code>String res = switch (day) { case 1 -&gt; "Mon"; default -&gt; "Other"; };</code> evaluate hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-java">// Modern Java Switch Expression (JDK 14+)
+String dayName = switch (dayNumber) {
+    case 1 -&gt; "Monday";
+    case 2 -&gt; "Tuesday";
+    default -&gt; "Other Day";
+};</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The selector expression is evaluated once.</li>
+          <li>In arrow syntax (<code>-&gt;</code>), only the matching arm executes without fallthrough.</li>
+          <li>The resulting value is assigned directly to the target variable.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Modern Switch Expression with Arrow Syntax</h3>
+        <pre><code class="language-java">public class SwitchDemo {
+    public static void main(String[] args) {
+        String role = "ADMIN";
+
+        int accessLevel = switch (role) {
+            case "SUPER_ADMIN", "ADMIN" -&gt; 10;
+            case "EDITOR" -&gt; 5;
+            default -&gt; 1;
+        };
+
+        System.out.println("Access Level: " + accessLevel);
+    }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Access Level: 10</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>switch (role)</code>: Evaluates String variable <code>role</code> ("ADMIN").</li>
+          <li><code>case "SUPER_ADMIN", "ADMIN" -&gt; 10;</code>: Matches "ADMIN", returns integer 10 directly without fallthrough.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Java supports switching on primitive integers, `char`, `String`, and `enum` constants.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Fallthrough in Classic Switch:</strong> Omitting `break` in classic colon `case VALUE:` syntax causes accidental execution of subsequent case statements!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Enum state routing in backend services.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a classic Java `switch` mapping numbers 1-3 to medal colors (Gold, Silver, Bronze).</li>
+          <li><strong>Intermediate:</strong> Write a modern Java arrow `switch` expression returning days in a month given a month name.</li>
+          <li><strong>Advanced:</strong> Use Java pattern matching in switch (`case Integer i -&gt; ...`, `case String s -&gt; ...`).</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nested Conditionals - Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="nested-conditionals.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Nested Conditionals</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Nested Conditionals in Python 3</h1>
+        <blockquote><p>🟢 Intermediate Level | Multi-Level Indented Logic</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Nested Conditional</strong> in Python is an <code>if</code> block defined inside another <code>if</code> block. In Python, each nested level increases indentation by an additional 4 spaces (8 spaces, 12 spaces, etc.).</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Allows dependent multi-step criteria verification—such as checking if a file exists before verifying its read permissions.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Nested conditions in Python require strict indentation alignment. Inner blocks execute only when the outer <code>if</code> expression evaluates to <code>True</code>.</p>
+        <h3>Hindi</h3>
+        <p>Nested <code>if</code> ka matlab hai <code>if</code> ke andar doosra <code>if</code> block hona. Har extra level par 4 extra spaces zaroori hain.</p>
+        <h3>Marathi</h3>
+        <p>Indentation mule kalle jaate ki konta <code>if</code> block kontya <code>if</code> madhye nester ahe.</p>
+        <h3>Hinglish</h3>
+        <p>Nested level: <code>if is_active: if is_verified: ...</code> pattern indentation rules follow karta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python">if outer_condition:
+    # Level 1 (4 spaces)
+    if inner_condition:
+        # Level 2 (8 spaces)
+        pass</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Evaluate <code>outer_condition</code>.</li>
+          <li>If <code>True</code>, enter Level 1 and evaluate <code>inner_condition</code>.</li>
+          <li>If <code>inner_condition</code> is <code>True</code>, execute Level 2 statements.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Nested Account Access</h3>
+        <pre><code class="language-python">user_exists = True
+is_active = True
+
+if user_exists:
+    if is_active:
+        print("User authenticated and active!")
+    else:
+        print("User account deactivated.")</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">User authenticated and active!</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>if user_exists:</code>: Evaluates <code>True</code>, entering outer block.</li>
+          <li><code>if is_active:</code>: Evaluates <code>True</code> (8 spaces indented), printing success.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Refactor over-nested blocks using Python's <code>and</code> logical operator: <code>if user_exists and is_active:</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Inconsistent Indentation:</strong> Mixing 4-space and 2-space indentation levels throws an <code>IndentationError</code>.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Hierarchical dictionary key validation.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write nested `if` statements checking if a number is positive and greater than 100.</li>
+          <li><strong>Intermediate:</strong> Refactor a nested `if` into a single line using `and`.</li>
+          <li><strong>Advanced:</strong> Create a nested guard clause checking dictionary schema keys.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

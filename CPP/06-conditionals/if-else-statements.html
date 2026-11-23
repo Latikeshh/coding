@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>if-else Statements - C++</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C++</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-else-statements.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if-else Statements</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>if-else</code> Statements in C++</h1>
+        <blockquote><p>🟢 Beginner Level | C++ Control Flow</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>if-else</code> statement</strong> in C++ evaluates a boolean condition and executes a specific block of statements if true, or an alternative <code>else</code> block if false.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>High-performance C++ software (such as game engine collision systems or high-frequency trading algorithms) uses branching conditionals to route execution paths based on state variables.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>C++ evaluates conditions inside <code>if (condition)</code>. Any non-zero numeric value or non-null pointer implicitly coerces to <code>true</code>, while <code>0</code> or <code>nullptr</code> evaluates to <code>false</code>.</p>
+        <h3>Hindi</h3>
+        <p>C++ mein <code>if</code> condition ke andar non-zero value <code>true</code> aur <code>0</code> ya <code>nullptr</code> <code>false</code> evaluate hota hai.</p>
+        <h3>Marathi</h3>
+        <p>C++ madhye <code>if</code>, <code>else if</code>, aani <code>else</code> cha wapar decision making saathi kela jato.</p>
+        <h3>Hinglish</h3>
+        <p>Branching decision making: <code>if (speed > LIMIT) { applyBrakes(); }</code> execution path set karta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-cpp">if (condition) {
+    // Executed if condition is true/non-zero
+} else {
+    // Executed if condition is false/zero
+}</code></pre>
+        <ul>
+          <li><code>condition</code>: Any expression coercible to <code>bool</code>.</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>C++ evaluates <code>(condition)</code>.</li>
+          <li>If true (non-zero / non-null), the <code>if</code> block executes.</li>
+          <li>If false (0 / nullptr), the <code>else</code> block executes.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Pointer & Reference Checking</h3>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int health = 85;
+
+    if (health &gt; 50) {
+        std::cout &lt;&lt; "Player Status: Healthy\n";
+    } else {
+        std::cout &lt;&lt; "Player Status: Critical!\n";
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Player Status: Healthy</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>int health = 85;</code>: Initializes stack variable <code>health</code>.</li>
+          <li><code>if (health > 50)</code>: Evaluates comparison <code>85 > 50</code> (yields <code>true</code>).</li>
+          <li><code>std::cout << ...</code>: Outputs status text to standard output stream.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>In Modern C++17, you can initialize a variable inside an `if` statement: <code>if (auto val = getValue(); val &gt; 0) { ... }</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Dangling Else Problem:</strong> Nested <code>if</code> statements without explicit braces <code>{ }</code> associate an <code>else</code> clause with the nearest preceding <code>if</code> statement!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Validating smart pointer ownership before usage:</p>
+        <pre><code class="language-cpp">#include &lt;memory&gt;
+
+void renderTexture(std::shared_ptr&lt;Texture&gt; tex) {
+    if (tex != nullptr) {
+        tex-&gt;draw();
+    }
+}</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C++ program checking if a user-entered integer is even or odd.</li>
+          <li><strong>Intermediate:</strong> Write an `if-else` block checking if an element exists in a `std::vector`.</li>
+          <li><strong>Advanced:</strong> Use C++17 `if constexpr` inside a template function to branch logic based on type properties at compile-time.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

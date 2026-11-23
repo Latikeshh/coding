@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The switch Statement - C Language</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="switch-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>switch</code> Statement in C</h1>
+        <blockquote><p>🟢 Intermediate Level | C Control Branching</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>switch</code> statement</strong> in C tests an integer or character expression against constant <code>case</code> values. Execution jumps to the matching case label and proceeds sequentially until a <code>break</code> statement is encountered.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Provides fast multi-way decision branching in low-level C programs (such as command-line menu loops or opcode dispatchers).</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In C, <code>switch</code> expressions must evaluate to an integral type (e.g. <code>int</code>, <code>char</code>, <code>enum</code>). Floating point types or strings cannot be used in a C <code>switch</code>.</p>
+        <h3>Hindi</h3>
+        <p>C mein <code>switch</code> sirf integer ya character values ko compare kar sakta hai. Floating numbers (like <code>float</code>) ya strings <code>switch</code> mein allowed nahi hoti.</p>
+        <h3>Marathi</h3>
+        <p>C madhye <code>switch</code> statement madhye integer kiwa character valuesch vaparata yetat.</p>
+        <h3>Hinglish</h3>
+        <p>Discrete integral matching: <code>switch (choice) { case 1: ... break; }</code> pattern execute hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-c">switch (expression) {
+    case CONSTANT1:
+        // Statements
+        break;
+    case CONSTANT2:
+        // Statements
+        break;
+    default:
+        // Fallback statements
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The integral <code>expression</code> is evaluated once.</li>
+          <li>Execution jumps to the matching <code>case CONSTANT:</code> label.</li>
+          <li>Statements execute until a <code>break</code> statement terminates the switch block.</li>
+          <li>If no case matches, execution jumps to <code>default:</code>.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: CLI Menu Selector</h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    char option = 'B';
+
+    switch (option) {
+        case 'A':
+            printf("Selected Option A: System Status\n");
+            break;
+        case 'B':
+            printf("Selected Option B: Network Diagnostic\n");
+            break;
+        default:
+            printf("Unknown option!\n");
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Selected Option B: Network Diagnostic</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>char option = 'B';</code>: Character variable holds ASCII value for 'B'.</li>
+          <li><code>case 'B':</code>: Matches character constant 'B'.</li>
+          <li><code>break;</code>: Prevents fallthrough into default.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Intentionally omitting <code>break</code> allows multiple case labels to share the same code block (fallthrough behavior).</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Accidental Fallthrough:</strong> Forgetting <code>break</code> causes code under subsequent case labels to execute unconditionally!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>State machine dispatcher in embedded systems.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C `switch` statement converting day numbers (1-7) to day names.</li>
+          <li><strong>Intermediate:</strong> Write a C `switch` statement executing basic arithmetic operations based on operator chars ('+', '-').</li>
+          <li><strong>Advanced:</strong> Create an `enum` state machine handled by a `switch` inside a main event loop.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

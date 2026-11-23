@@ -59,8 +59,8 @@
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
   <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
@@ -92,33 +92,42 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>⚡ Introduction to JavaScript & Engine Architecture</h1>
+<h1>⚡ Introduction to JavaScript & Engine Architecture
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>JavaScript (JS)</strong> is a high-level, dynamic, interpreted (JIT-compiled), single-threaded, multi-paradigm programming language that powers interactive user experiences on the web. Standardized as <strong>ECMAScript (ES6+)</strong>, JavaScript runs in web browsers via JavaScript engines (such as Chrome's V8, Firefox's SpiderMonkey, or Safari's JavaScriptCore) and on backend servers via runtime environments like <strong>Node.js</strong> and <strong>Bun</strong>.</p>
 
 <p>---</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>JavaScript is the programming language of the Web. While HTML defines the structural skeleton of a web page and CSS controls visual presentation, JavaScript provides behavioral logic, state management, event handling, and real-time API data fetching without requiring full browser page reloads.</p>
 
-<h3>Hindi (Roman Script)</h3>
+<h3>Hindi (Roman Script)
+</h3>
 <p>JavaScript web pages ko dynamic aur interactive banati hai. HTML se web page ka structure banta hai, CSS se design aur styling hoti hai, aur JavaScript se logic, button clicks, popups, aur server API calls manage hote hain. Node.js ke aane se ab JS backend server par bhi chalti hai.</p>
 
-<h3>Marathi (Roman Script)</h3>
+<h3>Marathi (Roman Script)
+</h3>
 <p>JavaScript hi web pages sathi ek dynamic programming language ahe. HTML mule page cha skeleton banto, CSS mule styling tayar hote, aani JavaScript mule page madhye logic, button events, aani API data connection shakya hoto.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>JavaScript ki madad se aap frontend web apps (React, Vue, Vanilla JS) aur backend APIs (Node.js, Express) dono bana sakte hain. Yeh Just-In-Time (JIT) compilation use karti hai jisse code browsers mein bohot fast execute hota hai.</p>
 
 <p>---</p>
 
-<h2>🧠 Simple Analogy: Building a House</h2>
+<h2>🧠 Simple Analogy: Building a House
+</h2>
 
 <ul>
 <p>  <li><strong>HTML</strong>: The architectural structure (walls, doors, windows).</li></p>
@@ -128,7 +137,8 @@
 
 <p>---</p>
 
-<h2>⚙️ JavaScript Engine Architecture & JIT Compilation</h2>
+<h2>⚙️ JavaScript Engine Architecture & JIT Compilation
+</h2>
 
 <p>Modern JavaScript engines do NOT purely interpret code line-by-line slowly. Instead, engines like Google Chrome's <strong>V8</strong> use <strong>Just-In-Time (JIT) Compilation</strong>:</p>
 
@@ -143,14 +153,16 @@
 <p>          ▼</p>
 <p>[ JIT Compiler (TurboFan) ──► Optimized Native Machine Code ]</code></pre></p>
 
-<h3>Key Execution Characteristics:</h3>
+<h3>Key Execution Characteristics:
+</h3>
 <p>1. <strong>Single-Threaded</strong>: Executes one instruction statement at a time on a single Call Stack.</p>
 <p>2. <strong>Asynchronous Non-Blocking I/O</strong>: Handles background network requests and timers using the <strong>Event Loop</strong>.</p>
 <p>3. <strong>Dynamic Typing</strong>: Variable types are determined at runtime (<code>let x = 10; x = "Hello";</code>).</p>
 
 <p>---</p>
 
-<h2>📝 Syntax & Code Structure</h2>
+<h2>📝 Syntax & Code Structure
+</h2>
 
 <pre><code class="language-js">// 1. Single-line comment
 
@@ -166,9 +178,11 @@
 
 <p>---</p>
 
-<h2>💡 Practical Complete Examples</h2>
+<h2>💡 Practical Complete Examples
+</h2>
 
-<h3>Example 1: Variables, Template Literals & Inspection</h3>
+<h3>Example 1: Variables, Template Literals & Inspection
+</h3>
 
 <pre><code class="language-js">// Defining variables with let and const
 <p>const studentName = &quot;Rohan Sharma&quot;;</p>
@@ -186,7 +200,8 @@
 <p>  { id: 2, name: &quot;Rohan&quot;, track: &quot;JavaScript&quot; }</p>
 <p>]);</code></pre></p>
 
-<h4>Output:</h4>
+<h4>Output:
+</h4>
 
 <pre><code class="language-text">Student Name: Rohan Sharma
 <p>Course: Web Development | Score: 94.5%</p>
@@ -199,7 +214,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes & Misconceptions</h2>
+<h2>⚠️ Common Mistakes & Misconceptions
+</h2>
 
 <ul>
 <p>  <li><strong>Confusing JavaScript with Java</strong>: JavaScript has NO relation to Java! Java is a compiled OOP language created by Sun Microsystems; JavaScript was created by Brendan Eich at Netscape in 1995.</li></p>
@@ -209,7 +225,8 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself & Practice Exercises</h2>
+<h2>🧪 Try It Yourself & Practice Exercises
+</h2>
 
 <p>1. Open your web browser (Chrome / Firefox / Edge / Safari).</p>
 <p>2. Press <code>F12</code> (or right-click $\rightarrow$ <strong>Inspect</strong>) and click the <strong>Console</strong> tab.</p>
@@ -218,7 +235,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="01-setup-js.html">Set Up JS Environment & DevTools</a></li></p>
@@ -228,7 +246,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="01-setup-js.html">← Previous: JS Setup</a> | <a href="03-variables.html">Next: Variables →</a></p>
 

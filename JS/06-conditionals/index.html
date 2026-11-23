@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditionals & Control Flow - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">Subfolder Module</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="if-else-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if...else Statement</span></a></li>
+          <li class="nav-item"><a href="else-if-ladder.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; else if Ladder</span></a></li>
+          <li class="nav-item"><a href="switch-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Conditionals & Control Flow in JavaScript</h1>
+        <blockquote><p>🟢 Module Overview: Master branching decisions, truthy/falsy evaluation, and control structures.</p></blockquote>
+
+        <h2>📖 What are Conditionals?</h2>
+        <p>Conditionals allow JavaScript code to make decisions dynamically based on whether expressions evaluate to <code>true</code> or <code>false</code>.</p>
+
+        <h2>📚 Module Lessons</h2>
+        <ul>
+          <li><a href="if-statement.html"><strong>1. The <code>if</code> Statement:</strong> Syntax, boolean conditions, and truthy/falsy evaluation.</a></li>
+          <li><a href="if-else-statement.html"><strong>2. The <code>if...else</code> Statement:</strong> Binary decision paths and fallback execution.</a></li>
+          <li><a href="else-if-ladder.html"><strong>3. Multi-Branch <code>else if</code> Ladders:</strong> Evaluating sequential range checks.</a></li>
+          <li><a href="switch-statement.html"><strong>4. The <code>switch</code> Statement:</strong> Matching discrete constant values efficiently.</a></li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

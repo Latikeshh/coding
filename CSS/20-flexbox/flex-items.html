@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Items Properties - CSS3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">CSS3</span>
+          <span class="course-header-badge">20 Flexbox</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Flexbox Overview</span></a></li>
+          <li class="nav-item"><a href="flex-container.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Flex Container</span></a></li>
+          <li class="nav-item"><a href="flex-items.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Flex Items</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Flex Item Properties in CSS3</h1>
+        <blockquote><p>🟢 Intermediate Level | Sizing & Order Controls</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p><strong>Flex Items</strong> are the direct children of a flex container. Properties applied directly to flex items—such as <code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code>, <code>align-self</code>, and <code>order</code>—control individual item expansion, contraction, baseline sizing, and visual position.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Allows individual components (like a sidebar vs main content area) to shrink or expand dynamically to fill remaining available space.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The shorthand property <code>flex: 1 1 auto;</code> sets <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> in a single declaration.</p>
+        <h3>Hindi</h3>
+        <p>Flex item par <code>flex-grow: 1</code> lagane se wah flex item bachi hui remaining space ko absorb kar leta hai.</p>
+        <h3>Marathi</h3>
+        <p><code>flex-grow</code> muli item la urleli जागा (space) milte.</p>
+        <h3>Hinglish</h3>
+        <p>Layout sizing: <code>.main-content { flex: 1; }</code> main area ko expand karne ke liye use hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-css">.item-main {
+  flex-grow: 1;      /* Grow factor */
+  flex-shrink: 1;    /* Shrink factor */
+  flex-basis: auto;  /* Base size */
+  align-self: flex-end;
+}
+
+/* Shorthand */
+.item-flex {
+  flex: 1;
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The flex container calculates total available main axis space.</li>
+          <li>Initial element dimensions are established via <code>flex-basis</code>.</li>
+          <li>If extra positive space remains, it is distributed proportionally according to items' <code>flex-grow</code> values.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Expanding Main Content Layout</h3>
+        <pre><code class="language-css">.sidebar-item {
+  width: 250px;
+}
+
+.main-content-item {
+  flex: 1; /* Takes up all remaining width */
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">[ Fixed 250px Sidebar + Main Content stretching to fill remaining viewport width ]</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>flex: 1;</code>: Equivalent to <code>flex-grow: 1; flex-shrink: 1; flex-basis: 0%;</code>. Forces main content to expand.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Setting <code>flex-shrink: 0</code> prevents a flex item from shrinking smaller than its content size when the container shrinks!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Overriding Width with Flex Basis:</strong> Using fixed CSS <code>width</code> properties on a flex item when <code>flex-basis</code> is active causes layout conflicts.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Responsive application dashboard layouts.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write CSS making a middle navigation item expand while keeping left and right items fixed.</li>
+          <li><strong>Intermediate:</strong> Use `align-self: flex-end` to align a single footer item at the bottom of a flex column.</li>
+          <li><strong>Advanced:</strong> Create a responsive 3-column pricing table using `flex: 1 0 300px`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

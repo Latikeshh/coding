@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The for Loop - C Language</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>for</code> Loop in C Programming</h1>
+        <blockquote><p>🟢 Beginner Level | Pre-determined Iteration</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>for</code> loop</strong> in C executes a block of statements repeatedly for a pre-determined iteration count controlled by initialization, condition testing, and step counter updates.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>In low-level systems and embedded computing, iterating over fixed-size arrays or hardware buffers requires exact counter bounds without incurring dynamic overhead.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In C99 and later, the control variable can be declared directly inside the initialization header: <code>for (int i = 0; i < N; i++)</code>. In ANSI C (C89), variables must be declared at the top of the enclosing block before the loop.</p>
+        <h3>Hindi</h3>
+        <p>C99 standard mein <code>for (int i = 0; i < 5; i++)</code> direct write kar sakte hain. Counter <code>i</code> tab tak increment hoga jab tak <code>i < 5</code> non-zero (true) rehta hai.</p>
+        <h3>Marathi</h3>
+        <p>C99 pasun <code>for</code> loop madhyach variable declare karta yeto. Condition <code>false</code> (0) hoto to parayanat loop firto.</p>
+        <h3>Hinglish</h3>
+        <p>Fixed iteration count ke liye <code>for (int i = 0; i < n; i++)</code> use karein. Array memory sequential iterate hoti hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-c">for (initialization; condition; increment) {
+    // Body statements
+}</code></pre>
+        <ul>
+          <li><code>initialization</code>: Sets up the initial counter value.</li>
+          <li><code>condition</code>: Tested before each iteration. Evaluates as non-zero (true) or 0 (false).</li>
+          <li><code>increment</code>: Modifies the loop counter after each iteration.</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Counter initialization runs once.</li>
+          <li>The condition expression is evaluated. If 0 (false), loop terminates.</li>
+          <li>The loop body statements run.</li>
+          <li>The counter increment expression executes, and execution loops back to condition evaluation.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Array Traversal</h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int scores[3] = {88, 92, 79};
+
+    for (int i = 0; i < 3; i++) {
+        printf("Student %d Score: %d\n", i + 1, scores[i]);
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Student 1 Score: 88
+Student 2 Score: 92
+Student 3 Score: 79</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>int scores[3] = {88, 92, 79};</code>: Allocates contiguous 3-element integer array.</li>
+          <li><code>for (int i = 0; i < 3; i++)</code>: Iterates <code>i</code> from 0 through 2.</li>
+          <li><code>printf(...)</code>: Accesses <code>scores[i]</code> via index pointer offset.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>In C, accessing array indices outside bounds (e.g. <code>scores[3]</code> when array size is 3) causes Undefined Behavior (UB)!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Off-by-One Buffer Overrun:</strong> Using <code>i <= size</code> instead of <code>i < size</code> causes buffer overruns into adjacent memory locations.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Checksum calculation over memory buffers:</p>
+        <pre><code class="language-c">unsigned char calculateChecksum(const unsigned char *buf, size_t len) {
+    unsigned char sum = 0;
+    for (size_t i = 0; i < len; i++) {
+        sum ^= buf[i];
+    }
+    return sum;
+}</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C program printing the multiplication table of 7 using a `for` loop.</li>
+          <li><strong>Intermediate:</strong> Write a `for` loop that finds the maximum value in an array of 10 integers.</li>
+          <li><strong>Advanced:</strong> Write a `for` loop implementing a simple Bubble Sort pass on an array of integers.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

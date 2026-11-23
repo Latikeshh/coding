@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNER JOIN - SQL Database</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">14 Joins</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Joins Overview</span></a></li>
+          <li class="nav-item"><a href="inner-join.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; INNER JOIN</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>INNER JOIN</code> Clause in SQL</h1>
+        <blockquote><p>🟢 Intermediate Level | Relational Data Querying</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>An <strong><code>INNER JOIN</code></strong> selects records that have matching values in both queried relational tables based on a specified join condition in the <code>ON</code> clause.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Database normalization splits entities into separate tables (e.g., <code>users</code> and <code>orders</code>). An <code>INNER JOIN</code> reconstructs cohesive result sets by pairing related rows.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>An <code>INNER JOIN</code> compares each row of Table A with each row of Table B. If the condition in the <code>ON</code> clause evaluates to true, the combined fields are returned in the result set.</p>
+        <h3>Hindi</h3>
+        <p><code>INNER JOIN</code> dono tables se wahi rows chun-kar return karta hai jo <code>ON</code> condition (jaise <code>users.id = orders.user_id</code>) ko match karti hain.</p>
+        <h3>Marathi</h3>
+        <p>Dohotahi tables madhye matching values aslyasach <code>INNER JOIN</code> rows show karto.</p>
+        <h3>Hinglish</h3>
+        <p>Relational query: <code>SELECT * FROM users INNER JOIN orders ON users.id = orders.user_id</code> pattern use karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-sql">SELECT t1.column1, t2.column2
+FROM table1 t1
+INNER JOIN table2 t2
+  ON t1.common_id = t2.common_id;</code></pre>
+        <ul>
+          <li><code>table1</code> / <code>table2</code>: Relational database tables being joined.</li>
+          <li><code>ON</code>: The predicate condition linking Primary and Foreign keys.</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The query planner identifies the primary table and target joined table.</li>
+          <li>Indexes on Foreign Key columns (if present) accelerate row matching.</li>
+          <li>For each match satisfying <code>t1.key = t2.key</code>, a combined projection row is generated.</li>
+          <li>Unmatched rows from either table are excluded from the final output set.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Joining Users and Orders</h3>
+        <pre><code class="language-sql">SELECT users.user_name, orders.order_total, orders.order_date
+FROM users
+INNER JOIN orders
+  ON users.user_id = orders.user_id;</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">+-----------+-------------+------------+
+| user_name | order_total | order_date |
++-----------+-------------+------------+
+| Latikesh  |      199.99 | 2026-03-30 |
+| Alex      |       49.50 | 2026-03-31 |
++-----------+-------------+------------+</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>SELECT users.user_name...</code>: Projects columns from both entities.</li>
+          <li><code>FROM users</code>: Establishes base table.</li>
+          <li><code>INNER JOIN orders ON users.user_id = orders.user_id</code>: Pairs rows sharing matching `user_id` values.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>If a user has placed 0 orders, an <code>INNER JOIN</code> will exclude that user completely! To include users with zero orders, a <code>LEFT JOIN</code> is required.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Missing `ON` Clause (Cartesian Product):</strong> Omitting the <code>ON</code> clause produces a Cartesian Product (Cross Join), pairing every row of Table A with every row of Table B and crashing query memory!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Generating customer order summary reports.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a SQL `INNER JOIN` query linking `students` and `enrollments` on `student_id`.</li>
+          <li><strong>Intermediate:</strong> Write a 3-table `INNER JOIN` query connecting `customers`, `orders`, and `products`.</li>
+          <li><strong>Advanced:</strong> Write an `INNER JOIN` query combined with `GROUP BY` and `SUM()` to calculate total spending per customer.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

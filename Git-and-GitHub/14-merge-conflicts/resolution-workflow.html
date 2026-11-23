@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resolution Workflow - Git & GitHub</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Git & GitHub</span>
+          <span class="course-header-badge">14 Merge Conflicts</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Git Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Merge Conflicts Overview</span></a></li>
+          <li class="nav-item"><a href="resolution-workflow.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Resolution Workflow</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Git Merge Conflict Resolution Workflow</h1>
+        <blockquote><p>🟢 Intermediate Level | Version Control DevOps</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Git Merge Conflict Resolution Workflow</strong> is the systematic process of identifying conflicting file blocks marked by Git (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>), manually editing the file to keep intended changes, staging the file with <code>git add</code>, and completing the merge via <code>git commit</code>.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Team software engineering involves parallel feature branches. When two developers edit the same function signature concurrently, Git protects the codebase by requiring explicit human resolution.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>When Git encounters competing edits during <code>git merge</code> or <code>git rebase</code>, it halts execution, marks files as "Unmerged paths", and inserts conflict markers into the source file.</p>
+        <h3>Hindi</h3>
+        <p>Jab do branches mein ek hi line edit hoti hai, toh Git merge ko pause kar deta hai aur conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> HEAD, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> branch) insert karta hai.</p>
+        <h3>Marathi</h3>
+        <p>Git conflict resolution madhye conflict markers hataavun correct code select karava lagto ani <code>git add</code> karees <code>git commit</code> karave lagte.</p>
+        <h3>Hinglish</h3>
+        <p>Conflict resolution steps: <code>git status</code> run karein, file open karke correct code retain karein, conflict markers delete karein, then <code>git add .</code> & <code>git commit</code>.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+// Your current branch changes
+=======
+// Incoming branch changes
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/login-ui</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Git halts <code>git merge feature-branch</code> and displays "Automatic merge failed".</li>
+          <li>Developer runs <code>git status</code> to locate conflicted files.</li>
+          <li>Developer opens conflicted files, edits desired code, and removes conflict markers.</li>
+          <li>Developer runs <code>git add &lt;file&gt;</code> followed by <code>git commit</code> to complete the merge.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Conflict Resolution CLI Command Sequence</h3>
+        <pre><code class="language-bash"># Step 1: Check conflicted files
+git status
+
+# Step 2: After editing conflict markers in file.kt
+git add file.kt
+
+# Step 3: Complete merge
+git commit -m "fix: resolve merge conflict between main and feature/login"</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">[main 4f8b1a2] fix: resolve merge conflict between main and feature/login</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>git status</code>: Lists files under "Unmerged paths".</li>
+          <li><code>git add file.kt</code>: Marks conflict as resolved in the Staging Index.</li>
+          <li><code>git commit</code>: Creates merge commit completing the branch integration.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>To abort a problematic merge completely and restore your branch to pre-merge state, run <code>git merge --abort</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Committing Conflict Markers:</strong> Staging files without removing the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> or <code>=======</code> markers leads to syntax errors in production build pipelines!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Pull Request merge resolution on GitHub.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Run `git status` during a merge conflict to identify unmerged files.</li>
+          <li><strong>Intermediate:</strong> Create two local branches, modify the same line in both, merge them to trigger a conflict, and resolve it manually.</li>
+          <li><strong>Advanced:</strong> Use `git mergetool` to resolve merge conflicts using a visual diff tool.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

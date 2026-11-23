@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The elif-else Ladder - Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="elif-else-ladder.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; elif-else Ladder</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>elif...else</code> Ladder in Python 3</h1>
+        <blockquote><p>🟢 Beginner Level | Multi-Branching Logic</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>An <strong><code>elif...else</code> ladder</strong> in Python tests multiple conditions in sequence using <code>if</code>, one or more <code>elif</code> (else if) clauses, and an optional final <code>else</code> block.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Used when evaluating multi-category decisions—such as setting HTTP response headers or processing command flags.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Python tests <code>elif</code> conditions top to bottom. The first expression evaluating to <code>True</code> executes its indented block; all subsequent branches are skipped.</p>
+        <h3>Hindi</h3>
+        <p>Pehli <code>True</code> condition par jo block aata hai wahi execute hota hai. Baaki <code>elif</code> blocks skip ho jaate hain.</p>
+        <h3>Marathi</h3>
+        <p>Varun khali sequential check hotaana pehli <code>True</code> condition run hote.</p>
+        <h3>Hinglish</h3>
+        <p>Multi-way branching: <code>if score >= 90: ... elif score >= 75: ... else: ...</code> pattern use karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python">if condition1:
+    # Block 1
+elif condition2:
+    # Block 2
+else:
+    # Fallback Block</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Evaluate <code>condition1</code>. If <code>True</code>, execute Block 1 and exit ladder.</li>
+          <li>If <code>False</code>, evaluate <code>condition2</code>. If <code>True</code>, execute Block 2 and exit.</li>
+          <li>If all conditions evaluate to <code>False</code>, execute <code>else</code> fallback block.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Role-based Authorization</h3>
+        <pre><code class="language-python">user_role = "EDITOR"
+
+if user_role == "ADMIN":
+    print("Full system access granted.")
+elif user_role == "EDITOR":
+    print("Content editing rights granted.")
+elif user_role == "VIEWER":
+    print("Read-only access granted.")
+else:
+    print("Access Denied.")</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Content editing rights granted.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>user_role = "EDITOR"</code>: Variable holds string `"EDITOR"`.</li>
+          <li><code>elif user_role == "EDITOR"</code>: String comparison evaluates to <code>True</code>. Executes print and exits ladder.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>In Python 3.10+, <code>match...case</code> structural pattern matching provides an alternative to long <code>elif</code> chains.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Syntax Keyword Error:</strong> Writing <code>else if</code> instead of Python's single keyword <code>elif</code> leads to a <code>SyntaxError</code>.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Command line argument processing.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write an `elif` ladder categorizing age into Child, Teenager, Adult, and Senior.</li>
+          <li><strong>Intermediate:</strong> Write an `elif` ladder processing user input commands ('start', 'stop', 'pause').</li>
+          <li><strong>Advanced:</strong> Create an `elif` ladder evaluating custom exception types.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

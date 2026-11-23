@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced for-each Loop - Java SE</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Java SE</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+          <li class="nav-item"><a href="enhanced-for-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Enhanced for-each Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Enhanced <code>for-each</code> Loop in Java</h1>
+        <blockquote><p>🟢 Beginner Level | Collection & Array Iteration</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong>Enhanced <code>for-each</code> loop</strong> (introduced in Java 5) provides a clean syntax to iterate through elements of arrays or <code>Iterable</code> collections without using manual index counters.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Eliminates index counter boilerplates and prevents <code>ArrayIndexOutOfBoundsException</code> when reading arrays or collections sequentially.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The <code>for (ElementType item : collection)</code> loop binds each element of <code>collection</code> sequentially to local variable <code>item</code>.</p>
+        <h3>Hindi</h3>
+        <p>Java mein <code>for (String name : namesList)</code> syntax collection ke har item ko बारी-बारी read karta hai. Index <code>i</code> ki zaroorat nahi hoti.</p>
+        <h3>Marathi</h3>
+        <p>Enhanced <code>for</code> loop mule array aani collections sahaj read karta yetat.</p>
+        <h3>Hinglish</h3>
+        <p>Clean array reading: <code>for (int mark : marksArray) { sum += mark; }</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-java">for (DataType element : arrayOrCollection) {
+    // Body statements operating on element
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Java fetches an internal iterator or array index offset.</li>
+          <li>Assigns current element to <code>element</code>.</li>
+          <li>Executes body statements. Repeats until all items are processed.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Iterating String Array</h3>
+        <pre><code class="language-java">public class ForEachDemo {
+    public static void main(String[] args) {
+        String[] frameworks = {"Spring Boot", "Hibernate", "Quarkus"};
+
+        for (String fw : frameworks) {
+            System.out.println("Java Framework: " + fw);
+        }
+    }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Java Framework: Spring Boot
+Java Framework: Hibernate
+Java Framework: Quarkus</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>for (String fw : frameworks)</code>: Sequentially binds each String element to local <code>fw</code>.</li>
+          <li><code>System.out.println(...)</code>: Outputs element text to stdout.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>The enhanced <code>for-each</code> loop is **read-only** regarding array references; modifying local <code>element</code> variable does NOT mutate the original array element!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Modifying Collection During Iteration:</strong> Calling <code>list.remove()</code> inside a for-each loop throws a <code>ConcurrentModificationException</code>!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Processing Spring Data entity result lists.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a Java enhanced for-each loop summing numbers in an integer array.</li>
+          <li><strong>Intermediate:</strong> Write a for-each loop iterating over a <code>List&lt;String&gt;</code> filtering items starting with 'A'.</li>
+          <li><strong>Advanced:</strong> Iterate over a <code>Map&lt;String, Integer&gt;</code> using <code>map.entrySet()</code> with an enhanced for-each loop.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

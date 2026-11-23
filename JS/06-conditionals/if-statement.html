@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The if Statement - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="if-else-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if...else Statement</span></a></li>
+          <li class="nav-item"><a href="else-if-ladder.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; else if Ladder</span></a></li>
+          <li class="nav-item"><a href="switch-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>if</code> Statement in JavaScript</h1>
+        <blockquote><p>🟢 Beginner Level | Core Control Flow</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>if</code> statement</strong> is the primary conditional construct in JavaScript. It executes a specified block of code only when a test condition evaluates to a truthy value.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Real-world applications must react dynamically based on user input, system state, or server responses—for example, verifying if a user is logged in before rendering a dashboard.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The <code>if</code> statement checks a boolean condition inside parentheses <code>(condition)</code>. If truthy, the code block inside <code>{ ... }</code> runs. If falsy, JavaScript skips the block entirely.</p>
+        <h3>Hindi</h3>
+        <p><code>if</code> statement pehle parentheses ke andar ki condition ko verify karta hai. Agar condition <code>true</code> (ya truthy) hoti hai, tabhi <code>{ }</code> ke andar ka code execute hota hai, varna ignore ho jata hai.</p>
+        <h3>Marathi</h3>
+        <p><code>if</code> statement madhye dileli condition <code>true</code> aslyasach <code>{ }</code> madhla code run hoto. Condition <code>false</code> aslyas tya code block la skip kele jaate.</p>
+        <h3>Hinglish</h3>
+        <p>Simple terms mein, <code>if (condition)</code> tabhi run hota hai jab condition true ho. <code>if (isLoggedIn) { showDashboard(); }</code> execution line-by-line evaluate hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">if (condition) {
+  // Code executed if condition is truthy
+}</code></pre>
+        <ul>
+          <li><code>condition</code>: Any expression evaluating to a Boolean or truthy/falsy value.</li>
+          <li><code>{ ... }</code>: The block containing statements to execute upon a truthy condition.</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>JavaScript evaluates the expression inside <code>(condition)</code>.</li>
+          <li>The runtime performs implicit Boolean coercion if the condition is not already a Boolean.</li>
+          <li>If <code>true</code> (truthy), control enters the code block <code>{ ... }</code>.</li>
+          <li>If <code>false</code> (falsy), control jumps past the closing brace <code>}</code> without executing any inner statements.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Basic Age Check</h3>
+        <pre><code class="language-js">let age = 20;
+
+if (age >= 18) {
+  console.log("Access granted. User is an adult.");
+}</code></pre>
+
+        <h3>Example 2: Truthy Check with Objects</h3>
+        <pre><code class="language-js">let userProfile = { name: "Latikesh", role: "Admin" };
+
+if (userProfile) {
+  console.log("User profile loaded: " + userProfile.name);
+}</code></pre>
+
+        <h3>Example 3: Short-Circuiting with Compound Logic</h3>
+        <pre><code class="language-js">let isAuthenticated = true;
+let userRole = "ADMIN";
+
+if (isAuthenticated && userRole === "ADMIN") {
+  console.log("Welcome Super Admin! Redirecting to control panel...");
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Access granted. User is an adult.
+User profile loaded: Latikesh
+Welcome Super Admin! Redirecting to control panel...</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>let age = 20;</code>: Declares variable <code>age</code> and initializes it to numeric value 20.</li>
+          <li><code>if (age >= 18)</code>: Evaluates comparison <code>20 >= 18</code>, which yields Boolean <code>true</code>.</li>
+          <li><code>console.log(...)</code>: Prints approval message to the developer console.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>JavaScript has 6 falsy values: <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code>. Every other value (including <code>"0"</code>, <code>[]</code>, and <code>{}</code>) is truthy!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Assignment instead of Comparison:</strong> Writing <code>if (x = 5)</code> assigns 5 to <code>x</code> (which is truthy!) instead of testing equality <code>if (x === 5)</code>.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Feature flagging in production web apps:</p>
+        <pre><code class="language-js">if (featureFlags.enableDarkMode) {
+  document.body.classList.add("dark-theme");
+}</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write an <code>if</code> statement that logs "Passed" if <code>score</code> is greater than or equal to 50.</li>
+          <li><strong>Intermediate:</strong> Write an <code>if</code> statement checking if a string is non-empty before printing its upper-case version.</li>
+          <li><strong>Advanced:</strong> Use an <code>if</code> statement with optional chaining (`user?.settings?.notifications`) to trigger alert sounds safely.</li>
+        </ol>
+
+        <h2>🚀 Mini Challenge</h2>
+        <p>Create a script that checks if a shopping cart array has items (using <code>cart.length</code>), and if so, calculates the total price and logs "Ready for checkout".</p>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

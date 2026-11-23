@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch Statements - C++</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C++</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-else-statements.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if-else Statements</span></a></li>
+          <li class="nav-item"><a href="switch-statements.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statements</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>switch</code> Statement in C++</h1>
+        <blockquote><p>🟢 Intermediate Level | C++ Multi-Branch Selection</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>switch</code> statement</strong> in C++ compares an integral or enumeration expression against constant <code>case</code> values. Modern C++17 introduces <code>[[fallthrough]]</code> attribute annotations for explicit intentional case fallthrough.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Provides jump-table optimization for multi-branch state evaluation in C++ systems applications.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In C++, <code>switch</code> expressions require an integral or enum type. Modern C++17 supports <code>[[fallthrough]];</code> to suppress compiler warnings when omitting <code>break</code> intentionally.</p>
+        <h3>Hindi</h3>
+        <p>C++ mein <code>switch</code> integral values aur <code>enum</code> classes ke sath work karta hai. <code>break</code> na lagane par next case execute hota hai.</p>
+        <h3>Marathi</h3>
+        <p>C++17 madhye <code>[[fallthrough]]</code> attribute mule compiler warning nahi yenar.</p>
+        <h3>Hinglish</h3>
+        <p>Discrete value matching: <code>switch (state) { case STATE_READY: ... break; }</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-cpp">switch (expression) {
+    case VALUE_1:
+        // Statements
+        break;
+    case VALUE_2:
+        // Statements
+        [[fallthrough]];
+    default:
+        // Fallback
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The integral expression is evaluated.</li>
+          <li>Execution jumps to matching <code>case CONSTANT:</code> label.</li>
+          <li>Statements execute until a <code>break</code> is encountered.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Enum Class Switch</h3>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+enum class GameState { START, PLAYING, GAMEOVER };
+
+int main() {
+    GameState state = GameState::PLAYING;
+
+    switch (state) {
+        case GameState::START:
+            std::cout &lt;&lt; "Rendering Start Menu...\n";
+            break;
+        case GameState::PLAYING:
+            std::cout &lt;&lt; "Game Engine Loop Active.\n";
+            break;
+        case GameState::GAMEOVER:
+            std::cout &lt;&lt; "Rendering Game Over Screen...\n";
+            break;
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Game Engine Loop Active.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>enum class GameState ...</code>: Defines strongly-typed scoped enum.</li>
+          <li><code>switch (state)</code>: Matches enum instance <code>GameState::PLAYING</code>.</li>
+          <li><code>std::cout << ...</code>: Outputs game loop active message.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>C++ std::string objects cannot be used directly in a switch statement; use integral hashes or if-else ladders for strings.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Variable Declaration Inside Case:</strong> Declaring variables inside a <code>case</code> label without enclosing braces <code>{ }</code> causes a C++ compilation error!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Game engine state machine updates.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C++ `switch` statement converting menu numbers 1-3 into choices.</li>
+          <li><strong>Intermediate:</strong> Write a `switch` statement over a scoped `enum class` handling window event types.</li>
+          <li><strong>Advanced:</strong> Implement a `switch` with C++17 `[[fallthrough]]` handling multi-key shortcut key combinations.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

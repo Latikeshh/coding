@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUTER JOINs - SQL Database</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">14 Joins</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Joins Overview</span></a></li>
+          <li class="nav-item"><a href="inner-join.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; INNER JOIN</span></a></li>
+          <li class="nav-item"><a href="outer-joins.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; OUTER JOINs</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>SQL <code>LEFT JOIN</code> & <code>RIGHT JOIN</code> Outer Joins</h1>
+        <blockquote><p>🟢 Intermediate Level | Preserving Unmatched Relational Records</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong><code>LEFT OUTER JOIN</code></strong> (or simply <code>LEFT JOIN</code>) returns all records from the left table, along with matching records from the right table. If no match exists, <code>NULL</code> values are populated for right table columns.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Preserves all primary records—such as listing all customers regardless of whether they have placed an order yet.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Unlike <code>INNER JOIN</code>, <code>LEFT JOIN</code> guarantees that every row from the left table appears in the output at least once. Unmatched right table fields return <code>NULL</code>.</p>
+        <h3>Hindi</h3>
+        <p><code>LEFT JOIN</code> left table ke saare records preserve karta hai, chahe right table mein match ho ya na ho. Unmatched fields <code>NULL</code> show hote hain.</p>
+        <h3>Marathi</h3>
+        <p>Left table madhil sarv rows output madhye distat.</p>
+        <h3>Hinglish</h3>
+        <p>Preserve left table: <code>SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id</code> query use karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-sql">SELECT u.user_name, o.order_id
+FROM users u
+LEFT JOIN orders o
+  ON u.user_id = o.user_id;</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>All rows from left table (<code>users</code>) are fetched.</li>
+          <li>For each row, right table (<code>orders</code>) is searched for matches.</li>
+          <li>If matched, combined row is output. If no match, right fields are filled with <code>NULL</code>.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Customers with and without Orders</h3>
+        <pre><code class="language-sql">SELECT u.user_name, o.order_id, o.order_total
+FROM users u
+LEFT JOIN orders o
+  ON u.user_id = o.user_id;</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">+-----------+----------+-------------+
+| user_name | order_id | order_total |
++-----------+----------+-------------+
+| Latikesh  |     1001 |      199.99 |
+| Sarah     |     NULL |        NULL |
++-----------+----------+-------------+</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>LEFT JOIN orders</code>: Retains Sarah (user with 0 orders) while populating <code>NULL</code> for order fields.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Filtering with <code>WHERE o.order_id IS NULL</code> finds users who have NEVER placed an order!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Filtering Left Joined Columns in WHERE:</strong> Adding <code>WHERE o.order_status = 'COMPLETED'</code> implicitly converts a <code>LEFT JOIN</code> into an <code>INNER JOIN</code> because NULLs fail the equality check!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Identifying inactive accounts or orphaned records.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a SQL `LEFT JOIN` showing all departments and their assigned employees.</li>
+          <li><strong>Intermediate:</strong> Write a `LEFT JOIN` query finding all products that have never been purchased (`WHERE order_id IS NULL`).</li>
+          <li><strong>Advanced:</strong> Use a `FULL OUTER JOIN` to combine unmatched rows from both left and right tables.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Conflict Markers - Git & GitHub</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Git & GitHub</span>
+          <span class="course-header-badge">14 Merge Conflicts</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Git Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Merge Conflicts Overview</span></a></li>
+          <li class="nav-item"><a href="resolution-workflow.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Resolution Workflow</span></a></li>
+          <li class="nav-item"><a href="conflict-markers.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Conflict Markers</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Understanding Git Conflict Markers</h1>
+        <blockquote><p>🟢 Intermediate Level | Version Control Anatomy</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p><strong>Conflict Markers</strong> are textual boundaries inserted into source files by Git when an automatic merge fails. They delimit competing code changes from your current branch (<code>HEAD</code>) vs incoming branch.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Visually highlights exact line differences so developers can manually choose, combine, or rewrite code segments before committing.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> marker starts your local changes. The <code>=======</code> separator divides your local code from the incoming branch changes ending at <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name</code>.</p>
+        <h3>Hindi</h3>
+        <p><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> se <code>=======</code> ke beech aapka local code hota hai. <code>=======</code> se <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> ke beech incoming branch ka code hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Git conflict markers donhi branch madhla pharak samajnyasathi madat kartat.</p>
+        <h3>Hinglish</h3>
+        <p>Marker breakdown: <code>HEAD</code> = current branch, <code>=======</code> = separator, <code>branch-name</code> = incoming branch.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+val timeout = 5000 // Current local branch change
+=======
+val timeout = 10000 // Incoming branch change
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/network-config</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Git detects contradictory edits on identical file lines.</li>
+          <li>Git writes conflict markers into working directory files.</li>
+          <li>Developer deletes markers, saves desired code, stages file, and commits.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Marker Inspection and Manual Fix</h3>
+        <pre><code class="language-kotlin">// Before Fix:
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+fun getApiUrl(): String = "https://api.v1.com"
+=======
+fun getApiUrl(): String = "https://api.v2.com"
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/v2-migration
+
+// After Manual Fix (Removing markers):
+fun getApiUrl(): String = "https://api.v2.com"</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Clean Kotlin source file without any <<<<<<< or ======= conflict markers.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>: Marks start of current branch code.</li>
+          <li><code>=======</code>: Divides current vs incoming changes.</li>
+          <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/v2-migration</code>: Marks end of incoming branch code.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Running <code>git diff</code> during a conflict displays diff comparison across both parent commits.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Leaving Separator Lines:</strong> Accidentally leaving <code>=======</code> in the source code causes compilation failures in language parsers!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Resolving merge conflicts in VS Code or Android Studio merge editors.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Identify the 3 component parts of a Git conflict marker.</li>
+          <li><strong>Intermediate:</strong> Practice editing a file to combine both HEAD and incoming changes cleanly.</li>
+          <li><strong>Advanced:</strong> Configure VS Code or IntelliJ as your default `git mergetool` for visual resolution.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

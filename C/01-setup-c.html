@@ -59,8 +59,8 @@
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
   <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
   <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
@@ -90,41 +90,54 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Set Up C Environment</h1>
+<h1>Set Up C Environment
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Setting up the C environment involves installing a C compiler (such as <strong>GCC</strong> or <strong>Clang</strong>) and configuring your system to translate human-readable source code (<code>.c</code> files) into machine-executable binary files (<code>.exe</code> on Windows or ELF executables on Linux/macOS).</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>To write and run C programs, you need a text editor and a C compiler (or an all-in-one IDE like Dev-C++ or VS Code). The compiler translates your <code>.c</code> source code into machine instructions. Commands like <code>gcc -Wall -Wextra -std=c11 program.c -o program</code> compile the code cleanly with modern standard rules and safety warnings enabled.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>C programs likhne aur chalane ke liye aapko ek text editor aur C compiler (jaise GCC ya Clang) ki zaroorat hoti hai, ya aap Dev-C++ jaise all-in-one IDE ka upyog kar sakte hain. Compiler aapke <code>.c</code> code ko computer ke samajhne yogya binary (machine code) mein badalta hai. <code>gcc -Wall -Wextra -std=c11 program.c -o program</code> command se code safe aur aadhunik C11 standard ke anusar compile hota hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>C madhil programs lihinyasathi aani chalavanyasathi text editor aani C compiler chi (jasakhi GCC kiva Clang) garaj aste, kiva aapan Dev-C++ sarkha ready-made IDE vaparu shakto. Compiler tumchya <code>.c</code> code che rupantar machine code madhye karto. <code>gcc -Wall -Wextra -std=c11 program.c -o program</code> ya command dware safe aani C11 standards nusar code compile kela jato.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>C language mein code run karne ke liye humein C compiler (jaise GCC ya Clang) ki zaroorat hoti hai. Windows users Dev-C++ IDE ya VS Code + MinGW-w64 use kar sakte hain. <code>gcc -Wall -Wextra -std=c11 program.c -o program</code> command se code bina kisi error ya safety warning ke compile hota hai.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Computers cannot understand human-written C code directly. The compiler acts as a translator that checks your code for syntax errors, optimizes performance, and converts it into native hardware instructions that run at maximum speed.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of C source code as a recipe written in English. Your CPU is a chef who only understands binary (0s and 1s). The C compiler is an expert translator who reads your recipe, checks for missing ingredients or steps, and writes a clear binary instruction manual for the CPU to execute.</p>
 
-<h2>📝 Setup Instructions Across Operating Systems</h2>
+<h2>📝 Setup Instructions Across Operating Systems
+</h2>
 
-<h3>1. Windows Setup Options</h3>
+<h3>1. Windows Setup Options
+</h3>
 
-<h4>Option A: Using MinGW-w64 / MSYS2 (Terminal / VS Code)</h4>
+<h4>Option A: Using MinGW-w64 / MSYS2 (Terminal / VS Code)
+</h4>
 <p>1. Download and install <strong>MSYS2</strong> or <strong>MinGW-w64</strong>.</p>
 <p>2. Run the package manager command:</p>
 <p>   <pre><code class="language-bash">   pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain</p>
@@ -135,7 +148,8 @@
 <p>   gcc --version</p>
 <p>   </code>`<code></p>
 
-<h4>Option B: Using Dev-C++ IDE (All-in-One Beginner IDE for Windows)</h4>
+<h4>Option B: Using Dev-C++ IDE (All-in-One Beginner IDE for Windows)
+</h4>
 <p><strong>Dev-C++</strong> (such as <strong>Embarcadero Dev-C++</strong> or Orwell Dev-C++) is a popular, lightweight standalone IDE for Windows that includes a bundled MinGW GCC compiler suite.</p>
 
 <p>##### 📥 Step-by-Step Installation &amp; Usage:</p>
@@ -166,20 +180,25 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h3>2. Linux (Ubuntu / Debian / Fedora)</h3>
+<h3>2. Linux (Ubuntu / Debian / Fedora)
+</h3>
 <p>Open your terminal and install the build tools:</code></pre>bash</p>
-<h1>Ubuntu / Debian</h1>
+<h1>Ubuntu / Debian
+</h1>
 <p>sudo apt update && sudo apt install build-essential gcc</p>
 
-<h1>Fedora / RHEL</h1>
+<h1>Fedora / RHEL
+</h1>
 <p>sudo dnf groupinstall "Development Tools"</p>
 <pre><code class="language-text">
-<h3>3. macOS (Using Xcode Command Line Tools)</h3>
+<h3>3. macOS (Using Xcode Command Line Tools)
+</h3>
 <p>Open Terminal and run:</code></pre>bash</p>
 <p>xcode-select --install</p>
 <pre><code class="language-text">This installs </code>clang<code> (aliased as </code>gcc<code>).
 
-<h2>💡 Practical Starter Example</h2>
+<h2>💡 Practical Starter Example
+</h2>
 
 <p>Create a file named </code>hello.c<code>:</p>
 <p></code></pre>c</p>
@@ -190,21 +209,27 @@
 <p>    return 0;</p>
 <p>}</p>
 <pre><code class="language-text">
-<h3>Compiling and Running via Terminal</h3>
+<h3>Compiling and Running via Terminal
+</h3>
 <p></code></pre>bash</p>
-<h1>Compile with warnings and modern standard</h1>
+<h1>Compile with warnings and modern standard
+</h1>
 <p>gcc -Wall -Wextra -std=c11 hello.c -o hello</p>
 
-<h1>Run on Linux / macOS:</h1>
+<h1>Run on Linux / macOS:
+</h1>
 <p>./hello</p>
 
-<h1>Run on Windows (CMD / PowerShell):</h1>
+<h1>Run on Windows (CMD / PowerShell):
+</h1>
 <p>hello.exe</p>
 <pre><code class="language-text">
-<h3>Compiling and Running in Dev-C++ IDE</h3>
+<h3>Compiling and Running in Dev-C++ IDE
+</h3>
 <p>Press <strong></code>F9<code></strong> to Compile, <strong></code>F10<code></strong> to Run, or <strong></code>F11<code></strong> to Compile &amp; Run simultaneously.</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li></code>#include &lt;stdio.h&gt;<code>: Includes the Standard Input Output header file containing functions like </code>printf<code>.</li></p>
@@ -214,11 +239,13 @@
 <p>  <li></code>return 0;<code>: Returns </code>0<code> to the operating system, signaling that the program finished successfully without errors.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 <p></code></pre>text</p>
 <p>Hello, World! Welcome to C programming.</p>
 <pre><code class="language-text">
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting </code>-o filename<code> in Terminal:</strong> Running </code>gcc hello.c<code> without </code>-o<code> generates a default output file named </code>a.out<code> (Linux/macOS) or </code>a.exe<code> (Windows).</li></p>
@@ -227,7 +254,8 @@
 <p>  <li><strong>Forgetting </code>return 0;<code> or </code>int main(void)<code> signature:</strong> Using legacy non-standard signatures like </code>void main()<code> causes compiler warnings on strict standards.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Flags</h2>
+<h2>🛡️ Safety / Important Flags
+</h2>
 
 <p>Always enable compiler warnings during development:</p>
 <ul>
@@ -240,21 +268,25 @@
 <p>gcc -Wall -Wextra -std=c11 program.c -o program</p>
 <p></code>`<code></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Every major operating system kernel (Linux, Windows kernel, macOS Darwin), embedded microcontroller firmware, game engine core, and database engine (SQLite, PostgreSQL) is built using GCC or Clang toolchains.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Install GCC/Clang or Dev-C++ on your machine.</p>
 <p>2. Create a file called </code>info.c<code> and print your name and favorite programming language.</p>
 <p>3. Compile and run it successfully.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program named </code>square.c<code> that prints a 4x4 box made of </code>#<code> symbols using 4 separate </code>printf` statements. Compile and run it in your terminal or Dev-C++.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="02-introduction-to-c.html">Introduction to C</a></li></p>
@@ -262,7 +294,8 @@
 <p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="02-introduction-to-c.html">Next: Introduction to C →</a></p>
 

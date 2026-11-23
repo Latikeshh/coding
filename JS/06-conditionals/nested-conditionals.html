@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nested Conditionals - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="if-else-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if...else Statement</span></a></li>
+          <li class="nav-item"><a href="else-if-ladder.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; else if Ladder</span></a></li>
+          <li class="nav-item"><a href="nested-conditionals.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Nested Conditionals</span></a></li>
+          <li class="nav-item"><a href="switch-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Nested Conditionals in JavaScript</h1>
+        <blockquote><p>🟢 Intermediate Level | Multi-Layer Control Logic</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Nested Conditional</strong> occurs when an <code>if</code> or <code>if...else</code> block is placed inside another conditional block, allowing multi-layer criteria verification.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Used when secondary conditions depend strictly on the success of a primary condition—such as checking if a user account is active before validating their subscription status.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Nested conditionals evaluate outer conditions first. Only when the outer condition is truthy does JavaScript evaluate inner conditions.</p>
+        <h3>Hindi</h3>
+        <p>Pehle outer <code>if</code> check hota hai. Agar outer <code>if</code> true ho, tabhi andar wala <code>if</code> check hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Outer condition <code>true</code> aslyasach inner <code>if</code> condition test hote.</p>
+        <h3>Hinglish</h3>
+        <p>Multi-step validation: <code>if (user) { if (user.isAdmin) { ... } }</code> pattern use hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">if (outerCondition) {
+  if (innerCondition) {
+    // Executed when both outer and inner conditions are truthy
+  }
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Evaluate <code>outerCondition</code>. If falsy, skip entire outer block.</li>
+          <li>If truthy, enter outer block and evaluate <code>innerCondition</code>.</li>
+          <li>If <code>innerCondition</code> is truthy, execute inner statements.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Multi-Step Account Check</h3>
+        <pre><code class="language-js">let isLoggedIn = true;
+let isEmailVerified = true;
+
+if (isLoggedIn) {
+  if (isEmailVerified) {
+    console.log("Access granted to user dashboard.");
+  } else {
+    console.log("Please verify your email address first.");
+  }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Access granted to user dashboard.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>if (isLoggedIn)</code>: Evaluates to <code>true</code>, entering outer block.</li>
+          <li><code>if (isEmailVerified)</code>: Evaluates to <code>true</code>, executing output string.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Over-nesting (Arrow Anti-pattern) makes code hard to read. Use logical <code>&&</code> or early returns to flatten deep nesting!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Deep Nesting Pyramid:</strong> Nesting 4 or 5 levels deep degrades code maintainability.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Hierarchical permission guards in API middleware.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write nested `if` statements checking if a number is positive and even.</li>
+          <li><strong>Intermediate:</strong> Refactor a 3-level nested `if` into a single `if` using logical `&&`.</li>
+          <li><strong>Advanced:</strong> Create nested guards checking nested JSON object properties safely.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

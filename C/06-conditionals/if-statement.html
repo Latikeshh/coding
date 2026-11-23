@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The if Statement - C Language</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="switch-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>if</code> Statement in C</h1>
+        <blockquote><p>🟢 Beginner Level | C Control Structure</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>if</code> statement</strong> in C controls execution flow by evaluating a conditional expression inside parentheses <code>(condition)</code>. If the expression evaluates to any non-zero value, it is considered <code>true</code> and the inner block executes.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>In low-level programming, system checks must validate conditions—such as verifying file handle pointers or validating non-negative memory allocation sizes—before proceeding.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In ISO C, there was historically no dedicated Boolean type prior to C99 (<code>&lt;stdbool.h&gt;</code>). Any numeric expression evaluating to <code>0</code> is false; any non-zero integer (like <code>1</code>, <code>-5</code>, or <code>100</code>) evaluates as true in an <code>if</code> condition.</p>
+        <h3>Hindi</h3>
+        <p>C mein <code>0</code> ka matlab <code>false</code> hota hai aur koi bhi non-zero number (jaise <code>1</code>, <code>100</code>, <code>-5</code>) <code>true</code> hota hai. <code>if (condition)</code> tabhi run karta hai jab result non-zero ho.</p>
+        <h3>Marathi</h3>
+        <p>C bhashet <code>0</code> mhanje <code>false</code> aani <code>0</code> vyatirikta konta hi integer <code>true</code> manla jato. Condition non-zero aslyasach block execute hoto.</p>
+        <h3>Hinglish</h3>
+        <p>Control flow ke liye <code>if (score >= 50)</code> expression Evaluate hota hai. Assignment operator <code>=</code> aur comparison <code>==</code> ko mix mat karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-c">if (condition) {
+    // Statement block executed if condition != 0
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The compiler evaluates <code>(condition)</code>.</li>
+          <li>If the scalar value is non-zero (true), execution enters the <code>{ ... }</code> block.</li>
+          <li>If the value equals <code>0</code> (false), the compiler jumps past the closing brace.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Basic Non-Zero Check</h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int sensorSignal = 1;
+
+    if (sensorSignal) {
+        printf("Sensor active! Reading telemetry data...\n");
+    }
+    return 0;
+}</code></pre>
+
+        <h3>Example 2: Pointer Validation</h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    int *ptr = malloc(sizeof(int) * 10);
+
+    if (ptr != NULL) {
+        printf("Memory allocation successful at address: %p\n", (void*)ptr);
+        free(ptr);
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Sensor active! Reading telemetry data...
+Memory allocation successful at address: 0x7ff8a0b04080</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>int *ptr = malloc(...)</code>: Requests Heap memory space.</li>
+          <li><code>if (ptr != NULL)</code>: Verifies pointer is not <code>NULL</code> (0).</li>
+          <li><code>printf(...)</code>: Displays success output.</li>
+          <li><code>free(ptr)</code>: Deallocates allocated memory block.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>In C99+, including <code>#include &lt;stdbool.h&gt;</code> provides type <code>bool</code> with constants <code>true</code> (1) and <code>false</code> (0).</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Assignment inside `if`:</strong> Writing <code>if (status = 0)</code> assigns 0 to status (evaluating to false!), whereas <code>if (status == 0)</code> correctly checks equality.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Defensive program checks before dereferencing pointers:</p>
+        <pre><code class="language-c">void processBuffer(char *buf) {
+    if (buf == NULL) {
+        return; // Guard clause against null pointer dereference
+    }
+    printf("Buffer payload: %s\n", buf);
+}</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C program checking if a user-entered integer is positive using `scanf` and `if`.</li>
+          <li><strong>Intermediate:</strong> Write an `if` guard clause preventing division by zero before dividing two integers.</li>
+          <li><strong>Advanced:</strong> Write a program checking bit flags using bitwise AND (`if (flags & MASK)`) in C.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

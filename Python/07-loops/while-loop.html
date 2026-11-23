@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The while Loop - Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+          <li class="nav-item"><a href="while-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; while Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>while</code> Loop in Python 3</h1>
+        <blockquote><p>🟢 Beginner Level | Condition-Driven Iteration</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>while</code> loop</strong> in Python executes an indented block of code repeatedly as long as a test condition evaluates to <code>True</code>.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Used when looping depends on a dynamic condition rather than a fixed sequence length—such as waiting for user input or processing socket connections.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Python evaluates <code>while condition:</code> before every pass. If false initially, the indented block is skipped entirely.</p>
+        <h3>Hindi</h3>
+        <p>Jab tak <code>condition</code> True rehti hai, <code>while</code> block run hota hai. Indentation (4 spaces) maintain karna zaroori hai.</p>
+        <h3>Marathi</h3>
+        <p>Condition <code>True</code> asel toparyant code block execute hoto.</p>
+        <h3>Hinglish</h3>
+        <p>Condition-based repetition: <code>while attempts < 3: attempts += 1</code> pattern follow hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python">while condition:
+    # Indented body
+    pass</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Evaluate <code>condition</code>.</li>
+          <li>If <code>True</code>, execute indented body.</li>
+          <li>Re-evaluate <code>condition</code> until it returns <code>False</code>.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Retry Counter</h3>
+        <pre><code class="language-python">attempts = 0
+
+while attempts < 3:
+    attempts += 1
+    print(f"Attempt #{attempts} processed.")</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Attempt #1 processed.
+Attempt #2 processed.
+Attempt #3 processed.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>attempts = 0</code>: Initializes counter variable.</li>
+          <li><code>while attempts < 3:</code>: Tests if attempts is strictly less than 3.</li>
+          <li><code>attempts += 1</code>: Increments state counter.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Combining <code>while</code> with <code>break</code> allows early exit from infinite loops (<code>while True:</code>).</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Infinite Loop:</strong> Forgetting to update state inside the loop body causes an infinite loop hanging the script.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Game main loops or CLI user interaction loops.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a `while` loop printing numbers from 5 down to 1.</li>
+          <li><strong>Intermediate:</strong> Write a `while` loop accumulating user inputs until 'exit' is typed.</li>
+          <li><strong>Advanced:</strong> Create a `while` loop that calculates the GCD of two numbers using the Euclidean algorithm.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

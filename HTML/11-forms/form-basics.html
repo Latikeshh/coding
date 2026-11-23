@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Basics - HTML5</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">HTML5</span>
+          <span class="course-header-badge">11 Forms</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">HTML Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Forms Overview</span></a></li>
+          <li class="nav-item"><a href="form-basics.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Form Basics</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>HTML5 Form Basics & User Input</h1>
+        <blockquote><p>🟢 Beginner Level | HTML Forms Architecture</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>An <strong>HTML Form</strong> is defined using the <code>&lt;form&gt;</code> element. It contains interactive controls (such as text fields, buttons, and checkboxes) to collect user data and transmit it to a server destination specified by the <code>action</code> attribute.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Forms are fundamental to web applications—enabling user login, search queries, profile updates, and e-commerce checkouts.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The <code>&lt;form action="/submit" method="POST"&gt;</code> wrapper defines the submission endpoint and HTTP protocol method. Accessible forms require every input element to be paired with a <code>&lt;label for="element-id"&gt;</code> tag.</p>
+        <h3>Hindi</h3>
+        <p>User input collect karne ke liye <code>&lt;form&gt;</code> tag ka use hota hai. Accessibility ke liye har input ke sath <code>&lt;label for="id"&gt;</code> bind karna zaroori hai.</p>
+        <h3>Marathi</h3>
+        <p>Web form madhun data server var patavnyasathi <code>&lt;form&gt;</code> tag vaparatat. <code>label</code> tag tayar kelya mule input clear disato.</p>
+        <h3>Hinglish</h3>
+        <p>Input controls format: <code>&lt;label for="email"&gt;Email:&lt;/label&gt; &lt;input id="email" name="user_email"&gt;</code> structure use karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-html">&lt;form action="/api/login" method="POST"&gt;
+  &lt;label for="username"&gt;Username:&lt;/label&gt;
+  &lt;input type="text" id="username" name="username" required&gt;
+  &lt;button type="submit"&gt;Sign In&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        <ul>
+          <li><code>action</code>: Destination URL where form data is sent upon submission.</li>
+          <li><code>method</code>: HTTP method—<code>GET</code> (appends query params) or <code>POST</code> (sends payload in body).</li>
+          <li><code>name</code>: Identifier key used to map submitted input values on the server.</li>
+        </ul>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>The browser renders form elements inside the DOM.</li>
+          <li>The user inputs data into form fields.</li>
+          <li>Clicking a <code>&lt;button type="submit"&gt;</code> triggers client-side validation.</li>
+          <li>If valid, the browser serializes key-value pairs (`name=value`) and dispatches an HTTP request to the <code>action</code> URL.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Accessible Login Form</h3>
+        <pre><code class="language-html">&lt;form action="/login" method="POST"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="email"&gt;Email Address:&lt;/label&gt;
+    &lt;input type="email" id="email" name="user_email" required&gt;
+  &lt;/div&gt;
+  &lt;button type="submit"&gt;Log In&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">[ Form containing Email Address text field and a Log In submit button ]</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>&lt;form action="/login" method="POST"&gt;</code>: Configures form payload destination and HTTP POST method.</li>
+          <li><code>&lt;label for="email"&gt;</code>: Binds click target to input element with `id="email"`.</li>
+          <li><code>&lt;input type="email" id="email" name="user_email" required&gt;</code>: Renders email input with client validation.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Using <code>method="GET"</code> exposes sensitive form data (like passwords) in the browser address URL bar! Always use <code>POST</code> for sensitive user data.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Missing `name` Attribute:</strong> Input fields without a <code>name</code> attribute will NOT be included in the submitted form payload data sent to the server!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>E-commerce checkout form submission.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a basic HTML form with a text input for Name and a submit button.</li>
+          <li><strong>Intermediate:</strong> Create an accessible signup form with Email and Password fields using <code>&lt;label&gt;</code> pairing.</li>
+          <li><strong>Advanced:</strong> Create a multipart file upload form using <code>enctype="multipart/form-data"</code>.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

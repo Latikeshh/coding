@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The if...else Statement - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if Statement</span></a></li>
+          <li class="nav-item"><a href="if-else-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if...else Statement</span></a></li>
+          <li class="nav-item"><a href="else-if-ladder.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; else if Ladder</span></a></li>
+          <li class="nav-item"><a href="switch-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statement</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>if...else</code> Statement in JavaScript</h1>
+        <blockquote><p>🟢 Beginner Level | Binary Decision Paths</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>if...else</code> statement</strong> provides two mutually exclusive execution paths. If the test condition is truthy, the <code>if</code> block executes; otherwise, execution falls back to the <code>else</code> block.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Binary decision paths are required whenever an application faces an either-or scenario—such as validating password match vs showing an authentication error.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The <code>else</code> clause acts as a catch-all fallback that runs only when the preceding <code>if (condition)</code> evaluates to a falsy value.</p>
+        <h3>Hindi</h3>
+        <p>Jab <code>if</code> condition false hoti hai, tab automatic fallback ke roop mein <code>else</code> block ka code execute hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Condition <code>false</code> aslyas <code>else</code> madhla code block run hoto.</p>
+        <h3>Hinglish</h3>
+        <p>Either-or scenario: <code>if (isLoggedIn) { showUserHome(); } else { showLoginPage(); }</code> pattern use hota hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">if (condition) {
+  // Executed if condition is truthy
+} else {
+  // Executed if condition is falsy
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>JavaScript evaluates <code>(condition)</code>.</li>
+          <li>If truthy, the <code>if</code> block executes, and the <code>else</code> block is completely skipped.</li>
+          <li>If falsy, the <code>if</code> block is skipped, and the <code>else</code> block executes.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Authentication Guard</h3>
+        <pre><code class="language-js">let isLoggedIn = false;
+
+if (isLoggedIn) {
+  console.log("Welcome back, User!");
+} else {
+  console.log("Please log in to continue.");
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Please log in to continue.</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>let isLoggedIn = false;</code>: Variable holds boolean <code>false</code>.</li>
+          <li><code>if (isLoggedIn)</code>: Evaluates to <code>false</code>, skipping <code>if</code> body.</li>
+          <li><code>else { console.log(...) }</code>: Executes fallback message.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Ternary operator <code>(condition ? a : b)</code> serves as a single-line expression alternative to <code>if...else</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Putting a condition after `else`:</strong> Writing <code>else (x === 5)</code> is a syntax error! Use <code>else if (x === 5)</code> instead.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Form submission validation response.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write an `if...else` block checking if a number is positive or negative.</li>
+          <li><strong>Intermediate:</strong> Write an `if...else` block checking if an array is empty or populated before logging length.</li>
+          <li><strong>Advanced:</strong> Create an `if...else` block that toggles theme mode in localStorage.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

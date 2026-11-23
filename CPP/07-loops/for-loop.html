@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The for Loop - C++</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C++</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>for</code> Loop in C++</h1>
+        <blockquote><p>🟢 Beginner Level | Iteration & Range Traversal</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>for</code> loop</strong> in C++ repeats a statement block for a specified iteration count using counter initialization, condition testing, and increment steps, or via modern C++11 Range-based <code>for</code> syntax.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Iterating over contiguous C++ arrays or STL containers (<code>std::vector</code>, <code>std::string</code>) efficiently without manual iterator management.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Standard C++ offers counter loops <code>for (int i = 0; i < N; i++)</code> and Range-based <code>for (const auto& item : container)</code> for clean, copy-free read-only element access.</p>
+        <h3>Hindi</h3>
+        <p>Standard counter loop <code>for (int i = 0; i < N; i++)</code> use kar sakte hain. Modern C++11 mein <code>for (auto& item : vector)</code> se direct reference iteration hota hai.</p>
+        <h3>Marathi</h3>
+        <p>C++11 pasun range-based <code>for</code> loop cha wapar vector ani arrays iterate karnyasaathi kela jato.</p>
+        <h3>Hinglish</h3>
+        <p>STL Containers like <code>std::vector</code> iterate karne ke liye range-based <code>for (auto& elem : vec)</code> use karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-cpp">// Standard Counter Loop
+for (initialization; condition; update) {
+    // Body
+}
+
+// Modern Range-Based Loop (C++11+)
+for (const auto& element : container) {
+    // Body
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Counter initialization runs once.</li>
+          <li>Condition expression evaluates. If false (0), loop terminates.</li>
+          <li>Loop body statements execute.</li>
+          <li>Update expression executes and returns to condition evaluation step.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Range-Based Vector Iteration</h3>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::vector&lt;std::string&gt; tools = {"GCC", "Clang", "MSVC"};
+
+    for (const auto& tool : tools) {
+        std::cout &lt;&lt; "Compiler Tool: " &lt;&lt; tool &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Compiler Tool: GCC
+Compiler Tool: Clang
+Compiler Tool: MSVC</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>std::vector&lt;std::string&gt; tools = {...};</code>: Instantiates dynamic string vector.</li>
+          <li><code>for (const auto&amp; tool : tools)</code>: Binds constant reference to each element without copying.</li>
+          <li><code>std::cout &lt;&lt; ...</code>: Outputs element to console.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Using <code>for (auto item : container)</code> creates a copy of each element per iteration; using <code>const auto&amp; item</code> avoids unnecessary object copies!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Vector Mutation During Range-Loop:</strong> Calling <code>vec.push_back()</code> or <code>vec.clear()</code> inside a range-based <code>for</code> loop invalidates iterators, leading to undefined behavior or crashes!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Summing values in a numeric vector:</p>
+        <pre><code class="language-cpp">std::vector&lt;double&gt; values = {10.5, 20.25, 5.0};
+double total = 0.0;
+
+for (const auto val : values) {
+    total += val;
+}
+std::cout &lt;&lt; "Total Sum: " &lt;&lt; total &lt;&lt; "\n";</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C++ `for` loop printing numbers from 1 to 10.</li>
+          <li><strong>Intermediate:</strong> Write a range-based `for` loop modifying elements in a <code>std::vector&lt;int&gt;</code> by multiplying each by 2 (using <code>auto&amp;</code>).</li>
+          <li><strong>Advanced:</strong> Write a `for` loop iterating over a <code>std::map&lt;std::string, int&gt;</code> printing keys and values using structured binding <code>for (const auto&amp; [key, value] : map)</code>.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

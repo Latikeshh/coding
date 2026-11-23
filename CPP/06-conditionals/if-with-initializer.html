@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>if with Initializer - C++17</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C++</span>
+          <span class="course-header-badge">06 Conditionals</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Overview</span></a></li>
+          <li class="nav-item"><a href="if-else-statements.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if-else Statements</span></a></li>
+          <li class="nav-item"><a href="if-with-initializer.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; if with Initializer</span></a></li>
+          <li class="nav-item"><a href="switch-statements.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; switch Statements</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Modern C++17 <code>if</code> Statement with Initializer</h1>
+        <blockquote><p>🟢 Advanced Level | Modern ISO C++17 Standard</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in **C++17**, the <strong><code>if</code> with initializer</strong> construct allows a variable to be declared and initialized directly inside the <code>if (init; condition)</code> header statement. The scope of the initialized variable is restricted strictly to the <code>if</code> and <code>else</code> blocks.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Prevents variable scope leakage into enclosing functions—such as scoping a mutex lock guard or temporary lookup iterator strictly to the conditional check.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The syntax <code>if (init; condition)</code> limits variable lifetime. Once execution leaves the <code>if-else</code> block, the initialized object is destroyed immediately.</p>
+        <h3>Hindi</h3>
+        <p>C++17 mein <code>if (auto status = getStatus(); status == OK)</code> write kar sakte hain. Variable <code>status</code> ki scope sirf <code>if-else</code> block tak hi rehti hai.</p>
+        <h3>Marathi</h3>
+        <p>C++17 madhye <code>if</code> madhech variable initialize karta eto. Variable scope sampto.</p>
+        <h3>Hinglish</h3>
+        <p>Modern C++17 pattern: <code>if (const auto it = map.find(key); it != map.end()) { use(it->second); }</code> scope isolation deta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-cpp">if (init_statement; condition) {
+    // Variable created in init_statement is visible here
+} else {
+    // Variable created in init_statement is ALSO visible here
+}
+// Variable is DESTROYED here!</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li><code>init_statement</code> executes once, instantiating local variable.</li>
+          <li><code>condition</code> is evaluated.</li>
+          <li>Execution enters <code>if</code> or <code>else</code> branch.</li>
+          <li>Upon exiting the conditional structure, the variable is destructed.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Safe Map Key Lookup</h3>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::unordered_map&lt;std::string, int&gt; scores = {{"Latikesh", 95}, {"Alex", 88}};
+
+    if (const auto it = scores.find("Latikesh"); it != scores.end()) {
+        std::cout &lt;&lt; "Found score: " &lt;&lt; it-&gt;second &lt;&lt; "\n";
+    } else {
+        std::cout &lt;&lt; "User score not found!\n";
+    }
+    // 'it' is no longer in scope here!
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Found score: 95</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>if (const auto it = scores.find(...); it != scores.end())</code>: Initializes iterator <code>it</code> and tests validity in a single header line.</li>
+          <li><code>it->second</code>: Accesses mapped integer score.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Also applies to C++17 <code>switch</code> statements: <code>switch (auto val = get(); val) { ... }</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Attempting Access Outside Block:</strong> Referencing the initialized variable outside the closing brace results in a compilation error: `use of undeclared identifier`.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>RAII Mutex lock acquisition in multithreaded code:</p>
+        <pre><code class="language-cpp">if (std::lock_guard&lt;std::mutex&gt; lock(mtx); isQueueReady()) {
+    processQueue();
+}</code></pre>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C++17 `if` statement with an initializer checking an integer return status from a function.</li>
+          <li><strong>Intermediate:</strong> Use `if (const auto res = vec.find(...))` to safely search a container.</li>
+          <li><strong>Advanced:</strong> Combine C++17 structured bindings with `if` initializers: `if (auto [ok, val] = tryFetch(); ok)`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

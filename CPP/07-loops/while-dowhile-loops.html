@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>while & do-while Loops - C++</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C++</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+          <li class="nav-item"><a href="range-based-for.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Range-Based for Loop</span></a></li>
+          <li class="nav-item"><a href="while-dowhile-loops.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; while & do-while Loops</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1><code>while</code> & <code>do-while</code> Loops in C++</h1>
+        <blockquote><p>🟢 Beginner Level | Pre-tested & Post-tested C++ Loops</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>while</code> loop</strong> tests a scalar condition prior to running the body. The <strong><code>do-while</code> loop</strong> executes the body first, testing the condition at the end (guaranteeing <strong>at least one pass</strong>).</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Used in game loops, event polling, and stream input processing where iteration counts are dynamic.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>In C++, <code>while (condition)</code> checks the scalar expression first. Non-zero evaluates as true; 0 evaluates as false.</p>
+        <h3>Hindi</h3>
+        <p><code>while</code> pehle condition evaluate karta hai. <code>do-while</code> pehle ek baar loop body execute karta hai phir condition test karta hai.</p>
+        <h3>Marathi</h3>
+        <p><code>do-while</code> loop kamit kami ekda nakki run hoto.</p>
+        <h3>Hinglish</h3>
+        <p>Stream reading: <code>while (std::cin &gt;&gt; val) { process(val); }</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-cpp">// Pre-tested while loop
+while (condition) {
+    // Body
+}
+
+// Post-tested do-while loop
+do {
+    // Body
+} while (condition);</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li><code>while</code>: Test condition $\rightarrow$ if non-zero, run body $\rightarrow$ repeat.</li>
+          <li><code>do-while</code>: Run body $\rightarrow$ Test condition $\rightarrow$ if non-zero, repeat.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Stream Input Draining</h3>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int count = 3;
+
+    while (count &gt; 0) {
+        std::cout &lt;&lt; "Countdown step: " &lt;&lt; count &lt;&lt; "\n";
+        count--;
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Countdown step: 3
+Countdown step: 2
+Countdown step: 1</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>while (count > 0)</code>: Evaluates if integer count is strictly positive.</li>
+          <li><code>count--</code>: Decrements loop variable.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Always place a trailing semicolon after <code>while (condition);</code> in a `do-while` loop construct.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Infinite Loop:</strong> Omitting state modifications inside the loop body causes an infinite loop hanging the process.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Game engine main loops and event dispatchers.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C++ `while` loop printing numbers 1 to 5.</li>
+          <li><strong>Intermediate:</strong> Write a `do-while` loop prompting user confirmation.</li>
+          <li><strong>Advanced:</strong> Create a `while` loop draining a `std::queue`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

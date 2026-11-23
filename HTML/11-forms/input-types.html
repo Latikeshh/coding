@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Types - HTML5</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">HTML5</span>
+          <span class="course-header-badge">11 Forms</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">HTML Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Forms Overview</span></a></li>
+          <li class="nav-item"><a href="form-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Form Basics</span></a></li>
+          <li class="nav-item"><a href="input-types.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Input Types</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>HTML5 Input Types & Attributes</h1>
+        <blockquote><p>🟢 Beginner Level | Form Controls</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>HTML5 provides a variety of specialized <code>&lt;input type="..."&gt;</code> attributes (such as <code>email</code>, <code>password</code>, <code>number</code>, <code>date</code>, <code>checkbox</code>, and <code>radio</code>) that trigger mobile virtual keyboards and built-in browser input formatting.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Using semantic input types improves mobile user experience (opening numeric keypads for numbers) and provides instant client-side validation without custom JavaScript.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Using <code>type="email"</code> forces mobile browsers to display the `@` key. <code>type="password"</code> masks character keystrokes.</p>
+        <h3>Hindi</h3>
+        <p>Mobile browsers par correct keyboard open karne ke liye HTML5 input types (<code>email</code>, <code>number</code>, <code>tel</code>) zaroori hain.</p>
+        <h3>Marathi</h3>
+        <p>HTML5 input types mule user la data enter karne sope jate.</p>
+        <h3>Hinglish</h3>
+        <p>Mobile keyboard optimization: <code>&lt;input type="email" placeholder="user@example.com"&gt;</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-html">&lt;input type="email" id="userEmail" name="email" placeholder="you@domain.com" required&gt;
+&lt;input type="password" id="userPass" name="password" minlength="8" required&gt;
+&lt;input type="number" id="age" name="age" min="18" max="99"&gt;</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Browser parses <code>type</code> attribute.</li>
+          <li>Renders specific native control (masked dots for password, date picker for date).</li>
+          <li>Validates input value upon form submit action.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Registration Controls</h3>
+        <pre><code class="language-html">&lt;form action="/signup" method="POST"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+
+  &lt;label for="dob"&gt;Date of Birth:&lt;/label&gt;
+  &lt;input type="date" id="dob" name="dob"&gt;
+
+  &lt;button type="submit"&gt;Register&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">[ Form with Email text input and native Date Picker control ]</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>type="email"</code>: Triggers email validation and mobile `@` keyboard.</li>
+          <li><code>type="date"</code>: Launches native operating system calendar date picker.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Older browsers fallback to standard <code>type="text"</code> if they do not support newer HTML5 input types (like <code>color</code> or <code>range</code>).</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Omitting `id` for Labels:</strong> Using <code>&lt;label for="user"&gt;</code> when the input element has no matching <code>id="user"</code> breaks accessibility screen readers!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Mobile web application signup screens.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write an HTML snippet with a password input requiring a minimum length of 6.</li>
+          <li><strong>Intermediate:</strong> Create a radio button group for selecting payment methods (Credit Card, PayPal).</li>
+          <li><strong>Advanced:</strong> Build a search filter form using `type="range"` and `type="search"`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>
