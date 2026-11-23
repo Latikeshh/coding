@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Error Handling & Debugging (<code>errno</code>, <code>perror</code>)</h1>
+<h1>Error Handling & Debugging (<code>errno</code>, <code>perror</code>)
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>C does <strong>not</strong> possess built-in high-level exception handling constructs (such as <code>try-catch</code> blocks found in Java or C++). <strong>Error Handling</strong> in C relies on checking function return values, evaluating global system error codes declared in <code><errno.h></code>, and printing human-readable diagnostics using <code>perror()</code> and <code>strerror()</code>.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>C handles runtime errors using explicit function return values (e.g. returning <code>NULL</code>, <code>-1</code>, or <code>0</code> for success). When system calls or standard C library functions fail, they set the global integer variable <code>errno</code> declared in <code><errno.h></code>. <code>perror("msg")</code> prints a custom descriptive message followed by the system error string corresponding to <code>errno</code>. <code>strerror(errno)</code> from <code><string.h></code> returns the error message string directly.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>C mein <code>try-catch</code> exception handling nahi hoti. Errors ko handle karne ke liye functions return status values (jaise <code>NULL</code> ya <code>-1</code>) check karte hain. Jab koi system call fail hota hai toh woh <code><errno.h></code> ke global variable <code>errno</code> mein error code set karta hai. <code>perror("msg")</code> human-readable system error message print karta hai. <code>strerror(errno)</code> error description string return karta hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>C madhye <code>try-catch</code> sarkhe exception mechanisms nasatat. Function cha return value (jase <code>NULL</code> kiva <code>-1</code>) pahun error samajhto. System call fail jhalyas <code><errno.h></code> madhil <code>errno</code> variable madhye error code sathavla jato. Error cha arth samjhanysathi <code>perror()</code> kiva <code>strerror(errno)</code> vaparatat.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>C language defensive programming strategy follow karti hai. Standard functions (<code>fopen</code>, <code>malloc</code>, <code>scanf</code>) ka return value hamesha validate karein. Failing system calls <code>errno</code> set karte hain. Diagnostic errors console par print karne ke liye <code>perror("Error Description")</code> use karo. Compilation warnings catch karne ke liye <code>-Wall -Wextra</code> flags use karo.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Production applications operate in unpredictable real-world environments: files may be missing, network connections may drop, disk drives may run out of space, and memory allocations may fail. Without error handling, software crashes unexpectedly or causes silent data corruption.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of C error handling like driving a car with dashboard warning lights:</p>
 <ul>
@@ -125,7 +135,8 @@
 <p>  <li>Calling <code>perror("File Error")</code> decodes the numerical error code into plain English for the driver to read on screen.</li></p>
 <p></ul></p>
 
-<h2>📝 Key Error Handling Functions & Identifiers</h2>
+<h2>📝 Key Error Handling Functions & Identifiers
+</h2>
 
 <table>
 <p>  <thead><tr><th>Function / Identifier</th><th>Header File</th><th>Purpose</th><th>Example / Notes</th></tr></thead></p>
@@ -138,7 +149,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a practical file processor program demonstrating explicit return status checking, <code>errno</code> inspection, <code>perror()</code>, and <code>strerror()</code> error reporting:</p>
 
@@ -199,7 +211,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>errno = 0;</code>: Resets global error code variable before making system library calls.</li></p>
@@ -208,7 +221,8 @@
 <p>  <li><code>strerror(errno)</code>: Returns a pointer to the human-readable string describing <code>errno</code> (<code>"No such file or directory"</code> or <code>"Cannot allocate memory"</code>).</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- C ERROR HANDLING DEMONSTRATION ---
 <p>1. Testing Non-Existent File Path:</p>
@@ -221,7 +235,8 @@
 <p>perror report [malloc failure]: Cannot allocate memory</p>
 <p>strerror report: Heap allocation failed - Cannot allocate memory</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Ignoring Return Values:</strong> Assuming functions like <code>fopen()</code>, <code>malloc()</code>, or <code>scanf()</code> will always succeed without checking return values. If <code>malloc</code> fails and returns <code>NULL</code>, accessing <code>ptr[0]</code> immediately crashes the program!</li></p>
@@ -229,27 +244,32 @@
 <p>  <li><strong>Printing Error Logs to <code>stdout</code> instead of <code>stderr</code>:</strong> Printing error diagnostics using <code>printf()</code> instead of standard error stream <code>fprintf(stderr, ...)</code> or <code>perror()</code>. Using <code>stderr</code> ensures error logs are captured cleanly even when standard output is redirected in shell scripts.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Defensive Programming & Compiler Debug Flags</h2>
+<h2>🛡️ Defensive Programming & Compiler Debug Flags
+</h2>
 
 <p>Always compile with strict warning flags enabled during development to let the compiler catch potential bugs, uninitialized variables, format specifier mismatches, and dead code:</p>
 
 <pre><code class="language-bash"># Enable strict compiler warnings
 <p>gcc -Wall -Wextra -Wpedantic -std=c11 program.c -o program</code></pre></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Error handling powers industrial operating systems, financial database transactions, cloud microservices, aerospace navigation control systems, and embedded network daemons.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a function <code>double safeDivide(double num, double den, int *errCode)</code> that sets <code>*errCode = 1</code> if <code>den == 0.0</code> and returns <code>0.0</code>; otherwise sets <code>*errCode = 0</code> and returns division result.</p>
 <p>2. Test it in <code>main()</code> with division by zero.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that prompts the user for a filename, opens it using <code>fopen()</code>, reads its contents line by line, and uses <code>errno</code> and <code>perror()</code> to handle and log errors if the file is missing or unreadable.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
@@ -257,7 +277,8 @@
 <p>  <li><a href="20-command-line-arguments.html">Command Line Arguments</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="21-multi-file-projects.html">← Previous: Multi-file Projects</a> | <a href="23-mini-projects.html">Next: Mini Projects →</a></p>
 

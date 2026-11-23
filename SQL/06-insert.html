@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,11 +97,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1><code>INSERT</code> – Adding Data to Tables</h1>
+<h1><code>INSERT</code> – Adding Data to Tables
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong><code>INSERT INTO</code></strong> statement is a <strong>Data Manipulation Language (DML)</strong> command used to add new data rows (records) into an existing database table.</p>
 
@@ -109,19 +112,22 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi (Roman Script)</h2>
+<h2>🇮🇳 Hindi (Roman Script)
+</h2>
 
 <p>Database table mein naye records/rows add karne ke liye <strong><code>INSERT INTO</code></strong> command ka use hota hai. Recommended tareeka yeh hai ki aap column names ko explicitly mention karein (<code>INSERT INTO table_name (col1, col2)...</code>). Single row insert karne ke alawa, aap ek hi query mein multiple rows bhi insert kar sakte hain. Text aur date values ko hamesha single quotes (<code>'text'</code>) mein likhna zaroori hai.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi (Roman Script)</h2>
+<h2>🚩 Marathi (Roman Script)
+</h2>
 
 <p>Table madhye navin data/rows bharnyasathi <strong><code>INSERT INTO</code></strong> command cha wapar kela jato. Columns chi naave spashtha sangun data bharnaychi paddhat sarvat changli ahe. Ekasathi ek kiva anek rows (<code>VALUES (...), (...)</code>) insert karta येतात. Text aani date valuse sathi single quotes (<code>'text'</code>) vaparnya garjeche ahe.</p>
 
 <p>---</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Creating database tables with <code>CREATE TABLE</code> only constructs the empty schema framework. The <code>INSERT INTO</code> statement is used to:</p>
 
@@ -133,7 +139,8 @@
 
 <p>---</p>
 
-<h2>🧠 Simple Analogy: Index Cards in a File Drawer</h2>
+<h2>🧠 Simple Analogy: Index Cards in a File Drawer
+</h2>
 
 <p>Think of an <code>INSERT INTO</code> statement as filling out a new <strong>Registration Card</strong> and sliding it into a filing drawer:</p>
 
@@ -146,11 +153,13 @@
 
 <p>---</p>
 
-<h2>📝 Syntax Variations Explained</h2>
+<h2>📝 Syntax Variations Explained
+</h2>
 
 <p>SQL supports three primary variations of the <code>INSERT INTO</code> statement:</p>
 
-<h3>Variation 1: Explicit Column Syntax (Recommended Best Practice)</h3>
+<h3>Variation 1: Explicit Column Syntax (Recommended Best Practice)
+</h3>
 <p>Specifying target column names explicitly is the safest and most maintainable approach:</p>
 
 <pre><code class="language-sql">INSERT INTO employees
@@ -158,24 +167,28 @@
 <p>VALUES</p>
 <p>    (101, &#39;Vikram&#39;, &#39;Aditya&#39;, &#39;Engineering&#39;, 85000.00, &#39;2024-01-15&#39;);</code></pre></p>
 
-<h4>💡 Why Explicit Column Syntax is Best Practice:</h4>
+<h4>💡 Why Explicit Column Syntax is Best Practice:
+</h4>
 <p>1. <strong>Schema Immunity:</strong> If a developer adds a new column to the table later, existing code won't break because explicit column names dictate exact value alignment.</p>
 <p>2. <strong>Column Omission:</strong> Allows you to omit optional columns (columns that allow <code>NULL</code> or have a <code>DEFAULT</code> value).</p>
 <p>3. <strong>Clarity:</strong> Makes queries self-documenting by showing exactly which value corresponds to which column.</p>
 
 <p>---</p>
 
-<h3>Variation 2: Implicit Column Syntax (Without Column Names)</h3>
+<h3>Variation 2: Implicit Column Syntax (Without Column Names)
+</h3>
 <p>Omitting column names requires supplying values for <strong>every</strong> column in the exact ordinal sequence defined in the table schema:</p>
 
 <pre><code class="language-sql">INSERT INTO employees
 <p>VALUES (105, &#39;Siddharth&#39;, &#39;Verma&#39;, &#39;Finance&#39;, 72000.00, &#39;2024-05-10&#39;);</code></pre></p>
 
-<blockquote><p>⚠️ <strong>Warning on Implicit Syntax:</strong> This approach is fragile. If the table schema is altered (e.g., adding a new column or reordering existing columns), this query will fail or insert data into wrong columns! Always prefer explicit column syntax in production code.</p></blockquote>
+<blockquote><p>⚠️ <strong>Warning on Implicit Syntax:</strong> This approach is fragile. If the table schema is altered (e.g., adding a new column or reordering existing columns), this query will fail or insert data into wrong columns! Always prefer explicit column syntax in production code.
+</p></blockquote>
 
 <p>---</p>
 
-<h3>Variation 3: Inserting Multiple Rows in One Statement (High Performance)</h3>
+<h3>Variation 3: Inserting Multiple Rows in One Statement (High Performance)
+</h3>
 <p>MySQL, MariaDB, PostgreSQL, and SQLite allow inserting multiple records using a single comma-separated <code>VALUES</code> list:</p>
 
 <pre><code class="language-sql">INSERT INTO employees
@@ -185,11 +198,13 @@
 <p>    (103, &#39;Kiran&#39;, &#39;Deshmukh&#39;, &#39;Engineering&#39;, 90000.00, &#39;2023-11-10&#39;),</p>
 <p>    (104, &#39;Priya&#39;, &#39;Sharma&#39;, &#39;HR&#39;, 58000.00, &#39;2025-02-01&#39;);</code></pre></p>
 
-<blockquote><p>⚡ <strong>Performance Tip:</strong> Inserting 1,000 rows in a single multi-row <code>INSERT</code> statement executes up to <strong>20x faster</strong> than executing 1,000 individual <code>INSERT</code> statements due to reduced network latency and transaction commit overhead!</p></blockquote>
+<blockquote><p>⚡ <strong>Performance Tip:</strong> Inserting 1,000 rows in a single multi-row <code>INSERT</code> statement executes up to <strong>20x faster</strong> than executing 1,000 individual <code>INSERT</code> statements due to reduced network latency and transaction commit overhead!
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🛠️ Complete Practical Workflow & Employee Example</h2>
+<h2>🛠️ Complete Practical Workflow & Employee Example
+</h2>
 
 <p>Let's execute a complete, runnable MySQL-compatible workflow creating an <code>employees</code> table and demonstrating single inserts, multi-row inserts, column omissions, and <code>NULL</code> inserts.</p>
 
@@ -225,7 +240,8 @@
 <p>-- 6. Retrieve all rows to verify inserted data</p>
 <p>SELECT * FROM employees;</code></pre></p>
 
-<h4>👀 Expected <code>SELECT * FROM employees;</code> Output:</h4>
+<h4>👀 Expected <code>SELECT * FROM employees;</code> Output:
+</h4>
 
 <pre><code class="language-text">+--------+------------+-----------+-------------+----------+------------+
 <table>
@@ -246,11 +262,13 @@
 <p></table></p>
 <p>+--------+------------+-----------+-------------+----------+------------+</code></pre></p>
 
-<blockquote><p>ℹ️ <strong>Understanding Default Dates:</strong> For <code>emp_id 105</code>, <code>hire_date</code> was omitted from the <code>INSERT</code> column list, so the database engine automatically evaluated <code>DEFAULT (CURRENT_DATE)</code> upon query execution. Output <code>2026-10-10</code> represents the execution date when this tutorial was run.</p></blockquote>
+<blockquote><p>ℹ️ <strong>Understanding Default Dates:</strong> For <code>emp_id 105</code>, <code>hire_date</code> was omitted from the <code>INSERT</code> column list, so the database engine automatically evaluated <code>DEFAULT (CURRENT_DATE)</code> upon query execution. Output <code>2026-10-10</code> represents the execution date when this tutorial was run.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>⚙️ How SQL Handles Defaults, NULLs, and Required Columns</h2>
+<h2>⚙️ How SQL Handles Defaults, NULLs, and Required Columns
+</h2>
 
 <p>Understanding what happens when columns are omitted or assigned <code>NULL</code>:</p>
 
@@ -270,7 +288,8 @@
 
 <p>---</p>
 
-<h2>🚀 Advanced Variation: <code>INSERT INTO ... SELECT ...</code></h2>
+<h2>🚀 Advanced Variation: <code>INSERT INTO ... SELECT ...</code>
+</h2>
 
 <p>You can copy rows from one table directly into another table using a <code>SELECT</code> query:</p>
 
@@ -290,7 +309,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+<h2>🛠️ Common Mistakes & Troubleshooting
+</h2>
 
 <table>
 <p>  <thead><tr><th>Error Message / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
@@ -306,7 +326,8 @@
 
 <p>---</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Every interactive web application relies on <code>INSERT INTO</code> queries:</p>
 
@@ -318,23 +339,28 @@
 
 <p>---</p>
 
-<h2>🧪 Learning Exercises & Self-Checks</h2>
+<h2>🧪 Learning Exercises & Self-Checks
+</h2>
 
-<h3>Exercise 1: Inserting a Single Employee</h3>
+<h3>Exercise 1: Inserting a Single Employee
+</h3>
 <p>Write an <code>INSERT INTO</code> statement to add a new employee named <code>'Rahul Verma'</code> working in the <code>'Marketing'</code> department with salary <code>65000.00</code> and <code>emp_id = 107</code>. Ensure all required <code>NOT NULL</code> columns (<code>emp_id</code>, <code>first_name</code>, <code>last_name</code>) are supplied.</p>
 
-<h3>Exercise 2: Understanding Constraint Errors</h3>
+<h3>Exercise 2: Understanding Constraint Errors
+</h3>
 <p>Explain why the following query fails and identify the exact error code triggered:</p>
 
 <pre><code class="language-sql">INSERT INTO employees (emp_id, first_name, department, salary)
 <p>VALUES (108, &#39;Aarav&#39;, &#39;Finance&#39;, 70000.00);</code></pre></p>
 
-<h3>Exercise 3: Multi-Row Insert Practice</h3>
+<h3>Exercise 3: Multi-Row Insert Practice
+</h3>
 <p>Write a single SQL statement that inserts two new departments (<code>30, 'Finance'</code> and <code>40, 'Human Resources'</code>) into a <code>departments (dept_id, dept_name)</code> table.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>1. Write a statement to create a <code>products</code> table:</p>
 <ul>
@@ -351,25 +377,30 @@
 <details>
 <summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
 
-<h3>Answer Key:</h3>
+<h3>Answer Key:
+</h3>
 
-<h4>Exercise 1 Solution:</h4>
+<h4>Exercise 1 Solution:
+</h4>
 <pre><code class="language-sql">INSERT INTO employees (emp_id, first_name, last_name, department, salary)
 <p>VALUES (107, &#39;Rahul&#39;, &#39;Verma&#39;, &#39;Marketing&#39;, 65000.00);</code></pre></p>
 
-<h4>Exercise 2 Solution:</h4>
+<h4>Exercise 2 Solution:
+</h4>
 <ul>
 <p>  <li><strong>Reason:</strong> The query omits <code>last_name</code>, which is defined as <code>VARCHAR(50) NOT NULL</code> with no <code>DEFAULT</code> constraint.</li></p>
 <p>  <li><strong>Error:</strong> <code>ERROR 1364 (HY000): Field 'last_name' doesn't have a default value</code>.</li></p>
 <p></ul></p>
 
-<h4>Exercise 3 Solution:</h4>
+<h4>Exercise 3 Solution:
+</h4>
 <pre><code class="language-sql">INSERT INTO departments (dept_id, dept_name)
 <p>VALUES </p>
 <p>    (30, &#39;Finance&#39;),</p>
 <p>    (40, &#39;Human Resources&#39;);</code></pre></p>
 
-<h4>Mini Challenge Solution:</h4>
+<h4>Mini Challenge Solution:
+</h4>
 
 <pre><code class="language-sql">-- Step 1: Create products table
 <p>CREATE TABLE products (</p>
@@ -408,20 +439,22 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
 <p>  <li><a href="04-data-types-and-null.html">SQL Data Types & NULL Values</a></li></p>
-<p>  <li><a href="05-keys.html">Database Keys (Primary, Foreign & Candidate Keys)</a></li></p>
+<p>  <li><a href="05-keys/index.html">Database Keys (Primary, Foreign & Candidate Keys)</a></li></p>
 <p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="05-keys.html">← Previous: Database Keys</a> | <a href="./">SQL Home</a> | <a href="07-select.html">Next: SELECT – Querying Data →</a></p>
+<p><a href="05-keys/index.html">← Previous: Database Keys</a> | <a href="./">SQL Home</a> | <a href="07-select.html">Next: SELECT – Querying Data →</a></p>
 
       </div>
     </main>

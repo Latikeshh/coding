@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-python.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to Python 3</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in Python</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Python</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists in Python</span></a></li>
   <li class="nav-item"><a href="10-tuples.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tuples in Python</span></a></li>
   <li class="nav-item"><a href="11-sets.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sets in Python</span></a></li>
@@ -99,31 +99,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Object-Oriented Programming (OOP) in Python</h1>
+<h1>Object-Oriented Programming (OOP) in Python
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Object-Oriented Programming (OOP)</strong> is a paradigm that structures software around <strong>Classes</strong> (blueprints) and <strong>Objects</strong> (instances created from blueprints). OOP encapsulates state (data attributes) and behavior (methods) into reusable objects, supporting <strong>Encapsulation</strong>, <strong>Inheritance</strong>, and <strong>Polymorphism</strong>.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>OOP mein <strong>Class</strong> ek design/blueprint hoti hai aur <strong>Object</strong> us design se bane actual instances hote hain. Instance variables initialize karne ke liye <code>__init__()</code> constructor method ka use hota hai, aur <code>self</code> parameter current object instance ko point karta hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Class mhanje blueprint aani Object mhanje instance. Objects create honyasathi <code>__init__()</code> constructor vaparatat, aani <code>self</code> current instance la point karto.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Procedural programming keeps data variables and functions separated, leading to fragmented code as applications grow. OOP packages data and functions together into self-contained objects, reflecting real-world entities.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a <strong>Class</strong> as a factory architectural blueprint for a smartphone. The blueprint defines attributes (<code>model</code>, <code>storage</code>, <code>battery_level</code>) and methods (<code>make_call()</code>, <code>charge()</code>). An <strong>Object</strong> is the actual physical phone manufactured from that blueprint.</p>
 
-<h2>📝 1. The <code>__init__</code> Constructor & <code>self</code> Parameter</h2>
+<h2>📝 1. The <code>__init__</code> Constructor & <code>self</code> Parameter
+</h2>
 
 <ul>
 <p>  <li><strong><code>__init__(self, ...)</code>:</strong> Automatically invoked when an object instance is created with <code>new_obj = ClassName()</code>.</li></p>
@@ -142,7 +150,8 @@
 <p>            self.balance += amount</p>
 <p>            print(f&quot;Deposited ₹{amount:.2f}. New Balance: ₹{self.balance:.2f}&quot;)</code></pre></p>
 
-<h2>📝 2. Class Attributes vs Instance Attributes</h2>
+<h2>📝 2. Class Attributes vs Instance Attributes
+</h2>
 
 <ul>
 <p>  <li><strong>Instance Attributes (<code>self.attr</code>):</strong> Unique to each individual object instance.</li></p>
@@ -155,7 +164,8 @@
 <p>    def __init__(self, name):</p>
 <p>        self.name = name # Instance attribute (unique)</code></pre></p>
 
-<h2>📝 3. Inheritance (<code>super()</code>) & Encapsulation Conventions</h2>
+<h2>📝 3. Inheritance (<code>super()</code>) & Encapsulation Conventions
+</h2>
 
 <ul>
 <p>  <li><strong>Inheritance:</strong> <code>class SubClass(ParentClass):</code> inherits parent methods.</li></p>
@@ -164,7 +174,8 @@
 <p>  <li><strong>Private Name Mangling (<code>__attr</code>):</strong> Double underscore mangles name to prevent external access.</li></p>
 <p></ul></p>
 
-<h2>💡 Complete Example: E-Commerce Product & Electronics Subclass</h2>
+<h2>💡 Complete Example: E-Commerce Product & Electronics Subclass
+</h2>
 
 <pre><code class="language-python"># OOP E-Commerce System
 
@@ -181,7 +192,8 @@
 <p>    def display_details(self):</p>
 <p>        return f&quot;[{self.product_id}] {self.name} - ₹{self._price:.2f}&quot;</p>
 
-<h1>Subclass Inheriting from Product</h1>
+<h1>Subclass Inheriting from Product
+</h1>
 <p>class ElectronicsProduct(Product):</p>
 <p>    &quot;&quot;&quot;Subclass adding warranty attributes and method overriding.&quot;&quot;&quot;</p>
 <p>    def __init__(self, product_id, name, price, warranty_months):</p>
@@ -194,7 +206,8 @@
 <p>        base_details = super().display_details()</p>
 <p>        return f&quot;{base_details} | Warranty: {self.warranty_months} Months&quot;</p>
 
-<h1>Testing OOP Classes</h1>
+<h1>Testing OOP Classes
+</h1>
 <p>if __name__ == &quot;__main__&quot;:</p>
 <p>    p1 = Product(&quot;P-101&quot;, &quot;Coffee Mug&quot;, 350.00)</p>
 <p>    p2 = ElectronicsProduct(&quot;E-201&quot;, &quot;Gaming Mouse&quot;, 1800.00, 24)</p>
@@ -203,44 +216,52 @@
 <p>    print(p1.display_details())</p>
 <p>    print(p2.display_details())</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== E-COMMERCE PRODUCT CATALOG ===
 <p>[P-101] Coffee Mug - ₹350.00</p>
 <p>[E-201] Gaming Mouse - ₹1800.00 | Warranty: 24 Months</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting to include <code>self</code> as the first parameter in instance methods (<code>def my_method():</code> causes <code>TypeError: my_method() takes 0 positional arguments but 1 was given</code> when called on an instance!).</li></p>
 <p>  <li>Modifying a class attribute on an instance (<code>instance.class_attr = val</code>), which creates a new instance attribute instead of updating the shared class variable!</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Python relies on <strong>Duck Typing</strong> ("If it walks like a duck and quacks like a duck, it's a duck"). Polymorphism in Python does not require strict interface inheritance—any object that provides the required method name can be used polymorphically.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Django database models, custom exception classes, UI widget hierarchies, API response wrappers, and machine learning pipelines.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code>Car</code> class with attributes <code>brand</code> and <code>model</code>, and a method <code>drive()</code>.</p>
 <p>2. Instantiate two distinct <code>Car</code> objects and invoke <code>drive()</code> on both.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create a <code>BankAccount</code> class with private attribute <code>__balance</code>, and provide <code>deposit(amount)</code>, <code>withdraw(amount)</code>, and <code>get_balance()</code> methods with input validation.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="15-functions-advanced.html">Functions Advanced</a></li></p>
 <p>  <li><a href="21-decorators.html">Decorators</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Python Home</a> | <a href="18-exception-handling.html">← Previous: Exception Handling</a> | <a href="20-iterators-and-generators.html">Next: Iterators and Generators →</a></p>
 

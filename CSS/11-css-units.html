@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>)</h1>
+<h1>CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>CSS Units</strong> specify measurement values for properties like <code>font-size</code>, <code>width</code>, <code>height</code>, <code>margin</code>, and <code>padding</code>. Units are categorized into <strong>Absolute Units</strong> (fixed measurements like <code>px</code>) and <strong>Relative Units</strong> (dynamic measurements like <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>) that scale based on browser defaults or parent containers.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p><code>px</code> is a fixed absolute unit. <code>rem</code> is relative to the root <code><html></code> font size (default <code>1rem = 16px</code>). <code>%</code> is relative to parent container dimensions. <code>vw</code>/<code>vh</code> are relative to 1% of viewport width/height.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>px</code> fixed absolute unit hai. <code>rem</code> root <code><html></code> font size ke hisaab se badalta hai. <code>%</code> parent element ke size aur <code>vw</code>/<code>vh</code> viewport (screen) size ke hisaab se badalte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>px</code> fixed unit aahe. <code>rem</code> root font var ani <code>%</code> parent box chya akara var avlambun aste.</p>
 
-<h2>🤔 Why Are Relative Units Essential?</h2>
+<h2>🤔 Why Are Relative Units Essential?
+</h2>
 
 <p>If you set all font sizes in fixed <code>px</code> (pixels), users with visual impairments who increase their browser default font size in accessibility settings will find your text stuck at small fixed sizes. Using relative units like <code>rem</code> respects user accessibility preferences and ensures responsive scaling across screens.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of measurements:</p>
 <ul>
@@ -142,7 +151,8 @@
 <p>  <li><strong><code>vw</code> / <code>vh</code> (Viewport Width/Height):</strong> Like a percentage of the window glass size.</li></p>
 <p></ul></p>
 
-<h2>📚 CSS Units Reference Table</h2>
+<h2>📚 CSS Units Reference Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Unit Type</th><th>Unit Name</th><th>Reference Base</th><th>Best Used For</th></tr></thead></p>
@@ -156,7 +166,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Code Examples</h2>
+<h2>💻 Code Examples
+</h2>
 
 <pre><code class="language-css">/* Setting root font size explicitly (Optional, browser defaults to 16px) */
 <p>html {</p>
@@ -181,7 +192,8 @@
 <p>  padding: 2rem;       /* 32px */</p>
 <p>}</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -230,27 +242,32 @@
 <p>  color: #333333;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A clean card container scaled proportionally using <code>rem</code> units. If you increase your browser's default font size from <code>16px</code> to <code>20px</code> in settings, the card font size, padding, and maximum width scale up harmoniously.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Open your browser settings (<code>Settings → Appearance → Font size</code>) and change default font size from <strong>Medium (16px)</strong> to <strong>Very Large (24px)</strong>.</p>
 <p>2. Observe how pages built with <code>rem</code> scale up text cleanly while fixed <code>px</code> pages stay tiny and unreadable!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Using <code>px</code> for body typography:</strong> Hardcoding <code>font-size: 14px</code> on <code>body</code> overrides user accessibility settings. Use <code>rem</code> for typography.</li></p>
 <p>  <li><strong>Confusing <code>rem</code> with <code>em</code>:</strong> <code>rem</code> is always relative to the root <code><html></code> font size, whereas <code>em</code> compounds relative to its immediate parent font size (which can lead to unintended shrinking or growing when nested).</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Modern web design systems (like Tailwind CSS) use <code>rem</code> for all spacing scales (<code>p-4</code> = <code>1rem</code>, <code>m-6</code> = <code>1.5rem</code>) and typography to ensure complete accessibility compliance (WCAG).</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="10-width-and-height.html">Width and Height</a></li></p>
@@ -258,7 +275,8 @@
 <p>  <li><a href="32-functions.html">CSS Functions (<code>calc()</code>, <code>clamp()</code>)</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Use <code>rem</code> for typography, padding, margins, and component sizing.</li></p>
@@ -266,7 +284,8 @@
 <p>  <li>Use <code>px</code> sparingly for thin borders (<code>1px solid</code>) or fixed subtle box shadows.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="10-width-and-height.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="12-backgrounds.html">Next →</a></p>
 

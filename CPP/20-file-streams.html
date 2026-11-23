@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,13 +90,16 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>File I/O Streams in C++ (<code>std::ifstream</code>, <code>std::ofstream</code>, <code><fstream></code>)</h1>
+<h1>File I/O Streams in C++ (<code>std::ifstream</code>, <code>std::ofstream</code>, <code><fstream></code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>File Input and Output (I/O) in C++ is managed through the <code><fstream></code> header library using three primary stream classes:</p>
 <p>1. <code>std::ofstream</code> (Output File Stream): Used for <strong>creating and writing</strong> data to disk files.</p>
@@ -105,7 +108,8 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>C++ mein disk par text files create, write, aur read karne ke liye <code><fstream></code> library ka use hota hai.</p>
 <ul>
@@ -116,7 +120,8 @@
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>Disk varil text files tayar karne, lihine (write), aani vachane (read) yasathi <code><fstream></code> cha vapar hota.</p>
 <ul>
@@ -127,7 +132,8 @@
 
 <p>---</p>
 
-<h2>📊 File Open Modes Summary</h2>
+<h2>📊 File Open Modes Summary
+</h2>
 
 <table>
 <p>  <thead><tr><th>Open Mode</th><th>Flag</th><th>Description</th></tr></thead></p>
@@ -141,7 +147,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;fstream&gt; // For std::ofstream and std::ifstream</p>
@@ -191,7 +198,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>#include <fstream></code>: Provides <code>ofstream</code> and <code>ifstream</code> classes.</li></p>
@@ -202,7 +210,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. WRITING TO FILE ---
 <p>Data successfully saved to user_logs.txt</p>
@@ -215,7 +224,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting <code>.is_open()</code> Check</strong>: Attempting to read a file that doesn't exist without checking <code>.is_open()</code> fails silently without reading anything.</li></p>
@@ -224,7 +234,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Always check if the file opened successfully (<code>if (file.is_open())</code>).</li></p>
@@ -233,20 +244,23 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a C++ script that inputs a user's favorite quote and saves it into <code>quote.txt</code>.</p>
 <p>2. Read <code>quote.txt</code> and print the total number of characters in the file.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a Student Grade Exporter program that reads a list of student names and scores from <code>students.txt</code>, calculates their grade, and writes the results to <code>grades_report.txt</code>.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="04-input-output.html">Input & Output in C++</a></li></p>
@@ -255,7 +269,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="19-exception-handling.html">← Previous: Exception Handling</a> | <a href="21-namespaces-and-modern-cpp.html">Next: Namespaces & Modern C++ →</a></p>
 

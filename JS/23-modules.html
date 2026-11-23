@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,33 +92,42 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>📦 JavaScript Modules (ESM <code>import</code> / <code>export</code> & CommonJS)</h1>
+<h1>📦 JavaScript Modules (ESM <code>import</code> / <code>export</code> & CommonJS)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>JavaScript Modules (ES Modules / ESM)</strong> are self-contained, scoped files that encapsulate code (variables, functions, classes, and objects) and selectively expose specific parts using <code>export</code> directives. Other JavaScript files load these exported entities using <code>import</code> directives.</p>
 
 <p>---</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Before ES Modules (ES6 in 2015), JavaScript lacked a native module system, relying on global scope pollution or script tags. ES Modules provide static file scoping, strict mode execution by default, tree-shaking support, and clean code organization across frontend frameworks (React, Vue) and Node.js backend servers.</p>
 
-<h3>Hindi (Roman Script)</h3>
+<h3>Hindi (Roman Script)
+</h3>
 <p>Large JavaScript applications ko modular aur manageable banane ke liye code ko multiple reusable <code>.js</code> files mein divide kiya jata hai. Ek file se functions ya variables share karne ke liye <code>export</code> aur dusri file mein use karne ke liye <code>import</code> use karte hain. HTML mein <code><script type="module" src="..."></code> likhna zaroori hai.</p>
 
-<h3>Marathi (Roman Script)</h3>
+<h3>Marathi (Roman Script)
+</h3>
 <p>Large web applications madhye code vargikrut (modular) thevnyasathi ES Modules cha wapar hoto. Eka file madhun components dhenyasathi <code>export</code> aani ghenyasathi <code>import</code> cha wapar kela jato. ESM ne global variable conflict sanpasto.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Modern frontend libraries (React, Next.js, Vue) aur backend (Node.js) ESM modules par depend karte hain. Modules ke do main types hote hain: <strong>Named Exports</strong> (multiple per file) aur <strong>Default Export</strong> (sirf 1 per file). Module scripts automated strict mode (<code>"use strict"</code>) mein chalte hain.</p>
 
 <p>---</p>
 
-<h2>📝 Named Exports vs Default Exports</h2>
+<h2>📝 Named Exports vs Default Exports
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th>Named Exports (<code>export const x = 1;</code>)</th><th>Default Export (<code>export default class App {}</code>)</th></tr></thead></p>
@@ -132,9 +141,11 @@
 
 <p>---</p>
 
-<h2>💡 Practical Production Examples</h2>
+<h2>💡 Practical Production Examples
+</h2>
 
-<h3>Example 1: Creating Utility Module (<code>mathUtils.js</code>)</h3>
+<h3>Example 1: Creating Utility Module (<code>mathUtils.js</code>)
+</h3>
 
 <pre><code class="language-js">// mathUtils.js - Utility Module
 
@@ -170,7 +181,8 @@
 
 <p>---</p>
 
-<h3>Example 2: Importing and Consuming Modules (<code>app.js</code>)</h3>
+<h3>Example 2: Importing and Consuming Modules (<code>app.js</code>)
+</h3>
 
 <pre><code class="language-js">// app.js - Main Application Entry Point
 
@@ -192,7 +204,8 @@
 
 <p>---</p>
 
-<h3>Example 3: Dynamic Module Import for Performance (<code>import()</code>)</h3>
+<h3>Example 3: Dynamic Module Import for Performance (<code>import()</code>)
+</h3>
 
 <p>Load heavy modules asynchronously on-demand (Code Splitting):</p>
 
@@ -210,7 +223,8 @@
 
 <p>---</p>
 
-<h3>Example 4: Connecting ES Modules in HTML</h3>
+<h3>Example 4: Connecting ES Modules in HTML
+</h3>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -228,7 +242,8 @@
 
 <p>---</p>
 
-<h2>🆚 ES Modules (ESM) vs CommonJS (CJS) in Node.js</h2>
+<h2>🆚 ES Modules (ESM) vs CommonJS (CJS) in Node.js
+</h2>
 
 <table>
 <p>  <thead><tr><th>Module System</th><th>Syntax</th><th>Execution Environment</th><th>Loading Behavior</th></tr></thead></p>
@@ -240,7 +255,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes & Pitfalls</h2>
+<h2>⚠️ Common Mistakes & Pitfalls
+</h2>
 
 <ul>
 <p>  <li><strong>Missing <code>type="module"</code> in HTML</strong>: Including <code><script src="app.js"></script></code> without <code>type="module"</code> throws <code>Uncaught SyntaxError: Cannot use import statement outside a module</code>.</li></p>
@@ -251,14 +267,16 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself & Practice Exercises</h2>
+<h2>🧪 Try It Yourself & Practice Exercises
+</h2>
 
 <p>1. Create a module <code>stringUtils.js</code> with a named export function <code>capitalize(str)</code> and default export function <code>reverse(str)</code>.</p>
 <p>2. Create an <code>index.js</code> file importing both functions and testing them with sample strings.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create a modular weather dashboard structure:</p>
 <ul>
@@ -269,17 +287,19 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="08-functions.html">Functions, Scope & Higher-Order Functions</a></li></p>
+<p>  <li><a href="08-functions/index.html">Functions, Scope & Higher-Order Functions</a></li></p>
 <p>  <li><a href="15-promises-and-async-await.html">Asynchronous JS, Promises & Async/Await</a></li></p>
 <p>  <li><a href="16-fetch-api-and-json.html">Fetch API & Working with JSON</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="22-error-handling.html">← Previous: Error Handling</a> | <a href="24-mini-projects.html">Next: Comprehensive Mini Projects →</a></p>
 

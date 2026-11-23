@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,19 +97,23 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Chapter 29 — Working with JSON Data in MySQL</h1>
+<h1>Chapter 29 — Working with JSON Data in MySQL
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition & Fundamental Concepts</h2>
+<h2>📖 Definition & Fundamental Concepts
+</h2>
 
 <p><strong>JSON (JavaScript Object Notation)</strong> is a lightweight, human-readable data-interchange format structured as key-value pairs (<code>{"key": "value"}</code>) and ordered lists/arrays (<code>["val1", "val2"]</code>).</p>
 
 <p>When working with <strong>Semi-Structured Data</strong> (data that does not adhere to a rigid tabular schema), relational databases like <strong>MySQL 8.0+</strong> allow storing JSON documents directly inside a native <code>JSON</code> column type.</p>
 
-<h3>Relational Columns vs. JSON Columns:</h3>
+<h3>Relational Columns vs. JSON Columns:
+</h3>
 
 <table>
 <p>  <thead><tr><th>Construct</th><th>Structure</th><th>Schema Modification</th><th>Best Used For</th></tr></thead></p>
@@ -119,18 +123,26 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<blockquote><p>[!WARNING]</p></blockquote>
-<blockquote><p><strong>Architecture Trade-Off</strong>: Storing data inside a JSON column trades normalization, strict foreign key constraints, and automatic B-Tree indexing for schema flexibility. JSON columns should <strong>never</strong> replace core relational entities (<code>users</code>, <code>orders</code>, <code>payments</code>). Use JSON strictly for sparse, evolving, or dynamic metadata.</p></blockquote>
+<blockquote><p>[!WARNING]
+</p></blockquote>
+<blockquote><p><strong>Architecture Trade-Off</strong>: Storing data inside a JSON column trades normalization, strict foreign key constraints, and automatic B-Tree indexing for schema flexibility. JSON columns should <strong>never</strong> replace core relational entities (<code>users</code>, <code>orders</code>, <code>payments</code>). Use JSON strictly for sparse, evolving, or dynamic metadata.
+</p></blockquote>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>Multi-Database Compatibility Clarification</strong>: Native JSON support and indexing mechanics differ across database engines:</p></blockquote>
-<blockquote><p>- <strong>MySQL 8.0+</strong>: Stores native <code>JSON</code> in an optimized internal binary format for fast key lookups. Uses Generated Columns or Functional Indexes.</p></blockquote>
-<blockquote><p>- <strong>PostgreSQL</strong>: Provides both text-based <code>JSON</code> and binary-stored <code>JSONB</code> (which supports GIN indexing).</p></blockquote>
-<blockquote><p>- <strong>SQLite / SQL Server</strong>: Store JSON as text (<code>TEXT</code> / <code>NVARCHAR</code>) with built-in validation functions (<code>ISJSON()</code>).</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>Multi-Database Compatibility Clarification</strong>: Native JSON support and indexing mechanics differ across database engines:
+</p></blockquote>
+<blockquote><p>- <strong>MySQL 8.0+</strong>: Stores native <code>JSON</code> in an optimized internal binary format for fast key lookups. Uses Generated Columns or Functional Indexes.
+</p></blockquote>
+<blockquote><p>- <strong>PostgreSQL</strong>: Provides both text-based <code>JSON</code> and binary-stored <code>JSONB</code> (which supports GIN indexing).
+</p></blockquote>
+<blockquote><p>- <strong>SQLite / SQL Server</strong>: Store JSON as text (<code>TEXT</code> / <code>NVARCHAR</code>) with built-in validation functions (<code>ISJSON()</code>).
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>JSON ek aisa format hai jisme data key-value pairs (<code>{"color": "Red"}</code>) ya lists (<code>["A", "B"]</code>) mein store hota hai.</p>
 <ul>
@@ -140,7 +152,8 @@
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>JSON mhanje key-value pairs (<code>{"color": "Red"}</code>) kiwa lists (<code>["A", "B"]</code>) madhye data store karnari padhat.</p>
 <ul>
@@ -150,7 +163,8 @@
 
 <p>---</p>
 
-<h2>📊 Reproducible Sample Setup Data</h2>
+<h2>📊 Reproducible Sample Setup Data
+</h2>
 
 <p>Run the following script in phpMyAdmin or WampServer to create the <code>e_commerce_products</code> table populated with dynamic product specifications:</p>
 
@@ -172,12 +186,15 @@
 <p>(2, &#39;Ergonomic Mesh Chair&#39;, &#39;Furniture&#39;, 299.00, &#39;{&quot;color&quot;: &quot;Black&quot;, &quot;max_weight_kg&quot;: 150, &quot;adjustable_armrests&quot;: true}&#39;),</p>
 <p>(3, &#39;Wireless Gaming Headset&#39;, &#39;Electronics&#39;, 149.00, &#39;{&quot;battery_life_hours&quot;: 30, &quot;color&quot;: &quot;Black&quot;, &quot;noise_cancelling&quot;: true}&#39;);</code></pre></p>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>JSON Validation & Case Sensitivity</strong>: MySQL validates every document inserted into a <code>JSON</code> column. Inserting invalid JSON syntax raises an error (<code>Invalid JSON text</code>). Additionally, JSON key names are <strong>case-sensitive</strong> (<code>$.Color</code> is distinct from <code>$.color</code>).</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>JSON Validation & Case Sensitivity</strong>: MySQL validates every document inserted into a <code>JSON</code> column. Inserting invalid JSON syntax raises an error (<code>Invalid JSON text</code>). Additionally, JSON key names are <strong>case-sensitive</strong> (<code>$.Color</code> is distinct from <code>$.color</code>).
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🧭 JSON Extraction Operators (<code>-></code> vs <code>->></code>)</h2>
+<h2>🧭 JSON Extraction Operators (<code>-></code> vs <code>->></code>)
+</h2>
 
 <p>MySQL provides two primary shorthand operators and two functions for extracting JSON path values:</p>
 
@@ -192,9 +209,11 @@
 
 <p>---</p>
 
-<h2>💡 Practical Examples</h2>
+<h2>💡 Practical Examples
+</h2>
 
-<h3>Example 1: Extracting Quoted vs Unquoted JSON Values</h3>
+<h3>Example 1: Extracting Quoted vs Unquoted JSON Values
+</h3>
 
 <pre><code class="language-sql">SELECT 
 <p>    product_name,</p>
@@ -210,7 +229,8 @@
 <p>    attributes-&gt;&gt;&#39;$.ram&#39; AS system_ram</p>
 <p>FROM e_commerce_products;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>product_name</th><th>price</th><th>color_quoted_json</th><th>color_plain_text</th><th>storage_capacity</th><th>system_ram</th></tr></thead></p>
 <p>  <tbody></p>
@@ -220,7 +240,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation:</h4>
+<h4>Explanation:
+</h4>
 <ul>
 <p>  <li><code>attributes->'$.color'</code> returns <code>"Space Gray"</code> (including surrounding JSON quotes).</li></p>
 <p>  <li><code>attributes->>'$.color'</code> returns <code>Space Gray</code> as clean unquoted text.</li></p>
@@ -229,7 +250,8 @@
 
 <p>---</p>
 
-<h3>Example 2: Filtering Records on JSON Attributes</h3>
+<h3>Example 2: Filtering Records on JSON Attributes
+</h3>
 
 <p>Find products where <code>color</code> is <code>'Black'</code> OR <code>5g_supported</code> is <code>true</code>:</p>
 
@@ -238,7 +260,8 @@
 <p>WHERE attributes-&gt;&gt;&#39;$.color&#39; = &#39;Black&#39;</p>
 <p>   OR attributes-&gt;&gt;&#39;$.5g_supported&#39; = &#39;true&#39;;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>product_name</th><th>category</th><th>price</th><th>item_color</th></tr></thead></p>
 <p>  <tbody></p>
@@ -250,7 +273,8 @@
 
 <p>---</p>
 
-<h3>Example 3: Finding Values with <code>JSON_CONTAINS()</code></h3>
+<h3>Example 3: Finding Values with <code>JSON_CONTAINS()</code>
+</h3>
 
 <p><code>JSON_CONTAINS()</code> checks if a specific target JSON value exists at a path:</p>
 
@@ -258,7 +282,8 @@
 <p>FROM e_commerce_products</p>
 <p>WHERE JSON_CONTAINS(attributes, &#39;true&#39;, &#39;$.5g_supported&#39;);</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>product_name</th><th>price</th></tr></thead></p>
 <p>  <tbody></p>
@@ -268,7 +293,8 @@
 
 <p>---</p>
 
-<h3>Example 4: Constructing JSON Documents (<code>JSON_OBJECT</code> & <code>JSON_ARRAY</code>)</h3>
+<h3>Example 4: Constructing JSON Documents (<code>JSON_OBJECT</code> & <code>JSON_ARRAY</code>)
+</h3>
 
 <p>Construct JSON objects and arrays dynamically in SQL:</p>
 
@@ -276,7 +302,8 @@
 <p>    JSON_OBJECT(&#39;user_id&#39;, 101, &#39;name&#39;, &#39;Rahul Sharma&#39;, &#39;is_active&#39;, true) AS created_object,</p>
 <p>    JSON_ARRAY(&#39;Electronics&#39;, &#39;Furniture&#39;, &#39;Books&#39;) AS created_array;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>created_object</th><th>created_array</th></tr></thead></p>
 <p>  <tbody></p>
@@ -286,7 +313,8 @@
 
 <p>---</p>
 
-<h3>Example 5: Updating JSON Documents (<code>JSON_SET</code> & <code>JSON_REPLACE</code>)</h3>
+<h3>Example 5: Updating JSON Documents (<code>JSON_SET</code> & <code>JSON_REPLACE</code>)
+</h3>
 
 <p>MySQL provides functions to modify existing JSON documents without replacing the entire column value:</p>
 <ul>
@@ -305,7 +333,8 @@
 <p>FROM e_commerce_products</p>
 <p>WHERE product_id = 1;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>product_name</th><th>storage</th><th>warranty</th></tr></thead></p>
 <p>  <tbody></p>
@@ -315,7 +344,8 @@
 
 <p>---</p>
 
-<h3>Example 6: Removing JSON Keys (<code>JSON_REMOVE</code>)</h3>
+<h3>Example 6: Removing JSON Keys (<code>JSON_REMOVE</code>)
+</h3>
 
 <pre><code class="language-sql">-- Remove warranty_years key from product_id = 1
 <p>UPDATE e_commerce_products</p>
@@ -327,7 +357,8 @@
 <p>FROM e_commerce_products</p>
 <p>WHERE product_id = 1;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>product_name</th><th>attributes</th></tr></thead></p>
 <p>  <tbody></p>
@@ -337,7 +368,8 @@
 
 <p>---</p>
 
-<h3>Example 7: Checking Path Existence (<code>JSON_CONTAINS_PATH</code>)</h3>
+<h3>Example 7: Checking Path Existence (<code>JSON_CONTAINS_PATH</code>)
+</h3>
 
 <p>Check if a specific JSON key exists within the document:</p>
 
@@ -345,7 +377,8 @@
 <p>FROM e_commerce_products</p>
 <p>WHERE JSON_CONTAINS_PATH(attributes, &#39;one&#39;, &#39;$.battery_life_hours&#39;);</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>product_name</th><th>category</th></tr></thead></p>
 <p>  <tbody></p>
@@ -355,7 +388,8 @@
 
 <p>---</p>
 
-<h2>🔍 Missing Keys vs. JSON <code>null</code> vs. SQL <code>NULL</code></h2>
+<h2>🔍 Missing Keys vs. JSON <code>null</code> vs. SQL <code>NULL</code>
+</h2>
 
 <p>Understanding null states in JSON path extraction is essential for bug prevention:</p>
 
@@ -370,7 +404,8 @@
 <p>    -- 3. SQL NULL column -&gt; Returns SQL NULL</p>
 <p>    JSON_EXTRACT(NULL, &#39;$.color&#39;) AS sql_null_input;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>missing_key_result</th><th>explicit_json_null</th><th>sql_null_input</th></tr></thead></p>
 <p>  <tbody></p>
@@ -378,17 +413,23 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<blockquote><p>[!TIP]</p></blockquote>
-<blockquote><p>Use <code>JSON_CONTAINS_PATH(attributes, 'one', '$.key')</code> to verify if a key exists before evaluating its value.</p></blockquote>
+<blockquote><p>[!TIP]
+</p></blockquote>
+<blockquote><p>Use <code>JSON_CONTAINS_PATH(attributes, 'one', '$.key')</code> to verify if a key exists before evaluating its value.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>⚡ Indexing JSON Attributes in MySQL (Generated Columns)</h2>
+<h2>⚡ Indexing JSON Attributes in MySQL (Generated Columns)
+</h2>
 
-<blockquote><p>[!WARNING]</p></blockquote>
-<blockquote><p><strong>No Direct B-Tree Index on Native JSON Columns</strong>: You <strong>cannot</strong> create a standard B-Tree index directly on a <code>JSON</code> column in MySQL. Attempting <code>CREATE INDEX idx ON table(json_col)</code> raises an error.</p></blockquote>
+<blockquote><p>[!WARNING]
+</p></blockquote>
+<blockquote><p><strong>No Direct B-Tree Index on Native JSON Columns</strong>: You <strong>cannot</strong> create a standard B-Tree index directly on a <code>JSON</code> column in MySQL. Attempting <code>CREATE INDEX idx ON table(json_col)</code> raises an error.
+</p></blockquote>
 
-<h3>Solution: Indexing Generated Columns (MySQL 8.0)</h3>
+<h3>Solution: Indexing Generated Columns (MySQL 8.0)
+</h3>
 
 <p>To accelerate queries filtering by a JSON attribute (e.g. <code>color</code>), create a <strong>Stored or Virtual Generated Column</strong> that extracts the JSON attribute, then build an index on that generated column:</p>
 
@@ -405,7 +446,8 @@
 <p>FROM e_commerce_products</p>
 <p>WHERE item_color = &#39;Black&#39;;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>product_name</th><th>price</th><th>item_color</th></tr></thead></p>
 <p>  <tbody></p>
@@ -414,12 +456,14 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Performance Check via <code>EXPLAIN</code>:</h4>
+<h4>Performance Check via <code>EXPLAIN</code>:
+</h4>
 <p>Running <code>EXPLAIN SELECT * FROM e_commerce_products WHERE item_color = 'Black';</code> confirms that MySQL uses <code>idx_products_item_color</code> via <code>ref</code> access, avoiding full table scans!</p>
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes & Troubleshooting</h2>
+<h2>⚠️ Common Mistakes & Troubleshooting
+</h2>
 
 <p>1. <strong>Attempting PostgreSQL <code>USING GIN</code> Syntax in MySQL</strong>: <code>CREATE INDEX ... USING GIN (attributes)</code> is PostgreSQL-specific. In MySQL, use <strong>Generated Columns</strong> with standard indexes.</p>
 <p>2. <strong>Confusing Quoted <code>-></code> and Unquoted <code>->></code></strong>: Comparing <code>attributes->'$.color' = 'Black'</code> fails because <code>-></code> returns <code>"Black"</code> (with quotes). Use <code>->></code> for text filtering.</p>
@@ -429,13 +473,15 @@
 
 <p>---</p>
 
-<h2>🧪 Step-by-Step Practice Exercises</h2>
+<h2>🧪 Step-by-Step Practice Exercises
+</h2>
 
 <p>Run the setup script provided in this chapter before attempting these exercises.</p>
 
 <p>---</p>
 
-<h3>Exercise 1: Create a User Settings Table with JSON</h3>
+<h3>Exercise 1: Create a User Settings Table with JSON
+</h3>
 <p><strong>Task</strong>: Create a table named <code>user_settings</code> (<code>id INT PRIMARY KEY AUTO_INCREMENT</code>, <code>username VARCHAR(50)</code>, <code>preferences JSON</code>).</p>
 
 <pre><code class="language-sql">-- Answer
@@ -449,7 +495,8 @@
 
 <p>---</p>
 
-<h3>Exercise 2: Insert Preferences Document</h3>
+<h3>Exercise 2: Insert Preferences Document
+</h3>
 <p><strong>Task</strong>: Insert a user <code>'Rahul'</code> with preferences <code>{"theme": "dark", "notifications_enabled": true, "language": "en"}</code>.</p>
 
 <pre><code class="language-sql">-- Answer
@@ -458,7 +505,8 @@
 
 <p>---</p>
 
-<h3>Exercise 3: Extract Preferences as Plain Text</h3>
+<h3>Exercise 3: Extract Preferences as Plain Text
+</h3>
 <p><strong>Task</strong>: Extract <code>theme</code> and <code>language</code> as unquoted text columns for all users.</p>
 
 <pre><code class="language-sql">-- Answer
@@ -468,7 +516,8 @@
 <p>    preferences-&gt;&gt;&#39;$.language&#39; AS preferred_language</p>
 <p>FROM user_settings;</code></pre></p>
 
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>username</th><th>preferred_theme</th><th>preferred_language</th></tr></thead></p>
 <p>  <tbody></p>
@@ -478,7 +527,8 @@
 
 <p>---</p>
 
-<h3>Exercise 4: Filter Enabled Notifications</h3>
+<h3>Exercise 4: Filter Enabled Notifications
+</h3>
 <p><strong>Task</strong>: Select usernames where <code>notifications_enabled</code> inside <code>preferences</code> equals <code>'true'</code>.</p>
 
 <pre><code class="language-sql">-- Answer
@@ -486,7 +536,8 @@
 <p>FROM user_settings</p>
 <p>WHERE preferences-&gt;&gt;&#39;$.notifications_enabled&#39; = &#39;true&#39;;</code></pre></p>
 
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>username</th></tr></thead></p>
 <p>  <tbody></p>
@@ -496,7 +547,8 @@
 
 <p>---</p>
 
-<h3>Exercise 5: Update a JSON Key Without Overwriting</h3>
+<h3>Exercise 5: Update a JSON Key Without Overwriting
+</h3>
 <p><strong>Task</strong>: Update Rahul's preferences to change <code>theme</code> to <code>'light'</code> using <code>JSON_SET()</code>.</p>
 
 <pre><code class="language-sql">-- Answer
@@ -507,7 +559,8 @@
 <p>-- Verify update</p>
 <p>SELECT username, preferences-&gt;&gt;&#39;$.theme&#39; AS updated_theme FROM user_settings;</code></pre></p>
 
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>username</th><th>updated_theme</th></tr></thead></p>
 <p>  <tbody></p>
@@ -517,7 +570,8 @@
 
 <p>---</p>
 
-<h3>Exercise 6: Create an Indexed Generated Column for Language</h3>
+<h3>Exercise 6: Create an Indexed Generated Column for Language
+</h3>
 <p><strong>Task</strong>: Add a generated column <code>user_language</code> for <code>$.language</code> on <code>user_settings</code> and create an index on it.</p>
 
 <pre><code class="language-sql">-- Answer
@@ -529,11 +583,13 @@
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Query an <code>events_log</code> table storing REST API payload logs to identify all failed API events.</p>
 
-<h3>Setup Data</h3>
+<h3>Setup Data
+</h3>
 <pre><code class="language-sql">DROP TABLE IF EXISTS events_log;
 
 <p>CREATE TABLE events_log (</p>
@@ -548,7 +604,8 @@
 <p>(3, &#39;2026-10-10 10:10:00&#39;, &#39;{&quot;event_name&quot;: &quot;password_reset&quot;, &quot;ip_address&quot;: &quot;192.0.2.88&quot;, &quot;status&quot;: &quot;SUCCESS&quot;}&#39;),</p>
 <p>(4, &#39;2026-10-10 10:15:00&#39;, &#39;{&quot;event_name&quot;: &quot;api_authentication&quot;, &quot;ip_address&quot;: &quot;203.0.113.5&quot;, &quot;status&quot;: &quot;FAILED&quot;, &quot;error_code&quot;: 401}&#39;);</code></pre></p>
 
-<h3>Challenge Solution</h3>
+<h3>Challenge Solution
+</h3>
 
 <pre><code class="language-sql">SELECT 
 <p>    event_id,</p>
@@ -560,7 +617,8 @@
 <p>WHERE payload-&gt;&gt;&#39;$.status&#39; = &#39;FAILED&#39;</p>
 <p>ORDER BY event_id;</code></pre></p>
 
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>event_id</th><th>event_time</th><th>event_name</th><th>ip_address</th><th>error_code</th></tr></thead></p>
 <p>  <tbody></p>
@@ -569,12 +627,14 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation:</h4>
+<h4>Explanation:
+</h4>
 <p><code>payload->>'$.status'</code> extracts the unquoted <code>status</code> string from the JSON document. The <code>WHERE</code> clause filters for <code>'FAILED'</code>, correctly isolating events 2 and 4.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="04-data-types-and-null.html">SQL Data Types & NULL Values</a></li></p>
@@ -584,7 +644,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← SQL Home</a> | <a href="28-sql-security.html">← Previous: SQL Security</a> | <a href="30-sql-projects.html">Next: SQL Projects →</a></p>
 

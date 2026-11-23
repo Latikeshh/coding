@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Basic Selectors (Element, Class, ID, Grouping)</h1>
+<h1>Basic Selectors (Element, Class, ID, Grouping)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>CSS Selector</strong> is the part of a CSS rule set that targets specific HTML elements on a webpage so that property declarations can be applied to them.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Selectors target HTML elements. Element selectors target HTML tags (<code>p</code>), Class selectors target <code>.class_name</code>, ID selectors target <code>#id_name</code>, and Grouping selectors target multiple tags (<code>h1, h2, p</code>).</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Selectors HTML elements ko target karte hain. Element selector tag name (<code>p</code>), Class selector <code>.class_name</code>, aur ID selector <code>#id_name</code> ko style karte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Selectors HTML elements na target kartat. Class sathi <code>.class</code> ani ID sathi <code>#id</code> vapartat.</p>
 
-<h2>🤔 Why Do We Use Selectors?</h2>
+<h2>🤔 Why Do We Use Selectors?
+</h2>
 
 <p>Without selectors, CSS would have no way of knowing which paragraph, button, heading, or container you want to format. Selectors provide exact target control.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of selectors like addressing mail:</p>
 <ul>
@@ -143,7 +152,8 @@
 <p>  <li></strong>ID Selector (<code>#main-header</code>):<strong> "Deliver exclusively to Apartment 401."</li></p>
 <p></ul></p>
 
-<h2>📚 Basic Selector Types Reference</h2>
+<h2>📚 Basic Selector Types Reference
+</h2>
 
 <table>
 <p>  <thead><tr><th>Selector Type</th><th>Syntax Format</th><th>Target Description</th><th>Example</th><th>Specificity Score</th></tr></thead></p>
@@ -156,7 +166,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Examples</h2>
+<h2>💻 Examples
+</h2>
 
 <pre><code class="language-css">/* Universal Reset */
 <ul>
@@ -192,7 +203,8 @@
 <p>  font-family: &#39;Georgia&#39;, serif;</p>
 <p>}</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -234,7 +246,8 @@
 <p>  margin-top: 15px;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <ul>
 <p>  <li><code>#hero-title</code> renders as a centered blue heading.</li></p>
@@ -242,23 +255,27 @@
 <p>  <li><code>.card</code> renders as a light-gray bordered box container.</li></p>
 <p></ul></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add a second paragraph in HTML with <code>class="highlight-box"</code>.</p>
 <p>2. Notice how both elements receive the same yellow alert box styling automatically!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Swapping Class and ID symbols:</strong> Writing <code>#card</code> for a class or <code>.hero-title</code> for an ID.</li></p>
 <p>  <li><strong>Reusing the same ID on multiple HTML elements:</strong> IDs must be completely unique per page. Use classes for reusable styles.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Developers build UI component systems (like Bootstrap or Tailwind) using class selectors (<code>.btn</code>, <code>.card</code>, <code>.modal</code>) so visual styles can be reused cleanly across thousands of pages.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="09-specificity.html">Specificity, Cascade & Inheritance</a></li></p>
@@ -266,7 +283,8 @@
 <p>  <li><a href="39-advanced-selectors.html">Advanced Selectors (<code>:is()</code>, <code>:where()</code>, <code>:has()</code>)</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Class selectors start with a dot <code>.</code>.</li></p>
@@ -274,7 +292,8 @@
 <p>  <li>Use classes for reusable styles; use IDs sparingly for unique target anchors.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="07-css-comments.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="09-specificity.html">Next →</a></p>
 

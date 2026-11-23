@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,11 +110,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Borders, Border Radius & Box Shadows</h1>
+<h1>Borders, Border Radius & Box Shadows
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong><code>border</code>:</strong> Draws boundary lines around an element's padding and content area (<code>width</code>, <code>style</code>, <code>color</code>).</li></p>
@@ -122,24 +125,31 @@
 <p>  <li><strong><code>box-shadow</code>:</strong> Applies 3D drop-shadow effects around an element's frame to create visual depth and elevation.</li></p>
 <p></ul></p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Define borders using <code>border: width style color</code>. Round corners with <code>border-radius: 8px</code> and add elevation drop shadows using <code>box-shadow: offset-x offset-y blur color</code>.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>border</code> se boundary line banti hai, <code>border-radius</code> se corners round hote hain, aur <code>box-shadow</code> se element ke neeche shadow (parchaai) banti hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>border</code> mule boundary line aakhli jaate, <code>border-radius</code> mule corners round hotat ani <code>box-shadow</code> mule shadow diyanaya sathi vapartaat.</p>
 
-<h2>🤔 Why Do We Use Borders & Shadows?</h2>
+<h2>🤔 Why Do We Use Borders & Shadows?
+</h2>
 
 <p>Borders and shadows group related UI elements, highlight card boundaries, indicate clickable buttons, and create visual depth hierarchy across web interfaces.</p>
 
-<h2>📝 Syntax & Properties Breakdown</h2>
+<h2>📝 Syntax & Properties Breakdown
+</h2>
 
-<h3>1. Border Shorthand Syntax</h3>
+<h3>1. Border Shorthand Syntax
+</h3>
 <pre><code class="language-css">element {
 <p>  /* border: border-width border-style border-color; */</p>
 <p>  border: 2px solid #007bff;</p>
@@ -148,7 +158,8 @@
 <p>  <li><strong>Border Styles:</strong> <code>solid</code>, <code>dashed</code>, <code>dotted</code>, <code>double</code>, <code>none</code>.</li></p>
 <p></ul></p>
 
-<h3>2. Border Radius (Rounded Corners)</h3>
+<h3>2. Border Radius (Rounded Corners)
+</h3>
 <pre><code class="language-css">.card {
 <p>  border-radius: 12px; /* All 4 corners */</p>
 <p>}</p>
@@ -157,13 +168,15 @@
 <p>  border-radius: 50%; /* Perfect circle for square elements */</p>
 <p>}</code></pre></p>
 
-<h3>3. Box Shadow (Elevation)</h3>
+<h3>3. Box Shadow (Elevation)
+</h3>
 <pre><code class="language-css">/* box-shadow: offset-x offset-y blur-radius spread-radius color; */
 <p>.card {</p>
 <p>  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);</p>
 <p>}</code></pre></p>
 
-<h2>📚 Property Reference Table</h2>
+<h2>📚 Property Reference Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Property</th><th>Purpose</th><th>Example</th></tr></thead></p>
@@ -176,7 +189,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Examples</h2>
+<h2>💻 Examples
+</h2>
 
 <pre><code class="language-css">/* Modern elevated card component */
 <p>.ui-card {</p>
@@ -193,7 +207,8 @@
 <p>  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);</p>
 <p>}</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -253,27 +268,32 @@
 <p>  font-size: 14px;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A card component featuring a circular profile image with a blue border ring and subtle 3D drop shadow elevation.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add <code>border-radius: 50%</code> to a square image element to create a circular user avatar.</p>
 <p>2. Change the <code>box-shadow</code> rgba alpha value from <code>0.08</code> to <code>0.25</code> and see how the card elevation shadow becomes darker and heavier.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting border style:</strong> Writing <code>border: 2px #000;</code> without specifying <code>solid</code> or <code>dashed</code> renders no visible border!</li></p>
 <p>  <li><strong>Using harsh black box-shadows:</strong> Writing <code>box-shadow: 0 5px 10px #000000;</code> creates an unnatural dark smudge. Use semi-transparent RGBA shadows like <code>rgba(0, 0, 0, 0.08)</code> for realistic elevation.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Material Design and modern web interfaces use structured <code>box-shadow</code> elevation levels (<code>shadow-sm</code>, <code>shadow-md</code>, <code>shadow-lg</code>) to represent spatial layers (cards, dropdown menus, modals, tooltips).</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="16-box-model.html">The CSS Box Model</a></li></p>
@@ -281,7 +301,8 @@
 <p>  <li><a href="36-card-layout.html">Card Layout Components</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Border shorthand format: <code>border: width style color;</code>.</li></p>
@@ -289,7 +310,8 @@
 <p>  <li>Soft semi-transparent RGBA <code>box-shadow</code> values create realistic 3D elevation.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="12-backgrounds.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="14-margins.html">Next →</a></p>
 

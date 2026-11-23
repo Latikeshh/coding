@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,11 +92,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Higher-Order Functions & Closures</h1>
+<h1>Higher-Order Functions & Closures
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Callback Function:</strong> A function passed as an argument into another function to be executed later.</li></p>
@@ -104,15 +107,18 @@
 <p>  <li><strong>Closure:</strong> An inner function's ability to retain access to variables in its outer lexical scope even after the outer function has finished execution.</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Closure tab banta hai jab ek inner function apne outer function ke variables ko remember rakhta hai, chahe outer function execute hoke finish ho chuka ho. Closure ka primary use data privacy (private variables) aur function factories banane ke liye hota hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Closure mhanje aatil (inner) function la baherchya (outer) function mhadhil variables aathvati rahtat, outer function sampaalyanantar hi. Private variables tayar karnya sathi closure cha wapar kela jato.</p>
 
-<h2>🧠 Lexical Scope & Closure Mechanics</h2>
+<h2>🧠 Lexical Scope & Closure Mechanics
+</h2>
 
 <p>When a function is declared inside an outer function, it creates a binding to its surrounding <strong>Lexical Environment</strong>.</p>
 
@@ -126,7 +132,8 @@
 <p>// outerFunction has returned, but newFunction retains access to outerVariable!</p>
 <p>newFunction(&quot;CALL_TIME_VALUE&quot;);</code></pre></p>
 
-<h2>💡 Complete Example 1: Private Encapsulated State</h2>
+<h2>💡 Complete Example 1: Private Encapsulated State
+</h2>
 
 <pre><code class="language-js">function createBankAccount(initialBalance) {
 <p>  let balance = initialBalance; // Private variable hidden inside closure scope</p>
@@ -157,7 +164,8 @@
 <p>console.log(myAccount.getBalance());</p>
 <p>// console.log(myAccount.balance); // undefined! Cannot be accessed or tampered directly.</code></pre></p>
 
-<h2>💡 Complete Example 2: Function Factory</h2>
+<h2>💡 Complete Example 2: Function Factory
+</h2>
 
 <pre><code class="language-js">function multiplier(factor) {
 <p>  return (number) =&gt; number * factor;</p>
@@ -169,7 +177,8 @@
 <p>console.log(&quot;Double 5:&quot;, double(5)); // 10</p>
 <p>console.log(&quot;Triple 5:&quot;, triple(5)); // 15</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Deposited ₹1500. Current Balance: ₹6500
 <p>Withdrew ₹2000. Remaining Balance: ₹4500</p>
@@ -177,27 +186,32 @@
 <p>Double 5: 10</p>
 <p>Triple 5: 15</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a function <code>createCounter()</code> that returns a function that increments and returns a private count variable starting from <code>0</code>.</p>
 <p>2. Test two independent counter instances to verify they maintain separate isolated states.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Misunderstanding that closures capture <strong>variable references</strong>, not snapshots of static values.</li></p>
 <p>  <li>Creating unnecessary closures inside large loops which can increase memory usage if not cleaned up.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Data encapsulation (emulating private fields before native <code>#field</code> syntax), debouncing/throttling event listeners, currying functions, and maintaining state in React hooks like <code>useState</code>.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Closure = A function + its lexical environment reference.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="13-advanced-array-methods.html">← Previous: Array Methods</a> | <a href="15-promises-and-async-await.html">Next: Promises & Async/Await →</a></p>
 

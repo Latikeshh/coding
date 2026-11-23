@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,11 +97,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>📊 <code>GROUP BY</code> & <code>HAVING</code> Clauses in SQL</h1>
+<h1>📊 <code>GROUP BY</code> & <code>HAVING</code> Clauses in SQL
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong><code>GROUP BY</code>:</strong> An SQL clause that collapses individual table rows sharing identical values in specified columns into summary rows. It is paired with aggregate functions (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>) to compute metrics per category.</li></p>
@@ -110,7 +113,8 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi (Roman Script)</h2>
+<h2>🇮🇳 Hindi (Roman Script)
+</h2>
 
 <p>Data ko category-wise summarize karne ke liye <strong><code>GROUP BY</code></strong> clause ka use hota hai (jaise department-wise total salary ya city-wise customer count). <strong><code>WHERE</code></strong> aur <strong><code>HAVING</code></strong> mein antar samajhna sabse zaroori hai:</p>
 <ul>
@@ -120,7 +124,8 @@
 
 <p>---</p>
 
-<h2>🚩 Marathi (Roman Script)</h2>
+<h2>🚩 Marathi (Roman Script)
+</h2>
 
 <p>Data la category-wise summarize karnyasathi <strong><code>GROUP BY</code></strong> clause vaparla jato. <strong><code>WHERE</code></strong> aani <strong><code>HAVING</code></strong> madhil pharak samajne mahatvache ahe:</p>
 <ul>
@@ -130,7 +135,8 @@
 
 <p>---</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>In real-world business analytics, stakeholders need categorized summary reporting rather than raw transaction lists:</p>
 
@@ -144,7 +150,8 @@
 
 <p>---</p>
 
-<h2>🧠 Simple Analogy: Mailroom Sorting Trays</h2>
+<h2>🧠 Simple Analogy: Mailroom Sorting Trays
+</h2>
 
 <p>Think of <code>GROUP BY</code> and <code>HAVING</code> as a <strong>Postal Mailroom</strong>:</p>
 
@@ -159,7 +166,8 @@
 
 <p>---</p>
 
-<h2>⚡ Logical Query Processing Order</h2>
+<h2>⚡ Logical Query Processing Order
+</h2>
 
 <p>Understanding the internal logical execution sequence of SQL clauses explains why aggregate conditions belong in <code>HAVING</code> rather than <code>WHERE</code>:</p>
 
@@ -172,11 +180,13 @@
 <p>7. ORDER BY      ──► Sort final output rows</p>
 <p>8. LIMIT         ──► Restrict maximum number of output rows</code></pre></p>
 
-<blockquote><p>💡 <strong>Why <code>WHERE SUM(amount) > 100</code> Fails:</strong> In Step 2 (<code>WHERE</code>), individual rows are being evaluated one-by-one *before* groups exist! Aggregations do not exist until Step 3 (<code>GROUP BY</code>). Therefore, aggregate filter conditions must be placed in Step 4 (<code>HAVING</code>).</p></blockquote>
+<blockquote><p>💡 <strong>Why <code>WHERE SUM(amount) > 100</code> Fails:</strong> In Step 2 (<code>WHERE</code>), individual rows are being evaluated one-by-one *before* groups exist! Aggregations do not exist until Step 3 (<code>GROUP BY</code>). Therefore, aggregate filter conditions must be placed in Step 4 (<code>HAVING</code>).
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🔍 <code>WHERE</code> vs <code>HAVING</code> Comparison Matrix</h2>
+<h2>🔍 <code>WHERE</code> vs <code>HAVING</code> Comparison Matrix
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th><code>WHERE</code> Clause</th><th><code>HAVING</code> Clause</th></tr></thead></p>
@@ -188,7 +198,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h3>Side-by-Side SQL Comparison:</h3>
+<h3>Side-by-Side SQL Comparison:
+</h3>
 
 <pre><code class="language-sql">-- Query A: Filter individual rows BEFORE grouping using WHERE
 <p>SELECT department_name, AVG(salary) AS avg_salary</p>
@@ -204,7 +215,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Reproducible Example 1: Multi-Column <code>GROUP BY</code> & <code>HAVING</code> (<code>sales_records</code>)</h2>
+<h2>🛠️ Reproducible Example 1: Multi-Column <code>GROUP BY</code> & <code>HAVING</code> (<code>sales_records</code>)
+</h2>
 
 <p>Let's execute a complete MySQL-compatible workflow calculating annual revenue per department and filtering department years with $10,000+ in sales.</p>
 
@@ -228,7 +240,8 @@
 <p>    (6, &#39;Kitchen&#39;, &#39;2026-03-01&#39;, &#39;COMPLETED&#39;, 4000.00),</p>
 <p>    (7, &#39;Electronics&#39;, &#39;2026-03-10&#39;, &#39;PENDING&#39;, 5000.00);</code></pre></p>
 
-<h3>Multi-Column Grouping Query:</h3>
+<h3>Multi-Column Grouping Query:
+</h3>
 
 <pre><code class="language-sql">SELECT 
 <p>    department_name,</p>
@@ -241,7 +254,8 @@
 <p>HAVING SUM(order_total) &gt;= 10000.00 -- Step 3: Filter groups generating $10,000+</p>
 <p>ORDER BY gross_revenue DESC; -- Step 4: Sort results</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+─────────────────+────────────+──────────────────+───────────────+
 <table>
@@ -259,7 +273,8 @@
 <p></table></p>
 <p>+─────────────────+────────────+──────────────────+───────────────+</code></pre></p>
 
-<h3>🔍 Query Breakdown:</h3>
+<h3>🔍 Query Breakdown:
+</h3>
 <ul>
 <p>  <li><strong><code>WHERE status = 'COMPLETED'</code></strong>: Filters out order #7 (<code>PENDING</code>) *before* grouping.</li></p>
 <p>  <li><strong><code>GROUP BY department_name, YEAR(order_date)</code></strong>: Groups completed sales by both department name AND calendar year.</li></p>
@@ -268,7 +283,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Reproducible Example 2: VIP Customers (<code>HAVING COUNT(*) >= 5</code>)</h2>
+<h2>🛠️ Reproducible Example 2: VIP Customers (<code>HAVING COUNT(*) >= 5</code>)
+</h2>
 
 <p>Find high-frequency VIP customers who have placed 5 or more orders:</p>
 
@@ -297,7 +313,8 @@
 <p>HAVING COUNT(order_id) &gt;= 5</p>
 <p>ORDER BY total_spent DESC;</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+-------------+--------------+-------------+-----------------+
 <table>
@@ -318,7 +335,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Reproducible Example 3: Salary Audit Excluding Interns</h2>
+<h2>🛠️ Reproducible Example 3: Salary Audit Excluding Interns
+</h2>
 
 <p>Calculate average department salaries while excluding low-ranking interns before averaging:</p>
 
@@ -351,7 +369,8 @@
 <p>GROUP BY department_name</p>
 <p>HAVING AVG(salary) &gt;= 70000.00;</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+─────────────────+──────────────────+────────────────────────+
 <table>
@@ -369,11 +388,13 @@
 <p></table></p>
 <p>+─────────────────+──────────────────+────────────────────────+</code></pre></p>
 
-<blockquote><p>💡 <strong>Why <code>WHERE job_title != 'Intern'</code> Matters:</strong> If Amit's intern stipend ($20,000) was included in Engineering's average, the average would drop to $60,000. Excluing interns before grouping ensures the population average reflects non-intern staff ($80,000.00$).</p></blockquote>
+<blockquote><p>💡 <strong>Why <code>WHERE job_title != 'Intern'</code> Matters:</strong> If Amit's intern stipend ($20,000) was included in Engineering's average, the average would drop to $60,000. Excluing interns before grouping ensures the population average reflects non-intern staff ($80,000.00$).
+</p></blockquote>
 
 <p>---</p>
 
-<h2>⚠️ MySQL <code>ONLY_FULL_GROUP_BY</code> & Common Mistakes</h2>
+<h2>⚠️ MySQL <code>ONLY_FULL_GROUP_BY</code> & Common Mistakes
+</h2>
 
 <table>
 <p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
@@ -387,7 +408,8 @@
 
 <p>---</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <ul>
 <p>  <li><strong>E-Commerce VIP Loyalty Programs:</strong> Identifying top customers spending over $1,000 across 5+ completed orders (<code>HAVING SUM(total_amount) > 1000</code>).</li></p>
@@ -397,9 +419,11 @@
 
 <p>---</p>
 
-<h2>🧪 Learning Exercises & Self-Checks</h2>
+<h2>🧪 Learning Exercises & Self-Checks
+</h2>
 
-<h3>Exercise 1: Students Table Setup & Grouping</h3>
+<h3>Exercise 1: Students Table Setup & Grouping
+</h3>
 <p>Given the following <code>students</code> table:</p>
 
 <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS students (
@@ -424,7 +448,8 @@
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>1. Create an <code>e_commerce_orders</code> table schema:</p>
 <ul>
@@ -453,9 +478,11 @@
 <details>
 <summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
 
-<h3>Answer Key:</h3>
+<h3>Answer Key:
+</h3>
 
-<h4>Exercise 1 Solutions:</h4>
+<h4>Exercise 1 Solutions:
+</h4>
 
 <pre><code class="language-sql">-- Task 1: Count students per grade level
 <p>SELECT grade_level, COUNT(*) AS student_count</p>
@@ -476,7 +503,8 @@
 <p>GROUP BY grade_level;</p>
 <p>-- Output: Grade 11 ($15,000.00), Grade 12 ($9,000.00)</code></pre></p>
 
-<h4>Mini Challenge Solution:</h4>
+<h4>Mini Challenge Solution:
+</h4>
 
 <pre><code class="language-sql">-- Step 1: Create table schema
 <p>CREATE TABLE IF NOT EXISTS e_commerce_orders (</p>
@@ -530,21 +558,23 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="03-databases-and-tables.html">Database & Table Basics (<code>CREATE TABLE</code>)</a></li></p>
 <p>  <li><a href="07-select.html"><code>SELECT</code> – Reading & Querying Data</a></li></p>
 <p>  <li><a href="08-where.html">Filtering Data with <code>WHERE</code></a></li></p>
 <p>  <li><a href="12-aggregate-functions.html">Aggregate Functions (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>)</a></li></p>
-<p>  <li><a href="14-joins.html">SQL Joins & Table Relationships</a></li></p>
+<p>  <li><a href="14-joins/index.html">SQL Joins & Table Relationships</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="12-aggregate-functions.html">← Previous: Aggregate Functions</a> | <a href="./">SQL Home</a> | <a href="14-joins.html">Next: SQL Joins →</a></p>
+<p><a href="12-aggregate-functions.html">← Previous: Aggregate Functions</a> | <a href="./">SQL Home</a> | <a href="14-joins/index.html">Next: SQL Joins →</a></p>
 
       </div>
     </main>

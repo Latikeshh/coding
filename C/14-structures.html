@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Structures (<code>struct</code>) & <code>typedef</code></h1>
+<h1>Structures (<code>struct</code>) & <code>typedef</code>
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>Structure</strong> (<code>struct</code>) is a composite user-defined data type in C that groups logically related variables of different data types together under a single custom type name.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Structures group heterogeneous data variables together. Use the dot operator (<code>.</code>) to access struct members from a direct variable, and the arrow operator (<code>-></code>) when accessing members through a struct pointer. <code>typedef</code> creates clean type aliases for structures, eliminating the need to write <code>struct Keyword</code> repeatedly.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>struct</code> alag-alag data types ke variables ko ek sath group karne ke liye use hota hai. Direct struct variable se members access karne ke liye dot operator (<code>.</code>) use karein, aur struct pointer ke sath arrow operator (<code>-></code>) ka upyog karein. <code>typedef</code> se struct ko ek clean short type name diya jata hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>struct</code> mule vegveglaya data types che variables ekatra sathavata yetat. Direct variable sathi dot operator (<code>.</code>) aani pointer sathi arrow operator (<code>-></code>) vaparava. <code>typedef</code> mule struct la naveen short naav deta yete.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Heterogeneous variables ko single custom data record mein pack karne ke liye <code>struct</code> use hota hai. Pointer dereferencing + member access ko simplify karne ke liye <code>ptr->member</code> syntax syntax provided hai. Large structs ko functions mein pass karte waqt value copy karne ke bajaye pointer pass karna performance-wise fast hota hai.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Real-world entities cannot be represented by a single primitive integer or float. An <strong>Employee</strong> record has an ID (<code>int</code>), Name (<code>char[]</code>), Salary (<code>double</code>), and Department (<code>char[]</code>). A <code>struct</code> encapsulates all these fields into a single <code>Employee</code> type.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a <code>struct</code> as an ID card or a paper form with multiple fields:</p>
 <ul>
@@ -126,7 +136,8 @@
 <p></ul></p>
 <p>The entire form represents a single Person record.</p>
 
-<h2>📝 Syntax & Declarations</h2>
+<h2>📝 Syntax & Declarations
+</h2>
 
 <pre><code class="language-c">// 1. Defining a Structure with typedef
 <p>typedef struct {</p>
@@ -141,13 +152,15 @@
 <p>// 3. Accessing Members</p>
 <p>emp1.salary = 70000.00; // Dot operator for direct struct variables</code></pre></p>
 
-<h3>Direct Access vs Pointer Access</h3>
+<h3>Direct Access vs Pointer Access
+</h3>
 <ul>
 <p>  <li>Direct struct variable: <code>emp.salary</code> (Dot <code>.</code> operator)</li></p>
 <p>  <li>Pointer to struct variable: <code>pEmp->salary</code> (Arrow <code>-></code> operator, equivalent to <code>(*pEmp).salary</code>)</li></p>
 <p></ul></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a practical employee record database demonstrating nested structures, arrays of structs, typedefs, and struct pointers passed to functions:</p>
 
@@ -211,7 +224,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>typedef struct { ... } Employee;</code>: Combines struct definition with <code>typedef</code>, allowing creation of variables using <code>Employee emp1;</code> without needing <code>struct Employee emp1;</code>.</li></p>
@@ -219,7 +233,8 @@
 <p>  <li><code>void printEmployee(const Employee *emp)</code>: Passing <code>const Employee*</code> passes a 8-byte memory address rather than making a full byte copy of the entire structure on the Stack, improving performance.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- INITIAL EMPLOYEE RECORDS ---
 <p>ID: #101 | Name: Sarah Connor    | Salary: $75000.00 | Joined: 15/06/2021</p>
@@ -230,7 +245,8 @@
 <p>--- UPDATED EMPLOYEE RECORDS ---</p>
 <p>ID: #101 | Name: Sarah Connor    | Salary: $82500.00 | Joined: 15/06/2021</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Confusing Dot <code>.</code> and Arrow <code>-></code> Operators:</strong> Using <code>emp.salary</code> when <code>emp</code> is a pointer (<code>Employee *emp</code>). Must use <code>emp->salary</code> or <code>(*emp).salary</code>.</li></p>
@@ -238,24 +254,29 @@
 <p>  <li><strong>Passing Large Structs by Value:</strong> Passing large structs directly to functions (<code>void process(Employee e)</code>) copies every byte onto the Stack. Always pass struct pointers (<code>const Employee *e</code>) for efficiency.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Structure Padding & Alignment Note</h2>
+<h2>🛡️ Structure Padding & Alignment Note
+</h2>
 
 <p>Compilers insert hidden <strong>padding bytes</strong> between struct members to align data types on natural hardware memory boundaries (e.g. 4-byte boundaries for <code>int</code>, 8-byte boundaries for <code>double</code>). As a result, <code>sizeof(struct)</code> is often larger than the sum of its individual member sizes!</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Structures are used to define database record schemas, operating system file handles, network packet headers (TCP/IP headers), graphics mesh vertices, and device configuration descriptors.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Define a <code>struct Student</code> containing <code>rollNumber</code> (<code>int</code>), <code>name</code> (<code>char[30]</code>), and <code>gpa</code> (<code>float</code>).</p>
 <p>2. Create a student variable, initialize it, and print its fields.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that creates an array of 3 <code>struct Book</code> items (<code>title</code>, <code>author</code>, <code>price</code>), reads book data using a loop, finds the book with the highest price, and prints its details using a pointer function.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="10-pointers-basics.html">Pointers Basics</a></li></p>
@@ -263,7 +284,8 @@
 <p>  <li><a href="15-unions-and-bit-fields.html">Unions and Bit Fields</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="13-dynamic-memory-allocation.html">← Previous: Dynamic Memory Allocation</a> | <a href="15-unions-and-bit-fields.html">Next: Unions & Bit Fields →</a></p>
 

@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,35 +97,42 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>⚡ SQL Indexes & Query Performance Tuning</h1>
+<h1>⚡ SQL Indexes & Query Performance Tuning
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>An <strong>index</strong> in a Relational Database Management System (RDBMS) is a persistent data structure (typically a <strong>B-Tree</strong>) maintained by the database engine to locate table rows efficiently without inspecting every page on disk.</p>
 
 <p>Just like an alphabetical index at the back of a textbook allows you to jump directly to Page 412 for a term instead of reading through all 1,000 pages line-by-line, a database index allows the query execution engine to pinpoint matching rows rapidly.</p>
 
-<blockquote><p>💡 <strong>Important Reality Check:</strong> Indexes do <strong>not</strong> guarantee a fixed response time for every query. Query performance depends on table size, storage engine caching, hardware disk speed, row selectivity, and the query optimizer's chosen execution plan.</p></blockquote>
+<blockquote><p>💡 <strong>Important Reality Check:</strong> Indexes do <strong>not</strong> guarantee a fixed response time for every query. Query performance depends on table size, storage engine caching, hardware disk speed, row selectivity, and the query optimizer's chosen execution plan.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi (Roman Script)</h2>
+<h2>🇮🇳 Hindi (Roman Script)
+</h2>
 
 <p>Database <strong>Index</strong> ek book ke back-page index ki tarah hota hai jo query ko rows jaldi dhoondhne mein madad karta hai. B-Tree index ki wajah se database engine ko lakho rows ek-ek karke scan nahi karne padte (<code>Full Table Scan</code>). Indexing se <code>SELECT</code> queries fast ho jaati hain, lekin zyada indexes banane se <code>INSERT</code>, <code>UPDATE</code>, aur <code>DELETE</code> operations slow ho sakte hain kyunki database ko har write par index tree update karna padta hai.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi (Roman Script)</h2>
+<h2>🚩 Marathi (Roman Script)
+</h2>
 
 <p>Database <strong>Index</strong> mhanje pustakachya shevti aslelya index sarkha asto jo query la rows lavkar shodhayla madat karto. B-Tree index mule database engine la sarva rows ek-ek karun scan karave lagat nahit (<code>Full Table Scan</code>). Indexing mule <code>SELECT</code> queries fast hotat, pan khup jast indexes kelyas <code>INSERT</code>, <code>UPDATE</code>, aani <code>DELETE</code> operations slow hotat karani pratyek write veli index tree update karava lagto.</p>
 
 <p>---</p>
 
-<h2>🔍 Understanding Full Table Scans vs Index Lookups</h2>
+<h2>🔍 Understanding Full Table Scans vs Index Lookups
+</h2>
 
 <p>When a query is executed, the database query optimizer evaluates the query structure and statistics to choose between two primary access strategies:</p>
 
@@ -143,11 +150,13 @@
 <p>  <li><strong>Cost:</strong> Significantly reduces the volume of data pages examined ($O(\log N)$ tree traversal), though returning millions of matching rows from a non-covering index still requires significant row lookups.</li></p>
 <p></ul></p>
 
-<blockquote><p>🧠 <strong>Why Optimizers Sometimes Prefer Table Scans:</strong> If a query requests 80% of all rows in a table, the optimizer may deliberately choose a sequential table scan over an index lookup. Reading consecutive disk pages sequentially is often faster for the operating system than making 800,000 random index-pointer lookups!</p></blockquote>
+<blockquote><p>🧠 <strong>Why Optimizers Sometimes Prefer Table Scans:</strong> If a query requests 80% of all rows in a table, the optimizer may deliberately choose a sequential table scan over an index lookup. Reading consecutive disk pages sequentially is often faster for the operating system than making 800,000 random index-pointer lookups!
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🔑 SQL Index Types & Database Engine Terms</h2>
+<h2>🔑 SQL Index Types & Database Engine Terms
+</h2>
 
 <p>Different index structures are optimized for specific data types and query patterns:</p>
 
@@ -167,11 +176,13 @@
 
 <p>---</p>
 
-<h2>🛠️ <code>CREATE INDEX</code>, Inspection (<code>SHOW INDEX</code>) & Removal (<code>DROP INDEX</code>)</h2>
+<h2>🛠️ <code>CREATE INDEX</code>, Inspection (<code>SHOW INDEX</code>) & Removal (<code>DROP INDEX</code>)
+</h2>
 
 <p>In MySQL, Primary Keys and <code>UNIQUE</code> constraints automatically create supporting indexes upon table creation. You create secondary indexes using <code>CREATE INDEX</code>.</p>
 
-<h3>1. Basic Syntax</h3>
+<h3>1. Basic Syntax
+</h3>
 <pre><code class="language-sql">-- Single-Column Index
 <p>CREATE INDEX idx_users_lastname ON e_commerce_users (last_name);</p>
 
@@ -181,17 +192,20 @@
 <p>-- Composite Index</p>
 <p>CREATE INDEX idx_user_location ON user_locations (country, state, city);</code></pre></p>
 
-<h3>2. Inspecting Table Indexes (<code>SHOW INDEX</code>)</h3>
+<h3>2. Inspecting Table Indexes (<code>SHOW INDEX</code>)
+</h3>
 <pre><code class="language-sql">-- Inspect all indexes defined on a table in MySQL
 <p>SHOW INDEX FROM e_commerce_users;</code></pre></p>
 
-<h3>3. Removing an Index (<code>DROP INDEX</code>)</h3>
+<h3>3. Removing an Index (<code>DROP INDEX</code>)
+</h3>
 <pre><code class="language-sql">-- MySQL syntax to drop an index
 <p>DROP INDEX idx_users_lastname ON e_commerce_users;</code></pre></p>
 
 <p>---</p>
 
-<h2>🧩 Composite Indexes & Leftmost-Prefix Rule</h2>
+<h2>🧩 Composite Indexes & Leftmost-Prefix Rule
+</h2>
 
 <p>A <strong>Composite Index</strong> indexes multiple columns in a specific sequence. Column ordering is critical because composite indexes follow the <strong>Leftmost Prefix Rule</strong>.</p>
 
@@ -209,7 +223,8 @@
 <p>-- 2. Create Composite Index on (country, state, city)</p>
 <p>CREATE INDEX idx_location_hierarchy ON user_locations (country, state, city);</code></pre></p>
 
-<h3>🎯 Leftmost-Prefix Matching Rules:</h3>
+<h3>🎯 Leftmost-Prefix Matching Rules:
+</h3>
 
 <table>
 <p>  <thead><tr><th>Query Filter Pattern</th><th>Leftmost Prefix Match?</th><th>Index Usage Behavior</th></tr></thead></p>
@@ -222,15 +237,18 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<blockquote><p>📌 <strong>Guideline on Column Order:</strong> Do not blindly place high-cardinality columns first. Design composite index column order based on actual query filter patterns, putting equality-filtered columns (<code>=</code>) first and range-filtered columns (<code>></code>, <code><</code>) or sort columns (<code>ORDER BY</code>) trailing.</p></blockquote>
+<blockquote><p>📌 <strong>Guideline on Column Order:</strong> Do not blindly place high-cardinality columns first. Design composite index column order based on actual query filter patterns, putting equality-filtered columns (<code>=</code>) first and range-filtered columns (<code>></code>, <code><</code>) or sort columns (<code>ORDER BY</code>) trailing.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🔍 Reproducible <code>EXPLAIN</code> Walkthrough (MySQL)</h2>
+<h2>🔍 Reproducible <code>EXPLAIN</code> Walkthrough (MySQL)
+</h2>
 
 <p>The <strong><code>EXPLAIN</code></strong> statement reveals the query optimizer's execution plan, showing whether an index was chosen or if a full table scan was performed.</p>
 
-<h3>Step 1: Create Table & Insert Sample Records</h3>
+<h3>Step 1: Create Table & Insert Sample Records
+</h3>
 
 <pre><code class="language-sql">-- Drop table if exists to allow safe re-runs
 <p>DROP TABLE IF EXISTS e_commerce_users;</p>
@@ -251,11 +269,13 @@
 
 <p>---</p>
 
-<h3>Step 2: Run <code>EXPLAIN</code> BEFORE Creating an Index</h3>
+<h3>Step 2: Run <code>EXPLAIN</code> BEFORE Creating an Index
+</h3>
 
 <pre><code class="language-sql">EXPLAIN SELECT user_id, first_name FROM e_commerce_users WHERE last_name = &#39;Sharma&#39;;</code></pre>
 
-<h4>👀 Query Plan Result (BEFORE INDEX):</h4>
+<h4>👀 Query Plan Result (BEFORE INDEX):
+</h4>
 
 <pre><code class="language-text">+----+-------------+------------------+------------+------+---------------+------+---------+------+------+----------+-------------+
 <table>
@@ -277,7 +297,8 @@
 
 <p>---</p>
 
-<h3>Step 3: Create Index and Run <code>EXPLAIN</code> AFTER Creating Index</h3>
+<h3>Step 3: Create Index and Run <code>EXPLAIN</code> AFTER Creating Index
+</h3>
 
 <pre><code class="language-sql">-- Create secondary index on last_name
 <p>CREATE INDEX idx_users_lastname ON e_commerce_users (last_name);</p>
@@ -285,7 +306,8 @@
 <p>-- Run EXPLAIN again</p>
 <p>EXPLAIN SELECT user_id, first_name FROM e_commerce_users WHERE last_name = &#39;Sharma&#39;;</code></pre></p>
 
-<h4>👀 Query Plan Result (AFTER INDEX):</h4>
+<h4>👀 Query Plan Result (AFTER INDEX):
+</h4>
 
 <pre><code class="language-text">+----+-------------+------------------+------------+------+--------------------+--------------------+---------+-------+------+----------+-------+
 <table>
@@ -301,7 +323,8 @@
 <p></table></p>
 <p>+----+-------------+------------------+------------+------+--------------------+--------------------+---------+-------+------+----------+-------+</code></pre></p>
 
-<h3>📊 Understanding Key <code>EXPLAIN</code> Output Fields:</h3>
+<h3>📊 Understanding Key <code>EXPLAIN</code> Output Fields:
+</h3>
 <ul>
 <p>  <li><strong><code>type: ref</code></strong>: Access method indicating a non-unique index lookup (<code>const</code> indicates Primary Key lookup).</li></p>
 <p>  <li><strong><code>possible_keys</code></strong>: List of candidate indexes considered by the optimizer (<code>idx_users_lastname</code>).</li></p>
@@ -310,33 +333,40 @@
 <p>  <li><strong><code>Extra</code></strong>: Additional optimizer details (e.g. <code>Using index</code> for covering indexes, <code>Using where</code> for additional filtering).</li></p>
 <p></ul></p>
 
-<blockquote><p>💡 <strong><code>EXPLAIN ANALYZE</code> in MySQL 8.0.18+:</strong> Executing <code>EXPLAIN ANALYZE SELECT ...</code> actually executes the query and prints tree execution details with exact millisecond timings and actual row counts examined.</p></blockquote>
+<blockquote><p>💡 <strong><code>EXPLAIN ANALYZE</code> in MySQL 8.0.18+:</strong> Executing <code>EXPLAIN ANALYZE SELECT ...</code> actually executes the query and prints tree execution details with exact millisecond timings and actual row counts examined.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>⚡ Function Invalidation on Indexed Columns & Date Range Fixing</h2>
+<h2>⚡ Function Invalidation on Indexed Columns & Date Range Fixing
+</h2>
 
 <p>Applying a scalar function to an indexed column inside a <code>WHERE</code> clause (e.g. <code>WHERE YEAR(order_date) = 2025</code> or <code>WHERE UPPER(email) = 'ALICE@EXAMPLE.COM'</code>) prevents MySQL from using a standard B-Tree index on that column, forcing a full table scan!</p>
 
-<h3>❌ Inefficient Query (Disables B-Tree Index):</h3>
+<h3>❌ Inefficient Query (Disables B-Tree Index):
+</h3>
 <pre><code class="language-sql">-- Applies YEAR() function to every row, disabling index on order_date
 <p>SELECT order_id, total_amount </p>
 <p>FROM customer_orders </p>
 <p>WHERE YEAR(order_date) = 2025;</code></pre></p>
 
-<h3>✅ Optimized Query (Uses B-Tree Range Scan):</h3>
+<h3>✅ Optimized Query (Uses B-Tree Range Scan):
+</h3>
 <pre><code class="language-sql">-- Uses range comparison; enables B-Tree index range scan
 <p>SELECT order_id, total_amount </p>
 <p>FROM customer_orders </p>
 <p>WHERE order_date &gt;= &#39;2025-01-01&#39; AND order_date &lt; &#39;2026-01-01&#39;;</code></pre></p>
 
-<blockquote><p>🌐 <strong>MySQL 8.0+ Functional Indexes:</strong> In MySQL 8.0+, you can create functional indexes on expressions: <code>CREATE INDEX idx_order_year ON customer_orders ((YEAR(order_date)));</code>.</p></blockquote>
+<blockquote><p>🌐 <strong>MySQL 8.0+ Functional Indexes:</strong> In MySQL 8.0+, you can create functional indexes on expressions: <code>CREATE INDEX idx_order_year ON customer_orders ((YEAR(order_date)));</code>.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🛠️ Specialized Indexes: Full-Text & Spatial</h2>
+<h2>🛠️ Specialized Indexes: Full-Text & Spatial
+</h2>
 
-<h3>1. Full-Text Index (<code>FULLTEXT</code>) for Text Searching</h3>
+<h3>1. Full-Text Index (<code>FULLTEXT</code>) for Text Searching
+</h3>
 <p>Full-text indexes use inverted index matrices to tokenize long text fields for natural language keyword searching using <code>MATCH() AGAINST()</code>.</p>
 
 <pre><code class="language-sql">-- 1. Create table with FULLTEXT index
@@ -360,7 +390,8 @@
 
 <p>---</p>
 
-<h3>2. Spatial Index (<code>SPATIAL</code>) for GIS Location Data</h3>
+<h3>2. Spatial Index (<code>SPATIAL</code>) for GIS Location Data
+</h3>
 <p>Spatial indexes use R-Tree data structures to index multi-dimensional geographic coordinates (<code>POINT</code>, <code>POLYGON</code>, <code>GEOMETRY</code>). *(Supported in MySQL InnoDB 5.7+)*.</p>
 
 <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS delivery_hubs (
@@ -372,7 +403,8 @@
 
 <p>---</p>
 
-<h2>⚖️ Balanced Index Selection Guidance</h2>
+<h2>⚖️ Balanced Index Selection Guidance
+</h2>
 
 <p>Do not follow rigid rules like "never index small tables" or "never index low-cardinality columns". Evaluate index decisions based on realistic trade-offs:</p>
 
@@ -388,7 +420,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+<h2>🛠️ Common Mistakes & Troubleshooting
+</h2>
 
 <table>
 <p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
@@ -402,7 +435,8 @@
 
 <p>---</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <ul>
 <p>  <li><strong>E-Commerce Portals:</strong> Indexing <code>customer_id</code> on <code>orders</code> to render customer order history pages instantly.</li></p>
@@ -412,21 +446,26 @@
 
 <p>---</p>
 
-<h2>🧪 Learning Exercises & Self-Checks</h2>
+<h2>🧪 Learning Exercises & Self-Checks
+</h2>
 
-<h3>Exercise 1: Interpreting <code>EXPLAIN</code></h3>
+<h3>Exercise 1: Interpreting <code>EXPLAIN</code>
+</h3>
 <p>Run <code>EXPLAIN</code> on a query filtering an un-indexed column vs an indexed column. Identify what <code>type: ALL</code> vs <code>type: ref</code> signifies.</p>
 
-<h3>Exercise 2: Leftmost Prefix Rule</h3>
+<h3>Exercise 2: Leftmost Prefix Rule
+</h3>
 <p>Given a composite index on <code>(department_id, hire_date)</code>, explain whether <code>WHERE hire_date = '2026-10-10'</code> can perform a direct leftmost prefix lookup on this index.</p>
 
-<h3>Exercise 3: Fixing Inefficient Functions in <code>WHERE</code></h3>
+<h3>Exercise 3: Fixing Inefficient Functions in <code>WHERE</code>
+</h3>
 <p>Rewrite the following inefficient query so it can use a B-Tree index on <code>order_date</code>:</p>
 <p><code>SELECT * FROM orders WHERE YEAR(order_date) = 2026;</code></p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge: Restaurant Search Query Optimization</h2>
+<h2>🎯 Mini Challenge: Restaurant Search Query Optimization
+</h2>
 
 <p>Analyze the following restaurant search query executed on a table with 500,000 rows:</p>
 
@@ -437,7 +476,8 @@
 <p>  AND is_active = TRUE </p>
 <p>ORDER BY rating DESC;</code></pre></p>
 
-<h3>Table Schema:</h3>
+<h3>Table Schema:
+</h3>
 <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS restaurants (
 <p>    restaurant_id INT PRIMARY KEY AUTO_INCREMENT,</p>
 <p>    restaurant_name VARCHAR(100) NOT NULL,</p>
@@ -455,24 +495,29 @@
 <details>
 <summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
 
-<h3>Answer Key:</h3>
+<h3>Answer Key:
+</h3>
 
-<h4>Exercise 1 Solution:</h4>
+<h4>Exercise 1 Solution:
+</h4>
 <ul>
 <p>  <li><code>type: ALL</code> indicates a Full Table Scan (scanning all table rows).</li></p>
 <p>  <li><code>type: ref</code> indicates a non-unique index lookup (using B-Tree index).</li></p>
 <p></ul></p>
 
-<h4>Exercise 2 Solution:</h4>
+<h4>Exercise 2 Solution:
+</h4>
 <ul>
 <p>  <li><strong>No.</strong> The composite index <code>(department_id, hire_date)</code> has <code>department_id</code> as its leading leftmost prefix. Filtering solely by <code>hire_date</code> skips the first leading column and cannot perform a direct leftmost prefix index lookup.</li></p>
 <p></ul></p>
 
-<h4>Exercise 3 Solution:</h4>
+<h4>Exercise 3 Solution:
+</h4>
 <pre><code class="language-sql">SELECT * FROM orders 
 <p>WHERE order_date &gt;= &#39;2026-01-01&#39; AND order_date &lt; &#39;2027-01-01&#39;;</code></pre></p>
 
-<h4>Mini Challenge Solution:</h4>
+<h4>Mini Challenge Solution:
+</h4>
 
 <pre><code class="language-sql">-- Step 1: Create candidate composite index
 <p>CREATE INDEX idx_restaurant_search </p>
@@ -495,7 +540,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="20-views.html">SQL Views & Virtual Tables</a></li></p>
@@ -505,7 +551,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="20-views.html">← Previous: Views</a> | <a href="./">SQL Home</a> | <a href="22-transactions.html">Next: Transactions →</a></p>
 

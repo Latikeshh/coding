@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-python.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to Python 3</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in Python</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Python</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists in Python</span></a></li>
   <li class="nav-item"><a href="10-tuples.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tuples in Python</span></a></li>
   <li class="nav-item"><a href="11-sets.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sets in Python</span></a></li>
@@ -99,23 +99,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Working with JSON in Python (<code>json</code> Module)</h1>
+<h1>Working with JSON in Python (<code>json</code> Module)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>JSON (JavaScript Object Notation)</strong> is a lightweight, human-readable, text-based data format used to exchange structured data between client web applications, mobile apps, and backend servers. Python provides the built-in <strong><code>json</code></strong> module for serializing and deserializing data.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Server aur client ke beech data share karne ke liye <strong>JSON</strong> format ka use hota hai. Python Dictionary ko JSON string mein convert karne ke liye <code>json.dumps()</code> (<strong>Serialization</strong>) aur JSON string ko Python Dictionary mein convert karne ke liye <code>json.loads()</code> (<strong>Deserialization</strong>) ka use hota hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>JSON format server sobat data share karnyasathi vaparatat. Python Dictionary la JSON string madhye convert karnyasathi <code>json.dumps()</code> aani parat dict madhye sathi <code>json.loads()</code> vaparatat.</p>
 
-<h2>📝 1. Python Datatypes vs JSON Equivalent Mapping</h2>
+<h2>📝 1. Python Datatypes vs JSON Equivalent Mapping
+</h2>
 
 <table>
 <p>  <thead><tr><th>Python Datatype</th><th>Equivalent JSON Type</th></tr></thead></p>
@@ -129,7 +135,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 2. Serialization & Deserialization Methods</h2>
+<h2>📝 2. Serialization & Deserialization Methods
+</h2>
 
 <ul>
 <p>  <li><strong><code>json.dumps(obj)</code>:</strong> Converts Python dict/object -> JSON <strong>String</strong> in memory.</li></p>
@@ -142,18 +149,22 @@
 
 <p>data_dict = {&quot;name&quot;: &quot;Aarav&quot;, &quot;age&quot;: 25, &quot;active&quot;: True}</p>
 
-<h1>Serialization (Python Dict -&gt; JSON String)</h1>
+<h1>Serialization (Python Dict -&gt; JSON String)
+</h1>
 <p>json_string = json.dumps(data_dict, indent=4)</p>
 
-<h1>Deserialization (JSON String -&gt; Python Dict)</h1>
+<h1>Deserialization (JSON String -&gt; Python Dict)
+</h1>
 <p>parsed_dict = json.loads(json_string)</code></pre></p>
 
-<h2>💡 Complete Example: REST API Payload Serialization & File Storage</h2>
+<h2>💡 Complete Example: REST API Payload Serialization & File Storage
+</h2>
 
 <pre><code class="language-python">import json
 <p>import os</p>
 
-<h1>Python Nested Dictionary Payload</h1>
+<h1>Python Nested Dictionary Payload
+</h1>
 <p>user_profile = {</p>
 <p>    &quot;user_id&quot;: 501,</p>
 <p>    &quot;full_name&quot;: &quot;Rahul Verma&quot;,</p>
@@ -170,13 +181,15 @@
 
 <p>print(&quot;=== JSON SERIALIZATION ENGINE ===&quot;)</p>
 
-<h1>1. Serializing to File with pretty formatting (indent=4)</h1>
+<h1>1. Serializing to File with pretty formatting (indent=4)
+</h1>
 <p>with open(file_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:</p>
 <p>    json.dump(user_profile, file, indent=4)</p>
 <p>    </p>
 <p>print(f&quot;Successfully serialized data to &#39;{file_path}&#39;.&quot;)</p>
 
-<h1>2. Deserializing back from File</h1>
+<h1>2. Deserializing back from File
+</h1>
 <p>print(&quot;\n--- DESERIALIZING JSON FROM FILE ---&quot;)</p>
 
 <p>with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as file:</p>
@@ -187,11 +200,13 @@
 <p>print(f&quot;City          : {loaded_data[&#39;address&#39;][&#39;city&#39;]}&quot;)</p>
 <p>print(f&quot;Primary Role  : {loaded_data[&#39;roles&#39;][0]}&quot;)</p>
 
-<h1>Cleanup demo file</h1>
+<h1>Cleanup demo file
+</h1>
 <p>if os.path.exists(file_path):</p>
 <p>    os.remove(file_path)</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== JSON SERIALIZATION ENGINE ===
 <p>Successfully serialized data to &#39;user_payload.json&#39;.</p>
@@ -202,38 +217,45 @@
 <p>City          : Mumbai</p>
 <p>Primary Role  : DEVELOPER</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Confusing <code>json.dumps()</code> (string serialization) with <code>json.dump()</code> (file serialization).</li></p>
 <p>  <li>Attempting to serialize non-standard custom Python objects (like custom class instances or <code>datetime</code> objects) without providing a custom <code>default</code> serializer function.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Always pass <code>indent=4</code> to <code>json.dumps()</code> or <code>json.dump()</code> when creating JSON configuration files to make them human-readable.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>REST API endpoints (FastAPI/Django), configuration files (<code>config.json</code>), web scraping output storage, and microservice messaging payloads.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a dictionary with your name, age, and list of favorite programming languages.</p>
 <p>2. Convert it into a formatted JSON string using <code>json.dumps(data, indent=2)</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that reads a JSON string <code>{"items": [10, 20, 30], "status": "ok"}</code>, calculates the sum of items, and outputs <code>{"sum": 60, "status": "ok"}</code> as a new JSON string.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
 <p>  <li><a href="26-working-with-csv.html">Working with CSV</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Python Home</a> | <a href="24-datetime.html">← Previous: Datetime</a> | <a href="26-working-with-csv.html">Next: Working with CSV →</a></p>
 

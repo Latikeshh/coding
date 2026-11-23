@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,11 +91,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Classes and Objects in Java</h1>
+<h1>Classes and Objects in Java
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In Java's Object-Oriented Programming (OOP) model:</p>
 <ul>
@@ -103,30 +106,36 @@
 <p>  <li>An <strong>Object</strong> is a concrete instance of a class allocated in Heap memory using the <code>new</code> keyword.</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Class ek blueprint/design hoti hai, aur Object us blueprint se bana ek actual instance hota hai jo Heap memory mein jagah leta hai. Fields object ka State (data) hold karte hain aur Methods object ka Behavior (logic) define karte hain.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Class mhanje blueprint aani Object mhanje Heap memory madhye tayar jalele instance.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Procedural programming stores data and functions separately, leading to fragmented code. Object-Oriented design packages state (data variables) and behavior (methods) together into self-contained objects that mirror real-world entities.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a <strong>Class</strong> as an architectural blueprint for a sports car. The blueprint specifies variables (<code>color</code>, <code>maxSpeed</code>) and methods (<code>accelerate()</code>, <code>brake()</code>). An <strong>Object</strong> is the actual physical car built from that blueprint. You can build 1,000 distinct cars (objects) from one single blueprint.</p>
 
-<h2>📝 1. Instance vs Static Members</h2>
+<h2>📝 1. Instance vs Static Members
+</h2>
 
 <ul>
 <p>  <li><strong>Instance Fields/Methods:</strong> Belong to a specific object instance. Every object has its own separate copy of instance variables.</li></p>
 <p>  <li><strong>Static Fields/Methods:</strong> Belong to the <strong>Class itself</strong>. Shared globally across all object instances (<code>ClassName.staticMethod()</code>).</li></p>
 <p></ul></p>
 
-<h2>📝 2. Constructors & Initializer Blocks</h2>
+<h2>📝 2. Constructors & Initializer Blocks
+</h2>
 
 <p>Constructors are special methods invoked automatically during object instantiation via <code>new</code> to initialize instance fields.</p>
 
@@ -153,7 +162,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>🧠 3. Memory Model: Stack vs Heap</h2>
+<h2>🧠 3. Memory Model: Stack vs Heap
+</h2>
 
 <ul>
 <p>  <li><strong>Stack Memory:</strong> Stores short-lived local variables and method call frames. Holds object reference pointers.</li></p>
@@ -172,7 +182,8 @@
 <p></table></p>
 <p>+-----------------------+        +-----------------------------------+</code></pre></p>
 
-<h2>💡 Complete Example: Bank Account Management Engine</h2>
+<h2>💡 Complete Example: Bank Account Management Engine
+</h2>
 
 <pre><code class="language-java">public class BankAccount {
 <p>    // Instance Fields (State)</p>
@@ -240,7 +251,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Deposited ₹2500.00. New Balance: ₹12500.00
 <p>Withdrew ₹1500.00. Remaining Balance: ₹3500.00</p>
@@ -249,7 +261,8 @@
 <p>Acc #ACC-101 | Holder: Aarav Sharma | Balance: ₹12500.00 | Interest: 5.0%</p>
 <p>Acc #ACC-102 | Holder: Priya Verma | Balance: ₹3500.00 | Interest: 5.0%</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Invoking instance methods on a <code>null</code> reference variable, triggering a <code>NullPointerException</code>.</li></p>
@@ -257,31 +270,37 @@
 <p>  <li>Forgetting to write <code>this.</code> when parameter names match instance field names (shadowing!).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Always initialize instance fields inside constructors to maintain valid class invariants before any methods are called on the object.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Domain modeling across software applications: User entities, Product catalogs, Order records, Shopping carts, and Database entities.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code>Book</code> class with <code>title</code>, <code>author</code>, <code>price</code>, and a method <code>getDetails()</code>.</p>
 <p>2. Instantiate two distinct <code>Book</code> objects and display their details.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Add a static variable <code>totalBooksCreated</code> to the <code>Book</code> class that increments automatically every time any constructor is called.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="08-methods.html">Methods</a></li></p>
+<p>  <li><a href="08-methods/index.html">Methods</a></li></p>
 <p>  <li><a href="15-encapsulation-and-composition.html">Encapsulation and Composition</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="13-generics.html">← Previous: Generics</a> | <a href="15-encapsulation-and-composition.html">Next: Encapsulation and Composition →</a></p>
 

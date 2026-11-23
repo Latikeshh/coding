@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,33 +90,40 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Operator Overloading in C++ (<code>+</code>, <code>==</code>, <code><<</code>)</h1>
+<h1>Operator Overloading in C++ (<code>+</code>, <code>==</code>, <code><<</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Operator Overloading</strong> is a feature in C++ that enables custom user-defined meaning to built-in C++ operators (<code>+</code>, <code>-</code>, <code>==</code>, <code><<</code>, <code>[]</code>, <code>()</code>) when applied to custom objects. It allows user-defined classes (like <code>Complex</code>, <code>Vector2D</code>, <code>Matrix</code>, or <code>BigInt</code>) to be manipulated using standard mathematical operators seamlessly.</p>
 
 <p>---</p>
 
-<h2>I🇮🇳 Hindi Explanation</h2>
+<h2>I🇮🇳 Hindi Explanation
+</h2>
 
 <p>Operator Overloading ka matlab hai built-in operators (jaise <code>+</code> ya <code>==</code>) ko aapni custom Class ke liye kaam karwana. Jaise do integer numbers ko <code>a + b</code> se joda jata hai, waise hi Operator Overloading se aap do <code>Complex</code> numbers ya <code>Vector2D</code> objects ko bhi <code>c1 + c2</code> likh kar direct add kar sakte ho! Stream insertion operator <code><<</code> ko overload karke <code>std::cout << object;</code> directly print kiya ja sakta hai.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>Operator Overloading mule C++ madhil built-in operators (<code>+</code>, <code>==</code>, <code><<</code>) aaplya sfi custom class che objects sathi vaparta yetat. Udaharanarth don <code>Complex</code> numbers kiwa 2D Coordinates direct <code>p1 + p2</code> lihun berij karta yetat. <code><<</code> operator overload karun <code>std::cout << obj;</code> sahajapane print karta yete.</p>
 
 <p>---</p>
 
-<h2>📝 Overloadable vs Non-Overloadable Operators</h2>
+<h2>📝 Overloadable vs Non-Overloadable Operators
+</h2>
 
-<h3>Overloadable Operators</h3>
+<h3>Overloadable Operators
+</h3>
 <ul>
 <p>  <li>Arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li></p>
 <p>  <li>Comparison: <code>==</code>, <code>!=</code>, <code><</code>, <code>></code>, <code><=</code>, <code>>=</code></li></p>
@@ -124,7 +131,8 @@
 <p>  <li>Subscript & Call: <code>[]</code>, <code>()</code></li></p>
 <p></ul></p>
 
-<h3>Non-Overloadable Operators (Cannot be Overloaded in C++)</h3>
+<h3>Non-Overloadable Operators (Cannot be Overloaded in C++)
+</h3>
 <ul>
 <p>  <li>Scope Resolution: <code>::</code></li></p>
 <p>  <li>Member Selection: <code>.</code></li></p>
@@ -135,7 +143,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 
@@ -188,7 +197,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>Vector2D operator+(const Vector2D& rhs) const</code>: Overloads the <code>+</code> operator. <code>rhs</code> is the right-hand side operand. Returns a new <code>Vector2D</code> object.</li></p>
@@ -197,7 +207,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">v1       : (3, 4)
 <p>v2       : (1.5, 2.5)</p>
@@ -206,7 +217,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Changing Precedence or Arity</strong>: Overloading <code>+</code> does not change its syntax or precedence. <code>+</code> remains a binary operator.</li></p>
@@ -215,7 +227,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Preserve expected intuitive mathematical semantics (e.g. <code>+</code> should add, not subtract!).</li></p>
@@ -224,19 +237,22 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code>Complex</code> number class representing $a + bi$. Overload <code>+</code> and <code>-</code> operators to add and subtract complex numbers.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create a <code>Money</code> class representing currency (<code>rupees, paise</code>). Overload <code>+</code>, <code>-</code>, and <code>==</code> operators handling 100 paise roll-over into 1 rupee.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="10-classes-and-oops.html">Classes & Objects</a></li></p>
@@ -245,7 +261,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="12-inheritance-and-polymorphism.html">← Previous: Inheritance</a> | <a href="14-smart-pointers.html">Next: Smart Pointers →</a></p>
 

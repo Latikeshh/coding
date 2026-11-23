@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for...in Loop - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">07 Loops</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops Overview</span></a></li>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+          <li class="nav-item"><a href="while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; while Loop</span></a></li>
+          <li class="nav-item"><a href="do-while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; do...while Loop</span></a></li>
+          <li class="nav-item"><a href="for-of-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for...of Loop</span></a></li>
+          <li class="nav-item"><a href="for-in-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for...in Loop</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>The <code>for...in</code> Loop in JavaScript</h1>
+        <blockquote><p>🟢 Beginner Level | Object Key Enumeration</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong><code>for...in</code> loop</strong> iterates over all enumerable string properties of an object, yielding the **key names** (property keys) in arbitrary order.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Used to inspect or iterate over keys and values of plain JavaScript objects.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>The <code>for (const key in object)</code> statement iterates over object property keys, including inherited enumerable prototype properties.</p>
+        <h3>Hindi</h3>
+        <p>JavaScript mein <code>for (const key in obj)</code> object ki keys read karta hai. Object properties inspect karne ke liye use karein.</p>
+        <h3>Marathi</h3>
+        <p>Object keys iterate karnyansathi <code>for...in</code> loop vaparataat.</p>
+        <h3>Hinglish</h3>
+        <p>Object inspection: <code>for (const prop in user) { console.log(prop, user[prop]); }</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">for (const key in object) {
+    if (object.hasOwnProperty(key)) {
+        // Access property value using object[key]
+    }
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Enumerates all string property keys on target object.</li>
+          <li>Traverses prototype chain for enumerable properties.</li>
+          <li>Binds property name string to loop variable per iteration.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Enumerating Plain Object Keys</h3>
+        <pre><code class="language-js">const user = {
+    name: "Latikesh",
+    role: "Developer",
+    level: "Senior"
+};
+
+for (const key in user) {
+    console.log(`${key}: ${user[key]}`);
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">name: Latikesh
+role: Developer
+level: Senior</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>for (const key in user)</code>: Iterates over property names (`"name"`, `"role"`, `"level"`).</li>
+          <li><code>user[key]</code>: Dynamically accesses value using bracket notation.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Do NOT use <code>for...in</code> for arrays where order matters; use <code>for...of</code> or standard `for` loops instead!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Using `for...in` for Array Iteration:</strong> `for...in` returns string index keys and may include non-numeric properties, causing iteration bugs.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Inspecting dynamically populated configuration or state objects.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a `for...in` loop printing keys of a settings object.</li>
+          <li><strong>Intermediate:</strong> Use `Object.hasOwn(obj, key)` inside `for...in` to filter prototype keys.</li>
+          <li><strong>Advanced:</strong> Create a deep clone function using `for...in` property recursion.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

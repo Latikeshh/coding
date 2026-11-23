@@ -64,7 +64,7 @@
   <li class="nav-item"><a href="08-images.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Images, `<figure>`, & `<picture>`</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists (`<ul>`, `<ol>`, `<dl>`)</span></a></li>
   <li class="nav-item"><a href="10-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tables (`<table>`, `<thead>`, `<tbody>`, `<caption>`)</span></a></li>
-  <li class="nav-item"><a href="11-forms.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Forms (`<form>`, `<label>`, `action`, `method`)</span></a></li>
+  <li class="nav-item"><a href="11-forms/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Forms (`<form>`, `<label>`, `action`, `method`)</span></a></li>
   <li class="nav-item"><a href="12-input-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input Types (`text`, `email`, `password`, `date`, etc.)</span></a></li>
   <li class="nav-item"><a href="13-buttons.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Buttons (`<button>`, `type="submit"`, `type="button"`)</span></a></li>
   <li class="nav-item"><a href="14-div-and-span.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Generic Containers (`<div>` and `<span>`)</span></a></li>
@@ -99,30 +99,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Global Attributes & Custom Data Attributes (<code>data-*</code>, <code>tabindex</code>, <code>contenteditable</code>)</h1>
+<h1>Global Attributes & Custom Data Attributes (<code>data-*</code>, <code>tabindex</code>, <code>contenteditable</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Global Attributes</strong> are attributes that can be applied to <strong>ANY</strong> HTML element. Custom **<code>data-*</code> attributes** allow developers to store custom application data directly inside HTML elements, which can be easily accessed by CSS and JavaScript.</p>
 
-<h2>🌍 Multilingual Summary</h2>
+<h2>🌍 Multilingual Summary
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>dir</code>, <code>hidden</code>, <code>tabindex</code>, <code>contenteditable</code>, <code>spellcheck</code>) apply to any element. Custom <code>data-*</code> attributes store custom application data for JavaScript.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>dir</code>, <code>hidden</code>, <code>tabindex</code>, <code>contenteditable</code>) kisi bhi HTML element par apply hote hain. Custom <code>data-*</code> attributes JavaScript ke liye custom data store karte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Global attributes (<code>id</code>, <code>class</code>, <code>title</code>, <code>lang</code>, <code>dir</code>, <code>hidden</code>, <code>tabindex</code>, <code>contenteditable</code>) kontyahi HTML element var laagu hotat. Custom <code>data-*</code> attributes JavaScript sathi custom data store kartat.</p>
 
-<h2>🤔 Why Do We Use Global & Data Attributes?</h2>
+<h2>🤔 Why Do We Use Global & Data Attributes?
+</h2>
 
 <p>Global attributes control element accessibility, focus order (<code>tabindex</code>), inline text editing (<code>contenteditable</code>), and element visibility (<code>hidden</code>). Custom <code>data-*</code> attributes bridge HTML markup with JavaScript interactivity without cluttering CSS class names.</p>
 
-<h2>🧱 Key Global Attributes Reference</h2>
+<h2>🧱 Key Global Attributes Reference
+</h2>
 
 <table>
 <p>  <thead><tr><th>Global Attribute</th><th>Description & Functionality</th><th>Code Example</th></tr></thead></p>
@@ -141,7 +150,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>🔑 Custom <code>data-*</code> Attributes in Detail</h2>
+<h2>🔑 Custom <code>data-*</code> Attributes in Detail
+</h2>
 
 <p>Custom data attributes must start with <code>data-</code> followed by lowercase attribute names (e.g. <code>data-user-id</code>, <code>data-status</code>, <code>data-price</code>):</p>
 
@@ -164,7 +174,8 @@
 <p>  border-left: 4px solid green;</p>
 <p>}</code></pre></p>
 
-<h2>💻 Code Example</h2>
+<h2>💻 Code Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -205,38 +216,44 @@
 <p>&lt;/body&gt;</p>
 <p>&lt;/html&gt;</code></pre></p>
 
-<h2>👀 Output / What You Will See</h2>
+<h2>👀 Output / What You Will See
+</h2>
 
 <ul>
 <p>  <li>An interactive, editable text box where visitors can type directly on screen.</li></p>
 <p>  <li>A focusable product card containing tooltip descriptions, keyboard tabbing capabilities, and stored <code>data-*</code> attributes for JavaScript processing.</li></p>
 <p></ul></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code><div></code> with <code>contenteditable="true"</code> and <code>spellcheck="true"</code>.</p>
 <p>2. Create three list items (<code><li></code>) holding custom attributes <code>data-category="fruits"</code> and <code>data-price="10"</code>.</p>
 <p>3. Test keyboard navigation using <code>tabindex="0"</code>.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>**Using uppercase letters in <code>data-*</code> names:<strong> <code>data-userID</code> is converted to lowercase <code>dataset.userid</code> in JavaScript, causing bug confusion. Use lowercase hyphens <code>data-user-id</code>.</li></p>
 <p>  <li></strong>Using positive <code>tabindex</code> values (e.g. <code>tabindex="4"</code>):** Disrupts natural document keyboard navigation order.</li></p>
 <p></ul></p>
 
-<h2>🌐 Real-World Usage</h2>
+<h2>🌐 Real-World Usage
+</h2>
 
 <p>Modern web applications use <code>data-*</code> attributes for filtering lists, storing UI modal states, tracking analytics click events, and configuring frontend JavaScript widgets.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="15-html-attributes.html">HTML Attributes</a></li></p>
 <p>  <li><a href="14-div-and-span.html">Div and Span</a></li></p>
 <p></ul></p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <ul>
 <p>  <li>Global attributes apply to ALL HTML elements.</li></p>
@@ -245,7 +262,8 @@
 <p>  <li>Avoid positive <code>tabindex</code> values.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="30-interactive-elements.html">← Previous: Interactive Elements</a> | <a href="./">HTML Home</a> | <a href="32-html-seo-and-open-graph.html">Next: HTML SEO & Open Graph →</a></p>
 

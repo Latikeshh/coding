@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,33 +92,42 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>🛡️ Error Handling in JavaScript (<code>try...catch...finally</code> & Custom Errors)</h1>
+<h1>🛡️ Error Handling in JavaScript (<code>try...catch...finally</code> & Custom Errors)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Error Handling</strong> in JavaScript is a defensive programming mechanism that allows applications to gracefully intercept, process, and recover from runtime exceptions, network request failures, and invalid user inputs without terminating script execution or crashing the application UI.</p>
 
 <p>---</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>In JavaScript, unexpected runtime exceptions (such as network timeouts, invalid JSON payloads, or accessing properties on <code>undefined</code>) interrupt the standard Call Stack execution. The <code>try...catch...finally</code> block intercepts these exceptions. Custom errors can be manually triggered using the <code>throw</code> keyword.</p>
 
-<h3>Hindi (Roman Script)</h3>
+<h3>Hindi (Roman Script)
+</h3>
 <p>Jab JavaScript code run hota hai, toh runtime par aane wale errors app ko crash kar sakte hain. Unhe handle karne ke liye <code>try...catch...finally</code> use karte hain. Risky code <code>try</code> mein hota hai, error aane par <code>catch</code> run hota hai, aur <code>finally</code> block hamesha execute hota hai (resource cleanup ke liye).</p>
 
-<h3>Marathi (Roman Script)</h3>
+<h3>Marathi (Roman Script)
+</h3>
 <p>JavaScript application crash honyapasun vachvanyasathi <code>try...catch...finally</code> cha wapar kela jato. Network API calls kiwa invalid input handle karnyasathi <code>throw new Error()</code> dwaare custom error raise karta yeto.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>JavaScript mein 6 standard built-in Error types hote hain (jaise <code>TypeError</code>, <code>ReferenceError</code>). Asynchronous code (<code>async/await</code>) mein API calls reject hone par <code>try...catch</code> block se error capture kiya jata hai taaki UI par friendly fallback error message dikhaya ja sake.</p>
 
 <p>---</p>
 
-<h2>🧱 The Mechanics of <code>try...catch...finally</code></h2>
+<h2>🧱 The Mechanics of <code>try...catch...finally</code>
+</h2>
 
 <pre><code class="language-text">[ try Block ] ──► Executes code statements
 <p>       │</p>
@@ -136,7 +145,8 @@
 
 <p>---</p>
 
-<h2>🏷️ Standard Built-in Error Types in JavaScript</h2>
+<h2>🏷️ Standard Built-in Error Types in JavaScript
+</h2>
 
 <table>
 <p>  <thead><tr><th>Error Type</th><th>Cause</th><th>Example Trigger</th></tr></thead></p>
@@ -151,9 +161,11 @@
 
 <p>---</p>
 
-<h2>💡 Practical Production Examples</h2>
+<h2>💡 Practical Production Examples
+</h2>
 
-<h3>Example 1: Custom Error Classes & Form Input Validation</h3>
+<h3>Example 1: Custom Error Classes & Form Input Validation
+</h3>
 
 <pre><code class="language-js">// 1. Custom Error Subclass
 <p>class ValidationError extends Error {</p>
@@ -198,7 +210,8 @@
 
 <p>---</p>
 
-<h3>Example 2: Asynchronous Error Handling in Fetch API with <code>async/await</code></h3>
+<h3>Example 2: Asynchronous Error Handling in Fetch API with <code>async/await</code>
+</h3>
 
 <pre><code class="language-js">async function fetchUserProfile(userId) {
 <p>  const loadingSpinner = { visible: true };</p>
@@ -229,7 +242,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes & Pitfalls</h2>
+<h2>⚠️ Common Mistakes & Pitfalls
+</h2>
 
 <ul>
 <p>  <li><strong>Silently Swallowing Errors</strong>: Leaving <code>catch (err) {}</code> empty hides errors entirely, making application bugs impossible to track down.</li></p>
@@ -239,14 +253,16 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself & Practice Exercises</h2>
+<h2>🧪 Try It Yourself & Practice Exercises
+</h2>
 
 <p>1. Write a function <code>safeJsonParse(jsonString)</code> that attempts <code>JSON.parse()</code>. If valid, return the object; if invalid JSON, catch the error and return <code>null</code>.</p>
 <p>2. Write a function <code>divideNumbers(a, b)</code> that throws a custom error if <code>b === 0</code> ("Division by zero is undefined").</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Build a secure password validator function <code>validatePassword(password)</code>:</p>
 <ul>
@@ -257,7 +273,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="15-promises-and-async-await.html">Asynchronous JS, Promises & Async/Await</a></li></p>
@@ -267,7 +284,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="21-web-storage.html">← Previous: Web Storage</a> | <a href="23-modules.html">Next: JS Modules →</a></p>
 

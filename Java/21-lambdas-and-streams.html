@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,26 +91,32 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Lambdas and Streams in Java</h1>
+<h1>Lambdas and Streams in Java
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Lambda Expression:</strong> A concise, anonymous function syntax <code>(parameters) -> { body }</code> introduced in Java 8 that implements a Functional Interface (<code>@FunctionalInterface</code>).</li></p>
 <p>  <li><strong>Stream API (<code>java.util.stream</code>):</strong> A declarative, functional processing pipeline for filtering, mapping, sorting, aggregating, and collecting sequences of elements from data sources (like Collections or Arrays).</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Lambda expressions code ko short aur readable banati hain. <strong>Stream API</strong> data collections par declarative functional processing (jaise <code>.filter()</code>, <code>.map()</code>, <code>.sorted()</code>, <code>.collect()</code>) karne ke liye use hoti hai, bina manual <code>for</code> loops likhe.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Lambda mhanje lahan anonymous function. Stream API mulamajhi collections varti <code>.filter()</code>, <code>.map()</code>, <code>.collect()</code> sarkhya declarative kriya karta yetat.</p>
 
-<h2>📝 1. Core Built-In Functional Interfaces</h2>
+<h2>📝 1. Core Built-In Functional Interfaces
+</h2>
 
 <p>Java provides 4 primary built-in functional interfaces in <code>java.util.function</code>:</p>
 
@@ -124,7 +130,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 2. Method References (<code>Class::method</code>)</h2>
+<h2>📝 2. Method References (<code>Class::method</code>)
+</h2>
 
 <p>Shorthand syntax for lambdas that simply pass arguments directly to an existing method:</p>
 
@@ -134,7 +141,8 @@
 <p>  <li><code>Integer::parseInt</code> (Replaces <code>str -> Integer.parseInt(str)</code>)</li></p>
 <p></ul></p>
 
-<h2>📝 3. Stream Processing Pipeline Pipeline</h2>
+<h2>📝 3. Stream Processing Pipeline Pipeline
+</h2>
 
 <p>A Stream pipeline consists of 3 stages:</p>
 
@@ -156,7 +164,8 @@
 <p>         ▼</p>
 <p> .collect(toList())        &lt;-- Terminal Operation (Executes Pipeline!)</code></pre></p>
 
-<h2>💡 Complete Example: Employee Salary Analytics with Streams</h2>
+<h2>💡 Complete Example: Employee Salary Analytics with Streams
+</h2>
 
 <pre><code class="language-java">import java.util.*;
 <p>import java.util.stream.Collectors;</p>
@@ -206,7 +215,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== STREAM PROCESSING PIPELINE ===
 <p>High Paid Engineers : [Aarav Sharma, Kiran Deshmukh, Rahul Verma]</p>
@@ -228,7 +238,8 @@
 <p>  <li>Kiran Deshmukh (₹110000.0)</code></pre></li></p>
 <p></ul></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Reusing a Stream object after a terminal operation has already been executed (<code>IllegalStateException: stream has already been operated upon or closed</code>).</li></p>
@@ -236,31 +247,37 @@
 <p>  <li>Mutating shared external state variables inside stream lambda operations. Streams must remain pure and side-effect free.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Use Primitive Streams (<code>IntStream</code>, <code>LongStream</code>, <code>DoubleStream</code>) when performing heavy numerical aggregations to avoid performance overhead from Wrapper Object Autoboxing.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Filtering REST API query datasets, calculating financial order totals, mapping database entity models to DTOs, and grouping data for analytical reporting.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a list of numbers <code>List.of(12, 45, 8, 23, 76, 19)</code>.</p>
 <p>2. Filter numbers greater than <code>20</code>, double each number using <code>.map()</code>, and collect the result into a new list.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a stream pipeline that reads a list of customer names, filters names starting with <code>'A'</code>, converts them to uppercase, joins them with <code>, </code> using <code>Collectors.joining(", ")</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="11-collections.html">Collections</a></li></p>
 <p>  <li><a href="12-enums-and-records.html">Enums and Records</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="20-file-input-and-output.html">← Previous: File Input and Output</a> | <a href="22-dates-and-time.html">Next: Dates and Time →</a></p>
 

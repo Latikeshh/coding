@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-python.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to Python 3</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in Python</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Python</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists in Python</span></a></li>
   <li class="nav-item"><a href="10-tuples.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tuples in Python</span></a></li>
   <li class="nav-item"><a href="11-sets.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sets in Python</span></a></li>
@@ -99,23 +99,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Advanced Functions in Python (<code>*args</code>, <code><strong>kwargs</code>, Closures & Scope)</h1>
+<h1>Advanced Functions in Python (<code>*args</code>, <code><strong>kwargs</code>, Closures & Scope)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Advanced Python function features include variable-length positional arguments (</strong><code>*args</code><strong>), variable-length keyword arguments (</strong><code><strong>kwargs</code></strong>), First-Class Functions, closures, and variable scope resolution rules (<strong>LEGB Rule: Local, Enclosing, Global, Built-in</strong>).</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Python mein <code>*args</code> se aap arbitrary number of positional arguments (as a tuple) pass kar sakte hain, aur <code><strong>kwargs</code> se arbitrary keyword arguments (as a dictionary) pass hote hain. Python mein Functions </strong>First-Class Citizens** hain, yani unhe variables mein store kiya ja sakta hai aur doosre functions mein argument ki tarah pass kiya ja sakta hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p><code>*args</code> tuple chya roopat multiple inputs gheto, tar <code>**kwargs</code> dictionary chya roopat keyword inputs gheto.</p>
 
-<h2>📝 1. Variable-Length Arguments (<code>*args</code> & <code><strong>kwargs</code>)</h2>
+<h2>📝 1. Variable-Length Arguments (<code>*args</code> & <code><strong>kwargs</code>)
+</h2>
 
 <ul>
 <p>  <li></strong><code>*args</code> (Positional Argument Packing):<strong> Gathers extra positional arguments into a <code>tuple</code>.</li></p>
@@ -126,10 +132,12 @@
 <p>    print(f&quot;[{log_level}] Extra Positional Args:&quot;, args)</p>
 <p>    print(f&quot;[{log_level}] Extra Keyword Args   :&quot;, kwargs)</p>
 
-<h1>Call</h1>
+<h1>Call
+</h1>
 <p>flex_logger(&quot;INFO&quot;, &quot;User Logged In&quot;, &quot;IP: 192.168.1.1&quot;, user_id=501, status=&quot;SUCCESS&quot;)</code></pre></p>
 
-<h2>📝 2. Variable Scope & The LEGB Rule</h2>
+<h2>📝 2. Variable Scope & The LEGB Rule
+</h2>
 
 <p>Python searches for variable names in strict sequential order:</p>
 
@@ -150,7 +158,8 @@
 
 <p>outer()</code></pre></p>
 
-<h2>📝 3. Closures & Function Factories</h2>
+<h2>📝 3. Closures & Function Factories
+</h2>
 
 <p>A </strong>Closure** occurs when an inner nested function retains access to variables in its outer enclosing scope even after the outer function has finished execution.</p>
 
@@ -166,7 +175,8 @@
 <p>print(double(5)) # 10</p>
 <p>print(triple(5)) # 15</code></pre></p>
 
-<h2>💡 Complete Example: Dynamic Configuration & Logging Factory</h2>
+<h2>💡 Complete Example: Dynamic Configuration & Logging Factory
+</h2>
 
 <pre><code class="language-python"># Flexible Event Auditing System
 
@@ -188,16 +198,19 @@
 <p>        </p>
 <p>    return log_event</p>
 
-<h1>Instantiate closures for separate components</h1>
+<h1>Instantiate closures for separate components
+</h1>
 <p>auth_logger = build_event_logger(&quot;AUTH_SERVICE&quot;)</p>
 <p>db_logger = build_event_logger(&quot;DATABASE&quot;)</p>
 
-<h1>Logging events with args and kwargs</h1>
+<h1>Logging events with args and kwargs
+</h1>
 <p>auth_logger(&quot;LOGIN_SUCCESS&quot;, &quot;User IP 10.0.0.1&quot;, user=&quot;Aarav&quot;, attempts=1)</p>
 <p>auth_logger(&quot;PASSWORD_CHANGE&quot;, user=&quot;Aarav&quot;, forced=False)</p>
 <p>db_logger(&quot;QUERY_EXECUTE&quot;, &quot;SELECT * FROM users&quot;, duration_ms=12)</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">[AUTH_SERVICE] Event #1: LOGIN_SUCCESS
 <p>   Details : User IP 10.0.0.1</p>
@@ -211,7 +224,8 @@
 <p>   Metadata: {&#39;duration_ms&#39;: 12}</p>
 <p>----------------------------------------</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Incorrect order of parameter declarations in functions! The strict required parameter order is:</li></p>
@@ -221,31 +235,37 @@
 <p>  <li>Modifying a global variable inside a function without declaring <code>global var_name</code> first, causing an <code>UnboundLocalError</code>.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>When unpacking lists or dictionaries into function calls, use <code>*</code> for list/tuple positional unpacking and <code>**</code> for dictionary keyword unpacking: <code>func(*my_list, **my_dict)</code>.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Writing custom decorators, middleware functions in web frameworks (Django/Flask), event listeners, and flexible API wrappers.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a function <code>sum_all(*numbers)</code> that calculates and returns the sum of any quantity of numbers passed to it.</p>
 <p>2. Create a closure <code>make_counter()</code> that returns a function that increments and returns a private count variable starting from <code>0</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a function <code>build_user_profile(first_name, last_name, **attributes)</code> that returns a dictionary containing the full name and any arbitrary extra keyword metadata passed in.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="08-functions.html">Functions Basics</a></li></p>
+<p>  <li><a href="08-functions/index.html">Functions Basics</a></li></p>
 <p>  <li><a href="21-decorators.html">Decorators</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Python Home</a> | <a href="14-list-comprehensions.html">← Previous: List Comprehensions</a> | <a href="16-modules-and-packages.html">Next: Modules and Packages →</a></p>
 

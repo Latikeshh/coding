@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,31 +90,37 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Smart Pointers & Memory Management in Modern C++ (<code>unique_ptr</code>, <code>shared_ptr</code>, <code>weak_ptr</code>)</h1>
+<h1>Smart Pointers & Memory Management in Modern C++ (<code>unique_ptr</code>, <code>shared_ptr</code>, <code>weak_ptr</code>)
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In modern C++ (C++11 and beyond), <strong>Smart Pointers</strong> are container wrapper classes provided by <code><memory></code> that manage the lifetime of heap-allocated dynamic memory through <strong>RAII (Resource Acquisition Is Initialization)</strong>. Smart pointers automatically deallocate heap memory when their scope ends, completely eliminating manual <code>delete</code> statements, raw pointer dangling bugs, and memory leaks!</p>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>Purane C++ mein jab hum <code>new</code> se heap memory allocate karte the, toh humein <code>delete</code> karke memory free karni padti thi. Agar <code>delete</code> bhool gaye, toh memory leak ho jata tha. <strong>Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>)</strong> modern C++ ka sabse zaroori feature hain. Yeh raw pointers ko wrap kar lete hain aur jaise hi pointer scope se bahar jata hai, heap memory ko <strong>apne aap <code>delete</code> kar dete hain</strong>!</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>C++11 paasun raw pointers aani manual <code>delete</code> vaparanyapradhane <strong>Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>)</strong> vaparale jaataat. Smart pointer mhanje eka dynamic memory vr wrapper. Object cha scope samplyavar smart pointer aapoap heap memory <code>delete</code> karto, jyamule memory leaks hot nahit.</p>
 
 <p>---</p>
 
-<h2>📊 The 3 Smart Pointer Types Compared</h2>
+<h2>📊 The 3 Smart Pointer Types Compared
+</h2>
 
 <table>
 <p>  <thead><tr><th>Smart Pointer</th><th>Ownership Rule</th><th>Copyable?</th><th>Movable?</th><th>Ideal Use Case</th></tr></thead></p>
@@ -127,7 +133,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;memory&gt;</p>
@@ -190,7 +197,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>std::make_unique<Resource>("UniqueDB")</code>: Allocates <code>Resource</code> on the heap and wraps it inside a <code>unique_ptr</code>.</li></p>
@@ -200,7 +208,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. DEMO: std::unique_ptr (Exclusive Ownership) ---
 <p>[ALLOCATED] Heap Resource: UniqueDB</p>
@@ -220,7 +229,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Using Raw <code>new</code> and <code>delete</code> in Modern C++</strong>: Manual memory management leads to dangling pointers and memory leaks. Use <code>std::make_unique</code> or <code>std::make_shared</code> instead.</li></p>
@@ -230,7 +240,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Make <code>std::unique_ptr</code> your default smart pointer choice unless shared ownership is strictly required.</li></p>
@@ -239,20 +250,23 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Allocate a dynamic <code>std::vector<int></code> inside a <code>std::unique_ptr</code>, populate 5 numbers, and iterate over them.</p>
 <p>2. Inspect <code>use_count()</code> of a <code>std::shared_ptr</code> as you pass it to functions by value vs by reference.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Implement a <code>TreeNode</code> class where a parent node owns its children using <code>std::vector<std::unique_ptr<TreeNode>></code>. Demonstrate tree creation and automated cleanup.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="11-constructors-and-destructors.html">Constructors & Destructors</a></li></p>
@@ -261,7 +275,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="13-operator-overloading.html">← Previous: Operator Overloading</a> | <a href="15-stl-containers.html">Next: STL Containers →</a></p>
 

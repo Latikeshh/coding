@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,31 +90,37 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Variables & Primitive Data Types in C++</h1>
+<h1>Variables & Primitive Data Types in C++
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>Variable</strong> is a named location in computer memory used to store data. C++ is a <strong>statically typed</strong> and <strong>strongly typed</strong> language, meaning every variable's data type must be declared at compile time and cannot change during program execution.</p>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>Variable computer ki memory mein ek box ki tarah hota hai jisme hum koi value store karte hain. C++ mein kisi bhi variable ko use karne se pehle uska type (<code>int</code>, <code>double</code>, <code>char</code>, <code>bool</code>, <code>std::string</code>) batana zaroori hota hai. Memory mein kitni jagah lagegi yeh data type par depend karta hai (jaise <code>int</code> 4 bytes leta hai).</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>Variable mhanje computer cha memory madhla ek sthan (box) jyat aapan value store karto. C++ madhye variable vaparanyapurvi tyacha data type (<code>int</code>, <code>double</code>, <code>char</code>, <code>bool</code>) sangane bandhankarak aahe. Memory madhye tyala kiti जागा lagel he data type vr tharte.</p>
 
 <p>---</p>
 
-<h2>📊 Summary of Primitive Data Types</h2>
+<h2>📊 Summary of Primitive Data Types
+</h2>
 
 <table>
 <p>  <thead><tr><th>Data Type</th><th>Typical Size</th><th>Description</th><th>Example Values</th></tr></thead></p>
@@ -131,7 +137,8 @@
 
 <p>---</p>
 
-<h2>🧠 Simple Analogy</h2>
+<h2>🧠 Simple Analogy
+</h2>
 
 <p>Think of variable types as kitchen storage containers:</p>
 <ul>
@@ -143,7 +150,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;string&gt;</p>
@@ -174,7 +182,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>std::string</code>: Included from <code><string></code> header for working with text strings.</li></p>
@@ -185,7 +194,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- PLAYER PROFILE ---
 <p>Name        : Aria Blackwood</p>
@@ -197,7 +207,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Single Quotes vs Double Quotes</strong>:</li></p>
@@ -209,7 +220,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Always initialize variables upon declaration: <code>int score = 0;</code>.</li></p>
@@ -218,29 +230,33 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Declare an <code>int</code> for your birth year and calculate your current age.</p>
 <p>2. Store a product price in a <code>double</code> and print it with tax added.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that stores a bank account holder's name, account balance, and account active status, then prints a formatted account summary.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="04-input-output.html">Input & Output in C++</a></li></p>
-<p>  <li><a href="05-operators.html">Operators in C++</a></li></p>
+<p>  <li><a href="05-operators/index.html">Operators in C++</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="02-introduction-to-cpp.html">← Previous: Introduction</a> | <a href="04-input-output.html">Next: Input & Output →</a></p>
 

@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,11 +92,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Web Storage (<code>localStorage</code> & <code>sessionStorage</code>)</h1>
+<h1>Web Storage (<code>localStorage</code> & <code>sessionStorage</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong>Web Storage API</strong> allows web applications to store key-value string data directly inside the user's browser. It provides two persistent storage mechanisms:</p>
 <ul>
@@ -104,15 +107,18 @@
 <p>  <li><code>sessionStorage</code>: Persists data only for the duration of the current browser tab session.</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Web Storage browser mein client-side data store karne ke liye use hota hai. <code>localStorage</code> mein data browser close hone ke baad bhi saved rehta hai, jabki <code>sessionStorage</code> mein browser tab close hote hi clear ho jata hai. Web Storage sirf string values store karta hai, isliye Objects store karne ke liye <code>JSON.stringify()</code> aur <code>JSON.parse()</code> ka use hota hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Web Storage API cha wapar browser madhye data saathvanya sathi kela jato. <code>localStorage</code> madhil data permanently saathvla jato, tar <code>sessionStorage</code> tab band kelyanantar clear hoto.</p>
 
-<h2>📝 Storage API Methods</h2>
+<h2>📝 Storage API Methods
+</h2>
 
 <table>
 <p>  <thead><tr><th>Method</th><th>What It Does</th></tr></thead></p>
@@ -124,14 +130,16 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>⚠️ Security & Limitation Rules</h2>
+<h2>⚠️ Security & Limitation Rules
+</h2>
 
 <ul>
 <p>  <li><strong>Strings Only:</strong> Web Storage can ONLY store string data (~5MB per origin).</li></p>
 <p>  <li><strong>Plaintext Storage:</strong> Never store passwords, credit card numbers, or unencrypted authentication tokens in <code>localStorage</code> as it is accessible via client-side JavaScript scripts (vulnerable to XSS attacks!).</li></p>
 <p></ul></p>
 
-<h2>💡 Complete Example: Storing Objects & Managing User Theme</h2>
+<h2>💡 Complete Example: Storing Objects & Managing User Theme
+</h2>
 
 <pre><code class="language-js">// Function to save user preference settings
 <p>function saveUserSettings(settingsObject) {</p>
@@ -160,33 +168,39 @@
 <p>console.log(&quot;Loaded Theme:&quot;, currentSettings.theme);</p>
 <p>console.log(&quot;Loaded Font Size:&quot;, currentSettings.fontSize);</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Settings saved to localStorage successfully.
 <p>Loaded Theme: dark</p>
 <p>Loaded Font Size: 18</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Store your favorite user name in <code>localStorage.setItem("username", "yourName")</code>.</p>
 <p>2. Retrieve it using <code>localStorage.getItem("username")</code> and display it in a <code>console.log()</code>.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting to serialize objects with <code>JSON.stringify()</code>, which results in storing the useless string <code>"[object Object]"</code>.</li></p>
 <p>  <li>Assuming <code>localStorage</code> data persists across different browser origins or different user devices.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Remembering user dark mode preferences, preserving unsubmitted form drafts, caching non-sensitive user settings, and saving client-side shopping cart state.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Use <code>localStorage</code> for long-term user preferences and <code>sessionStorage</code> for temporary single-session workflows.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="20-event-delegation-and-web-apis.html">← Previous: Event Delegation</a> | <a href="22-error-handling.html">Next: Error Handling →</a></p>
 

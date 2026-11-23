@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Storage Classes & Qualifiers in C</h1>
+<h1>Storage Classes & Qualifiers in C
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Storage Classes</strong> (<code>static</code>, <code>extern</code>, <code>auto</code>, <code>register</code>) determine the scope (visibility), lifetime, and linkage of variables and functions in C. <strong>Type Qualifiers</strong> (<code>const</code>, <code>volatile</code>, <code>restrict</code>) modify how the compiler treats variable memory access and optimization.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Storage classes define variable scope, lifetime, and memory location. <code>static</code> local variables retain their values across function calls and live for the entire program execution. <code>static</code> global variables restrict visibility to their local <code>.c</code> file (internal linkage). <code>extern</code> declares global variables defined in other source files. <code>register</code> hints that a variable be stored in CPU registers (taking address <code>&</code> is forbidden).</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Storage classes se variable ki scope (visiblity), lifetime aur storage location tay hoti hai. Local <code>static</code> variable function call khatam hone ke baad bhi apni value retain rakhta hai. Global <code>static</code> variable us <code>.c</code> file tak private (internal linkage) rehta hai. <code>extern</code> doosri file ke global variable ko access karta hai. <code>register</code> variable ka memory address <code>&</code> nahi nikal sakte.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Storage classes mulhe variable kute kuthparenta disel (scope) aani kiti vel tikun rahel (lifetime) he tharte. Local <code>static</code> variable function sampel tari aapli value sathavun thevto. Global <code>static</code> variable fakt tyach <code>.c</code> file purta marydit rahto (internal linkage). <code>extern</code> dusryya file madhil global variable vaparnyasathi vaparatat.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p><code>static</code> local variables function call ke beech state preserve karte hain. <code>static</code> global variables file private hote hain (module encapsulation). <code>extern</code> multi-file project mein global variable share karta hai. <code>const</code> value lock karta hai, <code>volatile</code> hardware registers memory cache optimization disable karta hai, aur <code>restrict</code> pointer aliasing optimize karta hai.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Without storage classes, state cannot be maintained across function calls without using unsafe global variables. Without <code>static</code> global functions, private helper functions would pollute the global symbol namespace in multi-file projects.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <ul>
 <p>  <li><strong><code>auto</code>:</strong> Standard local variable inside a function. Born when function starts, dies when function ends.</li></p>
@@ -125,7 +135,8 @@
 <p>  <li><strong><code>extern</code>:</strong> A notice board reference pointing to a master document kept in another file.</li></p>
 <p></ul></p>
 
-<h2>📝 Storage Classes Comparison Table</h2>
+<h2>📝 Storage Classes Comparison Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Storage Class</th><th>Location</th><th>Lifetime</th><th>Scope / Visibility</th><th>Default Initial Value</th></tr></thead></p>
@@ -138,7 +149,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a practical module demonstrating local <code>static</code> state retention, <code>const</code>, <code>volatile</code>, and <code>restrict</code> qualifiers:</p>
 
@@ -197,7 +209,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>static int currentId = 1000;</code>: Local <code>static</code> variable. It is initialized <strong>once</strong> before program execution begins. When <code>generateTransactionId()</code> returns, <code>currentId</code> is NOT destroyed; its updated value persists for subsequent function calls.</li></p>
@@ -206,7 +219,8 @@
 <p>  <li><code>volatile</code>: Disables compiler optimizations that cache memory variables in CPU registers, forcing the CPU to read directly from RAM/hardware memory address on every access.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. STATIC LOCAL VARIABLE STATE RETENTION ---
 <p>Generated Transaction ID: #1001</p>
@@ -219,7 +233,8 @@
 <p>Hardware Status Flag (volatile): 1</p>
 <p>Register Counter: 1</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Taking Address of <code>register</code> Variable:</strong> Writing <code>&fastCounter</code> on a variable declared as <code>register int fastCounter;</code> causes a compilation error because registers do not reside in RAM memory address space!</li></p>
@@ -227,34 +242,40 @@
 <p>  <li><strong>Expecting <code>register</code> to Guarantee Register Placement:</strong> Modern optimizing compilers handle register allocation automatically. Declaring <code>register</code> is a hint that compilers may ignore.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li>Use <code>static</code> on global helper functions and internal module variables to encapsulate private implementation details in multi-file projects.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p><code>static</code> local variables implement singleton-like state counters and memory pool allocators. <code>volatile</code> is required in embedded microcontrollers when reading hardware I/O port registers or Interrupt Service Routines (ISRs). <code>restrict</code> powers high-performance scientific and graphics math libraries.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a function <code>void countCalls(void)</code> containing a <code>static int count = 0;</code>.</p>
 <p>2. Call it 5 times from <code>main()</code> and print how many times the function was called.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program with a <code>const double CONVERSION_RATE = 83.50;</code> (USD to INR). Write a function using <code>restrict</code> double pointers to convert an array of USD prices to INR in-place.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
-<p>  <li><a href="08-functions.html">Functions</a></li></p>
+<p>  <li><a href="08-functions/index.html">Functions</a></li></p>
 <p>  <li><a href="21-multi-file-projects.html">Multi-file Projects</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="18-preprocessor-and-macros.html">← Previous: Preprocessor</a> | <a href="20-command-line-arguments.html">Next: CLI Arguments →</a></p>
 

@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Enumerations (<code>enum</code>)</h1>
+<h1>Enumerations (<code>enum</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>An <strong>Enumeration</strong> (<code>enum</code>) is a custom user-defined data type in C consisting of a set of named integer constants. Enums replace raw "magic numbers" in code with self-documenting human-readable labels.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>An <code>enum</code> defines custom symbolic names for integer constants. By default, compiler assigns integer values starting from <code>0</code> incrementing by <code>1</code> (<code>0, 1, 2...</code>), but custom integer values can also be explicitly assigned. Enums improve code readability, simplify switch statements, and eliminate hardcoded magic numbers.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>enum</code> integer constants ko readable names dene ke liye use hota hai. Default rup se compiler <code>0</code> se ginti shuru karta hai (<code>0, 1, 2...</code>), par hum custom integer values (jaise <code>STATUS_OK = 200</code>) bhi assign kar sakte hain. <code>enum</code> se code readable banta hai aur magic numbers hat jaate hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>enum</code> mhanje numbers la manus-samjel ashi naave dene. Default value <code>0</code> pasun shuru hote (<code>0, 1, 2...</code>). Garaz aslyas aapan swatachi value (jase <code>200</code>) deu shakto. Code vachanasathi sopa honyasathi <code>enum</code> vapartat.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Raw integer numbers (<code>0</code>, <code>1</code>, <code>2</code>) ko code mein hardcode karne ke bajaye <code>enum</code> (<code>PENDING = 0</code>, <code>PROCESSING = 1</code>, <code>COMPLETED = 2</code>) use karo. <code>switch</code> statement ke saath <code>enum</code> combine karne par code highly readable aur maintainable ban jata hai.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Reading <code>if (orderStatus == 3)</code> tells a developer nothing about what state <code>3</code> represents. Reading <code>if (orderStatus == ORDER_SHIPPED)</code> makes the business logic immediately clear and prevents bugs caused by mistyping integer constants.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of an <code>enum</code> like traffic signal lights:</p>
 <ul>
@@ -124,7 +134,8 @@
 <p>  <li>The code uses meaningful words (<code>RED</code>, <code>GREEN</code>) while the CPU handles the underlying numbers (<code>0</code>, <code>2</code>).</li></p>
 <p></ul></p>
 
-<h2>📝 Syntax & Declarations</h2>
+<h2>📝 Syntax & Declarations
+</h2>
 
 <pre><code class="language-c">// 1. Default enum (values: RED=0, YELLOW=1, GREEN=2)
 <p>typedef enum {</p>
@@ -141,7 +152,8 @@
 <p>    HTTP_SERVER_ERROR = 500</p>
 <p>} HttpStatus;</code></pre></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is an e-commerce order processing state machine demonstrating <code>enum</code> declarations, custom integer assignments, and integration with <code>switch</code> statements:</p>
 
@@ -202,14 +214,16 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>typedef enum { ORDER_PENDING = 1, ... } OrderStatus;</code>: Explicitly sets <code>ORDER_PENDING</code> to <code>1</code>. The compiler automatically assigns subsequent constants incremental values (<code>ORDER_PROCESSING = 2</code>, <code>ORDER_SHIPPED = 3</code>, etc.).</li></p>
 <p>  <li><code>switch (status)</code>: Enums integrate seamlessly with <code>switch</code> statements, allowing clean branching based on named state labels.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- E-COMMERCE ORDER TRACKING SYSTEM ---
 <p>Initial State:</p>
@@ -220,41 +234,48 @@
 
 <p>Underlying Integer Value of ORDER_SHIPPED: 3</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Assuming Strong Type Safety in C:</strong> Unlike C++ or Java, C treats <code>enum</code> types as basic integers. C will allow assigning raw integers or invalid numbers to an enum variable without triggering compile errors. Always validate enum inputs!</li></p>
 <p>  <li><strong>Duplicate Enum Name Conflicts:</strong> Enum constant names reside in the global scope within C. Defining <code>enum Light { RED, GREEN };</code> and <code>enum Color { RED, BLUE };</code> causes a compiler error due to duplicate <code>RED</code> definitions. Prefix constants with enum names (e.g., <code>LIGHT_RED</code>, <code>COLOR_RED</code>).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li>Group state constants logically using prefix names (e.g. <code>STATUS_PENDING</code>, <code>STATUS_APPROVED</code>, <code>STATUS_REJECTED</code>) to avoid naming collisions across header files.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Enums define state machine transitions in game development, HTTP response status codes in web servers, system process states (<code>TASK_RUNNING</code>, <code>TASK_STOPPED</code> in operating system kernels), and protocol message types.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Define an <code>enum Days { MON = 1, TUE, WED, THU, FRI, SAT, SUN };</code>.</p>
 <p>2. Write a program that prints whether a day is a weekday or weekend using <code>switch</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program defining an <code>enum UserRole { ROLE_GUEST, ROLE_USER, ROLE_ADMIN };</code>. Write a function <code>void checkAccess(UserRole role)</code> that displays access privileges based on the role.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="06-conditionals.html">Conditionals</a></li></p>
+<p>  <li><a href="06-conditionals/index.html">Conditionals</a></li></p>
 <p>  <li><a href="14-structures.html">Structures</a></li></p>
 <p>  <li><a href="15-unions-and-bit-fields.html">Unions and Bit Fields</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="15-unions-and-bit-fields.html">← Previous: Unions</a> | <a href="17-file-handling.html">Next: File Handling →</a></p>
 

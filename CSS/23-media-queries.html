@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,29 +110,37 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Media Queries & Container Queries</h1>
+<h1>Media Queries & Container Queries
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Media Queries (<code>@media</code>):</strong> Apply conditional CSS rules based on device features, viewport width, screen resolution, orientation, or user color preferences (<code>prefers-color-scheme</code>).</li></p>
 <p>  <li><strong>Container Queries (<code>@container</code>):</strong> Modern CSS feature that applies styles based on the size of a parent container element rather than global viewport dimensions.</li></p>
 <p></ul></p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Media Queries (<code>@media</code>) adapt layouts based on global screen viewport size. Container Queries (<code>@container</code>) adapt child component styles based on parent container width.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Media Queries (<code>@media</code>) global screen viewport size ke hisaab se styles badalti hain. Container Queries (<code>@container</code>) parent container box ki chaudaai ke hisaab se component ko responsive banati hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Media Queries (<code>@media</code>) screen size nusar style badaltat. Container Queries parent box chya akara var avlambun aastat.</p>
 
-<h2>🤔 Why Do We Use Media and Container Queries?</h2>
+<h2>🤔 Why Do We Use Media and Container Queries?
+</h2>
 
 <p>Web components (like cards or widgets) often appear in multiple places on a page: in a wide main section, or in a narrow sidebar.</p>
 <ul>
@@ -140,7 +148,8 @@
 <p>  <li><strong>Container Queries:</strong> Reformat a component based on how much width its immediate parent container gives it, making UI components truly modular and self-contained.</li></p>
 <p></ul></p>
 
-<h2>📝 Common Viewport Breakpoints Guide</h2>
+<h2>📝 Common Viewport Breakpoints Guide
+</h2>
 
 <p>While breakpoints should ideally fit content needs, standard device category thresholds include:</p>
 
@@ -154,9 +163,11 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Code Examples</h2>
+<h2>💻 Code Examples
+</h2>
 
-<h3>1. Viewport Media Queries (<code>@media</code>)</h3>
+<h3>1. Viewport Media Queries (<code>@media</code>)
+</h3>
 
 <pre><code class="language-css">/* Base Mobile Styles (1 Column) */
 <p>.card-list {</p>
@@ -179,7 +190,8 @@
 <p>  }</p>
 <p>}</code></pre></p>
 
-<h3>2. Container Queries (<code>@container</code>)</h3>
+<h3>2. Container Queries (<code>@container</code>)
+</h3>
 
 <p>To use container queries, declare a container context on the parent using <code>container-type</code>:</p>
 
@@ -203,7 +215,8 @@
 <p>  }</p>
 <p>}</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -280,34 +293,40 @@
 <p>  }</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>When <code>.card-container</code> width is less than 450px, the profile card renders as a vertical stack. Once the container width expands to 450px or wider, it seamlessly transitions into a horizontal side-by-side row layout.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Resize your browser window and watch the card transition smoothly.</p>
 <p>2. Put the same <code>.profile-card</code> inside a narrow sidebar (<code>width: 300px</code>) and watch it remain gracefully in vertical stacked mode regardless of screen width!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting <code>container-type: inline-size</code> on the parent:</strong> Container queries require <code>container-type</code> declared on the parent element.</li></p>
 <p>  <li><strong>Overusing desktop-first <code>max-width</code> queries:</strong> Mobile-first <code>min-width</code> queries lead to cleaner, less repetitive stylesheets.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Media queries format mobile navigation drawers, while Container Queries allow design systems (like Material Design or Shopify storefronts) to distribute self-contained UI components into sidebars or main feeds automatically.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
 <p>  <li><a href="41-css-architecture-and-dark-mode.html">CSS Architecture & Dark Mode</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li><code>@media (min-width: 768px)</code> targets global viewport window width.</li></p>
@@ -315,7 +334,8 @@
 <p>  <li>Always declare <code>container-type: inline-size</code> on container query parent elements.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="22-responsive-design.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="24-pseudo-classes.html">Next →</a></p>
 

@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>CSS Syntax & Rules</h1>
+<h1>CSS Syntax & Rules
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>CSS Rule Set</strong> consists of a <strong>Selector</strong> pointing to HTML elements, followed by a <strong>Declaration Block</strong> enclosed in curly braces <code>{}</code> containing individual <strong>Declarations</strong> made of a <strong>Property</strong> and a <strong>Value</strong> ending with a semicolon <code>;</code>.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>CSS rule syntax: <code>selector { property: value; }</code>. Always end property declarations with a semicolon <code>;</code> and wrap rules inside <code>{}</code> braces.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>CSS syntax structure: <code>selector { property: value; }</code>. Har declaration ke baad semicolon <code>;</code> lagana compulsory hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>CSS syntax structure: <code>selector { property: value; }</code>. Pratyek declaration nantar semicolon <code>;</code> lavne avashyak aahe.</p>
 
-<h2>🤔 Why Is Correct Syntax Mandatory?</h2>
+<h2>🤔 Why Is Correct Syntax Mandatory?
+</h2>
 
 <p>Computers and browser rendering engines require precise syntax rules. Missing a single semicolon or curly brace can break subsequent CSS declarations across an entire stylesheet.</p>
 
-<h2>📝 Anatomy of a CSS Rule</h2>
+<h2>📝 Anatomy of a CSS Rule
+</h2>
 
 <pre><code class="language-css">selector {
 <p>  property: value;</p>
@@ -146,7 +155,8 @@
 <p>  text-align: center;</p>
 <p>}</code></pre></p>
 
-<h2>📚 Rule Components Breakdown</h2>
+<h2>📚 Rule Components Breakdown
+</h2>
 
 <table>
 <p>  <thead><tr><th>Component</th><th>Definition</th><th>Example in <code>color: red;</code></th></tr></thead></p>
@@ -160,7 +170,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Examples</h2>
+<h2>💻 Examples
+</h2>
 
 <pre><code class="language-css">/* Styling body defaults */
 <p>body {</p>
@@ -178,7 +189,8 @@
 <p>  padding: 20px;</p>
 <p>}</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -213,17 +225,20 @@
 <p>  margin-top: 0;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A neatly formatted green box centered horizontally on the page containing styled heading and text.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Remove the semicolon <code>;</code> after <code>color: #2e7d32</code> in <code>style.css</code>.</p>
 <p>2. Add another property <code>font-size: 24px;</code> immediately below it.</p>
 <p>3. Observe how the missing semicolon breaks the syntax parsing in your browser!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Omitting the semicolon <code>;</code>:</strong> <code>color: red font-size: 20px;</code> breaks parsing for <code>font-size</code>.</li></p>
@@ -231,11 +246,13 @@
 <p>  <li><strong>Forgetting closing brace <code>}</code>:</strong> Causes all following CSS rules to be swallowed into the unclosed block.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Developers format CSS rules with clean indentation and spacing (often automated using formatters like Prettier) to ensure syntax readability across engineering teams.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="07-css-comments.html">CSS Comments</a></li></p>
@@ -243,7 +260,8 @@
 <p>  <li><a href="09-specificity.html">Specificity, Cascade & Inheritance</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Format: <code>selector { property: value; }</code>.</li></p>
@@ -252,7 +270,8 @@
 <p>  <li>Curly braces <code>{}</code> group declaration blocks.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="05-how-to-add-css.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="07-css-comments.html">Next →</a></p>
 

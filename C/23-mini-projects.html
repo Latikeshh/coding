@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,36 +90,47 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Comprehensive C Mini Projects</h1>
+<h1>Comprehensive C Mini Projects
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>This lesson presents <strong>Comprehensive C Mini Projects</strong> designed to synthesize all core C concepts — control flow, functions, pointers, dynamic memory allocation (<code>malloc</code>/<code>free</code>), structures (<code>struct</code>), file I/O (<code>FILE*</code>), error handling (<code>errno</code>), and modular architecture — into production-grade functional software.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Mini projects bridge theoretical C knowledge with real-world software development. By building applications of increasing complexity (Beginner: Menu-driven banking calculator, Intermediate: Inventory management system with struct arrays, Advanced: Persistent binary file database with dynamic memory allocation), learners gain practical muscle memory for low-level memory safety, file persistence, and robust error handling.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Mini projects C concepts ko practical software mein badalte hain. Teen alag difficulty levels ke projects (Beginner: Menu-driven calculator, Intermediate: Struct array inventory system, Advanced: Persistent binary file database with dynamic heap memory) ke zariye pointer safety, memory management, aur file handling ki strong practice hoti hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Mini projects mule shiklele C concepts kharya software madhye vaparta yetat. Teen difficulty levels (Beginner, Intermediate, Advanced) chya projects dware pointers, dynamic memory allocation (<code>malloc</code>/<code>free</code>), aani binary file handling chi changli practice hote.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Mini projects real C programming skills test karte hain. Beginner level par interactive console CLI logic, Intermediate level par structured record management, aur Advanced level par Heap memory allocation + binary file disk persistence synthesize hoti hai.</p>
 
 <p>---</p>
 
-<h2>🟢 PROJECT 1 (Beginner): Interactive Banking ATM Manager</h2>
+<h2>🟢 PROJECT 1 (Beginner): Interactive Banking ATM Manager
+</h2>
 
-<h3>🎯 Goal</h3>
+<h3>🎯 Goal
+</h3>
 <p>Build an interactive menu-driven CLI banking console that manages account balance, processes deposits and withdrawals with input validation, and enforces daily withdrawal limits.</p>
 
-<h3>🧠 Concepts Used</h3>
+<h3>🧠 Concepts Used
+</h3>
 <ul>
 <p>  <li>Input / Output (<code>printf</code>, <code>scanf</code>)</li></p>
 <p>  <li>Conditionals (<code>if-else</code>, <code>switch</code>)</li></p>
@@ -127,13 +138,15 @@
 <p>  <li>Functions & Pointers (<code>pass-by-address</code>)</li></p>
 <p></ul></p>
 
-<h3>📝 Requirements</h3>
+<h3>📝 Requirements
+</h3>
 <p>1. Display a menu with 4 choices: Check Balance, Deposit, Withdraw, Exit.</p>
 <p>2. Validate deposit/withdrawal inputs (reject negative or zero values).</p>
 <p>3. Reject withdrawals exceeding available account balance.</p>
 <p>4. Keep running until the user selects choice <code>4</code> (Exit).</p>
 
-<h3>💡 Complete Code Solution</h3>
+<h3>💡 Complete Code Solution
+</h3>
 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -222,12 +235,15 @@
 
 <p>---</p>
 
-<h2>🟡 PROJECT 2 (Intermediate): Student Record Management System</h2>
+<h2>🟡 PROJECT 2 (Intermediate): Student Record Management System
+</h2>
 
-<h3>🎯 Goal</h3>
+<h3>🎯 Goal
+</h3>
 <p>Build a structured Student Management System that manages student records using arrays of structures, calculates grade point averages (GPA), sorts students by GPA, and searches for students by ID.</p>
 
-<h3>🧠 Concepts Used</h3>
+<h3>🧠 Concepts Used
+</h3>
 <ul>
 <p>  <li>Structures & <code>typedef</code> (<code>struct Student</code>)</li></p>
 <p>  <li>Arrays of Structs</li></p>
@@ -236,12 +252,14 @@
 <p>  <li>String Manipulation (<code>fgets</code>, <code>strcspn</code>)</li></p>
 <p></ul></p>
 
-<h3>📝 Requirements</h3>
+<h3>📝 Requirements
+</h3>
 <p>1. Define a <code>Student</code> struct with fields: <code>id</code> (<code>int</code>), <code>name</code> (<code>char[40]</code>), <code>gpa</code> (<code>float</code>).</p>
 <p>2. Implement functions to Add Student, Display All Students, Search Student by ID, and Sort Students by GPA descending.</p>
 <p>3. Validate student inputs.</p>
 
-<h3>💡 Complete Code Solution</h3>
+<h3>💡 Complete Code Solution
+</h3>
 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 <p>#include &lt;string.h&gt;</p>
@@ -370,12 +388,15 @@
 
 <p>---</p>
 
-<h2>🔴 PROJECT 3 (Advanced): Persistent Binary File Database Engine with Dynamic Heap Resizing</h2>
+<h2>🔴 PROJECT 3 (Advanced): Persistent Binary File Database Engine with Dynamic Heap Resizing
+</h2>
 
-<h3>🎯 Goal</h3>
+<h3>🎯 Goal
+</h3>
 <p>Build a high-performance <strong>Persistent Binary File Database Engine</strong> in C that dynamically allocates memory on the Heap (<code>malloc</code>/<code>realloc</code>), resizes capacity automatically when full, serializes struct data directly to disk as binary files (<code>fwrite</code>/<code>fread</code>), and restores database state seamlessly across application restarts.</p>
 
-<h3>🧠 Concepts Used</h3>
+<h3>🧠 Concepts Used
+</h3>
 <ul>
 <p>  <li>Dynamic Memory Allocation (<code>malloc</code>, <code>realloc</code>, <code>free</code>)</li></p>
 <p>  <li>Binary File Persistence (<code>fopen</code>, <code>fwrite</code>, <code>fread</code>, <code>fclose</code>)</li></p>
@@ -384,14 +405,16 @@
 <p>  <li>Defensive Heap Guardrails (checking <code>NULL</code>, safe <code>realloc</code> temp pointer pattern)</li></p>
 <p></ul></p>
 
-<h3>📝 Requirements</h3>
+<h3>📝 Requirements
+</h3>
 <p>1. Store records in a dynamic array allocated on the Heap.</p>
 <p>2. Automatically expand Heap memory capacity using <code>realloc</code> when database limit is reached.</p>
 <p>3. Automatically load existing records from binary file <code>students.bin</code> at program startup.</p>
 <p>4. Automatically save records to <code>students.bin</code> upon user command or application exit.</p>
 <p>5. Safely deallocate Heap memory (<code>free</code>) without memory leaks.</p>
 
-<h3>💡 Complete Code Solution</h3>
+<h3>💡 Complete Code Solution
+</h3>
 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 <p>#include &lt;stdlib.h&gt;</p>
@@ -604,7 +627,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>Database* initDatabase(...)</code>: Allocates both the outer <code>Database</code> handle structure and the inner <code>StudentRecord</code> dynamic array on the Heap using <code>malloc</code>.</li></p>
@@ -613,7 +637,8 @@
 <p>  <li><code>freeDatabase(...)</code>: Explicitly deallocates inner array memory <code>free(db->records)</code> first, then deallocates outer structure <code>free(db)</code>.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=====================================================
 <p>   PERSISTENT BINARY FILE DATABASE ENGINE (ISO C11)  </p>
@@ -640,16 +665,19 @@
 
 <p>Database memory cleaned up cleanly. Program terminated normally.</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Compile and run Project 3 once. Notice that 3 records are saved to <code>students.bin</code>.</p>
 <p>2. Run Project 3 a second time. Notice that it restores the 3 existing records from <code>students.bin</code> at startup before adding new records!</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Extend Project 3 by adding a <code>deleteRecord(Database *db, int id)</code> function that searches for a student by ID, removes their record by shifting adjacent elements left, decreases <code>db->count</code>, and persists the updated records to disk.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="13-dynamic-memory-allocation.html">Dynamic Memory Allocation</a></li></p>
@@ -657,7 +685,8 @@
 <p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="22-error-handling.html">← Previous: Error Handling</a></p>
 

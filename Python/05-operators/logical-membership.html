@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logical, Identity & Membership Operators - Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">05 Operators</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators Overview</span></a></li>
+          <li class="nav-item"><a href="arithmetic-comparison.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arithmetic, Floor Division & Comparison</span></a></li>
+          <li class="nav-item"><a href="logical-membership.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Logical, Identity & Membership Operators</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Logical, Identity & Membership Operators in Python 3</h1>
+        <blockquote><p>🟢 Beginner Level | Pythonic Keywords</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>Python uses English keywords for <strong>Logical Operators</strong> (<code>and</code>, <code>or</code>, <code>not</code>). <strong>Identity Operators</strong> (<code>is</code>, <code>is not</code>) check memory object identity. <strong>Membership Operators</strong> (<code>in</code>, <code>not in</code>) test sequence membership.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Enables clear reading syntax for checking list/string contents and comparing object identities (such as checking `x is None`).</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Use <code>is</code> to check if two variables point to the exact same object memory location (`id(a) == id(b)`). Use <code>==</code> for value equality.</p>
+        <h3>Hindi</h3>
+        <p>Python mein <code>is</code> memory address check karta hai, <code>==</code> value check karta hai. <code>in</code> keyword membership test karta hai.</p>
+        <h3>Marathi</h3>
+        <p>Membership check sathi <code>in</code> keyword vaparate.</p>
+        <h3>Hinglish</h3>
+        <p>None check pattern: <code>if val is None:</code> Pythonic standard practice hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python"># Identity Test
+val = None
+if val is None:
+    print("Value is None")
+
+# Membership Test
+fruits = ["apple", "banana"]
+if "apple" in fruits:
+    print("Found apple!")</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>`A is B` compares `id(A) == id(B)` memory pointers.</li>
+          <li>`item in container` invokes `__contains__()` method on target sequence.</li>
+          <li>`and`/`or` perform truthy/falsy short-circuit evaluation returning object values.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Identity vs Equality & Membership</h3>
+        <pre><code class="language-python">list1 = [1, 2, 3]
+list2 = [1, 2, 3]
+
+print("Equal Values (==):", list1 == list2)
+print("Same Memory Object (is):", list1 is list2)
+print("Is 2 in list1?:", 2 in list1)</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Equal Values (==): True
+Same Memory Object (is): False
+Is 2 in list1?: True</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>list1 == list2</code>: Compares list elements for equality (True).</li>
+          <li><code>list1 is list2</code>: Compares memory object references (False, separate heap objects).</li>
+          <li><code>2 in list1</code>: Checks membership (True).</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Python caches small integers (-5 to 256) and short string literals, so `a = 100` and `b = 100` may evaluate `a is b` to `True` due to string interning!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Using `is` Instead of `==` for Value Comparison:</strong> Writing <code>if name is "Latikesh"</code> relies on implementation-dependent string caching and fails on dynamic strings.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Filtering query result sets and checking dictionary key membership.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Test if `"py"` is in `"python"` using `in`.</li>
+          <li><strong>Intermediate:</strong> Write a check determining if a variable `val` is NOT None using `is not`.</li>
+          <li><strong>Advanced:</strong> Explain why `[1] == [1]` is True but `[1] is [1]` is False in Python.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>How to Add CSS (<code><link></code> Tag)</h1>
+<h1>How to Add CSS (<code><link></code> Tag)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Adding external CSS involves placing a <code><link></code> element inside the <code><head></code> section of an HTML document, specifying <code>rel="stylesheet"</code> and the file path in <code>href="style.css"</code>.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>The <code><link rel="stylesheet" href="style.css"></code> element connects HTML pages to external CSS stylesheets.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code><link rel="stylesheet" href="style.css"></code> tag HTML aur CSS files ko aapas mein jodta hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code><link></code> tag vaprun HTML ani CSS files ekmekanshi jodlya jaatat.</p>
 
-<h2>🤔 Why Is Proper Linking Important?</h2>
+<h2>🤔 Why Is Proper Linking Important?
+</h2>
 
 <p>If the <code><link></code> tag is omitted or has a broken file path, the browser will render plain unstyled HTML without applying any colors, fonts, or layouts.</p>
 
-<h2>📝 Syntax & Attributes Breakdown</h2>
+<h2>📝 Syntax & Attributes Breakdown
+</h2>
 
 <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</code></pre>
 
@@ -147,9 +156,11 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Examples</h2>
+<h2>💻 Examples
+</h2>
 
-<h3>Scenario 1: HTML and CSS in the same folder</h3>
+<h3>Scenario 1: HTML and CSS in the same folder
+</h3>
 <pre><code class="language-text">my-project/
 <p>├── index.html</p>
 <p>└── style.css</code></pre></p>
@@ -158,7 +169,8 @@
 <p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</p>
 <p>&lt;/head&gt;</code></pre></p>
 
-<h3>Scenario 2: CSS inside a <code>css</code> subfolder (Recommended Project Structure)</h3>
+<h3>Scenario 2: CSS inside a <code>css</code> subfolder (Recommended Project Structure)
+</h3>
 <pre><code class="language-text">my-project/
 <p>├── index.html</p>
 <p>└── css/</p>
@@ -168,7 +180,8 @@
 <p>  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</p>
 <p>&lt;/head&gt;</code></pre></p>
 
-<h2>🌐 Complete HTML + CSS Example</h2>
+<h2>🌐 Complete HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -211,17 +224,20 @@
 <p>  color: #28a745;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A centered white card component on a soft light-gray screen with a green heading title confirming that CSS loaded successfully.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code>css</code> subfolder in your project.</p>
 <p>2. Move <code>style.css</code> inside <code>css/style.css</code>.</p>
 <p>3. Update <code>href="style.css"</code> to <code>href="css/style.css"</code> in <code>index.html</code> and verify browser loading.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Incorrect file paths:</strong> Writing <code>href="style.css"</code> when the file is located inside <code>css/style.css</code>.</li></p>
@@ -229,11 +245,13 @@
 <p>  <li><strong>Typo in <code>rel</code> attribute:</strong> Writing <code>rel="styles"</code> or <code>rel="stylesheet.css"</code>.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Production websites often link multiple stylesheets (e.g. <code>reset.css</code>, <code>typography.css</code>, <code>components.css</code>, <code>main.css</code>) inside <code><head></code> to maintain modular, scalable web design.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="01-setup-css.html">Set Up CSS Environment</a></li></p>
@@ -241,15 +259,17 @@
 <p>  <li><a href="34-devtools.html">Browser Developer Tools for CSS</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
-<p>  <li>Place <code><link rel="stylesheet" href="..."></code> inside <code><head></code>.</li></p>
+<p>  <li>Place <code>&lt;link rel="stylesheet" href="..."&gt;</code> inside <code>&lt;head&gt;</code>.</li></p>
 <p>  <li>Double-check file subfolder paths in <code>href="..."</code>.</li></p>
 <p>  <li>Open DevTools Network tab (<code>F12</code>) to verify if <code>style.css</code> returns HTTP status <code>200 OK</code>.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="04-types-of-css.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="06-css-syntax.html">Next →</a></p>
 

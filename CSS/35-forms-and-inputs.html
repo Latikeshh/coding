@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,37 +110,47 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Styling Forms & Inputs</h1>
+<h1>Styling Forms & Inputs
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Styling HTML form controls (<code><input></code>, <code><textarea></code>, <code><select></code>, <code><button></code>, <code><fieldset></code>) transforms browser default form elements into attractive, accessible, and responsive user interface controls using <code>padding</code>, <code>border-radius</code>, custom focus states (<code>:focus-visible</code>), and validation states (<code>:invalid</code>, <code>:disabled</code>).</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Style form controls using <code>box-sizing: border-box</code>, <code>padding</code>, <code>border-radius</code>, and custom focus rings (<code>:focus-visible</code>) for web accessibility.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Form input fields ko style karne ke liye <code>box-sizing: border-box</code>, <code>padding</code>, <code>border-radius</code> ka use karein aur accessibility ke liye custom <code>:focus</code> outline dein.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Input fields na <code>padding</code>, <code>border-radius</code> ani <code>:focus</code> state deun form aakarshak ani sahaj vaparnya-saraka banvava.</p>
 
-<h2>🤔 Why Do We Style Forms?</h2>
+<h2>🤔 Why Do We Style Forms?
+</h2>
 
 <p>Default browser form inputs look dated and vary significantly between operating systems (Windows vs. iOS vs. Android). Custom CSS form styling establishes consistent brand aesthetics and improves usability by increasing touch target padding.</p>
 
-<h2>🧱 Key Form Styling Rules</h2>
+<h2>🧱 Key Form Styling Rules
+</h2>
 
 <p>1. <strong>Apply <code>box-sizing: border-box</code>:</strong> Ensures <code>width: 100%</code> inputs do not overflow parent form containers when padding is added.</p>
 <p>2. <strong>Increase Padding & Touch Targets:</strong> Set at least <code>10px</code>–<code>14px</code> padding inside text boxes so text doesn't touch border edges.</p>
 <p>3. <strong>Custom Accessible Focus States:</strong> Style <code>:focus-visible</code> to highlight active inputs when focused by keyboard <code>Tab</code> navigation.</p>
 <p>4. <strong>Style Placeholder Text:</strong> Use <code>::placeholder</code> to set subtle, readable contrast hint text.</p>
 
-<h2>📝 Syntax & Code Structure</h2>
+<h2>📝 Syntax & Code Structure
+</h2>
 
 <pre><code class="language-css">/* Base Form Control Reset */
 <p>input[type=&quot;text&quot;],</p>
@@ -173,7 +183,8 @@
 <p>  color: #9ca3af;</p>
 <p>}</code></pre></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -298,26 +309,31 @@
 <p>  background-color: #1d4ed8;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A modern contact form with spacious text inputs, a dropdown select box, a message textarea, and interactive blue focus halo rings when input boxes are clicked or tabbed into.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>Press the <code>Tab</code> key repeatedly in your browser to navigate through the form inputs and observe the glowing blue <code>:focus-visible</code> halo rings!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Removing focus outlines without replacement (<code>outline: none</code>):</strong> Prevents keyboard users from knowing which input box is currently active. Always provide a custom focus style (like <code>box-shadow</code> or <code>border-color</code>).</li></p>
 <p>  <li><strong>Forgetting <code>display: block</code> on <code><label></code>:</strong> Causes labels to sit awkwardly beside text boxes instead of stacking neatly above them.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>E-commerce checkout forms and login modals use custom CSS form styling, floating labels, and instant validation indicators (<code>:invalid</code>) to guide users smoothly.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="24-pseudo-classes.html">Pseudo-classes</a></li></p>
@@ -325,7 +341,8 @@
 <p>  <li><a href="38-mini-projects.html">CSS Mini Projects</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Use <code>box-sizing: border-box</code> so inputs with <code>width: 100%</code> fit inside parent containers.</li></p>
@@ -333,7 +350,8 @@
 <p>  <li>Always provide accessible <code>:focus-visible</code> halo rings for keyboard navigation.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="34-devtools.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="36-card-layout.html">Next →</a></p>
 

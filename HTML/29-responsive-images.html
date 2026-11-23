@@ -64,7 +64,7 @@
   <li class="nav-item"><a href="08-images.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Images, `<figure>`, & `<picture>`</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists (`<ul>`, `<ol>`, `<dl>`)</span></a></li>
   <li class="nav-item"><a href="10-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tables (`<table>`, `<thead>`, `<tbody>`, `<caption>`)</span></a></li>
-  <li class="nav-item"><a href="11-forms.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Forms (`<form>`, `<label>`, `action`, `method`)</span></a></li>
+  <li class="nav-item"><a href="11-forms/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Forms (`<form>`, `<label>`, `action`, `method`)</span></a></li>
   <li class="nav-item"><a href="12-input-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input Types (`text`, `email`, `password`, `date`, etc.)</span></a></li>
   <li class="nav-item"><a href="13-buttons.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Buttons (`<button>`, `type="submit"`, `type="button"`)</span></a></li>
   <li class="nav-item"><a href="14-div-and-span.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Generic Containers (`<div>` and `<span>`)</span></a></li>
@@ -99,30 +99,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Responsive Images & Art Direction (<code><picture></code>, <code>srcset</code>, <code>sizes</code>, <code>loading="lazy"</code>)</h1>
+<h1>Responsive Images & Art Direction (<code><picture></code>, <code>srcset</code>, <code>sizes</code>, <code>loading="lazy"</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Responsive Images</strong> in HTML enable web browsers to select and download the optimal image file based on a device's screen size, display resolution (pixel density), and layout width. This is achieved using the <strong><code>srcset</code></strong> and <strong><code>sizes</code></strong> attributes on <code><img></code> elements, the <strong><code><picture></code></strong> element for art direction, and performance attributes like <strong><code>loading="lazy"</code></strong>.</p>
 
-<h2>🌍 Multilingual Summary</h2>
+<h2>🌍 Multilingual Summary
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Responsive images serve optimal image files using <code>srcset</code> and <code>sizes</code> for resolution density, <code><picture></code> for media query art direction, and <code>loading="lazy"</code> for performance optimization.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Responsive images device screen size aur pixel density ke according standard image choose karte hain using <code>srcset</code>, <code>sizes</code>, <code><picture></code> tag, aur <code>loading="lazy"</code> for fast page loading.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Responsive images screen size ani pixel density nusar yogy photo download kartat. Yasathi <code>srcset</code>, <code>sizes</code>, <code><picture></code> tag, ani <code>loading="lazy"</code> vapartat.</p>
 
-<h2>🤔 Why Do We Use Responsive Images?</h2>
+<h2>🤔 Why Do We Use Responsive Images?
+</h2>
 
 <p>Serving a huge 4000px desktop banner to a mobile smartphone wastes mobile cellular data and slows down page load speed. Conversely, serving a small mobile thumbnail to a 4K desktop monitor results in blurry images. Responsive images deliver fast page loading, saved bandwidth, and sharp visual quality across all devices.</p>
 
-<h2>📐 Method 1: Resolution Switching with <code>srcset</code> & <code>sizes</code></h2>
+<h2>📐 Method 1: Resolution Switching with <code>srcset</code> & <code>sizes</code>
+</h2>
 
 <p>The <code>srcset</code> attribute provides a list of image file sources paired with their intrinsic pixel widths (<code>w</code>), while <code>sizes</code> tells the browser how wide the image will render at different viewport breakpoints:</p>
 
@@ -141,7 +150,8 @@
 
 <p>How it works: The browser inspects device screen width and pixel density, consults <code>sizes</code>, and automatically downloads only the most appropriate image source file from <code>srcset</code>.</p>
 
-<h2>🖼️ Method 2: Art Direction with <code><picture></code> & <code><source></code></h2>
+<h2>🖼️ Method 2: Art Direction with <code><picture></code> & <code><source></code>
+</h2>
 
 <p>Use <code><picture></code> when you want to serve <strong>completely different cropped images or file formats</strong> (e.g. WebP/AVIF vs JPG) depending on screen width media queries:</p>
 
@@ -159,14 +169,16 @@
 <p>  &lt;img src=&quot;images/hero-mobile-portrait.jpg&quot; alt=&quot;Team meeting around a conference table&quot; width=&quot;400&quot; height=&quot;500&quot; loading=&quot;lazy&quot;&gt;</p>
 <p>&lt;/picture&gt;</code></pre></p>
 
-<h2>⚡ Performance Optimization Attributes</h2>
+<h2>⚡ Performance Optimization Attributes
+</h2>
 
 <ul>
 <p>  <li><strong><code>loading="lazy"</code>:</strong> Defers downloading images located off-screen until the user scrolls near them, reducing initial page load time and saving bandwidth.</li></p>
 <p>  <li><strong><code>decoding="async"</code>:</strong> Allows browsers to decode image bytes asynchronously off the main thread, preventing UI stuttering.</li></p>
 <p></ul></p>
 
-<h2>💻 Code Example</h2>
+<h2>💻 Code Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -191,34 +203,40 @@
 <p>&lt;/body&gt;</p>
 <p>&lt;/html&gt;</code></pre></p>
 
-<h2>👀 Output / What You Will See</h2>
+<h2>👀 Output / What You Will See
+</h2>
 
 <p>On mobile screens, the browser renders the compact mobile image crop (<code>nature-mobile.jpg</code>). On wide desktop screens, it automatically loads the high-resolution desktop banner (<code>nature-desktop.jpg</code>).</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Build a <code><picture></code> element with two <code><source></code> tags using <code>media="(min-width: 768px)"</code> for desktop and fallback <code><img></code> for mobile.</p>
 <p>2. Add <code>loading="lazy"</code> and explicit <code>width</code>/<code>height</code> attributes to prevent layout shifts.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting fallback <code><img></code> inside <code><picture></code>:</strong> Without a fallback <code><img></code>, the <code><picture></code> element renders nothing if media queries fail or browser support is limited.</li></p>
 <p>  <li><strong>Forgetting <code>width</code> and <code>height</code>:</strong> Causes Cumulative Layout Shift (CLS) as images load into the viewport.</li></p>
 <p></ul></p>
 
-<h2>🌐 Real-World Usage</h2>
+<h2>🌐 Real-World Usage
+</h2>
 
 <p>E-commerce stores, news publishers, and photography portals use responsive images with WebP/AVIF formats and lazy loading for maximum speed and performance.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="08-images.html">Images</a></li></p>
 <p>  <li><a href="23-html5-features.html">Modern HTML5 Features</a></li></p>
 <p></ul></p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <ul>
 <p>  <li>Use <code>srcset</code> and <code>sizes</code> for resolution density switching.</li></p>
@@ -227,7 +245,8 @@
 <p>  <li>Add <code>loading="lazy"</code> for off-screen images.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="28-advanced-form-controls.html">← Previous: Advanced Form Controls</a> | <a href="./">HTML Home</a> | <a href="30-interactive-elements.html">Next: Interactive Elements →</a></p>
 

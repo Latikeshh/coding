@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,13 +90,16 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Fixed Arrays vs Dynamic <code>std::vector</code> in C++</h1>
+<h1>Fixed Arrays vs Dynamic <code>std::vector</code> in C++
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In C++, sequence storage is available in two primary formats:</p>
 <p>1. <strong>C-Style Fixed Arrays</strong>: Continuous contiguous memory blocks of a fixed size determined at compile time (<code>int arr[5]</code>).</p>
@@ -104,7 +107,8 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <ul>
 <p>  <li><strong>Fixed Array (<code>int arr[5]</code>)</strong>: Iska size fixed hota hai aur ise baad mein badha ya ghata nahi sakte. Memory stack mein allocate hoti hai.</li></p>
@@ -113,7 +117,8 @@
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <ul>
 <p>  <li><strong>Fixed Array (<code>int arr[5]</code>)</strong>: Yacha size tharlela asto aani badalta yet nahi.</li></p>
@@ -122,7 +127,8 @@
 
 <p>---</p>
 
-<h2>📊 Feature Comparison Table</h2>
+<h2>📊 Feature Comparison Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th>Fixed C-Style Array</th><th><code>std::vector</code></th></tr></thead></p>
@@ -138,7 +144,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;vector&gt;</p>
@@ -186,7 +193,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>#include <vector></code>: Required header for utilizing <code>std::vector</code>.</li></p>
@@ -197,7 +205,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. C-STYLE FIXED ARRAY ---
 <p>Fixed Array [0] = 10</p>
@@ -213,7 +222,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Out-Of-Bounds Memory Access (<code>arr[10]</code> on a size-3 array)</strong>:</li></p>
@@ -225,7 +235,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Prefer <code>std::vector</code> over C-style arrays for almost all dynamic sequence needs in modern C++.</li></p>
@@ -234,31 +245,35 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code>std::vector<double></code> containing 5 student test scores, then calculate and print their average score.</p>
 <p>2. Reverse the order of elements in a vector using <code>std::reverse(vec.begin(), vec.end())</code> from <code><algorithm></code>.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that inputs numbers from a user one by one into a <code>std::vector<int></code> until the user enters <code>-1</code>. Then print the minimum, maximum, and total sum of all entered numbers.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="07-loops.html">Loops in C++</a></li></p>
+<p>  <li><a href="07-loops/index.html">Loops in C++</a></li></p>
 <p>  <li><a href="15-stl-containers.html">STL Containers</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="./">← C++ Home</a> | <a href="08-functions.html">← Previous: Functions</a> | <a href="10-classes-and-oops.html">Next: Classes & OOP →</a></p>
+<p><a href="./">← C++ Home</a> | <a href="08-functions/index.html">← Previous: Functions</a> | <a href="10-classes-and-oops.html">Next: Classes & OOP →</a></p>
 
 
       </div>

@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,11 +97,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>⚙️ MySQL Stored Procedures & Functions</h1>
+<h1>⚙️ MySQL Stored Procedures & Functions
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In MySQL, <strong>Stored Procedures</strong> and <strong>Stored Functions</strong> are named SQL routines created and compiled directly inside the database server. They encapsulate reusable business logic, multi-step queries, transaction blocks, and data modifications into clean, executable database routines.</p>
 
@@ -114,7 +117,8 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi (Roman Script)</h2>
+<h2>🇮🇳 Hindi (Roman Script)
+</h2>
 
 <p>Database server ke andar save kiye gaye reusable SQL routines ko <strong>Stored Procedures</strong> aur <strong>Stored Functions</strong> kehte hain:</p>
 <ul>
@@ -125,7 +129,8 @@
 
 <p>---</p>
 
-<h2>🚩 Marathi (Roman Script)</h2>
+<h2>🚩 Marathi (Roman Script)
+</h2>
 
 <p>Database server madhye save kelelya reusable SQL routines la <strong>Stored Procedures</strong> aani <strong>Stored Functions</strong> mhanat:</p>
 <ul>
@@ -136,7 +141,8 @@
 
 <p>---</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Encapsulating SQL logic into database routines offers key software architecture benefits:</p>
 
@@ -148,7 +154,8 @@
 
 <p>---</p>
 
-<h2>🧠 Simple Analogy: The Coffee Vending Machine</h2>
+<h2>🧠 Simple Analogy: The Coffee Vending Machine
+</h2>
 
 <p>Think of SQL execution as an <strong>Office Coffee Machine</strong>:</p>
 
@@ -159,7 +166,8 @@
 
 <p>---</p>
 
-<h2>📊 Stored Procedures vs Stored Functions Matrix</h2>
+<h2>📊 Stored Procedures vs Stored Functions Matrix
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th>Stored Procedure (<code>CREATE PROCEDURE</code>)</th><th>Stored Function (<code>CREATE FUNCTION</code>)</th></tr></thead></p>
@@ -174,7 +182,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Understanding the MySQL <code>DELIMITER</code> Command</h2>
+<h2>🛠️ Understanding the MySQL <code>DELIMITER</code> Command
+</h2>
 
 <p>When writing stored routines in a MySQL Command-Line Client, MySQL Workbench, or DBeaver, individual SQL statements inside the <code>BEGIN ... END</code> block end with semicolons <code>;</code>. </p>
 
@@ -194,11 +203,13 @@
 <p>-- 3. Execute procedure</p>
 <p>CALL HelloWorld();</code></pre></p>
 
-<blockquote><p>🌐 <strong>phpMyAdmin GUI Notice:</strong> When creating routines in <strong>phpMyAdmin</strong>, if you use the web "Routines" GUI editor, phpMyAdmin provides a dedicated <strong>Delimiter</strong> input box below the text editor. You do not need to wrap your code in <code>DELIMITER //</code> when using phpMyAdmin's GUI Routine Form.</p></blockquote>
+<blockquote><p>🌐 <strong>phpMyAdmin GUI Notice:</strong> When creating routines in <strong>phpMyAdmin</strong>, if you use the web "Routines" GUI editor, phpMyAdmin provides a dedicated <strong>Delimiter</strong> input box below the text editor. You do not need to wrap your code in <code>DELIMITER //</code> when using phpMyAdmin's GUI Routine Form.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🏗️ Reproducible MySQL Setup Dataset (<code>employees</code> & <code>orders</code>)</h2>
+<h2>🏗️ Reproducible MySQL Setup Dataset (<code>employees</code> & <code>orders</code>)
+</h2>
 
 <p>Let's set up a clean, reproducible dataset containing <code>employees</code> and <code>orders</code> tables:</p>
 
@@ -237,7 +248,8 @@
 
 <p>---</p>
 
-<h2>1. ⚙️ Basic Stored Procedure (<code>IN</code> Parameter)</h2>
+<h2>1. ⚙️ Basic Stored Procedure (<code>IN</code> Parameter)
+</h2>
 
 <p>Let's create a procedure that accepts a department name as an <strong><code>IN</code> parameter</strong> and retrieves matching employees:</p>
 
@@ -255,7 +267,8 @@
 <p>-- Calling the procedure</p>
 <p>CALL GetEmployeesByDept(&#39;Engineering&#39;);</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+--------+------------+-------------+----------+
 <table>
@@ -274,7 +287,8 @@
 
 <p>---</p>
 
-<h2>2. 🔄 Parameter Modes: <code>IN</code>, <code>OUT</code>, and <code>INOUT</code></h2>
+<h2>2. 🔄 Parameter Modes: <code>IN</code>, <code>OUT</code>, and <code>INOUT</code>
+</h2>
 
 <p>MySQL stored procedures support three distinct parameter modes:</p>
 
@@ -284,7 +298,8 @@
 
 <p>---</p>
 
-<h3>A. Procedure with <code>OUT</code> Parameter</h3>
+<h3>A. Procedure with <code>OUT</code> Parameter
+</h3>
 <p>Count employees in a department and return the result through an <code>OUT</code> parameter:</p>
 
 <pre><code class="language-sql">DELIMITER //
@@ -307,7 +322,8 @@
 <p>-- Inspect session variable output</p>
 <p>SELECT @dept_count AS engineering_staff_count;</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+-----------------------+
 <table>
@@ -325,7 +341,8 @@
 
 <p>---</p>
 
-<h3>B. Procedure with <code>INOUT</code> Parameter</h3>
+<h3>B. Procedure with <code>INOUT</code> Parameter
+</h3>
 <p>Accept an initial numeric value, apply a 10% raise, and return the updated value:</p>
 
 <pre><code class="language-sql">DELIMITER //
@@ -346,7 +363,8 @@
 
 <p>SELECT @my_salary AS salary_after_bonus;</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+--------------------+
 <table>
@@ -362,11 +380,13 @@
 <p></table></p>
 <p>+--------------------+</code></pre></p>
 
-<blockquote><p>💡 <strong>Session Variables vs Local Variables:</strong> Variables prefixed with <code>@</code> (e.g. <code>@my_salary</code>) are <strong>Session Variables</strong> accessible throughout the connection. Variables declared inside a procedure with <code>DECLARE var_name data_type;</code> are <strong>Local Variables</strong> destroyed when the procedure finishes execution.</p></blockquote>
+<blockquote><p>💡 <strong>Session Variables vs Local Variables:</strong> Variables prefixed with <code>@</code> (e.g. <code>@my_salary</code>) are <strong>Session Variables</strong> accessible throughout the connection. Variables declared inside a procedure with <code>DECLARE var_name data_type;</code> are <strong>Local Variables</strong> destroyed when the procedure finishes execution.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>3. 🧮 MySQL Stored Functions (<code>CREATE FUNCTION</code>)</h2>
+<h2>3. 🧮 MySQL Stored Functions (<code>CREATE FUNCTION</code>)
+</h2>
 
 <p>Unlike stored procedures, a <strong>Stored Function</strong> returns a single scalar value and can be called directly inside <code>SELECT</code> queries.</p>
 
@@ -388,7 +408,8 @@
 <p>    CalculateTax(salary, 0.18) AS estimated_tax</p>
 <p>FROM employees;</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+------------+----------+---------------+
 <table>
@@ -407,14 +428,19 @@
 <p></table></p>
 <p>+------------+----------+---------------+</code></pre></p>
 
-<blockquote><p>🌐 <strong>MySQL Binary Logging & <code>DETERMINISTIC</code> Rule:</strong></p></blockquote>
-<blockquote><p>In MySQL, stored functions require declaring a deterministic characteristic (<code>DETERMINISTIC</code>, <code>READS SQL DATA</code>, or <code>NO SQL</code>).</p></blockquote>
-<blockquote><p>- <strong><code>DETERMINISTIC</code>:</strong> Declares that the function always returns the exact same result given identical input parameters.</p></blockquote>
-<blockquote><p>- If binary logging is enabled on your server, creating functions without declaring <code>DETERMINISTIC</code> or setting <code>SET GLOBAL log_bin_trust_function_creators = 1;</code> throws <code>ERROR 1418 (HY000)</code>.</p></blockquote>
+<blockquote><p>🌐 <strong>MySQL Binary Logging & <code>DETERMINISTIC</code> Rule:</strong>
+</p></blockquote>
+<blockquote><p>In MySQL, stored functions require declaring a deterministic characteristic (<code>DETERMINISTIC</code>, <code>READS SQL DATA</code>, or <code>NO SQL</code>).
+</p></blockquote>
+<blockquote><p>- <strong><code>DETERMINISTIC</code>:</strong> Declares that the function always returns the exact same result given identical input parameters.
+</p></blockquote>
+<blockquote><p>- If binary logging is enabled on your server, creating functions without declaring <code>DETERMINISTIC</code> or setting <code>SET GLOBAL log_bin_trust_function_creators = 1;</code> throws <code>ERROR 1418 (HY000)</code>.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>4. 🏢 Meaningful Business Procedure: Payment Processing Routine</h2>
+<h2>4. 🏢 Meaningful Business Procedure: Payment Processing Routine
+</h2>
 
 <p>Let's build a realistic order payment processor that updates order statuses conditionally and returns status messages:</p>
 
@@ -450,7 +476,8 @@
 
 <p>DELIMITER ;</code></pre></p>
 
-<h3>Testing Procedure Execution Scenarios:</h3>
+<h3>Testing Procedure Execution Scenarios:
+</h3>
 
 <pre><code class="language-sql">-- Scenario 1: Processing Pending Order #1001
 <p>CALL ProcessOrderPayment(1001, @msg1);</p>
@@ -464,21 +491,25 @@
 <p>CALL ProcessOrderPayment(9999, @msg3);</p>
 <p>SELECT @msg3 AS test_3_result;</code></pre></p>
 
-<h4>👀 Expected Execution Results:</h4>
+<h4>👀 Expected Execution Results:
+</h4>
 
 <pre><code class="language-text">test_1_result: SUCCESS: Order payment processed successfully.
 <p>test_2_result: NOTICE: Order is already paid.</p>
 <p>test_3_result: ERROR: Order ID not found.</code></pre></p>
 
-<blockquote><p>📌 <strong>Real-World Payment Architecture Note:</strong> In production enterprise systems, database procedures update database transaction states, but actual credit card payment processing is handled by payment provider APIs (e.g. Stripe, Razorpay) prior to executing database status updates.</p></blockquote>
+<blockquote><p>📌 <strong>Real-World Payment Architecture Note:</strong> In production enterprise systems, database procedures update database transaction states, but actual credit card payment processing is handled by payment provider APIs (e.g. Stripe, Razorpay) prior to executing database status updates.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🔐 5. Transactions & Error Handling (<code>DECLARE ... HANDLER</code>)</h2>
+<h2>🔐 5. Transactions & Error Handling (<code>DECLARE ... HANDLER</code>)
+</h2>
 
 <p>Inside MySQL InnoDB stored procedures, use <code>DECLARE ... HANDLER</code> to catch SQL exceptions and automatically execute <code>ROLLBACK</code> when an error occurs.</p>
 
-<blockquote><p>🚨 <strong>MySQL Local Variable & Handler Declaration Order:</strong> In MySQL, all <code>DECLARE</code> statements (local variables, conditions, handlers, cursors) <strong>must appear at the very beginning</strong> of the <code>BEGIN ... END</code> block before any executable SQL statements (<code>START TRANSACTION</code>, <code>SELECT</code>, <code>UPDATE</code>). Placing <code>DECLARE</code> after an <code>UPDATE</code> statement causes <code>ERROR 1064</code>.</p></blockquote>
+<blockquote><p>🚨 <strong>MySQL Local Variable & Handler Declaration Order:</strong> In MySQL, all <code>DECLARE</code> statements (local variables, conditions, handlers, cursors) <strong>must appear at the very beginning</strong> of the <code>BEGIN ... END</code> block before any executable SQL statements (<code>START TRANSACTION</code>, <code>SELECT</code>, <code>UPDATE</code>). Placing <code>DECLARE</code> after an <code>UPDATE</code> statement causes <code>ERROR 1064</code>.
+</p></blockquote>
 
 <pre><code class="language-sql">DELIMITER //
 
@@ -511,7 +542,8 @@
 
 <p>---</p>
 
-<h2>🔒 6. Routine Security & Execution Privileges</h2>
+<h2>🔒 6. Routine Security & Execution Privileges
+</h2>
 
 <p>MySQL routines include security attributes that control execution privileges:</p>
 
@@ -527,11 +559,13 @@
 <p>    SELECT * FROM orders;</p>
 <p>END;</code></pre></p>
 
-<blockquote><p>🛡️ <strong>Least Privilege Principle:</strong> Use <code>SQL SECURITY INVOKER</code> whenever possible so queries inside the routine cannot bypass table permissions granted to the calling user.</p></blockquote>
+<blockquote><p>🛡️ <strong>Least Privilege Principle:</strong> Use <code>SQL SECURITY INVOKER</code> whenever possible so queries inside the routine cannot bypass table permissions granted to the calling user.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🛠️ Common Mistakes & Troubleshooting</h2>
+<h2>🛠️ Common Mistakes & Troubleshooting
+</h2>
 
 <table>
 <p>  <thead><tr><th>Error Message / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
@@ -546,7 +580,8 @@
 
 <p>---</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <ul>
 <p>  <li><strong>E-Commerce Order Fulfillment:</strong> Encapsulating inventory checks, order status updates, and invoice generation inside single transaction procedures.</li></p>
@@ -556,31 +591,39 @@
 
 <p>---</p>
 
-<h2>🧪 Structured Practice Exercises</h2>
+<h2>🧪 Structured Practice Exercises
+</h2>
 
 <p>Follow these 6 progressive practice exercises using the <code>employees</code> and <code>orders</code> tables created above:</p>
 
-<h3>Exercise 1: Basic Procedure Creation</h3>
+<h3>Exercise 1: Basic Procedure Creation
+</h3>
 <p>Create a procedure <code>ListHREmployees()</code> that selects all employees working in the <code>'HR'</code> department.</p>
 
-<h3>Exercise 2: <code>OUT</code> Parameter Procedure</h3>
+<h3>Exercise 2: <code>OUT</code> Parameter Procedure
+</h3>
 <p>Create a procedure <code>GetSalaryByEmpId(IN p_id INT, OUT p_salary DECIMAL(10,2))</code> that returns an employee's salary through an <code>OUT</code> parameter.</p>
 
-<h3>Exercise 3: Stored Function Creation</h3>
+<h3>Exercise 3: Stored Function Creation
+</h3>
 <p>Create a stored function <code>CalculateBonus(salary DECIMAL(10,2))</code> that returns a 10% bonus amount (<code>salary * 0.10</code>). Declare it <code>DETERMINISTIC</code>.</p>
 
-<h3>Exercise 4: Function Invocation in <code>SELECT</code></h3>
+<h3>Exercise 4: Function Invocation in <code>SELECT</code>
+</h3>
 <p>Write a <code>SELECT</code> statement calling <code>CalculateBonus(salary)</code> for all employees in <code>employees</code>.</p>
 
-<h3>Exercise 5: Conditional Status Procedure</h3>
+<h3>Exercise 5: Conditional Status Procedure
+</h3>
 <p>Create a procedure <code>CancelOrder(IN p_order_id INT, OUT p_result VARCHAR(100))</code> that updates an order's status to <code>'CANCELLED'</code> if it is currently <code>'PENDING'</code>.</p>
 
-<h3>Exercise 6: Transaction Handler</h3>
+<h3>Exercise 6: Transaction Handler
+</h3>
 <p>Explain why <code>DECLARE EXIT HANDLER FOR SQLEXCEPTION</code> must appear at the top of a <code>BEGIN ... END</code> block.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge: Automated Payment Processor Routine</h2>
+<h2>🎯 Mini Challenge: Automated Payment Processor Routine
+</h2>
 
 <p>1. Ensure the <code>orders</code> table exists with <code>order_id</code>, <code>customer_name</code>, <code>total_amount</code>, and <code>order_status</code>.</p>
 <p>2. Write a stored procedure <code>ProcessPaymentChallenge(IN p_id INT, OUT p_out_msg VARCHAR(100))</code> that:</p>
@@ -595,9 +638,11 @@
 <details>
 <summary>🔍 Click to view Exercise Solutions & Answer Key</summary>
 
-<h3>Answer Key:</h3>
+<h3>Answer Key:
+</h3>
 
-<h4>Exercise 1 Solution:</h4>
+<h4>Exercise 1 Solution:
+</h4>
 <pre><code class="language-sql">DELIMITER //
 <p>CREATE PROCEDURE ListHREmployees()</p>
 <p>BEGIN</p>
@@ -606,7 +651,8 @@
 <p>DELIMITER ;</p>
 <p>-- Call: CALL ListHREmployees();</code></pre></p>
 
-<h4>Exercise 2 Solution:</h4>
+<h4>Exercise 2 Solution:
+</h4>
 <pre><code class="language-sql">DELIMITER //
 <p>CREATE PROCEDURE GetSalaryByEmpId(IN p_id INT, OUT p_salary DECIMAL(10,2))</p>
 <p>BEGIN</p>
@@ -615,7 +661,8 @@
 <p>DELIMITER ;</p>
 <p>-- Call: CALL GetSalaryByEmpId(101, @sal); SELECT @sal;</code></pre></p>
 
-<h4>Exercise 3 Solution:</h4>
+<h4>Exercise 3 Solution:
+</h4>
 <pre><code class="language-sql">DELIMITER //
 <p>CREATE FUNCTION CalculateBonus(salary DECIMAL(10,2))</p>
 <p>RETURNS DECIMAL(10,2)</p>
@@ -625,10 +672,12 @@
 <p>END //</p>
 <p>DELIMITER ;</code></pre></p>
 
-<h4>Exercise 4 Solution:</h4>
+<h4>Exercise 4 Solution:
+</h4>
 <pre><code class="language-sql">SELECT first_name, salary, CalculateBonus(salary) AS bonus_amount FROM employees;</code></pre>
 
-<h4>Exercise 5 Solution:</h4>
+<h4>Exercise 5 Solution:
+</h4>
 <pre><code class="language-sql">DELIMITER //
 <p>CREATE PROCEDURE CancelOrder(IN p_order_id INT, OUT p_result VARCHAR(100))</p>
 <p>BEGIN</p>
@@ -644,12 +693,14 @@
 <p>END //</p>
 <p>DELIMITER ;</code></pre></p>
 
-<h4>Exercise 6 Solution:</h4>
+<h4>Exercise 6 Solution:
+</h4>
 <ul>
 <p>  <li>In MySQL syntax, <code>DECLARE</code> statements define local routine scope and handlers, and parser rules require all <code>DECLARE</code> statements to be placed before any executable SQL statements (<code>UPDATE</code>, <code>SELECT</code>, <code>START TRANSACTION</code>).</li></p>
 <p></ul></p>
 
-<h4>Mini Challenge Solution:</h4>
+<h4>Mini Challenge Solution:
+</h4>
 
 <pre><code class="language-sql">DELIMITER //
 
@@ -690,7 +741,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="22-transactions.html">Transactions & ACID Properties</a></li></p>
@@ -700,7 +752,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="25-window-functions.html">← Previous: Window Functions</a> | <a href="./">SQL Home</a> | <a href="27-triggers.html">Next: Triggers →</a></p>
 

@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,37 +97,47 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Chapter 30 — Practical SQL Capstone Projects</h1>
+<h1>Chapter 30 — Practical SQL Capstone Projects
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition & Overview</h2>
+<h2>📖 Definition & Overview
+</h2>
 
 <p>A <strong>SQL Capstone Project</strong> brings together all database concepts—schema design, primary and foreign key constraints, normalized relationships, CRUD operations, multi-table joins, GROUP BY aggregations, subqueries, CTEs, window functions, views, indexes, transactions, and security controls—into complete, production-grade database systems.</p>
 
 <p>Building capstone projects moves you from writing isolated queries to architecting end-to-end data systems that power real-world applications like e-commerce platforms, financial ledgers, and inventory management portals.</p>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>Environment Target</strong>: The projects in this chapter target <strong>MySQL 8.0 or later</strong> (compatible with WampServer, phpMyAdmin, and MySQL Workbench). Enforced <code>CHECK</code> constraints require MySQL 8.0.16 or higher.</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>Environment Target</strong>: The projects in this chapter target <strong>MySQL 8.0 or later</strong> (compatible with WampServer, phpMyAdmin, and MySQL Workbench). Enforced <code>CHECK</code> constraints require MySQL 8.0.16 or higher.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Capstone projects demonstrate how all SQL concepts integrate together in real-world software engineering. By designing relational schemas, enforcing constraints, seeding realistic datasets, and writing analytical reporting queries, you build portfolio-ready database projects for your developer resume.</p>
 
-<h3>Hindi (Roman Script)</h3>
+<h3>Hindi (Roman Script)
+</h3>
 <p>SQLSeekhne ka sabse accha tareeka real-world capstone projects banana hai. Is chapter mein hum 3 complete projects banayenge: E-Commerce Platform, Banking & Transaction Ledger, aur Library Management System. Hum tables banayein ge, key constraints enforce karenge, sample data insert karenge, aur analytical reports generate karenge.</p>
 
-<h3>Marathi (Roman Script)</h3>
+<h3>Marathi (Roman Script)
+</h3>
 <p>SQL madhye mastery milvanyasathi real-world projects banavne garjeche ahe. Ya chapter madhye aapan 3 purna projects tayar karnar aahot: E-Commerce, Banking Transaction Ledger, aani Library Management. Schema design, key constraints, aani analytical queries cha vapar karun portfolio-ready projects tayar kara.</p>
 
 <p>---</p>
 
-<h2>🛠️ Prerequisite: Setup Guide for phpMyAdmin & WampServer</h2>
+<h2>🛠️ Prerequisite: Setup Guide for phpMyAdmin & WampServer
+</h2>
 
 <p>To execute the project scripts in phpMyAdmin or WampServer:</p>
 
@@ -137,14 +147,18 @@
 <p>4. Open the <strong>SQL</strong> tab.</p>
 <p>5. Paste the setup scripts and click <strong>Go</strong>.</p>
 
-<blockquote><p>[!WARNING]</p></blockquote>
-<blockquote><p><strong>Reset Script Caution</strong>: Project setup scripts include <code>DROP TABLE IF EXISTS</code> commands to allow clean, reproducible testing. Executing drop statements in a production database permanently deletes pre-existing tables and data!</p></blockquote>
+<blockquote><p>[!WARNING]
+</p></blockquote>
+<blockquote><p><strong>Reset Script Caution</strong>: Project setup scripts include <code>DROP TABLE IF EXISTS</code> commands to allow clean, reproducible testing. Executing drop statements in a production database permanently deletes pre-existing tables and data!
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🛒 Capstone Project 1: Complete E-Commerce Database</h2>
+<h2>🛒 Capstone Project 1: Complete E-Commerce Database
+</h2>
 
-<h3>1. Business Requirements & Schema Design</h3>
+<h3>1. Business Requirements & Schema Design
+</h3>
 <p>An e-commerce database requires tracking customers, product categories, physical products with stock quantities, customer orders, and line items.</p>
 
 <p>Key Business Rules:</p>
@@ -154,7 +168,8 @@
 <p>  <li><strong>Revenue Recognition</strong>: Completed revenue is defined as orders with status <code>'PAID'</code> or <code>'SHIPPED'</code>. Orders with status <code>'PENDING'</code> or <code>'CANCELLED'</code> do not count toward completed revenue.</li></p>
 <p></ul></p>
 
-<h3>2. Table Creation Script (In Dependency Order)</h3>
+<h3>2. Table Creation Script (In Dependency Order)
+</h3>
 
 <pre><code class="language-sql">-- Clean up pre-existing tables in reverse dependency order
 <p>DROP TABLE IF EXISTS order_items;</p>
@@ -211,7 +226,8 @@
 
 <p>---</p>
 
-<h3>3. E-Commerce Sample Seed Data</h3>
+<h3>3. E-Commerce Sample Seed Data
+</h3>
 
 <pre><code class="language-sql">-- Populate Customers (5 Customers; Customer 105 has 0 orders)
 <p>INSERT INTO customers (customer_id, first_name, last_name, email) VALUES</p>
@@ -267,9 +283,11 @@
 
 <p>---</p>
 
-<h3>4. E-Commerce Analytical Reports</h3>
+<h3>4. E-Commerce Analytical Reports
+</h3>
 
-<h4>Report A: Top Spending Customers (Completed Revenue)</h4>
+<h4>Report A: Top Spending Customers (Completed Revenue)
+</h4>
 <pre><code class="language-sql">SELECT 
 <p>    c.customer_id,</p>
 <p>    CONCAT(c.first_name, &#39; &#39;, c.last_name) AS customer_name,</p>
@@ -301,7 +319,8 @@
 
 <p>---</p>
 
-<h4>Report B: Category Revenue & Revenue Share Percentage (CTE & Window Functions)</h4>
+<h4>Report B: Category Revenue & Revenue Share Percentage (CTE & Window Functions)
+</h4>
 <pre><code class="language-sql">WITH category_revenue_summary AS (
 <p>    SELECT </p>
 <p>        cat.category_id,</p>
@@ -343,7 +362,8 @@
 
 <p>---</p>
 
-<h4>Report C: Products Never Ordered (<code>NOT EXISTS</code>)</h4>
+<h4>Report C: Products Never Ordered (<code>NOT EXISTS</code>)
+</h4>
 <pre><code class="language-sql">SELECT p.product_id, p.product_name, cat.category_name, p.price
 <p>FROM products AS p</p>
 <p>JOIN categories AS cat ON p.category_id = cat.category_id</p>
@@ -364,7 +384,8 @@
 
 <p>---</p>
 
-<h4>Report D: Inventory Stock Status Alert (<code>CASE</code> Statement)</h4>
+<h4>Report D: Inventory Stock Status Alert (<code>CASE</code> Statement)
+</h4>
 <pre><code class="language-sql">SELECT 
 <p>    p.product_id,</p>
 <p>    p.product_name,</p>
@@ -392,7 +413,8 @@
 
 <p>---</p>
 
-<h4>Report E: Complete Customer Order History Directory (<code>LEFT JOIN</code>)</h4>
+<h4>Report E: Complete Customer Order History Directory (<code>LEFT JOIN</code>)
+</h4>
 <pre><code class="language-sql">SELECT 
 <p>    c.customer_id,</p>
 <p>    CONCAT(c.first_name, &#39; &#39;, c.last_name) AS customer_name,</p>
@@ -417,9 +439,11 @@
 
 <p>---</p>
 
-<h2>🏦 Capstone Project 2: Banking & Transaction Ledger</h2>
+<h2>🏦 Capstone Project 2: Banking & Transaction Ledger
+</h2>
 
-<h3>1. Schema & Setup Script</h3>
+<h3>1. Schema & Setup Script
+</h3>
 
 <pre><code class="language-sql">DROP TABLE IF EXISTS account_transactions;
 <p>DROP TABLE IF EXISTS bank_accounts;</p>
@@ -463,9 +487,11 @@
 
 <p>---</p>
 
-<h3>2. Banking Reports</h3>
+<h3>2. Banking Reports
+</h3>
 
-<h4>Report A: Account Transaction Summary</h4>
+<h4>Report A: Account Transaction Summary
+</h4>
 <pre><code class="language-sql">SELECT 
 <p>    b.account_number,</p>
 <p>    b.holder_name,</p>
@@ -490,7 +516,8 @@
 
 <p>---</p>
 
-<h3>3. Safe Transfer Pattern (MySQL / InnoDB)</h3>
+<h3>3. Safe Transfer Pattern (MySQL / InnoDB)
+</h3>
 
 <p>To safely transfer $500.00 from Account 1001 to Account 1002:</p>
 
@@ -514,14 +541,18 @@
 <p>-- Finalize transaction</p>
 <p>COMMIT;</code></pre></p>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>Educational Scope Note</strong>: In real production systems, financial software enforces multi-factor authentication, idempotency keys, fraud analysis, double-entry bookkeeping ledgers, and regulatory audit logging.</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>Educational Scope Note</strong>: In real production systems, financial software enforces multi-factor authentication, idempotency keys, fraud analysis, double-entry bookkeeping ledgers, and regulatory audit logging.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📚 Capstone Project 3: Library Management System</h2>
+<h2>📚 Capstone Project 3: Library Management System
+</h2>
 
-<h3>1. Schema & Setup Script</h3>
+<h3>1. Schema & Setup Script
+</h3>
 
 <pre><code class="language-sql">DROP TABLE IF EXISTS book_loans;
 <p>DROP TABLE IF EXISTS books;</p>
@@ -582,9 +613,11 @@
 
 <p>---</p>
 
-<h3>2. Library Reports</h3>
+<h3>2. Library Reports
+</h3>
 
-<h4>Report A: Overdue Loans Report (Reference Date: <code>'2026-03-01'</code>)</h4>
+<h4>Report A: Overdue Loans Report (Reference Date: <code>'2026-03-01'</code>)
+</h4>
 <pre><code class="language-sql">SELECT 
 <p>    l.loan_id,</p>
 <p>    m.full_name AS member_name,</p>
@@ -609,7 +642,8 @@
 
 <p>---</p>
 
-<h4>Report B: Books Never Borrowed (<code>NOT EXISTS</code>)</h4>
+<h4>Report B: Books Never Borrowed (<code>NOT EXISTS</code>)
+</h4>
 <pre><code class="language-sql">SELECT b.book_id, b.title, b.author, b.category
 <p>FROM books AS b</p>
 <p>WHERE NOT EXISTS (</p>
@@ -626,12 +660,16 @@
 
 <p>---</p>
 
-<h2>⚡ Indexing & Performance Principles</h2>
+<h2>⚡ Indexing & Performance Principles
+</h2>
 
-<blockquote><p>[!IMPORTANT]</p></blockquote>
-<blockquote><p><strong>MySQL Foreign Key Index Rule</strong>: In MySQL (InnoDB), the database engine <strong>automatically creates an index on foreign key columns</strong> if a matching index does not already exist. You do <strong>not</strong> need to manually add duplicate indexes on foreign key columns.</p></blockquote>
+<blockquote><p>[!IMPORTANT]
+</p></blockquote>
+<blockquote><p><strong>MySQL Foreign Key Index Rule</strong>: In MySQL (InnoDB), the database engine <strong>automatically creates an index on foreign key columns</strong> if a matching index does not already exist. You do <strong>not</strong> need to manually add duplicate indexes on foreign key columns.
+</p></blockquote>
 
-<h3>Index Best Practices:</h3>
+<h3>Index Best Practices:
+</h3>
 <p>1. <strong>Target Selective Filtering Columns</strong>: Create indexes on columns frequently used in <code>WHERE</code>, <code>JOIN</code>, and <code>ORDER BY</code> clauses (e.g. <code>orders(order_status, order_date)</code>).</p>
 <p>2. <strong>Inspect Query Plans with <code>EXPLAIN</code></strong>:</p>
 <p>   <pre><code class="language-sql">   EXPLAIN SELECT * FROM orders WHERE order_status = &#39;PAID&#39;;</p>
@@ -640,7 +678,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+<h2>⚠️ Common Mistakes &amp; Pitfalls
+</h2>
 
 <p>1. <strong>Creating Child Tables Before Parent Tables</strong>: Executing </code>CREATE TABLE order_items<code> before </code>orders<code> fails with </code>Cannot add foreign key constraint<code>. Always create parent tables first!</p>
 <p>2. <strong>Double-Counting Revenue in One-to-Many Joins</strong>: Joining </code>orders<code> with </code>order_items<code> multiplies order rows. Use </code>SUM(oi.quantity * oi.unit_price)<code> instead of </code>SUM(o.total_amount)<code>.</p>
@@ -651,13 +690,15 @@
 
 <p>---</p>
 
-<h2>🧪 Ten Progressive Practice Exercises &amp; Solutions</h2>
+<h2>🧪 Ten Progressive Practice Exercises &amp; Solutions
+</h2>
 
 <p>Use the sample database scripts (</code>E-Commerce<code>, </code>Banking<code>, </code>Library<code>) provided in this chapter.</p>
 
 <p>---</p>
 
-<h3>Exercise 1: E-Commerce — Products Never Ordered</h3>
+<h3>Exercise 1: E-Commerce — Products Never Ordered
+</h3>
 <p><strong>Task</strong>: Find all products in the catalog that have never been ordered.  </p>
 <p><strong>Hint</strong>: Use </code>NOT EXISTS<code> on </code>order_items<code>.</p>
 <p></code></pre>sql</p>
@@ -678,7 +719,8 @@
 
 <p>---</p>
 
-<h3>Exercise 2: E-Commerce — Top 3 Customers by Paid Spend</h3>
+<h3>Exercise 2: E-Commerce — Top 3 Customers by Paid Spend
+</h3>
 <p><strong>Task</strong>: List the top 3 spending customers counting only </code>&#39;PAID&#39;<code> or </code>&#39;SHIPPED&#39;<code> orders.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -706,7 +748,8 @@
 
 <p>---</p>
 
-<h3>Exercise 3: E-Commerce — Category Revenue Share</h3>
+<h3>Exercise 3: E-Commerce — Category Revenue Share
+</h3>
 <p><strong>Task</strong>: Calculate each category&#39;s total completed revenue and percentage share of overall sales.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -739,7 +782,8 @@
 
 <p>---</p>
 
-<h3>Exercise 4: E-Commerce — High-Value Orders</h3>
+<h3>Exercise 4: E-Commerce — High-Value Orders
+</h3>
 <p><strong>Task</strong>: Retrieve all orders where the order total amount exceeds $1000.00.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -769,7 +813,8 @@
 
 <p>---</p>
 
-<h3>Exercise 5: E-Commerce — Customers with No Paid Orders</h3>
+<h3>Exercise 5: E-Commerce — Customers with No Paid Orders
+</h3>
 <p><strong>Task</strong>: Find customers who have never placed a </code>&#39;PAID&#39;<code> or </code>&#39;SHIPPED&#39;<code> order.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -791,7 +836,8 @@
 
 <p>---</p>
 
-<h3>Exercise 6: Banking — Account Deposits vs Withdrawals</h3>
+<h3>Exercise 6: Banking — Account Deposits vs Withdrawals
+</h3>
 <p><strong>Task</strong>: Summarize total deposits and total withdrawals per bank account.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -816,7 +862,8 @@
 
 <p>---</p>
 
-<h3>Exercise 7: Banking — High-Value Transactions</h3>
+<h3>Exercise 7: Banking — High-Value Transactions
+</h3>
 <p><strong>Task</strong>: Find all bank transactions where amount is $\ge \$1000.00$.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -838,7 +885,8 @@
 
 <p>---</p>
 
-<h3>Exercise 8: Library — Overdue Loans List</h3>
+<h3>Exercise 8: Library — Overdue Loans List
+</h3>
 <p><strong>Task</strong>: List all members with overdue books as of </code>&#39;2026-03-01&#39;<code>.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -863,7 +911,8 @@
 
 <p>---</p>
 
-<h3>Exercise 9: Library — Most Borrowed Books Ranking</h3>
+<h3>Exercise 9: Library — Most Borrowed Books Ranking
+</h3>
 <p><strong>Task</strong>: Rank books by total number of times borrowed using </code>DENSE_RANK()<code>.</p>
 <p></code></pre>sql</p>
 <p>-- Solution</p>
@@ -895,10 +944,12 @@
 
 <p>---</p>
 
-<h3>Exercise 10: Index Strategy Evaluation</h3>
+<h3>Exercise 10: Index Strategy Evaluation
+</h3>
 <p><strong>Task</strong>: Recommend an optimal indexing strategy for a query that frequently filters orders by </code>order_status<code> and orders by </code>order_date DESC<code>.</p>
 
-<h4>Answer & Explanation:</h4>
+<h4>Answer & Explanation:
+</h4>
 <ul>
 <p>  <li>Create a composite index: </code>CREATE INDEX idx_orders_status_date ON orders(order_status, order_date DESC);<code>.</li></p>
 <p>  <li>The leading column </code>order_status<code> accelerates filtering, while the second column </code>order_date<code> eliminates extra sorting passes (</code>filesort<code>).</li></p>
@@ -906,7 +957,8 @@
 
 <p>---</p>
 
-<h2>🎯 Portfolio Assignment: Presenting Your Project on GitHub</h2>
+<h2>🎯 Portfolio Assignment: Presenting Your Project on GitHub
+</h2>
 
 <p>To showcase your Capstone Projects professionally on GitHub:</p>
 
@@ -923,7 +975,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="19-normalization.html">Database Relationships & Normalization</a></li></p>
@@ -936,12 +989,15 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← SQL Home</a> | <a href="29-json-data-in-sql.html">← Previous: JSON Data in SQL</a> | <a href="./">SQL Home →</a></p>
 
-<blockquote><p>[!TIP]</p></blockquote>
-<blockquote><p><strong>Congratulations!</strong> You have completed Chapter 30, the final capstone chapter in the <strong>SQL Developer Mastery Curriculum</strong>! You are now equipped to design relational schemas, write analytical reports, optimize query performance, and publish production-grade database projects.</p></blockquote>
+<blockquote><p>[!TIP]
+</p></blockquote>
+<blockquote><p><strong>Congratulations!</strong> You have completed Chapter 30, the final capstone chapter in the <strong>SQL Developer Mastery Curriculum</strong>! You are now equipped to design relational schemas, write analytical reports, optimize query performance, and publish production-grade database projects.
+</p></blockquote>
 
       </div>
     </main>

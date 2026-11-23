@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Strings in C (<code><string.h></code>)</h1>
+<h1>Strings in C (<code><string.h></code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In C, a <strong>string</strong> is not a primitive data type; it is represented as a 1D array of characters terminated by a special ASCII null character <code>'\0'</code> (null terminator). The null terminator signals the end of the string in computer memory.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Strings in C are null-terminated character arrays (<code>char[]</code>). The null terminator <code>'\0'</code> marks the end of string data in memory. String literals like <code>"Hello"</code> are read-only constants in memory. Always allocate <code>length + 1</code> bytes to store <code>'\0'</code>. Use <code><string.h></code> functions (<code>strlen</code>, <code>strcpy</code>, <code>strcat</code>, <code>strcmp</code>) and prefer <code>fgets()</code> over unsafe <code>scanf("%s")</code>.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>C mein string alag data type nahi balki null-terminated character array (<code>char[]</code>) hota hai. Memory mein string ka anth <code>'\0'</code> (null character) se hota hai. Isliye <code>N</code> length ki string ke liye <code>N + 1</code> bytes allocate karne padte hain. Safe string reading ke liye <code>fgets()</code> ka upyog karein aur <code><string.h></code> library functions use karein.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>C madhye string mhanje null-terminated character array (<code>char[]</code>) asto. Memory madhye string cha shevut <code>'\0'</code> ne hoto. String sathavanyasathi <code>length + 1</code> size cha array lagto. Read-only literals aani writable arrays madhye farak samajhane garjeche aahe. <code><string.h></code> vaprūn string operations kele jatat.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>C strings character arrays hote hain jinke end mein <code>'\0'</code> hota hai. <code>scanf("%s")</code> unsafe hai kyunki woh spaces par stop ho jata hai aur bounds check nahi karta. Text inputs ke liye <code>fgets(buf, sizeof(buf), stdin)</code> use karo aur trailing <code>\n</code> character clean karo.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Text processing is essential in software: reading usernames, formatting email messages, parsing command line inputs, processing JSON strings, and generating log files.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a string in C like a train of letter carriages:</p>
 <ul>
@@ -125,7 +135,8 @@
 <p>  <li>Without the caboose <code>'\0'</code>, functions like <code>printf("%s")</code> keep reading adjacent memory forever!</li></p>
 <p></ul></p>
 
-<h2>📝 Syntax & Standard <code><string.h></code> Functions</h2>
+<h2>📝 Syntax & Standard <code><string.h></code> Functions
+</h2>
 
 <pre><code class="language-c">// Writable character array (allocated on Stack)
 <p>char name[20] = &quot;Alice&quot;; // Automatically inserts &#39;\0&#39; at index 5</p>
@@ -133,7 +144,8 @@
 <p>// Read-only string literal pointer (allocated in Code Segment)</p>
 <p>const char *title = &quot;Software Engineer&quot;;</code></pre></p>
 
-<h3>Essential Functions in <code><string.h></code></h3>
+<h3>Essential Functions in <code><string.h></code>
+</h3>
 
 <table>
 <p>  <thead><tr><th>Function</th><th>Purpose</th><th>Example</th></tr></thead></p>
@@ -148,7 +160,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a practical user profile processor demonstrating string input, null terminator trimming, concatenation, string comparison, and substring searching:</p>
 
@@ -200,7 +213,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>strcspn(firstName, "\n")</code>: Returns the index of the first occurrence of <code>\n</code> in <code>firstName</code>. Setting <code>firstName[...] = '\0'</code> cleanly strips the newline character captured by <code>fgets()</code>.</li></p>
@@ -209,7 +223,8 @@
 <p>  <li><code>strstr(userEmail, searchDomain)</code>: Searches for <code>searchDomain</code> inside <code>userEmail</code>. If found, returns a pointer to the start of the substring match; otherwise returns <code>NULL</code>.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- USER REGISTRATION MODULE ---
 <p>Enter First Name: Rahul</p>
@@ -221,7 +236,8 @@
 <p>Enter Email Address: rahul.verma@gmail.com</p>
 <p>Verification   : Valid gmail.com domain email address detected!</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Buffer Overflow (Insufficient Array Size):</strong> Declaring <code>char str[5] = "Hello";</code> fails because <code>"Hello"</code> requires 6 bytes (<code>'H','e','l','l','o','\0'</code>). Missing <code>'\0'</code> leads to memory corruption when passing <code>str</code> to string functions!</li></p>
@@ -229,27 +245,32 @@
 <p>  <li><strong>Modifying Read-Only String Literals:</strong> Writing <code>char *str = "Read Only"; str[0] = 'W';</code> crashes with a Segmentation Fault because string literals reside in read-only memory. Use character arrays (<code>char str[] = "Writable";</code>) for editable strings.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li>Always allocate <code>N + 1</code> bytes for a string of maximum length <code>N</code> to accommodate the null terminator <code>'\0'</code>.</li></p>
 <p>  <li>Never use <code>strcpy</code> or <code>strcat</code> with untrusted input sizes; prefer bounded alternatives (<code>strncpy</code>, <code>strncat</code>) or calculate buffer lengths explicitly.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>String operations handle HTTP headers in web servers, SQL query parsing, file path manipulations in shell utilities, configuration file reading (<code>.env</code>/<code>.ini</code>), and CLI argument parsing.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Declare two string arrays: <code>str1[20] = "Coding"</code> and <code>str2[20] = "Coding"</code>.</p>
 <p>2. Compare them using <code>strcmp()</code> and print whether they are identical.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a function <code>void reverseString(char str[])</code> that reverses a string in-place (e.g. converts <code>"C Language"</code> to <code>"egaugnaL C"</code>) by swapping characters from ends toward the center. Test it in <code>main()</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
@@ -257,7 +278,8 @@
 <p>  <li><a href="10-pointers-basics.html">Pointers Basics</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="11-advanced-pointers.html">← Previous: Advanced Pointers</a> | <a href="13-dynamic-memory-allocation.html">Next: Dynamic Memory Allocation →</a></p>
 

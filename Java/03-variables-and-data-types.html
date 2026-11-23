@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,31 +91,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Variables and Data Types</h1>
+<h1>Variables and Data Types
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>Variable</strong> is a named location in memory used to store data values. Java is a <strong>statically and strongly typed</strong> programming language, meaning every variable must have a declared data type that determines what kind of values it can store and what operations can be performed on it.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Java mein har variable ka Data Type declare karna zaroori hota hai. Data Types do categories mein hote hain: <strong>Primitive Types</strong> (<code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>, etc.) jo raw values store karte hain, aur <strong>Reference Types</strong> (<code>String</code>, Arrays, Objects) jo memory address hold karte hain.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Java madhye pratyek variable cha Data Type sangava lagto. Data types don prakarat ahet: <strong>Primitive Types</strong> (raw values) aani <strong>Reference Types</strong> (memory reference).</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Statically typed variables allow the Java compiler (<code>javac</code>) to catch type mismatch errors, invalid operations, and potential buffer overflows at compile time before your code ever runs in production.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a variable as a labeled storage box. The Data Type is the box shape (e.g., a round slot for numbers, a square slot for text). You cannot force a square text box into a round number slot without explicitly re-casting it.</p>
 
-<h2>📝 1. The 8 Primitive Data Types</h2>
+<h2>📝 1. The 8 Primitive Data Types
+</h2>
 
 <p>Primitives store raw binary values directly in stack memory:</p>
 
@@ -133,7 +141,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 2. Type Casting (Widening vs Narrowing)</h2>
+<h2>📝 2. Type Casting (Widening vs Narrowing)
+</h2>
 
 <ul>
 <p>  <li><strong>Widening (Implicit):</strong> Converting smaller type to larger type automatically (<code>byte</code> -> <code>short</code> -> <code>int</code> -> <code>long</code> -> <code>float</code> -> <code>double</code>).</li></p>
@@ -148,7 +157,8 @@
 <p>double price = 99.95;</p>
 <p>int roundedPrice = (int) price; // 99 (fractional part truncated!)</code></pre></p>
 
-<h2>📝 3. Wrapper Classes & Autoboxing</h2>
+<h2>📝 3. Wrapper Classes & Autoboxing
+</h2>
 
 <p>Primitives have corresponding Object Wrapper classes (<code>Byte</code>, <code>Short</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>, <code>Double</code>, <code>Character</code>, <code>Boolean</code>).</p>
 
@@ -158,14 +168,16 @@
 <p>// Unboxing: Wrapper Object to Primitive</p>
 <p>int unboxedNum = boxedNum;</code></pre></p>
 
-<h2>📝 4. Local Variable Type Inference (<code>var</code>)</h2>
+<h2>📝 4. Local Variable Type Inference (<code>var</code>)
+</h2>
 
 <p>Introduced in Java 10, <code>var</code> infers local variable types automatically from the assignment initializer:</p>
 
 <pre><code class="language-java">var username = &quot;Sneha&quot;; // Inferred as String
 <p>var userScore = 98;     // Inferred as int</code></pre></p>
 
-<h2>💡 Complete Example: Data Types, Casting & Wrappers</h2>
+<h2>💡 Complete Example: Data Types, Casting & Wrappers
+</h2>
 
 <pre><code class="language-java">public class DataTypeMaster {
 <p>    public static void main(String[] args) {</p>
@@ -193,7 +205,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Currency        : ₹
 <p>In Stock?       : true</p>
@@ -201,7 +214,8 @@
 <p>Rounded Total   : 1498</p>
 <p>Parsed Number   : 1250</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting the <code>L</code> suffix for <code>long</code> literals (<code>long val = 9000000000L;</code>) or <code>f</code> suffix for <code>float</code> literals (<code>float f = 3.14f;</code>).</li></p>
@@ -209,31 +223,37 @@
 <p>  <li>Reading uninitialized local variables before assigning a value.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Primitives are compared by value (<code>==</code>), while Objects and <code>String</code> references are compared by memory address (use <code>.equals()</code> for string content comparison!).</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Banking systems use <code>BigDecimal</code> for ledger accuracy, <code>long</code> for epoch timestamps, <code>boolean</code> for account status flags, and Wrapper classes for database Object-Relational Mapping (ORM).</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Declare a <code>double</code> variable <code>temperature = 36.6</code>. Cast it explicitly to an <code>int</code> and observe the result.</p>
 <p>2. Use <code>Integer.parseInt()</code> to parse string <code>"500"</code> and add <code>100</code> to it.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that calculates student test percentage from <code>48</code> marks out of <code>60</code> without integer division truncation (ensure floating-point division using <code>48 * 100.0 / 60</code>).</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="02-java-program-structure.html">Java Program Structure</a></li></p>
 <p>  <li><a href="04-input-and-output.html">Input and Output</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="02-java-program-structure.html">← Previous: Program Structure</a> | <a href="04-input-and-output.html">Next: Input and Output →</a></p>
 

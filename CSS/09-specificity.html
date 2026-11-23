@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,11 +110,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Specificity, Cascade & Inheritance</h1>
+<h1>Specificity, Cascade & Inheritance
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong>Cascade</strong>, <strong>Specificity</strong>, and <strong>Inheritance</strong> are the three core rules that control how CSS resolves conflicts when multiple style rules target the exact same HTML element.</p>
 <ul>
@@ -123,18 +126,23 @@
 <p>  <li><strong>Inheritance:</strong> The mechanism by which certain parent element properties (like <code>color</code> or <code>font-family</code>) automatically pass down to child elements.</li></p>
 <p></ul></p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Specificity determines which rule wins when multiple CSS selectors conflict. Specificity score hierarchy: <code>Inline Styles</code> (1,0,0,0) > <code>ID</code> (0,1,0,0) > <code>Class/Attribute</code> (0,0,1,0) > <code>Element</code> (0,0,0,1). When scores match, the last rule in the stylesheet wins (Order of Appearance).</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Specificity se decide hota hai ki jab do conflicting CSS rules takrayenge toh kaunsa rule jeetega: <code>Inline Styles</code> > <code>ID (#)</code> > <code>Class (.)</code> > <code>Element</code>. Agar score match kare, toh baad mein likha rule (Order of Appearance) jeetta hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Specificity rules nusar <code>ID</code> cha score <code>Class</code> peksha jast asto. Score same aaslyas baad madhye lihilela CSS rule apply hoto.</p>
 
-<h2>📊 Specificity Scoring System</h2>
+<h2>📊 Specificity Scoring System
+</h2>
 
 <p>Specificity is represented as a 4-part score <code>(Inline, ID, Class, Element)</code>:</p>
 
@@ -149,20 +157,23 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h3>Calculation Examples:</h3>
+<h3>Calculation Examples:
+</h3>
 <pre><code class="language-css">p { color: blue; }                     /* Score: 0,0,0,1 (Element) */
 <p>.text { color: green; }                /* Score: 0,0,1,0 (Class) - WINS over Element */</p>
 <p>#title { color: red; }                /* Score: 0,1,0,0 (ID) - WINS over Class */</p>
 <p>div.card p.text { color: purple; }     /* Score: 0,0,2,2 (2 Classes + 2 Elements) */</code></pre></p>
 
-<h2>🔄 The Cascade & Order of Appearance</h2>
+<h2>🔄 The Cascade & Order of Appearance
+</h2>
 
 <p>When two conflicting rules have the <strong>exact same specificity score</strong>, the rule written <strong>later in the stylesheet (Order of Appearance)</strong> wins:</p>
 
 <pre><code class="language-css">.btn { background-color: blue; }
 <p>.btn { background-color: red; } /* WINS because it appears later in the code */</code></pre></p>
 
-<h2>🧬 Inheritance Rules</h2>
+<h2>🧬 Inheritance Rules
+</h2>
 
 <p>Not all CSS properties inherit automatically from parent elements:</p>
 <ul>
@@ -183,7 +194,8 @@
 <p>  <li><code>unset</code>: Inherits if inherited by default, otherwise resets to initial.</li></p>
 <p></ul></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -217,27 +229,32 @@
 <p>  color: red;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>The paragraph text renders in <strong>red</strong> because the ID selector <code>#main-text</code> (<code>0,1,0,0</code>) has higher specificity than the class <code>.text-green</code> (<code>0,0,1,0</code>) or element <code>p</code> (<code>0,0,0,1</code>).</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add an inline <code>style="color: purple;"</code> to the <code><p></code> tag in <code>index.html</code>.</p>
 <p>2. Observe how Inline Styles (<code>1,0,0,0</code>) override the <code>#main-text</code> ID selector!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Relying on high specificity IDs everywhere:</strong> Makes stylesheets rigid and impossible to override easily. Prefer flat, low-specificity class names.</li></p>
 <p>  <li><strong>Forgetting that non-layout properties inherit:</strong> Writing <code>color</code> on every child element when setting it once on <code>body</code> or a parent container suffices.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Modern CSS methodology (like BEM architecture or utility classes) keeps selector specificity flat (using single class names <code>0,0,1,0</code>) so rules can be overridden cleanly without resorting to specificity battles or <code>!important</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="08-selectors.html">Basic Selectors</a></li></p>
@@ -245,7 +262,8 @@
 <p>  <li><a href="39-advanced-selectors.html">Advanced Selectors</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Specificity order: <code>Inline</code> > <code>ID</code> > <code>Class</code> > <code>Element</code>.</li></p>
@@ -253,7 +271,8 @@
 <p>  <li>Typography and color inherit from parents; borders, margins, and padding do not.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="08-selectors.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="10-width-and-height.html">Next →</a></p>
 

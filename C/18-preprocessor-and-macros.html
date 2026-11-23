@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>C Preprocessor & Macros (<code>#define</code>, <code>#ifdef</code>)</h1>
+<h1>C Preprocessor & Macros (<code>#define</code>, <code>#ifdef</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong>C Preprocessor</strong> is a macro expansion step that processes source code text *before* actual compilation begins. Preprocessor directives start with <code>#</code> and perform text substitutions, file inclusions (<code>#include</code>), and conditional compilation (<code>#ifdef</code>).</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>The preprocessor runs before compiler syntax analysis. Directives like <code>#include</code> copy header declarations, while <code>#define</code> creates constant values and function-like macros. Function-like macros must enclose all parameters in parentheses (<code>#define SQUARE(x) ((x) * (x))</code>) to avoid precedence bugs. Header Guards (<code>#ifndef HEADER_H</code>) prevent duplicate declaration errors.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Preprocessor directives <code>#</code> se shuru hoti hain aur compilation se pehle run hoti hain. <code>#include</code> header files copy karta hai aur <code>#define</code> constants aur macros banata hai. Function-like macros mein hamesha inner-outer parentheses lagayein (<code>#define SQUARE(x) ((x) * (x))</code>), aksar operator precedence bugs se bachne ke liye. Header guards multiple inclusions rokte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Preprocessor (#) code compile honyapūrvi chalato. <code>#include</code> dware header file mhadhil code copy hoto, aani <code>#define</code> dware macros tayar hotat. Macro lihitana hamesha double brackets <code>((x) * (x))</code> vaparave lagtat. File punha punha include houn samasya yenayene mhanun Header Guards vaparatat.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Preprocessor simple text substitution step hai. <code>#define SQUARE(x) x * x</code> dangerous hota hai kyunki <code>SQUARE(1 + 2)</code> expand hokar <code>1 + 2 * 1 + 2 = 5</code> ban jata hai, <code>9</code> nahi! Always write <code>#define SQUARE(x) ((x) * (x))</code>. Multiple inclusions rokne ke liye <code>.h</code> files mein <code>#ifndef</code> Header Guards lagayein.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Preprocessors allow defining central configuration constants (<code>#define MAX_USERS 1000</code>), enabling cross-platform compilation flags (<code>#ifdef _WIN32</code>), creating debug logging macros, and organizing code modularity.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of the preprocessor as a "Find and Replace" automated text editor that runs on your source code right before passing the file to the compiler.</p>
 <ul>
@@ -124,7 +134,8 @@
 <p>  <li><code>#include "my_header.h"</code>: Replaces line <code>#include ...</code> with the entire contents of <code>my_header.h</code>.</li></p>
 <p></ul></p>
 
-<h2>📝 Key Directives & Predefined Macros</h2>
+<h2>📝 Key Directives & Predefined Macros
+</h2>
 
 <table>
 <p>  <thead><tr><th>Directive / Macro</th><th>Purpose</th><th>Example / Expansion</th></tr></thead></p>
@@ -141,7 +152,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a practical program demonstrating macro safety rules, conditional debug logging macros, header guards, and predefined system macros:</p>
 
@@ -191,7 +203,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>SQUARE_UNSAFE(1 + 2)</code>: Expands literally to <code>1 + 2 * 1 + 2</code>. Operator precedence evaluates <code>2 * 1</code> first, giving <code>1 + 2 + 2 = 5</code>!</li></p>
@@ -199,7 +212,8 @@
 <p>  <li><code>#if DEBUG_MODE</code>: The preprocessor evaluates <code>DEBUG_MODE</code>. If non-zero, it includes the debug logging code; if <code>0</code>, it omits debug logging lines completely, leaving zero runtime overhead in production builds.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. PREPROCESSOR MACRO SAFETY DEMONSTRATION ---
 <p>Calculation (1 + 2)^2 Unsafe Macro Expansion: 5 (WRONG!)</p>
@@ -215,7 +229,8 @@
 <p>Source File Path    : main.c</p>
 <p>Current Code Line   : 46</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Macro Parameter Side Effects:</strong> Passing expressions with side effects to macros (e.g. <code>SQUARE_SAFE(i++)</code>). Since the macro parameter <code>x</code> appears twice in <code>((x) * (x))</code>, <code>i++</code> evaluates twice, incrementing <code>i</code> two times instead of once! Prefer inline functions (<code>inline</code>) in modern C for complex logic.</li></p>
@@ -223,7 +238,8 @@
 <p>  <li><strong>Putting Semicolons at End of <code>#define</code>:</strong> Writing <code>#define MAX 100;</code> causes the semicolon to be included in text substitution, resulting in syntax errors like <code>int arr[100;];</code>.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Header Guard Pattern</h2>
+<h2>🛡️ Safety / Header Guard Pattern
+</h2>
 
 <p>Always wrap header file contents in <strong>Header Guards</strong> to prevent duplicate declaration errors when included multiple times:</p>
 <pre><code class="language-c">/* my_module.h */
@@ -235,27 +251,32 @@
 
 <p>#endif // MY_MODULE_H</code></pre></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Preprocessors enable cross-platform support (handling Windows <code>#ifdef _WIN32</code> vs Linux <code>#ifdef __linux__</code>), feature flags in enterprise software, assertion macros (<code>assert()</code>), and compiler optimization directives.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Define a macro <code>#define MAX(a, b) (((a) > (b)) ? (a) : (b))</code>.</p>
 <p>2. Test it with two numbers and print the larger value.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a macro <code>#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))</code>. Test it on an integer array and a character array in <code>main()</code> to verify that it correctly returns element counts.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
 <p>  <li><a href="21-multi-file-projects.html">Multi-file Projects</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="17-file-handling.html">← Previous: File Handling</a> | <a href="19-storage-classes.html">Next: Storage Classes →</a></p>
 

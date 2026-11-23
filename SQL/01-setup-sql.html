@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,11 +97,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Set Up SQL Environment</h1>
+<h1>Set Up SQL Environment
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Setting up an <strong>SQL Environment</strong> involves installing or connecting to a <strong>Database Engine</strong> (the server software that stores data and executes queries) and configuring a <strong>Database Client</strong> (the user interface tool where you write and execute SQL statements).</p>
 
@@ -113,25 +116,29 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi (Roman Script)</h2>
+<h2>🇮🇳 Hindi (Roman Script)
+</h2>
 
 <p>SQL seekhne ke liye aapko teen cheezon ka fark samajhna zaroori hai: <strong>SQL Language</strong> (commands likhne ke liye), <strong>Database Server</strong> (jaise MySQL ya PostgreSQL jo data store aur process karta hai), aur <strong>Database Client</strong> (jaise phpMyAdmin ya MySQL Workbench jahan aap query type karke run karte hain). Windows users WampServer se ek click mein Apache, MySQL/MariaDB, aur phpMyAdmin install karke browser mein hi SQL queries run kar sakte hain. SQLite use karne par alag se server install karne ki zaroorat nahi hoti kyunki yeh ek single <code>.db</code> file mein kaam karta hai.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi (Roman Script)</h2>
+<h2>🚩 Marathi (Roman Script)
+</h2>
 
 <p>SQL shiknyasathi teen mukhya ghatak samajne garjeche ahe: <strong>SQL Language</strong> (commands lihinyasathi), <strong>Database Engine / Server</strong> (Data store aani process karnara MySQL kiva PostgreSQL server), aani <strong>Database Client</strong> (Query type karun run karnara phpMyAdmin kiva Workbench tool). Windows var WampServer vaparun Apache, MySQL/MariaDB, aani phpMyAdmin ekatrampane install karta yete. SQLite ha file-based database aslyamule tyasathi swatantra server chi garaj naste.</p>
 
 <p>---</p>
 
-<h2>💬 Hinglish</h2>
+<h2>💬 Hinglish
+</h2>
 
 <p>SQL code likhne ke liye aapko local machine par Database Environment setup karna padta hai. Beginners ke liye WampServer (phpMyAdmin ke saath) ya DB Browser for SQLite sabse easy options hain. Client tool mein SQL query type karke <strong>Execute / Go</strong> button dabaane par Database Engine query process karke screen par exact output table display karta hai.</p>
 
 <p>---</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>You cannot execute SQL statements in a standard text editor like Notepad. Before creating database tables or running queries, you need an active SQL environment to:</p>
 
@@ -144,7 +151,8 @@
 
 <p>---</p>
 
-<h2>🧠 Simple Explanation & Analogy</h2>
+<h2>🧠 Simple Explanation & Analogy
+</h2>
 
 <p>Think of a Database Environment as a <strong>Restaurant</strong>:</p>
 
@@ -163,7 +171,8 @@
 
 <p>---</p>
 
-<h2>📝 Database Setup Options Comparison</h2>
+<h2>📝 Database Setup Options Comparison
+</h2>
 
 <p>Depending on your operating system and project requirements, choose one of the following database environments:</p>
 
@@ -177,22 +186,27 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<blockquote><p>📌 <strong>Key Takeaway:</strong> <strong>SQLite</strong> is an embedded database engine that reads and writes directly to a single file on your hard drive (e.g., <code>practice.db</code>). It does <strong>not</strong> run a background server process. In contrast, <strong>MySQL</strong>, <strong>MariaDB</strong>, and <strong>PostgreSQL</strong> are client-server databases that require a running background service.</p></blockquote>
+<blockquote><p>📌 <strong>Key Takeaway:</strong> <strong>SQLite</strong> is an embedded database engine that reads and writes directly to a single file on your hard drive (e.g., <code>practice.db</code>). It does <strong>not</strong> run a background server process. In contrast, <strong>MySQL</strong>, <strong>MariaDB</strong>, and <strong>PostgreSQL</strong> are client-server databases that require a running background service.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🛠️ Step-by-Step Practical Guide: Setting Up WampServer (MySQL/MariaDB + phpMyAdmin)</h2>
+<h2>🛠️ Step-by-Step Practical Guide: Setting Up WampServer (MySQL/MariaDB + phpMyAdmin)
+</h2>
 
 <p>WampServer is a popular, beginner-friendly web development environment for Windows that bundles the <strong>Apache Web Server</strong>, <strong>PHP</strong>, and <strong>MySQL / MariaDB Database Engines</strong>, along with <strong>phpMyAdmin</strong> as the web-based database client.</p>
 
-<blockquote><p>ℹ️ <strong>Note on Engine Versions:</strong> Depending on the WampServer package version you install, it may bundle <strong>MySQL</strong> (e.g., v8.0+), <strong>MariaDB</strong> (e.g., v10.x/11.x), or both. Both engines use standard SQL syntax for beginner learning.</p></blockquote>
+<blockquote><p>ℹ️ <strong>Note on Engine Versions:</strong> Depending on the WampServer package version you install, it may bundle <strong>MySQL</strong> (e.g., v8.0+), <strong>MariaDB</strong> (e.g., v10.x/11.x), or both. Both engines use standard SQL syntax for beginner learning.
+</p></blockquote>
 
-<h3>Step 1: Download and Install WampServer</h3>
+<h3>Step 1: Download and Install WampServer
+</h3>
 <p>1. Visit the official WampServer website: <a href="https://www.wampserver.com/">https://www.wampserver.com/</a>.</p>
 <p>2. Download the appropriate 64-bit installer (<code>WampServer 3.x.x</code>).</p>
 <p>3. Run the <code>.exe</code> installer setup wizard and follow the on-screen prompts.</p>
 
-<h3>Step 2: Start WampServer Services</h3>
+<h3>Step 2: Start WampServer Services
+</h3>
 <p>1. Open WampServer from your Windows Start Menu or Desktop shortcut.</p>
 <p>2. Look at the WampServer status icon in your Windows System Tray (bottom right near the clock):</p>
 <ul>
@@ -203,7 +217,8 @@
 
 <pre><code class="language-text">[ System Tray ] ──&gt; 🟢 WampServer (All services running - Server Online)</code></pre>
 
-<h3>Step 3: Open phpMyAdmin in Your Web Browser</h3>
+<h3>Step 3: Open phpMyAdmin in Your Web Browser
+</h3>
 <p>1. Open your web browser (Chrome, Edge, or Firefox).</p>
 <p>2. Navigate to: <code>http://localhost/phpmyadmin</code> (or click the Green WampServer tray icon $\rightarrow$ <strong>phpMyAdmin</strong>).</p>
 <p>3. The phpMyAdmin login screen will appear:</p>
@@ -214,7 +229,8 @@
 <p></ul></p>
 <p>4. Click <strong>Log In</strong>.</p>
 
-<h3>Step 4: Open the SQL Execution Tab</h3>
+<h3>Step 4: Open the SQL Execution Tab
+</h3>
 <p>1. Once inside phpMyAdmin, click the <strong>SQL</strong> tab in the top navigation menu bar.</p>
 <p>2. A large text area will appear where you can type raw SQL queries.</p>
 
@@ -228,21 +244,25 @@
 <p>│                                                          [ Go ] Button  │</p>
 <p>└─────────────────────────────────────────────────────────────────────────┘</code></pre></p>
 
-<h3>Step 5: Execute Your First Test Query</h3>
+<h3>Step 5: Execute Your First Test Query
+</h3>
 <p>Type the following test query into the text area and click the <strong>Go</strong> button (bottom right):</p>
 
 <pre><code class="language-sql">SELECT &#39;Hello, SQL World!&#39; AS Greeting;</code></pre>
 
 <p>---</p>
 
-<h2>💡 Practical SQL Examples & What They Test</h2>
+<h2>💡 Practical SQL Examples & What They Test
+</h2>
 
-<h3>Example 1: Basic Expression & Connection Test</h3>
+<h3>Example 1: Basic Expression & Connection Test
+</h3>
 
 <pre><code class="language-sql">-- Executing a simple literal projection test
 <p>SELECT &#39;Hello, SQL World!&#39; AS Greeting;</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+-------------------+
 <table>
@@ -258,7 +278,8 @@
 <p></table></p>
 <p>+-------------------+</code></pre></p>
 
-<h4>🔍 What This Test Actually Verifies:</h4>
+<h4>🔍 What This Test Actually Verifies:
+</h4>
 <ul>
 <p>  <li>✅ Proves your Database Client (phpMyAdmin) is connected to your Database Engine.</li></p>
 <p>  <li>✅ Proves the SQL syntax parser is working and evaluating expressions correctly.</li></p>
@@ -267,7 +288,8 @@
 
 <p>---</p>
 
-<h3>Example 2: Creating and Selecting a Practice Database (MySQL / MariaDB)</h3>
+<h3>Example 2: Creating and Selecting a Practice Database (MySQL / MariaDB)
+</h3>
 
 <p>To store real tables and records, you must create a dedicated database container and select it for your session:</p>
 
@@ -280,7 +302,8 @@
 <p>-- 3. Execute a verification statement inside the active database</p>
 <p>SELECT &#39;SQL Practice Database Ready!&#39; AS StatusMessage;</code></pre></p>
 
-<h4>👀 Expected Output:</h4>
+<h4>👀 Expected Output:
+</h4>
 
 <pre><code class="language-text">+------------------------------+
 <table>
@@ -296,7 +319,8 @@
 <p></table></p>
 <p>+------------------------------+</code></pre></p>
 
-<h4>🔍 Code Breakdown & Engine Specifics:</h4>
+<h4>🔍 Code Breakdown & Engine Specifics:
+</h4>
 <ul>
 <p>  <li><code>CREATE DATABASE IF NOT EXISTS sql_practice;</code>: Instructs the engine to create a new database namespace called <code>sql_practice</code>. Using <code>IF NOT EXISTS</code> prevents SQL Error 1007 if you run the script multiple times. *(Requires administrative <code>CREATE</code> privilege).*</li></p>
 <p>  <li><code>USE sql_practice;</code>: Sets <code>sql_practice</code> as the active default database for all subsequent table queries in MySQL/MariaDB.</li></p>
@@ -306,7 +330,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Comprehensive Troubleshooting Guide</h2>
+<h2>🛠️ Comprehensive Troubleshooting Guide
+</h2>
 
 <p>If your database setup fails, consult this structured troubleshooting matrix before attempting destructive actions like deleting database files or reinstalling software.</p>
 
@@ -325,7 +350,8 @@
 
 <p>---</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>In professional software development:</p>
 
@@ -337,20 +363,24 @@
 
 <p>---</p>
 
-<h2>🧪 Learning Exercises</h2>
+<h2>🧪 Learning Exercises
+</h2>
 
-<h3>Exercise 1: Beginner Expression Query</h3>
+<h3>Exercise 1: Beginner Expression Query
+</h3>
 <p>Open your SQL client and write a query that displays two columns:</p>
 <p>1. <code>DeveloperName</code> containing your name as a string.</p>
 <p>2. <code>TargetRole</code> containing <code>'SQL Developer'</code>.</p>
 
-<h3>Exercise 2: Database Creation Task</h3>
+<h3>Exercise 2: Database Creation Task
+</h3>
 <p>Write and execute the SQL statements to:</p>
 <p>1. Safely create a database named <code>company_db</code>.</p>
 <p>2. Select <code>company_db</code> as your active database session.</p>
 <p>3. Verify connection by selecting the string <code>'Company Database Ready'</code> as <code>Message</code>.</p>
 
-<h3>Exercise 3: Troubleshooting Scenario</h3>
+<h3>Exercise 3: Troubleshooting Scenario
+</h3>
 <p>Imagine you run <code>CREATE TABLE employees (id INT);</code> and receive the error:</p>
 <p><code>ERROR 1046 (3D000): No database selected</code></p>
 
@@ -358,7 +388,8 @@
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a single, valid SQL query that projects two columns:</p>
 <ul>
@@ -391,7 +422,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="02-introduction-to-sql.html">Introduction to SQL & Databases</a></li></p>
@@ -400,7 +432,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← SQL Home</a> | <a href="02-introduction-to-sql.html">Next: Introduction to SQL & Databases →</a></p>
 

@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-python.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to Python 3</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in Python</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Python</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists in Python</span></a></li>
   <li class="nav-item"><a href="10-tuples.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tuples in Python</span></a></li>
   <li class="nav-item"><a href="11-sets.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sets in Python</span></a></li>
@@ -99,31 +99,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Variables and Data Types in Python</h1>
+<h1>Variables and Data Types in Python
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In Python, a <strong>Variable</strong> is a named reference that points to an object in memory. Python is <strong>dynamically typed</strong>, meaning you do not need to declare variable data types explicitly—the Python interpreter automatically infers the data type at runtime based on the value assigned to it.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Python mein variables declare karte waqt datatype (<code>int</code>, <code>str</code>, etc.) nahi likhna padta. Python assignment ke aadhar par datatype khud determine kar leta hai. Datatype check karne ke liye <code>type()</code> function ka use hota hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Python madhye variables saathi data type bolava lagat nahi (dynamic typing). Value kashi ahe tyavrun Python type tharavto. Type bghnyasathi <code>type()</code> vapara.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Variables allow programs to store, reference, update, and manipulate dynamic data values—such as user inputs, shopping cart totals, API responses, and database records.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a Python variable as a sticky name tag attached to a package in a warehouse. The name tag is the variable name (e.g., <code>user_age</code>), and the item inside the package is the object (e.g., <code>25</code>). You can easily peel off the sticky tag and attach it to a different package later.</p>
 
-<h2>📝 1. Core Primitive Data Types</h2>
+<h2>📝 1. Core Primitive Data Types
+</h2>
 
 <p>Python provides built-in primitive data types:</p>
 
@@ -138,7 +146,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 2. Type Checking & Type Casting</h2>
+<h2>📝 2. Type Checking & Type Casting
+</h2>
 
 <ul>
 <p>  <li><strong><code>type(var)</code>:</strong> Returns the exact class type of an object.</li></p>
@@ -150,7 +159,8 @@
 <p>score_int = int(score_str)  # Converts string &quot;95&quot; to integer 95</p>
 <p>price_float = float(100)    # Converts integer 100 to float 100.0</code></pre></p>
 
-<h2>📝 3. Variable Naming Rules (snake_case)</h2>
+<h2>📝 3. Variable Naming Rules (snake_case)
+</h2>
 
 <ul>
 <p>  <li>Use <strong><code>snake_case</code></strong> for Python variable names (<code>user_age</code>, <code>total_amount</code>).</li></p>
@@ -159,7 +169,8 @@
 <p>  <li>Cannot use reserved Python keywords (<code>if</code>, <code>class</code>, <code>def</code>, <code>import</code>, <code>for</code>).</li></p>
 <p></ul></p>
 
-<h2>💡 Complete Example: Variables, Types & Conversion</h2>
+<h2>💡 Complete Example: Variables, Types & Conversion
+</h2>
 
 <pre><code class="language-python"># Product E-Commerce Summary
 <p>product_name = &quot;Wireless Headphones&quot;  # str</p>
@@ -168,7 +179,8 @@
 <p>in_stock = True                      # bool</p>
 <p>discount_code = None                 # NoneType</p>
 
-<h1>Type Conversion: Parsing quantity string to integer</h1>
+<h1>Type Conversion: Parsing quantity string to integer
+</h1>
 <p>quantity = int(quantity_str)</p>
 <p>total_cost = unit_price * quantity</p>
 
@@ -179,10 +191,12 @@
 <p>print(f&quot;In Stock?    : {in_stock}&quot;)</p>
 <p>print(f&quot;Total Cost   : ₹{total_cost:.2f}&quot;)</p>
 
-<h1>Checking Type with isinstance()</h1>
+<h1>Checking Type with isinstance()
+</h1>
 <p>print(f&quot;Is Total Cost a float? : {isinstance(total_cost, float)}&quot;)</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== PRODUCT DETAILS ===
 <p>Product Name : Wireless Headphones (Type: str)</p>
@@ -192,7 +206,8 @@
 <p>Total Cost   : ₹4998.00</p>
 <p>Is Total Cost a float? : True</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Trying to perform string concatenation with integers directly (<code>"Score: " + 95</code> causes <code>TypeError</code>; use f-string <code>f"Score: {95}"</code> or <code>str(95)</code>).</li></p>
@@ -200,31 +215,37 @@
 <p>  <li>Using Python reserved words as variable names (e.g. naming a variable <code>list</code> or <code>type</code>).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>In Python, numbers (<code>int</code>, <code>float</code>), booleans, strings, and tuples are <strong>immutable</strong> (their values cannot be changed in-place; modified variables point to new objects in memory).</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Data pipeline processing, handling REST API JSON responses, dynamic configuration settings, and data science dataframes.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Declare a variable <code>user_age = "24"</code>. Convert it to an integer, add <code>5</code> to it, and print <code>f"Age in 5 years: {user_age + 5}"</code>.</p>
 <p>2. Check <code>type(None)</code> in your terminal REPL.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that declares a floating-point temperature in Fahrenheit <code>temp_f = 98.6</code>, converts it to Celsius using formula <code>(temp_f - 32) * 5/9</code>, and prints the result rounded to 1 decimal place.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
-<p>  <li><a href="05-operators.html">Operators and Expressions</a></li></p>
+<p>  <li><a href="05-operators/index.html">Operators and Expressions</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Python Home</a> | <a href="02-introduction-to-python.html">← Previous: Introduction to Python</a> | <a href="04-input-output.html">Next: Input and Output →</a></p>
 

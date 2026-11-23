@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,31 +91,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Generics in Java</h1>
+<h1>Generics in Java
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Generics</strong> enable classes, interfaces, and methods to take <strong>types as parameters</strong>. By parametrizing types (<code>List<String></code> instead of raw <code>List</code>), Generics enforce compile-time type safety, eliminate manual type casting, and catch invalid type assignments at compile time.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Generics Java code ko Type-Safe banate hain. Pre-Generics Java mein <code>List</code> kisi bhi object ko accept kar leta tha, jisse runtime par <code>ClassCastException</code> aata tha. Generics <code><T></code> se compiler check karta hai ki sirf specific type ka data hi store ho.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Generics mule code Type-Safe banto. Compile-time la chukiche types check kele jaatat.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Without Generics, Java collection methods returned raw <code>Object</code> instances, requiring explicit type casting (<code>String s = (String) list.get(0);</code>) and risking catastrophic runtime <code>ClassCastException</code> crashes.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a generic class like a labeled shipping container <code>Container<T></code>. When you manufacture the container, you label it for Glassware <code>Container<Glass></code>. The security inspector (the compiler) refuses to let anyone load Heavy Machinery into a container marked for Glass.</p>
 
-<h2>📝 1. Generic Classes & Generic Methods</h2>
+<h2>📝 1. Generic Classes & Generic Methods
+</h2>
 
 <pre><code class="language-java">// Generic Class with Type Parameter &#39;T&#39;
 <p>public class DataBox&lt;T&gt; {</p>
@@ -133,7 +141,8 @@
 <p>    System.out.println();</p>
 <p>}</code></pre></p>
 
-<h2>📝 2. Bounded Type Parameters (<code><T extends Number></code>)</h2>
+<h2>📝 2. Bounded Type Parameters (<code><T extends Number></code>)
+</h2>
 
 <p>Restricts the allowed type arguments to a specific superclass or interface:</p>
 
@@ -148,7 +157,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>📝 3. Wildcards & The PECS Principle</h2>
+<h2>📝 3. Wildcards & The PECS Principle
+</h2>
 
 <ul>
 <p>  <li><strong>Unbounded Wildcard (<code>?</code>):</strong> Accepts any type (<code>List<?></code>).</li></p>
@@ -156,16 +166,23 @@
 <p>  <li><strong>Lower Bounded Wildcard (<code>? super T</code>):</strong> Write-only to consumer.</li></p>
 <p></ul></p>
 
-<blockquote><p>💡 <strong>The PECS Rule:</strong> <strong>Producer Extends, Consumer Super</strong></p></blockquote>
-<blockquote><p>- If your method reads/produces data from a collection, use <code>? extends T</code>.</p></blockquote>
-<blockquote><p>- If your method writes/consumes data into a collection, use <code>? super T</code>.</p></blockquote>
+<blockquote><p>💡 <strong>The PECS Rule:</strong> <strong>Producer Extends, Consumer Super</strong>
+</p></blockquote>
+<blockquote><p>- If your method reads/produces data from a collection, use <code>? extends T</code>.
+</p></blockquote>
+<blockquote><p>- If your method writes/consumes data into a collection, use <code>? super T</code>.
+</p></blockquote>
 
-<h2>🧠 4. Type Erasure Mechanics</h2>
+<h2>🧠 4. Type Erasure Mechanics
+</h2>
 
-<blockquote><p>⚠️ <strong>IMPORTANT INTERVIEW CONCEPT:</strong> <strong>Generics exist ONLY at Compile-Time!</strong></p></blockquote>
-<blockquote><p>During compilation, the Java compiler applies <strong>Type Erasure</strong>—removing all generic type parameters <code><T></code> and replacing them with <code>Object</code> (or bounded types like <code>Number</code>). This guarantees backward compatibility with older legacy JVM versions.</p></blockquote>
+<blockquote><p>⚠️ <strong>IMPORTANT INTERVIEW CONCEPT:</strong> <strong>Generics exist ONLY at Compile-Time!</strong>
+</p></blockquote>
+<blockquote><p>During compilation, the Java compiler applies <strong>Type Erasure</strong>—removing all generic type parameters <code><T></code> and replacing them with <code>Object</code> (or bounded types like <code>Number</code>). This guarantees backward compatibility with older legacy JVM versions.
+</p></blockquote>
 
-<h2>💡 Complete Example: Generic Result Wrapper & Repository</h2>
+<h2>💡 Complete Example: Generic Result Wrapper & Repository
+</h2>
 
 <pre><code class="language-java">import java.util.List;
 
@@ -215,14 +232,16 @@
 <p>    record User(int id, String name) {}</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Name Response Success? : true
 <p>Data Received          : Rahul Verma</p>
 <p>List Received          : [Mumbai, Delhi, Bengaluru]</p>
 <p>Error Message          : User ID 99 Not Found!</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Using Primitive types directly as generic parameters (<code>List<int></code> is invalid; use <code>List<Integer></code>).</li></p>
@@ -230,31 +249,37 @@
 <p>  <li>Over-complicating method signatures with excessive nested wildcards.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Because of Type Erasure, you cannot instantiate generic arrays directly (<code>new T[10]</code> is invalid) or use <code>instanceof</code> with specific generic parameters (<code>obj instanceof List<String></code> is invalid).</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Java Collections Framework (<code>List<T></code>, <code>Map<K,V></code>), Spring Framework <code>ResponseEntity<T></code>, Jackson JSON deserializers, and ORM repository interfaces (<code>Repository<T, ID></code>).</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a generic class <code>Pair<K, V></code> holding a key and a value.</p>
 <p>2. Instantiate <code>Pair<Integer, String></code> for an employee ID and name.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a generic method <code><T> void swapArrayElements(T[] array, int index1, int index2)</code> that swaps two elements in an array of any reference type.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="11-collections.html">Collections</a></li></p>
 <p>  <li><a href="14-classes-and-objects.html">Classes and Objects</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="12-enums-and-records.html">← Previous: Enums and Records</a> | <a href="14-classes-and-objects.html">Next: Classes and Objects →</a></p>
 

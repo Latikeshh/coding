@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-git-reset-and-git-revert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Undoing Commits (`git reset`, `git revert`)</span></a></li>
   <li class="nav-item"><a href="12-branching-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Branching Basics (`git branch`, `git switch`)</span></a></li>
   <li class="nav-item"><a href="13-merging-branches.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Merging Branches (`git merge`)</span></a></li>
-  <li class="nav-item"><a href="14-handling-merge-conflicts.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Handling Merge Conflicts Step-by-Step</span></a></li>
+  <li class="nav-item"><a href="14-merge-conflicts/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Handling Merge Conflicts Step-by-Step</span></a></li>
   <li class="nav-item"><a href="15-git-rebase.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Git Rebase (`git rebase`)</span></a></li>
   <li class="nav-item"><a href="16-git-stash.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Git Stash (`git stash`)</span></a></li>
   <li class="nav-item"><a href="17-remote-repositories-and-remotes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Remote Repositories (`git remote`)</span></a></li>
@@ -97,33 +97,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Introduction to Version Control & Git</h1>
+<h1>Introduction to Version Control & Git
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>Version Control System (VCS)</strong> is software that tracks and records changes made to files over time, allowing developers to recall specific historical versions, inspect modifications, revert mistakes, and collaborate seamlessly across teams without overwriting each other's work. <strong>Git</strong> is the world's leading <strong>Distributed Version Control System (DVCS)</strong> created by <strong>Linus Torvalds</strong> in 2005.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Version Control Systems (VCS) record file history over time. Unlike Centralized Version Control Systems (CVCS like Subversion) where history resides on a single central server, Git is a Distributed Version Control System (DVCS). In Git, every developer's local machine contains a complete copy of the repository and its entire history.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Version Control System (VCS) aapke project files ke changes ka complete history record rakhta hai. Git ek Distributed Version Control System (DVCS) hai, jisme har developer ke paas pooray project history ka ek complete clone hota hai. Isse aap bina internet ke bhi offline kaam kar sakte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Version Control System (VCS) mhanje file madhye zalelya badlancha itihas (history) sathavnaari system. Git ha ek Distributed Version Control System (DVCS) aahe. Yaat pratyek developer chya computer var poorna project chi copy aani history aste.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Project files ko manually copy-paste karke <code>final_v1.zip</code>, <code>final_v2_final.zip</code> name dene ke bajaye Version Control System (VCS) use hota hai. Git aapke code ke har change ka snapshot record karta hai. Distributed hone ki wajah se har developer ke paas full local repository history hoti hai.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Without version control, developers risk losing code when making changes, struggle to merge work done by multiple team members, and have no easy way to determine who changed a specific line of code or why a bug was introduced.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of Git like a video game auto-save system:</p>
 <ul>
@@ -132,7 +142,8 @@
 <p>  <li>Multiple players can play their own storyline branches simultaneously and merge them into a main quest line later.</li></p>
 <p></ul></p>
 
-<h2>📝 Centralized vs Distributed Version Control</h2>
+<h2>📝 Centralized vs Distributed Version Control
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th>Centralized VCS (e.g. SVN)</th><th>Distributed VCS (Git)</th></tr></thead></p>
@@ -144,7 +155,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a conceptual flow showing how Git records snapshots over time:</p>
 
@@ -158,14 +170,16 @@
 
 <p>If Commit 3 breaks the application in production, Git allows you to inspect the exact difference (<code>diff</code>) between Commit 2 and Commit 3 and instantly restore the project state to Commit 2.</p>
 
-<h2>🔍 Key Core Concepts</h2>
+<h2>🔍 Key Core Concepts
+</h2>
 
 <p>1. <strong>Repository (Repo):</strong> A directory containing your project files along with a hidden <code>.git</code> folder that holds the entire version history.</p>
 <p>2. <strong>Commit:</strong> A permanent snapshot of your staged changes saved with a timestamp, author details, and a unique hash identifier.</p>
 <p>3. <strong>Branch:</strong> An independent line of development that splits off from the main codebase.</p>
 <p>4. <strong>Remote:</strong> A version of your repository hosted on the cloud (e.g., GitHub, GitLab, Bitbucket).</p>
 
-<h2>👀 Output / Concept State</h2>
+<h2>👀 Output / Concept State
+</h2>
 
 <pre><code class="language-text">[Repository Root Directory]
 <p> ├── src/</p>
@@ -173,34 +187,40 @@
 <p> ├── README.md</p>
 <p> └── .git/  &lt;-- Hidden directory containing Git version history database</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Manual ZIP Backups:</strong> Renaming project folders (<code>project_final</code>, <code>project_final_updated2</code>) instead of using Git commits.</li></p>
 <p>  <li><strong>Thinking Git Requires Internet:</strong> Assuming Git is an online website. Git runs 100% locally on your machine. <strong>GitHub</strong> is the cloud platform that hosts Git repositories online.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li><strong>Git vs GitHub:</strong> Git is the local CLI tool that tracks code history. GitHub is the cloud-based web service that hosts Git repositories online for team collaboration.</li></p>
 <p>  <li>Every commit in Git is cryptographically secured using a SHA-1 / SHA-256 hash checksum.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Virtually every modern software company (Google, Microsoft, Meta, Netflix, Amazon), open-source project (Linux kernel, React, Python, Android OS), and startup uses Git to manage codebases and coordinate global developer teams.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Check if Git is already installed on your system by opening your terminal or command prompt and running <code>git --version</code>.</p>
 <p>2. Note down the version number displayed.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write down 3 major benefits of a <strong>Distributed</strong> Version Control System over a <strong>Centralized</strong> Version Control System in your own words.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="02-installation-and-setup.html">Installation & Setup</a></li></p>
@@ -208,7 +228,8 @@
 <p>  <li><a href="04-initializing-a-repository.html">Initializing a Repository</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Home</a> | <a href="02-installation-and-setup.html">Next: Installation & Setup →</a></p>
 

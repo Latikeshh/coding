@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,11 +110,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Modern CSS Features (<code>aspect-ratio</code>, <code>object-fit</code>, Logical Properties)</h1>
+<h1>Modern CSS Features (<code>aspect-ratio</code>, <code>object-fit</code>, Logical Properties)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Modern CSS Features</strong> simplify layout calculations, aspect ratio reservations, responsive image fitting, and internationalized multi-directional layout styling without requiring complex mathematical hacks or media query workarounds:</p>
 <ul>
@@ -123,18 +126,23 @@
 <p>  <li><strong>Logical Properties:</strong> Direction-agnostic layout properties (<code>margin-inline</code>, <code>padding-block</code>, <code>inset-inline</code>) that replace physical left/right/top/bottom properties to support multi-language internationalization (LTR / RTL).</li></p>
 <p></ul></p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p><code>aspect-ratio: 16/9</code> locks element aspect ratios to prevent layout shifts. <code>object-fit: cover</code> clips images cleanly without stretching. Logical properties (<code>margin-inline</code>) support internationalized LTR and RTL layouts.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>aspect-ratio: 16/9</code> se box ka ratio fix rehta hai. <code>object-fit: cover</code> se images bina khinche (stretch hue) sahi fit hoti hain. Logical properties (<code>margin-inline</code>) LTR/RTL multi-language layouts support karti hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>aspect-ratio</code> mule images cha aakar ani ratio (jase 16/9) fix rahto. <code>object-fit: cover</code> mule image stretch na hota net baste.</p>
 
-<h2>📚 Modern CSS Features Reference Table</h2>
+<h2>📚 Modern CSS Features Reference Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Property</th><th>Purpose & Value Options</th><th>Example Syntax</th></tr></thead></p>
@@ -148,7 +156,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>🌟 <code>object-fit</code> Explained: Fixing Distorted Images</h2>
+<h2>🌟 <code>object-fit</code> Explained: Fixing Distorted Images
+</h2>
 
 <p>When you set explicit <code>width: 300px</code> and <code>height: 200px</code> on an image with a different native aspect ratio:</p>
 <ul>
@@ -164,7 +173,8 @@
 <p>  object-position: center;</p>
 <p>}</code></pre></p>
 
-<h2>🌐 Logical Properties vs. Physical Properties</h2>
+<h2>🌐 Logical Properties vs. Physical Properties
+</h2>
 
 <p>Logical properties adapt automatically if a webpage is translated into Right-to-Left (RTL) languages like Arabic or Hebrew:</p>
 
@@ -178,7 +188,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -254,27 +265,32 @@
 <p>  margin-block-end: 0;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>The video container maintains a crisp, responsive 16:9 aspect ratio box on all screen widths without requiring legacy padding-bottom percentage hacks!</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add <code>accent-color: #2563eb;</code> to a checkbox input in CSS: <code>input[type="checkbox"] { accent-color: #2563eb; }</code>.</p>
 <p>2. Notice how the native checkbox checkmark theme changes instantly!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Setting <code>object-fit: cover</code> without defining both width and height:</strong> <code>object-fit</code> requires explicit dimensions or a container boundary to compute cropping.</li></p>
 <p>  <li><strong>Mixing logical and physical properties inconsistently:</strong> Stick to logical properties (<code>padding-inline</code>, <code>padding-block</code>) for internationalized layouts.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>E-commerce stores use <code>object-fit: cover</code> for product thumbnails, video portals use <code>aspect-ratio: 16/9</code> to prevent Cumulative Layout Shift (CLS), and global web apps use logical properties to support Arabic/Hebrew RTL layouts seamlessly.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="32-functions.html">CSS Functions (<code>calc()</code>, <code>clamp()</code>)</a></li></p>
@@ -282,7 +298,8 @@
 <p>  <li><a href="39-advanced-selectors.html">Advanced Selectors</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Use <code>aspect-ratio: 16 / 9</code> or <code>1 / 1</code> to reserve responsive video/image container space.</li></p>
@@ -290,7 +307,8 @@
 <p>  <li>Use logical properties (<code>margin-inline</code>, <code>padding-block</code>) for modern internationalized layouts.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="39-advanced-selectors.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="41-css-architecture-and-dark-mode.html">Next →</a></p>
 

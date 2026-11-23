@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,30 +92,37 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>ES6 Classes & Object-Oriented JS</h1>
+<h1>ES6 Classes & Object-Oriented JS
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>ES6 <strong>Classes</strong> provide modern, clean syntactic sugar over JavaScript's prototype-based inheritance model. Classes encapsulate state (properties), behavior (methods), constructors, static methods, and private fields (<code>#</code>).</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>ES6 Classes Object-Oriented Programming (OOP) concepts ko implement karne ka ek simple tareeqa hain. Class mein <code>constructor</code>, methods, static methods, <code>#</code> se private fields, aur <code>extends</code> + <code>super()</code> ka use karke Inheritance apply ki jaati hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Classes mule Object-Oriented Programming (OOP) sarakha code lihita येतो. Class madhye <code>constructor</code>, methods, aani <code>extends</code> cha wapar karun Inheritance implement kele jaate.</p>
 
-<h2>📝 OOP Concepts in JavaScript</h2>
+<h2>📝 OOP Concepts in JavaScript
+</h2>
 
 <p>1. <strong>Encapsulation:</strong> Grouping data and related behavior inside class objects.</p>
 <p>2. <strong>Inheritance:</strong> Creating child subclasses that inherit properties and methods from parent classes (<code>extends</code>).</p>
 <p>3. <strong>Polymorphism:</strong> Overriding inherited parent methods in child classes.</p>
 <p>4. <strong>Private Fields (<code>#</code>):</strong> Properties inaccessible from outside the class instance.</p>
 
-<h2>💡 Complete Example: Class Inheritance & Private Fields</h2>
+<h2>💡 Complete Example: Class Inheritance & Private Fields
+</h2>
 
 <pre><code class="language-js">class BankAccount {
 <p>  // Private field (cannot be accessed outside class instance)</p>
@@ -164,33 +171,39 @@
 <p>console.log(&quot;Pin Valid?&quot;, mySavings.verifyPin(1234));</p>
 <p>// console.log(mySavings.#accountPin); // SyntaxError: Private field &#39;#accountPin&#39; must be declared in an enclosing class</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Deposited ₹5000. Total Balance: ₹15000
 <p>Applied 4% interest (₹6000). New Balance: ₹15600</p>
 <p>Pin Valid? true</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a parent class <code>Vehicle</code> with <code>brand</code> and <code>start()</code> method.</p>
 <p>2. Create a subclass <code>Car</code> extending <code>Vehicle</code> with an additional <code>model</code> property.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting to call <code>super()</code> inside child class constructors before using <code>this</code>.</li></p>
 <p>  <li>Expecting JavaScript classes to be fundamentally different from prototypes—classes are syntactical sugar built directly on prototypes!</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Building UI components, domain modeling in enterprise applications, custom SDKs, and state management models.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Use <code>class</code> for OOP design, <code>#</code> for private fields, <code>extends</code> for inheritance, and <code>super()</code> to initialize parent constructors.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="17-prototypes-and-this.html">← Previous: Prototypes & this</a> | <a href="19-dom-manipulation.html">Next: DOM Selection →</a></p>
 

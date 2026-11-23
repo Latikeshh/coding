@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitwise & Logical Operators - C</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">05 Operators</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators Overview</span></a></li>
+          <li class="nav-item"><a href="arithmetic-relational.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arithmetic, Integer Division & Relational</span></a></li>
+          <li class="nav-item"><a href="bitwise-logical.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Bitwise & Logical Operators</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Bitwise & Logical Operators in C</h1>
+        <blockquote><p>🟢 Intermediate Level | Low-Level Bit Operations</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p><strong>Bitwise Operators</strong> (<code>&</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code>) manipulate individual bits inside integral operands. <strong>Logical Operators</strong> (<code>&&</code>, <code>||</code>, <code>!</code>) perform short-circuit boolean evaluation.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Used in microcontroller register masking, flags management, protocol header parsing, and low-level C system optimization.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Bitwise <code>&</code> performs bitwise AND; left shift <code>a &lt;&lt; b</code> multiplies <code>a</code> by $2^b$; right shift <code>a &gt;&gt; b</code> divides by $2^b$.</p>
+        <h3>Hindi</h3>
+        <p>Bitwise operators <code>&</code>, <code>|</code>, <code>^</code> binary bits par kaam karte hain. Left shift <code>1 &lt;&lt; 3</code> value ko $2^3 = 8$ se multiply karta hai.</p>
+        <h3>Marathi</h3>
+        <p>Bitwise shift operators mule binary bit positions move hotat.</p>
+        <h3>Hinglish</h3>
+        <p>Bit masking pattern: <code>flags |= (1 << bit_pos);</code> bit setting ke liye standard hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-c">unsigned int flags = 0x05; // Binary: 00000101
+flags |= (1 &lt;&lt; 3);       // Set bit 3 -> 00001101 (13)
+int isBitSet = (flags &amp; (1 &lt;&lt; 3)) != 0; // Check bit 3</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>CPU loads operand binary register values.</li>
+          <li>Applies bitwise instruction AND, OR, XOR, NOT, or Bit-Shift.</li>
+          <li>Stores modified bitmask result in target register.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Setting & Testing a Bitmask</h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    unsigned char mask = 0x00; // 0000 0000
+
+    // Set bit 2
+    mask |= (1 &lt;&lt; 2); // 0000 0100
+
+    if (mask &amp; (1 &lt;&lt; 2)) {
+        printf("Bit 2 is SET! Mask: 0x%02X\n", mask);
+    }
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Bit 2 is SET! Mask: 0x04</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>mask |= (1 << 2)</code>: Shifts 1 left by 2 positions (`0x04`) and performs bitwise OR.</li>
+          <li><code>mask & (1 << 2)</code>: Bitwise AND masks bit 2 to test if non-zero.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Shifting by negative counts or by amounts equal to or greater than the operand width is undefined behavior in C!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Confusing Bitwise `&` with Logical `&&`:</strong> Writing <code>if (a & b)</code> performs bitwise AND instead of boolean short-circuit evaluation.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Embedded systems GPIO pin mode configuration.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C function using `& 1` to check if an integer is odd or even.</li>
+          <li><strong>Intermediate:</strong> Write a C function toggling bit 4 of an integer using `^=`.</li>
+          <li><strong>Advanced:</strong> Create a C program parsing flags from a packed 32-bit protocol header.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

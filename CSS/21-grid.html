@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>CSS Grid Layout (2D Grids)</h1>
+<h1>CSS Grid Layout (2D Grids)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>CSS Grid Layout</strong> is a 2-dimensional grid-based layout model designed to structure content into rows and columns simultaneously. It provides powerful track sizing (<code>fr</code>, <code>minmax()</code>, <code>repeat()</code>), explicit area placement (<code>grid-template-areas</code>), and responsive grid column layouts without requiring media queries.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>CSS Grid (<code>display: grid</code>) is a 2D layout system (rows AND columns simultaneously). Use <code>grid-template-columns: repeat(3, 1fr)</code> for equal fraction columns and <code>minmax()</code> for auto-responsive card grids.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>CSS Grid (<code>display: grid</code>) 2D layout system hai jo ek saath rows aur columns dono ko sambhalta hai. Auto-responsive cards ke liye <code>repeat(auto-fit, minmax(250px, 1fr))</code> ka use karein.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>CSS Grid 2D layout (rows ani columns) sathi vaparla jaato. <code>grid-template-columns</code> dware columns cha size thartat.</p>
 
-<h2>🤔 Why Do We Use CSS Grid?</h2>
+<h2>🤔 Why Do We Use CSS Grid?
+</h2>
 
 <p>While Flexbox excels at 1D alignment along a single row or column, CSS Grid manages complex 2D web page layouts, dashboards, image galleries, and multi-column card layouts where elements must align across both horizontal columns and vertical rows.</p>
 
-<h2>🧠 Simple Explanation & Graph Paper Analogy</h2>
+<h2>🧠 Simple Explanation & Graph Paper Analogy
+</h2>
 
 <p>Think of CSS Grid as an empty sheet of graph paper:</p>
 <ul>
@@ -142,7 +151,8 @@
 <p>  <li>You place content cards into specific grid cells or let them auto-fill the grid.</li></p>
 <p></ul></p>
 
-<h2>📚 Core Grid Properties Reference Table</h2>
+<h2>📚 Core Grid Properties Reference Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Property</th><th>Purpose & Value Format</th><th>Example</th></tr></thead></p>
@@ -156,7 +166,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>🌟 The Power of the <code>fr</code> Unit & Auto-Responsive Cards</h2>
+<h2>🌟 The Power of the <code>fr</code> Unit & Auto-Responsive Cards
+</h2>
 
 <p>The <code>fr</code> (Fraction) unit represents a fraction of available free space in the grid container. Combining <code>repeat()</code>, <code>auto-fit</code>, and <code>minmax()</code> creates <strong>fully responsive card layouts without writing a single media query</strong>:</p>
 
@@ -167,7 +178,8 @@
 <p>  gap: 20px;</p>
 <p>}</code></pre></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -242,35 +254,41 @@
 <p>  line-height: 1.5;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>On desktop screens, the three cards render side-by-side in a 3-column layout. When you narrow the browser window to mobile width, the grid automatically reflows into a single column without needing <code>@media</code> query breakpoints!</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Change <code>minmax(250px, 1fr)</code> to <code>minmax(350px, 1fr)</code>.</p>
 <p>2. Notice how the grid wraps down into fewer columns sooner because each card requires at least 350px width.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Using Grid when Flexbox is simpler:</strong> Using 2D Grid for a simple 1D single-row navigation bar (Flexbox fits 1D alignment better).</li></p>
 <p>  <li><strong>Forgetting <code>gap</code>:</strong> Adding outer margins on grid items instead of declaring <code>gap: 20px</code> on the grid parent container.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>CSS Grid powers complex web application dashboards (sidebar + main content + header widget area), photo galleries, e-commerce product grids, and pricing comparison tables.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="20-flexbox.html">Flexbox Layout</a></li></p>
+<p>  <li><a href="20-flexbox/index.html">Flexbox Layout</a></li></p>
 <p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
 <p>  <li><a href="36-card-layout.html">Card Layout Components</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Flexbox = 1D (rows OR columns); CSS Grid = 2D (rows AND columns).</li></p>
@@ -278,9 +296,10 @@
 <p>  <li><code>repeat(auto-fit, minmax(250px, 1fr))</code> creates responsive card grids automatically.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="20-flexbox.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="22-responsive-design.html">Next →</a></p>
+<p><a href="20-flexbox/index.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="22-responsive-design.html">Next →</a></p>
 
 
 

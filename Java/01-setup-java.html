@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,31 +91,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Set Up Java Development Environment</h1>
+<h1>Set Up Java Development Environment
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Setting up the <strong>Java Development Environment</strong> involves installing the <strong>Java Development Kit (JDK)</strong>, configuring system environment variables (<code>JAVA_HOME</code> and <code>PATH</code>), understanding how the <strong>Java Virtual Machine (JVM)</strong> executes bytecode, and running Java programs using the command-line compiler (<code>javac</code>) or interactive shell (<code>jshell</code>).</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Java code likhne aur chalane ke liye aapko JDK install karna hota hai. <code>javac</code> compiler Java source code (<code>.java</code>) ko platform-independent Bytecode (<code>.class</code>) mein convert karta hai, aur <strong>JVM (Java Virtual Machine)</strong> us bytecode ko aapke operating system par run karta hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Java program tayar karnyasathi JDK install karave lagte. <code>javac</code> compiler <code>.java</code> file cha Bytecode (<code>.class</code>) tayar karto, aani <strong>JVM</strong> tya bytecode la machine varti run karto.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Java follows the famous <strong>"Write Once, Run Anywhere" (WORA)</strong> philosophy. Because Java code compiles into universal JVM Bytecode rather than native machine assembly, a Java program compiled on Windows can run without modification on Linux, macOS, or cloud servers.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of the <strong>JDK</strong> as a complete carpenter's workshop. The <strong>Compiler (<code>javac</code>)</strong> is like a blueprint translator that converts your sketch into a standardized machine blueprint (Bytecode). The <strong>JVM</strong> is the automated construction robot that reads that blueprint and physically builds the output on any OS.</p>
 
-<h2>⚙️ The Java Architecture Triad</h2>
+<h2>⚙️ The Java Architecture Triad
+</h2>
 
 <p>1. <strong>JDK (Java Development Kit):</strong> The full software development kit containing the compiler (<code>javac</code>), archiver (<code>jar</code>), execution tools (<code>java</code>), and development libraries.</p>
 <p>2. <strong>JRE (Java Runtime Environment):</strong> The runtime package containing the JVM and standard core class libraries needed to run compiled Java applications.</p>
@@ -137,23 +145,28 @@
 <p></table></p>
 <p>+-------------------------------------------------------+</code></pre></p>
 
-<h2>📝 Setting Up JDK & Environment Variables</h2>
+<h2>📝 Setting Up JDK & Environment Variables
+</h2>
 
-<h3>Step 1: Install JDK</h3>
+<h3>Step 1: Install JDK
+</h3>
 <p>Download JDK 25 or an LTS release (such as Eclipse Temurin / OpenJDK) from <a href="https://adoptium.net/">adoptium.net</a>.</p>
 
-<h3>Step 2: Configure Environment Variables</h3>
+<h3>Step 2: Configure Environment Variables
+</h3>
 <ul>
 <p>  <li><strong><code>JAVA_HOME</code>:</strong> Set to your JDK installation directory (e.g., <code>C:\Program Files\Java\jdk-25</code> on Windows or <code>/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home</code> on macOS).</li></p>
 <p>  <li><strong><code>PATH</code>:</strong> Append <code>%JAVA_HOME%\bin</code> (Windows) or <code>$JAVA_HOME/bin</code> (Linux/macOS).</li></p>
 <p></ul></p>
 
-<h3>Step 3: Verify Installation in Terminal</h3>
+<h3>Step 3: Verify Installation in Terminal
+</h3>
 <pre><code class="language-bash">java -version
 <p>javac -version</p>
 <p>jshell --version</code></pre></p>
 
-<h2>💡 Complete Example: Writing, Compiling & Executing</h2>
+<h2>💡 Complete Example: Writing, Compiling & Executing
+</h2>
 
 <p>Create a file named <code>HelloJava.java</code>:</p>
 
@@ -164,23 +177,28 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h3>Compilation & Execution Commands:</h3>
+<h3>Compilation & Execution Commands:
+</h3>
 
 <pre><code class="language-bash"># 1. Compile source code into Bytecode (creates HelloJava.class)
 <p>javac HelloJava.java</p>
 
-<h1>2. Execute compiled class on the JVM (do NOT append .class extension)</h1>
+<h1>2. Execute compiled class on the JVM (do NOT append .class extension)
+</h1>
 <p>java HelloJava</p>
 
-<h1>3. Single-File Direct Launch (Java 11+)</h1>
+<h1>3. Single-File Direct Launch (Java 11+)
+</h1>
 <p>java HelloJava.java</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Hello, Welcome to General Java SE Programming!
 <p>JDK Version Reference: 25</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Filename Mismatch:</strong> If a class is declared <code>public class HelloJava</code>, the file <strong>MUST</strong> be saved as <code>HelloJava.java</code> (case-sensitive!).</li></p>
@@ -188,32 +206,38 @@
 <p>  <li><strong>Case Sensitivity:</strong> Writing <code>system.out.println</code> or <code>string</code> instead of <code>System</code> and <code>String</code>.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Always compile with strict warnings enabled during development to catch potential runtime bugs early.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>General Java powers enterprise backend microservices (Spring Boot), high-frequency trading platforms, desktop financial tools, build automation engines (Gradle/Maven), and big-data processing clusters (Apache Spark/Hadoop).</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Open your terminal or <code>jshell</code>.</p>
 <p>2. Evaluate <code>25 * 4</code> in <code>jshell</code> and exit using <code>/exit</code>.</p>
 <p>3. Create a Java class that prints your name, target project goal, and current year.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that prints a 3-line receipt showing an item name, quantity, price, and calculated total cost using <code>System.out.println()</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="02-java-program-structure.html">Java Program Structure</a></li></p>
 <p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="02-java-program-structure.html">Next: Java Program Structure →</a></p>
 

@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,27 +92,34 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Arrays & Essential Methods in JavaScript</h1>
+<h1>Arrays & Essential Methods in JavaScript
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>An <strong>Array</strong> is an ordered, zero-indexed collection of elements stored under a single variable name. Arrays can store mixed data types including numbers, strings, objects, and even other arrays.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Array ek ordered list hoti hai jisme multiple values store ki ja sakti hain. Indexing <code>0</code> se start hoti hai (<code>array[0]</code> pehla item hota hai). Elements add/remove karne aur manipulate karne ke liye built-in array methods hote hain.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Array madhye anek values kramawar (ordered list) saathavlya jaatat. Array chi suruvat index <code>0</code> pasun hote. Values add karnya sathi <code>.push()</code> aani kadhnyasathi <code>.pop()</code> cha wapar hota.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Storing 100 student names in 100 separate variables is unmanageable. An array lets you store, sort, filter, and iterate through 100 student names effortlessly.</p>
 
-<h2>📝 Essential Array Methods</h2>
+<h2>📝 Essential Array Methods
+</h2>
 
 <table>
 <p>  <thead><tr><th>Method</th><th>Description</th><th>Mutates Original Array?</th></tr></thead></p>
@@ -129,7 +136,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Complete Example</h2>
+<h2>💡 Complete Example
+</h2>
 
 <pre><code class="language-js">let shoppingCart = [&quot;Laptop&quot;, &quot;Mouse&quot;, &quot;Keyboard&quot;];
 
@@ -153,7 +161,8 @@
 <p>shoppingCart.splice(0, 1, &quot;HDMI Adapter&quot;);</p>
 <p>console.log(&quot;Cart after Splice:&quot;, shoppingCart);</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Current Cart: [ &#39;USB Cable&#39;, &#39;Laptop&#39;, &#39;Mouse&#39;, &#39;Keyboard&#39; ]
 <p>Cart Size: 4</p>
@@ -162,30 +171,35 @@
 <p>Sliced Copy: [ &#39;Laptop&#39;, &#39;Mouse&#39; ]</p>
 <p>Cart after Splice: [ &#39;HDMI Adapter&#39;, &#39;Laptop&#39;, &#39;Mouse&#39;, &#39;Keyboard&#39; ]</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create an array of your top 4 cities.</p>
 <p>2. Add a new city to the end using <code>.push()</code>.</p>
 <p>3. Use <code>.slice()</code> to create a new array with the middle two cities.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Confusing <code>slice()</code> (safe copy) with <code>splice()</code> (modifies original array directly!).</li></p>
 <p>  <li>Off-by-one errors when accessing the last item: use <code>arr[arr.length - 1]</code> or modern <code>arr.at(-1)</code>.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Product catalogs, shopping cart contents, message histories, search result sets, and tab navigation lists.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Arrays are zero-indexed (<code>0</code> to <code>length - 1</code>). Use <code>slice()</code> when you want a copy without altering the original array.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="./">← JS Home</a> | <a href="08-functions.html">← Previous: Functions</a> | <a href="10-objects.html">Next: Objects →</a></p>
+<p><a href="./">← JS Home</a> | <a href="08-functions/index.html">← Previous: Functions</a> | <a href="10-objects.html">Next: Objects →</a></p>
 
 
 

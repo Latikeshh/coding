@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,32 +110,41 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>The CSS Box Model (<code>box-sizing: border-box</code>)</h1>
+<h1>The CSS Box Model (<code>box-sizing: border-box</code>)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong>CSS Box Model</strong> is the foundational layout engine concept where every HTML element is treated as a rectangular box consisting of four concentric layers: <strong>Content</strong>, <strong>Padding</strong>, <strong>Border</strong>, and <strong>Margin</strong>. The <strong><code>box-sizing</code></strong> property determines whether padding and borders are included in or added to an element's specified width and height.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>The Box Model consists of content, padding (inner space), border, and margin (outer space). Always use <code>box-sizing: border-box</code> so padding and borders do not inflate the total element width.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Box model mein Content, Padding (andaruni space), Border, aur Margin (bahari space) hote hain. Width ka sahi hisaab rakhne ke liye hamesha <code>box-sizing: border-box</code> ka use karein.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Box model madhye Content, Padding (aatil jaga), Border, ani Margin (baheril jaga) aastat. <code>box-sizing: border-box</code> mule ekun rundi sthir rahte.</p>
 
-<h2>🤔 Why Is The Box Model So Important?</h2>
+<h2>🤔 Why Is The Box Model So Important?
+</h2>
 
 <p>In the default CSS box model (<code>content-box</code>), if you set an element's width to <code>200px</code>, and then add <code>20px</code> padding and a <code>2px</code> border, its actual rendered width on screen becomes <code>200 + 20 + 20 + 2 + 2 = 244px</code>! This causes grid columns and cards to overflow and break onto new lines.</p>
 
 <p>Setting <code>box-sizing: border-box</code> fixes this: the element stays exactly <code>200px</code> wide, automatically absorbing padding and borders inward.</p>
 
-<h2>🧠 Simple Explanation & Picture Frame Analogy</h2>
+<h2>🧠 Simple Explanation & Picture Frame Analogy
+</h2>
 
 <p>Think of a picture framed on a wall:</p>
 <ul>
@@ -164,7 +173,8 @@
 <p></table></p>
 <p>+------------------------------------------------+</code></pre></p>
 
-<h2>⚖️ <code>content-box</code> vs. <code>border-box</code></h2>
+<h2>⚖️ <code>content-box</code> vs. <code>border-box</code>
+</h2>
 
 <table>
 <p>  <thead><tr><th>Box-Sizing Value</th><th>Width Calculation Formula</th><th>Rendered Width Example (<code>width: 200px</code>, <code>padding: 20px</code>, <code>border: 2px</code>)</th></tr></thead></p>
@@ -174,7 +184,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 The Universal Global Box-Sizing Reset</h2>
+<h2>📝 The Universal Global Box-Sizing Reset
+</h2>
 
 <p>Professional web developers apply <code>box-sizing: border-box</code> to every element using the universal selector <code>*</code>:</p>
 
@@ -184,7 +195,8 @@
 <p>  padding: 0;</p>
 <p>}</code></pre></p>
 
-<h2>💻 Examples</h2>
+<h2>💻 Examples
+</h2>
 
 <pre><code class="language-css">/* Box model rules */
 <p>.card-border-box {</p>
@@ -196,7 +208,8 @@
 <p>  background-color: #ffffff;</p>
 <p>}</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -246,27 +259,32 @@
 <p>  box-sizing: border-box;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>In your browser, <code>.content-box</code> renders visually wider (<code>250px</code>) than <code>.border-box</code> (<code>200px</code>), even though both have <code>width: 200px</code> declared! <code>.border-box</code> maintains exact predictable container dimensions.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Inspect both boxes in DevTools (<code>F12</code>).</p>
 <p>2. Hover over the computed Box Model diagram at the bottom of the Styles panel to see the blue (content), green (padding), yellow (border), and orange (margin) overlays.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting the universal <code>border-box</code> reset:</strong> Leading to column calculation bugs where two <code>50%</code> width flex items break onto two lines because of <code>padding</code>.</li></p>
 <p>  <li><strong>Confusing margin and padding:</strong> Margins push other elements away outside the border; padding pushes content inward inside the border.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>The universal <code>* { box-sizing: border-box; }</code> rule is included at the top of every modern CSS reset, Bootstrap, Tailwind, and production stylesheet worldwide.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="13-borders.html">Borders, Border Radius & Box Shadows</a></li></p>
@@ -274,7 +292,8 @@
 <p>  <li><a href="15-padding.html">Padding & Spacing</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Box Model layers: Content → Padding → Border → Margin.</li></p>
@@ -282,7 +301,8 @@
 <p>  <li>Always include <code>*, *::before, *::after { box-sizing: border-box; }</code> at the top of your stylesheets.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="15-padding.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="17-display.html">Next →</a></p>
 

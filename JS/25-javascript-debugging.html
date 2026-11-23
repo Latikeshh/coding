@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,23 +92,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Practical JavaScript Debugging in DevTools</h1>
+<h1>Practical JavaScript Debugging in DevTools
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Debugging</strong> is the process of finding, diagnosing, and fixing errors, unexpected behavior, and performance bottlenecks in code. JavaScript provides <code>console</code> methods, <code>debugger</code> statements, and browser Developer Tools (DevTools) for inspection.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Debugging se hum apne code ke errors ko dhoondhte hain aur fix karte hain. Browser ke Developer Tools (<code>F12</code>) ka <strong>Console</strong>, <strong>Sources</strong>, aur <strong>Breakpoints</strong> use karke hum code ko line-by-line execute karke variables ki state monitor kar sakte hain.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Debugging cha wapar karun kod madhil chuka (bugs) shodhlya aani dur kelya jaatat. Browser chya DevTools madhye <strong>Breakpoints</strong> lavun code line-by-line tapasla jato.</p>
 
-<h2>📝 Modern Console Logging Methods</h2>
+<h2>📝 Modern Console Logging Methods
+</h2>
 
 <pre><code class="language-js">// 1. Log simple messages
 <p>console.log(&quot;User logged in successfully&quot;);</p>
@@ -129,7 +135,8 @@
 <p>for (let i = 0; i &lt; 1000000; i++) {}</p>
 <p>console.timeEnd(&quot;LoopPerformance&quot;);</code></pre></p>
 
-<h2>🧠 Using Breakpoints in Browser DevTools</h2>
+<h2>🧠 Using Breakpoints in Browser DevTools
+</h2>
 
 <p>1. Open DevTools in Google Chrome or Firefox (<code>F12</code>).</p>
 <p>2. Navigate to the <strong>Sources</strong> (or Debugger) tab.</p>
@@ -144,7 +151,8 @@
 <p>  <li><strong>Resume (F8):</strong> Continue normal execution.</li></p>
 <p></ul></p>
 
-<h2>📝 Programmatic Breakpoint (<code>debugger</code>)</h2>
+<h2>📝 Programmatic Breakpoint (<code>debugger</code>)
+</h2>
 
 <p>Adding the <code>debugger;</code> statement inside your JavaScript code forces the browser to automatically pause execution when DevTools is open.</p>
 
@@ -165,27 +173,32 @@
 
 <p>calculateCartTotal([{ name: &quot;Book&quot;, price: 200, quantity: 2 }]);</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add <code>console.table()</code> with an array of 3 products in your console.</p>
 <p>2. Place a <code>debugger;</code> statement inside a loop and step through it in Chrome DevTools.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Relying exclusively on <code>console.log()</code> statements everywhere instead of using breakpoints in DevTools.</li></p>
 <p>  <li>Leaving <code>debugger;</code> statements or excessive <code>console.log()</code> outputs in production code.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Inspecting network request payloads, tracking variable state mutations during UI updates, isolating memory leaks, and fixing logical errors.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Breakpoints let you pause execution and inspect variables live in memory without cluttering your code with <code>console.log()</code> statements.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="24-mini-projects.html">← Previous: Mini Projects</a></p>
 

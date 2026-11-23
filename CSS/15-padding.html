@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Padding & Spacing</h1>
+<h1>Padding & Spacing
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong><code>padding</code></strong> property controls inner transparent spacing between an element's content and its surrounding border box. Padding expands the click/touch area and background color area of an element.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p><code>padding</code> creates inner spacing inside an element's border box, pushing content inward away from edges. Unlike margins, padding includes the background color and increases touch target sizes.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>padding</code> element ke andaruni hisse mein jagah (space) badhata hai. Padding ke andar element ka background color bhi dikhta hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>padding</code> mule box chya aat madhye content bhowti space tayar hoto.</p>
 
-<h2>🤔 Why Do We Use Padding?</h2>
+<h2>🤔 Why Do We Use Padding?
+</h2>
 
 <p>Unpadded buttons or text cards look cramped and unappealing. Adding padding creates comfortable whitespace inside UI components, improves text readability, and makes buttons easier to tap on mobile touchscreens.</p>
 
-<h2>🧠 Simple Explanation & Box Analogy</h2>
+<h2>🧠 Simple Explanation & Box Analogy
+</h2>
 
 <p>Think of shipping a fragile gift in a cardboard box:</p>
 <ul>
@@ -142,7 +151,8 @@
 <p>  <li><strong>Border:</strong> The cardboard box walls.</li></p>
 <p></ul></p>
 
-<h2>📝 Syntax & Shorthand Formats</h2>
+<h2>📝 Syntax & Shorthand Formats
+</h2>
 
 <pre><code class="language-css">/* Individual Side Properties */
 <p>.element {</p>
@@ -158,7 +168,8 @@
 <p>.element { padding: 10px 15px 20px; }     /* 3 Values: top | left/right | bottom */</p>
 <p>.element { padding: 10px 15px 20px 5px; } /* 4 Values: Top Right Bottom Left (Clockwise) */</code></pre></p>
 
-<h2>⚔️ Margin vs. Padding (Crucial Differences)</h2>
+<h2>⚔️ Margin vs. Padding (Crucial Differences)
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th>Margin (<code>margin</code>)</th><th>Padding (<code>padding</code>)</th></tr></thead></p>
@@ -170,7 +181,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -230,27 +242,32 @@
 <p>  background-color: #0056b3;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A card component with generous inner breathing room around the text and a button with a large, comfortable tap area on mobile devices.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Set <code>padding: 0</code> on the <code>.btn</code> element and see how tiny and difficult to click the button becomes.</p>
 <p>2. Change <code>padding: 12px 24px</code> to <code>padding: 16px 32px</code> to see how padding expands the button's clickable area.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting <code>box-sizing: border-box</code>:</strong> Without <code>border-box</code>, adding <code>padding: 20px</code> to a <code>width: 200px</code> element increases its total rendered width to <code>240px</code>, causing layout breaking.</li></p>
 <p>  <li><strong>Using margin instead of padding on buttons:</strong> Using margin on a button expands outer space, but leaves the clickable button area tiny. Use padding on buttons.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Mobile accessibility guidelines (WCAG) require interactive buttons to have a minimum touch target size of 44px × 44px. Developers achieve this by adding padding (<code>padding: 12px 20px</code>).</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="14-margins.html">Margins & Margin Collapse</a></li></p>
@@ -258,7 +275,8 @@
 <p>  <li><a href="35-forms-and-inputs.html">Styling Forms & Inputs</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Padding sits inside the border; Margin sits outside the border.</li></p>
@@ -266,7 +284,8 @@
 <p>  <li>Always use <code>box-sizing: border-box</code> so padding doesn't inflate element width.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="14-margins.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="16-box-model.html">Next →</a></p>
 

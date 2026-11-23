@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Navigation Bar Components</h1>
+<h1>Navigation Bar Components
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>Navigation Bar (Navbar)</strong> is a core user interface component positioned at the top of a webpage that contains brand logos, primary navigation links, search bars, and call-to-action buttons aligned horizontally using Flexbox (<code>display: flex</code>).</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Build responsive navbars using <code>display: flex</code> with <code>justify-content: space-between</code> and <code>align-items: center</code>.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Navbar banane ke liye Flexbox (<code>display: flex</code>) ka use karein. Logo ko left side aur links ko right side align karne ke liye <code>justify-content: space-between</code> ka use hota hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Navigation bar sathi Flexbox layout vaprun <code>space-between</code> mule brand logo ani links yogya antaravar align hotat.</p>
 
-<h2>🤔 Why Are Navbars Critical?</h2>
+<h2>🤔 Why Are Navbars Critical?
+</h2>
 
 <p>The navigation bar is the first UI element visitors interact with when arriving on a site. A well-designed navbar communicates brand identity and enables users to explore key site pages effortlessly.</p>
 
-<h2>🧱 Standard Navbar Flexbox Layout Pattern</h2>
+<h2>🧱 Standard Navbar Flexbox Layout Pattern
+</h2>
 
 <pre><code class="language-text">+-------------------------------------------------------------------+
 
@@ -146,7 +155,8 @@
 
 <p>| &lt;------------------- justify-content: space-between ------------&gt; |</code></pre></p>
 
-<h2>📝 Syntax & CSS Pattern</h2>
+<h2>📝 Syntax & CSS Pattern
+</h2>
 
 <pre><code class="language-css">.navbar {
 <p>  display: flex;</p>
@@ -179,7 +189,8 @@
 <p>  color: #ffffff;</p>
 <p>}</code></pre></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -279,35 +290,41 @@
 <p>  margin: 0 auto;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A dark, modern navigation bar with logo on the left, navigation links centered with <code>24px</code> gaps, a CTA button on the right, and sticky positioning pinned to the top of the browser window during scroll.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add <code>@media (max-width: 640px) { .nav-links { display: none; } }</code> to hide navigation links on small mobile screens.</p>
 <p>2. Observe how the navbar layout automatically adjusts using Flexbox!</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting <code>align-items: center</code>:</strong> Causes logo text, link list items, and buttons to stretch vertically or misalign along the top edge.</li></p>
 <p>  <li><strong>Forgetting <code>position: sticky; top: 0;</code> requires <code>top</code> value:</strong> <code>position: sticky</code> will NOT stick unless an explicit threshold (e.g. <code>top: 0</code>) is specified.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Flexbox navbars form the header foundation for SaaS landing pages, documentation platforms (like MDN), news portals, and e-commerce applications.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="18-positioning.html">Positioning & <code>z-index</code></a></li></p>
-<p>  <li><a href="20-flexbox.html">Flexbox Layout</a></li></p>
+<p>  <li><a href="20-flexbox/index.html">Flexbox Layout</a></li></p>
 <p>  <li><a href="38-mini-projects.html">CSS Mini Projects</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Use <code>display: flex; justify-content: space-between; align-items: center;</code> on the navbar parent.</li></p>
@@ -315,7 +332,8 @@
 <p>  <li>Use <code>position: sticky; top: 0; z-index: 1000;</code> for sticky header bars.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="36-card-layout.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="38-mini-projects.html">Next →</a></p>
 

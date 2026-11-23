@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Web Fonts (<code>font-family</code>, <code>@font-face</code>)</h1>
+<h1>Web Fonts (<code>font-family</code>, <code>@font-face</code>)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Font properties control typefaces, weights, styles, and web font loading using <strong><code>font-family</code></strong>, <strong><code>font-weight</code></strong>, <strong><code>font-style</code></strong>, Google Fonts <code><link></code>, or custom <strong><code>@font-face</code></strong> rules.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Set typefaces with <code>font-family</code>. Always specify generic system fallback fonts (<code>sans-serif</code>, <code>serif</code>, <code>monospace</code>). Load custom web fonts using Google Fonts or <code>@font-face</code>.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>font-family</code> se font style tay karein. Font stack ke end mein fallback system font (jaise <code>sans-serif</code>) zaroor likhein. Google Fonts se naye fonts aasani se load kiye ja sakte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>font-family</code> madhye main font ani shevati fallback font (jase <code>sans-serif</code>) lihava.</p>
 
-<h2>🤔 Why Do We Need Web Fonts & Fallbacks?</h2>
+<h2>🤔 Why Do We Need Web Fonts & Fallbacks?
+</h2>
 
 <p>If you specify <code>font-family: 'Inter'</code>, but a visitor's computer does not have the "Inter" font installed locally, their browser will render the page in a default fallback font. Providing custom Web Fonts (via Google Fonts or <code>@font-face</code>) ensures your website looks identical on all devices.</p>
 
-<h2>🧠 Simple Explanation & Font Stack Concept</h2>
+<h2>🧠 Simple Explanation & Font Stack Concept
+</h2>
 
 <p>A <strong>Font Stack</strong> is a prioritized list of fallback fonts separated by commas:</p>
 
@@ -145,7 +154,8 @@
 <p>2. <strong><code>system-ui</code>, <code>-apple-system</code>, <code>'Segoe UI'</code>:</strong> High-quality system fonts pre-installed on macOS, Windows, and Android.</p>
 <p>3. <strong><code>sans-serif</code>:</strong> The universal generic fallback category if no specific font is found.</p>
 
-<h2>📚 Generic Font Families</h2>
+<h2>📚 Generic Font Families
+</h2>
 
 <ul>
 <p>  <li><strong><code>sans-serif</code>:</strong> Clean fonts without end strokes/serifs (Arial, Helvetica, Inter, Roboto). Best for digital screens.</li></p>
@@ -153,9 +163,11 @@
 <p>  <li><strong><code>monospace</code>:</strong> Fixed-width character fonts (Courier New, Consolas, Fira Code). Best for code snippets.</li></p>
 <p></ul></p>
 
-<h2>📝 Loading Fonts with Google Fonts vs. <code>@font-face</code></h2>
+<h2>📝 Loading Fonts with Google Fonts vs. <code>@font-face</code>
+</h2>
 
-<h3>Method 1: Google Fonts <code><link></code> (Easiest)</h3>
+<h3>Method 1: Google Fonts <code><link></code> (Easiest)
+</h3>
 <pre><code class="language-html">&lt;!-- Inside HTML &lt;head&gt; --&gt;
 <p>&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;</p>
 <p>&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;</p>
@@ -166,7 +178,8 @@
 <p>  font-family: &#39;Inter&#39;, sans-serif;</p>
 <p>}</code></pre></p>
 
-<h3>Method 2: Custom <code>@font-face</code> Rule</h3>
+<h3>Method 2: Custom <code>@font-face</code> Rule
+</h3>
 <p>Used when hosting self-hosted font files (<code>.woff2</code>, <code>.woff</code>):</p>
 
 <pre><code class="language-css">@font-face {
@@ -182,7 +195,8 @@
 <p>  font-family: &#39;CustomFont&#39;, sans-serif;</p>
 <p>}</code></pre></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -234,16 +248,19 @@
 <p>  line-height: 1.6;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>The webpage renders styled typography using the custom Google Font <strong>Poppins</strong> with bold heading weights (<code>700</code>) and regular body weights (<code>400</code>).</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Visit <a href="https://fonts.google.com">fonts.google.com</a> and search for a font (e.g. <code>Roboto</code> or <code>Montserrat</code>).</p>
 <p>2. Copy the generated <code><link></code> tags into your HTML <code><head></code> and update <code>font-family</code> in CSS.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting generic fallback font:</strong> Writing <code>font-family: 'MyFont'</code> without appending <code>, sans-serif</code> or <code>, serif</code>.</li></p>
@@ -251,18 +268,21 @@
 <p>  <li><strong>Omitting <code>font-display: swap</code>:</strong> Causes Flash of Invisible Text (FOIT) while font files download.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Modern web design systems host self-hosted <code>.woff2</code> font files using <code>@font-face</code> with <code>font-display: swap</code> to maximize Core Web Vitals performance scores.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="26-text-styling.html">Text Styling & Typography</a></li></p>
 <p>  <li><a href="32-functions.html">CSS Functions (<code>clamp()</code>)</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Enclose font names with spaces in quotes (<code>'Open Sans'</code>).</li></p>
@@ -270,7 +290,8 @@
 <p>  <li>Use <code>font-display: swap</code> in <code>@font-face</code> for performance.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="26-text-styling.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="28-transitions.html">Next →</a></p>
 

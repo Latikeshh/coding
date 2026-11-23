@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,33 +92,42 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>🌳 DOM Selection, Modification & Dynamic Node Manipulation</h1>
+<h1>🌳 DOM Selection, Modification & Dynamic Node Manipulation
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong>Document Object Model (DOM)</strong> is an object-oriented representation of an HTML document structured as a logical tree of nodes in memory. JavaScript interacts with the DOM API to dynamically select nodes, update text and HTML content, modify CSS styles, handle attributes, and create or destroy elements in response to user actions.</p>
 
 <p>---</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>When a browser loads an HTML page, it parses the markup and constructs an in-memory <strong>DOM Tree</strong>. JavaScript can query any node in this tree (such as <code><h1 id="title"></code>), read or modify its properties, toggle CSS utility classes, and append new elements dynamically without requiring a full web page refresh.</p>
 
-<h3>Hindi (Roman Script)</h3>
+<h3>Hindi (Roman Script)
+</h3>
 <p>DOM HTML page ka ek Object Tree representation hai. JavaScript se hum Webpage ke kisi bhi element ko select kar sakte hain (<code>querySelector</code>), uska text change kar sakte hain (<code>textContent</code>), CSS styles badal sakte hain (<code>classList.toggle</code>), aur naye HTML elements create aur append kar sakte hain (<code>document.createElement</code>).</p>
 
-<h3>Marathi (Roman Script)</h3>
+<h3>Marathi (Roman Script)
+</h3>
 <p>DOM mhanje HTML document cha tree structure. JavaScript cha wapar karun HTML elements badalne, navin elements tayar karne (<code>document.createElement</code>), aani CSS styles badalne shakya hote. <code>textContent</code> cha wapar karun safe text inject karta yete.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Dynamic web applications (jaise To-Do apps, shopping carts, live feeds) banane ke liye DOM manipulation sabse important concept hai. Elements ko select karke unme event listeners lagana aur output render karna DOM API se hota hai. <code>innerHTML</code> se bachen kyunki yeh XSS attacks ka khatra paida karta hai.</p>
 
 <p>---</p>
 
-<h2>🌳 The DOM Tree Hierarchy</h2>
+<h2>🌳 The DOM Tree Hierarchy
+</h2>
 
 <pre><code class="language-text">[ document ]
 <p>    │</p>
@@ -133,7 +142,8 @@
 
 <p>---</p>
 
-<h2>📝 Element Selection Methods Compared</h2>
+<h2>📝 Element Selection Methods Compared
+</h2>
 
 <table>
 <p>  <thead><tr><th>Selection Method</th><th>Description</th><th>Return Type</th><th>Performance</th></tr></thead></p>
@@ -147,9 +157,11 @@
 
 <p>---</p>
 
-<h2>💡 Practical Production Examples</h2>
+<h2>💡 Practical Production Examples
+</h2>
 
-<h3>Example 1: Safe Content & Class Manipulation</h3>
+<h3>Example 1: Safe Content & Class Manipulation
+</h3>
 
 <pre><code class="language-js">// 1. Select elements
 <p>const mainHeading = document.querySelector(&quot;#main-heading&quot;);</p>
@@ -169,7 +181,8 @@
 
 <p>---</p>
 
-<h3>Example 2: Creating, Appending & Removing Nodes Dynamically</h3>
+<h3>Example 2: Creating, Appending & Removing Nodes Dynamically
+</h3>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -216,7 +229,8 @@
 
 <p>---</p>
 
-<h3>Example 3: Optimized Bulk Insertion using DocumentFragment</h3>
+<h3>Example 3: Optimized Bulk Insertion using DocumentFragment
+</h3>
 
 <p>Inserting 1,000 DOM items individually causes 1,000 browser reflows. Use <code>DocumentFragment</code> to perform a single batch insertion:</p>
 
@@ -237,7 +251,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes & Security Vulnerabilities</h2>
+<h2>⚠️ Common Mistakes & Security Vulnerabilities
+</h2>
 
 <ul>
 <p>  <li><strong>XSS Attacks via <code>innerHTML</code></strong>: Using <code>element.innerHTML = userInput;</code> allows attackers to inject malicious <code><script></code> tags or inline <code>onload</code> events. Always use <code>.textContent</code> or sanitize inputs.</li></p>
@@ -250,14 +265,16 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself & Practice Exercises</h2>
+<h2>🧪 Try It Yourself & Practice Exercises
+</h2>
 
 <p>1. Use <code>document.querySelector</code> to select an element by class name, then change its background color to <code>#2563eb</code> using <code>.style.backgroundColor</code>.</p>
 <p>2. Write a script that creates a new <code><button></code> element with text <code>"Delete"</code>, adds class <code>"btn-danger"</code>, and appends it to a <code><div></code>.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Build a simple interactive counter web page containing:</p>
 <ul>
@@ -269,7 +286,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="18-classes-and-oop.html">ES6 Classes & Object-Oriented JS</a></li></p>
@@ -279,7 +297,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="18-classes-and-oop.html">← Previous: Classes & OOP</a> | <a href="20-event-delegation-and-web-apis.html">Next: Event Delegation →</a></p>
 

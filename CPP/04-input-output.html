@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,13 +90,16 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Input & Output Streams in C++ (<code>std::cin</code>, <code>std::cout</code>, <code>getline</code>)</h1>
+<h1>Input & Output Streams in C++ (<code>std::cin</code>, <code>std::cout</code>, <code>getline</code>)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>In C++, Input/Output (I/O) is performed using <strong>Streams</strong> provided by the <code><iostream></code> standard library. A Stream is an abstraction that represents a flow of data to or from a device:</p>
 <ul>
@@ -108,19 +111,22 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>C++ mein console par data print karne ke liye <code>std::cout</code> aur extraction operator <code><<</code> ka use hota hai. User se terminal par input lene ke liye <code>std::cin</code> aur insertion operator <code>>></code> ka use hota hai. Agar user se poora sentence (spaces ke saath) input lena ho, toh <code>std::getline(std::cin, string_variable)</code> ka use karte hain, kyunki <code>std::cin >></code> space milte hi ruk jata hai.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>C++ madhye screen vr text dakhavnyasathi <code>std::cout</code> aani <code><<</code> cha vapar kela jato. User kadun keyboard dwara input ghenyasathi <code>std::cin</code> aani <code>>></code> cha vapar kartat. Purna vaky (spaces sobat) input ghenyasathi <code>std::getline()</code> cha vapar karne garjeche aste, karanh <code>std::cin</code> space aalyavrach thambto.</p>
 
 <p>---</p>
 
-<h2>📊 Comparison: <code>std::cin >></code> vs <code>std::getline()</code></h2>
+<h2>📊 Comparison: <code>std::cin >></code> vs <code>std::getline()</code>
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th><code>std::cin >> var</code></th><th><code>std::getline(std::cin, var)</code></th></tr></thead></p>
@@ -133,7 +139,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;string&gt;</p>
@@ -171,7 +178,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>std::cin >> age</code>: Reads integer input into <code>age</code>. Leaves the user's <code>Enter</code> keypress (<code>\n</code>) sitting in the keyboard buffer.</li></p>
@@ -181,7 +189,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== STUDENT ENROLLMENT SYSTEM ===
 <p>Enter your Age: 20</p>
@@ -195,7 +204,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Skipped <code>getline()</code> Bug</strong>: Forgetting <code>std::cin.ignore()</code> after reading numbers with <code>std::cin >></code> causes the subsequent <code>getline()</code> to be completely skipped!</li></p>
@@ -204,7 +214,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Prefer <code>\n</code> over <code>std::endl</code> inside heavy loops because <code>std::endl</code> forces a buffer flush every iteration, which degrades I/O performance.</li></p>
@@ -212,31 +223,35 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a program that asks for a user's city and age, then calculates how many years remain until age 100.</p>
 <p>2. Read 2 floating point numbers from input and print their sum, product, and average.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create an interactive receipt calculator: Ask for item name (full line), item price, and quantity. Print a receipt with item name, total subtotal, 18% tax, and final grand total.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="03-variables-and-data-types.html">Variables & Data Types</a></li></p>
-<p>  <li><a href="05-operators.html">Operators in C++</a></li></p>
+<p>  <li><a href="05-operators/index.html">Operators in C++</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="./">← C++ Home</a> | <a href="03-variables-and-data-types.html">← Previous: Variables</a> | <a href="05-operators.html">Next: Operators →</a></p>
+<p><a href="./">← C++ Home</a> | <a href="03-variables-and-data-types.html">← Previous: Variables</a> | <a href="05-operators/index.html">Next: Operators →</a></p>
 
 
       </div>

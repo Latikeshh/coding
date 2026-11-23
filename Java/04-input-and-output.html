@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,31 +91,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Input and Output in Java</h1>
+<h1>Input and Output in Java
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Console Input and Output (I/O)</strong> allows Java applications to interact with users. Output is displayed using standard output streams (<code>System.out.print</code>, <code>System.out.println</code>, <code>System.out.printf</code>), while user input is captured from the terminal using the <code>java.util.Scanner</code> class or high-performance <code>java.io.BufferedReader</code>.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Terminal par output dikhane ke liye <code>System.out.println()</code> ya formatted output ke liye <code>System.out.printf()</code> ka use hota hai. User se terminal input lene ke liye <code>Scanner</code> class ka use kiya jata hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Terminal varti output dakhvanyasathi <code>System.out.println()</code> vaparatat. User kadun input ghenyasathi <code>Scanner</code> class cha wapar hoto.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Interactive applications require user input (like usernames, passwords, quantities, search queries) to compute dynamic results rather than relying on hardcoded static values.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of <code>System.out</code> as a loudspeaker that broadcasts messages from your application to the user screen. Think of <code>Scanner</code> as a microphone that listens to what the user types into the keyboard and sends it to the application memory.</p>
 
-<h2>📝 1. Output Streams & Format Specifiers</h2>
+<h2>📝 1. Output Streams & Format Specifiers
+</h2>
 
 <ul>
 <p>  <li><code>System.out.print()</code>: Prints text without appending a new line.</li></p>
@@ -127,7 +135,8 @@
 <p>double price = 150.75;</p>
 <p>System.out.printf(&quot;Item: %s | Price: ₹%.2f%n&quot;, item, price);</code></pre></p>
 
-<h2>📝 2. Reading Input with <code>Scanner</code></h2>
+<h2>📝 2. Reading Input with <code>Scanner</code>
+</h2>
 
 <p>The <code>Scanner</code> class parses tokens and primitive types from <code>System.in</code>:</p>
 
@@ -142,13 +151,16 @@
 <p>    int age = Integer.parseInt(scanner.nextLine()); // Safe numeric parsing</p>
 <p>}</code></pre></p>
 
-<h2>🧠 The <code>Scanner</code> Buffer Trap (<code>nextInt()</code> vs <code>nextLine()</code>)</h2>
+<h2>🧠 The <code>Scanner</code> Buffer Trap (<code>nextInt()</code> vs <code>nextLine()</code>)
+</h2>
 
 <p>When you call <code>scanner.nextInt()</code> followed by <code>scanner.nextLine()</code>, <code>nextInt()</code> reads the integer value but leaves the newline character <code>\n</code> in the input buffer. The subsequent <code>nextLine()</code> immediately consumes the leftover <code>\n</code> and appears to "skip" user input!</p>
 
-<blockquote><p>💡 <strong>Best Practice Solution:</strong> Read full lines using <code>scanner.nextLine()</code> and parse numbers explicitly using <code>Integer.parseInt()</code> or <code>Double.parseDouble()</code>.</p></blockquote>
+<blockquote><p>💡 <strong>Best Practice Solution:</strong> Read full lines using <code>scanner.nextLine()</code> and parse numbers explicitly using <code>Integer.parseInt()</code> or <code>Double.parseDouble()</code>.
+</p></blockquote>
 
-<h2>💡 Complete Example: Interactive Order Console</h2>
+<h2>💡 Complete Example: Interactive Order Console
+</h2>
 
 <pre><code class="language-java">import java.util.Scanner;
 
@@ -188,7 +200,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== TECH STORE ORDER CONSOLE ===
 <p>Enter Customer Name: Rahul Verma</p>
@@ -206,7 +219,8 @@
 <p>Total    : ₹1771.18</p>
 <p>--------------------------------</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting to import <code>java.util.Scanner;</code>.</li></p>
@@ -214,33 +228,39 @@
 <p>  <li>Not closing <code>Scanner</code> instances or leaving unclosed system input streams open.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>In high-throughput competitive programming or large log processing, use <code>BufferedReader</code> + <code>InputStreamReader</code> instead of <code>Scanner</code> because <code>BufferedReader</code> uses a significantly larger buffer (8KB vs 1KB) and performs faster raw string reading.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Command-line setup wizards, interactive CLI tools, administrative maintenance scripts, and automated installer prompts.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a program that prompts the user for two integers and prints their sum, difference, product, and average.</p>
 <p>2. Use <code>System.out.printf()</code> to format the average to 2 decimal places.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Build a currency converter CLI that asks for an amount in USD ($) and converts it to INR (₹) using an exchange rate of <code>1 USD = 86.50 INR</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
 <p>  <li><a href="18-exceptions-and-validation.html">Exceptions and Validation</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="./">← Java Home</a> | <a href="03-variables-and-data-types.html">← Previous: Variables</a> | <a href="05-operators-and-expressions.html">Next: Operators and Expressions →</a></p>
+<p><a href="./">← Java Home</a> | <a href="03-variables-and-data-types.html">← Previous: Variables</a> | <a href="05-operators/index.html">Next: Operators and Expressions →</a></p>
 
 
       </div>

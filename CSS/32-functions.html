@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>CSS Functions (<code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code>)</h1>
+<h1>CSS Functions (<code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>CSS Functions</strong> are built-in value methods that perform runtime mathematical calculations (<code>calc()</code>), select boundary thresholds (<code>min()</code>, <code>max()</code>), or set fluid responsive scaling (<code>clamp()</code>) directly inside CSS property declarations.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p><code>calc()</code> evaluates math expressions (<code>calc(100% - 40px)</code>). <code>clamp(min, val, max)</code> sets fluid responsive typography and sizing without media queries.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>calc()</code> mathematical calculations karne ke liye use hota hai. <code>clamp(min, val, max)</code> se font size aur width bina media queries ke mobile aur desktop ke beech flexible ban jaate hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>calc()</code> dware ganiti aakdemod karta yete. <code>clamp()</code> mule font size screen-nusar aapoaap adjust hote.</p>
 
-<h2>🤔 Why Do We Use CSS Mathematical Functions?</h2>
+<h2>🤔 Why Do We Use CSS Mathematical Functions?
+</h2>
 
 <p>Before CSS math functions, setting a sidebar to a fixed 300px width while making the main content area fill remaining space required complex JavaScript or float hacks. Functions like <code>calc()</code> and <code>clamp()</code> make dynamic fluid layouts simple and native.</p>
 
-<h2>📚 Core Math & Fluid Functions Reference Table</h2>
+<h2>📚 Core Math & Fluid Functions Reference Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Function</th><th>Purpose & Expression Format</th><th>Example Usage</th></tr></thead></p>
@@ -145,7 +154,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>🌟 Fluid Responsive Typography with <code>clamp()</code></h2>
+<h2>🌟 Fluid Responsive Typography with <code>clamp()</code>
+</h2>
 
 <p><code>clamp(minimum, preferred, maximum)</code> takes three parameters:</p>
 <p>1. <strong>Minimum Value:</strong> The smallest font size (e.g. <code>1rem</code> on small mobile screens).</p>
@@ -157,7 +167,8 @@
 <p>  font-size: clamp(1rem, 4vw, 2.5rem);</p>
 <p>}</code></pre></p>
 
-<h2>📝 Syntax & Operator Rules for <code>calc()</code></h2>
+<h2>📝 Syntax & Operator Rules for <code>calc()</code>
+</h2>
 
 <p>When using <code>calc()</code>, <strong>spaces are MANDATORY around addition <code>+</code> and subtraction <code>-</code> operators</strong>:</p>
 
@@ -171,7 +182,8 @@
 <p>  width: calc(100%-60px); /* INVALID SYNTAX */</p>
 <p>}</code></pre></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -225,26 +237,31 @@
 <p>  line-height: 1.6;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>The headline font size scales fluidly as you drag your browser viewport wider or narrower, never dropping below <code>1.5rem</code> or exceeding <code>3rem</code>.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>Change <code>width: min(100%, 600px)</code> to <code>width: calc(100% - 80px)</code> and observe how the card maintains an exact 40px margin gap on both left and right sides.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting spaces around <code>+</code> and <code>-</code> in <code>calc()</code>:</strong> Writing <code>calc(100%-40px)</code> breaks parsing. Always include spaces: <code>calc(100% - 40px)</code>.</li></p>
 <p>  <li><strong>Swapping MIN and MAX order in <code>clamp(min, val, max)</code>:</strong> The first parameter MUST be smaller than the third parameter.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Modern web design systems use <code>clamp()</code> for fluid responsive typography and fluid padding scales (<code>padding: clamp(1rem, 3vw, 3rem)</code>), eliminating dozens of repetitive media query breakpoints.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="11-css-units.html">CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>)</a></li></p>
@@ -252,7 +269,8 @@
 <p>  <li><a href="40-modern-css-features.html">Modern CSS Features</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Always include spaces around <code>+</code> and <code>-</code> in <code>calc()</code>.</li></p>
@@ -260,7 +278,8 @@
 <p>  <li><code>min(100%, 800px)</code> prevents elements from exceeding 800px on desktop while fitting 100% on mobile.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="31-variables.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="33-important.html">Next →</a></p>
 

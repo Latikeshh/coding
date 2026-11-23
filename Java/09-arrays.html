@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,31 +91,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Arrays in Java</h1>
+<h1>Arrays in Java
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>An <strong>Array</strong> is a fixed-size, zero-indexed reference data structure stored in heap memory that holds a contiguous collection of elements of the <strong>same data type</strong>. Arrays can store primitive values or object references.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Array same data type ki values ko continuous memory mein store karta hai. Array ki size fixed hoti hai jo creation ke waqt decide hoti hai (<code>new int[5]</code>). Indexing <code>0</code> se shuru hoti hai (<code>array[0]</code>). Array size badhane ke liye Collections (<code>ArrayList</code>) ka use kiya jata hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Array madhye ekach data type che multiple elements sequential memory madhye sathavle jatat. Array chi size badalta yet nahi. Index <code>0</code> pasun suru hoto.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>Instead of declaring 50 separate variables for 50 student test scores (<code>score1</code>, <code>score2</code>, ...), an array lets you store all 50 scores under a single variable name (<code>int[] scores = new int[50];</code>) and process them using loops.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of an array as an egg carton with numbered slots from <code>0</code> to <code>N-1</code>. You can place eggs (values) into specific slot numbers, but once manufactured, the carton size cannot expand or shrink.</p>
 
-<h2>📝 1. Array Declarations & Memory Allocation</h2>
+<h2>📝 1. Array Declarations & Memory Allocation
+</h2>
 
 <pre><code class="language-java">// Declaration &amp; Memory Allocation (elements initialized to default 0)
 <p>int[] numbers = new int[5];</p>
@@ -127,7 +135,8 @@
 <p>scores[0] = 88; // Replaces first element</p>
 <p>System.out.println(&quot;Array Length : &quot; + scores.length); // 5 (.length is a property, NOT a method!)</code></pre></p>
 
-<h2>📝 2. Multidimensional Arrays (Matrices & Jagged Arrays)</h2>
+<h2>📝 2. Multidimensional Arrays (Matrices & Jagged Arrays)
+</h2>
 
 <p>A 2D array is an "array of arrays":</p>
 
@@ -143,7 +152,8 @@
 <p>jagged[0] = new int[3]; // Row 0 has 3 columns</p>
 <p>jagged[1] = new int[5]; // Row 1 has 5 columns</code></pre></p>
 
-<h2>📝 3. Essential Utility Methods (<code>java.util.Arrays</code>)</h2>
+<h2>📝 3. Essential Utility Methods (<code>java.util.Arrays</code>)
+</h2>
 
 <ul>
 <p>  <li><code>Arrays.toString(array)</code>: Converts 1D array to formatted string <code>"[1, 2, 3]"</code>.</li></p>
@@ -153,7 +163,8 @@
 <p>  <li><code>Arrays.copyOf(array, newLength)</code>: Creates a new resized copy of the array.</li></p>
 <p></ul></p>
 
-<h2>💡 Complete Example: Student Score Analytics Engine</h2>
+<h2>💡 Complete Example: Student Score Analytics Engine
+</h2>
 
 <pre><code class="language-java">import java.util.Arrays;
 
@@ -193,7 +204,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Original Scores : [78, 92, 45, 88, 63, 95, 52]
 <p>Total Marks     : 513</p>
@@ -203,7 +215,8 @@
 <p>Sorted Scores   : [45, 52, 63, 78, 88, 92, 95]</p>
 <p>Target (88) Index: 4</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong><code>ArrayIndexOutOfBoundsException</code>:</strong> Attempting to access <code>array[array.length]</code>. Valid indices are <code>0</code> to <code>length - 1</code>!</li></p>
@@ -211,33 +224,39 @@
 <p>  <li><strong>Calling <code>Arrays.binarySearch()</code> on an unsorted array</strong>, which leads to undefined search results!</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Array variables hold object references. Writing <code>int[] copy = original;</code> creates an alias to the <strong>same underlying array</strong> in heap memory. To create a separate independent clone, use <code>Arrays.copyOf()</code> or <code>.clone()</code>.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Low-level audio buffer processing, matrix math in graphics/gaming, pixel grid manipulation in image processing, and data packet buffers in network drivers.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create an array of 5 product prices. Calculate and print the average price.</p>
 <p>2. Sort the prices in ascending order using <code>Arrays.sort()</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that takes an integer array and reverses its elements in-place without creating a second array (using two-pointer swapping).</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="08-methods.html">Methods</a></li></p>
+<p>  <li><a href="08-methods/index.html">Methods</a></li></p>
 <p>  <li><a href="11-collections.html">Collections</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
-<p><a href="./">← Java Home</a> | <a href="08-methods.html">← Previous: Methods</a> | <a href="10-strings.html">Next: Strings →</a></p>
+<p><a href="./">← Java Home</a> | <a href="08-methods/index.html">← Previous: Methods</a> | <a href="10-strings.html">Next: Strings →</a></p>
 
 
       </div>

@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,26 +91,32 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Inheritance and Polymorphism in Java</h1>
+<h1>Inheritance and Polymorphism in Java
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Inheritance:</strong> An OOP mechanism where a child subclass derives fields and methods from a parent superclass using the <code>extends</code> keyword (<strong>"Is-A" Relationship</strong>).</li></p>
 <p>  <li><strong>Polymorphism:</strong> The ability of an object reference to take on many forms. <strong>Runtime Polymorphism (Dynamic Method Dispatch)</strong> allows a parent superclass reference variable to invoke overridden methods defined in specific child subclasses at runtime.</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Inheritance se Child Class, Parent Class ke fields aur methods ko inherit karti hai (<code>extends</code>). Polymorphism se hum Parent class ka reference variable declare karte hain, lekin call hone par Runtime par actual Subclass ka overridden method execute hota hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Inheritance madhye Child Class Parent Class kadun गुणधर्म (properties) ghete. Polymorphism mule Parent class reference varti call kelya varti Subclass cha method run hoto.</p>
 
-<h2>📝 1. Method Overriding vs Overloading</h2>
+<h2>📝 1. Method Overriding vs Overloading
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th>Method Overloading</th><th>Method Overriding</th></tr></thead></p>
@@ -122,14 +128,16 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 2. The <code>super</code> Keyword</h2>
+<h2>📝 2. The <code>super</code> Keyword
+</h2>
 
 <ul>
 <p>  <li><code>super()</code>: Calls parent superclass constructor (must be the first line in child constructor).</li></p>
 <p>  <li><code>super.method()</code>: Calls parent superclass method implementation.</li></p>
 <p></ul></p>
 
-<h2>📝 3. Pattern Matching for <code>instanceof</code> (Java 16+)</h2>
+<h2>📝 3. Pattern Matching for <code>instanceof</code> (Java 16+)
+</h2>
 
 <p>Eliminates manual downcasting boilerplate:</p>
 
@@ -144,7 +152,8 @@
 <p>    d.bark(); // &#39;d&#39; is automatically downcast and available in scope!</p>
 <p>}</code></pre></p>
 
-<h2>🧠 4. Why Multiple Class Inheritance Is Not Allowed (The Diamond Problem)</h2>
+<h2>🧠 4. Why Multiple Class Inheritance Is Not Allowed (The Diamond Problem)
+</h2>
 
 <p>Java does <strong>NOT</strong> support extending multiple classes (<code>class C extends A, B</code> is INVALID!). If Class A and Class B declare the same method <code>execute()</code>, Class C would not know which parent implementation to inherit (<strong>The Diamond Problem</strong>). Java solves this by allowing single class inheritance with multiple <strong>Interface</strong> implementation!</p>
 
@@ -167,7 +176,8 @@
 <p>       |   SubClass C     |  &lt;-- Overrides execute()</p>
 <p>       +------------------+</code></pre></p>
 
-<h2>💡 Complete Example: Payment Gateway Polymorphism</h2>
+<h2>💡 Complete Example: Payment Gateway Polymorphism
+</h2>
 
 <pre><code class="language-java">// Parent Superclass
 <p>abstract class PaymentGateway {</p>
@@ -234,7 +244,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Initiating Checkout...
 <p>[Credit Card Gateway] Processing ₹2499.00 via CardEnding #8921</p>
@@ -244,7 +255,8 @@
 <p>[UPI Gateway] Processing ₹1250.00 via VPA rahul@upi</p>
 <p>Checkout Complete: Payment Received.</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting <code>@Override</code> annotation when overriding methods (causes compiler to miss typo errors in method signatures).</li></p>
@@ -252,31 +264,37 @@
 <p>  <li>Attempting to extend a class marked <code>final</code> (<code>final class SecurityManager</code> cannot be extended!).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Always use <code>@Override</code> annotations so the compiler verifies that your method signature matches the superclass method exactly.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Payment gateway integrations, database driver frameworks (<code>java.sql.Driver</code>), UI event frameworks, and pluggable export processors.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a parent class <code>Employee</code> with method <code>calculateBonus()</code>.</p>
 <p>2. Create subclasses <code>Manager</code> (20% bonus) and <code>Developer</code> (10% bonus) overriding <code>calculateBonus()</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a method <code>processSalaries(List<Employee> staff)</code> that polymorphically calculates total bonus payouts across mixed manager and developer instances.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="15-encapsulation-and-composition.html">Encapsulation and Composition</a></li></p>
 <p>  <li><a href="17-interfaces-and-abstract-classes.html">Interfaces and Abstract Classes</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="15-encapsulation-and-composition.html">← Previous: Encapsulation</a> | <a href="17-interfaces-and-abstract-classes.html">Next: Interfaces and Abstract Classes →</a></p>
 

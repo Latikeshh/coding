@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,13 +97,16 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Chapter 20 — Views & Virtual Tables in SQL</h1>
+<h1>Chapter 20 — Views & Virtual Tables in SQL
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>An <strong>SQL View</strong> is a named virtual table defined by a stored <code>SELECT</code> query. Unlike physical tables, a standard (regular) view does not store a separate copy of data rows on disk. Instead, whenever a query is executed against a view, the database engine evaluates the underlying <code>SELECT</code> statement dynamically according to current transaction isolation and data visibility rules.</p>
 
@@ -114,25 +117,32 @@
 <p>  <li><strong>Provide Interface Stability</strong>: Decouple client applications from changes in underlying physical schema designs.</li></p>
 <p></ul></p>
 
-<blockquote><p>[!IMPORTANT]</p></blockquote>
-<blockquote><p><strong>Security Clarification</strong>: Hiding sensitive columns (such as <code>salary</code> or <code>ssn</code>) in a view definition is <strong>not sufficient on its own</strong> to enforce security. If database users hold direct <code>SELECT</code> privileges on underlying base tables, they can still query sensitive data directly. True access control requires combining views with database privilege management (<code>GRANT</code> / <code>REVOKE</code>) and view security attributes (<code>SQL SECURITY DEFINER</code> or <code>INVOKER</code>).</p></blockquote>
+<blockquote><p>[!IMPORTANT]
+</p></blockquote>
+<blockquote><p><strong>Security Clarification</strong>: Hiding sensitive columns (such as <code>salary</code> or <code>ssn</code>) in a view definition is <strong>not sufficient on its own</strong> to enforce security. If database users hold direct <code>SELECT</code> privileges on underlying base tables, they can still query sensitive data directly. True access control requires combining views with database privilege management (<code>GRANT</code> / <code>REVOKE</code>) and view security attributes (<code>SQL SECURITY DEFINER</code> or <code>INVOKER</code>).
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>A standard view acts as a virtual window over physical tables. It stores the query definition rather than result data. When you query a view, the database processes the view's query against base tables, providing query simplification, column restriction, and schema abstraction.</p>
 
-<h3>Hindi (Roman Script)</h3>
+<h3>Hindi (Roman Script)
+</h3>
 <p>SQL View ek virtual table hoti hai jo kisi stored <code>SELECT</code> query par aadharit hoti hai. Yeh disk par alag se data rows store nahi karti. Jab bhi aap view ko query karte hain, database background mein original base tables se data fetch karta hai. Views complex joins ko aasan banane aur specific columns dikhane ke liye use hote hain.</p>
 
-<h3>Marathi (Roman Script)</h3>
+<h3>Marathi (Roman Script)
+</h3>
 <p>SQL View mhanje ek virtual table ji साठवलेल्या (stored) <code>SELECT</code> query var aadharit aste. Ti disk var veglatha data store karat nahi. Jevha tumhi view query karta, tevha database original base tables madhun ch data dakhawto. Complex joins sopa karnyasathi aani thavik columns dakhawnyasathi views cha vapar hoto.</p>
 
 <p>---</p>
 
-<h2>🤔 Why Do We Use Views?</h2>
+<h2>🤔 Why Do We Use Views?
+</h2>
 
 <p>1. <strong>Query Simplification & Code Reuse</strong>: Encapsulate multi-table <code>JOIN</code> statements, <code>GROUP BY</code> aggregations, and complex filters into a single reusable object (<code>SELECT * FROM view_name</code>).</p>
 <p>2. <strong>Column-Level & Row-Level Abstraction</strong>: Present tailored views containing only public columns or active rows while omitting restricted fields.</p>
@@ -141,7 +151,8 @@
 
 <p>---</p>
 
-<h2>📝 Types of Views in SQL</h2>
+<h2>📝 Types of Views in SQL
+</h2>
 
 <table>
 <p>  <thead><tr><th>View Type</th><th>Storage Mechanism</th><th>Support in MySQL</th><th>Use Case</th></tr></thead></p>
@@ -152,12 +163,15 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>MySQL Materialized View Clarification</strong>: MySQL does <strong>not</strong> provide native <code>CREATE MATERIALIZED VIEW</code> syntax. In MySQL environments (such as WampServer or phpMyAdmin), developers approximate materialized views by creating a physical summary table and refreshing it periodically using a stored procedure or an Event Scheduler.</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>MySQL Materialized View Clarification</strong>: MySQL does <strong>not</strong> provide native <code>CREATE MATERIALIZED VIEW</code> syntax. In MySQL environments (such as WampServer or phpMyAdmin), developers approximate materialized views by creating a physical summary table and refreshing it periodically using a stored procedure or an Event Scheduler.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📊 Reproducible Sample Setup Data</h2>
+<h2>📊 Reproducible Sample Setup Data
+</h2>
 
 <p>Run this setup script to create sample tables (<code>employees</code>, <code>customers</code>, <code>orders</code>) for the examples in this chapter.</p>
 
@@ -223,9 +237,11 @@
 
 <p>---</p>
 
-<h2>💡 Practical Examples</h2>
+<h2>💡 Practical Examples
+</h2>
 
-<h3>Example 1: Creating an Employee Directory View (Column & Row Restriction)</h3>
+<h3>Example 1: Creating an Employee Directory View (Column & Row Restriction)
+</h3>
 
 <p>Expose active employee contact details while omitting sensitive <code>salary</code> and <code>ssn</code> columns:</p>
 
@@ -247,7 +263,8 @@
 <p>WHERE department_id = 4</p>
 <p>ORDER BY last_name ASC;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>first_name</th><th>last_name</th><th>email</th><th>job_title</th></tr></thead></p>
 <p>  <tbody></p>
@@ -256,7 +273,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation</h4>
+<h4>Explanation
+</h4>
 <ul>
 <p>  <li><code>public_employee_directory</code> filters out inactive employees (<code>is_active = FALSE</code>, omitting Neha Gupta) and excludes sensitive <code>salary</code> and <code>ssn</code> fields.</li></p>
 <p>  <li><strong>Enforcing Security</strong>: Restricting columns in a view prevents those columns from being requested through the view. To enforce complete security, grant application users <code>SELECT</code> privileges on <code>public_employee_directory</code> while revoking direct <code>SELECT</code> access on the base <code>employees</code> table:</li></p>
@@ -268,7 +286,8 @@
 
 <p>---</p>
 
-<h3>Example 2: Encapsulating Customer Sales Aggregations</h3>
+<h3>Example 2: Encapsulating Customer Sales Aggregations
+</h3>
 
 <p>Simplify multi-table reporting across </code>customers<code> and </code>orders<code>:</p>
 <p></code></pre>sql</p>
@@ -290,7 +309,8 @@
 <p>WHERE lifetime_spend > 500.00</p>
 <p>ORDER BY lifetime_spend DESC;</p>
 <pre><code class="language-text">
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>customer_name</th><th>country</th><th>total_orders</th><th>lifetime_spend</th><th>last_order_date</th></tr></thead></p>
 <p>  <tbody></p>
@@ -300,18 +320,21 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation</h4>
+<h4>Explanation
+</h4>
 <ul>
 <p>  <li><strong></code>LEFT JOIN<code> &amp; </code>COUNT(o.order_id)<code></strong>: </code>COUNT(o.order_id)<code> counts non-NULL order IDs. For customer 104 (Emma Wilson, who has no orders), </code>COUNT(o.order_id)<code> evaluates to </code>0<code> and </code>COALESCE(SUM(...), 0.00)<code> evaluates to </code>0.00<code>. Using </code>COUNT(*)<code> would incorrectly report </code>1<code> order for unmatched customers because </code>LEFT JOIN<code> produces 1 combined row with NULLs.</li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>✏️ Updatable Views in MySQL</h2>
+<h2>✏️ Updatable Views in MySQL
+</h2>
 
 <p>In MySQL, data modifications (</code>UPDATE<code>, </code>DELETE<code>, </code>INSERT<code>) can be executed through a view to alter underlying base tables under specific conditions.</p>
 
-<h3>Rules for Updatable Views in MySQL:</h3>
+<h3>Rules for Updatable Views in MySQL:
+</h3>
 <p>1. <strong>One-to-One Row Mapping</strong>: The view must have a direct 1-to-1 relationship with rows in the base table.</p>
 <p>2. <strong>Disallowed Clauses</strong>: The view definition <strong>CANNOT</strong> contain:</p>
 <ul>
@@ -324,7 +347,8 @@
 <p>3. <strong>Join Views</strong>: A view containing a </code>JOIN<code> may be updated in MySQL <strong>only</strong> if the </code>UPDATE<code> statement modifies columns from a single key-preserved base table at a time.</p>
 <p>4. <strong>Insertability Restrictions</strong>: Inserting rows through a view requires all non-nullable base table columns without default values to be present in the view.</p>
 
-<h3>Demonstration: Updating Data Through a View</h3>
+<h3>Demonstration: Updating Data Through a View
+</h3>
 <p></code></pre>sql</p>
 <p>-- 1. Check Rahul's email in the base table before update</p>
 <p>SELECT emp_id, first_name, email FROM employees WHERE emp_id = 1;</p>
@@ -341,7 +365,8 @@
 <pre><code class="language-text">
 <p>---</p>
 
-<h2>🛡️ View Integrity with </code>WITH CHECK OPTION<code></h2>
+<h2>🛡️ View Integrity with </code>WITH CHECK OPTION<code>
+</h2>
 
 <p>When updating or inserting data through a filtered view, </code>WITH CHECK OPTION<code> prevents modifications that would cause the affected rows to no longer satisfy the view&#39;s </code>WHERE<code> clause.</p>
 <p></code></pre>sql</p>
@@ -357,13 +382,15 @@
 <p>SET is_active = FALSE</p>
 <p>WHERE emp_id = 1;</p>
 <pre><code class="language-text">
-<h4>Behavior &amp; Result</h4>
+<h4>Behavior &amp; Result
+</h4>
 <p>MySQL rejects the update and raises an error:</code></pre>text</p>
 <p>ERROR 1369 (HY000): CHECK OPTION failed 'app_db.active_tech_staff'</p>
 <pre><code class="language-text">
 <p>---</p>
 
-<h2>🐘 Materialized Views Comparison (PostgreSQL Specific)</h2>
+<h2>🐘 Materialized Views Comparison (PostgreSQL Specific)
+</h2>
 
 <p>While MySQL does not support native materialized views, PostgreSQL provides built-in syntax to cache query results physically on disk:</p>
 <p></code></pre>sql</p>
@@ -384,7 +411,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes &amp; Misconceptions</h2>
+<h2>⚠️ Common Mistakes &amp; Misconceptions
+</h2>
 
 <p>1. <strong>Assuming Regular Views Store Data Copies</strong>: Standard views store only the </code>SELECT<code> query definition. They execute against base tables dynamically upon every query.</p>
 <p>2. <strong>Assuming Views Automatically Secure Tables</strong>: Creating a view that excludes sensitive columns does not prevent users from querying the base table directly unless underlying table permissions are revoked.</p>
@@ -395,13 +423,15 @@
 
 <p>---</p>
 
-<h2>🧪 Step-by-Step Practice Exercises</h2>
+<h2>🧪 Step-by-Step Practice Exercises
+</h2>
 
 <p>Run the setup script provided in this chapter before attempting these exercises.</p>
 
 <p>---</p>
 
-<h3>Exercise 1: Create a Department View</h3>
+<h3>Exercise 1: Create a Department View
+</h3>
 <p><strong>Task</strong>: Create a view named </code>tech_department_view<code> that selects </code>emp_id<code>, </code>first_name<code>, </code>last_name<code>, </code>email<code>, and </code>job_title<code> for employees in </code>department_id = 4<code>.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -412,7 +442,8 @@
 <pre><code class="language-text">
 <p>---</p>
 
-<h3>Exercise 2: Query a View with Filtering and Sorting</h3>
+<h3>Exercise 2: Query a View with Filtering and Sorting
+</h3>
 <p><strong>Task</strong>: Query </code>tech_department_view<code> to find employees whose </code>job_title<code> contains </code>&#39;Engineer&#39;<code>, sorted by </code>first_name ASC<code>.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -421,7 +452,8 @@
 <p>WHERE job_title LIKE '%Engineer%'</p>
 <p>ORDER BY first_name ASC;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>emp_id</th><th>first_name</th><th>last_name</th><th>job_title</th></tr></thead></p>
 <p>  <tbody></p>
@@ -433,7 +465,8 @@
 
 <p>---</p>
 
-<h3>Exercise 3: Country Sales Summary View</h3>
+<h3>Exercise 3: Country Sales Summary View
+</h3>
 <p><strong>Task</strong>: Create a view named </code>country_sales_summary<code> that aggregates total customers, total orders, and total revenue grouped by </code>country<code>. Ensure countries with 0 orders report </code>0.00<code> total revenue.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -447,7 +480,8 @@
 <p>LEFT JOIN orders AS o ON c.customer_id = o.customer_id</p>
 <p>GROUP BY c.country;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>country</th><th>total_customers</th><th>total_orders</th><th>total_revenue</th></tr></thead></p>
 <p>  <tbody></p>
@@ -459,7 +493,8 @@
 
 <p>---</p>
 
-<h3>Exercise 4: Update Data Through a View</h3>
+<h3>Exercise 4: Update Data Through a View
+</h3>
 <p><strong>Task</strong>: Update Priya Patel&#39;s (</code>emp_id = 2<code>) job title to </code>&#39;Lead Software Architect&#39;<code> using </code>public_employee_directory<code>.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -470,7 +505,8 @@
 <p>-- Verify change on base table</p>
 <p>SELECT emp_id, first_name, job_title FROM employees WHERE emp_id = 2;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>emp_id</th><th>first_name</th><th>job_title</th></tr></thead></p>
 <p>  <tbody></p>
@@ -480,7 +516,8 @@
 
 <p>---</p>
 
-<h3>Exercise 5: Enforce Boundaries with </code>WITH CHECK OPTION<code></h3>
+<h3>Exercise 5: Enforce Boundaries with </code>WITH CHECK OPTION<code>
+</h3>
 <p><strong>Task</strong>: Create a view named </code>marketing_staff_view<code> for </code>department_id = 2<code> </code>WITH CHECK OPTION<code>. Demonstrate an update that succeeds and an update that fails.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -498,11 +535,13 @@
 <pre><code class="language-text">
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create a view named </code>department_salary_stats<code> that displays each department&#39;s ID, name, active employee count, average salary (rounded to 2 decimal places), and maximum salary.</p>
 
-<h3>Setup Tables</code></pre>sql</h3>
+<h3>Setup Tables</code></pre>sql
+</h3>
 <p>DROP TABLE IF EXISTS employees;</p>
 <p>DROP TABLE IF EXISTS departments;</p>
 
@@ -531,7 +570,8 @@
 <p>(4, 'Neha', 'Gupta', 4, 70000.00, FALSE),</p>
 <p>(5, 'Vikram', 'Singh', 1, 75000.00, TRUE);</p>
 <pre><code class="language-text">
-<h3>Challenge Solution</h3>
+<h3>Challenge Solution
+</h3>
 <p></code></pre>sql</p>
 <p>CREATE OR REPLACE VIEW department_salary_stats AS</p>
 <p>SELECT </p>
@@ -549,7 +589,8 @@
 <p>SELECT * FROM department_salary_stats ORDER BY department_id;</p>
 <p></code>`<code></p>
 
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>department_id</th><th>department_name</th><th>emp_count</th><th>avg_salary</th><th>max_salary</th></tr></thead></p>
 <p>  <tbody></p>
@@ -559,23 +600,28 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>Why </code>department_salary_stats<code> Cannot Be Updated or Inserted</strong>:</p></blockquote>
-<blockquote><p>This view contains aggregate functions (</code>COUNT<code>, </code>AVG<code>, </code>MAX<code>), a </code>GROUP BY<code> clause, and a </code>LEFT JOIN`. In MySQL, aggregate views do not have a 1-to-1 mapping to base table rows, so the database engine cannot determine how to assign inserted or updated row values to individual underlying records.</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>Why </code>department_salary_stats<code> Cannot Be Updated or Inserted</strong>:
+</p></blockquote>
+<blockquote><p>This view contains aggregate functions (</code>COUNT<code>, </code>AVG<code>, </code>MAX<code>), a </code>GROUP BY<code> clause, and a </code>LEFT JOIN`. In MySQL, aggregate views do not have a 1-to-1 mapping to base table rows, so the database engine cannot determine how to assign inserted or updated row values to individual underlying records.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="14-joins.html">SQL Joins & Relationships</a></li></p>
+<p>  <li><a href="14-joins/index.html">SQL Joins & Relationships</a></li></p>
 <p>  <li><a href="21-indexes-and-performance.html">Indexes & Query Performance</a></li></p>
 <p>  <li><a href="23-ctes.html">Common Table Expressions (CTEs)</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← SQL Home</a> | <a href="19-normalization.html">← Previous: Normalization</a> | <a href="21-indexes-and-performance.html">Next: Indexes & Performance →</a></p>
 

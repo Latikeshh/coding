@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,13 +90,16 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Move Semantics, Lvalues, Rvalues & <code>std::move</code> in C++</h1>
+<h1>Move Semantics, Lvalues, Rvalues & <code>std::move</code> in C++
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Introduced in C++11, <strong>Move Semantics</strong> allows C++ to <strong>transfer (move) ownership</strong> of resources (like heap memory, file handles, or graphics buffers) from temporary objects directly to new objects instead of performing expensive deep copies.</p>
 <ul>
@@ -108,19 +111,22 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>Purani C++ mein jab hum kisi temporary object ko naye variable mein assign karte the, toh C++ poori memory ko duplicate (deep copy) karta tha. C++11 mein <strong>Move Semantics</strong> aaya. Isme naya object temporary object ki heap memory ka pointer <strong>chura (steal/transfer) leta hai</strong> aur purane temporary object ke pointer ko <code>nullptr</code> kar deta hai. Isse memory duplication nahi hoti aur program ki speed 100x tak badh jaati hai!</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>Move Semantics C++11 cha ek atyantvegvan (fast) feature aahe. Deep Copy karne aivaji, <strong>Move Semantics</strong> mule temporary object chi heap memory n नवीन object kade <strong>transfer</strong> ke li jaate. Jyamule duplicate copy tayar hot nahi aani performance vadhato.</p>
 
 <p>---</p>
 
-<h2>📊 Copy Semantics vs Move Semantics</h2>
+<h2>📊 Copy Semantics vs Move Semantics
+</h2>
 
 <pre><code class="language-text">1. Deep Copy Semantics (Expensive O(N) allocation):
 <p>[Original Buffer] -&gt; Copy All Elements -&gt; [New Buffer Copy]</p>
@@ -131,7 +137,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;utility&gt; // For std::move</p>
@@ -197,7 +204,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>DynamicBuffer(DynamicBuffer&& other) noexcept</code>: Rvalue reference <code>&&</code> binds to temporary objects or <code>std::move()</code> outputs.</li></p>
@@ -207,7 +215,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. DEEP COPYING AN OBJECT ---
 <p>[CONSTRUCTOR] Allocated 100000 bytes on heap.</p>
@@ -225,7 +234,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Using a Variable After <code>std::move</code></strong>: Once an object has been moved from (<code>std::move(obj)</code>), its internal resources belong to the target object. Reading or accessing fields on a moved-from object is unsafe!</li></p>
@@ -234,7 +244,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Always mark move constructors and move assignment operators <code>noexcept</code>.</li></p>
@@ -243,19 +254,22 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Measure the execution time difference between copying vs moving a <code>std::vector<int></code> with 10,000,000 elements.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a custom <code>String</code> class with a custom move constructor. Demonstrate moving string ownership from a temporary function return value directly into a global vector.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="14-smart-pointers.html">Smart Pointers</a></li></p>
@@ -264,7 +278,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="21-namespaces-and-modern-cpp.html">← Previous: Modern C++</a> | <a href="23-mini-projects.html">Next: Mini Projects →</a></p>
 

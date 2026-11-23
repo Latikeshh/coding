@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-python.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to Python 3</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in Python</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Python</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists in Python</span></a></li>
   <li class="nav-item"><a href="10-tuples.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tuples in Python</span></a></li>
   <li class="nav-item"><a href="11-sets.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sets in Python</span></a></li>
@@ -99,42 +99,51 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Type Hints and Dataclasses in Python</h1>
+<h1>Type Hints and Dataclasses in Python
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Type Hints (PEP 484):</strong> Optional annotations <code>param: type -> return_type</code> that document expected variable and function types to improve IDE auto-completion and static analysis tools (<code>mypy</code>).</li></p>
 <p>  <li><strong>Dataclasses (<code>@dataclass</code> - PEP 557):</strong> A decorator introduced in Python 3.7 that automatically generates <code>__init__()</code>, <code>__repr__()</code>, <code>__eq__()</code>, and comparison methods for data-oriented classes.</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Code readability aur IDE auto-completion ke liye <strong>Type Hints</strong> (<code>name: str -> int</code>) ka use hota hai. Plain data storage classes ke boilerplate code ko hatane ke liye Python 3.7+ mein <strong><code>@dataclass</code></strong> decorator ka use kiya jata hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Type Hints (<code>name: str -> int</code>) mule IDE la types kalatat. Data storage classes saathi <code>@dataclass</code> decorator boilerplate code kami karto.</p>
 
-<h2>📝 1. Type Hints (<code>typing</code> Module)</h2>
+<h2>📝 1. Type Hints (<code>typing</code> Module)
+</h2>
 
 <p>Type hints do NOT enforce types at runtime (Python remains dynamically typed), but static type checkers (<code>mypy</code>) and IDEs use them to catch bugs:</p>
 
 <pre><code class="language-python">from typing import List, Dict, Optional, Union
 
-<h1>Primitive and Collection Type Hints</h1>
+<h1>Primitive and Collection Type Hints
+</h1>
 <p>def calculate_average(scores: List[float]) -&gt; float:</p>
 <p>    return sum(scores) / len(scores)</p>
 
-<h1>Optional (Can be String or None)</h1>
+<h1>Optional (Can be String or None)
+</h1>
 <p>def find_user(user_id: int) -&gt; Optional[str]:</p>
 <p>    if user_id == 501:</p>
 <p>        return &quot;Aarav&quot;</p>
 <p>    return None</code></pre></p>
 
-<h2>📝 2. Modern Dataclasses (<code>@dataclass</code>)</h2>
+<h2>📝 2. Modern Dataclasses (<code>@dataclass</code>)
+</h2>
 
 <p>Replaces boilerplate <code>__init__</code>, <code>__repr__</code>, and <code>__eq__</code> implementations:</p>
 
@@ -150,7 +159,8 @@
 <p>p1 = Product(101, &quot;Mouse&quot;, 1200.0)</p>
 <p>print(p1) # Output: Product(id=101, name=&#39;Mouse&#39;, price=1200.0, tags=[])</code></pre></p>
 
-<h2>💡 Complete Example: Employee Inventory System</h2>
+<h2>💡 Complete Example: Employee Inventory System
+</h2>
 
 <pre><code class="language-python">from dataclasses import dataclass, field
 <p>from typing import List, Optional</p>
@@ -176,7 +186,8 @@
 <p>    def get_total_payroll(self) -&gt; float:</p>
 <p>        return sum(e.salary for e in self.employees)</p>
 
-<h1>Testing Dataclasses</h1>
+<h1>Testing Dataclasses
+</h1>
 <p>e1 = Employee(101, &quot;Aarav Mehta&quot;, &quot;Engineering&quot;, 85000.0, [&quot;Python&quot;, &quot;SQL&quot;])</p>
 <p>e2 = Employee(102, &quot;Sneha Kapoor&quot;, &quot;Engineering&quot;, 95000.0, [&quot;Java&quot;, &quot;Docker&quot;])</p>
 
@@ -190,7 +201,8 @@
 <p>e1.apply_raise(10.0)</p>
 <p>print(f&quot;After 10% Raise: {e1.name} -&gt; ₹{e1.salary:.2f}&quot;)</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== DATACLASS DEPARTMENT SUMMARY ===
 <p>Department    : Engineering</p>
@@ -198,38 +210,45 @@
 <p>Total Payroll : ₹180000.00</p>
 <p>After 10% Raise: Aarav Mehta -&gt; ₹93500.00</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Assuming type hints prevent invalid assignments at runtime (<code>age: int = "twenty"</code> will run in Python without raising a runtime error unless checked with <code>mypy</code>!).</li></p>
 <p>  <li>Using mutable defaults directly in dataclasses (<code>tags: List[str] = []</code> causes a <code>ValueError</code>; use <code>field(default_factory=list)</code> instead!).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Pass <code>frozen=True</code> to <code>@dataclass</code> when creating immutable data transfer objects (DTOs) or domain value objects that need to be hashable and usable in sets or dictionary keys.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Data Transfer Objects (DTOs) in API frameworks (FastAPI), data modeling in data science applications, and domain entities.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a function <code>add_numbers(a: int, b: int) -> int</code> with type hints.</p>
 <p>2. Create a <code>@dataclass</code> named <code>Book</code> with attributes <code>title: str</code>, <code>author: str</code>, <code>price: float</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create a <code>@dataclass(frozen=True)</code> named <code>GeoPoint</code> with <code>latitude: float</code> and <code>longitude: float</code>, and instantiate it inside a set.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="19-object-oriented-programming.html">Object-Oriented Programming</a></li></p>
 <p>  <li><a href="30-project-structure-and-best-practices.html">Project Structure</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Python Home</a> | <a href="26-working-with-csv.html">← Previous: Working with CSV</a> | <a href="28-testing-and-debugging.html">Next: Testing and Debugging →</a></p>
 

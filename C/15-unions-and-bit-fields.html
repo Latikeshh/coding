@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,36 +90,46 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Unions & Bit Fields in C</h1>
+<h1>Unions & Bit Fields in C
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Union:</strong> A user-defined data type where <strong>all members share the exact same memory location</strong>. The size of a <code>union</code> equals the size of its largest member.</li></p>
 <p>  <li><strong>Bit Fields:</strong> Explicit bit-width specifications inside structures or unions (<code>unsigned int flag : 1;</code>) that pack integer data into exact numbers of bits to conserve memory.</li></p>
 <p></ul></p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>A <code>union</code> allows storing different data types in the same shared memory location, but only one member can contain a valid value at any given time. <code>struct</code> allocates separate memory for every member, whereas <code>union</code> overlaps memory. Bit fields allow specifying exact bit counts for fields, which is essential for hardware registers and low-level protocols.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>union</code> mein sabhi members ek hi shared memory location share karte hain, isliye ek samay par sirf ek hi member valid value hold kar sakta hai. <code>struct</code> har member ko alag memory deta hai jabki <code>union</code> memory overlap karta hai. Bit fields (<code>flag : 1</code>) exact bit counts set karke memory bachate hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>union</code> madhye sarv members ekach memory location var sathavle jatat. Ekach veli fakt ekach member chi value vaprata yete. <code>struct</code> madhye pratyek member sathi vegli memory aste. Bit fields mulhe garjenusar bits (<code>: 1</code> bit) tharavun memory vachavta yete.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p><code>struct</code> aur <code>union</code> mein main difference memory allocation ka hota hai. <code>struct</code> size = sum of all member sizes (+ padding). <code>union</code> size = size of largest member. Bit fields hardware status flags pack karne ke liye use hote hain.</p>
 
-<h2>🤔 Why Do We Use Them?</h2>
+<h2>🤔 Why Do We Use Them?
+</h2>
 
 <p>When working with memory-constrained embedded systems, hardware device drivers, or network protocols, memory must be used with extreme efficiency. Unions allow representing variant types in shared buffers, while Bit Fields pack multiple boolean flags into a single byte.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <ul>
 <p>  <li><strong><code>struct</code>:</strong> A house with 3 separate bedrooms (for <code>int</code>, <code>float</code>, <code>char</code>). Everyone can sleep in their own room simultaneously.</li></p>
@@ -127,16 +137,19 @@
 <p>  <li><strong>Bit Field:</strong> A light switch box with 8 tiny on/off toggle switches packed inside a single 1-byte container.</li></p>
 <p></ul></p>
 
-<h2>📝 Syntax & Declarations</h2>
+<h2>📝 Syntax & Declarations
+</h2>
 
-<h3>1. <code>union</code> Definition</h3>
+<h3>1. <code>union</code> Definition
+</h3>
 <pre><code class="language-c">typedef union {
 <p>    int intVal;</p>
 <p>    float floatVal;</p>
 <p>    char charVal;</p>
 <p>} DataVariant; // Size = 4 bytes (size of int/float)</code></pre></p>
 
-<h3>2. Bit Field Definition</h3>
+<h3>2. Bit Field Definition
+</h3>
 <pre><code class="language-c">typedef struct {
 <p>    unsigned int isReady    : 1; // 1 bit (0 or 1)</p>
 <p>    unsigned int isError    : 1; // 1 bit</p>
@@ -144,7 +157,8 @@
 <p>    unsigned int reserved   : 3; // 3 bits reserved</p>
 <p>} HardwareRegister; // Total = 8 bits = 1 byte!</code></pre></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a practical program demonstrating Union memory sharing vs Struct memory allocation, and Bit Field flag manipulation:</p>
 
@@ -206,7 +220,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>sizeof(UnionData)</code>: Evaluates to <code>4</code> bytes (the size of <code>float</code> or <code>int</code>), whereas <code>sizeof(StructData)</code> is <code>12</code> bytes (due to member sum plus alignment padding).</li></p>
@@ -214,7 +229,8 @@
 <p>  <li><code>unsigned int powerOn : 1;</code>: The <code>: 1</code> instructs the compiler to allocate exactly 1 bit for <code>powerOn</code>.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. STRUCT VS UNION MEMORY COMPARISON ---
 <p>Size of StructData: 12 bytes (separate memory)</p>
@@ -232,7 +248,8 @@
 <p>Battery Low   : 0</p>
 <p>Error Code    : 18</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Reading Inactive Union Members:</strong> Storing a value in <code>uVal.rating</code> and expecting <code>uVal.id</code> to retain its previous value. A <code>union</code> can only store ONE active member at a time.</li></p>
@@ -240,33 +257,39 @@
 <p>  <li><strong>Assuming Bit Field Layout is Portable:</strong> Bit field layout ordering (least-significant bit vs most-significant bit first) and alignment boundaries are implementation-defined and compiler-dependent. Do not rely on bit fields for binary file formats that cross different CPU architectures.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li>Always document or track which union member is currently active (e.g., wrap the union in a <code>tagged union</code> struct containing an <code>enum type</code> field).</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Unions parse network protocol packets (IP/UDP packet variant headers), implement variant types in interpreter engines, and save memory in embedded microcontrollers. Bit fields control hardware status registers in microcontrollers and automotive CAN-bus protocols.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code>union Value</code> containing <code>int i</code> and <code>char str[4]</code>.</p>
 <p>2. Assign an integer value, print it, then assign a 3-character string and print <code>str</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a tagged union structure <code>typedef struct { int type; union { int i; float f; char c; } data; } Variant;</code> where <code>type</code> stores <code>1</code> for <code>int</code>, <code>2</code> for <code>float</code>, and <code>3</code> for <code>char</code>. Write a function to print the correct active variant data based on <code>type</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="14-structures.html">Structures</a></li></p>
 <p>  <li><a href="16-enums.html">Enumerations</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="14-structures.html">← Previous: Structures</a> | <a href="16-enums.html">Next: Enumerations →</a></p>
 

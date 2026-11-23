@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,41 +90,54 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Set Up C++ Environment</h1>
+<h1>Set Up C++ Environment
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Setting up the C++ environment involves installing an ISO-compliant C++ compiler (such as <strong>GCC <code>g++</code></strong>, <strong>Clang <code>clang++</code></strong>, or <strong>MSVC</strong>) and configuring an IDE or terminal workspace to translate C++ source code (<code>.cpp</code> files) into native machine executables.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>To write and execute C++ applications, you need a C++ compiler (<code>g++</code> or <code>clang++</code>) or an all-in-one IDE like Dev-C++ or VS Code. Commands like <code>g++ -Wall -Wextra -std=c++20 main.cpp -o main</code> compile <code>.cpp</code> source files with modern ISO C++20 standards enabled.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>C++ programs ko write aur execute karne ke liye aapko C++ compiler (<code>g++</code> ya <code>clang++</code>) ki zaroorat hoti hai. Windows users Dev-C++ IDE ya VS Code + MinGW-w64 use kar sakte hain. <code>g++ -Wall -Wextra -std=c++20 main.cpp -o main</code> command se code aadhunik C++20 standard ke anusar compile hota hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>C++ programs lihinyasathi aani chalavanyasathi C++ compiler (<code>g++</code> kiva <code>clang++</code>) lagto. Windows var Dev-C++ IDE kiva VS Code + MinGW-w64 vaparatat. <code>g++ -Wall -Wextra -std=c++20 main.cpp -o main</code> command dware C++20 standard nusar code compile kela jato.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>C++ code run karne ke liye <code>g++</code> compiler mandatory hai. Beginners Dev-C++ IDE download karke ek click mein <code>F11</code> dabaakar code compile aur run kar sakte hain. Command line users <code>g++ -std=c++20 main.cpp -o main</code> use karte hain.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>The C++ compiler analyzes your source code for type safety, template instantiation errors, and object-oriented syntax rules before translating human-readable class methods into ultra-fast machine binary instructions.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of C++ code as a blueprint for a high-speed sports car. The C++ compiler (<code>g++</code>) is the automated factory floor that inspects the blueprint for design flaws and manufactures the physical car (<code>main.exe</code>) ready for driving.</p>
 
-<h2>📝 Setup Instructions Across Operating Systems</h2>
+<h2>📝 Setup Instructions Across Operating Systems
+</h2>
 
-<h3>1. Windows Setup Options</h3>
+<h3>1. Windows Setup Options
+</h3>
 
-<h4>Option A: Using MinGW-w64 / MSYS2 (Terminal / VS Code)</h4>
+<h4>Option A: Using MinGW-w64 / MSYS2 (Terminal / VS Code)
+</h4>
 <p>1. Download and install <strong>MSYS2</strong> or <strong>MinGW-w64</strong>.</p>
 <p>2. Run package manager command:</p>
 <p>   <pre><code class="language-bash">   pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain</p>
@@ -135,7 +148,8 @@
 <p>   g++ --version</p>
 <p>   </code>`<code></p>
 
-<h4>Option B: Using Dev-C++ IDE (All-in-One Beginner IDE for Windows)</h4>
+<h4>Option B: Using Dev-C++ IDE (All-in-One Beginner IDE for Windows)
+</h4>
 <p><strong>Dev-C++</strong> (such as <strong>Embarcadero Dev-C++</strong>) is a popular, lightweight standalone IDE for Windows that includes a bundled MinGW GCC/G++ compiler suite.</p>
 
 <p>##### 📥 Step-by-Step Installation &amp; Usage:</p>
@@ -166,20 +180,25 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h3>2. Linux (Ubuntu / Debian / Fedora)</h3>
+<h3>2. Linux (Ubuntu / Debian / Fedora)
+</h3>
 <p>Open terminal and install build tools:</code></pre>bash</p>
-<h1>Ubuntu / Debian</h1>
+<h1>Ubuntu / Debian
+</h1>
 <p>sudo apt update && sudo apt install build-essential g++</p>
 
-<h1>Fedora / RHEL</h1>
+<h1>Fedora / RHEL
+</h1>
 <p>sudo dnf install gcc-c++</p>
 <pre><code class="language-text">
-<h3>3. macOS (Using Xcode Command Line Tools)</h3>
+<h3>3. macOS (Using Xcode Command Line Tools)
+</h3>
 <p>Open Terminal and run:</code></pre>bash</p>
 <p>xcode-select --install</p>
 <pre><code class="language-text">This installs </code>clang++<code> (aliased as </code>g++<code>).
 
-<h2>💡 Practical Starter Example</h2>
+<h2>💡 Practical Starter Example
+</h2>
 
 <p>Create a file named </code>main.cpp<code>:</p>
 <p></code></pre>cpp</p>
@@ -190,21 +209,27 @@
 <p>    return 0;</p>
 <p>}</p>
 <pre><code class="language-text">
-<h3>Compiling and Running via Terminal</h3>
+<h3>Compiling and Running via Terminal
+</h3>
 <p></code></pre>bash</p>
-<h1>Compile using modern C++20 standard</h1>
+<h1>Compile using modern C++20 standard
+</h1>
 <p>g++ -Wall -Wextra -std=c++20 main.cpp -o main</p>
 
-<h1>Run on Linux / macOS:</h1>
+<h1>Run on Linux / macOS:
+</h1>
 <p>./main</p>
 
-<h1>Run on Windows (CMD / PowerShell):</h1>
+<h1>Run on Windows (CMD / PowerShell):
+</h1>
 <p>main.exe</p>
 <pre><code class="language-text">
-<h3>Compiling and Running in Dev-C++ IDE</h3>
+<h3>Compiling and Running in Dev-C++ IDE
+</h3>
 <p>Press <strong></code>F9<code></strong> to Compile, <strong></code>F10<code></strong> to Run, or <strong></code>F11<code></strong> to Compile &amp; Run simultaneously.</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li></code>#include &lt;iostream&gt;<code>: Header file incorporating standard input/output stream objects (</code>std::cout<code>, </code>std::cin<code>).</li></p>
@@ -214,11 +239,13 @@
 <p>  <li></code>return 0;<code>: Signals clean, successful execution to the operating system.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 <p></code></pre>text</p>
 <p>Welcome to Modern C++ Programming!</p>
 <pre><code class="language-text">
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Saving as </code>.c<code> instead of </code>.cpp<code>:</strong> Saving C++ code with </code>.c<code> file extension causes compilers to fail when recognizing C++ features like </code>std::cout<code> or classes.</li></p>
@@ -226,7 +253,8 @@
 <p>  <li><strong>Missing </code>main()<code> Return:</strong> Omitting </code>int main()<code> return type or using invalid signatures.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Flags</h2>
+<h2>🛡️ Safety / Important Flags
+</h2>
 
 <p>Always enable compiler warnings during development:</p>
 <ul>
@@ -239,21 +267,25 @@
 <p>g++ -Wall -Wextra -std=c++20 main.cpp -o main</p>
 <p></code>`<code></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Dev-C++ is widely used in school/college computer labs and competitive programming contests (ICPC, Codeforces) due to its instant zero-configuration setup. GCC and Clang power AAA game engines (Unreal Engine), OS kernels, web browsers (Chromium), and financial trading systems.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Install </code>g++<code> compiler or Dev-C++ IDE on your machine.</p>
 <p>2. Create a file called </code>hello.cpp<code> and print your name using </code>std::cout<code>.</p>
 <p>3. Compile and run it successfully.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program named </code>banner.cpp<code> that prints a 3-line banner welcoming yourself to C++ programming using </code>std::cout`. Compile and execute it in your terminal or Dev-C++.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="02-introduction-to-cpp.html">Introduction to C++</a></li></p>
@@ -261,7 +293,8 @@
 <p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="02-introduction-to-cpp.html">Next: Introduction to C++ →</a></p>
 

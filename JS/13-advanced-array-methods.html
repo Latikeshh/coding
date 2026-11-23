@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,23 +92,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Advanced Array Methods (<code>map</code>, <code>filter</code>, <code>reduce</code>)</h1>
+<h1>Advanced Array Methods (<code>map</code>, <code>filter</code>, <code>reduce</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Functional array methods (<code>map</code>, <code>filter</code>, <code>reduce</code>, <code>find</code>, <code>findIndex</code>, <code>some</code>, <code>every</code>, <code>sort</code>) allow declarative transformation, filtering, and aggregation of array datasets without writing manual imperative <code>for</code> loops.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p><code>map()</code>, <code>filter()</code>, aur <code>reduce()</code> functional programming ke essential methods hain. <code>.map()</code> array ke har item ko transform karta hai, <code>.filter()</code> conditional search karta hai, aur <code>.reduce()</code> pooray array ko single value (jaise sum ya object) mein condense karta hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p><code>.map()</code> navin array tayar karto, <code>.filter()</code> tharavik kramacha data gaalun (filter) deto, aani <code>.reduce()</code> sarv values pasun ekach final value tayar karto.</p>
 
-<h2>📝 Method Summary Table</h2>
+<h2>📝 Method Summary Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Method</th><th>What It Does</th><th>Return Value</th><th>Mutates Array?</th></tr></thead></p>
@@ -124,7 +130,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Complete Example (Method Chaining)</h2>
+<h2>💡 Complete Example (Method Chaining)
+</h2>
 
 <pre><code class="language-js">const products = [
 <p>  { id: 1, name: &quot;Gaming Laptop&quot;, price: 75000, inStock: true, category: &quot;Tech&quot; },</p>
@@ -150,36 +157,42 @@
 <p>const sortedPrices = [...prices].sort((a, b) =&gt; a - b);</p>
 <p>console.log(&quot;Sorted Prices (Ascending):&quot;, sortedPrices);</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Filtered Products Count: 3
 <p>Tech Prices: [ 75000, 3000, 4500 ]</p>
 <p>Total Inventory Value: 82500</p>
 <p>Sorted Prices (Ascending): [ 3000, 4500, 75000 ]</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>Given <code>const numbers = [5, 12, 8, 130, 44]</code>:</p>
 <p>1. Use <code>.filter()</code> to get numbers greater than <code>10</code>.</p>
 <p>2. Use <code>.map()</code> to double each number.</p>
 <p>3. Use <code>.reduce()</code> to calculate the sum of all numbers.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting that <code>.sort()</code> sorts items <strong>alphabetically as strings by default</strong> unless a comparator function <code>(a, b) => a - b</code> is provided! (<code>[10, 2, 5].sort()</code> gives <code>[10, 2, 5]</code> without comparator!).</li></p>
 <p>  <li>Forgetting to provide an initial value (<code>0</code>) as the second argument to <code>.reduce()</code>.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Filtering product listings in e-commerce apps, calculating invoice subtotals, mapping database results to UI React components, and sorting leaderboard rankings.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Method chaining (<code>.filter().map().reduce()</code>) allows powerful, clean, single-statement data transformations.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="12-es6-features.html">← Previous: ES6 Features</a> | <a href="14-closures-and-callbacks.html">Next: Closures & Callbacks →</a></p>
 

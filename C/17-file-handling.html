@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>File Handling (<code>fopen</code>, <code>fread</code>, <code>fwrite</code>)</h1>
+<h1>File Handling (<code>fopen</code>, <code>fread</code>, <code>fwrite</code>)
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>File Handling</strong> in C allows programs to create, read, update, and delete files on disk storage. Using stream pointers (<code>FILE*</code>) declared in <code><stdio.h></code>, data can be persisted across program executions in either <strong>Text</strong> or <strong>Binary</strong> formats.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>C file handling manages file streams via <code>FILE*</code> pointers. Use <code>fopen()</code> with mode strings (<code>"r"</code>, <code>"w"</code>, <code>"a"</code>, <code>"rb"</code>, <code>"wb"</code>) to open files. Always verify that the file pointer is non-null (<code>fp != NULL</code>) before reading or writing. Use <code>fprintf</code>/<code>fgets</code> for text files and <code>fread</code>/<code>fwrite</code> for binary files. Always close file streams with <code>fclose()</code>.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>C mein file handling disk storage par data permanent save karne ke liye <code>FILE*</code> stream pointer ka upyog karti hai. File kholne ke liye <code>fopen(filename, mode)</code> use karein. Operation shuru karne se pehle <code>if (fp == NULL)</code> check karna zaroori hai. Text file ke liye <code>fprintf</code>/<code>fgets</code> aur binary data ke liye <code>fread</code>/<code>fwrite</code> use karein. Operation ke baad <code>fclose(fp)</code> karna zaroori hai.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Disk var data kayamswapi sathavanyasathi C madhye <code>FILE*</code> stream pointer vaparla jato. File ughadnyasathi <code>fopen(filename, mode)</code> vaparatat. File open jhali ki nahi he pahanyasathi <code>fp != NULL</code> check kareve. Text sathi <code>fprintf</code>/<code>fgets</code> aani binary sathi <code>fread</code>/<code>fwrite</code> vaparatat. Kam jhalyavar <code>fclose(fp)</code> kareve.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Program execution close hone ke baad bhi data save rakhne ke liye file handling use hoti hai. Text files human-readable text store karti hain jabki Binary files (<code>.bin</code>, <code>.dat</code>) raw struct bytes as-is disk par write karti hain. <code>fseek()</code> aur <code>ftell()</code> file pointer location navigate karte hain.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>RAM memory is volatile; when a program closes or computer restarts, all variable data in memory is erased. File handling persists user accounts, application settings, transaction logs, and databases directly to disk storage.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of <code>FILE*</code> as a bookmark in a book on disk:</p>
 <ul>
@@ -126,7 +136,8 @@
 <p>  <li><code>fclose()</code> closes the book and saves changes to the bookshelf.</li></p>
 <p></ul></p>
 
-<h2>📝 File Opening Modes</h2>
+<h2>📝 File Opening Modes
+</h2>
 
 <table>
 <p>  <thead><tr><th>Mode</th><th>Purpose</th><th>Creates New File?</th><th>Truncates (Overwrites) Existing File?</th></tr></thead></p>
@@ -142,7 +153,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Here is a practical file handling program demonstrating text file generation, safe reading with <code>fgets</code>, binary record serialization with <code>fwrite</code>/<code>fread</code>, and file positioning with <code>fseek</code>/<code>ftell</code>:</p>
 
@@ -228,7 +240,8 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>fopen("audit_log.txt", "w")</code>: Opens file in write mode. If file does not exist, it creates it. If file exists, mode <code>"w"</code> truncates (wipes) previous contents.</li></p>
@@ -237,7 +250,8 @@
 <p>  <li><code>fseek(fp, 0, SEEK_END); ftell(fp)</code>: <code>fseek</code> moves cursor to end of file (<code>SEEK_END</code>), and <code>ftell</code> returns current byte position, calculating total file size. <code>rewind(fp)</code> moves cursor back to byte 0.</li></p>
 <p></ul></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. TEXT FILE WRITING &amp; READING ---
 <p>Text file &#39;audit_log.txt&#39; written and closed successfully.</p>
@@ -250,7 +264,8 @@
 <p>Binary File Size: 48 bytes (size depends on struct alignment)</p>
 <p>Restored Account: ID #1001 | Name: Amit Patel | Balance: $12500.75</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting <code>NULL</code> Checks on <code>fopen()</code>:</strong> Reading or writing through a <code>FILE*</code> pointer when <code>fopen()</code> failed (returns <code>NULL</code>) crashes immediately with a Segmentation Fault.</li></p>
@@ -258,27 +273,32 @@
 <p>  <li><strong>Using <code>feof()</code> incorrectly in loops:</strong> Writing <code>while (!feof(fp))</code> causes the loop to run one extra time because <code>feof()</code> only returns <code>true</code> AFTER a read operation attempts to read past EOF! Always test function return values (<code>while (fgets(...) != NULL)</code> or <code>while (fread(...) == 1)</code>).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li>Always check <code>if (fp == NULL)</code> and print descriptive error diagnostics using <code>perror("Description")</code>.</li></p>
 <p>  <li>When storing sensitive application data or binary structs across different platforms/compilers, be mindful that binary struct field alignment padding may vary across architectures.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>File handling builds database storage engines (SQLite, BerkeleyDB), log file rotators, game save files, image file decoders (BMP/PNG parsers), and configuration managers.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a program that opens a text file <code>notes.txt</code> in append mode (<code>"a"</code>).</p>
 <p>2. Append a line of text entered by the user, close the file, and then read and display all lines from <code>notes.txt</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that copies a binary file (e.g. an image file or <code>.bin</code> file) from <code>source.bin</code> to <code>destination.bin</code> using a byte buffer and <code>fread</code>/<code>fwrite</code> loops until <code>EOF</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
@@ -286,7 +306,8 @@
 <p>  <li><a href="22-error-handling.html">Error Handling</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="16-enums.html">← Previous: Enumerations</a> | <a href="18-preprocessor-and-macros.html">Next: Preprocessor →</a></p>
 

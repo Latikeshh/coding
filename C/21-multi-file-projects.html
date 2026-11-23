@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -90,33 +90,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Multi-file Projects & Header Files (<code>.h</code>)</h1>
+<h1>Multi-file Projects & Header Files (<code>.h</code>)
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Production C software is organized into <strong>Multi-file Projects</strong> consisting of <strong>Header Files</strong> (<code>.h</code> containing type definitions, macros, and function prototypes) and <strong>Source Files</strong> (<code>.c</code> containing actual function implementations). This separates interface declarations from implementation code, enabling modular software development and faster incremental compilation.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Multi-file architecture divides code into header files (<code>.h</code>) and implementation files (<code>.c</code>). Header files contain function prototypes, structure definitions, and Header Guards (<code>#ifndef</code>). Source files contain function definitions and include matching headers via <code>#include "header.h"</code>. The compiler compiles <code>.c</code> files into object files (<code>.o</code> or <code>.obj</code>) and the linker combines them into an executable binary.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Bade C projects ko modular banane ke liye Header Files (<code>.h</code>) aur Source Files (<code>.c</code>) mein toda jata hai. Header files mein function prototypes, structs aur Header Guards (<code>#ifndef</code>) hote hain. Implementation <code>.c</code> files mein hota hai. Sabhi <code>.c</code> files ko ek sath compile karke linker executable binary file banata hai (<code>gcc main.c bank.c -o app</code>).</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Mothe C projects sope karanyasathi Header Files (<code>.h</code>) aani Source Files (<code>.c</code>) vaparale jatat. Header file madhye function prototypes, structs aani Header Guards asatat. Implementation <code>.c</code> file madhye hote. System sarv <code>.c</code> files compile karun link karte.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Clean software architecture ke liye interface declaration <code>.h</code> file mein rakhein aur actual business logic <code>.c</code> file mein. Multiple inclusions rokne ke liye <code>.h</code> file mein Header Guards <code>#ifndef BANK_H</code> zaroori hain. Project compile karne ke liye command: <code>gcc -Wall -Wextra -std=c11 main.c bank.c -o app</code>.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Putting 50,000 lines of code into a single <code>main.c</code> file makes teamwork impossible, causes git merge conflicts, and forces the compiler to recompile the entire project even when changing a single line. Multi-file modularity fixes all these issues.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of a multi-file project like a restaurant:</p>
 <ul>
@@ -125,9 +135,11 @@
 <p>  <li><strong>Driver File (<code>main.c</code>):</strong> The dining manager who orders dishes from the menu (<strong>Function Calls</strong>).</li></p>
 <p></ul></p>
 
-<h2>📝 Multi-file Project Architecture & Header Guards</h2>
+<h2>📝 Multi-file Project Architecture & Header Guards
+</h2>
 
-<h3>1. Header File Guard Pattern (<code>bank.h</code>)</h3>
+<h3>1. Header File Guard Pattern (<code>bank.h</code>)
+</h3>
 <pre><code class="language-c">#ifndef BANK_H
 <p>#define BANK_H</p>
 
@@ -142,7 +154,8 @@
 
 <p>#endif // BANK_H</code></pre></p>
 
-<h3>2. Implementation File (<code>bank.c</code>)</h3>
+<h3>2. Implementation File (<code>bank.c</code>)
+</h3>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 <p>#include &quot;bank.h&quot; // Include matching header</p>
 
@@ -156,7 +169,8 @@
 <p>    printf(&quot;Account #%d | Balance: $%.2lf\n&quot;, acc-&gt;accountNumber, acc-&gt;balance);</p>
 <p>}</code></pre></p>
 
-<h3>3. Main Driver File (<code>main.c</code>)</h3>
+<h3>3. Main Driver File (<code>main.c</code>)
+</h3>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 <p>#include &quot;bank.h&quot;</p>
 
@@ -167,11 +181,13 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h2>💡 Practical Project Example</h2>
+<h2>💡 Practical Project Example
+</h2>
 
 <p>Here is a multi-file compilation project layout.</p>
 
-<h3>File 1: <code>bank.h</code> (Header Interface)</h3>
+<h3>File 1: <code>bank.h</code> (Header Interface)
+</h3>
 <pre><code class="language-c">#ifndef BANK_H
 <p>#define BANK_H</p>
 
@@ -188,7 +204,8 @@
 
 <p>#endif // BANK_H</code></pre></p>
 
-<h3>File 2: <code>bank.c</code> (Implementation Source)</h3>
+<h3>File 2: <code>bank.c</code> (Implementation Source)
+</h3>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 <p>#include &lt;string.h&gt;</p>
 <p>#include &quot;bank.h&quot;</p>
@@ -216,7 +233,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h3>File 3: <code>main.c</code> (Driver Application)</h3>
+<h3>File 3: <code>main.c</code> (Driver Application)
+</h3>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 <p>#include &quot;bank.h&quot;</p>
 
@@ -239,20 +257,24 @@
 <p>    return 0;</p>
 <p>}</code></pre></p>
 
-<h3>Compiling Multi-file Projects via GCC Command Line</h3>
+<h3>Compiling Multi-file Projects via GCC Command Line
+</h3>
 <pre><code class="language-bash"># Compile all C source files together into a single executable binary
 <p>gcc -Wall -Wextra -std=c11 main.c bank.c -o banking_app</p>
 
-<h1>Run Executable:</h1>
+<h1>Run Executable:
+</h1>
 <p>./banking_app</code></pre></p>
 
-<h2>🔍 Code Breakdown & Linking Process</h2>
+<h2>🔍 Code Breakdown & Linking Process
+</h2>
 
 <p>1. <strong>Preprocessing:</strong> <code>#include "bank.h"</code> in both <code>main.c</code> and <code>bank.c</code> copies the contents of <code>bank.h</code> into the translation unit before compilation.</p>
 <p>2. <strong>Compilation:</strong> <code>gcc -c main.c</code> and <code>gcc -c bank.c</code> compile <code>.c</code> source files independently into machine object code files <code>main.o</code> and <code>bank.o</code>.</p>
 <p>3. <strong>Linking:</strong> The <strong>Linker</strong> binds function calls in <code>main.o</code> (like <code>withdraw()</code>) to their matching function definition memory addresses inside <code>bank.o</code>, creating the final <code>banking_app</code> binary.</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- MODULAR BANKING SYSTEM ---
 <p>ID: #501 | Name: Vikram Seth    | Balance: $2500.00</p>
@@ -261,7 +283,8 @@
 <p>Withdrawal approved!</p>
 <p>ID: #501 | Name: Vikram Seth    | Balance: $2000.00</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Including <code>.c</code> Files Instead of <code>.h</code> Files:</strong> Writing <code>#include "bank.c"</code> in <code>main.c</code>. Including source files directly causes duplicate symbol definition errors during linking! Always <code>#include</code> header files (<code>.h</code>), never <code>.c</code> files.</li></p>
@@ -269,12 +292,14 @@
 <p>  <li><strong>Forgetting to Pass All <code>.c</code> Files to GCC:</strong> Running <code>gcc main.c -o app</code> without including <code>bank.c</code> causes Linker errors (<code>undefined reference to 'withdraw'</code>).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Simple Makefile for Multi-file Build Automation</h2>
+<h2>🛡️ Simple Makefile for Multi-file Build Automation
+</h2>
 
 <p>A <strong>Makefile</strong> automates compiling multi-file projects so you don't have to type long <code>gcc</code> commands manually:</p>
 
 <p>``<code>makefile</p>
-<h1>Makefile</h1>
+<h1>Makefile
+</h1>
 <p>CC = gcc</p>
 <p>CFLAGS = -Wall -Wextra -std=c11</p>
 
@@ -293,17 +318,20 @@
 <p>	rm -f *.o banking_app</p>
 <p></code>`<code></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Every major C library (OpenGL, SQLite, GTK, Linux Kernel drivers) uses multi-file architecture with public </code>.h<code> header interface files and hidden </code>.c<code> source implementations.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a </code>math_utils.h<code> header file containing prototype </code>int square(int x);<code>.</p>
 <p>2. Create </code>math_utils.c<code> with the definition.</p>
 <p>3. Create </code>main.c<code> that includes </code>math_utils.h<code>, calls </code>square(5)<code>, and print the result. Compile all files together.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Build a multi-file student grade project:</p>
 <ul>
@@ -312,15 +340,17 @@
 <p>  <li></code>main.c`: Tests creating multiple students and printing their final report.</li></p>
 <p></ul></p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="08-functions.html">Functions</a></li></p>
+<p>  <li><a href="08-functions/index.html">Functions</a></li></p>
 <p>  <li><a href="14-structures.html">Structures</a></li></p>
 <p>  <li><a href="18-preprocessor-and-macros.html">Preprocessor and Macros</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C Home</a> | <a href="20-command-line-arguments.html">← Previous: CLI Arguments</a> | <a href="22-error-handling.html">Next: Error Handling →</a></p>
 

@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-python.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to Python 3</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in Python</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Python</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists in Python</span></a></li>
   <li class="nav-item"><a href="10-tuples.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tuples in Python</span></a></li>
   <li class="nav-item"><a href="11-sets.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sets in Python</span></a></li>
@@ -99,23 +99,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Regular Expressions in Python (<code>re</code> Module)</h1>
+<h1>Regular Expressions in Python (<code>re</code> Module)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Regular Expressions (Regex)</strong> are special character search patterns used to match, extract, validate, and replace complex text sequences inside strings using Python's built-in <strong><code>re</code></strong> module.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Text mein complex patterns (jaise Emails, Phone numbers, ZIP codes) search, validate, aur replace karne ke liye <strong>Regular Expressions (<code>re</code> module)</strong> ka use hota hai. Escape issues se bachne ke liye hamesha Raw Strings (<code>r"pattern"</code>) ka use karein.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Text patterns (Emails, Phone numbers) validate aani replace karnyasathi <code>re</code> module cha wapar kela jato. Pattern sathi Raw Strings (<code>r"pattern"</code>) vapara.</p>
 
-<h2>📝 1. Core Regex Metacharacters</h2>
+<h2>📝 1. Core Regex Metacharacters
+</h2>
 
 <table>
 <p>  <thead><tr><th>Symbol</th><th>What It Matches</th><th>Example</th></tr></thead></p>
@@ -132,7 +138,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 2. Key <code>re</code> Module Functions</h2>
+<h2>📝 2. Key <code>re</code> Module Functions
+</h2>
 
 <ul>
 <p>  <li><strong><code>re.search(pattern, text)</code>:</strong> Searches entire string for FIRST match. Returns <code>Match</code> object or <code>None</code>.</li></p>
@@ -146,11 +153,13 @@
 <p>text = &quot;Call us at 987-654-3210 or 912-345-6789&quot;</p>
 <p>pattern = r&quot;\d{3}-\d{3}-\d{4}&quot;</p>
 
-<h1>Extracting all phone numbers</h1>
+<h1>Extracting all phone numbers
+</h1>
 <p>phones = re.findall(pattern, text)</p>
 <p>print(phones) # [&#39;987-654-3210&#39;, &#39;912-345-6789&#39;]</code></pre></p>
 
-<h2>💡 Complete Example: Email & Phone Number Validation Engine</h2>
+<h2>💡 Complete Example: Email & Phone Number Validation Engine
+</h2>
 
 <pre><code class="language-python">import re
 
@@ -173,7 +182,8 @@
 <p>    email_pattern = r&quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}&quot;</p>
 <p>    return re.sub(email_pattern, &quot;[REDACTED_EMAIL]&quot;, text)</p>
 
-<h1>Testing Regex Engine</h1>
+<h1>Testing Regex Engine
+</h1>
 <p>print(&quot;=== REGEX VALIDATION &amp; SANITIZATION ===&quot;)</p>
 
 <p>email_test = &quot;aarav.verma@example.com&quot;</p>
@@ -189,7 +199,8 @@
 <p>print(&quot;\nOriginal Log :&quot;, sample_log)</p>
 <p>print(&quot;Masked Log   :&quot;, masked_log)</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== REGEX VALIDATION &amp; SANITIZATION ===
 <p>Testing Email: &#39;aarav.verma@example.com&#39; -&gt; Valid? True</p>
@@ -198,38 +209,45 @@
 <p>Original Log : User Rahul (rahul@company.org) raised ticket #501.</p>
 <p>Masked Log   : User Rahul ([REDACTED_EMAIL]) raised ticket #501.</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Forgetting to use Raw Strings <code>r"pattern"</code> (writing <code>"\\d+"</code> instead of <code>r"\d+"</code>), leading to backslash escape syntax conflicts.</li></p>
 <p>  <li>Confusing <code>re.match()</code> (matches ONLY at start of string) with <code>re.search()</code> (searches anywhere across entire string!).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Avoid overly complex nested regex patterns on untrusted user inputs to prevent <strong>Catastrophic Backtracking</strong> (ReDoS - Regular Expression Denial of Service attacks).</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Form validation (Email, Password strength, Phone), web scraping data extraction, log file parsing, and data masking/redaction.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a regex pattern <code>r"\d+"</code> and use <code>re.findall()</code> to extract all numbers from <code>"Order #501 with 3 items costing $450"</code>.</p>
 <p>2. Replace all spaces in <code>"Hello  World  Python"</code> with a single hyphen <code>-</code> using <code>re.sub()</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a function <code>extract_hashtags(text)</code> using <code>re.findall()</code> that extracts all Twitter-style hashtags starting with <code>#</code> (e.g. <code>"#python #coding"</code>).</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="13-strings.html">Strings</a></li></p>
 <p>  <li><a href="18-exception-handling.html">Exception Handling</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Python Home</a> | <a href="22-lambda-map-filter-reduce.html">← Previous: Lambda, Map, Filter, Reduce</a> | <a href="24-datetime.html">Next: Datetime →</a></p>
 

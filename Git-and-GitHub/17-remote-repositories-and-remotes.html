@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-git-reset-and-git-revert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Undoing Commits (`git reset`, `git revert`)</span></a></li>
   <li class="nav-item"><a href="12-branching-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Branching Basics (`git branch`, `git switch`)</span></a></li>
   <li class="nav-item"><a href="13-merging-branches.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Merging Branches (`git merge`)</span></a></li>
-  <li class="nav-item"><a href="14-handling-merge-conflicts.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Handling Merge Conflicts Step-by-Step</span></a></li>
+  <li class="nav-item"><a href="14-merge-conflicts/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Handling Merge Conflicts Step-by-Step</span></a></li>
   <li class="nav-item"><a href="15-git-rebase.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Git Rebase (`git rebase`)</span></a></li>
   <li class="nav-item"><a href="16-git-stash.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Git Stash (`git stash`)</span></a></li>
   <li class="nav-item"><a href="17-remote-repositories-and-remotes.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Remote Repositories (`git remote`)</span></a></li>
@@ -97,33 +97,43 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Remote Repositories (<code>git remote</code>)</h1>
+<h1>Remote Repositories (<code>git remote</code>)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong>Remote Repository</strong> is a version of your Git repository hosted on the internet, a private network server, or a cloud platform (such as <strong>GitHub</strong>, <strong>GitLab</strong>, or <strong>Bitbucket</strong>). The <strong><code>git remote</code></strong> command is used to manage connections between your local repository and these remote servers.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>A remote is a bookmark link to a cloud-hosted version of your repository. The default standard alias for your primary remote repository is <strong><code>origin</code></strong>. Use <code>git remote add origin <url></code> to link a local repository to GitHub, and <code>git remote -v</code> to inspect active remote URLs.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Remote Repository aapke project ka online cloud version hota hai jo GitHub par hosted rehta hai. Global standard ke mutabiq primary remote ka default naam <strong><code>origin</code></strong> hota hai. Local repo ko GitHub se connect karne ke liye <code>git remote add origin <url></code> command use karein.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Remote Repository mhanje cloud var (GitHub var) hosted asleli tumchya project chi online prat. Primary remote sathi default naav <strong><code>origin</code></strong> asto. Local project GitHub shi connect karanyasathi <code>git remote add origin <url></code> vaparatat.</p>
 
-<h3>Hinglish</h3>
+<h3>Hinglish
+</h3>
 <p>Local code ko online backup aur team sharing ke liye GitHub par bhejna padta hai. Local repo ko GitHub repository link se connect karne ke liye <code>git remote add origin https://github.com/user/repo.git</code> command use karte hain. Checked remotes dekhne ke liye <code>git remote -v</code> Type karein.</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Local repositories live on your hard drive. If your computer crashes or breaks, local commits are lost. Remote repositories host your code in the cloud, enable team collaboration, and act as off-site backups.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Think of <code>git remote</code> like adding a contact name to your phone's contact list:</p>
 <ul>
@@ -131,27 +141,34 @@
 <p>  <li><strong><code>origin</code></strong> is the nickname / speed-dial name you assign to that phone number so you don't have to type the long URL every time!</li></p>
 <p></ul></p>
 
-<h2>📝 Key <code>git remote</code> Commands</h2>
+<h2>📝 Key <code>git remote</code> Commands
+</h2>
 
 <pre><code class="language-bash"># 1. View list of linked remote aliases
 <p>git remote</p>
 
-<h1>2. View list of remote aliases with their exact fetch/push URLs</h1>
+<h1>2. View list of remote aliases with their exact fetch/push URLs
+</h1>
 <p>git remote -v</p>
 
-<h1>3. Add a new remote connection (Alias: origin)</h1>
+<h1>3. Add a new remote connection (Alias: origin)
+</h1>
 <p>git remote add origin https://github.com/username/repository-name.git</p>
 
-<h1>4. Inspect detailed status of a specific remote</h1>
+<h1>4. Inspect detailed status of a specific remote
+</h1>
 <p>git remote show origin</p>
 
-<h1>5. Rename a remote alias (e.g., rename &#39;origin&#39; to &#39;github&#39;)</h1>
+<h1>5. Rename a remote alias (e.g., rename &#39;origin&#39; to &#39;github&#39;)
+</h1>
 <p>git remote rename origin github</p>
 
-<h1>6. Remove a remote connection link</h1>
+<h1>6. Remove a remote connection link
+</h1>
 <p>git remote remove origin</code></pre></p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <p>Linking a local repository to GitHub for the first time:</p>
 
@@ -160,13 +177,16 @@
 <p>git add .</p>
 <p>git commit -m &quot;Initial commit&quot;</p>
 
-<h1>2. Add remote link to GitHub repository</h1>
+<h1>2. Add remote link to GitHub repository
+</h1>
 <p>git remote add origin https://github.com/Rahul/my-practice-app.git</p>
 
-<h1>3. Verify remote configuration</h1>
+<h1>3. Verify remote configuration
+</h1>
 <p>git remote -v</code></pre></p>
 
-<h2>🔍 Command Breakdown</h2>
+<h2>🔍 Command Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>git remote add</code>: Command creating a new remote server shortcut entry inside <code>.git/config</code>.</li></p>
@@ -174,13 +194,15 @@
 <p>  <li><code>https://github.com/user/repo.git</code>: The target HTTPS web URL of the cloud repository.</li></p>
 <p></ul></p>
 
-<h2>👀 Terminal Output</h2>
+<h2>👀 Terminal Output
+</h2>
 
 <pre><code class="language-bash">$ git remote -v
 <p>origin  https://github.com/Rahul/my-practice-app.git (fetch)</p>
 <p>origin  https://github.com/Rahul/my-practice-app.git (push)</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong><code>fatal: remote origin already exists</code>:</strong> Running <code>git remote add origin <url></code> when an <code>origin</code> link is ALREADY configured in your repository.</li></p>
@@ -188,29 +210,34 @@
 <p>  <li><strong>Misspelling Remote URL:</strong> Copying an incorrect URL string, resulting in <code>Authentication failed</code> or <code>404 Repository Not Found</code> when pushing later.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <ul>
 <p>  <li>A single local Git repository can connect to <strong>multiple</strong> remotes simultaneously (e.g. <code>origin</code> pointing to GitHub and <code>upstream</code> pointing to an open-source parent repository).</li></p>
 <p>  <li>Connection links are stored locally inside <code>.git/config</code>.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Every developer connects their local Git workspace to GitHub or GitLab remotes to back up code and enable Continuous Integration (CI) build pipelines.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Inside your <code>git-practice</code> folder, run <code>git remote -v</code>. Notice it returns nothing because no remotes are linked yet.</p>
 <p>2. Add a dummy test remote: <code>git remote add origin https://github.com/example/test.git</code>.</p>
 <p>3. Run <code>git remote -v</code> and verify the link appears.</p>
 <p>4. Remove the test link: <code>git remote remove origin</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Run <code>git remote add test-remote https://github.com/test/repo.git</code>, then rename <code>test-remote</code> to <code>backup-remote</code> using <code>git remote rename</code>, and check <code>git remote -v</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="18-git-push-and-git-pull.html">Syncing Remotes with Push & Pull</a></li></p>
@@ -218,7 +245,8 @@
 <p>  <li><a href="20-introduction-to-github.html">Introduction to GitHub</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Home</a> | <a href="16-git-stash.html">← Previous: Stash</a> | <a href="18-git-push-and-git-pull.html">Next: Push & Pull →</a></p>
 

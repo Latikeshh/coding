@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,23 +91,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Exceptions and Validation in Java</h1>
+<h1>Exceptions and Validation in Java
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>An <strong>Exception</strong> is an abnormal event occurring during program execution that disrupts the normal flow of instructions. Java provides a robust Exception Handling framework using <code>try</code>, <code>catch</code>, <code>finally</code>, <code>throw</code>, <code>throws</code>, and automatic resource management via <strong>Try-with-Resources</strong>.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Program crash hone se bachane ke liye <strong>Exception Handling</strong> ka use hota hai. Runtime errors ko <code>try...catch</code> block mein handle kiya jata hai. <strong>Checked Exceptions</strong> compile time par check hote hain (jaise <code>IOException</code>), jabki <strong>Unchecked Exceptions</strong> (<code>RuntimeException</code>) program execution ke dauran aate hain.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Application crash hone pasun vachvanyasathi <code>try...catch</code> block vaparatat. Custom exception tayar karnyasathi <code>extends Exception</code> cha wapar hoto.</p>
 
-<h2>📝 1. The <code>Throwable</code> Class Hierarchy Tree</h2>
+<h2>📝 1. The <code>Throwable</code> Class Hierarchy Tree
+</h2>
 
 <pre><code class="language-text">                     +--------------------+
 
@@ -172,7 +178,8 @@
 <p>  <li><strong>Unchecked Exceptions (<code>RuntimeException</code>):</strong> Logical or programming bugs (<code>NullPointerException</code>, <code>ArrayIndexOutOfBoundsException</code>, <code>IllegalArgumentException</code>).</li></p>
 <p></ul></p>
 
-<h2>📝 2. Exception Handling Blocks</h2>
+<h2>📝 2. Exception Handling Blocks
+</h2>
 
 <ul>
 <p>  <li><code>try {}</code>: Contains risky code that might throw an exception.</li></p>
@@ -188,7 +195,8 @@
 <p>    System.err.println(&quot;Handled multiple error types: &quot; + e.getMessage());</p>
 <p>}</code></pre></p>
 
-<h2>📝 3. Creating Custom Exceptions</h2>
+<h2>📝 3. Creating Custom Exceptions
+</h2>
 
 <pre><code class="language-java">// Custom Unchecked Exception
 <p>public class InsufficientBalanceException extends RuntimeException {</p>
@@ -197,7 +205,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>💡 Complete Example: Account Withdrawal & Input Validation</h2>
+<h2>💡 Complete Example: Account Withdrawal & Input Validation
+</h2>
 
 <pre><code class="language-java">public class ExceptionMaster {
 
@@ -262,13 +271,15 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">[TEST 1 ERROR] Amount must be a valid numeric number.
 <p>[TEST 2 ERROR] Requested ₹7500.00 exceeds balance ₹5000.00</p>
 <p>Test Case 2 Audit Completed.</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Silently swallowing exceptions with an empty catch block (<code>catch (Exception e) {}</code>). Always log exceptions!</li></p>
@@ -276,31 +287,37 @@
 <p>  <li>Using exceptions for ordinary control flow logic instead of explicit validation checks (<code>if</code> statements).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Always use <strong>Try-with-Resources</strong> when working with file readers, writers, database connections, or socket streams to prevent resource leaks.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Validating API request payloads, handling database connection timeouts, catching invalid payment card numbers, and processing missing file inputs.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a method <code>parseAge(String text)</code> that throws <code>IllegalArgumentException</code> if age is less than <code>0</code> or greater than <code>120</code>.</p>
 <p>2. Test the method with <code>"25"</code>, <code>"-5"</code>, and <code>"abc"</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create a custom exception <code>InvalidEmailException</code> and write a validation method <code>validateEmail(String email)</code> that throws it if the email does not contain <code>@</code> or <code>.</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="04-input-and-output.html">Input and Output</a></li></p>
 <p>  <li><a href="20-file-input-and-output.html">File Input and Output</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="17-interfaces-and-abstract-classes.html">← Previous: Interfaces</a> | <a href="19-packages-and-project-organization.html">Next: Packages and Project Organization →</a></p>
 

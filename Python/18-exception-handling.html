@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-python.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to Python 3</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in Python</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Python</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Python</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Python</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Python (`for`, `while`, `range`, `else`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in Python</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists in Python</span></a></li>
   <li class="nav-item"><a href="10-tuples.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tuples in Python</span></a></li>
   <li class="nav-item"><a href="11-sets.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sets in Python</span></a></li>
@@ -99,23 +99,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Exception Handling in Python</h1>
+<h1>Exception Handling in Python
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Exception Handling</strong> is a mechanism that allows Python programs to intercept, process, and recover from runtime errors (like division by zero, invalid input parsing, or missing files) gracefully without crashing application execution.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Program crash hone se bachane ke liye <strong>Exception Handling</strong> ka use hota hai. Risky code ko <code>try</code> block mein rakha jata hai, error aane par <code>except</code> block chalta hai, <code>else</code> block tabhi chalta hai jab koi error na ho, aur <code>finally</code> block <strong>hamesha</strong> execute hota hai (cleanup ke liye).</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Application crash hone pasun vachvanyasathi <code>try...except</code> block vaparatat. Cleanup sathi <code>finally</code> block hamesha run hoto.</p>
 
-<h2>📝 1. Exception Handling Architecture</h2>
+<h2>📝 1. Exception Handling Architecture
+</h2>
 
 <ul>
 <p>  <li><code>try:</code> Encloses code that might raise an exception during execution.</li></p>
@@ -172,7 +178,8 @@
 <p></table></p>
 <p>               +--------------------------+</code></pre></p>
 
-<h2>📝 2. Common Built-In Python Exceptions</h2>
+<h2>📝 2. Common Built-In Python Exceptions
+</h2>
 
 <ul>
 <p>  <li><code>ValueError</code>: Invalid value passed to function (e.g. <code>int("abc")</code>).</li></p>
@@ -183,7 +190,8 @@
 <p>  <li><code>FileNotFoundError</code>: Trying to open a missing file.</li></p>
 <p></ul></p>
 
-<h2>💡 Complete Example: Robust Order Processing System</h2>
+<h2>💡 Complete Example: Robust Order Processing System
+</h2>
 
 <pre><code class="language-python"># Custom Exception Definition
 <p>class InsufficientBalanceError(Exception):</p>
@@ -228,7 +236,8 @@
 <p>        # Always runs for audit trail logging!</p>
 <p>        print(&quot;[AUDIT LOG] Withdrawal processing attempt complete.&quot;)</p>
 
-<h1>Testing Test Cases</h1>
+<h1>Testing Test Cases
+</h1>
 <p>print(&quot;=== TESTING EXCEPTION HANDLING SYSTEM ===&quot;)</p>
 
 <p>current_balance = 5000.00</p>
@@ -242,7 +251,8 @@
 <p>print(&quot;\n--- Test Case 3: Valid Transaction ---&quot;)</p>
 <p>current_balance, _ = process_withdrawal(current_balance, &quot;1200.00&quot;)</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== TESTING EXCEPTION HANDLING SYSTEM ===
 
@@ -258,38 +268,45 @@
 <p>[SUCCESS] Withdrew ₹1200.00. Remaining: ₹3800.00</p>
 <p>[AUDIT LOG] Withdrawal processing attempt complete.</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Using bare <code>except:</code> without specifying an exception class (catches ALL exceptions including <code>KeyboardInterrupt</code> and <code>SystemExit</code>, making terminal cancellation impossible!).</li></p>
 <p>  <li>Swallowing exceptions silently with <code>except Exception: pass</code> without logging error context, making debugging impossible!</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Always catch specific exception types (<code>ValueError</code>, <code>FileNotFoundError</code>) before catching broader parent exceptions (<code>Exception</code>).</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Handling API network connection timeouts, catching invalid JSON payload parsing, handling database connection retries, and validating user input forms.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a program that prompts the user for two numbers and divides them inside a <code>try...except</code> block, catching <code>ZeroDivisionError</code> and <code>ValueError</code>.</p>
 <p>2. Add a <code>finally</code> block printing <code>"Calculation attempted."</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Create a custom exception <code>InvalidEmailError</code> and write a function <code>validate_email(email)</code> that raises it if the email string does not contain <code>@</code> or <code>.</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="17-file-handling.html">File Handling</a></li></p>
 <p>  <li><a href="28-testing-and-debugging.html">Testing and Debugging</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Python Home</a> | <a href="17-file-handling.html">← Previous: File Handling</a> | <a href="19-object-oriented-programming.html">Next: Object-Oriented Programming →</a></p>
 

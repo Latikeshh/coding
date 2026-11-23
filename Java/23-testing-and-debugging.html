@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,26 +91,32 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Testing and Debugging in Java</h1>
+<h1>Testing and Debugging in Java
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Unit Testing:</strong> Automating the verification of individual units of code (like isolated methods or classes) using frameworks such as <strong>JUnit 5 (Jupiter)</strong>.</li></p>
 <p>  <li><strong>Debugging:</strong> Isolating, inspecting, and fixing runtime errors, logical bugs, and exceptions using IDE breakpoints, stack trace inspection, and variable watches.</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Software quality maintain karne ke liye <strong>JUnit 5</strong> test framework se automated unit tests likhe jaate hain. Runtime bugs fix karne ke liye IDE breakpoints, stack trace inspection, aur variable inspection ka use karke line-by-line execution debug kiya jata hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Automated tests sathi <strong>JUnit 5</strong> framework vaparatat. Code madhil bugs shodhnyasathi IDE Breakpoints aani Debugger vaparatat.</p>
 
-<h2>📝 1. Core JUnit 5 Test Annotations</h2>
+<h2>📝 1. Core JUnit 5 Test Annotations
+</h2>
 
 <table>
 <p>  <thead><tr><th>Annotation</th><th>What It Does</th></tr></thead></p>
@@ -125,7 +131,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 2. JUnit 5 Assertions</h2>
+<h2>📝 2. JUnit 5 Assertions
+</h2>
 
 <pre><code class="language-java">import static org.junit.jupiter.api.Assertions.*;
 
@@ -140,7 +147,8 @@
 <p>    methodThatShouldThrow();</p>
 <p>});</code></pre></p>
 
-<h2>📝 3. Effective IDE Debugging Strategies</h2>
+<h2>📝 3. Effective IDE Debugging Strategies
+</h2>
 
 <p>1. <strong>Set Breakpoint:</strong> Click on any line margin in IntelliJ IDEA or VS Code to pause execution when reached.</p>
 <p>2. <strong>Inspect Variables:</strong> View current field values in heap memory in the debugger scope window.</p>
@@ -152,9 +160,11 @@
 <p>  <li><strong>Resume (F9):</strong> Resumes normal execution until next breakpoint.</li></p>
 <p></ul></p>
 
-<h2>💡 Complete Example: Class & Unit Test Class</h2>
+<h2>💡 Complete Example: Class & Unit Test Class
+</h2>
 
-<h3>Class to Test: <code>CalculatorService.java</code></h3>
+<h3>Class to Test: <code>CalculatorService.java</code>
+</h3>
 <pre><code class="language-java">public class CalculatorService {
 <p>    </p>
 <p>    public double divide(double numerator, double denominator) {</p>
@@ -169,7 +179,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h3>Automated Unit Test: <code>CalculatorServiceTest.java</code></h3>
+<h3>Automated Unit Test: <code>CalculatorServiceTest.java</code>
+</h3>
 <pre><code class="language-java">import org.junit.jupiter.api.*;
 <p>import static org.junit.jupiter.api.Assertions.*;</p>
 
@@ -208,7 +219,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Test Execution Output</h2>
+<h2>👀 Test Execution Output
+</h2>
 
 <pre><code class="language-text">JUnit Jupiter Test Runner Execution
 <p>-------------------------------------------------------</p>
@@ -220,7 +232,8 @@
 <p>Tests passed: 3 of 3 (100% SUCCESS)</p>
 <p>-------------------------------------------------------</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Writing unit tests that depend on each other's execution order or shared mutable global state.</li></p>
@@ -228,31 +241,37 @@
 <p>  <li>Reading only the bottom line of an error stack trace; always look for the <strong>first relevant line number in your own package code</strong>!</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Keep unit tests fast, isolated, repeatable, and independent so they can run automatically during continuous integration build pipelines (<code>mvn test</code>).</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>CI/CD deployment pipelines (GitHub Actions, Jenkins), regression testing during codebase refactoring, and verifying business validation rules.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a <code>BankAccount</code> class with <code>deposit()</code> and <code>withdraw()</code> methods.</p>
 <p>2. Write a JUnit test class verifying that withdrawing more than balance throws <code>IllegalArgumentException</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a JUnit test verifying that a custom string reverse method returns <code>""</code> when passed <code>""</code> and correctly handles null arguments by throwing <code>NullPointerException</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="18-exceptions-and-validation.html">Exceptions and Validation</a></li></p>
 <p>  <li><a href="24-build-tools-and-mini-projects.html">Build Tools and Mini Projects</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="22-dates-and-time.html">← Previous: Dates and Time</a> | <a href="24-build-tools-and-mini-projects.html">Next: Build Tools and Mini Projects →</a></p>
 

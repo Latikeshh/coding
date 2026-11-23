@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,19 +90,23 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>C++ STL Algorithms (<code>std::sort</code>, <code>std::find</code>, <code>std::accumulate</code>, <code>std::transform</code>)</h1>
+<h1>C++ STL Algorithms (<code>std::sort</code>, <code>std::find</code>, <code>std::accumulate</code>, <code>std::transform</code>)
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The C++ Standard Template Library provides <strong>STL Algorithms</strong> in the <code><algorithm></code> and <code><numeric></code> headers. STL algorithms operate on ranges of elements using <strong>Iterators</strong> (<code>begin()</code>, <code>end()</code>). They provide highly optimized implementations for sorting, searching, transforming, counting, and aggregating container elements.</p>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>STL Algorithms C++ ke banae-banaye high-speed functions hain jo arrays ya vectors par kaam karte hain.</p>
 <ul>
@@ -114,7 +118,8 @@
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>STL Algorithms mhanje <code><algorithm></code> madhye uplabdh aslele vegvan ready-made functions.</p>
 <ul>
@@ -126,7 +131,8 @@
 
 <p>---</p>
 
-<h2>📊 Summary Table of Essential STL Algorithms</h2>
+<h2>📊 Summary Table of Essential STL Algorithms
+</h2>
 
 <table>
 <p>  <thead><tr><th>Algorithm</th><th>Header</th><th>Complexity</th><th>Description</th></tr></thead></p>
@@ -142,7 +148,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;vector&gt;</p>
@@ -193,7 +200,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>numbers.begin()</code>, <code>numbers.end()</code>: Iterators pointing to the start and end boundary of the container.</li></p>
@@ -203,7 +211,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. SORTING ---
 <p>Sorted Numbers: 12 12 32 45 67 85 89 </p>
@@ -219,7 +228,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Writing Custom Loops Instead of STL Algorithms</strong>: Handwritten loops are longer, bug-prone, and often less optimized than STL algorithms.</li></p>
@@ -228,7 +238,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Use <code>std::sort</code> with custom comparators or lambdas to sort objects by specific fields: <code>std::sort(v.begin(), v.end(), [](const Item& a, const Item& b) { return a.price < b.price; });</code>.</li></p>
@@ -236,20 +247,23 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Sort a <code>std::vector<int></code> in <strong>descending order</strong> using <code>std::greater<int>()</code>.</p>
 <p>2. Count how many times the number <code>12</code> appears in a vector using <code>std::count()</code>.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that uses <code>std::remove_if</code> and vector <code>.erase()</code> (Erase-Remove Idiom) to remove all odd numbers from a <code>std::vector<int></code>.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="15-stl-containers.html">STL Containers</a></li></p>
@@ -258,7 +272,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="15-stl-containers.html">← Previous: STL Containers</a> | <a href="17-templates.html">Next: Templates →</a></p>
 

@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,31 +90,37 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Templates & Generic Programming in C++ (<code>template<typename T></code>)</h1>
+<h1>Templates & Generic Programming in C++ (<code>template<typename T></code>)
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Templates</strong> are the foundation of <strong>Generic Programming</strong> in C++. A Template allows you to write a single blueprint function or class that operates on any data type (<code>int</code>, <code>double</code>, <code>std::string</code>, or custom classes) without duplicating code. The compiler generates specialized, type-safe binary code for each used type at compile time (a process called <strong>Template Instantiation</strong>).</p>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>Templates C++ ka ek powerful feature hai jo aapko generic code likhne ki suvidha deta hai. Agar aapko ek <code>max()</code> function banana hai jo <code>int</code>, <code>double</code>, aur <code>string</code> sab ke liye kaam kare, toh aapko alag-alag 3 functions nahi likhne padenge. Aap <code>template <typename T></code> ka use karke ek hi generic function likh sakte ho. Compiler automatic type deduce karke executable code bana deta hai.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>Template cha vapar karun aapan C++ madhye type-independent (generic) code lihuu shakto. <code>int</code>, <code>double</code> kiwa <code>string</code> sathi ekach prache function lihinyasathi <code>template <typename T></code> cha vapar kela jato. Compiler compile-time la lagnaara data type tayar karto.</p>
 
 <p>---</p>
 
-<h2>📝 Function Template & Class Template Syntax</h2>
+<h2>📝 Function Template & Class Template Syntax
+</h2>
 
 <pre><code class="language-cpp">// 1. Function Template Syntax
 <p>template &lt;typename T&gt;</p>
@@ -134,7 +140,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Example</h2>
+<h2>💡 Practical Example
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;string&gt;</p>
@@ -178,7 +185,8 @@
 
 <p>---</p>
 
-<h2>🔍 Code Breakdown</h2>
+<h2>🔍 Code Breakdown
+</h2>
 
 <ul>
 <p>  <li><code>template <typename T></code>: Tells the compiler that <code>T</code> is a placeholder generic data type.</li></p>
@@ -188,7 +196,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">--- 1. FUNCTION TEMPLATE DEMO ---
 <p>Max Int    : 25</p>
@@ -202,7 +211,8 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Separating Template Definitions into <code>.cpp</code> Files</strong>:</li></p>
@@ -215,7 +225,8 @@
 
 <p>---</p>
 
-<h2>🛡️ Best Practices</h2>
+<h2>🛡️ Best Practices
+</h2>
 
 <ul>
 <p>  <li>Use C++20 <strong>Concepts</strong> (<code>template <std::integral T></code>) to constrain template parameters and produce clean, clear compiler error messages when type requirements are violated.</li></p>
@@ -223,29 +234,33 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Write a function template <code>swapValues(T& a, T& b)</code> that swaps two variables of any data type.</p>
 <p>2. Create a generic <code>Pair<T1, T2></code> class template that holds two values of potentially different data types.</p>
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Implement a custom generic <code>Stack<T></code> class template backed by <code>std::vector<T></code> with <code>push()</code>, <code>pop()</code>, <code>top()</code>, and <code>isEmpty()</code> methods.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="08-functions.html">Functions in C++</a></li></p>
+<p>  <li><a href="08-functions/index.html">Functions in C++</a></li></p>
 <p>  <li><a href="10-classes-and-oops.html">Classes & OOP</a></li></p>
 <p></ul></p>
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="16-stl-algorithms.html">← Previous: STL Algorithms</a> | <a href="18-lambdas.html">Next: Lambdas →</a></p>
 

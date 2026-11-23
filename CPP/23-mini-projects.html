@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
   <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
   <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
   <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
   <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
@@ -90,13 +90,16 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Capstone Mini Projects in C++ (OOP & File I/O System)</h1>
+<h1>Capstone Mini Projects in C++ (OOP & File I/O System)
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>Mini projects synthesize core C++ concepts—including <strong>Object-Oriented Programming (OOP)</strong>, <strong>Standard Template Library (STL) Containers</strong>, <strong>Smart Pointers</strong>, <strong>Exception Handling</strong>, and <strong>File I/O Streams</strong>—into complete, production-grade console applications.</p>
 
@@ -104,19 +107,22 @@
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>Yeh Capstone Mini Project saare C++ concepts (Classes, Vectors, File Handling, Exceptions, Smart Pointers) ko ek saath ek working C++ Application mein combine karta hai. Isme hum ek <strong>Bank Account Management System</strong> banayenge jo user accounts create kar sakta hai, deposit/withdraw operations validate karta hai, aur saara data disk par file (<code>bank_data.txt</code>) mein permanent save aur load karta hai.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>Ha Mini Project C++ madhil sarva mahatvache concepts (Classes, Vectors, File Handling, Exceptions) ekatra karun ek practical C++ Application tayar karto. Aapan ek <strong>Bank Account Management System</strong> tayar karnar aahot jo accounts create karto, deposit/withdraw validate karto, aani data file madhye save karto.</p>
 
 <p>---</p>
 
-<h2>🏗️ System Architecture Diagram</h2>
+<h2>🏗️ System Architecture Diagram
+</h2>
 
 <pre><code class="language-text">                  +-----------------------------------+
 
@@ -145,7 +151,8 @@
 
 <p>---</p>
 
-<h2>💡 Practical Capstone Code: Bank Management System</h2>
+<h2>💡 Practical Capstone Code: Bank Management System
+</h2>
 
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 <p>#include &lt;vector&gt;</p>
@@ -292,7 +299,8 @@
 
 <p>---</p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== C++ BANK MANAGEMENT SYSTEM ===
 <p>[SUCCESS] Created Account #101 for Rahul Sharma</p>
@@ -312,14 +320,16 @@
 
 <p>---</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add a <code>transferMoney(int fromAcc, int toAcc, double amount)</code> method to <code>BankManager</code>.</p>
 <p>2. Implement transaction history recording for each account.</p>
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="10-classes-and-oops.html">Classes & Objects</a></li></p>
@@ -329,7 +339,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← C++ Home</a> | <a href="22-move-semantics.html">← Previous: Move Semantics</a></p>
 

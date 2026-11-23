@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,13 +97,16 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Chapter 23 — Common Table Expressions (CTEs) & WITH Clause</h1>
+<h1>Chapter 23 — Common Table Expressions (CTEs) & WITH Clause
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
 <p>---</p>
 
-<h2>📖 Definition & Fundamental Concepts</h2>
+<h2>📖 Definition & Fundamental Concepts
+</h2>
 
 <p>A <strong>Common Table Expression (CTE)</strong> is a temporary, named result set defined using the <code>WITH</code> clause that exists <strong>exclusively within the execution scope of a single SQL statement</strong> (<code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>).</p>
 
@@ -118,7 +121,8 @@
 <p>SELECT ... </p>
 <p>FROM cte_stage_2;</code></pre></p>
 
-<h3>How CTEs Compare to Other SQL Database Constructs:</h3>
+<h3>How CTEs Compare to Other SQL Database Constructs:
+</h3>
 
 <table>
 <p>  <thead><tr><th>Construct</th><th>Lifetime & Scope</th><th>Storage Location</th><th>Modifiability / Reuse</th></tr></thead></p>
@@ -131,15 +135,20 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>MySQL Version Target</strong>: Native CTE support via the <code>WITH</code> clause was introduced in <strong>MySQL 8.0</strong> (and MariaDB 10.2). If you are using WampServer or phpMyAdmin, ensure your MySQL version is 8.0 or higher (<code>SELECT VERSION();</code>).</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>MySQL Version Target</strong>: Native CTE support via the <code>WITH</code> clause was introduced in <strong>MySQL 8.0</strong> (and MariaDB 10.2). If you are using WampServer or phpMyAdmin, ensure your MySQL version is 8.0 or higher (<code>SELECT VERSION();</code>).
+</p></blockquote>
 
-<blockquote><p>[!IMPORTANT]</p></blockquote>
-<blockquote><p><strong>Performance & Materialization Insight</strong>: A CTE is primarily an <strong>abstraction and readability tool</strong>. Using a CTE does <strong>not</strong> guarantee that its result is stored physically on disk or computed only once. Depending on the database version, query structure, and optimizer choices, the query engine may inline the CTE (merge it into the main query) or materialize it. Neither a CTE nor a subquery is universally faster; performance depends on indexes, join conditions, and execution plans.</p></blockquote>
+<blockquote><p>[!IMPORTANT]
+</p></blockquote>
+<blockquote><p><strong>Performance & Materialization Insight</strong>: A CTE is primarily an <strong>abstraction and readability tool</strong>. Using a CTE does <strong>not</strong> guarantee that its result is stored physically on disk or computed only once. Depending on the database version, query structure, and optimizer choices, the query engine may inline the CTE (merge it into the main query) or materialize it. Neither a CTE nor a subquery is universally faster; performance depends on indexes, join conditions, and execution plans.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi Explanation</h2>
+<h2>🇮🇳 Hindi Explanation
+</h2>
 
 <p>Common Table Expression (CTE) ek temporary named query result hota hai jo <code>WITH</code> clause se banta hai. Yeh sirf <strong>ek hi SQL statement</strong> ke dauran exist karta hai.</p>
 <ul>
@@ -150,7 +159,8 @@
 
 <p>---</p>
 
-<h2>🚩 Marathi Explanation</h2>
+<h2>🚩 Marathi Explanation
+</h2>
 
 <p>Common Table Expression (CTE) mhanje <code>WITH</code> clause ne tayar kelela ek temporary, named query result set. Ha fatk <strong>ekaach SQL statement</strong> purta maryadit asto.</p>
 <ul>
@@ -161,7 +171,8 @@
 
 <p>---</p>
 
-<h2>📊 Reproducible Sample Setup Data</h2>
+<h2>📊 Reproducible Sample Setup Data
+</h2>
 
 <p>Run the following setup script in phpMyAdmin or MySQL Workbench to create and populate the sample database tables (<code>departments</code>, <code>employees</code>, <code>customers</code>, and <code>orders</code>) used throughout this chapter.</p>
 
@@ -239,7 +250,8 @@
 
 <p>---</p>
 
-<h2>📝 Basic CTE Syntax & Step-by-Step Breakdown</h2>
+<h2>📝 Basic CTE Syntax & Step-by-Step Breakdown
+</h2>
 
 <p>A CTE is defined using the <code>WITH</code> keyword at the beginning of an SQL statement:</p>
 
@@ -251,7 +263,8 @@
 <p>SELECT column1, column2</p>
 <p>FROM cte_name;</code></pre></p>
 
-<h3>Syntax Elements:</h3>
+<h3>Syntax Elements:
+</h3>
 <p>1. <strong><code>WITH</code></strong>: Keyword that initiates the Common Table Expression block.</p>
 <p>2. <strong><code>cte_name</code></strong>: The custom identifier assigned to the temporary result set.</p>
 <p>3. <strong><code>AS</code></strong>: Keyword binding the CTE name to the inner query.</p>
@@ -261,7 +274,8 @@
 
 <p>---</p>
 
-<h3>Basic Runnable Example</h3>
+<h3>Basic Runnable Example
+</h3>
 
 <p>Find all employees in the Engineering department (<code>department_id = 3</code>):</p>
 
@@ -274,7 +288,8 @@
 <p>FROM engineering_staff</p>
 <p>ORDER BY salary DESC;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>emp_id</th><th>full_name</th><th>salary</th></tr></thead></p>
 <p>  <tbody></p>
@@ -283,7 +298,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation</h4>
+<h4>Explanation
+</h4>
 <ul>
 <p>  <li><code>engineering_staff</code> is defined as a temporary CTE containing 2 rows.</li></p>
 <p>  <li>The consuming main query selects from <code>engineering_staff</code> and sorts by salary.</li></p>
@@ -292,7 +308,8 @@
 
 <p>---</p>
 
-<h2>⚖️ Comparing CTEs vs Subqueries</h2>
+<h2>⚖️ Comparing CTEs vs Subqueries
+</h2>
 
 <p>Both CTEs and derived-table subqueries can express identical relational logic. However, their structural trade-offs differ:</p>
 
@@ -308,9 +325,11 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h3>Equivalent Code Comparison</h3>
+<h3>Equivalent Code Comparison
+</h3>
 
-<h4>Option A: Subquery Version</h4>
+<h4>Option A: Subquery Version
+</h4>
 <pre><code class="language-sql">SELECT c.first_name, c.email, summary.total_spend
 <p>FROM customers AS c</p>
 <p>JOIN (</p>
@@ -320,7 +339,8 @@
 <p>) AS summary ON c.customer_id = summary.customer_id</p>
 <p>WHERE summary.total_spend &gt; 500.00;</code></pre></p>
 
-<h4>Option B: CTE Version (More Readable)</h4>
+<h4>Option B: CTE Version (More Readable)
+</h4>
 <pre><code class="language-sql">WITH customer_summary AS (
 <p>    SELECT customer_id, SUM(total_amount) AS total_spend</p>
 <p>    FROM orders</p>
@@ -333,9 +353,11 @@
 
 <p>---</p>
 
-<h2>💡 Practical Examples</h2>
+<h2>💡 Practical Examples
+</h2>
 
-<h3>Example A: Customers Spending Above Average</h3>
+<h3>Example A: Customers Spending Above Average
+</h3>
 
 <p>Calculate total customer spending, compute the overall average customer spend, and return customers exceeding that average:</p>
 
@@ -366,7 +388,8 @@
 <p>WHERE cs.lifetime_spend &gt; oa.avg_customer_spend</p>
 <p>ORDER BY cs.lifetime_spend DESC;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>customer_id</th><th>customer_name</th><th>order_count</th><th>lifetime_spend</th><th>overall_avg_spend</th></tr></thead></p>
 <p>  <tbody></p>
@@ -374,7 +397,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation</h4>
+<h4>Explanation
+</h4>
 <p>1. <code>customer_spending</code> calculates total spending for ordering customers:</p>
 <ul>
 <p>  <li>Customer 101 (Aarav): $250 + $450 + $100 = \$800.00$ (3 orders).</li></p>
@@ -384,12 +408,15 @@
 <p>2. <code>overall_average</code> calculates the average of these 3 customer totals: $(800 + 1700 + 300) / 3 = \$933.33$.</p>
 <p>3. The main query joins customer metadata, compares <code>lifetime_spend</code> against <code>$933.33</code>, and returns Sophia Miller ($1700.00).</p>
 
-<blockquote><p>[!NOTE]</p></blockquote>
-<blockquote><p><strong>Handling Zero-Order Customers</strong>: The <code>JOIN orders</code> in <code>customer_spending</code> considers ordering customers. If a <code>LEFT JOIN</code> were used on <code>customers</code>, Customer 104 (Emma, $0.00$) would be included, making the overall average $(800 + 1700 + 300 + 0) / 4 = \$700.00$.</p></blockquote>
+<blockquote><p>[!NOTE]
+</p></blockquote>
+<blockquote><p><strong>Handling Zero-Order Customers</strong>: The <code>JOIN orders</code> in <code>customer_spending</code> considers ordering customers. If a <code>LEFT JOIN</code> were used on <code>customers</code>, Customer 104 (Emma, $0.00$) would be included, making the overall average $(800 + 1700 + 300 + 0) / 4 = \$700.00$.
+</p></blockquote>
 
 <p>---</p>
 
-<h3>Example B: Chaining Multiple CTEs for Sequential Pipelines</h3>
+<h3>Example B: Chaining Multiple CTEs for Sequential Pipelines
+</h3>
 
 <p>Filter paid orders, aggregate customer totals, and join with customer metadata:</p>
 
@@ -419,7 +446,8 @@
 <p>JOIN customer_paid_aggregates AS ca ON c.customer_id = ca.customer_id</p>
 <p>ORDER BY ca.total_paid_amount DESC;</code></pre></p>
 
-<h4>Output</h4>
+<h4>Output
+</h4>
 <table>
 <p>  <thead><tr><th>customer_id</th><th>full_name</th><th>email</th><th>paid_order_count</th><th>total_paid_amount</th></tr></thead></p>
 <p>  <tbody></p>
@@ -428,7 +456,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation</h4>
+<h4>Explanation
+</h4>
 <ul>
 <p>  <li>Multiple CTEs are declared in a single <code>WITH</code> clause separated by a comma <code>,</code>.</li></p>
 <p>  <li><code>customer_paid_aggregates</code> references the preceding <code>paid_orders</code> CTE directly.</li></p>
@@ -437,11 +466,13 @@
 
 <p>---</p>
 
-<h3>Example C: CTEs with Deletion & MySQL Target Table Restrictions</h3>
+<h3>Example C: CTEs with Deletion & MySQL Target Table Restrictions
+</h3>
 
 <p>A CTE can be used in a <code>SELECT</code> statement to preview duplicate records before running deletion operations.</p>
 
-<h4>Disposable Demonstration Table Setup</h4>
+<h4>Disposable Demonstration Table Setup
+</h4>
 <pre><code class="language-sql">-- Create temporary demo contacts table
 <p>DROP TABLE IF EXISTS demo_contacts;</p>
 
@@ -458,7 +489,8 @@
 <p>(4, &#39;Sophia Miller&#39;, &#39;sophia@example.com&#39;),  -- Duplicate email!</p>
 <p>(5, &#39;Karan Johar&#39;, &#39;karan@example.com&#39;);</code></pre></p>
 
-<h4>Step 1: Safe Non-Destructive <code>SELECT</code> Preview</h4>
+<h4>Step 1: Safe Non-Destructive <code>SELECT</code> Preview
+</h4>
 <p>Always preview rows marked for deletion using <code>ROW_NUMBER()</code>:</p>
 
 <pre><code class="language-sql">WITH duplicate_preview AS (
@@ -485,9 +517,12 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Step 2: Safe MySQL-Compatible Deletion via JOIN</h4>
-<blockquote><p>[!WARNING]</p></blockquote>
-<blockquote><p><strong>MySQL Error 1093 Caution</strong>: In MySQL, attempting <code>DELETE FROM demo_contacts WHERE id IN (SELECT id FROM cte_name)</code> where the CTE selects from <code>demo_contacts</code> can raise <code>ERROR 1093 (HY000): You can't specify target table 'demo_contacts' for update in FROM clause</code>. To perform a safe deletion in MySQL 8.0, join the target table with a derived table or CTE:</p></blockquote>
+<h4>Step 2: Safe MySQL-Compatible Deletion via JOIN
+</h4>
+<blockquote><p>[!WARNING]
+</p></blockquote>
+<blockquote><p><strong>MySQL Error 1093 Caution</strong>: In MySQL, attempting <code>DELETE FROM demo_contacts WHERE id IN (SELECT id FROM cte_name)</code> where the CTE selects from <code>demo_contacts</code> can raise <code>ERROR 1093 (HY000): You can't specify target table 'demo_contacts' for update in FROM clause</code>. To perform a safe deletion in MySQL 8.0, join the target table with a derived table or CTE:
+</p></blockquote>
 
 <pre><code class="language-sql">-- Safe MySQL 8.0 Deletion using JOIN on CTE
 <p>WITH duplicate_ranks AS (</p>
@@ -519,7 +554,8 @@
 
 <p>---</p>
 
-<h2>⚡ Performance & Best Practices</h2>
+<h2>⚡ Performance & Best Practices
+</h2>
 
 <p>1. <strong>Readability First</strong>: Use CTEs to simplify complex multi-stage analytical queries.</p>
 <p>2. <strong>Optimizer Behavior in MySQL 8.0</strong>:</p>
@@ -538,9 +574,11 @@
 
 <p>---</p>
 
-<h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+<h2>⚠️ Common Mistakes &amp; Pitfalls
+</h2>
 
-<h3>1. Placing a Semicolon Before the Main Statement</code></pre>sql</h3>
+<h3>1. Placing a Semicolon Before the Main Statement</code></pre>sql
+</h3>
 <p>-- ❌ INCORRECT: Semicolon after CTE definition terminates statement early!</p>
 <p>WITH dept_summary AS (</p>
 <p>    SELECT department_id, AVG(salary) AS avg_sal FROM employees GROUP BY department_id</p>
@@ -553,7 +591,8 @@
 <p>)</p>
 <p>SELECT * FROM dept_summary;</p>
 <pre><code class="language-text">
-<h3>2. Repeating </code>WITH<code> for Multiple CTEs</code></pre>sql</h3>
+<h3>2. Repeating </code>WITH<code> for Multiple CTEs</code></pre>sql
+</h3>
 <p>-- ❌ INCORRECT: Repeating 'WITH' keyword for second CTE</p>
 <p>WITH cte1 AS (SELECT * FROM customers),</p>
 <p>WITH cte2 AS (SELECT * FROM orders) -- Error!</p>
@@ -564,7 +603,8 @@
 <p>cte2 AS (SELECT * FROM orders)</p>
 <p>SELECT * FROM cte1;</p>
 <pre><code class="language-text">
-<h3>3. Attempting to Reference a CTE in a Separate Statement</code></pre>sql</h3>
+<h3>3. Attempting to Reference a CTE in a Separate Statement</code></pre>sql
+</h3>
 <p>-- Statement 1</p>
 <p>WITH my_cte AS (SELECT * FROM customers)</p>
 <p>SELECT * FROM my_cte;</p>
@@ -574,13 +614,15 @@
 <pre><code class="language-text">
 <p>---</p>
 
-<h2>🧪 Step-by-Step Practice Exercises</h2>
+<h2>🧪 Step-by-Step Practice Exercises
+</h2>
 
 <p>Use the sample database script (</code>departments<code>, </code>employees<code>, </code>customers<code>, </code>orders<code>) provided in this chapter.</p>
 
 <p>---</p>
 
-<h3>Exercise 1: Filter Recent Orders</h3>
+<h3>Exercise 1: Filter Recent Orders
+</h3>
 <p><strong>Task</strong>: Use a CTE named </code>february_orders<code> to filter orders placed on or after </code>&#39;2026-02-01&#39;<code>, then calculate the average order total from that CTE.  </p>
 <p><strong>Hint</strong>: Select </code>order_id<code>, </code>total_amount<code>, and </code>order_date<code> in the CTE.</p>
 <p></code></pre>sql</p>
@@ -595,7 +637,8 @@
 <p>    ROUND(AVG(total_amount), 2) AS avg_february_order_amount</p>
 <p>FROM february_orders;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>february_order_count</th><th>avg_february_order_amount</th></tr></thead></p>
 <p>  <tbody></p>
@@ -607,7 +650,8 @@
 
 <p>---</p>
 
-<h3>Exercise 2: Department-Wise Average Salary</h3>
+<h3>Exercise 2: Department-Wise Average Salary
+</h3>
 <p><strong>Task</strong>: Create a CTE named </code>dept_salaries<code> that aggregates employee count and average salary per department, then join it with </code>departments<code> to display department name, employee count, and average salary.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -627,7 +671,8 @@
 <p>JOIN dept_salaries AS ds ON d.department_id = ds.department_id</p>
 <p>ORDER BY ds.avg_salary DESC;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>department_name</th><th>emp_count</th><th>avg_salary</th></tr></thead></p>
 <p>  <tbody></p>
@@ -640,7 +685,8 @@
 
 <p>---</p>
 
-<h3>Exercise 3: Chained CTEs for Department High Earners</h3>
+<h3>Exercise 3: Chained CTEs for Department High Earners
+</h3>
 <p><strong>Task</strong>: Create two chained CTEs:</p>
 <p>1. </code>high_earners<code>: Filters employees with salary $\ge \$70,000.00$.</p>
 <p>2. </code>dept_high_earner_count<code>: Counts high earners per department.</p>
@@ -664,7 +710,8 @@
 <p>JOIN dept_high_earner_count AS c ON d.department_id = c.department_id</p>
 <p>ORDER BY c.high_earner_count DESC;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>department_name</th><th>high_earner_count</th></tr></thead></p>
 <p>  <tbody></p>
@@ -676,7 +723,8 @@
 
 <p>---</p>
 
-<h3>Exercise 4: Customers Above Average Customer Spending</h3>
+<h3>Exercise 4: Customers Above Average Customer Spending
+</h3>
 <p><strong>Task</strong>: Use CTEs to find customers whose total spending across all orders is strictly greater than the overall average customer spending.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -699,7 +747,8 @@
 <p>WHERE ct.total_spend > a.company_avg_spend</p>
 <p>ORDER BY ct.total_spend DESC;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>customer_id</th><th>customer_name</th><th>total_spend</th></tr></thead></p>
 <p>  <tbody></p>
@@ -709,7 +758,8 @@
 
 <p>---</p>
 
-<h3>Exercise 5: Departments Exceeding Average Department Payroll</h3>
+<h3>Exercise 5: Departments Exceeding Average Department Payroll
+</h3>
 <p><strong>Task</strong>: Use CTEs to calculate total payroll per department, compute the average department payroll, and return departments exceeding that average.</p>
 <p></code></pre>sql</p>
 <p>-- Answer</p>
@@ -732,7 +782,8 @@
 <p>WHERE dp.total_payroll > ap.avg_dept_payroll</p>
 <p>ORDER BY dp.total_payroll DESC;</p>
 <pre><code class="language-text">
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>department_name</th><th>total_payroll</th><th>company_avg_dept_payroll</th></tr></thead></p>
 <p>  <tbody></p>
@@ -743,11 +794,13 @@
 
 <p>---</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Find departments whose total employee payroll expenditure exceeds the average department payroll expenditure across the company.</p>
 
-<h3>Requirements:</h3>
+<h3>Requirements:
+</h3>
 <p>1. Use the </code>departments<code> and </code>employees<code> setup tables.</p>
 <p>2. Include checks for departments with or without employees.</p>
 <p>3. Show the complete runnable CTE query and output table.</p>
@@ -777,7 +830,8 @@
 <p>ORDER BY ds.dept_payroll DESC;</p>
 <p></code>`<code></p>
 
-<h4>Expected Output</h4>
+<h4>Expected Output
+</h4>
 <table>
 <p>  <thead><tr><th>department_id</th><th>department_name</th><th>dept_payroll</th><th>overall_avg_dept_payroll</th></tr></thead></p>
 <p>  <tbody></p>
@@ -786,7 +840,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h4>Explanation of Safeguards:</h4>
+<h4>Explanation of Safeguards:
+</h4>
 <ul>
 <p>  <li></code>LEFT JOIN<code> ensures all 4 departments are evaluated in </code>dept_summary` (HR: $65k, Marketing: $130k, Engineering: $200k, Sales: $80k).</li></p>
 <p>  <li>Average department payroll across the 4 departments = $(65000 + 130000 + 200000 + 80000) / 4 = \$118,750.00$.</li></p>
@@ -795,7 +850,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="17-subqueries.html">Subqueries & Nested Queries</a></li></p>
@@ -805,7 +861,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← SQL Home</a> | <a href="22-transactions.html">← Previous: Transactions</a> | <a href="24-recursive-ctes.html">Next: Recursive CTEs →</a></p>
 

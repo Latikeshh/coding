@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,33 +92,40 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Prototypes, <code>this</code> Keyword & Explicit Binding</h1>
+<h1>Prototypes, <code>this</code> Keyword & Explicit Binding
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong><code>this</code> Keyword:</strong> Refers to the execution context object that calls the current function. Its value is determined by <strong>how</strong> the function is invoked at runtime.</li></p>
 <p>  <li><strong>Prototypes:</strong> Every JavaScript object has an internal link (<code>__proto__</code>) to a prototype object from which it inherits methods and properties.</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p><code>this</code> keyword ka scope is baat par depend karta hai ki function kis object ke dwara call kiya gaya hai. Arrow functions ka apna <code>this</code> nahi hota (wo lexical <code>this</code> inherit karte hain). Explicitly <code>this</code> set karne ke liye <code>.call()</code>, <code>.apply()</code>, aur <code>.bind()</code> ka use hota hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p><code>this</code> mhanje current execution context. Function kasha padhatine call kela ahe yavrun <code>this</code> chi value tharte. Arrow functions kade swatahcha <code>this</code> nasto.</p>
 
-<h2>📝 Rules of <code>this</code> Binding</h2>
+<h2>📝 Rules of <code>this</code> Binding
+</h2>
 
 <p>1. <strong>Method Call:</strong> <code>this</code> refers to the object before the dot (<code>user.greet()</code> -> <code>this</code> = <code>user</code>).</p>
 <p>2. <strong>Standalone Function:</strong> <code>this</code> refers to <code>window</code> (browser) or <code>global</code> (Node.js) in non-strict mode, or <code>undefined</code> in strict mode.</p>
 <p>3. <strong>Arrow Functions:</strong> Do not have their own <code>this</code>. They capture <code>this</code> from the enclosing outer lexical scope.</p>
 <p>4. <strong>Explicit Binding:</strong> <code>.call()</code>, <code>.apply()</code>, and <code>.bind()</code> force <code>this</code> to point to a specific object.</p>
 
-<h2>📝 Explicit Binding Methods</h2>
+<h2>📝 Explicit Binding Methods
+</h2>
 
 <ul>
 <p>  <li><code>.call(thisArg, arg1, arg2)</code>: Calls function immediately with specified <code>this</code> and comma-separated arguments.</li></p>
@@ -126,7 +133,8 @@
 <p>  <li><code>.bind(thisArg, arg1)</code>: Returns a <strong>new function</strong> with <code>this</code> permanently bound.</li></p>
 <p></ul></p>
 
-<h2>💡 Complete Example: Explicit Binding & Prototypes</h2>
+<h2>💡 Complete Example: Explicit Binding & Prototypes
+</h2>
 
 <pre><code class="language-js">// 1. Prototype inheritance
 <p>function Person(name, role) {</p>
@@ -152,13 +160,15 @@
 <p>const describeDev = Person.prototype.describe.bind(user2, &quot;Pune&quot;);</p>
 <p>console.log(describeDev());</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Meera works as a UI Designer in Mumbai
 <p>Dev works as a Backend Developer in Bengaluru</p>
 <p>Dev works as a Backend Developer in Pune</code></pre></p>
 
-<h2>🧠 Arrow Function <code>this</code> Behavior</h2>
+<h2>🧠 Arrow Function <code>this</code> Behavior
+</h2>
 
 <pre><code class="language-js">const counter = {
 <p>  count: 0,</p>
@@ -179,27 +189,32 @@
 <p>counter.startRegular();</p>
 <p>counter.startArrow();</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a function <code>introduce(greeting)</code> that logs `<code> </code>${greeting}, my name is ${this.name}<code> </code><code>.</p>
 <p>2. Use </code>.call()<code> to invoke it on an object </code>{ name: "Siddharth" }<code>.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Saying "</code>this<code> always refers to the object where the function was written". It depends on <strong>how</strong> the function is invoked!</li></p>
 <p>  <li>Using arrow functions for object methods when you need access to the object's properties via </code>this<code>.</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Event listener callbacks, class component method binding, custom library creation, and utility inheritance.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Method call -> </code>this<code> = object. Arrow function -> </code>this<code> = lexical parent scope. </code>.bind()` -> permanently bound function.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="16-fetch-api-and-json.html">← Previous: Fetch API & JSON</a> | <a href="18-classes-and-oop.html">Next: Classes & OOP →</a></p>
 

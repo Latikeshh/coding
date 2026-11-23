@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Width and Height (<code>min-width</code>, <code>max-width</code>)</h1>
+<h1>Width and Height (<code>min-width</code>, <code>max-width</code>)
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>The <strong><code>width</code></strong> and <strong><code>height</code></strong> properties define the dimensions of block-level and inline-block HTML elements. <strong><code>min-width</code></strong>, <strong><code>max-width</code></strong>, <strong><code>min-height</code></strong>, and <strong><code>max-height</code></strong> set responsive lower and upper size constraints.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p><code>width</code> and <code>height</code> set element dimensions. Use <code>max-width: 100%</code> or <code>max-width: 1200px</code> with <code>margin: 0 auto</code> for responsive layouts that adapt gracefully to smaller mobile screens.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>width</code> (chaudaai) aur <code>height</code> (oonchaai) element ka size decide karte hain. Mobile layouts ke liye <code>max-width</code> ka use karein taaki element screen se bahar na jaaye.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p><code>width</code> ani <code>height</code> mule box chi lambi ani rundi tharte. Mobile var layout vyavasthit disnyasathi <code>max-width</code> vaprava.</p>
 
-<h2>🤔 Why Do We Need Dimension Constraints?</h2>
+<h2>🤔 Why Do We Need Dimension Constraints?
+</h2>
 
 <p>Hardcoding fixed pixel widths (like <code>width: 800px</code>) causes website boxes to overflow smaller mobile screens (375px), forcing unpleasant horizontal scrollbars. Using <code>max-width</code> allows elements to shrink on mobile while capping their growth on wide desktop monitors.</p>
 
-<h2>🧠 Simple Explanation</h2>
+<h2>🧠 Simple Explanation
+</h2>
 
 <p>Imagine an expandable suitcase:</p>
 <ul>
@@ -142,7 +151,8 @@
 <p>  <li><code>min-height: 200px</code>: Reserves at least 200 pixels height, but allows growing taller if extra content is added inside.</li></p>
 <p></ul></p>
 
-<h2>📝 Dimension Properties Reference</h2>
+<h2>📝 Dimension Properties Reference
+</h2>
 
 <table>
 <p>  <thead><tr><th>Property</th><th>Purpose & Behavior</th><th>Responsive Usage Example</th></tr></thead></p>
@@ -156,7 +166,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Examples</h2>
+<h2>💻 Examples
+</h2>
 
 <pre><code class="language-css">/* Responsive container pattern */
 <p>.container {</p>
@@ -172,7 +183,8 @@
 <p>  background-color: #1a1a1a;</p>
 <p>}</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -215,28 +227,33 @@
 <p>  margin-top: 0;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A clean white card component centered horizontally. When you narrow your browser viewport down to mobile width (320px), the card contracts smoothly to <code>100%</code> viewport width instead of breaking off screen.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Change <code>max-width: 500px</code> to <code>width: 800px</code> in <code>style.css</code>.</p>
 <p>2. Shrink your browser window below 800px and observe how horizontal scrollbars appear!</p>
 <p>3. Switch back to <code>max-width: 800px; width: 100%;</code> to fix the layout.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Hardcoding fixed <code>height</code> on text containers:</strong> Setting <code>height: 100px</code> on a text card causes text overflow when font sizes change or content grows. Use <code>min-height</code> or <code>height: auto</code> instead.</li></p>
 <p>  <li><strong>Using fixed pixel widths for main page containers:</strong> Writing <code>width: 1200px</code> breaks mobile responsiveness.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Every modern responsive framework (Bootstrap, Tailwind, Grid systems) uses <code>max-width</code> paired with <code>width: 100%</code> and <code>margin: 0 auto</code> to build centered page wrappers that adapt seamlessly to mobile devices.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="11-css-units.html">CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>)</a></li></p>
@@ -244,7 +261,8 @@
 <p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Prefer <code>max-width</code> over fixed <code>width</code> for responsive layouts.</li></p>
@@ -252,7 +270,8 @@
 <p>  <li>Pair <code>width: 100%; max-width: 1200px; margin: 0 auto;</code> to create centered responsive layout wrappers.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="09-specificity.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="11-css-units.html">Next →</a></p>
 

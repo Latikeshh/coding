@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Backgrounds & Gradients</h1>
+<h1>Backgrounds & Gradients
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>CSS <strong>Background</strong> properties control the visual background layers behind HTML elements. They allow setting solid colors (<code>background-color</code>), image files (<code>background-image</code>), image scaling and repeating, attachment behavior, and smooth multi-color transitions using CSS gradients (<code>linear-gradient()</code>, <code>radial-gradient()</code>).</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Style backgrounds using <code>background-color</code>, <code>background-image</code>, <code>background-size: cover</code>, and gradients (<code>linear-gradient()</code>). Use <code>background-size: cover</code> to fill hero containers without stretching distorting images.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p><code>background-color</code> se color, <code>background-image</code> se photo aur <code>linear-gradient()</code> se do ya jyada colors ka gradient set kiya jaata hai. Image ko sahi fit karne ke liye <code>background-size: cover</code> use karein.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Background sathi colors, images ani <code>linear-gradient()</code> vapartat. Image neet basvnyasathi <code>background-size: cover</code> vapartat.</p>
 
-<h2>🤔 Why Do We Use Backgrounds?</h2>
+<h2>🤔 Why Do We Use Backgrounds?
+</h2>
 
 <p>Backgrounds create visual depth, establish brand aesthetics, highlight card containers, and build engaging hero banner sections for landing pages.</p>
 
-<h2>📚 Background Properties Reference Table</h2>
+<h2>📚 Background Properties Reference Table
+</h2>
 
 <table>
 <p>  <thead><tr><th>Property</th><th>Purpose & Values</th><th>Example</th></tr></thead></p>
@@ -148,7 +157,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>🎨 CSS Gradients</h2>
+<h2>🎨 CSS Gradients
+</h2>
 
 <p>Gradients allow blending two or more colors smoothly without loading image files:</p>
 <ul>
@@ -168,7 +178,8 @@
 <p>  background-position: center;</p>
 <p>}</code></pre></p>
 
-<h2>💻 HTML + CSS Example</h2>
+<h2>💻 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -217,33 +228,39 @@
 <p>  color: #d1d5db;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See</h2>
+<h2>👀 What You Will See
+</h2>
 
 <p>A dark, gradient hero section filling <code>60vh</code> height with centered text.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>Change <code>linear-gradient(135deg, #0f2027, #203a43, #2c5364)</code> to <code>linear-gradient(to right, #ff416c, #ff4b2b)</code> and observe the vibrant orange-pink gradient.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting fallback <code>background-color</code>:</strong> If a <code>background-image</code> fails to load or loads slowly, dark text over an unstyled transparent background becomes unreadable. Always specify a fallback <code>background-color</code>.</li></p>
 <p>  <li><strong>Forgetting <code>no-repeat</code>:</strong> Large background images default to repeating like small floor tiles across the screen if <code>background-repeat: no-repeat</code> is omitted.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Landing pages combine dark gradient overlays over hero background images (<code>background-size: cover</code>) to ensure white headline text remains high-contrast and readable over any image background.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="13-borders.html">Borders, Border Radius & Box Shadows</a></li></p>
 <p>  <li><a href="31-variables.html">CSS Variables (Custom Properties)</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Use <code>background-size: cover</code> and <code>background-position: center</code> for full-width banner images.</li></p>
@@ -251,7 +268,8 @@
 <p>  <li>Always provide a solid fallback <code>background-color</code> when using background images.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="11-css-units.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="13-borders.html">Next →</a></p>
 

@@ -73,7 +73,7 @@
   <li class="nav-item"><a href="17-display.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Display Property (`block`, `inline`, `inline-block`, `none`)</span></a></li>
   <li class="nav-item"><a href="18-positioning.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Positioning, `z-index` & Stacking Context</span></a></li>
   <li class="nav-item"><a href="19-float-and-clear.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Float and Clear Layouts</span></a></li>
-  <li class="nav-item"><a href="20-flexbox.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
+  <li class="nav-item"><a href="20-flexbox/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Flexbox Layout (Main & Cross Axes)</span></a></li>
   <li class="nav-item"><a href="21-grid.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">CSS Grid Layout (2D Grids)</span></a></li>
   <li class="nav-item"><a href="22-responsive-design.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Responsive Web Design Principles</span></a></li>
   <li class="nav-item"><a href="23-media-queries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Media Queries & Container Queries</span></a></li>
@@ -110,30 +110,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Browser Developer Tools for CSS</h1>
+<h1>Browser Developer Tools for CSS
+</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote><p>🟢 Beginner
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>Browser Developer Tools (DevTools)</strong> are a suite of web authoring and debugging tools built directly into modern web browsers (Chrome, Firefox, Edge, Safari) that allow inspecting DOM elements, editing CSS properties live in real-time, testing responsive device viewports, and auditing layout performance.</p>
 
-<h2>🌐 Multilingual Explanation</h2>
+<h2>🌐 Multilingual Explanation
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Inspect DOM elements, edit CSS live in real-time, audit computed Box Model dimensions, and test mobile responsive breakpoints using browser DevTools (<code>F12</code>).</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Browser DevTools (<code>F12</code>) se aap web page ke kisi bhi element ko inspect kar sakte hain, live CSS style badalkar test kar sakte hain aur Box Model check kar sakte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Browser DevTools (<code>F12</code>) vaprun live badal karun pahata yetat ani Box Model tapasda yete.</p>
 
-<h2>🤔 Why Are DevTools Essential for Developers?</h2>
+<h2>🤔 Why Are DevTools Essential for Developers?
+</h2>
 
 <p>Without DevTools, testing a 2px padding tweak requires editing <code>style.css</code>, saving the file, switching to the browser, and refreshing the page. With DevTools, you click the element, tweak values live in the browser, observe instant visual results, and only copy the final verified CSS back into your code editor.</p>
 
-<h2>🛠️ Opening DevTools & Key Shortcuts</h2>
+<h2>🛠️ Opening DevTools & Key Shortcuts
+</h2>
 
 <ul>
 <p>  <li><strong>Shortcut Key:</strong> Press <code>F12</code> OR <code>Ctrl + Shift + I</code> (<code>Cmd + Option + I</code> on Mac).</li></p>
@@ -142,7 +151,8 @@
 <p>  <li><strong>Toggle Device Responsive Toolbar:</strong> Press <code>Ctrl + Shift + M</code> (<code>Cmd + Shift + M</code> on Mac).</li></p>
 <p></ul></p>
 
-<h2>📚 Key DevTools Panels for CSS Debugging</h2>
+<h2>📚 Key DevTools Panels for CSS Debugging
+</h2>
 
 <table>
 <p>  <thead><tr><th>Panel / Tool</th><th>Purpose & Capability</th></tr></thead></p>
@@ -156,7 +166,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>💻 Live Inspection Workflow</h2>
+<h2>💻 Live Inspection Workflow
+</h2>
 
 <pre><code class="language-text">1. Open page in Browser (Chrome / Edge / Firefox)
 <p>2. Press F12 -&gt; Select Elements Panel</p>
@@ -165,7 +176,8 @@
 <p>5. Observe real-time visual changes</p>
 <p>6. Copy verified CSS declarations to your local style.css file</code></pre></p>
 
-<h2>🌐 HTML + CSS Example</h2>
+<h2>🌐 HTML + CSS Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -208,30 +220,35 @@
 <p>  margin-top: 0;</p>
 <p>}</code></pre></p>
 
-<h2>👀 What You Will See in DevTools</h2>
+<h2>👀 What You Will See in DevTools
+</h2>
 
 <p>1. In the <strong>Elements</strong> panel, <code>.test-card</code> is highlighted.</p>
 <p>2. In the <strong>Styles</strong> sub-panel, you see the active CSS rules (<code>background-color</code>, <code>border</code>, <code>padding</code>).</p>
 <p>3. At the bottom of Styles, the interactive <strong>Box Model Diagram</strong> shows <code>352px × 114px</code> content, <code>24px</code> padding, <code>2px</code> border, and <code>0px</code> margin.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Press <code>F12</code> on this page and inspect <code>.test-card</code>.</p>
 <p>2. Double-click <code>padding: 24px</code> in the Styles panel and change it to <code>48px</code>. Observe how the card inflates live in real-time!</p>
 <p>3. Click the color swatch next to <code>#3b82f6</code> to open the interactive color picker.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting that DevTools edits are temporary:</strong> Edits made inside DevTools live in browser memory and disappear when you refresh the page. Always copy your final CSS declarations back into your <code>style.css</code> file!</li></p>
 <p>  <li><strong>Not checking crossed-out CSS declarations:</strong> Crossed-out CSS lines in the Styles panel indicate rules that were overridden by higher specificity selectors or invalid syntax.</li></p>
 <p></ul></p>
 
-<h2>💡 Real-World Usage</h2>
+<h2>💡 Real-World Usage
+</h2>
 
 <p>Professional web developers use DevTools daily to inspect layout bugs, test mobile responsive breakpoints, debug Flexbox/Grid layouts using interactive grid overlays, and verify WCAG color contrast ratings.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="09-specificity.html">Specificty, Cascade & Inheritance</a></li></p>
@@ -239,7 +256,8 @@
 <p>  <li><a href="22-responsive-design.html">Responsive Web Design Principles</a></li></p>
 <p></ul></p>
 
-<h2>✅ Remember</h2>
+<h2>✅ Remember
+</h2>
 
 <ul>
 <p>  <li>Shortcut: Press <code>F12</code> or <code>Ctrl + Shift + I</code>.</li></p>
@@ -247,7 +265,8 @@
 <p>  <li>DevTools edits are temporary in-memory tests—copy final code back to your <code>.css</code> file.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="33-important.html">← Previous</a> | <a href="./">CSS Home</a> | <a href="35-forms-and-inputs.html">Next →</a></p>
 

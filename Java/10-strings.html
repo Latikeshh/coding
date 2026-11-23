@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,23 +91,29 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Strings in Java</h1>
+<h1>Strings in Java
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>A <strong><code>String</code></strong> in Java is an immutable reference object that represents a sequence of UTF-16 code units (characters). Because String objects are <strong>immutable</strong>, any operation that appears to modify a String actually creates a brand-new String object in memory.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Java mein <code>String</code> <strong>Immutable</strong> (non-changeable) hota hai. String operations (jaise <code>.toUpperCase()</code> ya <code>.replace()</code>) purani string ko change karne ke bajaye nayi String return karte hain. Strings compare karne ke liye <code>==</code> ke bajaye hamesha <code>.equals()</code> ka use karein.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Java madhye <code>String</code> <strong>Immutable</strong> aste. String operations navin String object tayar kartat. Values compare karnyasathi <code>==</code> na vaparta <code>.equals()</code> vapara.</p>
 
-<h2>🧠 String Constant Pool (SCP) Mechanics</h2>
+<h2>🧠 String Constant Pool (SCP) Mechanics
+</h2>
 
 <p>To optimize memory usage, Java maintains a special area inside heap memory called the <strong>String Constant Pool (SCP)</strong>.</p>
 
@@ -137,7 +143,8 @@
 <p></table></p>
 <p>+--------------------------------------------+</code></pre></p>
 
-<h2>📝 Essential <code>String</code> Methods</h2>
+<h2>📝 Essential <code>String</code> Methods
+</h2>
 
 <table>
 <p>  <thead><tr><th>Method</th><th>What It Does</th></tr></thead></p>
@@ -156,7 +163,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>📝 <code>String</code> vs <code>StringBuilder</code> vs <code>StringBuffer</code></h2>
+<h2>📝 <code>String</code> vs <code>StringBuilder</code> vs <code>StringBuffer</code>
+</h2>
 
 <table>
 <p>  <thead><tr><th>Feature</th><th><code>String</code></th><th><code>StringBuilder</code></th><th><code>StringBuffer</code></th></tr></thead></p>
@@ -173,7 +181,8 @@
 <p>sb.append(&quot;World!&quot;);</p>
 <p>String result = sb.toString(); // &quot;Hello World!&quot;</code></pre></p>
 
-<h2>📝 Modern Java 15+ Text Blocks (<code>"""..."""</code>)</h2>
+<h2>📝 Modern Java 15+ Text Blocks (<code>"""..."""</code>)
+</h2>
 
 <p>Multi-line strings without ugly string concatenation or <code>\n</code> escape characters:</p>
 
@@ -185,7 +194,8 @@
 <p>    }</p>
 <p>    &quot;&quot;&quot;;</code></pre></p>
 
-<h2>💡 Complete Example: Text Processing & Sanitization</h2>
+<h2>💡 Complete Example: Text Processing & Sanitization
+</h2>
 
 <pre><code class="language-java">public class TextProcessor {
 <p>    public static void main(String[] args) {</p>
@@ -215,7 +225,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">User Details:
 <ul>
@@ -225,7 +236,8 @@
 
 <p>Status Code: 200 | Message: SUCCESS</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Using <code>==</code> instead of <code>.equals()</code> to compare String text content.</li></p>
@@ -233,31 +245,37 @@
 <p>  <li>Using String concatenation (<code>+</code>) inside large loops instead of <code>StringBuilder</code>.</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Use <code>.strip()</code> instead of <code>.trim()</code> in modern Java (Java 11+) because <code>.strip()</code> is Unicode-aware and correctly removes Unicode whitespace characters.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Parsing CSV files, formatting REST API JSON payloads, sanitizing user form inputs, logging application events, and constructing database queries.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create string <code>"  hello java programmer  "</code>. Clean its whitespace, convert it to uppercase, and check if it contains <code>"JAVA"</code>.</p>
 <p>2. Extract substring <code>"java"</code> from <code>"hello java programmer"</code>.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Write a program that takes a sentence string and counts the total number of vowels (<code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>) present using a loop and <code>.charAt()</code>.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="09-arrays.html">Arrays</a></li></p>
 <p>  <li><a href="11-collections.html">Collections</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="09-arrays.html">← Previous: Arrays</a> | <a href="11-collections.html">Next: Collections →</a></p>
 

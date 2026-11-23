@@ -58,7 +58,7 @@
   <li class="nav-item"><a href="02-introduction-to-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to SQL & Relational Databases</span></a></li>
   <li class="nav-item"><a href="03-databases-and-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database & Table Basics (`CREATE`, `ALTER`, `DROP`)</span></a></li>
   <li class="nav-item"><a href="04-data-types-and-null.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Data Types & NULL Values</span></a></li>
-  <li class="nav-item"><a href="05-keys.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
+  <li class="nav-item"><a href="05-keys/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Keys & Database Integrity</span></a></li>
   <li class="nav-item"><a href="06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
@@ -67,7 +67,7 @@
   <li class="nav-item"><a href="11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
-  <li class="nav-item"><a href="14-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
+  <li class="nav-item"><a href="14-joins/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a></li>
   <li class="nav-item"><a href="15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
   <li class="nav-item"><a href="17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
@@ -97,11 +97,14 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>🔐 SQL Security, Roles & Permissions</h1>
+<h1>🔐 SQL Security, Roles & Permissions
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p><strong>SQL Security</strong> encompasses the policies, access controls, and defense mechanisms used to protect database servers, schemas, and data rows against unauthorized access, accidental modification, and malicious web attacks (such as SQL Injection).</p>
 
@@ -110,23 +113,27 @@
 <p>2. <strong>Authorization (Access Control):</strong> Determining what specific operations (<code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>EXECUTE</code>) an authenticated identity is permitted to perform on specific database objects.</p>
 <p>3. <strong>Defense in Depth:</strong> Protecting application queries using <strong>Parameterized Prepared Statements</strong> and securing database credentials using environment variables.</p>
 
-<blockquote><p>💡 <strong>The Principle of Least Privilege (PoLP):</strong> Every user account, application service, and database role should be granted <strong>only the absolute minimum privileges</strong> required to perform its intended business function, and nothing more.</p></blockquote>
+<blockquote><p>💡 <strong>The Principle of Least Privilege (PoLP):</strong> Every user account, application service, and database role should be granted <strong>only the absolute minimum privileges</strong> required to perform its intended business function, and nothing more.
+</p></blockquote>
 
 <p>---</p>
 
-<h2>🇮🇳 Hindi (Roman Script)</h2>
+<h2>🇮🇳 Hindi (Roman Script)
+</h2>
 
 <p>Database security ka sabse bada niyam hai <strong>Principle of Least Privilege</strong>: Kisi bhi user ya application ko sirf utni hi permissions (<code>SELECT</code>, <code>INSERT</code>) dein jitni uske kaam ke liye zaroori hai. Web applications mein kabhi bhi database connection ke liye <strong><code>root</code></strong> (admin) account ka use na karein. MySQL 8.0+ mein aap <strong>Roles</strong> banakar permissions group kar sakte hain (<code>CREATE ROLE</code>, <code>GRANT</code>). Application code mein SQL Injection se bachne ke liye hamesha <strong>Parameterized Prepared Statements</strong> (PDO / Prepared Queries) ka use karein.</p>
 
 <p>---</p>
 
-<h2>🚩 Marathi (Roman Script)</h2>
+<h2>🚩 Marathi (Roman Script)
+</h2>
 
 <p>Database security cha mukhya niyam mhanje <strong>Principle of Least Privilege</strong>: Pratyek user kiva application la phakta avashyak aslelya permissions (<code>SELECT</code>, <code>INSERT</code>) dhyat. Web applications madhye kadhihi <strong><code>root</code></strong> (admin) account cha wapar karu naka. MySQL 8.0+ madhye <strong>Roles</strong> tayar karun permissions manage karta yetat (<code>CREATE ROLE</code>, <code>GRANT</code>). SQL Injection pasun bachvanyasathi application code madhye hamesha <strong>Parameterized Prepared Statements</strong> (PDO) cha wapar kara.</p>
 
 <p>---</p>
 
-<h2>🤔 Why Do We Use It?</h2>
+<h2>🤔 Why Do We Use It?
+</h2>
 
 <p>Databases store critical business assets—including customer personal information, financial transaction logs, and user passwords. Implementing database security prevents:</p>
 
@@ -138,7 +145,8 @@
 
 <p>---</p>
 
-<h2>🧠 Simple Analogy: Hotel Room Keycards</h2>
+<h2>🧠 Simple Analogy: Hotel Room Keycards
+</h2>
 
 <p>Think of database permissions as a <strong>Hotel Keycard System</strong>:</p>
 
@@ -154,7 +162,8 @@
 
 <p>---</p>
 
-<h2>📊 Privilege Scopes Matrix in MySQL</h2>
+<h2>📊 Privilege Scopes Matrix in MySQL
+</h2>
 
 <p>MySQL allows granting privileges at five granular scope levels:</p>
 
@@ -171,11 +180,13 @@
 
 <p>---</p>
 
-<h2>🛠️ Complete MySQL 8.0+ Role & User Setup (<code>shop_db</code>)</h2>
+<h2>🛠️ Complete MySQL 8.0+ Role & User Setup (<code>shop_db</code>)
+</h2>
 
 <p>Let's execute a complete, runnable MySQL 8.0+ workflow creating a <code>shop_db</code> database, a read-only reporting role, a user account, and inspecting assigned privileges.</p>
 
-<blockquote><p>⚠️ <strong>Administrative Requirement:</strong> Creating users and roles requires administrative privileges (<code>CREATE USER</code>, <code>ROLE_ADMIN</code>, <code>GRANT OPTION</code>). In local development (WampServer / phpMyAdmin), run these setup commands logged in as <code>root</code>. Never attempt to directly edit MySQL system privilege tables (<code>mysql.user</code>)!</p></blockquote>
+<blockquote><p>⚠️ <strong>Administrative Requirement:</strong> Creating users and roles requires administrative privileges (<code>CREATE USER</code>, <code>ROLE_ADMIN</code>, <code>GRANT OPTION</code>). In local development (WampServer / phpMyAdmin), run these setup commands logged in as <code>root</code>. Never attempt to directly edit MySQL system privilege tables (<code>mysql.user</code>)!
+</p></blockquote>
 
 <pre><code class="language-sql">-- Step 1: Create a dedicated database and sample table
 <p>CREATE DATABASE IF NOT EXISTS shop_db;</p>
@@ -215,7 +226,8 @@
 <p>-- REVOKE SELECT ON shop_db.products FROM &#39;shop_report_reader&#39;;</p>
 <p>-- REVOKE &#39;shop_report_reader&#39; FROM &#39;reporting_user&#39;@&#39;localhost&#39;;</code></pre></p>
 
-<h4>👀 Expected <code>SHOW GRANTS</code> Output:</h4>
+<h4>👀 Expected <code>SHOW GRANTS</code> Output:
+</h4>
 
 <pre><code class="language-text">+-------------------------------------------------------------------------------+
 <table>
@@ -235,11 +247,13 @@
 
 <p>---</p>
 
-<h2>🛡️ Defending Against SQL Injection (SQLi)</h2>
+<h2>🛡️ Defending Against SQL Injection (SQLi)
+</h2>
 
 <p><strong>SQL Injection (SQLi)</strong> occurs when untrusted user input is directly concatenated into SQL query strings, allowing an attacker to manipulate query execution logic.</p>
 
-<h3>❌ The Vulnerable Pattern (String Concatenation)</h3>
+<h3>❌ The Vulnerable Pattern (String Concatenation)
+</h3>
 
 <p>``<code>php</p>
 <p>// ❌ UNSAFE VULNERABLE PHP CODE (DO NOT USE!):</p>
@@ -250,7 +264,8 @@
 <pre><code class="language-text">
 <p>---</p>
 
-<h3>✅ The Safe Pattern (PHP PDO Parameterized Prepared Statements)</h3>
+<h3>✅ The Safe Pattern (PHP PDO Parameterized Prepared Statements)
+</h3>
 
 <p>Parameterized queries send the SQL template and the input data values to the database engine in <strong>two separate steps</strong>.</p>
 <p></code></pre>php</p>
@@ -266,7 +281,8 @@
 <p>// 3. Fetch results safely</p>
 <p>$users = $stmt->fetchAll(PDO::FETCH_ASSOC);</p>
 <pre><code class="language-text">
-<h3>💡 Why Parameterized Queries Neutralize SQL Injection:</h3>
+<h3>💡 Why Parameterized Queries Neutralize SQL Injection:
+</h3>
 <p>When using prepared statements, the database engine compiles the SQL execution tree <strong>before</strong> binding parameters. Even if an attacker enters </code>&#39; OR &#39;1&#39;=&#39;1<code>, the database treats the entire input string literally as the email address </code>&quot;&#39; OR &#39;1&#39;=&#39;1&quot;<code>, completely preventing SQL syntax manipulation!</p>
 
 <p>&gt; 📌 <strong>Handling Dynamic Identifiers (Table / Column Names):</strong> Prepared statements can parameterize <strong>data values</strong>, but <strong>cannot</strong> parameterize SQL identifiers like table or column names (e.g. </code>ORDER BY :sort_col<code>). If dynamic column sorting is needed, validate inputs against an explicit server-side <strong>allowlist</strong>:</p>
@@ -277,7 +293,8 @@
 
 <p>---</p>
 
-<h2>🔐 Credentials &amp; Secrets Management</h2>
+<h2>🔐 Credentials &amp; Secrets Management
+</h2>
 
 <p>Securing database connections requires protecting connection secrets:</p>
 
@@ -289,7 +306,8 @@
 
 <p>---</p>
 
-<h2>🔒 Stored Routines &amp; Security Context (</code>DEFINER<code> vs </code>INVOKER<code>)</h2>
+<h2>🔒 Stored Routines &amp; Security Context (</code>DEFINER<code> vs </code>INVOKER<code>)
+</h2>
 
 <p>When creating MySQL stored procedures and functions (Topic 26), specify the security execution context:</p>
 
@@ -307,7 +325,8 @@
 <pre><code class="language-text">
 <p>---</p>
 
-<h2>📊 Least-Privilege Account Design Matrix</h2>
+<h2>📊 Least-Privilege Account Design Matrix
+</h2>
 
 <table>
 <p>  <thead><tr><th>Account Name</th><th>Primary Purpose</th><th>Minimum Required Privileges</th></tr></thead></p>
@@ -321,7 +340,8 @@
 
 <p>---</p>
 
-<h2>🛠️ Common Mistakes &amp; Troubleshooting</h2>
+<h2>🛠️ Common Mistakes &amp; Troubleshooting
+</h2>
 
 <table>
 <p>  <thead><tr><th>Error / Pitfall</th><th>Cause</th><th>Recommended Fix</th></tr></thead></p>
@@ -336,7 +356,8 @@
 
 <p>---</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <ul>
 <p>  <li><strong>E-Commerce Applications:</strong> Microservices use distinct accounts: </code>catalog_service<code> has read-only access to products, while </code>order_service<code> has write access to orders.</li></p>
@@ -345,24 +366,31 @@
 
 <p>---</p>
 
-<h2>🧪 Structured Practice Exercises</h2>
+<h2>🧪 Structured Practice Exercises
+</h2>
 
-<h3>Exercise 1: Role Creation</h3>
+<h3>Exercise 1: Role Creation
+</h3>
 <p>Write the SQL statements to create a role named </code>&#39;analytics_reader&#39;<code> in MySQL 8.0+.</p>
 
-<h3>Exercise 2: Table-Level Grant</h3>
+<h3>Exercise 2: Table-Level Grant
+</h3>
 <p>Grant </code>SELECT<code> privileges on the </code>orders<code> table inside </code>shop_db<code> to the </code>&#39;analytics_reader&#39;<code> role.</p>
 
-<h3>Exercise 3: User Creation &amp; Role Assignment</h3>
+<h3>Exercise 3: User Creation &amp; Role Assignment
+</h3>
 <p>Create a user </code>&#39;data_analyst&#39;@&#39;localhost&#39;<code> identified by password </code>&#39;Analyst_Secret_2026!&#39;<code> and assign the </code>&#39;analytics_reader&#39;<code> role to this user.</p>
 
-<h3>Exercise 4: Inspecting User Grants</h3>
+<h3>Exercise 4: Inspecting User Grants
+</h3>
 <p>Write the SQL command to inspect all assigned grants for </code>&#39;data_analyst&#39;@&#39;localhost&#39;<code>.</p>
 
-<h3>Exercise 5: Revoking Privileges</h3>
+<h3>Exercise 5: Revoking Privileges
+</h3>
 <p>Write the SQL statement to revoke </code>SELECT<code> access on </code>shop_db.orders<code> from the </code>&#39;analytics_reader&#39;<code> role.</p>
 
-<h3>Exercise 6: Fixing SQL Injection</h3>
+<h3>Exercise 6: Fixing SQL Injection
+</h3>
 <p>Rewrite the following vulnerable PHP code using a safe PDO prepared statement:</p>
 <p></code></pre>php</p>
 <p>// Unsafe code to rewrite:</p>
@@ -371,7 +399,8 @@
 <pre><code class="language-text">
 <p>---</p>
 
-<h2>🎯 Mini Challenge: E-Commerce Least-Privilege &amp; Parameterized Security Design</h2>
+<h2>🎯 Mini Challenge: E-Commerce Least-Privilege &amp; Parameterized Security Design
+</h2>
 
 <p>Consider an e-commerce application with two features:</p>
 <p>1. Browsing the product catalog (</code>SELECT<code> on </code>products<code>).</p>
@@ -385,34 +414,42 @@
 <p>&lt;details&gt;</p>
 <p>&lt;summary&gt;🔍 Click to view Exercise Solutions &amp; Answer Key&lt;/summary&gt;</p>
 
-<h3>Answer Key:</h3>
+<h3>Answer Key:
+</h3>
 
-<h4>Exercise 1 Solution:</code></pre>sql</h4>
+<h4>Exercise 1 Solution:</code></pre>sql
+</h4>
 <p>CREATE ROLE 'analytics_reader';</p>
 <pre><code class="language-text">
-<h4>Exercise 2 Solution:</code></pre>sql</h4>
+<h4>Exercise 2 Solution:</code></pre>sql
+</h4>
 <p>GRANT SELECT ON shop_db.orders TO 'analytics_reader';</p>
 <pre><code class="language-text">
-<h4>Exercise 3 Solution:</code></pre>sql</h4>
+<h4>Exercise 3 Solution:</code></pre>sql
+</h4>
 <p>CREATE USER 'data_analyst'@'localhost' </p>
 <p>IDENTIFIED BY 'Analyst_Secret_2026!';</p>
 
 <p>GRANT 'analytics_reader' TO 'data_analyst'@'localhost';</p>
 <p>SET DEFAULT ROLE ALL TO 'data_analyst'@'localhost';</p>
 <pre><code class="language-text">
-<h4>Exercise 4 Solution:</code></pre>sql</h4>
+<h4>Exercise 4 Solution:</code></pre>sql
+</h4>
 <p>SHOW GRANTS FOR 'data_analyst'@'localhost' USING 'analytics_reader';</p>
 <pre><code class="language-text">
-<h4>Exercise 5 Solution:</code></pre>sql</h4>
+<h4>Exercise 5 Solution:</code></pre>sql
+</h4>
 <p>REVOKE SELECT ON shop_db.orders FROM 'analytics_reader';</p>
 <pre><code class="language-text">
-<h4>Exercise 6 Solution:</code></pre>php</h4>
+<h4>Exercise 6 Solution:</code></pre>php
+</h4>
 <p>$user_id = $_GET['id'];</p>
 <p>$stmt = $pdo->prepare('SELECT id, email, first_name FROM users WHERE id = :id');</p>
 <p>$stmt->execute(['id' => $user_id]);</p>
 <p>$user = $stmt->fetch(PDO::FETCH_ASSOC);</p>
 <pre><code class="language-text">
-<h4>Mini Challenge Solution:</h4>
+<h4>Mini Challenge Solution:
+</h4>
 <p></code></pre>sql</p>
 <p>-- Task 1: Minimum Required Grants for shop_app</p>
 <p>CREATE USER 'shop_app'@'localhost' IDENTIFIED BY 'App_Secret_Pass_2026!';</p>
@@ -439,7 +476,8 @@
 
 <p>---</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="22-transactions.html">Transactions & ACID Properties</a></li></p>
@@ -450,7 +488,8 @@
 
 <p>---</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="27-triggers.html">← Previous: Triggers</a> | <a href="./">SQL Home</a> | <a href="30-sql-projects.html">Next: SQL Projects →</a></p>
 

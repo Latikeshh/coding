@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript & Engine Architecture</span></a></li>
   <li class="nav-item"><a href="03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
   <li class="nav-item"><a href="04-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Data Types & String Methods in JavaScript</span></a></li>
-  <li class="nav-item"><a href="05-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
-  <li class="nav-item"><a href="08-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in JavaScript</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in JavaScript (`if`, `switch`, Ternary)</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in JavaScript (`for`, `while`, `for...of`, `for...in`)</span></a></li>
+  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in JavaScript</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays & Essential Methods in JavaScript</span></a></li>
   <li class="nav-item"><a href="10-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Objects, `Map`, `Set`, `Date` & RegExp</span></a></li>
   <li class="nav-item"><a href="11-scope-and-hoisting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Scope, Hoisting & Temporal Dead Zone (TDZ)</span></a></li>
@@ -92,28 +92,36 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Modern ES6+ Features</h1>
+<h1>Modern ES6+ Features
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>ES6 (ECMAScript 2015) and subsequent modern JavaScript standards introduced features that improve developer productivity, code conciseness, and safety: <strong>Template Literals</strong>, <strong>Destructuring</strong>, <strong>Spread & Rest Operators</strong>, <strong>Default Parameters</strong>, <strong>Optional Chaining (<code>?.</code>)</strong>, and <strong>Nullish Coalescing (<code>??</code>)</strong>.</p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Modern ES6+ features se JavaScript code bahut clean, short, aur safe ban jaata hai. Array aur Object Destructuring, Spread/Rest operators (<code>...</code>), Template Literals, aur Optional Chaining modern frontend development (React, Vue, Node.js) mein compulsory use hote hain.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Modern ES6+ features mule JavaScript code swachha (clean) aani samjayla sopa hoto. Destructuring, Spread/Rest operators (<code>...</code>), aani Optional Chaining sarakhe features modern development madhye khup mahatvache ahet.</p>
 
-<h2>📝 Modern Features Breakdown</h2>
+<h2>📝 Modern Features Breakdown
+</h2>
 
-<h3>1. Template Literals (`<code> </code>${variable}<code> </code><code>)</h3>
+<h3>1. Template Literals (`<code> </code>${variable}<code> </code><code>)
+</h3>
 <p>Allows multi-line strings and expression interpolation directly without messy string concatenation.</p>
 
-<h3>2. Destructuring (Objects & Arrays)</h3>
+<h3>2. Destructuring (Objects & Arrays)
+</h3>
 <p>Extracts properties from objects or values from arrays directly into distinct variables.</p>
 
 <pre><code class="language-js">// Object Destructuring
@@ -124,7 +132,8 @@
 <p>const rgb = [255, 128, 0];</p>
 <p>const [red, green] = rgb;</code></pre></p>
 
-<h3>3. Spread Operator (</code>...<code>)</h3>
+<h3>3. Spread Operator (</code>...<code>)
+</h3>
 <p>Expands arrays or objects into individual elements.</p>
 
 <pre><code class="language-js">const fruits = [&quot;Apple&quot;, &quot;Banana&quot;];
@@ -133,7 +142,8 @@
 <p>const baseConfig = { theme: &quot;dark&quot; };</p>
 <p>const userConfig = { ...baseConfig, fontSize: 16 };</code></pre></p>
 
-<h3>4. Rest Parameters (</code>...<code>)</h3>
+<h3>4. Rest Parameters (</code>...<code>)
+</h3>
 <p>Bundles remaining arguments into an array.</p>
 
 <pre><code class="language-js">function calculateScore(player, ...scores) {
@@ -141,13 +151,15 @@
 <p>  return </code>${player}&#39;s Total Score: ${total}<code>;</p>
 <p>}</code></pre></p>
 
-<h3>5. Optional Chaining (</code>?.<code>) & Nullish Coalescing (</code>??<code>)</h3>
+<h3>5. Optional Chaining (</code>?.<code>) & Nullish Coalescing (</code>??<code>)
+</h3>
 <p>Safely navigates nested objects without throwing runtime errors.</p>
 
 <pre><code class="language-js">const userProfile = { details: { email: &quot;sneha@example.com&quot; } };
 <p>console.log(userProfile?.address?.city ?? &quot;City Not Specified&quot;); // &quot;City Not Specified&quot;</code></pre></p>
 
-<h2>💡 Complete Example</h2>
+<h2>💡 Complete Example
+</h2>
 
 <pre><code class="language-js">const employee = {
 <p>  id: 501,</p>
@@ -172,33 +184,39 @@
 <p>console.log(&quot;Updated Roles:&quot;, updatedEmployee.roles);</p>
 <p>console.log(&quot;Optional ZipCode Check:&quot;, employee.address?.zipCode ?? &quot;No Zipcode Found&quot;);</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">Employee: Amit, Primary Role: Developer
 <p>Updated Roles: [ &#39;Developer&#39;, &#39;Mentor&#39;, &#39;Team Lead&#39; ]</p>
 <p>Optional ZipCode Check: No Zipcode Found</code></pre></p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Given </code>const person = { name: "Ravi", age: 28, city: "Pune" }<code>, extract </code>name<code> and </code>city<code> using object destructuring.</p>
 <p>2. Merge two arrays </code>[1, 2]<code> and </code>[3, 4]<code> using the Spread operator.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Trying to destructure </code>undefined<code> or </code>null<code> objects (</code>const { a } = null<code> throws </code>TypeError<code>).</li></p>
 <p>  <li>Confusing Spread (expands array into items) with Rest (collects multiple items into array).</li></p>
 <p></ul></p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>Handling API responses in React props, state updates in Redux, default parameter configuration in libraries, and clean payload construction.</p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <p>Use destructuring for cleaner parameter handling, spread for immutable state copies, and optional chaining to prevent </code>Cannot read properties of undefined` errors.</p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← JS Home</a> | <a href="11-scope-and-hoisting.html">← Previous: Scope & Hoisting</a> | <a href="13-advanced-array-methods.html">Next: Advanced Array Methods →</a></p>
 

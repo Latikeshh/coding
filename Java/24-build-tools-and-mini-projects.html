@@ -58,10 +58,10 @@
   <li class="nav-item"><a href="02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
   <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
   <li class="nav-item"><a href="04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="05-operators-and-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="06-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="07-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
-  <li class="nav-item"><a href="08-methods.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
+  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
+  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
+  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a></li>
+  <li class="nav-item"><a href="08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
   <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
   <li class="nav-item"><a href="10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
   <li class="nav-item"><a href="11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
@@ -91,26 +91,32 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Build Tools and Capstone Mini Projects in Java</h1>
+<h1>Build Tools and Capstone Mini Projects in Java
+</h1>
 
-<blockquote><p>🔴 Advanced</p></blockquote>
+<blockquote><p>🔴 Advanced
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <ul>
 <p>  <li><strong>Build Tools (Maven & Gradle):</strong> Automated project management tools that resolve external library dependencies, execute automated unit tests, compile Java source code, and package applications into executable <strong>JAR (Java Archive)</strong> files.</li></p>
 <p>  <li><strong>Capstone Mini Projects:</strong> Hands-on software applications that synthesize core Java concepts (OOP, Collections, Lambdas, Exception Handling, File I/O, Testing).</li></p>
 <p></ul></p>
 
-<h2>🇮🇳 Hindi</h2>
+<h2>🇮🇳 Hindi
+</h2>
 
 <p>Production Java development mein dependencies manage karne, test cases run karne, aur executable <code>.jar</code> files package karne ke liye <strong>Maven (<code>pom.xml</code>)</strong> ya <strong>Gradle (<code>build.gradle</code>)</strong> ka use hota hai.</p>
 
-<h2>🚩 Marathi</h2>
+<h2>🚩 Marathi
+</h2>
 
 <p>Project dependencies manage karnyasathi aani executable <code>.jar</code> file tayar karnyasathi <strong>Maven</strong> kiva <strong>Gradle</strong> build tools vaparatat.</p>
 
-<h2>📝 1. Apache Maven Architecture (<code>pom.xml</code>)</h2>
+<h2>📝 1. Apache Maven Architecture (<code>pom.xml</code>)
+</h2>
 
 <p>Maven uses a Project Object Model (<code>pom.xml</code>) configuration file to manage project dependencies:</p>
 
@@ -136,14 +142,16 @@
 <p>    &lt;/dependencies&gt;</p>
 <p>&lt;/project&gt;</code></pre></p>
 
-<h3>Standard Maven Build Lifecycle Commands:</h3>
+<h3>Standard Maven Build Lifecycle Commands:
+</h3>
 <pre><code class="language-bash">mvn clean         # Deletes target/ build directory
 <p>mvn compile       # Compiles Java source files</p>
 <p>mvn test          # Runs automated JUnit unit tests</p>
 <p>mvn package       # Packages code into target/banking-app-1.0.0.jar</p>
 <p>java -jar target/banking-app-1.0.0.jar  # Launch executable JAR</code></pre></p>
 
-<h2>🏗️ Capstone Project 1: Interactive To-Do Manager CLI with File Persistence</h2>
+<h2>🏗️ Capstone Project 1: Interactive To-Do Manager CLI with File Persistence
+</h2>
 
 <p>A complete, multi-class command-line application demonstrating Records, Enums, File I/O, Collections, and Exception Handling.</p>
 
@@ -229,7 +237,8 @@
 <p>    }</p>
 <p>}</code></pre></p>
 
-<h2>👀 Output</h2>
+<h2>👀 Output
+</h2>
 
 <pre><code class="language-text">=== TO-DO MANAGER CLI ===
 <p>Task Added : #1 - Study Java Memory Model</p>
@@ -239,38 +248,45 @@
 <p>[ ] #1 : Study Java Memory Model</p>
 <p>[ ] #2 : Practice Streams API</code></pre></p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li>Manual dependency management by copying raw <code>.jar</code> files into projects instead of using Maven/Gradle build tools.</li></p>
 <p>  <li>Committing generated build output folders (<code>target/</code> or <code>build/</code>) into Git repositories (add <code>target/</code> and <code>build/</code> to <code>.gitignore</code>!).</li></p>
 <p></ul></p>
 
-<h2>🛡️ Safety / Important Notes</h2>
+<h2>🛡️ Safety / Important Notes
+</h2>
 
 <p>Always use Maven or Gradle Wrapper scripts (<code>./mvnw</code> or <code>./gradlew</code>) committed with your project to ensure team members run builds using identical build tool versions.</p>
 
-<h2>🌍 Real-World Usage</h2>
+<h2>🌍 Real-World Usage
+</h2>
 
 <p>All professional Java applications (Spring Boot microservices, Android apps, enterprise backend platforms) are built, tested, and packaged using Maven or Gradle pipelines.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Add a method <code>markTaskCompleted(int id)</code> to the To-Do CLI project above.</p>
 <p>2. Verify that updated task statuses persist correctly when re-running the application.</p>
 
-<h2>🎯 Mini Challenge</h2>
+<h2>🎯 Mini Challenge
+</h2>
 
 <p>Build a Student Marksheet Analyzer CLI that reads student records from a CSV file, calculates percentages using Java Streams, and saves a summary report file.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
 <p>  <li><a href="20-file-input-and-output.html">File Input and Output</a></li></p>
 <p>  <li><a href="23-testing-and-debugging.html">Testing and Debugging</a></li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="./">← Java Home</a> | <a href="23-testing-and-debugging.html">← Previous: Testing and Debugging</a></p>
 

@@ -64,7 +64,7 @@
   <li class="nav-item"><a href="08-images.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Images, `<figure>`, & `<picture>`</span></a></li>
   <li class="nav-item"><a href="09-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lists (`<ul>`, `<ol>`, `<dl>`)</span></a></li>
   <li class="nav-item"><a href="10-tables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Tables (`<table>`, `<thead>`, `<tbody>`, `<caption>`)</span></a></li>
-  <li class="nav-item"><a href="11-forms.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Forms (`<form>`, `<label>`, `action`, `method`)</span></a></li>
+  <li class="nav-item"><a href="11-forms/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Forms (`<form>`, `<label>`, `action`, `method`)</span></a></li>
   <li class="nav-item"><a href="12-input-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input Types (`text`, `email`, `password`, `date`, etc.)</span></a></li>
   <li class="nav-item"><a href="13-buttons.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Buttons (`<button>`, `type="submit"`, `type="button"`)</span></a></li>
   <li class="nav-item"><a href="14-div-and-span.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Generic Containers (`<div>` and `<span>`)</span></a></li>
@@ -99,30 +99,39 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Advanced Form Controls & HTML Validation</h1>
+<h1>Advanced Form Controls & HTML Validation
+</h1>
 
-<blockquote><p>🟡 Intermediate</p></blockquote>
+<blockquote><p>🟡 Intermediate
+</p></blockquote>
 
-<h2>📖 Definition</h2>
+<h2>📖 Definition
+</h2>
 
 <p>HTML provides advanced form controls—including <strong><code><fieldset></code></strong>, <strong><code><legend></code></strong>, <strong><code><select></code></strong>, <strong><code><optgroup></code></strong>, <strong><code><textarea></code></strong>, and <strong><code><datalist></code></strong>—alongside native client-side validation attributes (<code>pattern</code>, <code>minlength</code>, <code>maxlength</code>, <code>min</code>, <code>max</code>, <code>step</code>, <code>autofocus</code>, <code>autocomplete</code>) to collect and validate complex user input without requiring initial JavaScript.</p>
 
-<h2>🌍 Multilingual Summary</h2>
+<h2>🌍 Multilingual Summary
+</h2>
 
-<h3>English</h3>
+<h3>English
+</h3>
 <p>Advanced form elements like <code><fieldset></code>, <code><legend></code>, <code><optgroup></code>, <code><textarea></code>, and <code><datalist></code> structure complex inputs, while validation attributes (<code>pattern</code>, <code>required</code>) validate user data natively.</p>
 
-<h3>Hindi</h3>
+<h3>Hindi
+</h3>
 <p>Advanced form elements (<code><fieldset></code>, <code><legend></code>, <code><optgroup></code>, <code><textarea></code>, <code><datalist></code>) complex forms ko organize karte hain, aur validation attributes (<code>pattern</code>, <code>required</code>) user data ko browser mein validate karte hain.</p>
 
-<h3>Marathi</h3>
+<h3>Marathi
+</h3>
 <p>Advanced form controls (<code><fieldset></code>, <code><legend></code>, <code><optgroup></code>, <code><textarea></code>, <code><datalist></code>) complex form structure tayar kartat, ani validation attributes (<code>pattern</code>, <code>required</code>) browser madhye mahiti validate kartat.</p>
 
-<h2>🤔 Why Do We Use Advanced Form Controls?</h2>
+<h2>🤔 Why Do We Use Advanced Form Controls?
+</h2>
 
 <p>Organizing long forms with <code><fieldset></code> and grouping dropdown options with <code><optgroup></code> improves usability and accessibility. <code><datalist></code> provides auto-complete suggestions while still allowing custom text entry.</p>
 
-<h2>🧱 Advanced Form Elements Reference</h2>
+<h2>🧱 Advanced Form Elements Reference
+</h2>
 
 <table>
 <p>  <thead><tr><th>Element</th><th>Description & Purpose</th><th>Code Example</th></tr></thead></p>
@@ -136,7 +145,8 @@
 <p>  </tbody></p>
 <p></table></p>
 
-<h2>🔑 Native Validation Attributes</h2>
+<h2>🔑 Native Validation Attributes
+</h2>
 
 <ul>
 <p>  <li><strong><code>required</code>:</strong> Mandates that the field must be filled out before submitting.</li></p>
@@ -147,7 +157,8 @@
 <p>  <li><strong><code>autocomplete="on|off|email|username"</code>:</strong> Assists browsers in auto-filling saved user information.</li></p>
 <p></ul></p>
 
-<h2>💻 Code Example</h2>
+<h2>💻 Code Example
+</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 <p>&lt;html lang=&quot;en&quot;&gt;</p>
@@ -215,37 +226,43 @@
 <p>&lt;/body&gt;</p>
 <p>&lt;/html&gt;</code></pre></p>
 
-<h2>👀 Output / What You Will See</h2>
+<h2>👀 Output / What You Will See
+</h2>
 
 <p>A structured application form grouped with <code><fieldset></code> borders, auto-suggest city choices using <code><datalist></code>, grouped country dropdown options using <code><optgroup></code>, a multi-line cover letter <code><textarea></code>, and native form validation.</p>
 
-<h2>🧪 Try It Yourself</h2>
+<h2>🧪 Try It Yourself
+</h2>
 
 <p>1. Create a form with two <code><fieldset></code> groups ("Contact Details" and "Preferences").</p>
 <p>2. Create an input field connected to a <code><datalist></code> containing 4 course suggestions.</p>
 <p>3. Create a <code><select></code> dropdown with two <code><optgroup></code> categories.</p>
 <p>4. Add <code>pattern="[0-9]{10}"</code> validation on a phone input field.</p>
 
-<h2>⚠️ Common Mistakes</h2>
+<h2>⚠️ Common Mistakes
+</h2>
 
 <ul>
 <p>  <li><strong>Forgetting matching <code>id</code> on <code><datalist></code>:</strong> The <code><input list="id"></code> must match the <code><datalist id="id"></code>.</li></p>
 <p>  <li><strong>Forgetting <code>for</code> and <code>id</code> links on <code><label></code>:</strong> Breaks accessibility for screen reader users.</li></p>
 <p></ul></p>
 
-<h2>🌐 Real-World Usage</h2>
+<h2>🌐 Real-World Usage
+</h2>
 
 <p>E-commerce checkout forms, job application portals, hotel booking platforms, and government application forms rely on advanced form controls for organized, validated data entry.</p>
 
-<h2>🔗 Related Topics</h2>
+<h2>🔗 Related Topics
+</h2>
 
 <ul>
-<p>  <li><a href="11-forms.html">Forms</a></li></p>
+<p>  <li><a href="11-forms/index.html">Forms</a></li></p>
 <p>  <li><a href="12-input-types.html">Input Types</a></li></p>
 <p>  <li><a href="23-html5-features.html">Modern HTML5 Features</a></li></p>
 <p></ul></p>
 
-<h2>💡 Remember</h2>
+<h2>💡 Remember
+</h2>
 
 <ul>
 <p>  <li>Use <code><fieldset></code> and <code><legend></code> to group long forms.</li></p>
@@ -254,7 +271,8 @@
 <p>  <li>Combine <code>pattern</code> and <code>required</code> for client-side input validation.</li></p>
 <p></ul></p>
 
-<h2>🧭 Navigation</h2>
+<h2>🧭 Navigation
+</h2>
 
 <p><a href="27-meta-tags.html">← Previous: Meta Tags</a> | <a href="./">HTML Home</a> | <a href="29-responsive-images.html">Next: Responsive Images →</a></p>
 
