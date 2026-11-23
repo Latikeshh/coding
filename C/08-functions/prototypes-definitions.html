@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Prototypes & Stack Frames - C Language</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">08 Functions</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions Overview</span></a></li>
+          <li class="nav-item"><a href="prototypes-definitions.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Prototypes & Stack Frames</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Function Prototypes & Stack Frames in C</h1>
+        <blockquote><p>🟢 Beginner Level | ISO C Function Specifications</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Function Prototype</strong> in C informs the compiler about a function's return type, name, and parameter types before its definition body appears in source code.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Allows functions to be called in `main()` regardless of their physical placement in source files, ensuring compile-time type-safety.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Prototypes (e.g. <code>int add(int, int);</code>) enable single-pass C compilers to validate parameter types before function definitions.</p>
+        <h3>Hindi</h3>
+        <p>Function prototype <code>int calculate(int a, int b);</code> compiler ko batata hai ki function lower file position par defined hai.</p>
+        <h3>Marathi</h3>
+        <p>C compiler sathi main() chya aadhi prototype declaration mahatvache asate.</p>
+        <h3>Hinglish</h3>
+        <p>Prototype declaration: <code>int power(int base, int exp);</code> top-of-file placement follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-c">// Prototype (Declaration)
+int addNumbers(int a, int b);
+
+int main(void) {
+    int res = addNumbers(5, 10);
+    return 0;
+}
+
+// Definition
+int addNumbers(int a, int b) {
+    return a + b;
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Compiler verifies call argument types against prototype declaration.</li>
+          <li>Execution allocates a stack frame pushing arguments in reverse order.</li>
+          <li>Function executes, pops stack frame, and places return value into register.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Prototype with Pass-by-Value</h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Prototype
+double celsiusToFahrenheit(double celsius);
+
+int main(void) {
+    double tempC = 25.0;
+    double tempF = celsiusToFahrenheit(tempC);
+    printf("%.1f C = %.1f F\n", tempC, tempF);
+    return 0;
+}
+
+double celsiusToFahrenheit(double celsius) {
+    return (celsius * 9.0 / 5.0) + 32.0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">25.0 C = 77.0 F</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>double celsiusToFahrenheit(double celsius);</code>: Informs compiler of return type and double parameter.</li>
+          <li><code>celsiusToFahrenheit(tempC)</code>: Passes value of <code>tempC</code> into function stack frame.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Calling a function without a prototype in C99/C11 causes an implicit declaration warning/error.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Mismatch Between Prototype and Definition:</strong> Declaring <code>int calc(double)</code> as prototype but defining <code>int calc(int)</code> produces linker errors.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Structuring multi-file modular libraries in C (`.h` headers with `.c` implementations).</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a prototype and definition for a C function finding max of two integers.</li>
+          <li><strong>Intermediate:</strong> Write a recursive C function prototype calculating factorial.</li>
+          <li><strong>Advanced:</strong> Pass a pointer to a struct as a parameter in a C function.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

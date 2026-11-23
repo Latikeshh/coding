@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pass-by-Value vs Pass-by-Reference - C++</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C++</span>
+          <span class="course-header-badge">08 Functions</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions Overview</span></a></li>
+          <li class="nav-item"><a href="pass-by-value-ref.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Pass-by-Value vs Pass-by-Reference</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Pass-by-Value vs Pass-by-Reference in C++</h1>
+        <blockquote><p>🟢 Intermediate Level | C++ Memory Efficiency</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p><strong>Pass-by-Value</strong> passes a copy of the argument to the function. <strong>Pass-by-Reference</strong> (<code>Type& arg</code>) passes an alias to the original variable, allowing in-place modifications and zero-copy performance.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Eliminates expensive object copy operations when passing heavy containers (like <code>std::vector</code> or <code>std::string</code>) to functions.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Passing by <code>const Type&</code> provides zero-copy read-only access, protecting arguments against accidental mutations.</p>
+        <h3>Hindi</h3>
+        <p>Pass-by-reference <code>void update(int& n)</code> original variable mutate karta hai. Copy avoid karne ke liye <code>const auto&</code> use karein.</p>
+        <h3>Marathi</h3>
+        <p>Pass-by-reference <code>&</code> mule object chi copy hot nahi.</p>
+        <h3>Hinglish</h3>
+        <p>Zero-copy pattern: <code>void process(const std::string& text)</code> performance optimize karta hai.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-cpp">// Pass-by-value (Copies data)
+void incrementVal(int x);
+
+// Pass-by-reference (Modifies original)
+void incrementRef(int& x);
+
+// Pass-by-const-reference (Zero-copy read-only)
+void display(const std::string& str);</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Pass-by-value invokes copy constructor or bitwise memory copy onto stack.</li>
+          <li>Pass-by-reference binds reference alias directly to caller's variable memory address.</li>
+          <li>Function executes without copying underlying data.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Swapping Variables via Reference</h3>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+void swap(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+    swap(x, y);
+
+    std::cout &lt;&lt; "x: " &lt;&lt; x &lt;&lt; ", y: " &lt;&lt; y &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">x: 20, y: 10</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>void swap(int& a, int& b)</code>: Accepts references `a` and `b` bound to `x` and `y`.</li>
+          <li><code>a = b;</code>: Modifies actual memory location of caller's variable `x`.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Attempting to pass rvalues (literals like `swap(5, 10)`) to non-const reference parameters causes a compilation error.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Passing Vectors by Value:</strong> Writing <code>void parse(std::vector&lt;int&gt; vec)</code> copies every element in the vector upon invocation.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>High-performance game engine math and renderer pipeline calls.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a C++ function taking `int&` and doubling its value in-place.</li>
+          <li><strong>Intermediate:</strong> Write a function taking `const std::vector&lt;int&gt;&` and returning the max element.</li>
+          <li><strong>Advanced:</strong> Implement a move-enabled function taking rvalue reference `std::string&&`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

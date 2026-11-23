@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Functions & Lexical this - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">08 Functions</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions Overview</span></a></li>
+          <li class="nav-item"><a href="function-declarations.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Declarations & Hoisting</span></a></li>
+          <li class="nav-item"><a href="arrow-functions.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arrow Functions & lexical this</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>ES6 Arrow Functions & Lexical <code>this</code> in JavaScript</h1>
+        <blockquote><p>🟢 Intermediate Level | ES6 Modern Syntax</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in **ES6**, <strong>Arrow Functions</strong> (<code>() => {}</code>) provide a concise syntax for function expressions and inherit the <code>this</code> binding lexically from their enclosing scope.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Simplifies inline callback syntax and eliminates bugs caused by dynamic <code>this</code> binding in event listeners or timers.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Arrow functions do NOT possess their own <code>this</code>, <code>arguments</code>, or <code>super</code> bindings. They capture <code>this</code> from the outer scope.</p>
+        <h3>Hindi</h3>
+        <p>Arrow function <code>(param) => expression</code> compact syntax deta hai. Iska apna <code>this</code> nahi hota; ye parent scope ka <code>this</code> use karta hai.</p>
+        <h3>Marathi</h3>
+        <p>Arrow functions madhye lexical <code>this</code> binding asate.</p>
+        <h3>Hinglish</h3>
+        <p>Implicit return: <code>const double = n => n * 2;</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">// Concise implicit return (single expression)
+const add = (a, b) => a + b;
+
+// Block body with explicit return
+const multiply = (a, b) => {
+    return a * b;
+};</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Evaluate arrow function definition.</li>
+          <li>Capture enclosing lexical environment's <code>this</code> reference.</li>
+          <li>Return single expression implicitly or execute block statements.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Concise Implicit Return & Callback</h3>
+        <pre><code class="language-js">const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(n => n * 2);
+
+console.log("Doubled array:", doubled);</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Doubled array: [ 2, 4, 6, 8 ]</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>numbers.map(n => n * 2)</code>: Passes inline arrow function with single parameter `n` and implicit return `n * 2`.</li>
+          <li><code>console.log(...)</code>: Logs transformed array.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Returning an object literal implicitly requires wrapping in parentheses: <code>const getObj = () => ({ key: "value" });</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Using Arrow Functions for Object Methods:</strong> Defining object methods with arrow functions binds <code>this</code> to global `window`/`globalThis` rather than the object instance!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Array transformations (`map`, `filter`) and React component handlers.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Convert a standard function returning a square into a single-line arrow function.</li>
+          <li><strong>Intermediate:</strong> Use an arrow function to filter even numbers from an array.</li>
+          <li><strong>Advanced:</strong> Fix a broken `setTimeout` `this` binding inside an object method using an arrow function.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

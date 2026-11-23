@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Declarations & Expressions - JavaScript</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">JavaScript</span>
+          <span class="course-header-badge">08 Functions</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">JavaScript Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions Overview</span></a></li>
+          <li class="nav-item"><a href="function-declarations.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Declarations & Hoisting</span></a></li>
+          <li class="nav-item"><a href="arrow-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Arrow Functions & lexical this</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Function Declarations & Expressions in JavaScript</h1>
+        <blockquote><p>🟢 Beginner Level | JavaScript Core Syntax</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Function Declaration</strong> uses the <code>function</code> keyword to define a named, hoisted block of code. A <strong>Function Expression</strong> assigns an anonymous or named function to a variable.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Enables code reusability, modular encapsulation, and organized execution flow across application components.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Function declarations are hoisted to the top of their scope during parsing, allowing calls before definition. Expressions are evaluated at execution time.</p>
+        <h3>Hindi</h3>
+        <p>Function declaration <code>function greet() { ... }</code> hoisted hoti hai. Function expression variable mein store hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Function declarations scope madhye top var hoist hotat.</p>
+        <h3>Hinglish</h3>
+        <p>Declarations: <code>function add(a, b) { return a + b; }</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-js">// Function Declaration (Hoisted)
+function greet(name) {
+    return "Hello, " + name;
+}
+
+// Function Expression (Not Hoisted)
+const sayHi = function(name) {
+    return "Hi, " + name;
+};</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>JavaScript parser hoists function declarations into memory during creation phase.</li>
+          <li>Function expressions remain uninitialized until execution reaches their assignment line.</li>
+          <li>Invoking the function creates a new execution context on the Call Stack.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Function Declaration vs Expression</h3>
+        <pre><code class="language-js">console.log(calcSquare(4)); // Works! (Hoisted)
+
+function calcSquare(n) {
+    return n * n;
+}
+
+const calcCube = function(n) {
+    return n * n * n;
+};
+console.log(calcCube(3)); // 27</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">16
+27</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>console.log(calcSquare(4))</code>: Calls hoisted function before its literal line position.</li>
+          <li><code>const calcCube = function(n)</code>: Binds anonymous function expression to constant variable.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Invoking a function expression before its definition line throws a <code>ReferenceError: Cannot access before initialization</code>.</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Forgetting Return Statement:</strong> Functions without an explicit <code>return</code> statement return <code>undefined</code> by default.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Encapsulating utility functions in web applications.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a function declaration that accepts two numbers and returns their sum.</li>
+          <li><strong>Intermediate:</strong> Convert a function declaration into a function expression.</li>
+          <li><strong>Advanced:</strong> Create an Immediately Invoked Function Expression (IIFE) to create a private scope.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

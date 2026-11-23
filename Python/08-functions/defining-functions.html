@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defining Functions in Python 3</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Python 3</span>
+          <span class="course-header-badge">08 Functions</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Python Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions Overview</span></a></li>
+          <li class="nav-item"><a href="defining-functions.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; def, Parameters & Returns</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Defining Functions (<code>def</code>) in Python 3</h1>
+        <blockquote><p>🟢 Beginner Level | Pythonic Code Reusability</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Python Function</strong> is defined using the <code>def</code> keyword, followed by the function name, parameter list <code>(arg1, arg2=default)</code>, and an indented 4-space code block ending optionally with a <code>return</code> statement.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Eliminates repetitive code, establishes modular abstractions, and enables clean API signatures.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Python functions are first-class objects. Missing explicit <code>return</code> implicitly yields <code>None</code>.</p>
+        <h3>Hindi</h3>
+        <p>Python mein <code>def function_name(param):</code> se function banta hai. Return na likhne par default <code>None</code> return hota hai.</p>
+        <h3>Marathi</h3>
+        <p>Function define karnyansathi <code>def</code> keyword vaparatat.</p>
+        <h3>Hinglish</h3>
+        <p>Clean function signature: <code>def greet(name="User"): return f"Hello, {name}"</code> pattern follow karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-python">def function_name(parameter1, parameter2="default_value"):
+    """Optional Docstring explaining function purpose."""
+    result = parameter1 + parameter2
+    return result</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Python interpreter binds function name to function object during definition pass.</li>
+          <li>Function call creates a local frame in LEGB scope hierarchy.</li>
+          <li>Executes indented statements and returns value or <code>None</code>.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Function with Default Parameters & Docstring</h3>
+        <pre><code class="language-python">def calculate_total(price: float, tax_rate: float = 0.05) -&gt; float:
+    """Calculates final price inclusive of tax."""
+    return price * (1 + tax_rate)
+
+print(f"Total: ${calculate_total(100.0):.2f}")
+print(f"Total with Custom Tax: ${calculate_total(100.0, 0.10):.2f}")</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">Total: $105.00
+Total with Custom Tax: $110.00</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>def calculate_total(price, tax_rate=0.05)</code>: Defines default keyword parameter <code>tax_rate</code>.</li>
+          <li><code>return price * (1 + tax_rate)</code>: Computes and returns floating point total.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Using a mutable object (like a `list` or `dict`) as a default parameter value leads to shared state bugs!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Mutable Default Arguments:</strong> Writing <code>def append_to(element, target=[])</code> reuses the same list object across calls!</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Data processing utility pipelines in Flask or Django backends.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a Python function `is_even(n)` returning boolean True if a number is even.</li>
+          <li><strong>Intermediate:</strong> Create a function taking a string and returning its reverse.</li>
+          <li><strong>Advanced:</strong> Write a decorator function measuring execution time of another function.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

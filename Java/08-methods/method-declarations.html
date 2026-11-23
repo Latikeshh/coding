@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Method Declarations & Overloading - Java SE</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Java SE</span>
+          <span class="course-header-badge">08 Methods</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Methods Overview</span></a></li>
+          <li class="nav-item"><a href="method-declarations.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Signatures, Parameters & Overloading</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Method Declarations & Overloading in Java SE</h1>
+        <blockquote><p>🟢 Beginner Level | Strongly-Typed Java OOP Logic</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>A <strong>Java Method</strong> is a block of code declared inside a class containing an access modifier, return type, method name, and parameter list. <strong>Method Overloading</strong> defines multiple methods with identical names but distinct parameter signatures within the same class.</p>
+
+        <h2>🤔 Purpose</h2>
+        <p>Enables object behavior implementation and flexible polymorphism where methods handle different data type inputs cleanly.</p>
+
+        <h2>🌐 Multilingual Explanations</h2>
+        <h3>English</h3>
+        <p>Method overloading is resolved at compile-time (static polymorphism) based on parameter count, types, and sequence order.</p>
+        <h3>Hindi</h3>
+        <p>Method signature <code>public int add(int a, int b)</code> return type, name, aur parameters define karta hai. Overloading mein method name same par parameters alag hote hain.</p>
+        <h3>Marathi</h3>
+        <p>Java madhye method overloading compile-time polyomrphism sathi vaparataat.</p>
+        <h3>Hinglish</h3>
+        <p>Overloaded methods: <code>int add(int a, int b)</code> and <code>double add(double a, double b)</code> compile-time polymorphism use karein.</p>
+
+        <h2>📝 Syntax & Parameters</h2>
+        <pre><code class="language-java">public class Calculator {
+    // Overloaded Method 1 (int)
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // Overloaded Method 2 (double)
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
+}</code></pre>
+
+        <h2>⚡ Execution Flow</h2>
+        <ol>
+          <li>Java compiler selects overloaded method matching exact argument types at compile-time.</li>
+          <li>JVM pushes stack frame for method invocation.</li>
+          <li>Executes instructions and returns primitive value or object reference.</li>
+        </ol>
+
+        <h2>💡 Progressive Examples</h2>
+
+        <h3>Example 1: Method Overloading Demo</h3>
+        <pre><code class="language-java">public class MethodDemo {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("2 args sum: " + add(10, 20));
+        System.out.println("3 args sum: " + add(10, 20, 30));
+    }
+}</code></pre>
+
+        <h2>🖥️ Expected Output</h2>
+        <pre><code class="language-text">2 args sum: 30
+3 args sum: 60</code></pre>
+
+        <h2>🔍 Line-by-Line Code Breakdown</h2>
+        <ul>
+          <li><code>public static int add(int a, int b)</code>: Two-parameter overload returning integer.</li>
+          <li><code>public static int add(int a, int b, int c)</code>: Three-parameter overload.</li>
+        </ul>
+
+        <h2>⚠️ Variations & Edge Cases</h2>
+        <p>Overloading CANNOT be achieved solely by changing the return type; parameter types or count MUST differ!</p>
+
+        <h2>❌ Common Beginner Mistakes</h2>
+        <div class="warning-box">
+          <p><strong>Duplicate Method Error:</strong> Declaring <code>public int calc(int a)</code> and <code>public double calc(int a)</code> in the same class produces a compile-time error.</p>
+        </div>
+
+        <h2>🛠️ Real-World Practical Usage</h2>
+        <p>Spring Service business logic methods.</p>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+        <ol>
+          <li><strong>Beginner:</strong> Write a Java method calculating the area of a rectangle given width and height.</li>
+          <li><strong>Intermediate:</strong> Overload the area method to calculate circle area given radius.</li>
+          <li><strong>Advanced:</strong> Create a varargs method `public static int sum(int... numbers)`.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>
