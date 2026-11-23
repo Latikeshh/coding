@@ -23,6 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
     return window.SEARCH_INDEX || [];
   }
 
+  function getRootPrefix() {
+    const scripts = document.getElementsByTagName('script');
+    for (let i = 0; i < scripts.length; i++) {
+      const src = scripts[i].getAttribute('src');
+      if (src && src.includes('search.js')) {
+        return src.replace(/assets\/js\/search\.js.*$/, '');
+      }
+    }
+    return '';
+  }
+
   // Calculate Levenshtein Distance for typo tolerance
   function levenshteinDistance(a, b) {
     if (a.length === 0) return b.length;
@@ -63,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!word || word.length < 2) continue;
 
       // Prefix match
-      if (word.startsWith(queryToken) || queryToken.startsWith(word)) {
+      if (word.startsWith(queryToken)) {
         return { matched: true, score: 15 };
       }
 
@@ -171,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const topMatches = matches.slice(0, 10);
+    const rootPrefix = getRootPrefix();
 
     let html = `
       <div class="search-results-header">
@@ -183,10 +195,11 @@ document.addEventListener('DOMContentLoaded', function () {
     topMatches.forEach((item, index) => {
       const courseClass = item.course_id ? item.course_id.toLowerCase().replace(/[^a-z0-9_-]/g, '-') : 'default';
       const snippetPreview = item.snippet ? highlightText(item.snippet, query) : '';
+      const itemUrl = rootPrefix + item.url;
 
       html += `
         <li class="search-result-item" data-index="${index}">
-          <a href="${item.url}" class="search-result-link" tabIndex="-1">
+          <a href="${itemUrl}" class="search-result-link" tabIndex="-1">
             <div class="search-result-title-group">
               <span class="search-result-title">${highlightText(item.title, query)}</span>
               ${snippetPreview ? `<span class="search-result-snippet">${snippetPreview}</span>` : ''}

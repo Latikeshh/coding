@@ -61,7 +61,7 @@ for track_folder, meta in tracks_meta.items():
                 snippet = " ".join(words[:60]) if len(words) > 60 else plain_text
 
                 # Build canonical site URL
-                site_url = f"/coding/{rel_path}"
+                site_url = rel_path
 
                 search_entry = {
                     "title": title_text,
