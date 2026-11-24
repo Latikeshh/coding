@@ -135,7 +135,7 @@
           <li>The browser renders form elements inside the DOM.</li>
           <li>The user inputs data into form fields.</li>
           <li>Clicking a <code>&lt;button type="submit"&gt;</code> triggers client-side validation.</li>
-          <li>If valid, the browser serializes key-value pairs (`name=value`) and dispatches an HTTP request to the <code>action</code> URL.</li>
+          <li>If valid, the browser serializes key-value pairs (<code>name=value</code>) and dispatches an HTTP request to the <code>action</code> URL.</li>
         </ol>
 
         <h2>💡 Progressive Examples</h2>
@@ -155,7 +155,7 @@
         <h2>🔍 Line-by-Line Code Breakdown</h2>
         <ul>
           <li><code>&lt;form action="/login" method="POST"&gt;</code>: Configures form payload destination and HTTP POST method.</li>
-          <li><code>&lt;label for="email"&gt;</code>: Binds click target to input element with `id="email"`.</li>
+          <li><code>&lt;label for="email"&gt;</code>: Binds click target to input element with <code>id="email"</code>.</li>
           <li><code>&lt;input type="email" id="email" name="user_email" required&gt;</code>: Renders email input with client validation.</li>
         </ul>
 
@@ -164,7 +164,7 @@
 
         <h2>❌ Common Beginner Mistakes</h2>
         <div class="warning-box">
-          <p><strong>Missing `name` Attribute:</strong> Input fields without a <code>name</code> attribute will NOT be included in the submitted form payload data sent to the server!</p>
+          <p><strong>Missing <code>name</code> Attribute:</strong> Input fields without a <code>name</code> attribute will NOT be included in the submitted form payload data sent to the server!</p>
         </div>
 
         <h2>🛠️ Real-World Practical Usage</h2>
