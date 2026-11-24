@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23. Advanced SQL Module (CTEs & Window Functions) - SQL Database</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">30 Lessons</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn SQL Database — Course Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">23. Advanced SQL Module (CTEs & Window Functions)</span></a></li>
+          <li class="nav-item"><a href="01-common-table-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Common Table Expressions (CTEs)</span></a></li>
+          <li class="nav-item"><a href="02-recursive-ctes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Recursive CTEs & Hierarchical Data</span></a></li>
+          <li class="nav-item"><a href="03-window-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. SQL Window Functions</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>23. Advanced SQL Module (CTEs & Window Functions)</h1>
+
+        <p>Welcome to the <strong>23. Advanced SQL Module (CTEs & Window Functions)</strong>! Follow the structured sub-topic lessons below.</p>
+
+        <hr>
+
+        <h2>📚 Module Lessons</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Lesson Title</th>
+              <th>Level</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01</td>
+              <td>Common Table Expressions (CTEs)</td>
+              <td>🔴 Advanced</td>
+              <td><a href="01-common-table-expressions.html">Open lesson</a></td>
+            </tr>
+            <tr>
+              <td>02</td>
+              <td>Recursive CTEs & Hierarchical Data</td>
+              <td>🔴 Advanced</td>
+              <td><a href="02-recursive-ctes.html">Open lesson</a></td>
+            </tr>
+            <tr>
+              <td>03</td>
+              <td>SQL Window Functions</td>
+              <td>🔴 Advanced</td>
+              <td><a href="03-window-functions.html">Open lesson</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <h2>🧭 Navigation</h2>
+
+        <p><a href="../index.html">&larr; Back to SQL Database Index</a> | <a href="01-common-table-expressions.html">Start Lesson 01: Common Table Expressions (CTEs) &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

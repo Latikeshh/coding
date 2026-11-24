@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 Candidate Key - SQL Database</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">30 Lessons</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn SQL Database &amp; Querying</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Database Keys Module</span></a></li>
+          <li class="nav-item"><a href="01-primary-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Primary Key</span></a></li>
+          <li class="nav-item"><a href="02-foreign-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Foreign Key</span></a></li>
+          <li class="nav-item"><a href="03-candidate-key.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Candidate Key</span></a></li>
+          <li class="nav-item"><a href="04-super-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Super Key</span></a></li>
+          <li class="nav-item"><a href="05-alternate-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Alternate Key</span></a></li>
+          <li class="nav-item"><a href="06-composite-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Composite Key</span></a></li>
+          <li class="nav-item"><a href="07-surrogate-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Surrogate Key</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>🔍 Candidate Key</h1>
+
+        <blockquote><p>🟢 Beginner</p></blockquote>
+
+        <h2>📖 Definition</h2>
+
+        <p>A <strong>Candidate Key</strong> is a column or a set of minimal columns that uniquely identifies a row in a database table without any redundant attributes. A table can have multiple Candidate Keys. From these candidate keys, database designers select <strong>ONE</strong> to serve as the <strong>Primary Key</strong>, while all remaining candidate keys become <strong>Alternate Keys</strong>.</p>
+
+        <h2>🌍 Multilingual Explanations</h2>
+
+        <h3>English</h3>
+        <p>A Candidate Key is a minimal Super Key that uniquely identifies a table row. Every Candidate Key qualifies to become a Primary Key.</p>
+
+        <h3>Hindi</h3>
+        <p>Candidate Key ek aisa column ya attribute group hota hai jo har row ko uniquely identify kar sakta hai. Isme se ek key ko Primary Key banaya jaata hai.</p>
+
+        <h3>Marathi</h3>
+        <p>Candidate Key mhanje Primary Key bananyasathi eligible aslele unique columns. Yantil eka key la Primary Key mhanun nivadle jaate.</p>
+
+        <h3>Hinglish</h3>
+        <p>Candidate Keys are "candidates" competing for the Primary Key role — for example, both `employee_id` and `passport_number` are Candidate Keys.</p>
+
+        <h2>⚖️ Candidate Key vs. Primary Key Comparison</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Candidate Key</th>
+              <th>Primary Key</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Quantity</strong></td>
+              <td>A table can have <strong>multiple</strong> Candidate Keys.</td>
+              <td>A table can have <strong>only ONE</strong> Primary Key.</td>
+            </tr>
+            <tr>
+              <td><strong>NULL Values</strong></td>
+              <td>Can theoretically contain <code>NULL</code> if defined without constraints (though best practice uses <code>NOT NULL</code>).</td>
+              <td>Strictly <strong>CANNOT contain <code>NULL</code></strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Selection</strong></td>
+              <td>Selected during database ER modeling.</td>
+              <td>Chosen specifically from the set of Candidate Keys.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>⚡ SQL Syntax</h2>
+
+        <pre><code class="language-sql">-- Defining Candidate Keys using PRIMARY KEY and UNIQUE NOT NULL constraints
+CREATE TABLE registered_users (
+    user_id INT PRIMARY KEY,                       -- Candidate Key 1 (Selected as Primary Key)
+    email VARCHAR(100) NOT NULL UNIQUE,             -- Candidate Key 2 (Enforced with UNIQUE + NOT NULL)
+    national_id VARCHAR(20) NOT NULL UNIQUE         -- Candidate Key 3 (Enforced with UNIQUE + NOT NULL)
+);</code></pre>
+
+        <h2>💡 Production Example</h2>
+
+        <pre><code class="language-sql">-- In an Employees table, both employee_id and ssn (Social Security Number) are Candidate Keys
+CREATE TABLE company_employees (
+    emp_id INT PRIMARY KEY,
+    ssn CHAR(9) NOT NULL UNIQUE,
+    full_name VARCHAR(100) NOT NULL
+);
+
+-- Both queries return exactly ONE unique record:
+SELECT * FROM company_employees WHERE emp_id = 501;
+SELECT * FROM company_employees WHERE ssn = '123456789';</code></pre>
+
+        <h2>⚠️ Common Pitfalls &amp; Mistakes</h2>
+
+        <ul>
+          <li><strong>Confusing Super Key with Candidate Key:</strong> A Super Key can contain extra non-essential columns, whereas a Candidate Key must be <strong>minimal</strong> (removing any column breaks uniqueness).</li>
+          <li><strong>Allowing NULL in Candidate Keys:</strong> Always add <code>NOT NULL</code> to <code>UNIQUE</code> candidate key columns to prevent unidentifiable records.</li>
+        </ul>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+
+        <ol>
+          <li><strong>Beginner:</strong> Identify all candidate keys in a table containing <code>student_id</code>, <code>aadhaar_no</code>, <code>email</code>, and <code>class_name</code>.</li>
+          <li><strong>Intermediate:</strong> Write a <code>CREATE TABLE</code> query enforcing two candidate keys using <code>PRIMARY KEY</code> and <code>UNIQUE NOT NULL</code>.</li>
+          <li><strong>Advanced:</strong> Explain why a composite key of <code>(user_id, email)</code> is a Super Key but NOT a Candidate Key if <code>user_id</code> alone is already unique.</li>
+        </ol>
+
+        <hr>
+
+        <h2>🧭 Navigation</h2>
+
+        <p><a href="02-foreign-key.html">&larr; Previous: Foreign Key</a> | <a href="index.html">Keys Overview</a> | <a href="04-super-key.html">Next: Super Key &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 Table Sections - HTML5</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">HTML5</span>
+          <span class="course-header-badge">32 Lessons</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn HTML — Course Overview</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Module Hub</span></a></li>
+          <li class="nav-item"><a href="01-table-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Table Structure</span></a></li>
+          <li class="nav-item"><a href="02-table-headers-sections.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Table Sections</span></a></li>
+          <li class="nav-item"><a href="03-colspan-and-rowspan.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Colspan & Rowspan</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>Table Sections (<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>, <code>&lt;caption&gt;</code>)</h1>
+        <blockquote><p>🟢 Beginner</p></blockquote>
+
+        <h2>📖 Definition</h2>
+        <p>Semantic table section tags—<strong><code>&lt;thead&gt;</code></strong>, <strong><code>&lt;tbody&gt;</code></strong>, <strong><code>&lt;tfoot&gt;</code></strong>, and <strong><code>&lt;caption&gt;</code></strong>—structure long data tables for screen reader accessibility and clean CSS styling.</p>
+
+        <h2>🌍 Multilingual Summary</h2>
+        <h3>English</h3>
+        <p>Use <code>&lt;caption&gt;</code> for title, <code>&lt;thead&gt;</code> for headers, <code>&lt;tbody&gt;</code> for rows, and <code>&lt;tfoot&gt;</code> for totals.</p>
+        <h3>Hindi</h3>
+        <p>Table title ke liye <code>&lt;caption&gt;</code>, header rows ke liye <code>&lt;thead&gt;</code>, main data ke liye <code>&lt;tbody&gt;</code>, aur totals ke liye <code>&lt;tfoot&gt;</code> tag hota hai.</p>
+
+        <h2>⚡ Code Example</h2>
+        <pre><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Monthly Sales Report&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Month&lt;/th&gt;&lt;th&gt;Sales&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Jan&lt;/td&gt;&lt;td&gt;$5,000&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;td&gt;$5,000&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+        <hr>
+        <h2>🧭 Navigation</h2>
+        <p><a href="01-table-structure.html">&larr; 01. Table Structure</a> | <a href="index.html">Module Index</a> | <a href="03-colspan-and-rowspan.html">03. Colspan & Rowspan &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

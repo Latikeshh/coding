@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 Alternate Key - SQL Database</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">SQL Database</span>
+          <span class="course-header-badge">30 Lessons</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn SQL Database &amp; Querying</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Database Keys Module</span></a></li>
+          <li class="nav-item"><a href="01-primary-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Primary Key</span></a></li>
+          <li class="nav-item"><a href="02-foreign-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Foreign Key</span></a></li>
+          <li class="nav-item"><a href="03-candidate-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Candidate Key</span></a></li>
+          <li class="nav-item"><a href="04-super-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Super Key</span></a></li>
+          <li class="nav-item"><a href="05-alternate-key.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Alternate Key</span></a></li>
+          <li class="nav-item"><a href="06-composite-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Composite Key</span></a></li>
+          <li class="nav-item"><a href="07-surrogate-key.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Surrogate Key</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h1>🔀 Alternate Key (Secondary Key)</h1>
+
+        <blockquote><p>🟢 Beginner</p></blockquote>
+
+        <h2>📖 Definition</h2>
+
+        <p>An <strong>Alternate Key</strong> (also known as a <em>Secondary Key</em>) is any <strong>Candidate Key</strong> that was NOT chosen to be the table's Primary Key. Even though an alternate key is not selected as the primary key, it is still enforced in SQL using a <code>UNIQUE NOT NULL</code> constraint to guarantee data integrity.</p>
+
+        <h2>🌍 Multilingual Explanations</h2>
+
+        <h3>English</h3>
+        <p>An Alternate Key is a Candidate Key not selected as the Primary Key. It is enforced using a <code>UNIQUE</code> constraint.</p>
+
+        <h3>Hindi</h3>
+        <p>Candidate Keys me se jis key ko Primary Key nahi banaya jata, use Alternate Key kehte hain. Baki unique values ko <code>UNIQUE</code> constraint se guard kiya jata hai.</p>
+
+        <h3>Marathi</h3>
+        <p>Primary Key sodun rahillele baaki che Candidate Keys mhanje Alternate Keys aahat.</p>
+
+        <h3>Hinglish</h3>
+        <p>Alternate Key is the "runner up" candidate key — e.g. if `user_id` is the Primary Key, then `email` and `phone_number` are Alternate Keys.</p>
+
+        <h2>⚡ Formula Definition</h2>
+
+        <pre><code class="language-text">Alternate Keys = { Candidate Keys } - { Primary Key }</code></pre>
+
+        <h2>⚡ SQL Syntax</h2>
+
+        <pre><code class="language-sql">-- Enforcing Alternate Keys with UNIQUE constraints
+CREATE TABLE accounts (
+    account_id INT PRIMARY KEY,                       -- Primary Key
+    email VARCHAR(100) NOT NULL UNIQUE,                -- Alternate Key 1
+    phone_number VARCHAR(15) NOT NULL UNIQUE           -- Alternate Key 2
+);</code></pre>
+
+        <h2>💡 Production Example</h2>
+
+        <pre><code class="language-sql">-- User authentication table
+CREATE TABLE application_users (
+    user_id SERIAL PRIMARY KEY,                        -- Primary Key used internally
+    username VARCHAR(50) NOT NULL UNIQUE,              -- Alternate Key 1 (used for login)
+    email VARCHAR(100) NOT NULL UNIQUE,                -- Alternate Key 2 (used for login/recovery)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Fast lookup by Alternate Key (PostgreSQL/MySQL automatically indexes UNIQUE columns)
+SELECT * FROM application_users WHERE email = 'dev@example.com';</code></pre>
+
+        <h2>⚠️ Common Pitfalls &amp; Mistakes</h2>
+
+        <ul>
+          <li><strong>Forgetting UNIQUE constraint on Alternate Keys:</strong> Leaving an alternate key like `email` unconstrained permits duplicate emails in your database.</li>
+          <li><strong>Using Alternate Keys for Foreign Key links unnecessarily:</strong> While SQL permits linking foreign keys to alternate keys (`UNIQUE` columns), linking foreign keys to Primary Keys (`user_id`) is significantly cleaner and faster.</li>
+        </ul>
+
+        <h2>🎯 Tiered Practice Exercises</h2>
+
+        <ol>
+          <li><strong>Beginner:</strong> Identify the alternate keys in a table with columns <code>emp_id (PK)</code>, <code>pan_card_no (UNIQUE)</code>, <code>passport_no (UNIQUE)</code>, and <code>salary</code>.</li>
+          <li><strong>Intermediate:</strong> Write a <code>CREATE TABLE</code> statement for a <code>vehicles</code> table with <code>vehicle_id</code> as PK and <code>chassis_no</code> and <code>registration_no</code> as Alternate Keys.</li>
+          <li><strong>Advanced:</strong> Explain how database index performance differs between Primary Keys and Alternate Keys.</li>
+        </ol>
+
+        <hr>
+
+        <h2>🧭 Navigation</h2>
+
+        <p><a href="04-super-key.html">&larr; Previous: Super Key</a> | <a href="index.html">Keys Overview</a> | <a href="06-composite-key.html">Next: Composite Key &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>
