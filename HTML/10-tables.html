@@ -101,44 +101,44 @@
       <div class="content-wrapper">
 <h1>Tables (<code><table></code>, <code><thead></code>, <code><tbody></code>, <code><caption></code>)</h1>
 
-<blockquote><p>🟢 Beginner</p></blockquote>
+<blockquote>🟢 Beginner</blockquote>
 
 <h2>📖 Definition</h2>
 
-<p>The <strong><code><table></code></strong> element presents structured, 2-dimensional <strong>tabular data</strong> arranged into rows and columns. Tables must be used strictly for tabular data (e.g., student grade sheets, flight schedules, pricing plans, timetables), and <strong>never for page layout</strong>.</p>
+The <strong><code><table></code></strong> element presents structured, 2-dimensional <strong>tabular data</strong> arranged into rows and columns. Tables must be used strictly for tabular data (e.g., student grade sheets, flight schedules, pricing plans, timetables), and <strong>never for page layout</strong>.
 
 <h2>🌍 Multilingual Summary</h2>
 
 <h3>English</h3>
-<p>Tables display structured tabular data. Structure tables using <code><caption></code>, <code><thead></code>, <code><tbody></code>, <code><tfoot></code>, <code><tr></code> (row), <code><th></code> (header cell), and <code><td></code> (data cell).</p>
+Tables display structured tabular data. Structure tables using <code><caption></code>, <code><thead></code>, <code><tbody></code>, <code><tfoot></code>, <code><tr></code> (row), <code><th></code> (header cell), and <code><td></code> (data cell).
 
 <h3>Hindi</h3>
-<p>Tabular data ke liye <code><table></code> use karein. <code><caption></code> table summary deta hai, <code><tr></code> row banata hai, <code><th></code> header cell hai, aur <code><td></code> normal data cell hai. Page layout ke liye tables kabhi mat use karein.</p>
+Tabular data ke liye <code><table></code> use karein. <code><caption></code> table summary deta hai, <code><tr></code> row banata hai, <code><th></code> header cell hai, aur <code><td></code> normal data cell hai. Page layout ke liye tables kabhi mat use karein.
 
 <h3>Marathi</h3>
-<p>Tabular data sathi <code><table></code> vapra. <code><caption></code> table chi mahiti dete, <code><tr></code> row tayar karto, <code><th></code> header cell aahe, ani <code><td></code> normal data cell aahe. Layout sathi tables kadhihi vapru naka.</p>
+Tabular data sathi <code><table></code> vapra. <code><caption></code> table chi mahiti dete, <code><tr></code> row tayar karto, <code><th></code> header cell aahe, ani <code><td></code> normal data cell aahe. Layout sathi tables kadhihi vapru naka.
 
 <h2>🤔 Why Do We Use Tables?</h2>
 
-<p>Tabular data requires rigid grid alignment so visitors and screen readers can analyze relationships between rows and columns (e.g. comparing student marks across subjects or comparing software subscription tiers).</p>
+Tabular data requires rigid grid alignment so visitors and screen readers can analyze relationships between rows and columns (e.g. comparing student marks across subjects or comparing software subscription tiers).
 
 <h2>🧱 Standard HTML Table Structure</h2>
 
-<p>An accessible, well-structured table uses semantic sectioning elements:</p>
+An accessible, well-structured table uses semantic sectioning elements:
 
 <table>
-<p>  <thead><tr><th>Element</th><th>Description & Role</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><code><table></code></td><td>Outer container wrapping all table content.</td></tr></p>
-<p>    <tr><td><code><caption></code></td><td>Title or description of the table data for screen readers and users.</td></tr></p>
-<p>    <tr><td><code><thead></code></td><td>Groups header rows defining column titles.</td></tr></p>
-<p>    <tr><td><code><tbody></code></td><td>Groups primary body data rows.</td></tr></p>
-<p>    <tr><td><code><tfoot></code></td><td>Groups summary or total rows at the bottom of the table.</td></tr></p>
-<p>    <tr><td><code><tr></code></td><td>Defines a single horizontal table row (*table row*).</td></tr></p>
-<p>    <tr><td><code><th></code></td><td>Defines a bold, centered header cell (*table header*). Uses <code>scope="col"</code> or <code>scope="row"</code>.</td></tr></p>
-<p>    <tr><td><code><td></code></td><td>Defines a standard data cell (*table data*).</td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Element</th><th>Description & Role</th></tr></thead>
+  <tbody>
+    <tr><td><code><table></code></td><td>Outer container wrapping all table content.</td></tr>
+    <tr><td><code><caption></code></td><td>Title or description of the table data for screen readers and users.</td></tr>
+    <tr><td><code><thead></code></td><td>Groups header rows defining column titles.</td></tr>
+    <tr><td><code><tbody></code></td><td>Groups primary body data rows.</td></tr>
+    <tr><td><code><tfoot></code></td><td>Groups summary or total rows at the bottom of the table.</td></tr>
+    <tr><td><code><tr></code></td><td>Defines a single horizontal table row (*table row*).</td></tr>
+    <tr><td><code><th></code></td><td>Defines a bold, centered header cell (*table header*). Uses <code>scope="col"</code> or <code>scope="row"</code>.</td></tr>
+    <tr><td><code><td></code></td><td>Defines a standard data cell (*table data*).</td></tr>
+  </tbody>
+</table></p>
 
 <h2>🔑 Spanning Rows & Columns (<code>colspan</code> & <code>rowspan</code>)</h2>
 
@@ -150,55 +150,55 @@
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Student Grade Report&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Student Grade Report&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;Semester Examination Results&lt;/h1&gt;</p>
+  &lt;h1&gt;Semester Examination Results&lt;/h1&gt;
 
-<p>  &lt;table&gt;</p>
-<p>    &lt;caption&gt;Table 1: Computer Science Semester 1 Results&lt;/caption&gt;</p>
-<p>    &lt;thead&gt;</p>
-<p>      &lt;tr&gt;</p>
-<p>        &lt;th scope=&quot;col&quot;&gt;Student Name&lt;/th&gt;</p>
-<p>        &lt;th scope=&quot;col&quot;&gt;Subject&lt;/th&gt;</p>
-<p>        &lt;th scope=&quot;col&quot;&gt;Marks (Out of 100)&lt;/th&gt;</p>
-<p>        &lt;th scope=&quot;col&quot;&gt;Grade&lt;/th&gt;</p>
-<p>      &lt;/tr&gt;</p>
-<p>    &lt;/thead&gt;</p>
-<p>    &lt;tbody&gt;</p>
-<p>      &lt;tr&gt;</p>
-<p>        &lt;td&gt;Latikesh&lt;/td&gt;</p>
-<p>        &lt;td&gt;Web Development&lt;/td&gt;</p>
-<p>        &lt;td&gt;92&lt;/td&gt;</p>
-<p>        &lt;td&gt;A+&lt;/td&gt;</p>
-<p>      &lt;/tr&gt;</p>
-<p>      &lt;tr&gt;</p>
-<p>        &lt;td&gt;Riya&lt;/td&gt;</p>
-<p>        &lt;td&gt;Database Systems&lt;/td&gt;</p>
-<p>        &lt;td&gt;88&lt;/td&gt;</p>
-<p>        &lt;td&gt;A&lt;/td&gt;</p>
-<p>      &lt;/tr&gt;</p>
-<p>      &lt;tr&gt;</p>
-<p>        &lt;td&gt;Aarav&lt;/td&gt;</p>
-<p>        &lt;td&gt;Data Structures&lt;/td&gt;</p>
-<p>        &lt;td&gt;95&lt;/td&gt;</p>
-<p>        &lt;td&gt;A+&lt;/td&gt;</p>
-<p>      &lt;/tr&gt;</p>
-<p>    &lt;/tbody&gt;</p>
-<p>    &lt;tfoot&gt;</p>
-<p>      &lt;tr&gt;</p>
-<p>        &lt;th scope=&quot;row&quot; colspan=&quot;2&quot;&gt;Average Class Score&lt;/th&gt;</p>
-<p>        &lt;td colspan=&quot;2&quot;&gt;91.6&lt;/td&gt;</p>
-<p>      &lt;/tr&gt;</p>
-<p>    &lt;/tfoot&gt;</p>
-<p>  &lt;/table&gt;</p>
+  &lt;table&gt;
+    &lt;caption&gt;Table 1: Computer Science Semester 1 Results&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&quot;col&quot;&gt;Student Name&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Subject&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Marks (Out of 100)&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Grade&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Latikesh&lt;/td&gt;
+        &lt;td&gt;Web Development&lt;/td&gt;
+        &lt;td&gt;92&lt;/td&gt;
+        &lt;td&gt;A+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Riya&lt;/td&gt;
+        &lt;td&gt;Database Systems&lt;/td&gt;
+        &lt;td&gt;88&lt;/td&gt;
+        &lt;td&gt;A&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Aarav&lt;/td&gt;
+        &lt;td&gt;Data Structures&lt;/td&gt;
+        &lt;td&gt;95&lt;/td&gt;
+        &lt;td&gt;A+&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+      &lt;tr&gt;
+        &lt;th scope=&quot;row&quot; colspan=&quot;2&quot;&gt;Average Class Score&lt;/th&gt;
+        &lt;td colspan=&quot;2&quot;&gt;91.6&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tfoot&gt;
+  &lt;/table&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

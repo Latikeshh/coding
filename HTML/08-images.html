@@ -135,55 +135,55 @@
 <h2>🔍 How to Write Good <code>alt</code> Text</h2>
 
 <table>
-<p>  <thead><tr><th>Scenario</th><th>Accessible <code>alt</code> Text Example</th><th>Bad <code>alt</code> Text Example</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><strong>Informative Image</strong></td><td><code>alt="A red sports car parked in front of a modern glass office building"</code></td><td><code>alt="image"</code> or <code>alt="car"</code></td></tr></p>
-<p>    <tr><td><strong>Chart / Data</strong></td><td><code>alt="Bar chart showing annual revenue growth from $1M in 2024 to $2.5M in 2026"</code></td><td><code>alt="chart"</code></td></tr></p>
-<p>    <tr><td><strong>Decorative Image</strong></td><td><code>alt=""</code> (Screen readers silently skip decorative borders or background icons)</td><td><code>alt="divider line"</code></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Scenario</th><th>Accessible <code>alt</code> Text Example</th><th>Bad <code>alt</code> Text Example</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Informative Image</strong></td><td><code>alt="A red sports car parked in front of a modern glass office building"</code></td><td><code>alt="image"</code> or <code>alt="car"</code></td></tr>
+    <tr><td><strong>Chart / Data</strong></td><td><code>alt="Bar chart showing annual revenue growth from $1M in 2024 to $2.5M in 2026"</code></td><td><code>alt="chart"</code></td></tr>
+    <tr><td><strong>Decorative Image</strong></td><td><code>alt=""</code> (Screen readers silently skip decorative borders or background icons)</td><td><code>alt="divider line"</code></td></tr>
+  </tbody>
+</table></p>
 
 <h2>🖼️ Captioned Images with <code><figure></code> & <code><figcaption></code></h2>
 
 <p>When an image requires a visible caption, diagram reference, or explanation, wrap it inside a <code><figure></code> element:</p>
 
 <pre><code class="language-html">&lt;figure&gt;
-<p>  &lt;img src=&quot;images/everest.jpg&quot; alt=&quot;Snow-covered peak of Mount Everest against a blue sky&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;</p>
-<p>  &lt;figcaption&gt;Figure 1.1: Mount Everest summit photographed at sunrise.&lt;/figcaption&gt;</p>
-<p>&lt;/figure&gt;</code></pre>
+  &lt;img src=&quot;images/everest.jpg&quot; alt=&quot;Snow-covered peak of Mount Everest against a blue sky&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;
+  &lt;figcaption&gt;Figure 1.1: Mount Everest summit photographed at sunrise.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
 
 <h2>📱 Responsive Art Direction with <code><picture></code></h2>
 
 <p>The <code><picture></code> element allows you to serve different image files depending on the user's screen width (e.g., a tall vertical image for mobile screens and a wide banner for desktop displays):</p>
 
 <pre><code class="language-html">&lt;picture&gt;
-<p>  &lt;!-- Desktop screen (800px and wider) --&gt;</p>
-<p>  &lt;source media=&quot;(min-width: 800px)&quot; srcset=&quot;images/hero-desktop.jpg&quot;&gt;</p>
-<p>  &lt;!-- Tablet screen (480px to 799px) --&gt;</p>
-<p>  &lt;source media=&quot;(min-width: 480px)&quot; srcset=&quot;images/hero-tablet.jpg&quot;&gt;</p>
-<p>  &lt;!-- Mobile screen fallback --&gt;</p>
-<p>  &lt;img src=&quot;images/hero-mobile.jpg&quot; alt=&quot;Developer coding at a dual-monitor workstation&quot; width=&quot;400&quot; height=&quot;300&quot; loading=&quot;lazy&quot;&gt;</p>
-<p>&lt;/picture&gt;</code></pre>
+  &lt;!-- Desktop screen (800px and wider) --&gt;
+  &lt;source media=&quot;(min-width: 800px)&quot; srcset=&quot;images/hero-desktop.jpg&quot;&gt;
+  &lt;!-- Tablet screen (480px to 799px) --&gt;
+  &lt;source media=&quot;(min-width: 480px)&quot; srcset=&quot;images/hero-tablet.jpg&quot;&gt;
+  &lt;!-- Mobile screen fallback --&gt;
+  &lt;img src=&quot;images/hero-mobile.jpg&quot; alt=&quot;Developer coding at a dual-monitor workstation&quot; width=&quot;400&quot; height=&quot;300&quot; loading=&quot;lazy&quot;&gt;
+&lt;/picture&gt;</code></pre>
 
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Nature Gallery&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Nature Gallery&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;Scenic Mountain Showcase&lt;/h1&gt;</p>
+  &lt;h1&gt;Scenic Mountain Showcase&lt;/h1&gt;
 
-<p>  &lt;figure&gt;</p>
-<p>    &lt;img src=&quot;images/mountains.jpg&quot; alt=&quot;Snowy mountain range surrounded by pine trees during sunset&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;</p>
-<p>    &lt;figcaption&gt;Sunset view over the Rocky Mountains.&lt;/figcaption&gt;</p>
-<p>  &lt;/figure&gt;</p>
+  &lt;figure&gt;
+    &lt;img src=&quot;images/mountains.jpg&quot; alt=&quot;Snowy mountain range surrounded by pine trees during sunset&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;
+    &lt;figcaption&gt;Sunset view over the Rocky Mountains.&lt;/figcaption&gt;
+  &lt;/figure&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

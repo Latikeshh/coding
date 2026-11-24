@@ -139,41 +139,41 @@
 <p>For accessibility and international audience support, wrap <code><track></code> elements inside <code><video></code> to supply WebVTT (<code>.vtt</code>) subtitle files:</p>
 
 <pre><code class="language-html">&lt;video controls width=&quot;640&quot; poster=&quot;images/thumbnail.jpg&quot;&gt;
-<p>  &lt;source src=&quot;media/tutorial.mp4&quot; type=&quot;video/mp4&quot;&gt;</p>
-<p>  &lt;source src=&quot;media/tutorial.webm&quot; type=&quot;video/webm&quot;&gt;</p>
-<p>  </p>
-<p>  &lt;!-- English Subtitles --&gt;</p>
-<p>  &lt;track src=&quot;subtitles/en.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;</p>
-<p>  &lt;!-- Hindi Subtitles --&gt;</p>
-<p>  &lt;track src=&quot;subtitles/hi.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;hi&quot; label=&quot;Hindi&quot;&gt;</p>
+  &lt;source src=&quot;media/tutorial.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;media/tutorial.webm&quot; type=&quot;video/webm&quot;&gt;
+  
+  &lt;!-- English Subtitles --&gt;
+  &lt;track src=&quot;subtitles/en.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+  &lt;!-- Hindi Subtitles --&gt;
+  &lt;track src=&quot;subtitles/hi.vtt&quot; kind=&quot;subtitles&quot; srclang=&quot;hi&quot; label=&quot;Hindi&quot;&gt;
 
-<p>  Your browser does not support the video tag.</p>
-<p>&lt;/video&gt;</code></pre>
+  Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
 
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Video Tutorial Example&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Video Tutorial Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;HTML5 Video Showcase&lt;/h1&gt;</p>
+  &lt;h1&gt;HTML5 Video Showcase&lt;/h1&gt;
 
-<p>  &lt;figure&gt;</p>
-<p>    &lt;video controls width=&quot;560&quot; height=&quot;315&quot; poster=&quot;images/html-thumb.jpg&quot; preload=&quot;metadata&quot;&gt;</p>
-<p>      &lt;source src=&quot;media/intro-html.mp4&quot; type=&quot;video/mp4&quot;&gt;</p>
-<p>      &lt;source src=&quot;media/intro-html.webm&quot; type=&quot;video/webm&quot;&gt;</p>
-<p>      &lt;track src=&quot;captions/en.vtt&quot; kind=&quot;captions&quot; srclang=&quot;en&quot; label=&quot;English Captions&quot; default&gt;</p>
-<p>      Your browser does not support HTML5 video.</p>
-<p>    &lt;/video&gt;</p>
-<p>    &lt;figcaption&gt;Video 1: Introduction to HTML5 Web Development.&lt;/figcaption&gt;</p>
-<p>  &lt;/figure&gt;</p>
+  &lt;figure&gt;
+    &lt;video controls width=&quot;560&quot; height=&quot;315&quot; poster=&quot;images/html-thumb.jpg&quot; preload=&quot;metadata&quot;&gt;
+      &lt;source src=&quot;media/intro-html.mp4&quot; type=&quot;video/mp4&quot;&gt;
+      &lt;source src=&quot;media/intro-html.webm&quot; type=&quot;video/webm&quot;&gt;
+      &lt;track src=&quot;captions/en.vtt&quot; kind=&quot;captions&quot; srclang=&quot;en&quot; label=&quot;English Captions&quot; default&gt;
+      Your browser does not support HTML5 video.
+    &lt;/video&gt;
+    &lt;figcaption&gt;Video 1: Introduction to HTML5 Web Development.&lt;/figcaption&gt;
+  &lt;/figure&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

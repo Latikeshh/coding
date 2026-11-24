@@ -136,17 +136,17 @@
 <p>The <code>srcset</code> attribute provides a list of image file sources paired with their intrinsic pixel widths (<code>w</code>), while <code>sizes</code> tells the browser how wide the image will render at different viewport breakpoints:</p>
 
 <pre><code class="language-html">&lt;img 
-<p>  src=&quot;images/banner-medium.jpg&quot; </p>
-<p>  srcset=&quot;images/banner-small.jpg 480w,</p>
-<p>          images/banner-medium.jpg 800w,</p>
-<p>          images/banner-large.jpg 1200w&quot; </p>
-<p>  sizes=&quot;(max-width: 600px) 480px,</p>
-<p>         (max-width: 1000px) 800px,</p>
-<p>         1200px&quot; </p>
-<p>  alt=&quot;Developer working at a laptop workstation&quot; </p>
-<p>  width=&quot;1200&quot; </p>
-<p>  height=&quot;600&quot; </p>
-<p>  loading=&quot;lazy&quot;&gt;</code></pre>
+  src=&quot;images/banner-medium.jpg&quot; 
+  srcset=&quot;images/banner-small.jpg 480w,
+          images/banner-medium.jpg 800w,
+          images/banner-large.jpg 1200w&quot; 
+  sizes=&quot;(max-width: 600px) 480px,
+         (max-width: 1000px) 800px,
+         1200px&quot; 
+  alt=&quot;Developer working at a laptop workstation&quot; 
+  width=&quot;1200&quot; 
+  height=&quot;600&quot; 
+  loading=&quot;lazy&quot;&gt;</code></pre>
 
 <p>How it works: The browser inspects device screen width and pixel density, consults <code>sizes</code>, and automatically downloads only the most appropriate image source file from <code>srcset</code>.</p>
 
@@ -156,18 +156,18 @@
 <p>Use <code><picture></code> when you want to serve <strong>completely different cropped images or file formats</strong> (e.g. WebP/AVIF vs JPG) depending on screen width media queries:</p>
 
 <pre><code class="language-html">&lt;picture&gt;
-<p>  &lt;!-- Modern AVIF format for supporting modern browsers --&gt;</p>
-<p>  &lt;source type=&quot;image/avif&quot; srcset=&quot;images/hero.avif&quot;&gt;</p>
-<p>  </p>
-<p>  &lt;!-- Media query: Desktop wide banner --&gt;</p>
-<p>  &lt;source media=&quot;(min-width: 900px)&quot; srcset=&quot;images/hero-desktop-wide.jpg&quot;&gt;</p>
-<p>  </p>
-<p>  &lt;!-- Media query: Tablet medium cropped image --&gt;</p>
-<p>  &lt;source media=&quot;(min-width: 600px)&quot; srcset=&quot;images/hero-tablet.jpg&quot;&gt;</p>
-<p>  </p>
-<p>  &lt;!-- Mobile default fallback img tag --&gt;</p>
-<p>  &lt;img src=&quot;images/hero-mobile-portrait.jpg&quot; alt=&quot;Team meeting around a conference table&quot; width=&quot;400&quot; height=&quot;500&quot; loading=&quot;lazy&quot;&gt;</p>
-<p>&lt;/picture&gt;</code></pre>
+  &lt;!-- Modern AVIF format for supporting modern browsers --&gt;
+  &lt;source type=&quot;image/avif&quot; srcset=&quot;images/hero.avif&quot;&gt;
+  
+  &lt;!-- Media query: Desktop wide banner --&gt;
+  &lt;source media=&quot;(min-width: 900px)&quot; srcset=&quot;images/hero-desktop-wide.jpg&quot;&gt;
+  
+  &lt;!-- Media query: Tablet medium cropped image --&gt;
+  &lt;source media=&quot;(min-width: 600px)&quot; srcset=&quot;images/hero-tablet.jpg&quot;&gt;
+  
+  &lt;!-- Mobile default fallback img tag --&gt;
+  &lt;img src=&quot;images/hero-mobile-portrait.jpg&quot; alt=&quot;Team meeting around a conference table&quot; width=&quot;400&quot; height=&quot;500&quot; loading=&quot;lazy&quot;&gt;
+&lt;/picture&gt;</code></pre>
 
 <h2>⚡ Performance Optimization Attributes
 </h2>
@@ -181,27 +181,27 @@
 </h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Responsive Images Practice&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Responsive Images Practice&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;Responsive Photography Showcase&lt;/h1&gt;</p>
+  &lt;h1&gt;Responsive Photography Showcase&lt;/h1&gt;
 
-<p>  &lt;!-- Art Direction Example --&gt;</p>
-<p>  &lt;figure&gt;</p>
-<p>    &lt;picture&gt;</p>
-<p>      &lt;source media=&quot;(min-width: 800px)&quot; srcset=&quot;images/nature-desktop.jpg&quot;&gt;</p>
-<p>      &lt;source media=&quot;(min-width: 500px)&quot; srcset=&quot;images/nature-tablet.jpg&quot;&gt;</p>
-<p>      &lt;img src=&quot;images/nature-mobile.jpg&quot; alt=&quot;Scenic mountain valley under blue sky&quot; width=&quot;800&quot; height=&quot;400&quot; loading=&quot;lazy&quot;&gt;</p>
-<p>    &lt;/picture&gt;</p>
-<p>    &lt;figcaption&gt;Figure 1: Responsive mountain landscape adapted for all screen sizes.&lt;/figcaption&gt;</p>
-<p>  &lt;/figure&gt;</p>
+  &lt;!-- Art Direction Example --&gt;
+  &lt;figure&gt;
+    &lt;picture&gt;
+      &lt;source media=&quot;(min-width: 800px)&quot; srcset=&quot;images/nature-desktop.jpg&quot;&gt;
+      &lt;source media=&quot;(min-width: 500px)&quot; srcset=&quot;images/nature-tablet.jpg&quot;&gt;
+      &lt;img src=&quot;images/nature-mobile.jpg&quot; alt=&quot;Scenic mountain valley under blue sky&quot; width=&quot;800&quot; height=&quot;400&quot; loading=&quot;lazy&quot;&gt;
+    &lt;/picture&gt;
+    &lt;figcaption&gt;Figure 1: Responsive mountain landscape adapted for all screen sizes.&lt;/figcaption&gt;
+  &lt;/figure&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See
 </h2>

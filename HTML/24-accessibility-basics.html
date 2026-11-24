@@ -138,10 +138,10 @@
 <blockquote><p><strong>First Rule of ARIA:</strong> *Do not use ARIA if a native HTML element already exists that provides the semantic meaning and keyboard behavior you need.*</p></blockquote>
 
 <pre><code class="language-html">&lt;!-- BAD: Custom clickable div with ARIA override --&gt;
-<p>&lt;div role=&quot;button&quot; tabindex=&quot;0&quot; onclick=&quot;submitForm()&quot;&gt;Submit&lt;/div&gt;</p>
+&lt;div role=&quot;button&quot; tabindex=&quot;0&quot; onclick=&quot;submitForm()&quot;&gt;Submit&lt;/div&gt;
 
-<p>&lt;!-- GOOD: Native HTML button (automatically focusable &amp; screen reader accessible) --&gt;</p>
-<p>&lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;</code></pre>
+&lt;!-- GOOD: Native HTML button (automatically focusable &amp; screen reader accessible) --&gt;
+&lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;</code></pre>
 
 <h2>🔍 Checking HTML Code Quality: HTML Validation</h2>
 
@@ -155,43 +155,43 @@
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Accessible Contact Form&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Accessible Contact Form&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;header&gt;</p>
-<p>    &lt;h1&gt;Contact Support Team&lt;/h1&gt;</p>
-<p>  &lt;/header&gt;</p>
+  &lt;header&gt;
+    &lt;h1&gt;Contact Support Team&lt;/h1&gt;
+  &lt;/header&gt;
 
-<p>  &lt;main&gt;</p>
-<p>    &lt;form action=&quot;/contact&quot; method=&quot;POST&quot;&gt;</p>
+  &lt;main&gt;
+    &lt;form action=&quot;/contact&quot; method=&quot;POST&quot;&gt;
 
-<p>      &lt;p&gt;</p>
-<p>        &lt;label for=&quot;user-name&quot;&gt;Full Name (required):&lt;/label&gt;&lt;br&gt;</p>
-<p>        &lt;input id=&quot;user-name&quot; type=&quot;text&quot; name=&quot;name&quot; required placeholder=&quot;e.g. Alex&quot;&gt;</p>
-<p>      &lt;/p&gt;</p>
+      &lt;p&gt;
+        &lt;label for=&quot;user-name&quot;&gt;Full Name (required):&lt;/label&gt;&lt;br&gt;
+        &lt;input id=&quot;user-name&quot; type=&quot;text&quot; name=&quot;name&quot; required placeholder=&quot;e.g. Alex&quot;&gt;
+      &lt;/p&gt;
 
-<p>      &lt;p&gt;</p>
-<p>        &lt;label for=&quot;user-email&quot;&gt;Email Address (required):&lt;/label&gt;&lt;br&gt;</p>
-<p>        &lt;input id=&quot;user-email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;name@domain.com&quot;&gt;</p>
-<p>      &lt;/p&gt;</p>
+      &lt;p&gt;
+        &lt;label for=&quot;user-email&quot;&gt;Email Address (required):&lt;/label&gt;&lt;br&gt;
+        &lt;input id=&quot;user-email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;name@domain.com&quot;&gt;
+      &lt;/p&gt;
 
-<p>      &lt;p&gt;</p>
-<p>        &lt;button type=&quot;submit&quot; aria-label=&quot;Submit contact inquiry form&quot;&gt;Send Inquiry&lt;/button&gt;</p>
-<p>      &lt;/p&gt;</p>
+      &lt;p&gt;
+        &lt;button type=&quot;submit&quot; aria-label=&quot;Submit contact inquiry form&quot;&gt;Send Inquiry&lt;/button&gt;
+      &lt;/p&gt;
 
-<p>    &lt;/form&gt;</p>
-<p>  &lt;/main&gt;</p>
+    &lt;/form&gt;
+  &lt;/main&gt;
 
-<p>  &lt;footer&gt;</p>
-<p>    &lt;p&gt;&lt;a href=&quot;privacy.html&quot;&gt;Read Privacy Policy Statement&lt;/a&gt;&lt;/p&gt;</p>
-<p>  &lt;/footer&gt;</p>
+  &lt;footer&gt;
+    &lt;p&gt;&lt;a href=&quot;privacy.html&quot;&gt;Read Privacy Policy Statement&lt;/a&gt;&lt;/p&gt;
+  &lt;/footer&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

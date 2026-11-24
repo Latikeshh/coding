@@ -127,18 +127,18 @@
 <p>Global attributes can be applied to almost any HTML element:</p>
 
 <table>
-<p>  <thead><tr><th>Global Attribute</th><th>Description & Purpose</th><th>Usage Example</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><strong><code>id</code></strong></td><td>Defines a <strong>unique identifier</strong> for a single element on a page. Used for CSS styling, JS DOM selection, and fragment links (<code>#id</code>).</td><td><code><section id="about"></code></td></tr></p>
-<p>    <tr><td><strong><code>class</code></strong></td><td>Assigns one or more <strong>reusable class names</strong> to elements. Multiple elements can share the same class name.</td><td><code><button class="btn primary-btn"></code></td></tr></p>
-<p>    <tr><td><strong><code>title</code></strong></td><td>Displays advisory tooltip text when hovering over the element with a mouse pointer.</td><td><code><abbr title="HyperText Markup Language">HTML</abbr></code></td></tr></p>
-<p>    <tr><td><strong><code>lang</code></strong></td><td>Specifies the language of element content.</td><td><code><p lang="fr">Bonjour</p></code></td></tr></p>
-<p>    <tr><td><strong><code>dir</code></strong></td><td>Specifies text direction (<code>ltr</code> for left-to-right, <code>rtl</code> for right-to-left languages like Arabic or Hebrew).</td><td><code><p dir="rtl">...</p></code></td></tr></p>
-<p>    <tr><td><strong><code>hidden</code></strong></td><td>Hides the element from display on the page layout.</td><td><code><p hidden>Secret text</p></code></td></tr></p>
-<p>    <tr><td><strong><code>tabindex</code></strong></td><td>Controls keyboard focus order (<code>tabindex="0"</code> adds custom element to natural tab order).</td><td><code><div tabindex="0"></code></td></tr></p>
-<p>    <tr><td>**<code>data-*</code><strong></td><td>Stores custom data attributes for JavaScript (<code>data-user-id</code>, <code>data-category</code>).</td><td><code><div data-category="books"></code></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Global Attribute</th><th>Description & Purpose</th><th>Usage Example</th></tr></thead>
+  <tbody>
+    <tr><td><strong><code>id</code></strong></td><td>Defines a <strong>unique identifier</strong> for a single element on a page. Used for CSS styling, JS DOM selection, and fragment links (<code>#id</code>).</td><td><code><section id="about"></code></td></tr>
+    <tr><td><strong><code>class</code></strong></td><td>Assigns one or more <strong>reusable class names</strong> to elements. Multiple elements can share the same class name.</td><td><code><button class="btn primary-btn"></code></td></tr>
+    <tr><td><strong><code>title</code></strong></td><td>Displays advisory tooltip text when hovering over the element with a mouse pointer.</td><td><code><abbr title="HyperText Markup Language">HTML</abbr></code></td></tr>
+    <tr><td><strong><code>lang</code></strong></td><td>Specifies the language of element content.</td><td><code><p lang="fr">Bonjour</code></td></tr>
+    <tr><td><strong><code>dir</code></strong></td><td>Specifies text direction (<code>ltr</code> for left-to-right, <code>rtl</code> for right-to-left languages like Arabic or Hebrew).</td><td><code><p dir="rtl">...</code></td></tr>
+    <tr><td><strong><code>hidden</code></strong></td><td>Hides the element from display on the page layout.</td><td><code><p hidden>Secret text</code></td></tr>
+    <tr><td><strong><code>tabindex</code></strong></td><td>Controls keyboard focus order (<code>tabindex="0"</code> adds custom element to natural tab order).</td><td><code><div tabindex="0"></code></td></tr>
+    <tr><td>**<code>data-*</code><strong></td><td>Stores custom data attributes for JavaScript (<code>data-user-id</code>, <code>data-category</code>).</td><td><code><div data-category="books"></code></td></tr>
+  </tbody>
+</table></p>
 
 <h2>⚖️ <code>id</code> vs. <code>class</code> (Crucial Difference)</h2>
 
@@ -150,25 +150,25 @@
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Global Attributes Practice&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Global Attributes Practice&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;Attributes Demonstration&lt;/h1&gt;</p>
+  &lt;h1&gt;Attributes Demonstration&lt;/h1&gt;
 
-<p>  &lt;section id=&quot;features-section&quot; class=&quot;container content-box&quot; data-author=&quot;Developer&quot;&gt;</p>
-<p>    &lt;p title=&quot;Hover tooltip information&quot;&gt;Move mouse pointer here to view tooltip message.&lt;/p&gt;</p>
+  &lt;section id=&quot;features-section&quot; class=&quot;container content-box&quot; data-author=&quot;Developer&quot;&gt;
+    &lt;p title=&quot;Hover tooltip information&quot;&gt;Move mouse pointer here to view tooltip message.&lt;/p&gt;
 
-<p>    &lt;button id=&quot;main-cta&quot; class=&quot;btn primary-btn&quot; data-action=&quot;subscribe&quot;&gt;</p>
-<p>      Subscribe Now</p>
-<p>    &lt;/button&gt;</p>
-<p>  &lt;/section&gt;</p>
+    &lt;button id=&quot;main-cta&quot; class=&quot;btn primary-btn&quot; data-action=&quot;subscribe&quot;&gt;
+      Subscribe Now
+    &lt;/button&gt;
+  &lt;/section&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

@@ -125,86 +125,86 @@
 <h2>📝 Essential Input Types Reference</h2>
 
 <table>
-<p>  <thead><tr><th>Input Type</th><th>Common Usage</th><th>Key Attributes & Features</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><code>type="text"</code></td><td>Single-line plain text (names, titles).</td><td><code>placeholder</code>, <code>maxlength</code></td></tr></p>
-<p>    <tr><td><code>type="password"</code></td><td>Masked password text (hides characters).</td><td><code>minlength</code>, <code>autocomplete="current-password"</code></td></tr></p>
-<p>    <tr><td><code>type="email"</code></td><td>Validated email address. Opens <code>@</code> keyboard on mobile.</td><td><code>required</code>, <code>multiple</code></td></tr></p>
-<p>    <tr><td><code>type="number"</code></td><td>Numeric values with spinner controls.</td><td><code>min</code>, <code>max</code>, <code>step</code></td></tr></p>
-<p>    <tr><td><code>type="tel"</code></td><td>Telephone numbers. Opens numeric dial pad on mobile.</td><td><code>pattern="[0-9]{10}"</code></td></tr></p>
-<p>    <tr><td><code>type="url"</code></td><td>Validated website URLs (<code>https://...</code>).</td><td><code>placeholder="https://..."</code></td></tr></p>
-<p>    <tr><td><code>type="date"</code></td><td>Date picker widget (day/month/year).</td><td><code>min="2026-01-01"</code></td></tr></p>
-<p>    <tr><td><code>type="time"</code></td><td>Time picker widget.</td><td><code>step</code></td></tr></p>
-<p>    <tr><td><code>type="color"</code></td><td>Color picker palette widget.</td><td><code>value="#007bff"</code></td></tr></p>
-<p>    <tr><td><code>type="file"</code></td><td>File upload browser dialog.</td><td><code>accept="image/*,.pdf"</code>, <code>multiple</code></td></tr></p>
-<p>    <tr><td><code>type="checkbox"</code></td><td>Multi-select toggle options (select zero, one, or many).</td><td><code>checked</code></td></tr></p>
-<p>    <tr><td><code>type="radio"</code></td><td>Single-choice selection group (select exactly one option).</td><td>Grouped by identical <code>name="group"</code></td></tr></p>
-<p>    <tr><td><code>type="range"</code></td><td>Slider control for numeric range selection.</td><td><code>min</code>, <code>max</code>, <code>step</code></td></tr></p>
-<p>    <tr><td><code>type="search"</code></td><td>Search query field with clear (<code>X</code>) button.</td><td><code>placeholder</code></td></tr></p>
-<p>    <tr><td><code>type="hidden"</code></td><td>Stores data hidden from UI but submitted with form.</td><td><code>value="user_123"</code></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Input Type</th><th>Common Usage</th><th>Key Attributes & Features</th></tr></thead>
+  <tbody>
+    <tr><td><code>type="text"</code></td><td>Single-line plain text (names, titles).</td><td><code>placeholder</code>, <code>maxlength</code></td></tr>
+    <tr><td><code>type="password"</code></td><td>Masked password text (hides characters).</td><td><code>minlength</code>, <code>autocomplete="current-password"</code></td></tr>
+    <tr><td><code>type="email"</code></td><td>Validated email address. Opens <code>@</code> keyboard on mobile.</td><td><code>required</code>, <code>multiple</code></td></tr>
+    <tr><td><code>type="number"</code></td><td>Numeric values with spinner controls.</td><td><code>min</code>, <code>max</code>, <code>step</code></td></tr>
+    <tr><td><code>type="tel"</code></td><td>Telephone numbers. Opens numeric dial pad on mobile.</td><td><code>pattern="[0-9]{10}"</code></td></tr>
+    <tr><td><code>type="url"</code></td><td>Validated website URLs (<code>https://...</code>).</td><td><code>placeholder="https://..."</code></td></tr>
+    <tr><td><code>type="date"</code></td><td>Date picker widget (day/month/year).</td><td><code>min="2026-01-01"</code></td></tr>
+    <tr><td><code>type="time"</code></td><td>Time picker widget.</td><td><code>step</code></td></tr>
+    <tr><td><code>type="color"</code></td><td>Color picker palette widget.</td><td><code>value="#007bff"</code></td></tr>
+    <tr><td><code>type="file"</code></td><td>File upload browser dialog.</td><td><code>accept="image/*,.pdf"</code>, <code>multiple</code></td></tr>
+    <tr><td><code>type="checkbox"</code></td><td>Multi-select toggle options (select zero, one, or many).</td><td><code>checked</code></td></tr>
+    <tr><td><code>type="radio"</code></td><td>Single-choice selection group (select exactly one option).</td><td>Grouped by identical <code>name="group"</code></td></tr>
+    <tr><td><code>type="range"</code></td><td>Slider control for numeric range selection.</td><td><code>min</code>, <code>max</code>, <code>step</code></td></tr>
+    <tr><td><code>type="search"</code></td><td>Search query field with clear (<code>X</code>) button.</td><td><code>placeholder</code></td></tr>
+    <tr><td><code>type="hidden"</code></td><td>Stores data hidden from UI but submitted with form.</td><td><code>value="user_123"</code></td></tr>
+  </tbody>
+</table></p>
 
 <h2>🔑 Radio Button Grouping Rule</h2>
 
 <p>To ensure radio buttons act as a single-choice group where selecting one option automatically deselects others, <strong>all radio buttons in the group must share the exact same <code>name</code> attribute value</strong>:</p>
 
 <pre><code class="language-html">&lt;p&gt;Select Size:&lt;/p&gt;
-<p>&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; value=&quot;s&quot;&gt; Small&lt;/label&gt;</p>
-<p>&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; value=&quot;m&quot; checked&gt; Medium&lt;/label&gt;</p>
-<p>&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; value=&quot;l&quot;&gt; Large&lt;/label&gt;</code></pre>
+&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; value=&quot;s&quot;&gt; Small&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; value=&quot;m&quot; checked&gt; Medium&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; value=&quot;l&quot;&gt; Large&lt;/label&gt;</code></pre>
 
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Input Types Demonstration&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Input Types Demonstration&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;User Account Setup&lt;/h1&gt;</p>
+  &lt;h1&gt;User Account Setup&lt;/h1&gt;
 
-<p>  &lt;form action=&quot;/signup&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;</p>
+  &lt;form action=&quot;/signup&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;&lt;br&gt;</p>
-<p>      &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;userEmail&quot; required placeholder=&quot;user@domain.com&quot;&gt;</p>
-<p>    &lt;/p&gt;</p>
+    &lt;p&gt;
+      &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;&lt;br&gt;
+      &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;userEmail&quot; required placeholder=&quot;user@domain.com&quot;&gt;
+    &lt;/p&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      &lt;label for=&quot;pass&quot;&gt;Password:&lt;/label&gt;&lt;br&gt;</p>
-<p>      &lt;input id=&quot;pass&quot; type=&quot;password&quot; name=&quot;userPassword&quot; required minlength=&quot;8&quot;&gt;</p>
-<p>    &lt;/p&gt;</p>
+    &lt;p&gt;
+      &lt;label for=&quot;pass&quot;&gt;Password:&lt;/label&gt;&lt;br&gt;
+      &lt;input id=&quot;pass&quot; type=&quot;password&quot; name=&quot;userPassword&quot; required minlength=&quot;8&quot;&gt;
+    &lt;/p&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      &lt;label for=&quot;age&quot;&gt;Age (18–99):&lt;/label&gt;&lt;br&gt;</p>
-<p>      &lt;input id=&quot;age&quot; type=&quot;number&quot; name=&quot;age&quot; min=&quot;18&quot; max=&quot;99&quot; value=&quot;20&quot;&gt;</p>
-<p>    &lt;/p&gt;</p>
+    &lt;p&gt;
+      &lt;label for=&quot;age&quot;&gt;Age (18–99):&lt;/label&gt;&lt;br&gt;
+      &lt;input id=&quot;age&quot; type=&quot;number&quot; name=&quot;age&quot; min=&quot;18&quot; max=&quot;99&quot; value=&quot;20&quot;&gt;
+    &lt;/p&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      &lt;label for=&quot;dob&quot;&gt;Date of Birth:&lt;/label&gt;&lt;br&gt;</p>
-<p>      &lt;input id=&quot;dob&quot; type=&quot;date&quot; name=&quot;dob&quot;&gt;</p>
-<p>    &lt;/p&gt;</p>
+    &lt;p&gt;
+      &lt;label for=&quot;dob&quot;&gt;Date of Birth:&lt;/label&gt;&lt;br&gt;
+      &lt;input id=&quot;dob&quot; type=&quot;date&quot; name=&quot;dob&quot;&gt;
+    &lt;/p&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      &lt;label for=&quot;avatar&quot;&gt;Upload Profile Photo:&lt;/label&gt;&lt;br&gt;</p>
-<p>      &lt;input id=&quot;avatar&quot; type=&quot;file&quot; name=&quot;avatar&quot; accept=&quot;image/png, image/jpeg&quot;&gt;</p>
-<p>    &lt;/p&gt;</p>
+    &lt;p&gt;
+      &lt;label for=&quot;avatar&quot;&gt;Upload Profile Photo:&lt;/label&gt;&lt;br&gt;
+      &lt;input id=&quot;avatar&quot; type=&quot;file&quot; name=&quot;avatar&quot; accept=&quot;image/png, image/jpeg&quot;&gt;
+    &lt;/p&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      &lt;label&gt;</p>
-<p>        &lt;input type=&quot;checkbox&quot; name=&quot;terms&quot; required&gt; I agree to terms and conditions</p>
-<p>      &lt;/label&gt;</p>
-<p>    &lt;/p&gt;</p>
+    &lt;p&gt;
+      &lt;label&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;terms&quot; required&gt; I agree to terms and conditions
+      &lt;/label&gt;
+    &lt;/p&gt;
 
-<p>    &lt;button type=&quot;submit&quot;&gt;Create Account&lt;/button&gt;</p>
+    &lt;button type=&quot;submit&quot;&gt;Create Account&lt;/button&gt;
 
-<p>  &lt;/form&gt;</p>
+  &lt;/form&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

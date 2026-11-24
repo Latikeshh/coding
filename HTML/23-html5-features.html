@@ -136,20 +136,20 @@
 <p>Before HTML5, verifying user email formatting or required fields required writing custom JavaScript. HTML5 handles client-side form validation natively in the browser:</p>
 
 <pre><code class="language-html">&lt;form&gt;
-<p>  &lt;!-- Compulsory text entry --&gt;</p>
-<p>  &lt;label for=&quot;username&quot;&gt;Username (required):&lt;/label&gt;</p>
-<p>  &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;user&quot; required minlength=&quot;3&quot; maxlength=&quot;15&quot;&gt;</p>
+  &lt;!-- Compulsory text entry --&gt;
+  &lt;label for=&quot;username&quot;&gt;Username (required):&lt;/label&gt;
+  &lt;input id=&quot;username&quot; type=&quot;text&quot; name=&quot;user&quot; required minlength=&quot;3&quot; maxlength=&quot;15&quot;&gt;
 
-<p>  &lt;!-- Validated email format --&gt;</p>
-<p>  &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;</p>
-<p>  &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;user@domain.com&quot;&gt;</p>
+  &lt;!-- Validated email format --&gt;
+  &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;
+  &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;user@domain.com&quot;&gt;
 
-<p>  &lt;!-- Regex pattern matching (e.g. 10-digit phone number) --&gt;</p>
-<p>  &lt;label for=&quot;phone&quot;&gt;Phone (10 digits):&lt;/label&gt;</p>
-<p>  &lt;input id=&quot;phone&quot; type=&quot;tel&quot; name=&quot;phone&quot; pattern=&quot;[0-9]{10}&quot; required placeholder=&quot;9876543210&quot;&gt;</p>
+  &lt;!-- Regex pattern matching (e.g. 10-digit phone number) --&gt;
+  &lt;label for=&quot;phone&quot;&gt;Phone (10 digits):&lt;/label&gt;
+  &lt;input id=&quot;phone&quot; type=&quot;tel&quot; name=&quot;phone&quot; pattern=&quot;[0-9]{10}&quot; required placeholder=&quot;9876543210&quot;&gt;
 
-<p>  &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;</p>
-<p>&lt;/form&gt;</code></pre>
+  &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
 
 <p>When a user submits invalid data, modern browsers automatically block form submission and display a localized popup error bubble.</p>
 
@@ -163,42 +163,42 @@
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;HTML5 Validation Demo&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;HTML5 Validation Demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;main&gt;</p>
-<p>    &lt;h1&gt;Event Registration&lt;/h1&gt;</p>
+  &lt;main&gt;
+    &lt;h1&gt;Event Registration&lt;/h1&gt;
 
-<p>    &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;</p>
+    &lt;form action=&quot;/register&quot; method=&quot;POST&quot;&gt;
 
-<p>      &lt;p&gt;</p>
-<p>        &lt;label for=&quot;full-name&quot;&gt;Full Name:&lt;/label&gt;&lt;br&gt;</p>
-<p>        &lt;input id=&quot;full-name&quot; type=&quot;text&quot; name=&quot;fullName&quot; required minlength=&quot;2&quot;&gt;</p>
-<p>      &lt;/p&gt;</p>
+      &lt;p&gt;
+        &lt;label for=&quot;full-name&quot;&gt;Full Name:&lt;/label&gt;&lt;br&gt;
+        &lt;input id=&quot;full-name&quot; type=&quot;text&quot; name=&quot;fullName&quot; required minlength=&quot;2&quot;&gt;
+      &lt;/p&gt;
 
-<p>      &lt;p&gt;</p>
-<p>        &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;&lt;br&gt;</p>
-<p>        &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;email&quot; required autocomplete=&quot;email&quot;&gt;</p>
-<p>      &lt;/p&gt;</p>
+      &lt;p&gt;
+        &lt;label for=&quot;email&quot;&gt;Email Address:&lt;/label&gt;&lt;br&gt;
+        &lt;input id=&quot;email&quot; type=&quot;email&quot; name=&quot;email&quot; required autocomplete=&quot;email&quot;&gt;
+      &lt;/p&gt;
 
-<p>      &lt;p&gt;</p>
-<p>        &lt;label for=&quot;ticket-count&quot;&gt;Number of Tickets (1–5):&lt;/label&gt;&lt;br&gt;</p>
-<p>        &lt;input id=&quot;ticket-count&quot; type=&quot;number&quot; name=&quot;tickets&quot; min=&quot;1&quot; max=&quot;5&quot; value=&quot;1&quot; required&gt;</p>
-<p>      &lt;/p&gt;</p>
+      &lt;p&gt;
+        &lt;label for=&quot;ticket-count&quot;&gt;Number of Tickets (1–5):&lt;/label&gt;&lt;br&gt;
+        &lt;input id=&quot;ticket-count&quot; type=&quot;number&quot; name=&quot;tickets&quot; min=&quot;1&quot; max=&quot;5&quot; value=&quot;1&quot; required&gt;
+      &lt;/p&gt;
 
-<p>      &lt;p&gt;</p>
-<p>        &lt;button type=&quot;submit&quot;&gt;Complete Booking&lt;/button&gt;</p>
-<p>      &lt;/p&gt;</p>
+      &lt;p&gt;
+        &lt;button type=&quot;submit&quot;&gt;Complete Booking&lt;/button&gt;
+      &lt;/p&gt;
 
-<p>    &lt;/form&gt;</p>
-<p>  &lt;/main&gt;</p>
+    &lt;/form&gt;
+  &lt;/main&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

@@ -134,88 +134,88 @@
 </h2>
 
 <table>
-<p>  <thead><tr><th>Element</th><th>Purpose & Description</th><th>Code Example</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><strong><code><details></code></strong></td><td>Native collapsible accordion container. Toggles visibility when clicked.</td><td><code><details>...</details></code></td></tr></p>
-<p>    <tr><td><strong><code><summary></code></strong></td><td>Clickable header phrase inside <code><details></code>.</td><td><code><summary>View FAQs</summary></code></td></tr></p>
-<p>    <tr><td><strong><code><dialog></code></strong></td><td>Native popup modal or dialog box (<code>dialog.showModal()</code>).</td><td><code><dialog id="my-modal">...</dialog></code></td></tr></p>
-<p>    <tr><td><strong><code><progress></code></strong></td><td>Visual progress bar displaying task completion (<code>0.0</code> to <code>1.0</code> or <code>0</code> to <code>100</code>).</td><td><code><progress value="70" max="100"></code></td></tr></p>
-<p>    <tr><td><strong><code><meter></code></strong></td><td>Visual scalar measurement gauge within a known range (disk space, temperature, score).</td><td><code><meter value="8" min="0" max="10"></code></td></tr></p>
-<p>    <tr><td><strong><code><template></code></strong></td><td>Holds hidden client-side HTML markup intended to be cloned and inserted via JavaScript.</td><td><code><template id="card-tpl">...</template></code></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Element</th><th>Purpose & Description</th><th>Code Example</th></tr></thead>
+  <tbody>
+    <tr><td><strong><code><details></code></strong></td><td>Native collapsible accordion container. Toggles visibility when clicked.</td><td><code><details>...</details></code></td></tr>
+    <tr><td><strong><code><summary></code></strong></td><td>Clickable header phrase inside <code><details></code>.</td><td><code><summary>View FAQs</summary></code></td></tr>
+    <tr><td><strong><code><dialog></code></strong></td><td>Native popup modal or dialog box (<code>dialog.showModal()</code>).</td><td><code><dialog id="my-modal">...</dialog></code></td></tr>
+    <tr><td><strong><code><progress></code></strong></td><td>Visual progress bar displaying task completion (<code>0.0</code> to <code>1.0</code> or <code>0</code> to <code>100</code>).</td><td><code><progress value="70" max="100"></code></td></tr>
+    <tr><td><strong><code><meter></code></strong></td><td>Visual scalar measurement gauge within a known range (disk space, temperature, score).</td><td><code><meter value="8" min="0" max="10"></code></td></tr>
+    <tr><td><strong><code><template></code></strong></td><td>Holds hidden client-side HTML markup intended to be cloned and inserted via JavaScript.</td><td><code><template id="card-tpl">...</template></code></td></tr>
+  </tbody>
+</table></p>
 
 <h2>💻 Code Example
 </h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Interactive Elements Practice&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Interactive Elements Practice&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;Interactive Components Demo&lt;/h1&gt;</p>
+  &lt;h1&gt;Interactive Components Demo&lt;/h1&gt;
 
-<p>  &lt;!-- 1. Collapsible Accordion Widget --&gt;</p>
-<p>  &lt;section&gt;</p>
-<p>    &lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;</p>
-<p>    </p>
-<p>    &lt;details open&gt;</p>
-<p>      &lt;summary&gt;What is HTML5?&lt;/summary&gt;</p>
-<p>      &lt;p&gt;HTML5 is the modern markup standard for structuring web pages and application content.&lt;/p&gt;</p>
-<p>    &lt;/details&gt;</p>
+  &lt;!-- 1. Collapsible Accordion Widget --&gt;
+  &lt;section&gt;
+    &lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;
+    
+    &lt;details open&gt;
+      &lt;summary&gt;What is HTML5?&lt;/summary&gt;
+      &lt;p&gt;HTML5 is the modern markup standard for structuring web pages and application content.&lt;/p&gt;
+    &lt;/details&gt;
 
-<p>    &lt;details&gt;</p>
-<p>      &lt;summary&gt;Is JavaScript required for details and summary?&lt;/summary&gt;</p>
-<p>      &lt;p&gt;No! The details and summary accordion works natively in all modern web browsers without any JavaScript.&lt;/p&gt;</p>
-<p>    &lt;/details&gt;</p>
-<p>  &lt;/section&gt;</p>
+    &lt;details&gt;
+      &lt;summary&gt;Is JavaScript required for details and summary?&lt;/summary&gt;
+      &lt;p&gt;No! The details and summary accordion works natively in all modern web browsers without any JavaScript.&lt;/p&gt;
+    &lt;/details&gt;
+  &lt;/section&gt;
 
-<p>  &lt;br&gt;</p>
+  &lt;br&gt;
 
-<p>  &lt;!-- 2. Progress Bar and Meter Gauge --&gt;</p>
-<p>  &lt;section&gt;</p>
-<p>    &lt;h2&gt;System Status &amp;amp; Progress&lt;/h2&gt;</p>
+  &lt;!-- 2. Progress Bar and Meter Gauge --&gt;
+  &lt;section&gt;
+    &lt;h2&gt;System Status &amp;amp; Progress&lt;/h2&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      Course Completion: </p>
-<p>      &lt;progress value=&quot;75&quot; max=&quot;100&quot;&gt;&lt;/progress&gt; 75%</p>
-<p>    &lt;/p&gt;</p>
+    &lt;p&gt;
+      Course Completion: 
+      &lt;progress value=&quot;75&quot; max=&quot;100&quot;&gt;&lt;/progress&gt; 75%
+    &lt;/p&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      Server Storage Usage: </p>
-<p>      &lt;meter value=&quot;85&quot; min=&quot;0&quot; max=&quot;100&quot; low=&quot;30&quot; high=&quot;80&quot; optimum=&quot;50&quot;&gt;&lt;/meter&gt; 85 GB / 100 GB</p>
-<p>    &lt;/p&gt;</p>
-<p>  &lt;/section&gt;</p>
+    &lt;p&gt;
+      Server Storage Usage: 
+      &lt;meter value=&quot;85&quot; min=&quot;0&quot; max=&quot;100&quot; low=&quot;30&quot; high=&quot;80&quot; optimum=&quot;50&quot;&gt;&lt;/meter&gt; 85 GB / 100 GB
+    &lt;/p&gt;
+  &lt;/section&gt;
 
-<p>  &lt;br&gt;</p>
+  &lt;br&gt;
 
-<p>  &lt;!-- 3. Native Dialog Modal --&gt;</p>
-<p>  &lt;section&gt;</p>
-<p>    &lt;h2&gt;Modal Dialog Demonstration&lt;/h2&gt;</p>
-<p>    &lt;button type=&quot;button&quot; onclick=&quot;document.getElementById(&#39;demo-modal&#39;).showModal()&quot;&gt;Open Dialog&lt;/button&gt;</p>
+  &lt;!-- 3. Native Dialog Modal --&gt;
+  &lt;section&gt;
+    &lt;h2&gt;Modal Dialog Demonstration&lt;/h2&gt;
+    &lt;button type=&quot;button&quot; onclick=&quot;document.getElementById(&#39;demo-modal&#39;).showModal()&quot;&gt;Open Dialog&lt;/button&gt;
 
-<p>    &lt;dialog id=&quot;demo-modal&quot;&gt;</p>
-<p>      &lt;h3&gt;Terms &amp;amp; Conditions&lt;/h3&gt;</p>
-<p>      &lt;p&gt;Please read and accept our privacy policy terms to continue.&lt;/p&gt;</p>
-<p>      &lt;form method=&quot;dialog&quot;&gt;</p>
-<p>        &lt;button type=&quot;submit&quot;&gt;Accept &amp;amp; Close&lt;/button&gt;</p>
-<p>      &lt;/form&gt;</p>
-<p>    &lt;/dialog&gt;</p>
-<p>  &lt;/section&gt;</p>
+    &lt;dialog id=&quot;demo-modal&quot;&gt;
+      &lt;h3&gt;Terms &amp;amp; Conditions&lt;/h3&gt;
+      &lt;p&gt;Please read and accept our privacy policy terms to continue.&lt;/p&gt;
+      &lt;form method=&quot;dialog&quot;&gt;
+        &lt;button type=&quot;submit&quot;&gt;Accept &amp;amp; Close&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/dialog&gt;
+  &lt;/section&gt;
 
-<p>  &lt;!-- 4. Hidden Reusable Template --&gt;</p>
-<p>  &lt;template id=&quot;user-card-template&quot;&gt;</p>
-<p>    &lt;div class=&quot;user-card&quot;&gt;</p>
-<p>      &lt;h4 class=&quot;user-name&quot;&gt;User Name&lt;/h4&gt;</p>
-<p>      &lt;p class=&quot;user-role&quot;&gt;User Role&lt;/p&gt;</p>
-<p>    &lt;/div&gt;</p>
-<p>  &lt;/template&gt;</p>
+  &lt;!-- 4. Hidden Reusable Template --&gt;
+  &lt;template id=&quot;user-card-template&quot;&gt;
+    &lt;div class=&quot;user-card&quot;&gt;
+      &lt;h4 class=&quot;user-name&quot;&gt;User Name&lt;/h4&gt;
+      &lt;p class=&quot;user-role&quot;&gt;User Role&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See
 </h2>

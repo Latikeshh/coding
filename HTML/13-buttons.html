@@ -127,13 +127,13 @@
 <p>Inside forms, the <code>type</code> attribute of a <code><button></code> determines its behavior:</p>
 
 <table>
-<p>  <thead><tr><th>Button Type</th><th>Description & Behavior</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><code><button type="submit"></code></td><td>Submits enclosing <code><form></code> data to the <code>action</code> URL. <strong>Default behavior if <code>type</code> attribute is omitted inside a form.</strong></td></tr></p>
-<p>    <tr><td><code><button type="reset"></code></td><td>Resets all input fields inside the enclosing form back to their initial values.</td></tr></p>
-<p>    <tr><td><code><button type="button"></code></td><td>Plain clickable button with no default action. Used to trigger custom JavaScript functions.</td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Button Type</th><th>Description & Behavior</th></tr></thead>
+  <tbody>
+    <tr><td><code><button type="submit"></code></td><td>Submits enclosing <code><form></code> data to the <code>action</code> URL. <strong>Default behavior if <code>type</code> attribute is omitted inside a form.</strong></td></tr>
+    <tr><td><code><button type="reset"></code></td><td>Resets all input fields inside the enclosing form back to their initial values.</td></tr>
+    <tr><td><code><button type="button"></code></td><td>Plain clickable button with no default action. Used to trigger custom JavaScript functions.</td></tr>
+  </tbody>
+</table></p>
 
 <h2>⚔️ <code>&lt;button&gt;</code> vs. <code>&lt;a href="..."&gt;</code> (When to Use Which?)</h2>
 
@@ -147,41 +147,41 @@
 <p><code><button></code> is flexible because it can contain formatted HTML elements, SVG icons, and images, whereas <code><input type="submit" value="..."></code> can only display plain text string values:</p>
 
 <pre><code class="language-html">&lt;!-- Modern flexible &lt;button&gt; with icon --&gt;
-<p>&lt;button type=&quot;submit&quot;&gt;</p>
-<p>  &lt;img src=&quot;icons/send.svg&quot; alt=&quot;&quot; width=&quot;16&quot; height=&quot;16&quot;&gt;</p>
-<p>  &lt;span&gt;Send Feedback&lt;/span&gt;</p>
-<p>&lt;/button&gt;</p>
+&lt;button type=&quot;submit&quot;&gt;
+  &lt;img src=&quot;icons/send.svg&quot; alt=&quot;&quot; width=&quot;16&quot; height=&quot;16&quot;&gt;
+  &lt;span&gt;Send Feedback&lt;/span&gt;
+&lt;/button&gt;
 
-<p>&lt;!-- Legacy plain-text &lt;input type=&quot;submit&quot;&gt; --&gt;</p>
-<p>&lt;input type=&quot;submit&quot; value=&quot;Send Feedback&quot;&gt;</code></pre>
+&lt;!-- Legacy plain-text &lt;input type=&quot;submit&quot;&gt; --&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Send Feedback&quot;&gt;</code></pre>
 
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Buttons Practice&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Buttons Practice&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;h1&gt;Form Action Buttons&lt;/h1&gt;</p>
+  &lt;h1&gt;Form Action Buttons&lt;/h1&gt;
 
-<p>  &lt;form action=&quot;/subscribe&quot; method=&quot;POST&quot;&gt;</p>
-<p>    &lt;p&gt;</p>
-<p>      &lt;label for=&quot;newsletter-email&quot;&gt;Subscribe to Newsletter:&lt;/label&gt;&lt;br&gt;</p>
-<p>      &lt;input id=&quot;newsletter-email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;name@domain.com&quot;&gt;</p>
-<p>    &lt;/p&gt;</p>
+  &lt;form action=&quot;/subscribe&quot; method=&quot;POST&quot;&gt;
+    &lt;p&gt;
+      &lt;label for=&quot;newsletter-email&quot;&gt;Subscribe to Newsletter:&lt;/label&gt;&lt;br&gt;
+      &lt;input id=&quot;newsletter-email&quot; type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;name@domain.com&quot;&gt;
+    &lt;/p&gt;
 
-<p>    &lt;p&gt;</p>
-<p>      &lt;button type=&quot;submit&quot;&gt;Subscribe Now&lt;/button&gt;</p>
-<p>      &lt;button type=&quot;reset&quot;&gt;Reset Fields&lt;/button&gt;</p>
-<p>      &lt;button type=&quot;button&quot; onclick=&quot;alert(&#39;Help requested!&#39;)&quot;&gt;Need Help?&lt;/button&gt;</p>
-<p>    &lt;/p&gt;</p>
-<p>  &lt;/form&gt;</p>
+    &lt;p&gt;
+      &lt;button type=&quot;submit&quot;&gt;Subscribe Now&lt;/button&gt;
+      &lt;button type=&quot;reset&quot;&gt;Reset Fields&lt;/button&gt;
+      &lt;button type=&quot;button&quot; onclick=&quot;alert(&#39;Help requested!&#39;)&quot;&gt;Need Help?&lt;/button&gt;
+    &lt;/p&gt;
+  &lt;/form&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 

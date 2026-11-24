@@ -125,13 +125,13 @@
 <h2>🧱 Block vs. Inline Elements Explained</h2>
 
 <table>
-<p>  <thead><tr><th>Property</th><th>Block-Level Elements (<code><div></code>, <code><p></code>, <code><h1></code>, <code><header></code>)</th><th>Inline-Level Elements (<code><span></code>, <code><a></code>, <code><strong></code>, <code><em></code>)</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><strong>Line Behavior</strong></td><td>Always starts on a <strong>new line</strong> in the layout.</td><td>Stays on the <strong>same line</strong> alongside neighboring content.</td></tr></p>
-<p>    <tr><td><strong>Width Expansion</strong></td><td>Expands automatically to occupy <strong>100% full available width</strong>.</td><td>Occupies only as much width as its content requires.</td></tr></p>
-<p>    <tr><td><strong>Nesting Rules</strong></td><td>Can contain both block and inline elements.</td><td>Should contain only other inline elements or plain text.</td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+  <thead><tr><th>Property</th><th>Block-Level Elements (<code><div></code>, <code></code>, <code><h1></code>, <code><header></code>)</th><th>Inline-Level Elements (<code><span></code>, <code><a></code>, <code><strong></code>, <code><em></code>)</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Line Behavior</strong></td><td>Always starts on a <strong>new line</strong> in the layout.</td><td>Stays on the <strong>same line</strong> alongside neighboring content.</td></tr>
+    <tr><td><strong>Width Expansion</strong></td><td>Expands automatically to occupy <strong>100% full available width</strong>.</td><td>Occupies only as much width as its content requires.</td></tr>
+    <tr><td><strong>Nesting Rules</strong></td><td>Can contain both block and inline elements.</td><td>Should contain only other inline elements or plain text.</td></tr>
+  </tbody>
+</table></p>
 
 <h2>⚖️ When to Use <code><div></code> / <code><span></code> vs. Semantic Tags</h2>
 
@@ -148,22 +148,22 @@
 <h2>💻 Code Example</h2>
 
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>  &lt;title&gt;Div and Span Practice&lt;/title&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body&gt;</p>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Div and Span Practice&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<p>  &lt;!-- Block division container grouping a card component --&gt;</p>
-<p>  &lt;div class=&quot;product-card&quot;&gt;</p>
-<p>    &lt;h2&gt;Wireless Gaming Mouse&lt;/h2&gt;</p>
-<p>    &lt;p&gt;High precision optical sensor with customizable RGB lighting.&lt;/p&gt;</p>
-<p>    &lt;p&gt;Price: &lt;span class=&quot;highlight-price&quot;&gt;$29.99&lt;/span&gt; &lt;span class=&quot;badge&quot;&gt;In Stock&lt;/span&gt;&lt;/p&gt;</p>
-<p>  &lt;/div&gt;</p>
+  &lt;!-- Block division container grouping a card component --&gt;
+  &lt;div class=&quot;product-card&quot;&gt;
+    &lt;h2&gt;Wireless Gaming Mouse&lt;/h2&gt;
+    &lt;p&gt;High precision optical sensor with customizable RGB lighting.&lt;/p&gt;
+    &lt;p&gt;Price: &lt;span class=&quot;highlight-price&quot;&gt;$29.99&lt;/span&gt; &lt;span class=&quot;badge&quot;&gt;In Stock&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
 
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <h2>👀 Output / What You Will See</h2>
 
