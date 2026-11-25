@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Function Prototypes & Stack Frames - C Language</title>
+  <title>The do-while Loop - C Language</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -58,9 +58,11 @@
   <li class="nav-item"><a href="../04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
   <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
   <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a>
-          <li class="nav-item"><a href="prototypes-definitions.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Prototypes & Stack Frames</span></a></li></li>
+  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a>
+          <li class="nav-item"><a href="for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
+          <li class="nav-item"><a href="while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; while Loop</span></a></li>
+          <li class="nav-item"><a href="do-while-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; do-while Loop</span></a></li></li>
+  <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
   <li class="nav-item"><a href="../09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
   <li class="nav-item"><a href="../10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
   <li class="nav-item"><a href="../11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
@@ -88,90 +90,101 @@
 
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>Function Prototypes & Stack Frames in C</h1>
-        <blockquote><p>🟢 Beginner Level | ISO C Function Specifications</p></blockquote>
+        <h1>The <code>do-while</code> Loop in C Programming</h1>
+        <blockquote><p>🟢 Beginner Level | Post-tested Exit-controlled Loop</p></blockquote>
 
         <h2>📖 Definition</h2>
-        <p>A <strong>Function Prototype</strong> in C informs the compiler about a function's return type, name, and parameter types before its definition body appears in source code.</p>
+        <p>The <strong><code>do-while</code> loop</strong> in C executes the loop body first and tests the controlling expression at the bottom of the loop. This guarantees that the loop body is executed <strong>at least once</strong> regardless of the initial condition.</p>
 
         <h2>🤔 Purpose</h2>
-        <p>Allows functions to be called in `main()` regardless of their physical placement in source files, ensuring compile-time type-safety.</p>
+        <p>Ideal for interactive menu loops, user prompt re-validation, and tasks that must perform an action before testing whether to repeat it.</p>
 
         <h2>🌐 Multilingual Explanations</h2>
         <h3>English</h3>
-        <p>Prototypes (e.g. <code>int add(int, int);</code>) enable single-pass C compilers to validate parameter types before function definitions.</p>
+        <p>A <code>do { ... } while (condition);</code> loop guarantees at least one execution because condition evaluation occurs after the block executes.</p>
         <h3>Hindi</h3>
-        <p>Function prototype <code>int calculate(int a, int b);</code> compiler ko batata hai ki function lower file position par defined hai.</p>
+        <p><code>do-while</code> loop kam se kam ek baar zaroor chalta hai, chahe condition shuru me hi false kyun na ho.</p>
         <h3>Marathi</h3>
-        <p>C compiler sathi main() chya aadhi prototype declaration mahatvache asate.</p>
+        <p>Condition khali test hot aslyamule <code>do-while</code> loop kamiat kami ekda nakki run hoto.</p>
         <h3>Hinglish</h3>
-        <p>Prototype declaration: <code>int power(int base, int exp);</code> top-of-file placement follow karein.</p>
+        <p>Interactive terminal menus ke liye <code>do-while</code> best choice hoti hai kyunki user ko pehle menu dikhana hota hai.</p>
 
         <h2>📝 Syntax & Parameters</h2>
-        <pre><code class="language-c">// Prototype (Declaration)
-int addNumbers(int a, int b);
-
-int main(void) {
-    int res = addNumbers(5, 10);
-    return 0;
-}
-
-// Definition
-int addNumbers(int a, int b) {
-    return a + b;
-}</code></pre>
+        <pre><code class="language-c">do {
+    // Statements executed at least once
+} while (condition);</code></pre>
 
         <h2>⚡ Execution Flow</h2>
         <ol>
-          <li>Compiler verifies call argument types against prototype declaration.</li>
-          <li>Execution allocates a stack frame pushing arguments in reverse order.</li>
-          <li>Function executes, pops stack frame, and places return value into register.</li>
+          <li>Execute the statements inside the <code>do</code> block.</li>
+          <li>Evaluate <code>(condition)</code> at the end of the block.</li>
+          <li>If non-zero (true), jump back to Step 1.</li>
+          <li>If <code>0</code> (false), terminate the loop and proceed to the next statement.</li>
         </ol>
 
         <h2>💡 Progressive Examples</h2>
 
-        <h3>Example 1: Prototype with Pass-by-Value</h3>
+        <h3>Example: Interactive Menu Validation Loop</h3>
         <pre><code class="language-c">#include &lt;stdio.h&gt;
 
-// Prototype
-double celsiusToFahrenheit(double celsius);
-
 int main(void) {
-    double tempC = 25.0;
-    double tempF = celsiusToFahrenheit(tempC);
-    printf("%.1f C = %.1f F\n", tempC, tempF);
-    return 0;
-}
+    int choice;
+    do {
+        printf("\n--- C Bank Application ---\n");
+        printf("1. Check Balance\n");
+        printf("2. Deposit\n");
+        printf("3. Exit\n");
+        printf("Enter your choice (1-3): ");
+        scanf("%d", &choice);
 
-double celsiusToFahrenheit(double celsius) {
-    return (celsius * 9.0 / 5.0) + 32.0;
+        switch (choice) {
+            case 1: printf("Balance: $1,250.00\n"); break;
+            case 2: printf("Deposit successful!\n"); break;
+            case 3: printf("Exiting application...\n"); break;
+            default: printf("Invalid choice! Try again.\n");
+        }
+    } while (choice != 3);
+
+    return 0;
 }</code></pre>
 
         <h2>🖥️ Expected Output</h2>
-        <pre><code class="language-text">25.0 C = 77.0 F</code></pre>
+        <pre><code class="language-text">--- C Bank Application ---
+1. Check Balance
+2. Deposit
+3. Exit
+Enter your choice (1-3): 1
+Balance: $1,250.00
+
+--- C Bank Application ---
+1. Check Balance
+2. Deposit
+3. Exit
+Enter your choice (1-3): 3
+Exiting application...</code></pre>
 
         <h2>🔍 Line-by-Line Code Breakdown</h2>
         <ul>
-          <li><code>double celsiusToFahrenheit(double celsius);</code>: Informs compiler of return type and double parameter.</li>
-          <li><code>celsiusToFahrenheit(tempC)</code>: Passes value of <code>tempC</code> into function stack frame.</li>
+          <li><code>do { ... }</code>: Encloses the menu rendering logic and prompt.</li>
+          <li><code>while (choice != 3);</code>: Evaluates if user requested exit; note the required trailing semicolon!</li>
         </ul>
 
         <h2>⚠️ Variations & Edge Cases</h2>
-        <p>Calling a function without a prototype in C99/C11 causes an implicit declaration warning/error.</p>
+        <p>Unlike <code>while</code> and <code>for</code> loops, a <code>do-while</code> loop syntax **must** end with a semicolon (<code>;</code>) after the closing parenthesis.</p>
 
         <h2>❌ Common Beginner Mistakes</h2>
         <div class="warning-box">
-          <p><strong>Mismatch Between Prototype and Definition:</strong> Declaring <code>int calc(double)</code> as prototype but defining <code>int calc(int)</code> produces linker errors.</p>
+          <p><strong>Forgetting the Trailing Semicolon:</strong> Omitting the semicolon after <code>while (condition)</code> results in a syntax compilation error.</p>
         </div>
 
         <h2>🛠️ Real-World Practical Usage</h2>
-        <p>Structuring multi-file modular libraries in C (`.h` headers with `.c` implementations).</p>
+        <p>Console CLI input sanitization, retry handlers for hardware peripheral polling, and game main loop restarts.</p>
 
         <h2>🎯 Tiered Practice Exercises</h2>
         <ol>
-          <li><strong>Beginner:</strong> Write a prototype and definition for a C function finding max of two integers.</li>
-          <li><strong>Intermediate:</strong> Write a recursive C function prototype calculating factorial.</li>
-          <li><strong>Advanced:</strong> Pass a pointer to a struct as a parameter in a C function.</li>
+          <li><strong>Beginner:</strong> Write a `do-while` loop that prompts for a positive integer until the user inputs one.</li>
+          <li><strong>Intermediate:</strong> Implement a `do-while` loop driving a password retry system (max 3 attempts).</li>
+          <li><strong>Advanced:</strong> Create a state-machine driver loop using `do-while` and `switch`.</li>
         </ol>
       </div>
     </main>
