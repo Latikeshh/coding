@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OUTER JOINs - SQL Database</title>
+  <title>CROSS JOIN - SQL Database</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -60,31 +60,32 @@
   <li class="nav-item"><a href="../06-insert.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">INSERT` – Adding Data to Tables</span></a></li>
   <li class="nav-item"><a href="../07-select.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SELECT` – Reading & Querying Data</span></a></li>
   <li class="nav-item"><a href="../08-where.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Filtering Data with `WHERE`</span></a></li>
-  <li class="nav-item"><a href="../09-operators.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in SQL</span></a></li>
+  <li class="nav-item"><a href="../09-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in SQL</span></a></li>
   <li class="nav-item"><a href="../10-order-by-and-limit.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Sorting & Limiting Results (`ORDER BY`, `LIMIT`)</span></a></li>
   <li class="nav-item"><a href="../11-update-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">UPDATE` & `DELETE` – Modifying Data</span></a></li>
   <li class="nav-item"><a href="../12-aggregate-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)</span></a></li>
   <li class="nav-item"><a href="../13-group-by-and-having.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">`GROUP BY` & `HAVING` Clauses in SQL</span></a></li>
   <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Joins & Table Relationships</span></a>
           <li class="nav-item"><a href="inner-join.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; INNER JOIN</span></a></li>
-          <li class="nav-item"><a href="outer-joins.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; OUTER JOINs</span></a></li>
-          <li class="nav-item"><a href="self-join.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; SELF JOIN</span></a></li></li>
+          <li class="nav-item"><a href="outer-joins.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; OUTER JOINs</span></a></li>
+          <li class="nav-item"><a href="self-join.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; SELF JOIN</span></a></li>
+          <li class="nav-item"><a href="cross-join.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; CROSS JOIN</span></a></li></li>
   <li class="nav-item"><a href="../15-sql-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Built-in Functions: String, Numeric, Date & NULL Handling</span></a></li>
   <li class="nav-item"><a href="../16-case-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Logic with CASE Expressions in SQL</span></a></li>
-  <li class="nav-item"><a href="../17-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
-  <li class="nav-item"><a href="../18-set-operations.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 18 — Set Operations: UNION, UNION ALL, INTERSECT & EXCEPT</span></a></li>
+  <li class="nav-item"><a href="../17-complex-queries/01-subqueries.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Subqueries & Nested Queries in SQL</span></a></li>
+  <li class="nav-item"><a href="../17-complex-queries/02-set-operations.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Operations: UNION, INTERSECT & EXCEPT</span></a></li>
   <li class="nav-item"><a href="../19-normalization.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Database Relationships & Normalization</span></a></li>
-  <li class="nav-item"><a href="../20-views.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 20 — Views & Virtual Tables in SQL</span></a></li>
-  <li class="nav-item"><a href="../21-indexes-and-performance.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Indexes & Query Performance Tuning</span></a></li>
-  <li class="nav-item"><a href="../22-transactions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 22 — Transactions & ACID in SQL</span></a></li>
-  <li class="nav-item"><a href="../23-ctes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 23 — Common Table Expressions (CTEs) & WITH Clause</span></a></li>
-  <li class="nav-item"><a href="../24-recursive-ctes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Recursive CTEs in SQL</span></a></li>
-  <li class="nav-item"><a href="../25-window-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 25 — SQL Window Functions</span></a></li>
-  <li class="nav-item"><a href="../26-stored-procedures.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">️ MySQL Stored Procedures & Functions</span></a></li>
-  <li class="nav-item"><a href="../27-triggers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 27 — MySQL Triggers & Automated Event Auditing</span></a></li>
+  <li class="nav-item"><a href="../20-views.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Views & Virtual Tables in SQL</span></a></li>
+  <li class="nav-item"><a href="../21-db-administration/01-indexes-and-performance.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Indexes & Query Performance Tuning</span></a></li>
+  <li class="nav-item"><a href="../21-db-administration/02-transactions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Transactions & ACID in SQL</span></a></li>
+  <li class="nav-item"><a href="../23-advanced-sql/01-common-table-expressions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Common Table Expressions (CTEs) & WITH Clause</span></a></li>
+  <li class="nav-item"><a href="../23-advanced-sql/02-recursive-ctes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Recursive CTEs in SQL</span></a></li>
+  <li class="nav-item"><a href="../23-advanced-sql/03-window-functions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Window Functions</span></a></li>
+  <li class="nav-item"><a href="../26-programmable-sql/01-stored-procedures.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">MySQL Stored Procedures & Functions</span></a></li>
+  <li class="nav-item"><a href="../26-programmable-sql/02-triggers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">MySQL Triggers & Event Auditing</span></a></li>
   <li class="nav-item"><a href="../28-sql-security.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">SQL Security, Roles & Permissions</span></a></li>
-  <li class="nav-item"><a href="../29-json-data-in-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 29 — Working with JSON Data in MySQL</span></a></li>
-  <li class="nav-item"><a href="../30-sql-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Chapter 30 — Practical SQL Capstone Projects</span></a></li>
+  <li class="nav-item"><a href="../29-json-data-in-sql.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Working with JSON Data in MySQL</span></a></li>
+  <li class="nav-item"><a href="../30-sql-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Practical SQL Capstone Projects</span></a></li>
 </ul>
       </div>
       <div class="sidebar-footer">
@@ -97,76 +98,47 @@
 
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>SQL <code>LEFT JOIN</code> & <code>RIGHT JOIN</code> Outer Joins</h1>
-        <blockquote><p>🟢 Intermediate Level | Preserving Unmatched Relational Records</p></blockquote>
+        <h1>The <code>CROSS JOIN</code> Clause in SQL</h1>
+        <blockquote><p>🟢 Intermediate Level | Cartesian Product Generation</p></blockquote>
 
         <h2>📖 Definition</h2>
-        <p>A <strong><code>LEFT OUTER JOIN</code></strong> (or simply <code>LEFT JOIN</code>) returns all records from the left table, along with matching records from the right table. If no match exists, <code>NULL</code> values are populated for right table columns.</p>
+        <p>A <strong><code>CROSS JOIN</code></strong> produces a Cartesian product between two database tables, pairing every row from Table A with every row from Table B. If Table A has $N$ rows and Table B has $M$ rows, the result set contains $N \times M$ rows.</p>
 
         <h2>🤔 Purpose</h2>
-        <p>Preserves all primary records—such as listing all customers regardless of whether they have placed an order yet.</p>
+        <p>Used to generate complete matrices, product combinations (e.g. sizes $\times$ colors), date grids, and test data permutations.</p>
 
         <h2>🌐 Multilingual Explanations</h2>
         <h3>English</h3>
-        <p>Unlike <code>INNER JOIN</code>, <code>LEFT JOIN</code> guarantees that every row from the left table appears in the output at least once. Unmatched right table fields return <code>NULL</code>.</p>
+        <p>A <code>CROSS JOIN</code> returns all possible combinations of rows from the joined tables without requiring an <code>ON</code> predicate.</p>
         <h3>Hindi</h3>
-        <p><code>LEFT JOIN</code> left table ke saare records preserve karta hai, chahe right table mein match ho ya na ho. Unmatched fields <code>NULL</code> show hote hain.</p>
+        <p><code>CROSS JOIN</code> dono tables ki har row ko aapas me combine karke Cartesian Product (total $N \times M$ rows) banata hai.</p>
         <h3>Marathi</h3>
-        <p>Left table madhil sarv rows output madhye distat.</p>
+        <p>Dohitahi tables madhil sarv possible combinations <code>CROSS JOIN</code> ne tayar hotat.</p>
         <h3>Hinglish</h3>
-        <p>Preserve left table: <code>SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id</code> query use karein.</p>
+        <p>Grid generation query: <code>SELECT * FROM colors CROSS JOIN sizes;</code> use karein.</p>
 
         <h2>📝 Syntax & Parameters</h2>
-        <pre><code class="language-sql">SELECT u.user_name, o.order_id
-FROM users u
-LEFT JOIN orders o
-  ON u.user_id = o.user_id;</code></pre>
+        <pre><code class="language-sql">SELECT t1.column1, t2.column2
+FROM table1 t1
+CROSS JOIN table2 t2;</code></pre>
 
-        <h2>⚡ Execution Flow</h2>
-        <ol>
-          <li>All rows from left table (<code>users</code>) are fetched.</li>
-          <li>For each row, right table (<code>orders</code>) is searched for matches.</li>
-          <li>If matched, combined row is output. If no match, right fields are filled with <code>NULL</code>.</li>
-        </ol>
-
-        <h2>💡 Progressive Examples</h2>
-
-        <h3>Example 1: Customers with and without Orders</h3>
-        <pre><code class="language-sql">SELECT u.user_name, o.order_id, o.order_total
-FROM users u
-LEFT JOIN orders o
-  ON u.user_id = o.user_id;</code></pre>
+        <h2>💡 Progressive Example</h2>
+        <pre><code class="language-sql">-- Generating all combinations of products and sizes
+SELECT products.product_name, sizes.size_code
+FROM products
+CROSS JOIN sizes;</code></pre>
 
         <h2>🖥️ Expected Output</h2>
-        <pre><code class="language-text">+-----------+----------+-------------+
-| user_name | order_id | order_total |
-+-----------+----------+-------------+
-| Latikesh  |     1001 |      199.99 |
-| Sarah     |     NULL |        NULL |
-+-----------+----------+-------------+</code></pre>
-
-        <h2>🔍 Line-by-Line Code Breakdown</h2>
-        <ul>
-          <li><code>LEFT JOIN orders</code>: Retains Sarah (user with 0 orders) while populating <code>NULL</code> for order fields.</li>
-        </ul>
-
-        <h2>⚠️ Variations & Edge Cases</h2>
-        <p>Filtering with <code>WHERE o.order_id IS NULL</code> finds users who have NEVER placed an order!</p>
-
-        <h2>❌ Common Beginner Mistakes</h2>
-        <div class="warning-box">
-          <p><strong>Filtering Left Joined Columns in WHERE:</strong> Adding <code>WHERE o.order_status = 'COMPLETED'</code> implicitly converts a <code>LEFT JOIN</code> into an <code>INNER JOIN</code> because NULLs fail the equality check!</p>
-        </div>
-
-        <h2>🛠️ Real-World Practical Usage</h2>
-        <p>Identifying inactive accounts or orphaned records.</p>
-
-        <h2>🎯 Tiered Practice Exercises</h2>
-        <ol>
-          <li><strong>Beginner:</strong> Write a SQL `LEFT JOIN` showing all departments and their assigned employees.</li>
-          <li><strong>Intermediate:</strong> Write a `LEFT JOIN` query finding all products that have never been purchased (`WHERE order_id IS NULL`).</li>
-          <li><strong>Advanced:</strong> Use a `FULL OUTER JOIN` to combine unmatched rows from both left and right tables.</li>
-        </ol>
+        <pre><code class="language-text">+--------------+-----------+
+| product_name | size_code |
++--------------+-----------+
+| T-Shirt      | S         |
+| T-Shirt      | M         |
+| T-Shirt      | L         |
+| Hoodie       | S         |
+| Hoodie       | M         |
+| Hoodie       | L         |
++--------------+-----------+</code></pre>
       </div>
     </main>
   </div>
