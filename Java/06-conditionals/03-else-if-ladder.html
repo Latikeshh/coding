@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nested Conditionals - Java SE</title>
+  <title>03 Else-If Ladder in Java - Java</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../../index.html" class="mobile-brand">
         <span class="brand-logo">&#128187;</span>
@@ -22,6 +23,7 @@
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="../../index.html" class="site-brand">
@@ -42,12 +44,12 @@
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
-          <a href="../../index.html" class="nav-back-btn">
+          <a href="../index.html" class="nav-back-btn">
             <span class="back-arrow">&larr;</span> All Courses
           </a>
         </div>
         <div class="course-nav-header">
-          <span class="course-header-title">Java SE</span>
+          <span class="course-header-title">Java</span>
           <span class="course-header-badge">24 Lessons</span>
         </div>
         <ul class="nav-menu course-lessons-menu">
@@ -81,87 +83,33 @@
       </div>
     </aside>
 
+    <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>Nested Conditionals in Java</h1>
-        <blockquote><p>🟢 Intermediate Level | Java Strongly-Typed Control Flow</p></blockquote>
+        <h1>Else-If Ladder in Java in Java</h1>
+        <blockquote><p>🟢 Beginner</p></blockquote>
 
         <h2>📖 Definition</h2>
-        <p>A <strong>Nested Conditional</strong> in Java places an <code>if</code> or <code>if-else</code> block inside another conditional block, allowing hierarchical validation of dependent boolean conditions.</p>
-
-        <h2>🤔 Purpose</h2>
-        <p>Enables step-by-step verification in Java enterprise applications—such as verifying object non-null status before validating instance properties.</p>
-
-        <h2>🌐 Multilingual Explanations</h2>
-        <h3>English</h3>
-        <p>In Java, inner <code>if</code> statements execute only when the outer boolean expression evaluates to <code>true</code>.</p>
-        <h3>Hindi</h3>
-        <p>Pehle outer <code>if (condition)</code> evaluate hota hai. `true` hone par hi andar ka inner `if` block chalta hai.</p>
-        <h3>Marathi</h3>
-        <p>Outer condition `true` aslyasach inner `if` condition test hoto.</p>
-        <h3>Hinglish</h3>
-        <p>Null check pattern: <code>if (user != null) { if (user.isActive()) { ... } }</code> execute hota hai.</p>
-
-        <h2>📝 Syntax & Parameters</h2>
-        <pre><code class="language-java">if (outerBooleanCondition) {
-    if (innerBooleanCondition) {
-        // Body executed when both outer and inner conditions are true
-    }
-}</code></pre>
-
-        <h2>⚡ Execution Flow</h2>
-        <ol>
-          <li>Java evaluates <code>outerBooleanCondition</code>.</li>
-          <li>If <code>true</code>, control enters outer block and tests <code>innerBooleanCondition</code>.</li>
-          <li>If <code>innerBooleanCondition</code> is <code>true</code>, inner body executes.</li>
-        </ol>
-
-        <h2>💡 Progressive Examples</h2>
-
-        <h3>Example 1: Safe Null & Property Check</h3>
-        <pre><code class="language-java">public class NestedDemo {
+        <p>An <strong>else-if ladder</strong> tests sequential conditions in Java.</p>
+        <h2>⚡ Code Example</h2>
+        <pre><code class="language-java">public class LadderDemo {
     public static void main(String[] args) {
-        String role = "ADMIN";
-        boolean isEnabled = true;
-
-        if (role != null) {
-            if (isEnabled && role.equals("ADMIN")) {
-                System.out.println("Superuser control access granted.");
-            }
-        }
+        int score = 85;
+        if (score >= 90) System.out.println("A+");
+        else if (score >= 80) System.out.println("A");
+        else System.out.println("B/C");
     }
 }</code></pre>
 
-        <h2>🖥️ Expected Output</h2>
-        <pre><code class="language-text">Superuser control access granted.</code></pre>
-
-        <h2>🔍 Line-by-Line Code Breakdown</h2>
-        <ul>
-          <li><code>if (role != null)</code>: Ensures String object reference is not <code>null</code>.</li>
-          <li><code>if (isEnabled && role.equals("ADMIN"))</code>: Evaluates inner boolean condition and logs access text.</li>
-        </ul>
-
-        <h2>⚠️ Variations & Edge Cases</h2>
-        <p>Java supports short-circuit evaluation (`&&`), allowing `if (user != null && user.isActive())` as a single-line alternative to nested blocks.</p>
-
-        <h2>❌ Common Beginner Mistakes</h2>
-        <div class="warning-box">
-          <p><strong>NullPointerException:</strong> Dereferencing a object in an inner condition without an outer null check causes a runtime `NullPointerException`!</p>
-        </div>
-
-        <h2>🛠️ Real-World Practical Usage</h2>
-        <p>Security context authorization filters.</p>
-
-        <h2>🎯 Tiered Practice Exercises</h2>
-        <ol>
-          <li><strong>Beginner:</strong> Write nested `if` statements checking if a Java integer is positive and odd.</li>
-          <li><strong>Intermediate:</strong> Refactor a nested `if` into a single `if` using `&&`.</li>
-          <li><strong>Advanced:</strong> Use Java 16 `Optional` map/filter chains as a functional alternative to nested null checks.</li>
-        </ol>
+        <hr>
+        <h2>🧭 Navigation</h2>
+        <p><a href="02-if-else-statement.html">&larr; 02. If-Else Statement in Java</a> | <a href="index.html">Module Index</a> | <a href="04-switch-statements-and-expressions.html">04. Switch Statements & Expressions &rarr;</a></p>
       </div>
     </main>
   </div>
+
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>
