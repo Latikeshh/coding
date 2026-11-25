@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced for-each Loop - Java SE</title>
+  <title>02 Enhanced For-Each Loop - Java</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../../index.html" class="mobile-brand">
         <span class="brand-logo">&#128187;</span>
@@ -22,6 +23,7 @@
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="../../index.html" class="site-brand">
@@ -42,43 +44,35 @@
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
-          <a href="../../index.html" class="nav-back-btn">
+          <a href="../index.html" class="nav-back-btn">
             <span class="back-arrow">&larr;</span> All Courses
           </a>
         </div>
         <div class="course-nav-header">
-          <span class="course-header-title">Java SE</span>
+          <span class="course-header-title">Java</span>
           <span class="course-header-badge">24 Lessons</span>
         </div>
         <ul class="nav-menu course-lessons-menu">
-  <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn Java Programming (Java SE / JDK 25)</span></a></li>
-  <li class="nav-item"><a href="../01-setup-java.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Up Java Development Environment</span></a></li>
+  <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn Java — Course Overview</span></a></li>
+  <li class="nav-item"><a href="../01-setup-java.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Up Java Environment</span></a></li>
   <li class="nav-item"><a href="../02-java-program-structure.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Program Structure</span></a></li>
-  <li class="nav-item"><a href="../03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types</span></a></li>
-  <li class="nav-item"><a href="../04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators and Expressions in Java</span></a></li>
-  <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditional Decision Making in Java</span></a></li>
-  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in Java</span></a>
-          <li class="nav-item"><a href="for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
-          <li class="nav-item"><a href="enhanced-for-loop.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Enhanced for-each Loop</span></a></li>
-          <li class="nav-item"><a href="while-dowhile-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; while & do-while Loops</span></a></li></li>
-  <li class="nav-item"><a href="../08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Methods in Java</span></a></li>
-  <li class="nav-item"><a href="../09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in Java</span></a></li>
-  <li class="nav-item"><a href="../10-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in Java</span></a></li>
-  <li class="nav-item"><a href="../11-collections.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Java Collections Framework (List, Set, Map & Queue)</span></a></li>
-  <li class="nav-item"><a href="../12-enums-and-records.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Enums and Records in Java</span></a></li>
-  <li class="nav-item"><a href="../13-generics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Generics in Java</span></a></li>
-  <li class="nav-item"><a href="../14-classes-and-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes and Objects in Java</span></a></li>
-  <li class="nav-item"><a href="../15-encapsulation-and-composition.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Encapsulation and Composition in Java</span></a></li>
-  <li class="nav-item"><a href="../16-inheritance-and-polymorphism.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Inheritance and Polymorphism in Java</span></a></li>
-  <li class="nav-item"><a href="../17-interfaces-and-abstract-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Interfaces and Abstract Classes in Java</span></a></li>
-  <li class="nav-item"><a href="../18-exceptions-and-validation.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Exceptions and Validation in Java</span></a></li>
-  <li class="nav-item"><a href="../19-packages-and-project-organization.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Packages and Project Organization in Java</span></a></li>
-  <li class="nav-item"><a href="../20-file-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">File Input and Output in Java</span></a></li>
-  <li class="nav-item"><a href="../21-lambdas-and-streams.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lambdas and Streams in Java</span></a></li>
-  <li class="nav-item"><a href="../22-dates-and-time.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Modern Date and Time API in Java</span></a></li>
-  <li class="nav-item"><a href="../23-testing-and-debugging.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Testing and Debugging in Java</span></a></li>
-  <li class="nav-item"><a href="../24-build-tools-and-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Build Tools and Capstone Mini Projects in Java</span></a></li>
+  <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types Module</span></a></li>
+  <li class="nav-item"><a href="../04-input-and-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output in Java</span></a></li>
+  <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators & Expressions</span></a></li>
+  <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditional Decision Making</span></a></li>
+  <li class="nav-item"><a href="../07-loops/index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops in Java</span></a></li>
+  <li class="nav-item"><a href="../08-methods/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Methods in Java</span></a></li>
+  <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Java Arrays Module</span></a></li>
+  <li class="nav-item"><a href="../10-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Java Strings Module</span></a></li>
+  <li class="nav-item"><a href="../11-collections-framework/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Collections & Generics</span></a></li>
+  <li class="nav-item"><a href="../12-enums-and-records/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Enums & Records Module</span></a></li>
+  <li class="nav-item"><a href="../14-oop-concepts/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Java OOP Concepts Module</span></a></li>
+  <li class="nav-item"><a href="../18-exceptions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Exception Handling Module</span></a></li>
+  <li class="nav-item"><a href="../19-packages/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Packages & Access Control</span></a></li>
+  <li class="nav-item"><a href="../20-streams-and-io/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Streams API & File I/O</span></a></li>
+  <li class="nav-item"><a href="../22-dates-and-time/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. Date & Time API Module</span></a></li>
+  <li class="nav-item"><a href="../23-testing-and-debugging/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. Unit Testing & Debugging</span></a></li>
+  <li class="nav-item"><a href="../24-build-tools/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Build Tools & Capstone Projects</span></a></li>
 </ul>
       </div>
       <div class="sidebar-footer">
@@ -89,84 +83,29 @@
       </div>
     </aside>
 
+    <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>Enhanced <code>for-each</code> Loop in Java</h1>
-        <blockquote><p>🟢 Beginner Level | Collection & Array Iteration</p></blockquote>
+        <h1>Enhanced For-Each Loop in Java</h1>
+        <blockquote><p>🟢 Beginner Level | Java Core Syntax</p></blockquote>
 
         <h2>📖 Definition</h2>
-        <p>The <strong>Enhanced <code>for-each</code> loop</strong> (introduced in Java 5) provides a clean syntax to iterate through elements of arrays or <code>Iterable</code> collections without using manual index counters.</p>
-
-        <h2>🤔 Purpose</h2>
-        <p>Eliminates index counter boilerplates and prevents <code>ArrayIndexOutOfBoundsException</code> when reading arrays or collections sequentially.</p>
-
-        <h2>🌐 Multilingual Explanations</h2>
-        <h3>English</h3>
-        <p>The <code>for (ElementType item : collection)</code> loop binds each element of <code>collection</code> sequentially to local variable <code>item</code>.</p>
-        <h3>Hindi</h3>
-        <p>Java mein <code>for (String name : namesList)</code> syntax collection ke har item ko बारी-बारी read karta hai. Index <code>i</code> ki zaroorat nahi hoti.</p>
-        <h3>Marathi</h3>
-        <p>Enhanced <code>for</code> loop mule array aani collections sahaj read karta yetat.</p>
-        <h3>Hinglish</h3>
-        <p>Clean array reading: <code>for (int mark : marksArray) { sum += mark; }</code> pattern follow karein.</p>
-
-        <h2>📝 Syntax & Parameters</h2>
-        <pre><code class="language-java">for (DataType element : arrayOrCollection) {
-    // Body statements operating on element
+        <p>The <strong>Enhanced For-Each loop</strong> simplifies iteration over arrays and <code>Iterable</code> collections without requiring explicit index tracking.</p>
+        <h2>⚡ Code Example</h2>
+        <pre><code class="language-java">String[] names = {"Alice", "Bob", "Charlie"};
+for (String name : names) {
+    System.out.println("Hello " + name);
 }</code></pre>
 
-        <h2>⚡ Execution Flow</h2>
-        <ol>
-          <li>Java fetches an internal iterator or array index offset.</li>
-          <li>Assigns current element to <code>element</code>.</li>
-          <li>Executes body statements. Repeats until all items are processed.</li>
-        </ol>
-
-        <h2>💡 Progressive Examples</h2>
-
-        <h3>Example 1: Iterating String Array</h3>
-        <pre><code class="language-java">public class ForEachDemo {
-    public static void main(String[] args) {
-        String[] frameworks = {"Spring Boot", "Hibernate", "Quarkus"};
-
-        for (String fw : frameworks) {
-            System.out.println("Java Framework: " + fw);
-        }
-    }
-}</code></pre>
-
-        <h2>🖥️ Expected Output</h2>
-        <pre><code class="language-text">Java Framework: Spring Boot
-Java Framework: Hibernate
-Java Framework: Quarkus</code></pre>
-
-        <h2>🔍 Line-by-Line Code Breakdown</h2>
-        <ul>
-          <li><code>for (String fw : frameworks)</code>: Sequentially binds each String element to local <code>fw</code>.</li>
-          <li><code>System.out.println(...)</code>: Outputs element text to stdout.</li>
-        </ul>
-
-        <h2>⚠️ Variations & Edge Cases</h2>
-        <p>The enhanced <code>for-each</code> loop is **read-only** regarding array references; modifying local <code>element</code> variable does NOT mutate the original array element!</p>
-
-        <h2>❌ Common Beginner Mistakes</h2>
-        <div class="warning-box">
-          <p><strong>Modifying Collection During Iteration:</strong> Calling <code>list.remove()</code> inside a for-each loop throws a <code>ConcurrentModificationException</code>!</p>
-        </div>
-
-        <h2>🛠️ Real-World Practical Usage</h2>
-        <p>Processing Spring Data entity result lists.</p>
-
-        <h2>🎯 Tiered Practice Exercises</h2>
-        <ol>
-          <li><strong>Beginner:</strong> Write a Java enhanced for-each loop summing numbers in an integer array.</li>
-          <li><strong>Intermediate:</strong> Write a for-each loop iterating over a <code>List&lt;String&gt;</code> filtering items starting with 'A'.</li>
-          <li><strong>Advanced:</strong> Iterate over a <code>Map&lt;String, Integer&gt;</code> using <code>map.entrySet()</code> with an enhanced for-each loop.</li>
-        </ol>
+        <hr>
+        <h2>🧭 Navigation</h2>
+        <p><a href="for-loop.html">&larr; 01. For Loop in Java</a> | <a href="index.html">Module Hub</a> | <a href="while-loop.html">03. While Loop in Java &rarr;</a></p>
       </div>
     </main>
   </div>
+
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>
