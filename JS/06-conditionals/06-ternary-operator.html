@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The else if Ladder - JavaScript</title>
+  <title>06 Ternary Operator in JS - JavaScript</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../../index.html" class="mobile-brand">
         <span class="brand-logo">&#128187;</span>
@@ -22,6 +23,7 @@
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="../../index.html" class="site-brand">
@@ -42,7 +44,7 @@
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
-          <a href="../../index.html" class="nav-back-btn">
+          <a href="../index.html" class="nav-back-btn">
             <span class="back-arrow">&larr;</span> All Courses
           </a>
         </div>
@@ -82,88 +84,28 @@
       </div>
     </aside>
 
+    <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>The <code>else if</code> Ladder in JavaScript</h1>
-        <blockquote><p>🟢 Beginner Level | Multi-Branch Evaluation</p></blockquote>
+        <h1>Ternary Operator in JS in JavaScript</h1>
+        <blockquote><p>🟢 Beginner</p></blockquote>
 
         <h2>📖 Definition</h2>
-        <p>An <strong><code>else if</code> ladder</strong> tests multiple conditions sequentially. As soon as one condition evaluates to a truthy value, its corresponding block executes and all remaining conditions in the ladder are skipped.</p>
+        <p>The <strong>Ternary Operator</strong> (<code>cond ? a : b</code>) assigns inline values in JS.</p>
+        <h2>⚡ Code Example</h2>
+        <pre><code class="language-js">let age = 20;
+let status = (age >= 18) ? "Adult" : "Minor";
+console.log(status);</code></pre>
 
-        <h2>🤔 Purpose</h2>
-        <p>Used when an application must categorize input into multiple non-overlapping ranges (such as student marks grading or age category classification).</p>
-
-        <h2>🌐 Multilingual Explanations</h2>
-        <h3>English</h3>
-        <p>JavaScript tests conditions from top to bottom. The first truthy branch runs exclusively; subsequent branches are ignored.</p>
-        <h3>Hindi</h3>
-        <p>Pehli truthy condition ka code chalta hai, baki saare <code>else if</code> blocks skip ho jaate hain.</p>
-        <h3>Marathi</h3>
-        <p>Varun khali ek-ek condition test kelyas, pehli <code>true</code> condition run hote.</p>
-        <h3>Hinglish</h3>
-        <p>Sequential range checks: <code>if (marks >= 90) { ... } else if (marks >= 75) { ... }</code> pattern follow karein.</p>
-
-        <h2>📝 Syntax & Parameters</h2>
-        <pre><code class="language-js">if (condition1) {
-  // Block 1
-} else if (condition2) {
-  // Block 2
-} else {
-  // Fallback Block
-}</code></pre>
-
-        <h2>⚡ Execution Flow</h2>
-        <ol>
-          <li>Evaluates <code>condition1</code>. If truthy, run Block 1 and exit ladder.</li>
-          <li>If falsy, evaluate <code>condition2</code>. If truthy, run Block 2 and exit.</li>
-          <li>If all preceding conditions fail, run final <code>else</code> fallback block.</li>
-        </ol>
-
-        <h2>💡 Progressive Examples</h2>
-
-        <h3>Example 1: Student Grading System</h3>
-        <pre><code class="language-js">let marks = 85;
-
-if (marks >= 90) {
-  console.log("Grade: A+");
-} else if (marks >= 80) {
-  console.log("Grade: A");
-} else if (marks >= 70) {
-  console.log("Grade: B");
-} else {
-  console.log("Grade: F");
-}</code></pre>
-
-        <h2>🖥️ Expected Output</h2>
-        <pre><code class="language-text">Grade: A</code></pre>
-
-        <h2>🔍 Line-by-Line Code Breakdown</h2>
-        <ul>
-          <li><code>marks >= 90</code>: Evaluates <code>85 >= 90</code> (false).</li>
-          <li><code>else if (marks >= 80)</code>: Evaluates <code>85 >= 80</code> (true!). Executes <code>console.log("Grade: A")</code> and exits ladder immediately.</li>
-        </ul>
-
-        <h2>⚠️ Variations & Edge Cases</h2>
-        <p>Ordering matters! Putting smaller ranges first (e.g. <code>if (marks >= 50)</code> before <code>marks >= 90</code>) will incorrectly capture higher marks early.</p>
-
-        <h2>❌ Common Beginner Mistakes</h2>
-        <div class="warning-box">
-          <p><strong>Incorrect Condition Order:</strong> Checking broad conditions before narrow conditions prevents narrower branches from ever executing.</p>
-        </div>
-
-        <h2>🛠️ Real-World Practical Usage</h2>
-        <p>HTTP response status handler.</p>
-
-        <h2>🎯 Tiered Practice Exercises</h2>
-        <ol>
-          <li><strong>Beginner:</strong> Write an `else if` ladder classifying temperature (Freezing, Cold, Warm, Hot).</li>
-          <li><strong>Intermediate:</strong> Write an `else if` ladder checking user permission levels (Admin, Editor, Subscriber, Guest).</li>
-          <li><strong>Advanced:</strong> Create an `else if` ladder validating password complexity requirements step-by-step.</li>
-        </ol>
+        <hr>
+        <h2>🧭 Navigation</h2>
+        <p><a href="05-nested-conditionals.html">&larr; 05. Nested Conditionals in JS</a> | <a href="index.html">Module Index</a> | <a href="index.html">Module Hub &rarr;</a></p>
       </div>
     </main>
   </div>
+
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>

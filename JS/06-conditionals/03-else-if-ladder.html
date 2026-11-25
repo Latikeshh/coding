@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The if...else Statement - JavaScript</title>
+  <title>03 Else-If Ladder in JS - JavaScript</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../../index.html" class="mobile-brand">
         <span class="brand-logo">&#128187;</span>
@@ -22,6 +23,7 @@
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="../../index.html" class="site-brand">
@@ -42,7 +44,7 @@
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
-          <a href="../../index.html" class="nav-back-btn">
+          <a href="../index.html" class="nav-back-btn">
             <span class="back-arrow">&larr;</span> All Courses
           </a>
         </div>
@@ -82,83 +84,29 @@
       </div>
     </aside>
 
+    <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>The <code>if...else</code> Statement in JavaScript</h1>
-        <blockquote><p>🟢 Beginner Level | Binary Decision Paths</p></blockquote>
+        <h1>Else-If Ladder in JS in JavaScript</h1>
+        <blockquote><p>🟢 Beginner</p></blockquote>
 
         <h2>📖 Definition</h2>
-        <p>The <strong><code>if...else</code> statement</strong> provides two mutually exclusive execution paths. If the test condition is truthy, the <code>if</code> block executes; otherwise, execution falls back to the <code>else</code> block.</p>
+        <p>An <strong>else-if ladder</strong> checks sequential conditions in JavaScript.</p>
+        <h2>⚡ Code Example</h2>
+        <pre><code class="language-js">let score = 85;
+if (score >= 90) console.log("A");
+else if (score >= 80) console.log("B");
+else console.log("C");</code></pre>
 
-        <h2>🤔 Purpose</h2>
-        <p>Binary decision paths are required whenever an application faces an either-or scenario—such as validating password match vs showing an authentication error.</p>
-
-        <h2>🌐 Multilingual Explanations</h2>
-        <h3>English</h3>
-        <p>The <code>else</code> clause acts as a catch-all fallback that runs only when the preceding <code>if (condition)</code> evaluates to a falsy value.</p>
-        <h3>Hindi</h3>
-        <p>Jab <code>if</code> condition false hoti hai, tab automatic fallback ke roop mein <code>else</code> block ka code execute hota hai.</p>
-        <h3>Marathi</h3>
-        <p>Condition <code>false</code> aslyas <code>else</code> madhla code block run hoto.</p>
-        <h3>Hinglish</h3>
-        <p>Either-or scenario: <code>if (isLoggedIn) { showUserHome(); } else { showLoginPage(); }</code> pattern use hota hai.</p>
-
-        <h2>📝 Syntax & Parameters</h2>
-        <pre><code class="language-js">if (condition) {
-  // Executed if condition is truthy
-} else {
-  // Executed if condition is falsy
-}</code></pre>
-
-        <h2>⚡ Execution Flow</h2>
-        <ol>
-          <li>JavaScript evaluates <code>(condition)</code>.</li>
-          <li>If truthy, the <code>if</code> block executes, and the <code>else</code> block is completely skipped.</li>
-          <li>If falsy, the <code>if</code> block is skipped, and the <code>else</code> block executes.</li>
-        </ol>
-
-        <h2>💡 Progressive Examples</h2>
-
-        <h3>Example 1: Authentication Guard</h3>
-        <pre><code class="language-js">let isLoggedIn = false;
-
-if (isLoggedIn) {
-  console.log("Welcome back, User!");
-} else {
-  console.log("Please log in to continue.");
-}</code></pre>
-
-        <h2>🖥️ Expected Output</h2>
-        <pre><code class="language-text">Please log in to continue.</code></pre>
-
-        <h2>🔍 Line-by-Line Code Breakdown</h2>
-        <ul>
-          <li><code>let isLoggedIn = false;</code>: Variable holds boolean <code>false</code>.</li>
-          <li><code>if (isLoggedIn)</code>: Evaluates to <code>false</code>, skipping <code>if</code> body.</li>
-          <li><code>else { console.log(...) }</code>: Executes fallback message.</li>
-        </ul>
-
-        <h2>⚠️ Variations & Edge Cases</h2>
-        <p>Ternary operator <code>(condition ? a : b)</code> serves as a single-line expression alternative to <code>if...else</code>.</p>
-
-        <h2>❌ Common Beginner Mistakes</h2>
-        <div class="warning-box">
-          <p><strong>Putting a condition after `else`:</strong> Writing <code>else (x === 5)</code> is a syntax error! Use <code>else if (x === 5)</code> instead.</p>
-        </div>
-
-        <h2>🛠️ Real-World Practical Usage</h2>
-        <p>Form submission validation response.</p>
-
-        <h2>🎯 Tiered Practice Exercises</h2>
-        <ol>
-          <li><strong>Beginner:</strong> Write an `if...else` block checking if a number is positive or negative.</li>
-          <li><strong>Intermediate:</strong> Write an `if...else` block checking if an array is empty or populated before logging length.</li>
-          <li><strong>Advanced:</strong> Create an `if...else` block that toggles theme mode in localStorage.</li>
-        </ol>
+        <hr>
+        <h2>🧭 Navigation</h2>
+        <p><a href="02-if-else-statement.html">&larr; 02. If-Else Statement in JS</a> | <a href="index.html">Module Index</a> | <a href="04-switch-statement.html">04. Switch Statement in JS &rarr;</a></p>
       </div>
     </main>
   </div>
+
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ternary Operator - JavaScript</title>
+  <title>01 If Statement in JS - JavaScript</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../../index.html" class="mobile-brand">
         <span class="brand-logo">&#128187;</span>
@@ -22,6 +23,7 @@
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="../../index.html" class="site-brand">
@@ -42,7 +44,7 @@
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
-          <a href="../../index.html" class="nav-back-btn">
+          <a href="../index.html" class="nav-back-btn">
             <span class="back-arrow">&larr;</span> All Courses
           </a>
         </div>
@@ -82,75 +84,27 @@
       </div>
     </aside>
 
+    <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>The Ternary Operator in JavaScript</h1>
-        <blockquote><p>🟢 Beginner Level | Single-Line Conditional Expression</p></blockquote>
+        <h1>If Statement in JS in JavaScript</h1>
+        <blockquote><p>🟢 Beginner</p></blockquote>
 
         <h2>📖 Definition</h2>
-        <p>The <strong>Ternary Operator</strong> (<code>condition ? exprIfTrue : exprIfFalse</code>) is JavaScript's only operator taking three operands. It serves as a compact single-line expression alternative to <code>if...else</code>.</p>
+        <p>An <strong>if statement</strong> in JS tests boolean expressions and Truthy/Falsy values.</p>
+        <h2>⚡ Code Example</h2>
+        <pre><code class="language-js">let name = "Alex";
+if (name) { console.log("Hello " + name); }</code></pre>
 
-        <h2>🤔 Purpose</h2>
-        <p>Used to perform inline conditional assignments, JSX template rendering, or variable initializations cleanly without writing multi-line <code>if...else</code> blocks.</p>
-
-        <h2>🌐 Multilingual Explanations</h2>
-        <h3>English</h3>
-        <p>The ternary operator evaluates <code>condition</code>. If truthy, it returns <code>exprIfTrue</code>; if falsy, it returns <code>exprIfFalse</code>.</p>
-        <h3>Hindi</h3>
-        <p>Ternary operator <code>condition ? trueVal : falseVal</code> short-cut hota hai <code>if-else</code> ka.</p>
-        <h3>Marathi</h3>
-        <p>Ternary operator mule ekach line madhye <code>if-else</code> cha decision gheta eto.</p>
-        <h3>Hinglish</h3>
-        <p>Inline assignment: <code>let status = age >= 18 ? "Adult" : "Minor";</code> pattern follow karein.</p>
-
-        <h2>📝 Syntax & Parameters</h2>
-        <pre><code class="language-js">const result = condition ? expressionIfTrue : expressionIfFalse;</code></pre>
-
-        <h2>⚡ Execution Flow</h2>
-        <ol>
-          <li>Evaluate <code>condition</code>.</li>
-          <li>If truthy, compute and return <code>expressionIfTrue</code>.</li>
-          <li>If falsy, compute and return <code>expressionIfFalse</code>.</li>
-        </ol>
-
-        <h2>💡 Progressive Examples</h2>
-
-        <h3>Example 1: Inline Status Assignment</h3>
-        <pre><code class="language-js">let userAge = 20;
-let status = userAge >= 18 ? "Allowed" : "Denied";
-
-console.log("Access Status: " + status);</code></pre>
-
-        <h2>🖥️ Expected Output</h2>
-        <pre><code class="language-text">Access Status: Allowed</code></pre>
-
-        <h2>🔍 Line-by-Line Code Breakdown</h2>
-        <ul>
-          <li><code>userAge >= 18</code>: Evaluates <code>20 >= 18</code> (true).</li>
-          <li><code>? "Allowed" : "Denied"</code>: Returns string `"Allowed"` and assigns to variable `status`.</li>
-        </ul>
-
-        <h2>⚠️ Variations & Edge Cases</h2>
-        <p>Chaining multiple ternary operators (<code>a ? b : c ? d : e</code>) decreases readability and should generally be avoided!</p>
-
-        <h2>❌ Common Beginner Mistakes</h2>
-        <div class="warning-box">
-          <p><strong>Using Ternary for Side Effects:</strong> Using ternary operators for statement execution rather than value assignment (e.g. <code>cond ? doThis() : doThat()</code>) makes code harder to read.</p>
-        </div>
-
-        <h2>🛠️ Real-World Practical Usage</h2>
-        <p>React JSX component prop rendering.</p>
-
-        <h2>🎯 Tiered Practice Exercises</h2>
-        <ol>
-          <li><strong>Beginner:</strong> Write a ternary expression assigning "Pass" or "Fail" based on score.</li>
-          <li><strong>Intermediate:</strong> Use a ternary expression to set default values when a variable is null.</li>
-          <li><strong>Advanced:</strong> Use a ternary operator inside a template literal.</li>
-        </ol>
+        <hr>
+        <h2>🧭 Navigation</h2>
+        <p><a href="index.html">&larr; Module Hub</a> | <a href="index.html">Module Index</a> | <a href="02-if-else-statement.html">02. If-Else Statement in JS &rarr;</a></p>
       </div>
     </main>
   </div>
+
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>
