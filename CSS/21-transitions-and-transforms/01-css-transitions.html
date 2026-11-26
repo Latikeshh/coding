@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. CSS Transitions - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Transitions &amp; Transforms</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-css-transitions.html" class="nav-sub-link active">01. CSS Transitions</a></li>
+              <li class="nav-sub-item"><a href="02-2d-3d-transforms.html" class="nav-sub-link">02. 2D &amp; 3D Transforms</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">21. Motion</a> &gt; <span>01. Transitions</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. CSS Transitions (property, duration, timing-function, cubic-bezier)</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p><strong>CSS Transitions</strong> interpolate property values smoothly over time (e.g., <code>transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1)</code>) when an element changes states (such as <code>:hover</code> or <code>:focus</code>).</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Transitions provide visual feedback for interactive buttons, navigation links, and hover cards, making web interfaces feel responsive and polished.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>When a state change occurs, the browser calculates intermediate property values frame by frame based on duration and the mathematical acceleration curve of the timing function.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Timing Function Variations Table</h2>
+        <table>
+          <thead>
+            <tr><th>Timing Function</th><th>Acceleration Curve</th><th>Best Practice Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong><code>ease</code></strong></td><td>Slow start, fast middle, slow end</td><td>Default general transitions</td></tr>
+            <tr><td><strong><code>linear</code></strong></td><td>Constant speed throughout</td><td>Color fades &amp; progress bars</td></tr>
+            <tr><td><strong><code>ease-in-out</code></strong></td><td>Symmetrical slow start &amp; slow end</td><td>Smooth UI dialog transitions</td></tr>
+            <tr><td><strong><code>cubic-bezier(...)</code></strong></td><td>Custom mathematical Bezier curve</td><td>Spring &amp; bounce animations</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">.btn {
+  background-color: #2563eb;
+  transition: background-color 0.2s ease;
+}
+.btn:hover {
+  background-color: #1d4ed8;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">.card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Multi-Property Delay Example</h2>
+        <pre><code class="language-css">.nav-drawer {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease 0.1s;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>transition: transform 0.4s ...</code>: Animates card transform over 0.4 seconds using a custom natural ease-out cubic-bezier curve.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A card component that lifts smoothly 4px upward with an expanding shadow when hovered.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Animating non-GPU properties:</strong> Animating <code>height</code> or <code>margin</code> causes CPU reflows. Animate <code>transform</code> and <code>opacity</code> instead.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Declare <code>transition</code> on the base class rule (not the <code>:hover</code> rule) so the reverse transition plays smoothly when unhovered.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>CSS Transitions animate property changes between states. Declare transitions on the base rule and animate <code>transform</code> for 60fps performance.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Transitions element ke states (jaise hover) ke beech smooth animation banate hain. Fast performance ke liye <code>transform</code> animate karein.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Transitions mule hover kiva focus aalyas smooth effect milto. Always base rule var <code>transition</code> lihava.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>Why should <code>transition</code> be defined on the base rule instead of the <code>:hover</code> pseudo-class?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Create a <code>.link-underline::after</code> transition that expands an underline from <code>width: 0%</code> to <code>100%</code> on hover.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="02-2d-3d-transforms.html">02. 2D &amp; 3D Transforms</a></li>
+          <li><a href="../22-animations/01-keyframes-animations.html">22. @keyframes Animations</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-2d-3d-transforms.html" class="nav-btn">Next: 02. Transforms &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

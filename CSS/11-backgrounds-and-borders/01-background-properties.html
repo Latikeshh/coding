@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Background Properties - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Backgrounds &amp; Borders</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-background-properties.html" class="nav-sub-link active">01. Background Properties</a></li>
+              <li class="nav-sub-item"><a href="02-borders-outlines-shadows.html" class="nav-sub-link">02. Borders &amp; Box Shadows</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">11. Backgrounds</a> &gt; <span>01. Properties</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. Background Images, Positioning, Sizing &amp; Multiple Backgrounds</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p>CSS Background properties style element backdrops: <code>background-image</code>, <code>background-repeat</code>, <code>background-position</code>, <code>background-size</code> (<code>cover</code>/<code>contain</code>), <code>background-attachment: fixed</code> (parallax), and multiple comma-separated background layers.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Background properties create rich hero header banners, texture overlays, and parallax scrolling visual effects while decoupling images from HTML document content flow.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>Background images are rendered behind element padding and content layers. <code>background-size: cover</code> scales the image proportionally so that the background area is completely covered.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.hero-card {
+  background: url("hero.jpg") no-repeat center / cover;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Background Size Options Table</h2>
+        <table>
+          <thead>
+            <tr><th>Size Value</th><th>Behavior</th><th>Best Practice Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong><code>cover</code></strong></td><td>Scales image to cover entire container (clips edges if ratios differ)</td><td>Hero headers &amp; fullscreen cards</td></tr>
+            <tr><td><strong><code>contain</code></strong></td><td>Scales image to fit completely inside box without clipping</td><td>Logo displays &amp; product previews</td></tr>
+            <tr><td><strong><code>auto</code></strong></td><td>Displays image in its native pixel dimensions</td><td>Pattern textures</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">.banner {
+  background-image: url("banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">/* Multiple layered backgrounds */
+.hero-layered {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+    url("photo.jpg");
+  background-size: cover;
+  background-position: center;
+}</code></pre>
+
+        <!-- 9. Advanced Parallax Example -->
+        <h2>8. Advanced Parallax Fixed Attachment Example</h2>
+        <pre><code class="language-css">.parallax-section {
+  background-image: url("landscape.jpg");
+  background-attachment: fixed; /* Pins image to viewport while page scrolls */
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>linear-gradient(rgba(...), rgba(...)), url(...)</code>: Layers a semi-transparent dark gradient overlay on top of the background image to guarantee white text contrast.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A full-width hero header section featuring a darkened background photograph with crisp, high-contrast white text overlays.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting overlay gradient transparency:</strong> Placing dark text over bright background images without a semi-transparent dark gradient layer ruins text contrast.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Background images do not provide <code>alt</code> text accessibility. Use HTML <code>&lt;img&gt;</code> tags for content images.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>Background properties format backdrops. Use <code>cover</code> for hero headers and layer dark gradients over images to maintain text contrast.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Background images ke liye <code>background-size: cover</code> aur <code>background-position: center</code> ka use karein. Text contrast ke liye dark gradient overlay lagayein.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Background image sathi <code>background-size: cover</code> vapara. Clear text contrast sathi image var linear-gradient dark layer joda.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>What is the difference between <code>background-size: cover</code> and <code>contain</code>?</li>
+          <li>Why should dark gradient overlays be layered over background photos?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Create a <code>.hero-wrapper</code> rule with a dark linear-gradient overlay placed on top of an image URL with <code>background-size: cover</code>.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="02-borders-outlines-shadows.html">02. Borders &amp; Box Shadows</a></li>
+          <li><a href="../10-colors-and-gradients/02-linear-radial-conic-gradients.html">10. CSS Gradients</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-borders-outlines-shadows.html" class="nav-btn">Next: 02. Borders &amp; Shadows &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

@@ -11,24 +11,161 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">09. CSS Sizing Units</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-absolute-units.html" class="nav-sub-link">01. Absolute Units (px)</a></li>
+              <li class="nav-sub-item"><a href="02-relative-font-units.html" class="nav-sub-link active">02. Relative Units (rem, em)</a></li>
+              <li class="nav-sub-item"><a href="03-viewport-and-dynamic-units.html" class="nav-sub-link">03. Viewport Units (vw, dvh)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
     <main class="main-content">
       <div class="content-wrapper">
         <div class="breadcrumb">
           <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">09. Units</a> &gt; <span>02. Relative Units</span>
         </div>
 
-        <h1>02. Relative Font &amp; Parent Units (rem, em, %)</h1>
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Relative Font &amp; Parent Units (rem, em, ch, %)</h1>
         <p><span class="badge badge-beginner">🟢 Beginner</span></p>
 
-        <h2>📖 Definition</h2>
-        <p>Relative font units scale dynamically: <code>rem</code> scales relative to root <code>&lt;html&gt;</code> font-size (1rem = 16px default), <code>em</code> scales relative to current element/parent font-size, and <code>%</code> scales relative to parent box dimensions.</p>
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p><strong>Relative Sizing Units</strong> scale dynamically based on font size or container dimensions: <strong><code>rem</code></strong> (root em = relative to <code>&lt;html&gt;</code> font size), <strong><code>em</code></strong> (relative to current element or parent font size), <strong><code>ch</code></strong> (character width of <code>0</code> digit), and <strong><code>%</code></strong> (relative to parent box size).</p>
 
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Relative font units respect user accessibility settings. If a visually impaired user increases their browser font size to 24px, all <code>rem</code> typography scales proportionally across the website.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>By default, browser root font size is <code>16px</code>. Therefore <code>1rem = 16px</code>, <code>1.5rem = 24px</code>, and <code>2rem = 32px</code>. <code>em</code> compounds when nested inside parent elements with custom font sizes.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">h1 {
+  font-size: 2rem;    /* 32px default */
+  margin-bottom: 1em; /* Relative to h1 font-size = 32px */
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Relative Units Reference Table</h2>
+        <table>
+          <thead>
+            <tr><th>Unit</th><th>Relative To</th><th>Compounding Risk?</th><th>Best Practice Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong><code>rem</code></strong></td><td>Root <code>&lt;html&gt;</code> font size</td><td>No (Single root target)</td><td>Global typography, padding, margins</td></tr>
+            <tr><td><strong><code>em</code></strong></td><td>Current / Parent element font size</td><td>Yes (Compounds in nested tags)</td><td>Button padding proportional to icon text</td></tr>
+            <tr><td><strong><code>ch</code></strong></td><td>Width of digit <code>0</code> in current font</td><td>No</td><td>Optimal line length wrapping (e.g. <code>max-width: 65ch</code>)</td></tr>
+            <tr><td><strong><code>%</code></strong></td><td>Parent element container dimension</td><td>No</td><td>Responsive column widths</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">p {
+  font-size: 1rem;    /* 16px */
+  line-height: 1.5;   /* Unitless multiplier */
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">/* Optimal readable prose width */
+.article-body {
+  max-width: 65ch; /* Caps paragraph width at 65 characters */
+  margin-inline: auto;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Scalable Component Example</h2>
+        <pre><code class="language-css">/* Proportional button padding using em */
+.btn-large {
+  font-size: 1.25rem;
+  padding: 0.5em 1em; /* Scales padding automatically with font size */
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>max-width: 65ch;</code>: Uses character-width units to maintain human-centric typography line length (50-75 characters per line).</li>
+          <li><code>padding: 0.5em 1em;</code>: Uses <code>em</code> units so padding scales dynamically if button font-size changes.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>Proportionally scaled typography and responsive component spacing that adapts seamlessly to browser accessibility zoom settings.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Overusing <code>em</code> for typography:</strong> Deeply nested elements using <code>em</code> cause font sizes to compound rapidly (e.g. <code>1.2em</code> inside <code>1.2em</code> inside <code>1.2em</code> becomes 1.728x larger). Use <code>rem</code> for font sizes.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Always use <code>rem</code> for font-size declarations to avoid compounding bugs while honoring accessibility preferences.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p><code>rem</code> is relative to the root font size, while <code>em</code> is relative to the current element font size. Use <code>rem</code> for typography and <code>ch</code> for max-width content limits.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p><code>rem</code> root <code>&lt;html&gt;</code> ke font size par nirbhar karta hai, jabki <code>em</code> parent ke font size par. Accessible font size ke liye <code>rem</code> ka istemaal karein.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p><code>rem</code> unit root font size nusar badalto. Accessibility sathi typographymadhye pixel mivaje <code>rem</code> vapara.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>Why does <code>rem</code> prevent font-size compounding issues associated with <code>em</code>?</li>
+          <li>How does <code>max-width: 65ch</code> improve text readability?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Write CSS rules for an <code>.article-container</code> with <code>font-size: 1.125rem</code>, <code>line-height: 1.6</code>, and <code>max-width: 70ch</code>.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="01-absolute-units.html">01. Absolute Sizing Units (px)</a></li>
+          <li><a href="03-viewport-and-dynamic-units.html">03. Viewport &amp; Dynamic Units</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
         <div class="navigation-footer">
-          <a href="01-absolute-units.html" class="nav-btn">&larr; Previous: 01. Absolute</a>
-          <a href="03-viewport-units.html" class="nav-btn">Next: 03. Viewport Units &rarr;</a>
+          <a href="01-absolute-units.html" class="nav-btn">&larr; Previous: 01. Absolute Units</a>
+          <a href="03-viewport-and-dynamic-units.html" class="nav-btn">Next: 03. Viewport Units &rarr;</a>
         </div>
       </div>
     </main>
   </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>

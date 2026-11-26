@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Forms & Inputs - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">27. UI Components</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-forms-and-inputs.html" class="nav-sub-link active">01. Forms &amp; Custom Focus</a></li>
+              <li class="nav-sub-item"><a href="02-cards-and-elevation.html" class="nav-sub-link">02. Cards &amp; Elevation</a></li>
+              <li class="nav-sub-item"><a href="03-navigation-bars.html" class="nav-sub-link">03. Responsive Navbars</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">27. Components</a> &gt; <span>01. Forms &amp; Inputs</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. Styling Forms, Inputs &amp; Custom Focus Rings</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p>Styling form inputs (<code>input</code>, <code>textarea</code>, <code>select</code>) ensures visual consistency across operating systems while maintaining accessibility using <code>:focus-visible</code> outline rings, custom checkboxes, and custom select dropdown controls.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Default browser form controls render differently on iOS, Android, Windows, and macOS. Custom CSS styling establishes branded, accessible UI forms across all platforms.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>Using <code>appearance: none</code> removes OS default button/select chrome, allowing custom borders, padding, background icons, and <code>:focus-visible</code> ring highlights to take effect.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.custom-input {
+  appearance: none;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.custom-input:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Form Component States Table</h2>
+        <table>
+          <thead>
+            <tr><th>State Pseudo-class</th><th>Target Behavior</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong><code>:focus-visible</code></strong></td><td>Active keyboard focus ring (Avoids mouse focus ring)</td></tr>
+            <tr><td><strong><code>:invalid</code></strong></td><td>Displays red validation borders on failed pattern/required checks</td></tr>
+            <tr><td><strong><code>:disabled</code></strong></td><td>Dims opacity (0.6) and sets <code>cursor: not-allowed</code></td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus-visible {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Custom Checkbox Control Example</h2>
+        <pre><code class="language-css">.custom-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #94a3b8;
+  border-radius: 4px;
+  display: inline-grid;
+  place-content: center;
+}
+
+.custom-checkbox:checked {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.custom-checkbox:checked::before {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>appearance: none;</code>: Removes native operating system widget styling to permit custom checkbox designs.</li>
+          <li><code>place-content: center;</code>: Centers the generated checkmark pseudo-element perfectly inside the box.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A modern custom checkbox and accessible form input that highlights cleanly when focused via keyboard.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Setting <code>outline: none</code> without a replacement:</strong> Removing focus outlines breaks accessibility for keyboard navigation users.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Always connect <code>&lt;label for="..."&gt;</code> tags to matching input <code>id="..."</code> values for screen reader accessibility.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>Styling forms with <code>appearance: none</code> ensures cross-browser consistency. Always provide <code>:focus-visible</code> outlines.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Form inputs ko custom style karne ke liye <code>appearance: none</code> aur accessible focus ke liye <code>:focus-visible</code> use karein.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Forms styling sathi <code>appearance: none</code> vaparun accessible focus rings dyava.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>Why is <code>appearance: none</code> necessary when building custom checkboxes?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Write CSS for a <code>.search-input:focus-visible</code> rule that adds a 3px blue glow ring.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="02-cards-and-elevation.html">02. Cards &amp; Elevation</a></li>
+          <li><a href="../19-pseudo-classes-and-elements/01-pseudo-classes.html">19. Pseudo-classes</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-cards-and-elevation.html" class="nav-btn">Next: 02. Cards &amp; Elevation &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

@@ -11,24 +11,175 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">23. Variables &amp; Functions</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-custom-properties.html" class="nav-sub-link active">01. Custom Properties</a></li>
+              <li class="nav-sub-item"><a href="02-css-functions.html" class="nav-sub-link">02. calc, min, max, clamp</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
     <main class="main-content">
       <div class="content-wrapper">
         <div class="breadcrumb">
           <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">23. Variables &amp; Functions</a> &gt; <span>01. Custom Properties</span>
         </div>
 
-        <h1>01. CSS Custom Properties (--variable-name, var())</h1>
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. CSS Custom Properties (--variable-name, var(), Fallbacks &amp; Scoping)</h1>
         <p><span class="badge badge-beginner">🟢 Beginner</span></p>
 
-        <h2>📖 Definition</h2>
-        <p>CSS Custom Properties (CSS Variables) allow storing reusable values prefixed with <code>--</code> (e.g. <code>--primary-color: #2563eb</code>) and retrieving them via <code>var(--primary-color)</code>, supporting cascade inheritance and dynamic theme switching.</p>
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p><strong>CSS Custom Properties</strong> (CSS Variables) store reusable design tokens prefixed with <code>--</code> (e.g. <code>--primary-color: #2563eb</code>) and retrieved via <code>var(--primary-color, fallback)</code>, supporting DOM cascade inheritance, component scoping, and theme switching.</p>
 
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Custom Properties allow updating an entire site's color palette, spacing scale, or dark mode theme by modifying variable definitions at the <code>:root</code> level or container level.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>Unlike preprocessor variables (Sass/Less), CSS Custom Properties are dynamic and live in the DOM. JavaScript can read and write CSS variables in real time using <code>element.style.setProperty('--name', value)</code>.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">:root {
+  --primary-color: #2563eb;
+  --card-padding: 1.5rem;
+}
+
+.card {
+  background-color: var(--primary-color);
+  padding: var(--card-padding, 20px);
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Custom Properties vs Preprocessor Variables Table</h2>
+        <table>
+          <thead>
+            <tr><th>Feature</th><th>CSS Custom Properties</th><th>Sass / Less Variables</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>DOM Cascade &amp; Inheritance</strong></td><td>Yes (Inherits down DOM tree)</td><td>No (Compiled away at build)</td></tr>
+            <tr><td><strong>Dynamic JS Manipulation</strong></td><td>Yes (<code>setProperty()</code>)</td><td>No</td></tr>
+            <tr><td><strong>Media Query Scoping</strong></td><td>Yes (Can re-declare inside <code>@media</code>)</td><td>No</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">:root {
+  --main-blue: #0284c7;
+}
+
+h1 {
+  color: var(--main-blue);
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">/* Dark mode theme switching via variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+  }
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Component Token Scoping Example</h2>
+        <pre><code class="language-css">.btn {
+  --btn-bg: #2563eb;
+  background-color: var(--btn-bg);
+}
+
+.btn-danger {
+  --btn-bg: #ef4444; /* Local variable override */
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>--btn-bg: #ef4444;</code>: Overrides the local variable definition for danger buttons while preserving shared <code>.btn</code> layout rules.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A button component system where color themes update cleanly without duplicating layout declarations.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting double hyphens:</strong> Writing <code>var(primary-color)</code> instead of <code>var(--primary-color)</code> is invalid.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Variable names are case-sensitive (<code>--primaryColor</code> vs <code>--primarycolor</code>).</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>CSS Custom Properties store dynamic tokens using <code>--variable-name</code> and <code>var()</code>, inheriting through the DOM cascade.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>CSS Variables ko <code>--name</code> se define aur <code>var()</code> se access karte hain. Dark mode themeing ke liye ye best hain.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>CSS Variables <code>--variable-name</code> dwara tayar kele jaatat. Color themes change karnyasathi variables vapara.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>Why are CSS Custom Properties superior to Sass variables for dark mode themeing?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Declare global variables <code>--brand-color</code> and <code>--brand-radius</code> at <code>:root</code> level and apply them to a card component.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="02-css-functions.html">02. Mathematical Calculations (calc, clamp)</a></li>
+          <li><a href="../30-architecture-and-dark-mode.html">30. Dark Mode Themes</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
         <div class="navigation-footer">
           <a href="index.html" class="nav-btn">&larr; Module Overview</a>
-          <a href="02-calc-function.html" class="nav-btn">Next: 02. calc() &rarr;</a>
+          <a href="02-css-functions.html" class="nav-btn">Next: 02. CSS Functions &rarr;</a>
         </div>
       </div>
     </main>
   </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>

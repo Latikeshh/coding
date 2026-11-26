@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Grid Container & Track Sizing - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">17. CSS Grid Layout</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-grid-container.html" class="nav-sub-link active">01. Grid Container &amp; fr</a></li>
+              <li class="nav-sub-item"><a href="02-grid-items-and-areas.html" class="nav-sub-link">02. Grid Items &amp; Subgrid</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">17. Grid</a> &gt; <span>01. Grid Container</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. Grid Container &amp; Track Sizing (fr, minmax, auto-fit, auto-fill)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p><strong>CSS Grid Layout</strong> is a 2-dimensional grid-based layout engine designed to align content into rows and columns simultaneously. <code>grid-template-columns</code> defines column tracks using the fraction <code>fr</code> unit, <code>minmax()</code>, and auto-placement keywords.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>CSS Grid manages complex 2D dashboard layouts, photo galleries, and auto-responsive card grids that automatically reflow without media query breakpoints.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p><code>display: grid</code> creates a 2D layout context. <code>repeat(auto-fit, minmax(250px, 1fr))</code> creates as many 250px-minimum columns as fit inside container width, stretching remaining free space with <code>1fr</code>.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Auto-fit vs Auto-fill Reference Table</h2>
+        <table>
+          <thead>
+            <tr><th>Keyword</th><th>Behavior when items do not fill row</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong><code>auto-fit</code></strong></td><td>Collapses empty tracks and stretches existing items to fill full width</td></tr>
+            <tr><td><strong><code>auto-fill</code></strong></td><td>Keeps empty tracks allocated as empty grid columns</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">.three-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">.responsive-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Grid Dashboard Structure Example</h2>
+        <pre><code class="language-css">.dashboard-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>repeat(auto-fit, minmax(280px, 1fr))</code>: Automatically generates responsive columns with minimum 280px width, expanding to fill free space.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A multi-column card layout that automatically adjusts column count seamlessly as screen width shrinks.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Using Grid for simple 1D single-row bars:</strong> Use Flexbox for 1D single-axis alignment, reserving CSS Grid for 2D layouts.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li><code>gap</code> property sets spacing between tracks without adding margins on outer grid borders.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>CSS Grid is a 2D layout system. <code>repeat(auto-fit, minmax())</code> creates auto-responsive card grids without media queries.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>CSS Grid 2D layout system hai. Auto-responsive cards ke liye <code>repeat(auto-fit, minmax(250px, 1fr))</code> ka use karein.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>CSS Grid 2D layout (rows ani columns) sathi vaparla jaato.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>What is the difference between <code>auto-fit</code> and <code>auto-fill</code> in CSS Grid?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Create an auto-responsive product grid using <code>repeat(auto-fit, minmax(220px, 1fr))</code> and <code>gap: 20px</code>.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="02-grid-items-and-areas.html">02. Grid Items &amp; Subgrid</a></li>
+          <li><a href="../16-flexbox/index.html">16. Flexbox Layout System</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-grid-items-and-areas.html" class="nav-btn">Next: 02. Grid Items &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

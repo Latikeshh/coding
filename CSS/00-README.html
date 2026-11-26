@@ -20,83 +20,85 @@
     <p>Welcome to the <strong>CSS Learning Path</strong>! CSS (Cascading Style Sheets) is the standard web design language used to control visual presentation, styling, layout, typography, colors, animations, and responsive breakpoints across all device screens.</p>
 
     <div class="callout callout-info">
-      <p>🟢 <strong>Beginner to Advanced:</strong> Master CSS from syntax and selectors to the Box Model, Flexbox, 2D Grid, Custom Properties, Responsive Web Design, Animations, Modern Selectors (<code>:has()</code>, <code>:is()</code>), BEM Architecture, Dark Mode, Overflow, and Component Architecture.</p>
+      <p>🟢 <strong>Beginner to Advanced:</strong> Master CSS from syntax and selectors to the Box Model, Flexbox, 2D Grid, Subgrid, Custom Properties, Responsive Web Design, Container Queries, Animations, Modern Relational Selectors (<code>:has()</code>, <code>:is()</code>), Cascade Layers (<code>@layer</code>), BEM Architecture, Dark Mode, Overflow, and Component Architecture.</p>
     </div>
 
     <h2>📖 What You Will Learn</h2>
 
     <ul>
       <li>Setting up CSS and connecting external stylesheets (<code>&lt;link rel="stylesheet"&gt;</code>).</li>
-      <li>Selectors, Combinators, Specificity calculation, the Cascade, and Inheritance rules.</li>
-      <li>Sizing, Width, Height, and CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>, <code>dvh</code>).</li>
-      <li>Backgrounds, Gradients, Borders, Shadows, and Color Formats (HEX, RGB, HSL).</li>
-      <li>The CSS Box Model (<code>content</code>, <code>padding</code>, <code>border</code>, <code>margin</code>) and Margin Collapse.</li>
-      <li>Layout systems: <code>display</code> modes, <code>positioning</code>, <code>z-index</code>, Stacking Context, <strong>Flexbox</strong>, and <strong>CSS Grid</strong>.</li>
-      <li>Responsive Web Design, Viewport meta tags, Media Queries (<code>@media</code>), and Container Queries (<code>@container</code>).</li>
-      <li>Pseudo-classes (<code>:hover</code>, <code>:focus</code>, <code>:nth-child</code>), Pseudo-elements (<code>::before</code>, <code>::after</code>), and Advanced Selectors (<code>:is()</code>, <code>:where()</code>, <code>:has()</code>).</li>
-      <li>Typography, Web Fonts (<code>@font-face</code>), CSS Transitions, Transforms (2D/3D), and <code>@keyframes</code> Animations.</li>
-      <li>CSS Custom Properties (Variables), CSS Functions (<code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code>), and DevTools.</li>
-      <li>Modern CSS features (<code>aspect-ratio</code>, <code>object-fit</code>, Logical Properties), BEM architecture, and Dark Mode (<code>prefers-color-scheme</code>).</li>
-      <li>Overflow management, Visibility, CSS Lists, Table styling, and UI components (Cards, Navigation bars, Forms).</li>
+      <li>Selectors, Combinators, Specificity calculation, the Cascade, and Inheritance rules (<code>inherit</code>, <code>initial</code>, <code>unset</code>, <code>revert</code>).</li>
+      <li>Sizing, Width, Height, and CSS Units (<code>px</code>, <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code>, <code>vh</code>, <code>dvh</code>, <code>svh</code>, <code>cqw</code>).</li>
+      <li>Backgrounds, Gradients (Linear, Radial, Conic), Borders, Shadows, and Color Systems (HEX, RGB, HSL, HWB, LCH, OKLCH, <code>color-mix()</code>).</li>
+      <li>The CSS Box Model (<code>content</code>, <code>padding</code>, <code>border</code>, <code>margin</code>) and Margin Collapse rules.</li>
+      <li>Layout systems: <code>display</code> modes, <code>positioning</code>, <code>z-index</code>, Stacking Context (<code>isolation: isolate</code>), <strong>Flexbox</strong>, and <strong>CSS Grid</strong> (Subgrid).</li>
+      <li>Responsive Web Design, Viewport meta tags, Media Queries (<code>@media</code>), Container Queries (<code>@container</code>), and Accessibility preferences (<code>prefers-reduced-motion</code>).</li>
+      <li>Pseudo-classes (<code>:hover</code>, <code>:focus-visible</code>, <code>:focus-within</code>, <code>:nth-child(n of .class)</code>), Pseudo-elements (<code>::before</code>, <code>::after</code>, <code>::placeholder</code>), and Relational Selectors (<code>:is()</code>, <code>:where()</code>, <code>:has()</code>).</li>
+      <li>Typography, Web Fonts (<code>@font-face</code>), CSS Transitions (timing functions, <code>cubic-bezier</code>), Transforms (2D/3D), and <code>@keyframes</code> Animations.</li>
+      <li>CSS Custom Properties (Variables), CSS Functions (<code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code>), and Browser DevTools inspection.</li>
+      <li>Modern CSS features (<code>aspect-ratio</code>, <code>object-fit</code>, Logical Properties, Scroll Snap, Native Nesting, <code>@layer</code>, <code>@property</code>, View Transitions, Anchor Positioning), BEM architecture, and Dark Mode (<code>prefers-color-scheme</code>).</li>
+      <li>Overflow management, Visibility, Filters (<code>backdrop-filter</code>), Masks, Clip-paths, CSS Lists, Table styling, and UI components (Cards, Navigation bars, Forms).</li>
     </ul>
 
-    <h2>📚 30 Canonical Modules</h2>
+    <h2>📚 32 Canonical Modules</h2>
 
     <table>
       <thead>
         <tr>
           <th>#</th>
-          <th>Module Topic</th>
+          <th>Module Topic &amp; Scope</th>
           <th>Level</th>
           <th>Link</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>01</td><td>Set Up CSS Environment</td><td>🟢 Beginner</td><td><a href="01-setup-css.html">Open module</a></td></tr>
-        <tr><td>02</td><td>Introduction to CSS &amp; Render Tree</td><td>🟢 Beginner</td><td><a href="02-introduction-to-css.html">Open module</a></td></tr>
-        <tr><td>03</td><td>History &amp; Standards of CSS</td><td>🟢 Beginner</td><td><a href="03-history-of-css.html">Open module</a></td></tr>
+        <tr><td>01</td><td>Set Up CSS Environment (VS Code, Live Server)</td><td>🟢 Beginner</td><td><a href="01-setup-css.html">Open module</a></td></tr>
+        <tr><td>02</td><td>Introduction to CSS &amp; Render Tree (DOM + CSSOM)</td><td>🟢 Beginner</td><td><a href="02-introduction-to-css.html">Open module</a></td></tr>
+        <tr><td>03</td><td>History &amp; W3C Standards (Reset vs Normalize)</td><td>🟢 Beginner</td><td><a href="03-history-and-standards.html">Open module</a></td></tr>
         <tr><td>04</td><td>Types of CSS (Inline, Internal, External, @import)</td><td>🟢 Beginner</td><td><a href="04-types-and-inclusion.html">Open module</a></td></tr>
-        <tr><td>05</td><td>CSS Syntax, Declaration Blocks &amp; Comments</td><td>🟢 Beginner</td><td><a href="05-syntax-rules-and-comments.html">Open module</a></td></tr>
-        <tr><td>06</td><td>Basic Selectors (Element, Class, ID, Grouping)</td><td>🟢 Beginner</td><td><a href="06-basic-selectors.html">Open module</a></td></tr>
-        <tr><td>07</td><td>Specificity Scoring, Cascade Order &amp; Inheritance</td><td>🟡 Intermediate</td><td><a href="07-specificity-and-cascade.html">Open module</a></td></tr>
-        <tr><td>08</td><td>Width and Height (min-width, max-width, aspect-ratio)</td><td>🟢 Beginner</td><td><a href="08-sizing-width-height.html">Open module</a></td></tr>
-        <tr><td>09</td><td>CSS Sizing Units (px, rem, em, %, vw, vh, dvh)</td><td>🟢 Beginner</td><td><a href="09-css-units/index.html">Open module</a></td></tr>
-        <tr><td>10</td><td>Background Colors, Images &amp; Linear/Radial Gradients</td><td>🟢 Beginner</td><td><a href="10-backgrounds-and-gradients.html">Open module</a></td></tr>
-        <tr><td>11</td><td>Borders, Border Radius &amp; Box Shadows</td><td>🟢 Beginner</td><td><a href="11-borders-and-shadows.html">Open module</a></td></tr>
-        <tr><td>12</td><td>Margins, Padding &amp; Vertical Margin Collapse</td><td>🟢 Beginner</td><td><a href="12-margins-and-padding.html">Open module</a></td></tr>
-        <tr><td>13</td><td>The CSS Box Model (box-sizing: border-box)</td><td>🟢 Beginner</td><td><a href="13-box-model.html">Open module</a></td></tr>
-        <tr><td>14</td><td>Display Property (block, inline, inline-block, none)</td><td>🟢 Beginner</td><td><a href="14-display-property.html">Open module</a></td></tr>
-        <tr><td>15</td><td>Positioning, z-index &amp; Stacking Context</td><td>🟡 Intermediate</td><td><a href="15-positioning/index.html">Open module</a></td></tr>
-        <tr><td>16</td><td>Float, Clear &amp; Clearfix Layouts</td><td>🟢 Beginner</td><td><a href="16-floats-and-clears.html">Open module</a></td></tr>
-        <tr><td>17</td><td>Flexbox Layout (Main &amp; Cross Axes)</td><td>🟡 Intermediate</td><td><a href="17-flexbox/index.html">Open module</a></td></tr>
-        <tr><td>18</td><td>CSS Grid Layout (2D Track Sizing &amp; Auto-fit)</td><td>🟡 Intermediate</td><td><a href="18-grid/index.html">Open module</a></td></tr>
-        <tr><td>19</td><td>Responsive Design, Media Queries &amp; Container Queries</td><td>🟡 Intermediate</td><td><a href="19-responsive-design/index.html">Open module</a></td></tr>
-        <tr><td>20</td><td>Pseudo-classes (:hover) &amp; Pseudo-elements (::before)</td><td>🟡 Intermediate</td><td><a href="20-pseudo-classes-and-elements/index.html">Open module</a></td></tr>
-        <tr><td>21</td><td>Typography, Web Fonts &amp; @font-face Integration</td><td>🟢 Beginner</td><td><a href="21-typography-and-fonts.html">Open module</a></td></tr>
-        <tr><td>22</td><td>Transitions, Transforms (2D/3D) &amp; @keyframes Animations</td><td>🟡 Intermediate</td><td><a href="22-transitions-and-animations/index.html">Open module</a></td></tr>
-        <tr><td>23</td><td>CSS Custom Properties (Variables) &amp; Functions (calc, clamp)</td><td>🟡 Intermediate</td><td><a href="23-variables-and-functions/index.html">Open module</a></td></tr>
-        <tr><td>24</td><td>The !important Rule &amp; DevTools Inspection</td><td>🟢 Beginner</td><td><a href="24-cascade-control-and-devtools.html">Open module</a></td></tr>
-        <tr><td>25</td><td>UI Components (Forms, Cards &amp; Responsive Navbars)</td><td>🟡 Intermediate</td><td><a href="25-ui-components/index.html">Open module</a></td></tr>
-        <tr><td>26</td><td>Advanced Selectors (:is(), :where(), :has() Parent Selector)</td><td>🔴 Advanced</td><td><a href="26-advanced-selectors.html">Open module</a></td></tr>
-        <tr><td>27</td><td>Modern CSS Features (object-fit, Logical Properties)</td><td>🟡 Intermediate</td><td><a href="27-modern-css-features.html">Open module</a></td></tr>
-        <tr><td>28</td><td>CSS Architecture (BEM), @supports &amp; Dark Mode Themes</td><td>🔴 Advanced</td><td><a href="28-css-architecture-and-dark-mode.html">Open module</a></td></tr>
-        <tr><td>29</td><td>Overflow, Clip-Path, Lists &amp; Table Styling</td><td>🟢 Beginner</td><td><a href="29-overflow-lists-tables.html">Open module</a></td></tr>
-        <tr><td>30</td><td>Capstone Mini Projects (Landing Page, Cards, Portfolio)</td><td>🔴 Advanced</td><td><a href="30-mini-projects/index.html">Open module</a></td></tr>
+        <tr><td>05</td><td>CSS Syntax, Declaration Blocks &amp; Comments</td><td>🟢 Beginner</td><td><a href="05-syntax-and-comments.html">Open module</a></td></tr>
+        <tr><td>06</td><td>Basic Selectors (Element, Class, ID, Grouping &amp; Combinators)</td><td>🟢 Beginner</td><td><a href="06-basic-selectors.html">Open module</a></td></tr>
+        <tr><td>07</td><td>Specificity Scoring, Cascade Order &amp; Inheritance (@layer)</td><td>🟡 Intermediate</td><td><a href="07-specificity-and-cascade.html">Open module</a></td></tr>
+        <tr><td>08</td><td>Width, Height, Aspect Ratio &amp; Box-Sizing border-box</td><td>🟢 Beginner</td><td><a href="08-sizing-and-box-model.html">Open module</a></td></tr>
+        <tr><td>09</td><td>CSS Sizing Units (px, rem, em, %, vw, vh, dvh, cqw)</td><td>🟢 Beginner</td><td><a href="09-css-units/index.html">Open module</a></td></tr>
+        <tr><td>10</td><td>Color Systems (OKLCH, color-mix) &amp; Gradients (Conic)</td><td>🟢 Beginner</td><td><a href="10-colors-and-gradients/index.html">Open module</a></td></tr>
+        <tr><td>11</td><td>Backgrounds, Borders, Outlines &amp; Box/Text Shadows</td><td>🟢 Beginner</td><td><a href="11-backgrounds-and-borders/index.html">Open module</a></td></tr>
+        <tr><td>12</td><td>Margins, Padding &amp; Vertical Margin Collapse</td><td>🟢 Beginner</td><td><a href="12-margins-padding-collapse.html">Open module</a></td></tr>
+        <tr><td>13</td><td>Display Property (block, inline, inline-block, none)</td><td>🟢 Beginner</td><td><a href="13-display-property.html">Open module</a></td></tr>
+        <tr><td>14</td><td>Positioning, z-index &amp; Stacking Context (isolation)</td><td>🟡 Intermediate</td><td><a href="14-positioning-and-stacking/index.html">Open module</a></td></tr>
+        <tr><td>15</td><td>Float, Clear &amp; Clearfix Layouts</td><td>🟢 Beginner</td><td><a href="15-floats-and-clears.html">Open module</a></td></tr>
+        <tr><td>16</td><td>Flexbox Layout (Main &amp; Cross Axis, Order, Basis)</td><td>🟡 Intermediate</td><td><a href="16-flexbox/index.html">Open module</a></td></tr>
+        <tr><td>17</td><td>CSS Grid Layout (2D Track Sizing, Areas &amp; Subgrid)</td><td>🟡 Intermediate</td><td><a href="17-grid/index.html">Open module</a></td></tr>
+        <tr><td>18</td><td>Responsive Design, Media Queries &amp; Container Queries</td><td>🟡 Intermediate</td><td><a href="18-responsive-design/index.html">Open module</a></td></tr>
+        <tr><td>19</td><td>Pseudo-classes (:focus-visible, :has) &amp; Pseudo-elements</td><td>🟡 Intermediate</td><td><a href="19-pseudo-classes-and-elements/index.html">Open module</a></td></tr>
+        <tr><td>20</td><td>Typography, Web Fonts &amp; @font-face Integration</td><td>🟢 Beginner</td><td><a href="20-typography-and-fonts.html">Open module</a></td></tr>
+        <tr><td>21</td><td>Transitions, 2D/3D Transforms &amp; Perspective</td><td>🟡 Intermediate</td><td><a href="21-transitions-and-transforms/index.html">Open module</a></td></tr>
+        <tr><td>22</td><td>@keyframes Animations &amp; Performance (will-change)</td><td>🟡 Intermediate</td><td><a href="22-animations/index.html">Open module</a></td></tr>
+        <tr><td>23</td><td>CSS Custom Properties (Variables) &amp; Math (calc, clamp)</td><td>🟡 Intermediate</td><td><a href="23-variables-and-functions/index.html">Open module</a></td></tr>
+        <tr><td>24</td><td>Logical Properties (margin-inline, padding-block)</td><td>🟡 Intermediate</td><td><a href="24-logical-properties-and-direction.html">Open module</a></td></tr>
+        <tr><td>25</td><td>CSS Filters (backdrop-filter), Masks &amp; Clip-Paths</td><td>🟡 Intermediate</td><td><a href="25-filters-masks-and-clipping.html">Open module</a></td></tr>
+        <tr><td>26</td><td>The !important Rule &amp; DevTools Inspection Debugging</td><td>🟢 Beginner</td><td><a href="26-cascade-control-and-devtools.html">Open module</a></td></tr>
+        <tr><td>27</td><td>UI Component Library (Forms, Cards &amp; Navbars)</td><td>🟡 Intermediate</td><td><a href="27-ui-components/index.html">Open module</a></td></tr>
+        <tr><td>28</td><td>Advanced Relational Selectors (:is(), :where(), :has())</td><td>🔴 Advanced</td><td><a href="28-advanced-selectors.html">Open module</a></td></tr>
+        <tr><td>29</td><td>Modern CSS Features (Nesting, @layer, View Transitions, Anchors)</td><td>🔴 Advanced</td><td><a href="29-modern-css/index.html">Open module</a></td></tr>
+        <tr><td>30</td><td>CSS Architecture (BEM), @supports &amp; Dark Mode Themes</td><td>🔴 Advanced</td><td><a href="30-architecture-and-dark-mode.html">Open module</a></td></tr>
+        <tr><td>31</td><td>Overflow, Clip-Path, Lists &amp; Data Table Styling</td><td>🟢 Beginner</td><td><a href="31-overflow-lists-tables.html">Open module</a></td></tr>
+        <tr><td>32</td><td>Capstone Mini Projects (Landing Page, Dashboard Grid, Portfolio)</td><td>🔴 Advanced</td><td><a href="32-mini-projects/index.html">Open module</a></td></tr>
       </tbody>
     </table>
 
     <h2>🎯 Suggested Learning Flow</h2>
 
-    <p><code>01–08 Core Syntax &amp; Sizing</code> &rarr; <code>09–14 Units &amp; Box Model</code> &rarr; <code>15–19 Layouts (Flex, Grid) &amp; Responsive Design</code> &rarr; <code>20–24 Animations, Variables &amp; DevTools</code> &rarr; <code>25–29 Architecture, Dark Mode &amp; Modern Features</code> &rarr; <code>30 Capstone Projects</code></p>
+    <p><code>01–08 Core Syntax &amp; Sizing</code> &rarr; <code>09–13 Units, Colors &amp; Box Model</code> &rarr; <code>14–18 Layouts (Flex, Grid) &amp; Responsive Web Design</code> &rarr; <code>19–23 Animations, Variables &amp; Math</code> &rarr; <code>24–31 Modern Features, BEM &amp; Architecture</code> &rarr; <code>32 Capstone Projects</code></p>
 
     <h2>✅ Progress Checklist</h2>
 
     <ul>
       <li>I can link external stylesheets cleanly using <code>&lt;link rel="stylesheet"&gt;</code>.</li>
       <li>I master the CSS Box Model and always declare <code>box-sizing: border-box</code>.</li>
-      <li>I can build fluid 1D Flexbox layouts and 2D Grid layouts with <code>minmax()</code>.</li>
-      <li>I can write mobile-first responsive media queries and fluid sizing with <code>clamp()</code>.</li>
-      <li>I understand CSS specificity scoring, the cascade, and inheritance.</li>
+      <li>I can build fluid 1D Flexbox layouts and 2D Grid layouts with <code>minmax()</code> and Subgrid.</li>
+      <li>I can write mobile-first responsive media queries, container queries, and fluid sizing with <code>clamp()</code>.</li>
+      <li>I understand CSS specificity scoring, the cascade, and inheritance rules.</li>
       <li>I can build UI components, custom dark mode themes, and smooth animations using CSS Variables.</li>
     </ul>
 

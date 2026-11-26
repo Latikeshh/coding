@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Flex Container Properties - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">16. Flexbox Layout</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-flex-container.html" class="nav-sub-link active">01. Flex Container</a></li>
+              <li class="nav-sub-item"><a href="02-flex-items.html" class="nav-sub-link">02. Flex Items Sizing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">16. Flexbox</a> &gt; <span>01. Flex Container</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. Flex Container Properties (direction, justify, align, wrap, gap)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p>Declaring <strong><code>display: flex</code></strong> converts an element into a 1-dimensional Flex Container. Container properties control layout alignment along the <strong>Main Axis</strong> (via <code>justify-content</code>) and <strong>Cross Axis</strong> (via <code>align-items</code>).</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Flexbox simplifies 1D layout alignment (toolbars, card rows, centered hero banners) without requiring float clearfixes or complex positioning math.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>When <code>flex-direction: row</code> is set, the Main Axis runs horizontally and Cross Axis vertically. Setting <code>flex-direction: column</code> swaps these axes.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Flex Container Alignment Reference Table</h2>
+        <table>
+          <thead>
+            <tr><th>Property</th><th>Controls Alignment Along</th><th>Available Key Values</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong><code>justify-content</code></strong></td><td>Main Axis</td><td><code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code></td></tr>
+            <tr><td><strong><code>align-items</code></strong></td><td>Cross Axis (Single Row)</td><td><code>stretch</code>, <code>center</code>, <code>flex-start</code>, <code>flex-end</code>, <code>baseline</code></td></tr>
+            <tr><td><strong><code>flex-wrap</code></strong></td><td>Multi-line Wrapping</td><td><code>nowrap</code>, <code>wrap</code>, <code>wrap-reverse</code></td></tr>
+            <tr><td><strong><code>gap</code></strong></td><td>Spacing Between Items</td><td>Px, rem, em, % gutter units</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">.centered-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  gap: 20px;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Responsive Flex Wrap Grid Example</h2>
+        <pre><code class="language-css">.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>justify-content: space-between;</code>: Pushes first child to left edge and last child to right edge, distributing remaining free space evenly between items.</li>
+          <li><code>gap: 24px;</code>: Sets uniform gutter spacing between flex children without needing margin hacks.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A perfectly centered navigation bar or card row with equal horizontal gutters.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Confusing Main Axis and Cross Axis:</strong> Using <code>align-items</code> expecting horizontal centering when <code>flex-direction: row</code> is active.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Flexbox is designed for 1D layouts (single row OR column). Use CSS Grid for 2D layouts requiring both rows and columns.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>Flexbox manages 1D layout alignment. <code>justify-content</code> aligns items along the main axis, while <code>align-items</code> aligns items along the cross axis.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Flexbox 1D layouts ke liye hai. Main axis par align karne ke liye <code>justify-content</code> aur cross axis par <code>align-items</code> ka use karein.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Flexbox 1D layout sathi vaparla jaato. Main axis alignment <code>justify-content</code> dware ani cross axis <code>align-items</code> dware tharte.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>How does changing <code>flex-direction</code> from <code>row</code> to <code>column</code> affect <code>justify-content</code>?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Create a <code>.toolbar</code> flex container that places a logo on the left and a button group on the right using <code>justify-content: space-between</code>.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="02-flex-items.html">02. Flex Items Sizing</a></li>
+          <li><a href="../17-grid/index.html">17. CSS Grid Layout</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-flex-items.html" class="nav-btn">Next: 02. Flex Items &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

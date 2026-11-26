@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Pseudo-elements - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Pseudo Selectors</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-pseudo-classes.html" class="nav-sub-link">01. Pseudo-classes (:has)</a></li>
+              <li class="nav-sub-item"><a href="02-pseudo-elements.html" class="nav-sub-link active">02. Pseudo-elements (::before)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">19. Pseudo Selectors</a> &gt; <span>02. Pseudo-elements</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Pseudo-elements (::before, ::after, ::placeholder, ::marker)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p>A <strong>Pseudo-element</strong> (<code>::selector</code>) styles specific parts of an element: inserting decorative content without extra HTML (<code>::before</code>, <code>::after</code> requiring <code>content: ""</code>), styling input hints (<code>::placeholder</code>), list bullets (<code>::marker</code>), or custom file inputs (<code>::file-selector-button</code>).</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Pseudo-elements eliminate DOM bloat by generating visual accent icons, custom list bullets, and tooltips purely via CSS without cluttering HTML markup.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p><code>::before</code> inserts a virtual child element before the element's content; <code>::after</code> inserts a virtual child after. Both require a declared <code>content: ""</code> property to render.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.required-label::after {
+  content: " *";
+  color: #ef4444;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Pseudo-elements Reference Table</h2>
+        <table>
+          <thead>
+            <tr><th>Pseudo-element</th><th>Requires <code>content</code>?</th><th>Target Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong><code>::before</code></strong></td><td>Yes (Mandatory)</td><td>Inserts virtual element before content</td></tr>
+            <tr><td><strong><code>::after</code></strong></td><td>Yes (Mandatory)</td><td>Inserts virtual element after content</td></tr>
+            <tr><td><strong><code>::placeholder</code></strong></td><td>No</td><td>Styles input placeholder text hint</td></tr>
+            <tr><td><strong><code>::marker</code></strong></td><td>No</td><td>Styles list item bullets or numbers</td></tr>
+            <tr><td><strong><code>::selection</code></strong></td><td>No</td><td>Styles user mouse text selection highlight</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">::selection {
+  background-color: #38bdf8;
+  color: #0f172a;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">input::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Tooltip Overlay Example</h2>
+        <pre><code class="language-css">.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>content: attr(data-tooltip);</code>: Dynamically fetches the string stored inside HTML attribute <code>data-tooltip="..."</code> and renders it as content inside <code>::after</code>.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A CSS tooltip badge appearing above interactive elements when hovered.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting <code>content: ""</code> on <code>::before</code> or <code>::after</code>:</strong> Omitting <code>content</code> prevents the pseudo-element from rendering completely.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Pseudo-elements cannot be applied to self-closing replaced elements like <code>&lt;img&gt;</code> or <code>&lt;input&gt;</code>.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>Pseudo-elements (<code>::before</code> and <code>::after</code>) insert decorative virtual content without altering HTML structure.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p><code>::before</code> aur <code>::after</code> bina HTML change kiye decorative designs aur icons insert karne ke kaam aate hain.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p><code>::before</code> ani <code>::after</code> mule extra HTML n lihita decorative content insert karta yete.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>Why does <code>::before</code> fail to render if <code>content</code> is not declared?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Create a <code>.badge-new::after</code> rule that appends a green `" NEW"` tag after link titles.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="01-pseudo-classes.html">01. Pseudo-classes (:hover)</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="01-pseudo-classes.html" class="nav-btn">&larr; Previous: 01. Pseudo-classes</a>
+          <a href="../20-typography-and-fonts.html" class="nav-btn">Next Module: 20. Typography &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

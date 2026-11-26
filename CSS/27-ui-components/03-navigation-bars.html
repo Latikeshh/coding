@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Navigation Bars - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">27. UI Components</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-forms-and-inputs.html" class="nav-sub-link">01. Forms &amp; Custom Focus</a></li>
+              <li class="nav-sub-item"><a href="02-cards-and-elevation.html" class="nav-sub-link">02. Cards &amp; Elevation</a></li>
+              <li class="nav-sub-item"><a href="03-navigation-bars.html" class="nav-sub-link active">03. Responsive Navbars</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">27. Components</a> &gt; <span>03. Navbars</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>03. Responsive Navigation Bars &amp; Drawer Menus</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p><strong>Navigation Bars</strong> align brand logos, link lists, and search controls horizontally using Flexbox on desktop viewports, transforming into mobile toggle drawer menus via media queries.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Navigation bars provide global site navigation across all screen sizes while preserving header vertical space on mobile devices.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>A desktop header uses <code>display: flex</code> with <code>justify-content: space-between</code>. At mobile breakpoints (<code>max-width: 768px</code>), the nav links menu converts to a fixed off-canvas drawer controlled via CSS class toggles.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #0f172a;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Navbar Layout Patterns Table</h2>
+        <table>
+          <thead>
+            <tr><th>Navbar Pattern</th><th>Flex / Grid Configuration</th><th>Best Practice Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Sticky Navbar</strong></td><td><code>position: sticky; top: 0; z-index: 900;</code></td><td>Global application navigation</td></tr>
+            <tr><td><strong>Glassmorphism Nav</strong></td><td><code>backdrop-filter: blur(12px);</code></td><td>Modern visual landing pages</td></tr>
+            <tr><td><strong>Off-Canvas Mobile Drawer</strong></td><td><code>transform: translateX(-100%)</code> with <code>.active</code> override</td><td>Mobile responsive drawer menus</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">.navbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(8px);
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Mobile Off-Canvas Drawer Example</h2>
+        <pre><code class="language-css">@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: #0f172a;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>transform: translateX(-100%);</code>: Hides mobile navigation drawer off-screen to the left until <code>.active</code> class is added via JavaScript toggle button.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A responsive header navigation bar that transforms smoothly into a mobile drawer menu when resized.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting z-index on sticky headers:</strong> Sticky headers without <code>z-index</code> will scroll underneath page images and cards.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Always set a high <code>z-index</code> (e.g. <code>1000</code>) on sticky navigation headers.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>Navigation bars use Flexbox for horizontal desktop alignment and off-canvas drawers for mobile viewports.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Desktop par Flexbox se navbar align hoti hai aur mobile screen par off-canvas drawer menu banaya jata hai.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Desktop var Flexbox ani mobile var off-canvas drawer menu vapara.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>Why is <code>position: sticky</code> preferred over <code>fixed</code> for modern headers?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Build a responsive <code>.nav-header</code> using Flexbox with logo on left and link list on right.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="../16-flexbox/01-flex-container.html">16. Flexbox Layout</a></li>
+          <li><a href="../18-responsive-design/02-media-queries.html">18. Media Queries</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="02-cards-and-elevation.html" class="nav-btn">&larr; Previous: 02. Cards &amp; Elevation</a>
+          <a href="../28-advanced-selectors.html" class="nav-btn">Next Module: 28. Advanced Selectors &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

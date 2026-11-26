@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Dashboard Card UI - CSS3 Capstone</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
+        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">32. Capstone Mini Projects</span></a>
+            <ul class="nav-sub-menu">
+              <li class="nav-sub-item"><a href="01-responsive-landing-page.html" class="nav-sub-link">01. SaaS Landing Page</a></li>
+              <li class="nav-sub-item"><a href="02-dashboard-card-ui.html" class="nav-sub-link active">02. Analytics Dashboard UI</a></li>
+              <li class="nav-sub-item"><a href="03-dark-mode-portfolio.html" class="nav-sub-link">03. Dark Mode Portfolio</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CSS</a> &gt; <a href="index.html">32. Projects</a> &gt; <span>02. Dashboard UI</span>
+        </div>
+
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Capstone Project: Analytics Dashboard Card UI Grid</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <!-- 2. Definition -->
+        <h2>1. Definition</h2>
+        <p>This capstone project guides you through building a <strong>2D Auto-Responsive Analytics Dashboard Card UI Grid</strong> featuring 2D CSS Grid track sizing, subgrid card alignment, metric badges, and interactive elevation hover effects.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>2. Why It Is Used</h2>
+        <p>Dashboard interfaces require complex grid layouts with metric cards, chart containers, and sidebar panels that scale dynamically across monitor sizes.</p>
+
+        <!-- 4. How It Works -->
+        <h2>3. How It Works</h2>
+        <p>CSS Grid (<code>repeat(auto-fit, minmax(280px, 1fr))</code>) handles auto-responsive card placement, while Subgrid ensures inner card headers and footers align horizontally across rows.</p>
+
+        <!-- 5. Syntax -->
+        <h2>4. Syntax</h2>
+        <pre><code class="language-css">.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}</code></pre>
+
+        <!-- 6. Different Variations -->
+        <h2>5. Dashboard Widget Layout Reference Table</h2>
+        <table>
+          <thead>
+            <tr><th>Widget Type</th><th>Grid Spanning Rule</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>KPI Metric Card</strong></td><td><code>grid-column: span 1;</code></td><td>Displays total sales, users, revenue</td></tr>
+            <tr><td><strong>Chart Container</strong></td><td><code>grid-column: span 2;</code></td><td>Main line chart or bar chart visualization</td></tr>
+            <tr><td><strong>Sidebar Stats</strong></td><td><code>grid-column: 1 / -1;</code> (on mobile)</td><td>Activity logs &amp; system status</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>6. Beginner Example</h2>
+        <pre><code class="language-css">.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>7. Intermediate Example</h2>
+        <pre><code class="language-css">.kpi-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>8. Advanced Subgrid Dashboard Code</h2>
+        <pre><code class="language-css">.widget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.widget-card {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>9. Line-by-Line Code Explanation</h2>
+        <ul>
+          <li><code>grid-template-rows: subgrid;</code>: Synchronizes widget titles, chart areas, and footers across all dashboard cards in the same grid row.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>10. Expected Terminal / Browser Output</h2>
+        <p>A multi-column analytics dashboard grid displaying KPI metrics, charts, and activity logs that reflows automatically on tablet and mobile viewports.</p>
+
+        <!-- 12. Common Mistakes -->
+        <h2>11. Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Using flexbox for complex 2D dashboard grids:</strong> 1D flexbox requires complex nesting for multi-row alignment; use CSS Grid.</li>
+        </ul>
+
+        <!-- 13. Important Rules and Limitations -->
+        <h2>12. Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Set a minimum height or aspect ratio on chart canvas containers to prevent layout collapses before chart data renders.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>13. Multilingual Explanation: English</h2>
+        <p>This project uses CSS Grid (<code>auto-fit</code>, <code>minmax</code>) and Subgrid to build an analytics dashboard layout.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>CSS Grid aur Subgrid ka use karke ek auto-responsive analytics dashboard grid banayein.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>CSS Grid ani Subgrid dware responsive analytics dashboard UI grid tayar kara.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>16. Practice Questions</h2>
+        <ol>
+          <li>How does <code>subgrid</code> keep widget card headers aligned in a dashboard grid?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>17. Practical Coding Challenge</h2>
+        <p>Build a <code>.kpi-widget</code> with flex row alignment displaying a metric number on the left and a percentage pill badge on the right.</p>
+
+        <!-- 19. Related Topics -->
+        <h2>18. Related Topics</h2>
+        <ul>
+          <li><a href="../17-grid/01-grid-container.html">17. CSS Grid Layout</a></li>
+          <li><a href="01-responsive-landing-page.html">01. SaaS Landing Page</a></li>
+        </ul>
+
+        <!-- 20. Navigation -->
+        <div class="navigation-footer">
+          <a href="01-responsive-landing-page.html" class="nav-btn">&larr; Previous: 01. Landing Page</a>
+          <a href="03-dark-mode-portfolio.html" class="nav-btn">Next: 03. Dark Mode Portfolio &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>
