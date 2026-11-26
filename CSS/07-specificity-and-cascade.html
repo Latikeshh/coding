@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07. Specificity & Cascade - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> &gt; <a href="index.html">CSS</a> &gt; <span>07. Specificity</span>
+        </div>
+
+        <h1>07. Specificity Scoring, Cascade &amp; Inheritance</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The <strong>Cascade</strong> resolves conflicts between competing CSS rules based on Origin, Specificity score <code>(Inline, ID, Class, Element)</code>, and Order of Appearance (the last rule declared wins on equal scores).</p>
+
+        <h2>📊 Specificity Score Hierarchy</h2>
+        <table>
+          <thead>
+            <tr><th>Selector Type</th><th>Specificity Weight</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Inline Styles</td><td><code>1, 0, 0, 0</code></td><td><code>style="..."</code></td></tr>
+            <tr><td>ID Selector</td><td><code>0, 1, 0, 0</code></td><td><code>#header</code></td></tr>
+            <tr><td>Class / Attribute / Pseudo-class</td><td><code>0, 0, 1, 0</code></td><td><code>.btn</code>, <code>[type="text"]</code>, <code>:hover</code></td></tr>
+            <tr><td>Element / Pseudo-element</td><td><code>0, 0, 0, 1</code></td><td><code>p</code>, <code>div</code>, <code>::before</code></td></tr>
+          </tbody>
+        </table>
+
+        <div class="navigation-footer">
+          <a href="06-basic-selectors.html" class="nav-btn">&larr; Previous: 06. Selectors</a>
+          <a href="08-sizing-width-height.html" class="nav-btn">Next: 08. Sizing &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

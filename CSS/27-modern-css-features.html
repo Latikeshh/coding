@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27. Modern CSS Features - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> &gt; <a href="index.html">CSS</a> &gt; <span>27. Modern Features</span>
+        </div>
+
+        <h1>27. Modern CSS3 Features (object-fit, Logical Properties)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Modern CSS features improve internationalization and media styling: <code>object-fit: cover</code> scales images proportionally inside aspect containers, CSS Logical Properties (<code>margin-inline</code>, <code>padding-block</code>) adapt to LTR/RTL text directions, and CSS Scroll Snap aligns scroll carousels.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-css">.avatar-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* Prevents image distortion */
+  border-radius: 50%;
+}
+
+.padded-container {
+  padding-block: 2rem; /* Logical top and bottom padding */
+  padding-inline: 1.5rem; /* Logical left and right padding */
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="26-advanced-selectors.html" class="nav-btn">&larr; Previous: 26. Selectors</a>
+          <a href="28-css-architecture-and-dark-mode.html" class="nav-btn">Next: 28. Architecture &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

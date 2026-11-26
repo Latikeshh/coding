@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Types of CSS & Inclusion Methods - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> &gt; <a href="index.html">CSS</a> &gt; <span>04. Types &amp; Inclusion</span>
+        </div>
+
+        <h1>04. Types of CSS (Inline, Internal, External &amp; @import)</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>CSS can be applied to an HTML document via four methods: <strong>Inline CSS</strong> (<code>style="..."</code> attribute), <strong>Internal CSS</strong> (<code>&lt;style&gt;</code> tag in <code>&lt;head&gt;</code>), <strong>External CSS</strong> (separate <code>.css</code> file linked via <code>&lt;link&gt;</code>), and <strong>@import</strong> (importing stylesheets inside CSS).</p>
+
+        <h2>📊 Comparison Table</h2>
+        <table>
+          <thead>
+            <tr><th>Method</th><th>Location</th><th>Reusability</th><th>Production Recommendation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>External CSS</strong></td><td>External <code>.css</code> file via <code>&lt;link&gt;</code></td><td>Entire Website</td><td><strong>Gold Standard / Best Practice</strong></td></tr>
+            <tr><td><strong>Internal CSS</strong></td><td><code>&lt;style&gt;</code> inside HTML <code>&lt;head&gt;</code></td><td>Single Page Only</td><td>Okay for standalone single pages</td></tr>
+            <tr><td><strong>Inline CSS</strong></td><td><code>style="..."</code> on HTML tag</td><td>Single Element</td><td>Avoid! High specificity clutter</td></tr>
+            <tr><td><strong>@import</strong></td><td>Inside CSS file</td><td>Stylesheet level</td><td>Avoid! Blocks parallel downloads</td></tr>
+          </tbody>
+        </table>
+
+        <h2>💡 Code Example: External Link Method (Best Practice)</h2>
+        <pre><code class="language-html">&lt;!-- Inside HTML &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-history-of-css.html" class="nav-btn">&larr; Previous: 03. History</a>
+          <a href="05-syntax-rules-and-comments.html" class="nav-btn">Next: 05. Syntax &amp; Comments &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

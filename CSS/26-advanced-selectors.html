@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26. Advanced Selectors - CSS3 Curriculum</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> &gt; <a href="index.html">CSS</a> &gt; <span>26. Advanced Selectors</span>
+        </div>
+
+        <h1>26. Advanced Selectors (:is(), :where(), :has() Parent Selector)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Modern CSS introduces relational pseudo-classes: <code>:is()</code> (groups selectors with highest specificity), <code>:where()</code> (groups selectors with zero specificity), and <code>:has()</code> (the relational parent selector targeting parent elements that contain specific children).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-css">/* Target a card parent container ONLY IF it contains an image */
+.card:has(img) {
+  padding-top: 0;
+}
+
+/* Match any heading inside main without specificity inflation */
+:where(h1, h2, h3) {
+  margin-top: 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="25-ui-components/index.html" class="nav-btn">&larr; Previous: 25. UI Components</a>
+          <a href="27-modern-css-features.html" class="nav-btn">Next: 27. Modern Features &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
