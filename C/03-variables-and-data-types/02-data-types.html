@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Primitive Data Types & Fixed-Width Types - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Primitive Data Types &amp; Fixed-Width Integers</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | ISO C Primitives, Format Specifiers &amp; stdint.h</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>A <strong>data type</strong> in C specifies the set of values a variable can hold, the bit layout used to represent those values in memory, and the hardware operations that can be performed on them. C provides <strong>built-in primitive types</strong> (integers, floating-point numbers, characters, booleans) and standard <strong>fixed-width integer types</strong> via <code>&lt;stdint.h&gt;</code>.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <p>Different computational tasks require different precision and memory constraints. Choosing appropriate data types enables:</p>
+        <ul>
+          <li><strong>Memory Footprint Optimization:</strong> Using 1-byte <code>uint8_t</code> for sensor readings saves 75% RAM compared to 4-byte <code>int</code>.</li>
+          <li><strong>Cross-Platform Portability:</strong> Standard C integer sizes vary across compilers; <code>&lt;stdint.h&gt;</code> guarantees exact bit counts regardless of OS.</li>
+          <li><strong>Numerical Precision:</strong> IEEE 754 <code>double</code> prevents floating-point rounding errors in financial and scientific calculations.</li>
+        </ul>
+
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works</h2>
+        <p>In ISO C, data types specify <em>minimum</em> bit width guarantees, not fixed absolute sizes. Compilers map these primitives to target CPU registers:</p>
+        <ul>
+          <li><code>char</code>: Exactly 1 byte (8 bits) by definition in C. Signedness is implementation-defined.</li>
+          <li><code>int</code>: At least 16 bits (typically 32 bits / 4 bytes on modern x86_64 / ARM64).</li>
+          <li><code>float</code>: Typically 32-bit single-precision IEEE 754 floating point.</li>
+          <li><code>double</code>: Typically 64-bit double-precision IEEE 754 floating point.</li>
+        </ul>
+
+        <!-- 5. Syntax & Standard Headers -->
+        <h2>📝 Syntax &amp; Format Specifiers Table</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>C Data Type</th>
+              <th>C Header Needed</th>
+              <th>Format Specifier</th>
+              <th>Typical Size</th>
+              <th>Value Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>char</code></td><td>Standard</td><td><code>%c</code> or <code>%d</code></td><td>1 Byte</td><td>-128 to +127 (or 0 to 255)</td></tr>
+            <tr><td><code>int</code></td><td>Standard</td><td><code>%d</code> or <code>%i</code></td><td>4 Bytes</td><td>-2,147,483,648 to +2,147,483,647</td></tr>
+            <tr><td><code>unsigned int</code></td><td>Standard</td><td><code>%u</code></td><td>4 Bytes</td><td>0 to 4,294,967,295</td></tr>
+            <tr><td><code>long long</code></td><td>Standard</td><td><code>%lld</code></td><td>8 Bytes</td><td>-9 &times; 10<sup>18</sup> to +9 &times; 10<sup>18</sup></td></tr>
+            <tr><td><code>float</code></td><td>Standard</td><td><code>%f</code></td><td>4 Bytes</td><td>6–7 decimal digits precision</td></tr>
+            <tr><td><code>double</code></td><td>Standard</td><td><code>%lf</code></td><td>8 Bytes</td><td>15–17 decimal digits precision</td></tr>
+            <tr><td><code>bool</code></td><td><code>&lt;stdbool.h&gt;</code></td><td><code>%d</code></td><td>1 Byte</td><td><code>true</code> (1) or <code>false</code> (0)</td></tr>
+            <tr><td><code>int32_t</code></td><td><code>&lt;stdint.h&gt;</code></td><td><code>PRId32</code> or <code>%d</code></td><td>Exact 4 Bytes</td><td>-2,147,483,648 to +2,147,483,647</td></tr>
+            <tr><td><code>uint64_t</code></td><td><code>&lt;stdint.h&gt;</code></td><td><code>PRIu64</code> or <code>%llu</code></td><td>Exact 8 Bytes</td><td>0 to 18,446,744,073,709,551,615</td></tr>
+            <tr><td><code>size_t</code></td><td><code>&lt;stddef.h&gt;</code> / <code>&lt;stdio.h&gt;</code></td><td><code>%zu</code></td><td>4 or 8 Bytes</td><td>Unsigned integer for byte sizes &amp; indices</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Standard vs Fixed-Width Integer Types</h2>
+        <p>When writing portable systems code, standard C types (like <code>long</code>) change size between Operating Systems (e.g. <code>long</code> is 4 bytes on 64-bit Windows, but 8 bytes on 64-bit Linux). <code>&lt;stdint.h&gt;</code> solves this by defining exact-width types:</p>
+        <ul>
+          <li><code>int8_t</code> / <code>uint8_t</code>: Exactly 8 bits (1 byte).</li>
+          <li><code>int16_t</code> / <code>uint16_t</code>: Exactly 16 bits (2 bytes).</li>
+          <li><code>int32_t</code> / <code>uint32_t</code>: Exactly 32 bits (4 bytes).</li>
+          <li><code>int64_t</code> / <code>uint64_t</code>: Exactly 64 bits (8 bytes).</li>
+        </ul>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main(void) {
+    int item_count = 12;
+    double price_per_unit = 24.99;
+    char currency = '$';
+    bool in_stock = true;
+
+    printf("Items: %d\n", item_count);
+    printf("Total Cost: %c%.2lf\n", currency, item_count * price_per_unit);
+    printf("In Stock Status: %d\n", in_stock);
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Fixed-Width Integers &amp; Inttypes Macros</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;inttypes.h&gt;
+
+int main(void) {
+    uint8_t sensor_status = 0xFF; // 8-bit mask (255)
+    uint32_t packets_sent = 1000000;
+    uint64_t total_network_bytes = 987654321012345ULL;
+
+    printf("Sensor Status Mask : 0x%" PRIx8 " (%u)\n", sensor_status, sensor_status);
+    printf("Packets Sent       : %" PRIu32 "\n", packets_sent);
+    printf("Network Bytes Total: %" PRIu64 " bytes\n", total_network_bytes);
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Precision Loss &amp; Floating-Point IEEE 754 Inspection</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;math.h&gt;
+
+int main(void) {
+    printf("=== Floating Point IEEE 754 Equality Demo ===\n");
+    double a = 0.1;
+    double b = 0.2;
+    double sum = a + b;
+
+    printf("0.1 + 0.2 formatted to 17 decimal places: %.17lf\n", sum);
+
+    // Naive equality comparison fails in floating point arithmetic!
+    if (sum == 0.3) {
+        printf("Exact Match! (Rare)\n");
+    } else {
+        printf("Warning: Floating Point Rounding Error Detected! (sum != 0.3)\n");
+    }
+
+    // Safe Epsilon Floating Point Comparison Pattern
+    double epsilon = 1e-9;
+    if (fabs(sum - 0.3) &lt; epsilon) {
+        printf("Safe Epsilon Comparison: Values are equal within %e threshold!\n", epsilon);
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>#include &lt;stdint.h&gt;</code>: Defines exact-width types like <code>uint64_t</code>.</li>
+          <li><code>#include &lt;inttypes.h&gt;</code>: Provides portable format specifier macros like <code>PRIu64</code> and <code>PRIx8</code>.</li>
+          <li><code>double sum = a + b;</code>: In IEEE 754, binary floating point cannot represent 0.1 perfectly, resulting in <code>0.30000000000000004</code>.</li>
+          <li><code>fabs(sum - 0.3) &lt; epsilon</code>: Standard C pattern for comparing floating-point numbers without precision bugs.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">=== Floating Point IEEE 754 Equality Demo ===
+0.1 + 0.2 formatted to 17 decimal places: 0.30000000000000004
+Warning: Floating Point Rounding Error Detected! (sum != 0.3)
+Safe Epsilon Comparison: Values are equal within 1.000000e-09 threshold!</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Using Direct <code>==</code> on Floats:</strong> Never use <code>if (float_var == 0.3)</code> due to IEEE 754 representation inaccuracies. Always use an epsilon threshold.</li>
+          <li><strong>Wrong Specifier for <code>size_t</code>:</strong> Using <code>%d</code> or <code>%u</code> for <code>size_t</code> causes compiler warnings on 64-bit platforms. Always use <code>%zu</code>.</li>
+          <li><strong>Integer Overflow:</strong> Storing values greater than <code>2,147,483,647</code> in a standard signed 32-bit <code>int</code> triggers signed integer overflow (Undefined Behavior).</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Signed integer overflow is Undefined Behavior in C. Unsigned integer overflow wraps around predictably using modulo 2<sup>N</sup>.</li>
+          <li>To use <code>bool</code>, <code>true</code>, and <code>false</code> in C99/C11, you must <code>#include &lt;stdbool.h&gt;</code>.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>C provides primitive types (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) whose byte sizes vary by architecture. For portable code, <code>&lt;stdint.h&gt;</code> provides exact fixed-width integer types like <code>int32_t</code> and <code>uint64_t</code>.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>C mein basic data types (<code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>) ke sizes compiler aur CPU par depend karte hain. Standard cross-platform code ke liye hum <code>&lt;stdint.h&gt;</code> ke fixed-width types (jaise <code>uint32_t</code>, <code>uint64_t</code>) use karte hain.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>C madhye basic data types che memory size compiler nusar badalutatat. Code saglede chaltavava mhanun <code>&lt;stdint.h&gt;</code> madhil fixed-width integer types (jasakhi <code>int32_t</code>, <code>uint64_t</code>) vaparane recommended aste.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why is <code>&lt;stdint.h&gt;</code> preferred over standard <code>long</code> in cross-platform systems programming?</li>
+          <li>What is the correct format specifier for a <code>size_t</code> variable?</li>
+          <li>Why does <code>0.1 + 0.2 == 0.3</code> evaluate to false in C?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>type_limits.c</code> using <code>&lt;stdint.h&gt;</code> and <code>&lt;limits.h&gt;</code> that prints the minimum and maximum printable values of <code>INT8_MAX</code>, <code>UINT8_MAX</code>, <code>INT32_MIN</code>, and <code>UINT64_MAX</code>.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="01-variables.html">&larr; Previous: 01. Variable Declarations</a> | <a href="index.html">Module 03 Guide</a> | <a href="03-constants-and-qualifiers.html">Next: 03. Constants & Qualifiers &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

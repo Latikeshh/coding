@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Bit-Fields & Hardware Register Mapping - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Bit-Fields &amp; Hardware Register Mapping in C</h1>
+        <blockquote><p>🔴 <strong>Difficulty: Advanced</strong> | Explicit Bit Specification (: width), Memory Compaction &amp; Address Limitations</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>A <strong>bit-field</strong> is a C structure member declared with an explicit bit width specification (e.g. <code>unsigned int is_enabled : 1;</code>). Bit-fields pack multiple integer members into a single word or byte allocation, providing direct bit-level access to packed binary fields.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Hardware Memory-Mapped Register Drivers:</strong> Mapping microcontroller hardware status/control registers (e.g. 32-bit registers containing single-bit flags and multi-bit mode selectors).</li>
+          <li><strong>Compact Binary Protocol Headers:</strong> Packing network packet headers (like IPv4/TCP headers) or custom binary file format flags tightly without wasting full 32-bit integer slots.</li>
+        </ul>
+
+        <!-- 4. How It Works: The Critical Address-Of Restriction -->
+        <h2>⚙️ How It Works &amp; Critical Address Limitations</h2>
+        <p>Because CPU architectures can address memory only down to whole <strong>byte boundaries</strong> (8 bits), individual bit-fields inside a byte or word <strong>do NOT have distinct RAM memory addresses</strong>! Therefore, taking the address of a bit-field using the address-of operator (<code>&amp;status.flag</code>) is strictly <strong>ILLEGAL in C</strong> and triggers a compile-time error.</p>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">struct StatusRegister {
+    unsigned int power_on   : 1;  // 1 bit  (0 or 1)
+    unsigned int error_code : 3;  // 3 bits (0 through 7)
+    unsigned int mode       : 4;  // 4 bits (0 through 15)
+}; // Total size: Packed into a single 1-byte or 4-byte word!</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Standard Unpacked Struct vs Bit-Field Compaction</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Declaration Type</th>
+              <th>Member Sizes</th>
+              <th>Total Struct Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Standard Struct</strong></td>
+              <td><code>unsigned int f1, f2, f3;</code> (3 x 4-byte ints)</td>
+              <td>12 Bytes</td>
+            </tr>
+            <tr>
+              <td><strong>Bit-Field Struct</strong></td>
+              <td><code>f1:1, f2:3, f3:4;</code> (Total 8 bits)</td>
+              <td><strong>4 Bytes</strong> (Packed into 1 word)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Simple Flag Packing</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+struct FilePermissions {
+    unsigned int read_perm    : 1;
+    unsigned int write_perm   : 1;
+    unsigned int execute_perm : 1;
+};
+
+int main(void) {
+    struct FilePermissions perm = {1, 1, 0}; // Read & Write allowed, Execute denied
+
+    printf("Read Perm   : %u\n", perm.read_perm);
+    printf("Write Perm  : %u\n", perm.write_perm);
+    printf("Execute Perm: %u\n", perm.execute_perm);
+    printf("sizeof(struct FilePermissions): %zu bytes\n", sizeof(perm));
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Hardware Status Register Simulation</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    unsigned int rx_ready   : 1; // Bit 0
+    unsigned int tx_busy    : 1; // Bit 1
+    unsigned int parity_err : 1; // Bit 2
+    unsigned int baud_rate  : 5; // Bits 3..7 (0-31 speed codes)
+} UART_StatusRegister;
+
+int main(void) {
+    UART_StatusRegister uart = {0};
+
+    uart.rx_ready = 1;
+    uart.baud_rate = 12; // Code for 115200 baud
+
+    printf("=== UART Status Register ===\n");
+    printf("RX Ready Flag : %u\n", uart.rx_ready);
+    printf("TX Busy Flag  : %u\n", uart.tx_busy);
+    printf("Baud Rate Code: %u\n", uart.baud_rate);
+    printf("Register Size : %zu byte(s)\n", sizeof(UART_StatusRegister));
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Combining Union with Bit-Fields for Byte-Level Access</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+
+typedef union {
+    uint8_t raw_byte;
+    struct {
+        uint8_t bit0 : 1;
+        uint8_t bit1 : 1;
+        uint8_t bit2 : 1;
+        uint8_t bit3 : 1;
+        uint8_t upper_nibble : 4;
+    } bits;
+} ControlByte;
+
+int main(void) {
+    ControlByte reg;
+    reg.raw_byte = 0xF5; // Binary 1111 0101
+
+    printf("Raw Byte Value : 0x%02X\n", reg.raw_byte);
+    printf("Bit 0 Value    : %u\n", reg.bits.bit0);
+    printf("Bit 1 Value    : %u\n", reg.bits.bit1);
+    printf("Upper Nibble   : 0x%X (%u in decimal)\n",
+           reg.bits.upper_nibble, reg.bits.upper_nibble);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>unsigned int read_perm : 1;</code>: Allocates a 1-bit integer field holding binary values 0 or 1.</li>
+          <li><code>unsigned int baud_rate : 5;</code>: Allocates a 5-bit field holding values from 0 through 31 ($2^5 - 1$).</li>
+          <li><code>ControlByte reg; reg.raw_byte = 0xF5;</code>: Uses a union combining a raw byte with bit-fields to read individual bit flags directly.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Read Perm   : 1
+Write Perm  : 1
+Execute Perm: 0
+sizeof(struct FilePermissions): 4 bytes
+=== UART Status Register ===
+RX Ready Flag : 1
+TX Busy Flag  : 0
+Baud Rate Code: 12
+Register Size : 4 byte(s)
+Raw Byte Value : 0xF5
+Bit 0 Value    : 1
+Bit 1 Value    : 0
+Upper Nibble   : 0xF (15 in decimal)</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Taking Address of a Bit-Field:</strong> Writing <code>&amp;perm.read_perm</code> causes a compilation error! Bit-fields do not have individual byte addresses.</li>
+          <li><strong>Bit-Field Value Overflow:</strong> Attempting to store value 10 into a 3-bit field (max capacity 7) causes truncation or overflow wraparound.</li>
+          <li><strong>Endianness &amp; Bit Ordering Variations:</strong> Compiler bit-field packing order (LSB-first vs MSB-first) is implementation-defined and varies across hardware architectures.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Bit-fields can only be declared inside structures or unions.</li>
+          <li>The address-of operator <code>&amp;</code> CANNOT be applied to a bit-field member.</li>
+          <li>Bit-field types should be declared explicitly as <code>unsigned int</code>, <code>signed int</code>, or <code>_Bool</code>.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Bit-fields pack integer struct members into explicit bit widths. You cannot take the address of a bit-field (<code>&amp;field</code> is illegal) because memory addresses exist only for whole byte boundaries.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Bit-fields ke dwara hum struct ke members ko exact bits (jaise 1 bit ya 3 bits) de sakte hain. Kyunki RAM mein address poore byte ka hota hai, bit-field ka address <code>&amp;field</code> lena illegal hai.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Bit-fields struct members la thavik bits (eg. 1 bit) daitat. Bit-field cha address <code>&amp;field</code> ghene illegal aste.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why is taking the address <code>&amp;obj.bitfield</code> illegal in C?</li>
+          <li>What is the maximum integer value that can be stored in an <code>unsigned int code : 4;</code> bit-field?</li>
+          <li>How does combining a <code>union</code> with a bit-field <code>struct</code> allow raw byte register manipulation?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>tcp_header_bitfields.c</code> that defines a bit-field struct for 8 TCP control flags (FIN, SYN, RST, PSH, ACK, URG, ECE, CWR) packed into a single byte and writes a function to print all active flags.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="01-unions-shared-memory.html">&larr; Previous: 01. Unions & Shared Memory</a> | <a href="index.html">Module 14 Guide</a> | <a href="../15-enums.html">Next Module: 15. Enumerations &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

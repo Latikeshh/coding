@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>02 introduction to c - C Language</title>
+  <title>02. Introduction to C & Memory Model - C Language Course</title>
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
@@ -50,34 +50,35 @@
         </div>
         <div class="course-nav-header">
           <span class="course-header-title">C Language</span>
-          <span class="course-header-badge">23 Lessons</span>
+          <span class="course-header-badge">24 Modules</span>
         </div>
         <ul class="nav-menu course-lessons-menu">
-  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn C Programming</span></a></li>
-  <li class="nav-item"><a href="01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Up C Environment</span></a></li>
-  <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
-  <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
-  <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a></li>
-  <li class="nav-item"><a href="09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
-  <li class="nav-item"><a href="10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
-  <li class="nav-item"><a href="11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
-  <li class="nav-item"><a href="12-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in C (`<string.h>`)</span></a></li>
-  <li class="nav-item"><a href="13-dynamic-memory-allocation.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Dynamic Memory Allocation (`malloc`, `calloc`, `realloc`, `free`)</span></a></li>
-  <li class="nav-item"><a href="14-structures.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Structures (`struct`) & `typedef`</span></a></li>
-  <li class="nav-item"><a href="15-unions-and-bit-fields.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Unions & Bit Fields in C</span></a></li>
-  <li class="nav-item"><a href="16-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Enumerations (`enum`)</span></a></li>
-  <li class="nav-item"><a href="17-file-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">File Handling (`fopen`, `fread`, `fwrite`)</span></a></li>
-  <li class="nav-item"><a href="18-preprocessor-and-macros.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C Preprocessor & Macros (`#define`, `#ifdef`)</span></a></li>
-  <li class="nav-item"><a href="19-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Storage Classes & Qualifiers in C</span></a></li>
-  <li class="nav-item"><a href="20-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Command Line Arguments (`argc`, `argv`)</span></a></li>
-  <li class="nav-item"><a href="21-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Multi-file Projects & Header Files (`.h`)</span></a></li>
-  <li class="nav-item"><a href="22-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Error Handling & Debugging (`errno`, `perror`)</span></a></li>
-  <li class="nav-item"><a href="23-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Comprehensive C Mini Projects</span></a></li>
-</ul>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
       </div>
       <div class="sidebar-footer">
         <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
@@ -90,211 +91,204 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Introduction to C
-</h1>
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Introduction to C & System Memory Model</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | History, Language Fundamentals & Virtual Memory Layout</p></blockquote>
 
-<blockquote><p>🟢 Beginner
-</p></blockquote>
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p><strong>C</strong> is a procedural, general-purpose, compiled programming language created by Dennis Ritchie between 1969 and 1972 at Bell Labs. C is called the "mother of modern languages" because it provides clean syntax abstractions while retaining direct pointer access to physical and virtual memory addresses.</p>
 
-<h2>📖 Definition
-</h2>
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <p>Virtually all modern system infrastructure is built in C or relies on C runtimes:</p>
+        <ul>
+          <li><strong>Operating System Kernels:</strong> Linux kernel, Windows NT kernel components, macOS XNU kernel, iOS/Android base systems.</li>
+          <li><strong>Database Engines:</strong> SQLite, PostgreSQL, MySQL storage engines, Redis in-memory cache.</li>
+          <li><strong>Embedded Systems:</strong> Automotive ECU microcontrollers, IoT devices, robotics, and medical devices.</li>
+          <li><strong>Language Runtimes:</strong> CPython (Python interpreter), Ruby MRI, V8 JavaScript engine core.</li>
+        </ul>
 
-<p><strong>C</strong> is a general-purpose, procedural, compiled programming language developed by <strong>Dennis Ritchie</strong> between 1969 and 1972 at AT&T Bell Labs. C provides low-level access to computer memory, clean control structures, and minimal runtime overhead, making it foundational to modern computing.</p>
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works: Virtual Memory Layout of a C Program</h2>
+        <p>When an operating system loads a C executable into RAM, it constructs a <strong>Virtual Address Space</strong> divided into five distinct segments:</p>
 
-<h2>🌐 Multilingual Explanation
-</h2>
+        <pre><code class="language-text">+---------------------------------------+ High Addresses (0x7FFF...)
+| Environment Variables &amp; CLI Arguments |
++---------------------------------------+
+| STACK SEGMENT (Grows Downward v)      | Local variables, stack frames, return addresses
+|   |                                   |
+|   v                                   |
+|                                       |
+|   ^                                   |
+|   |                                   |
+| HEAP SEGMENT (Grows Upward ^)         | Dynamic allocations (malloc, calloc, realloc)
++---------------------------------------+
+| BSS SEGMENT (Block Started by Symbol) | Uninitialized global &amp; static variables (zeroed)
++---------------------------------------+
+| DATA SEGMENT                          | Initialized global &amp; static variables
++---------------------------------------+
+| TEXT / CODE SEGMENT                   | Read-only binary machine instructions &amp; literals
++---------------------------------------+ Low Addresses (0x0000...)</code></pre>
 
-<h3>English
-</h3>
-<p>C is a compiled procedural language that gives developers direct access to memory addresses and hardware resources. Programs written in C execute with high speed and efficiency because C compiles directly into machine code with minimal abstraction.</p>
+        <!-- 5. Syntax & Anatomy -->
+        <h2>📝 Syntax &amp; Anatomy of a Minimal C Program</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt; // Preprocessor header inclusion
 
-<h3>Hindi
-</h3>
-<p>C ek compiled aur procedural programming language hai jo developer ko memory address aur computer hardware tak direct access deti hai. C mein likhe gaye code seedhe machine code mein badalte hain, jisse inki execution speed bahut tez hoti hai.</p>
+int main(void) {   // Standard C entry point signature
+    printf("C gives you full control over hardware and memory!\n");
+    return 0;      // Standard termination status code
+}</code></pre>
 
-<h3>Marathi
-</h3>
-<p>C hi ek compiled aani procedural programming language aahe ji direct computer memory aani hardware access karniachi parvangi dete. C madhil code sarakha machine code madhye rupantarit hot aslyane tyacha speed khup jasta asto.</p>
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 C Language Standards Evolution</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>C Standard</th>
+              <th>Year Introduced</th>
+              <th>Key Innovations &amp; Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>K&amp;R C</strong></td><td>1978</td><td>Original C description by Brian Kernighan &amp; Dennis Ritchie.</td></tr>
+            <tr><td><strong>ANSI C / C89 / C90</strong></td><td>1989/1990</td><td>First formal ISO standard, <code>void*</code> pointers, function prototypes.</td></tr>
+            <tr><td><strong>C99</strong></td><td>1999</td><td>Inline functions, <code>//</code> comments, variable-length arrays (VLAs), <code>&lt;stdbool.h&gt;</code>, <code>&lt;stdint.h&gt;</code>.</td></tr>
+            <tr><td><strong>ISO C11</strong></td><td>2011</td><td>Anonymous structs/unions, <code>_Generic</code> type-generic macros, <code>_Static_assert</code>, atomic operations.</td></tr>
+            <tr><td><strong>ISO C17 / C23</strong></td><td>2018 / 2023</td><td>Bug fixes, modern attributes (<code>[[nodiscard]]</code>), binary literals, nullptr keyword.</td></tr>
+          </tbody>
+        </table>
 
-<h3>Hinglish
-</h3>
-<p>C language ek compiled procedural programming language hai jo direct memory access aur high performance provide karti hai. Operating systems, databases aur hardware drivers likhne ke liye C sabse popular language hai.</p>
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Printing System Output</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
 
-<h2>🤔 Why Do We Use It?
-</h2>
+int main(void) {
+    printf("Language Name    : C\n");
+    printf("Execution Engine : Native Binary\n");
+    printf("Memory Access    : Direct Pointer Manipulation\n");
+    return 0;
+}</code></pre>
 
-<p>C offers unmatched hardware control, ultra-fast execution, and predictable memory management. It is portable across different CPU architectures and serves as the foundation for languages like C++, C#, Java, Python (CPython runtime), and JavaScript engines (V8).</p>
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Inspecting Data Types &amp; Memory Sizes</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
 
-<h2>🧠 Simple Explanation
-</h2>
+int main(void) {
+    printf("=== Host Memory Architecture Inspection ===\n");
+    printf("char size        : %zu byte\n", sizeof(char));
+    printf("short size       : %zu bytes\n", sizeof(short));
+    printf("int size         : %zu bytes\n", sizeof(int));
+    printf("long size        : %zu bytes\n", sizeof(long));
+    printf("long long size   : %zu bytes\n", sizeof(long long));
+    printf("float size       : %zu bytes\n", sizeof(float));
+    printf("double size      : %zu bytes\n", sizeof(double));
+    printf("void* ptr size   : %zu bytes\n", sizeof(void*));
+    return 0;
+}</code></pre>
 
-<p>Learning C is like learning how a car's engine works under the hood. While modern languages like Python or JavaScript act like automatic cars that handle everything for you, C gives you manual control over every gear, cylinder, and byte of memory.</p>
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Memory Segment Address Exploration</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<h2>📝 Anatomy of a C Program
-</h2>
+// Initialized global variable -> Data Segment
+int global_init_var = 42;
 
-<pre><code class="language-c">#include &lt;stdio.h&gt;  // 1. Preprocessor directive for standard I/O library
+// Uninitialized global variable -> BSS Segment
+int global_uninit_var;
 
-<p>// 2. Main entry point function</p>
-<p>int main(void) {</p>
-<p>    // 3. Statement printing formatted output to stdout</p>
-<p>    printf(&quot;Learning C gives you full control over computer memory!\n&quot;);</p>
-<p>    </p>
-<p>    // 4. Return statement signaling clean exit status (0 = success)</p>
-<p>    return 0;</p>
-<p>}</code></pre></p>
+int main(void) {
+    // Local stack variable -> Stack Segment
+    int stack_var = 100;
 
-<h2>💡 Practical Examples
-</h2>
+    // Dynamically allocated memory -> Heap Segment
+    int *heap_var = (int*) malloc(sizeof(int));
+    if (heap_var == NULL) {
+        return 1;
+    }
+    *heap_var = 200;
 
-<p>Here is a practical program that demonstrates basic output and system information display:</p>
+    printf("=== Process Virtual Memory Address Map ===\n");
+    printf("Text Segment (main function)     : %p\n", (void*)main);
+    printf("Data Segment (global_init_var)  : %p\n", (void*)&amp;global_init_var);
+    printf("BSS Segment (global_uninit_var)  : %p\n", (void*)&amp;global_uninit_var);
+    printf("Heap Segment (heap_var pointer)  : %p\n", (void*)heap_var);
+    printf("Stack Segment (stack_var local)  : %p\n", (void*)&amp;stack_var);
 
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+    free(heap_var);
+    heap_var = NULL;
+    return 0;
+}</code></pre>
 
-<p>int main(void) {</p>
-<p>    printf(&quot;=========================================\n&quot;);</p>
-<p>    printf(&quot;        SYSTEM INFORMATION REPORT        \n&quot;);</p>
-<p>    printf(&quot;=========================================\n&quot;);</p>
-<p>    printf(&quot;Language      : C (ISO C11 Standard)\n&quot;);</p>
-<p>    printf(&quot;Execution Model: Compiled Native Binary\n&quot;);</p>
-<p>    printf(&quot;Memory Access : Direct Pointer Access\n&quot;);</p>
-<p>    printf(&quot;Status        : System Ready\n&quot;);</p>
-<p>    printf(&quot;=========================================\n&quot;);</p>
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>int global_init_var = 42;</code>: Allocated in the read-write Data Segment at binary load time.</li>
+          <li><code>int global_uninit_var;</code>: Placed in the BSS segment and automatically initialized to zero by OS CRT.</li>
+          <li><code>int stack_var = 100;</code>: Allocated on top of the function call frame inside the Stack Segment.</li>
+          <li><code>int *heap_var = (int*) malloc(...);</code>: Allocates memory dynamically inside the Heap Segment.</li>
+          <li><code>(void*)main</code>: Casting function pointer address to <code>void*</code> for standard <code>%p</code> output printing.</li>
+          <li><code>free(heap_var); heap_var = NULL;</code>: Releases heap allocation and prevents dangling pointer bugs.</li>
+        </ul>
 
-<p>    return 0;</p>
-<p>}</code></pre></p>
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">=== Process Virtual Memory Address Map ===
+Text Segment (main function)     : 0x55e41a2011a9
+Data Segment (global_init_var)  : 0x55e41a204010
+BSS Segment (global_uninit_var)  : 0x55e41a204014
+Heap Segment (heap_var pointer)  : 0x55e41b8022a0
+Stack Segment (stack_var local)  : 0x7ffdb128448c</code></pre>
 
-<h2>🔍 Code Breakdown
-</h2>
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Assuming Fixed Types Sizes:</strong> Assuming <code>sizeof(int)</code> is always 4 bytes. In C, sizes are implementation-defined; only minimum bounds are specified by the standard.</li>
+          <li><strong>Confusing Stack and Heap:</strong> Local variables automatically disappear when functions exit, whereas Heap memory must be explicitly released using <code>free()</code>.</li>
+          <li><strong>Missing Semicolons:</strong> Omitting semicolons at the end of C statements.</li>
+          <li><strong>Case Sensitivity:</strong> Writing <code>Main()</code> or <code>Printf()</code> instead of lowercase <code>main()</code> and <code>printf()</code>.</li>
+        </ul>
 
-<ul>
-<p>  <li><code>#include <stdio.h></code>: Tells the preprocessor to pull in function prototypes for standard input/output (like <code>printf</code>).</li></p>
-<p>  <li><code>int main(void)</code>: Defines the entry point function required in every executable C program. <code>int</code> specifies that the function returns an integer status code to the operating system shell. <code>void</code> inside parentheses indicates no arguments are passed.</li></p>
-<p>  <li><code>printf(...)</code>: Standard library function used to print text strings and formatted data to standard output.</li></p>
-<p>  <li><code>\n</code>: Escape character for a newline.</li></p>
-<p>  <li><code>return 0;</code>: Sends exit status <code>0</code> back to the operating system, confirming successful program completion.</li></p>
-<p></ul></p>
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Every standalone executable C program must have exactly one <code>main()</code> function.</li>
+          <li>Use <code>int main(void)</code> in standard C rather than <code>void main()</code> to avoid compiler warnings.</li>
+          <li>Cast pointers to <code>(void*)</code> when printing memory addresses with <code>%p</code> in <code>printf()</code>.</li>
+        </ul>
 
-<h2>👀 Output
-</h2>
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>C is a low-level compiled language that manages memory through five primary virtual segments: Text (instructions), Data (initialized globals), BSS (uninitialized globals), Heap (dynamic allocations), and Stack (local variables). This architecture enables high execution speed and direct hardware control.</p>
 
-<pre><code class="language-text">=========================================
-<p>        SYSTEM INFORMATION REPORT        </p>
-<p>=========================================</p>
-<p>Language      : C (ISO C11 Standard)</p>
-<p>Execution Model: Compiled Native Binary</p>
-<p>Memory Access : Direct Pointer Access</p>
-<p>Status        : System Ready</p>
-<p>=========================================</code></pre></p>
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>C ek compiled language hai jo memory ko 5 segments mein baantti hai: Text, Data, BSS, Heap aur Stack. Stack par local variables bante hain jabki Heap par dynamic memory (malloc) allocate hoti hai. Direct memory access hone ki wajah se C mein likhe gaye programs fast run hote hain.</p>
 
-<h2>⚠️ Common Mistakes
-</h2>
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>C madhye memory 5 parts madhye divid keleli aste: Text, Data, BSS, Heap aani Stack. Local variables Stack var store hotat aani dynamic memory Heap var allocate hote. Direct pointer access mule C madhil execution speed sarvat jasta asto.</p>
 
-<ul>
-<p>  <li><strong>Forgetting semicolons <code>;</code>:</strong> Every statement in C must end with a semicolon.</li></p>
-<p>  <li><strong>Case Sensitivity:</strong> Typing <code>PRINTF</code> or <code>Main</code> instead of <code>printf</code> and <code>main</code> causes compilation errors because C is case-sensitive.</li></p>
-<p>  <li><strong>Missing closing brace <code>}</code>:</strong> Failing to close curly braces results in syntax errors.</li></p>
-<p></ul></p>
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Which memory segment stores uninitialized global variables?</li>
+          <li>What is the direction of stack growth versus heap growth in standard virtual memory layout?</li>
+          <li>Why does ISO C recommend <code>int main(void)</code> instead of <code>void main()</code>?</li>
+        </ol>
 
-<h2>🛡️ Safety / Important Notes
-</h2>
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Create a program named <code>memory_map.c</code> that declares an initialized global variable, an uninitialized global variable, a static local variable, a stack local variable, and a heap variable allocated with <code>malloc()</code>. Print their addresses in order using <code>%p</code> and identify which memory segment each variable belongs to.</p>
 
-<ul>
-<p>  <li>C does not have an automatic garbage collector. You are responsible for memory management.</li></p>
-<p>  <li>C is widely used in operating system kernels (Linux kernel, Windows kernel components, macOS Darwin), device drivers, embedded microcontrollers, databases (MySQL, SQLite, Redis), and compilers.</li></p>
-<p>  <li><strong>Fact check:</strong> C is widely used in kernels and operating systems, but modern OS environments also incorporate C++, Rust, and assembly.</li></p>
-<p></ul></p>
-
-<h2>🌍 Real-World Usage
-</h2>
-
-<ul>
-<p>  <li><strong>Operating System Kernels:</strong> Linux Kernel, macOS Darwin, Windows Kernel components.</li></p>
-<p>  <li><strong>Database Systems:</strong> SQLite, PostgreSQL, MySQL storage engines, Redis.</li></p>
-<p>  <li><strong>Embedded Firmware:</strong> Microcontrollers powering automobiles, IoT devices, medical devices, and avionics.</li></p>
-<p>  <li><strong>Runtimes & Interpreters:</strong> Python (CPython), Ruby (MRI), PHP, and Node.js dependencies (libuv).</li></p>
-<p></ul></p>
-
-<h2>🧪 Try It Yourself
-</h2>
-
-<p>Write a C program that outputs a welcome card with your name, city, and goal as a programmer.</p>
-
-<h2>🎯 Mini Challenge
-</h2>
-
-<p>Write a program that uses multiple <code>printf</code> statements to print a 5-line banner that spells out "C IS FAST" using asterisks (<code>*</code>).</p>
-
-<h2>🔗 Related Topics
-</h2>
-
-<ul>
-<p>  <li><a href="01-setup-c.html">Set Up C Environment</a></li></p>
-<p>  <li><a href="03-variables-and-data-types.html">Variables and Data Types</a></li></p>
-<p>  <li><a href="04-input-output.html">Input and Output</a></li></p>
-<p></ul></p>
-
-<h2>🧭 Navigation
-</h2>
-
-<p><a href="./">← C Home</a> | <a href="01-setup-c.html">← Previous: C Setup</a> | <a href="03-variables-and-data-types.html">Next: Variables & Data Types →</a></p>
-
-
-
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="01-setup-c.html">&larr; Previous: 01. Environment Setup</a> | <a href="index.html">C Master Syllabus</a> | <a href="03-variables-and-data-types/index.html">Next: 03. Variables & Data Types &rarr;</a></p>
       </div>
     </main>
   </div>
 
-  <!-- Mobile Sidebar & Search Scripts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var toggleBtn = document.getElementById('sidebar-toggle');
-      var sidebar = document.getElementById('sidebar');
-      var overlay = document.getElementById('sidebar-overlay');
-
-      function openSidebar() {
-        sidebar.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeSidebar() {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      function toggleSidebar() {
-        if (sidebar.classList.contains('active')) {
-          closeSidebar();
-        } else {
-          openSidebar();
-        }
-      }
-
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', toggleSidebar);
-      }
-      if (overlay) {
-        overlay.addEventListener('click', closeSidebar);
-      }
-
-      var navLinks = sidebar ? sidebar.querySelectorAll('a') : [];
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          if (window.innerWidth <= 868) {
-            closeSidebar();
-          }
-        });
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
-          closeSidebar();
-        }
-      });
-    });
-  </script>
   <script src="../assets/js/search-data.js"></script>
   <script src="../assets/js/search.js"></script>
   <script src="../assets/js/contributors.js"></script>

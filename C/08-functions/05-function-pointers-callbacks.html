@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Function Pointers & Event Callbacks - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>05. Function Pointers &amp; Event Callbacks in C</h1>
+        <blockquote><p>🔴 <strong>Difficulty: Advanced</strong> | Executable Memory Addresses, Callbacks &amp; qsort Integration</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>A <strong>function pointer</strong> is a pointer variable that stores the entry point memory address of executable machine instructions for a function inside the binary's <strong>Text / Code Segment</strong>. Function pointers allow functions to be passed as arguments (<strong>Callbacks</strong>), stored in lookup tables, or assigned dynamically at runtime.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Generic Library Sorting (<code>qsort</code>):</strong> Passing custom comparison callbacks to standard library sorting routines.</li>
+          <li><strong>Event-Driven Hardware Drivers:</strong> Registering interrupt service routine (ISR) callback handlers for button presses or network socket events.</li>
+          <li><strong>Polymorphic Dispatch Tables:</strong> Implementing Virtual Method Tables (Vtables) and state machine jump tables in C.</li>
+        </ul>
+
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works: Function Pointer Syntax Parsing</h2>
+        <p>In C declarations, function pointer syntax requires parentheses around the pointer name (e.g. <code>int (*func_ptr)(int, int)</code>) to distinguish a pointer returning an integer from a function returning an integer pointer (<code>int *func_ptr(int, int)</code>).</p>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">// 1. Direct Function Pointer Declaration
+return_type (*pointer_name)(param1_type, param2_type);
+
+// 2. Simplification using typedef
+typedef return_type (*CallbackType)(param1_type, param2_type);
+
+// 3. Assigning function address and executing call
+pointer_name = &amp;target_function; // or pointer_name = target_function;
+return_type res = pointer_name(arg1, arg2); // or (*pointer_name)(arg1, arg2);</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Function Pointer Table</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Declaration Pattern</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>int (*fn)(int, int);</code></td><td>Pointer to a function taking two <code>int</code>s and returning <code>int</code>.</td></tr>
+            <tr><td><code>void (*handler)(const char*);</code></td><td>Pointer to an event handler taking a <code>const char*</code> and returning <code>void</code>.</td></tr>
+            <tr><td><code>int (*comparator)(const void*, const void*);</code></td><td>ISO C standard comparison callback signature for <code>qsort()</code> and <code>bsearch()</code>.</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int add(int a, int b) { return a + b; }
+int multiply(int a, int b) { return a * b; }
+
+int main(void) {
+    // Declare function pointer matching signature: int (int, int)
+    int (*operation)(int, int) = add;
+
+    printf("10 + 5 = %d\n", operation(10, 5));
+
+    // Reassign function pointer to multiply
+    operation = multiply;
+    printf("10 * 5 = %d\n", operation(10, 5));
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Event Callback Register System</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef void (*EventListener)(int event_id);
+
+void on_button_click(int event_id) {
+    printf("[UI Listener] Button Clicked! Event ID: %d\n", event_id);
+}
+
+void on_network_packet(int event_id) {
+    printf("[Network Listener] Packet Received! Event ID: %d\n", event_id);
+}
+
+void trigger_event(int event_id, EventListener listener) {
+    if (listener != NULL) {
+        listener(event_id); // Invokes passed callback function
+    }
+}
+
+int main(void) {
+    trigger_event(101, on_button_click);
+    trigger_event(202, on_network_packet);
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Standard Library qsort() with Custom Comparator</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// Callback signature for qsort: int (*)(const void *, const void *)
+int compare_integers_descending(const void *a, const void *b) {
+    int arg1 = *(const int*)a;
+    int arg2 = *(const int*)b;
+
+    if (arg1 &gt; arg2) return -1; // -1 places larger numbers first (descending)
+    if (arg1 &lt; arg2) return 1;
+    return 0;
+}
+
+int main(void) {
+    int numbers[] = {42, 12, 88, 3, 25, 67};
+    size_t count = sizeof(numbers) / sizeof(numbers[0]);
+
+    printf("Original Array : ");
+    for (size_t i = 0; i &lt; count; i++) printf("%d ", numbers[i]);
+    printf("\n");
+
+    // Standard qsort library function accepting callback pointer
+    qsort(numbers, count, sizeof(int), compare_integers_descending);
+
+    printf("Sorted Descending: ");
+    for (size_t i = 0; i &lt; count; i++) printf("%d ", numbers[i]);
+    printf("\n");
+
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>int compare_integers_descending(const void *a, const void *b)</code>: ISO C standard callback template for <code>qsort()</code>. Operands are passed as generic <code>const void*</code> pointers.</li>
+          <li><code>int arg1 = *(const int*)a;</code>: Casts generic <code>void*</code> to <code>const int*</code> and dereferences it to read integer value.</li>
+          <li><code>qsort(numbers, count, sizeof(int), compare_integers_descending);</code>: Passes array pointer, element count, element size, and the function pointer callback to <code>stdlib</code>'s quicksort algorithm.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">10 + 5 = 15
+10 * 5 = 50
+[UI Listener] Button Clicked! Event ID: 101
+[Network Listener] Packet Received! Event ID: 202
+Original Array : 42 12 88 3 25 67
+Sorted Descending: 88 67 42 25 12 3 </code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting Parentheses in Declaration:</strong> Writing <code>int *func(int, int)</code> declares a function returning <code>int*</code> instead of a function pointer! Always write <code>int (*func)(int, int)</code>.</li>
+          <li><strong>Mismatched Callback Signatures:</strong> Passing a function pointer with wrong parameter types or return types causes undefined behavior during invocation.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Function names decay into function pointers automatically when passed as arguments.</li>
+          <li>Typedefs (<code>typedef void (*Callback)(int);</code>) greatly simplify complex function pointer declarations.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>A function pointer stores the RAM entry point address of executable code. Passing function pointers enables callback mechanisms, custom sorting comparators with <code>qsort()</code>, and event-driven architectures.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Function pointer executable code ka memory address store karta hai. Iska upyog functions ko doosre functions mein as argument (callbacks) bhejne ke liye aur <code>qsort()</code> jaise library functions mein hota hai.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Function pointer executable code cha RAM address store karto. Dynamic callbacks aani sorting algorithms (<code>qsort</code>) sathi function pointers vapartat.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>What is the difference between <code>int *f(int)</code> and <code>int (*f)(int)</code> in C?</li>
+          <li>What signature must a comparator function implement to be passed to <code>qsort()</code>?</li>
+          <li>How does <code>typedef</code> simplify complex function pointer syntax?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>calculator_callbacks.c</code> that defines functions for <code>add</code>, <code>subtract</code>, and <code>multiply</code>. Create a higher-order function <code>int execute_op(int a, int b, int (*op)(int, int))</code> that calls whatever operator function is passed to it.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="04-function-scope-and-lifetime.html">&larr; Previous: 04. Function Scope & Lifetime</a> | <a href="index.html">Module 08 Guide</a> | <a href="06-variadic-inline-functions.html">Next: 06. Variadic & Inline Functions &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

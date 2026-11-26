@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Random Access File Seeking (fseek, ftell, rewind) - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>04. Random Access File Seeking (fseek, ftell, rewind)</h1>
+        <blockquote><p>🟡 <strong>Difficulty: Intermediate</strong> | File Stream Cursor Positioning, File Size Measurement &amp; Direct Record Access</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p><strong>Random access file seeking</strong> in C allows moving the file stream read/write position cursor directly to any byte location inside a file without scanning sequentially from the beginning. <code>fseek()</code> sets the cursor offset, <code>ftell()</code> returns the current byte position, and <code>rewind()</code> resets the cursor back to byte offset 0.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>O(1) Direct Record Retrieval:</strong> Reading record #N in a fixed-size binary database file directly: <code>fseek(fp, N * sizeof(Record), SEEK_SET);</code>.</li>
+          <li><strong>Measuring Total File Size:</strong> Seeking to <code>SEEK_END</code> and calling <code>ftell()</code> returns the exact file byte size.</li>
+          <li><strong>In-Place Binary File Updates:</strong> Modifying specific binary header bytes or record fields without re-writing the entire file.</li>
+        </ul>
+
+        <!-- 4. How It Works: The Three Origin Constants -->
+        <h2>⚙️ How It Works: Seeking Origin Flags</h2>
+        <p>When calling <code>fseek(fp, offset, origin)</code>, the byte position is calculated relative to one of three origin constants:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Origin Constant</th>
+              <th>Reference Point</th>
+              <th>Offset Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>SEEK_SET</code></td>
+              <td>Beginning of File (Byte 0)</td>
+              <td><code>fseek(fp, 100, SEEK_SET)</code> (Jump to byte offset 100)</td>
+            </tr>
+            <tr>
+              <td><code>SEEK_CUR</code></td>
+              <td>Current Cursor Position</td>
+              <td><code>fseek(fp, 20, SEEK_CUR)</code> (Advance forward 20 bytes)</td>
+            </tr>
+            <tr>
+              <td><code>SEEK_END</code></td>
+              <td>End-Of-File (EOF)</td>
+              <td><code>fseek(fp, -10, SEEK_END)</code> (Move 10 bytes back from end)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// 1. Move file cursor
+int err = fseek(FILE *stream, long offset, int origin); // Returns 0 on success
+
+// 2. Query current cursor byte offset
+long pos = ftell(FILE *stream); // Returns current byte position or -1L on error
+
+// 3. Reset cursor to file beginning
+rewind(FILE *stream); // Equivalent to fseek(stream, 0L, SEEK_SET)</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Measuring File Size Idiom</h2>
+        <pre><code class="language-c">fseek(fp, 0L, SEEK_END);
+long file_size_bytes = ftell(fp);
+rewind(fp); // Reset cursor back to start for subsequent reads!</code></pre>
+
+        <!-- 7. Beginner Example: Measuring File Byte Size -->
+        <h2>🌱 Beginner Example: File Size Measurement</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    FILE *fp = fopen("sample.txt", "w+"); // Create and open for read/write
+    if (fp == NULL) return 1;
+
+    fputs("1234567890", fp); // Write 10 bytes
+
+    // Seek to end and get byte offset
+    fseek(fp, 0L, SEEK_END);
+    long size = ftell(fp);
+
+    printf("File sample.txt Size: %ld bytes\n", size);
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Direct O(1) Record Access in Binary File</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int id;
+    char code[8];
+} Record;
+
+int main(void) {
+    // Write 3 records to database
+    Record db[3] = {{10, "A1"}, {20, "B2"}, {30, "C3"}};
+    FILE *fp = fopen("db.dat", "w+b");
+    if (fp == NULL) return 1;
+
+    fwrite(db, sizeof(Record), 3, fp);
+
+    // Jump directly to Record #2 (Index 1) in O(1) time
+    int target_index = 1;
+    fseek(fp, target_index * sizeof(Record), SEEK_SET);
+
+    Record target_rec;
+    if (fread(&amp;target_rec, sizeof(Record), 1, fp) == 1) {
+        printf("=== Random Access Record #%d ===\n", target_index);
+        printf("ID  : %d\n", target_rec.id);
+        printf("Code: %s\n", target_rec.code);
+    }
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: In-Place Binary File Mutation</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int id;
+    int score;
+} Account;
+
+int main(void) {
+    // Initialize file with 3 accounts
+    Account accounts[3] = {{101, 50}, {102, 60}, {103, 70}};
+    FILE *fp = fopen("game_data.bin", "w+b");
+    if (fp == NULL) return 1;
+
+    fwrite(accounts, sizeof(Account), 3, fp);
+
+    // Update Account #1 (Index 1) score to 99 in-place
+    fseek(fp, 1 * sizeof(Account), SEEK_SET);
+    Account update = {102, 99};
+    fwrite(&amp;update, sizeof(Account), 1, fp);
+
+    // Read back all accounts to verify in-place edit
+    rewind(fp);
+    Account temp;
+    printf("=== Updated Game Accounts ===\n");
+    while (fread(&amp;temp, sizeof(Account), 1, fp) == 1) {
+        printf("Account ID: %d | Score: %d\n", temp.id, temp.score);
+    }
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>fseek(fp, target_index * sizeof(Record), SEEK_SET);</code>: Calculates exact byte offset for Record #1 and moves file pointer cursor directly to that byte location in RAM/disk stream.</li>
+          <li><code>long size = ftell(fp);</code>: Reads the current byte offset relative to file start, returning total file size when positioned at <code>SEEK_END</code>.</li>
+          <li><code>rewind(fp);</code>: Resets file stream cursor back to offset 0 and clears stream error flags.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">File sample.txt Size: 10 bytes
+=== Random Access Record #1 ===
+ID  : 20
+Code: B2
+=== Updated Game Accounts ===
+Account ID: 101 | Score: 50
+Account ID: 102 | Score: 99
+Account ID: 103 | Score: 70</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting <code>rewind()</code> or <code>fseek()</code> After <code>SEEK_END</code>:</strong> Seeking to <code>SEEK_END</code> to measure size leaves the cursor at EOF. Attempting to call <code>fread()</code> immediately after without rewinding fails!</li>
+          <li><strong>Using Text Mode Seeking on Windows:</strong> Seeking arbitrary byte offsets in text mode (<code>"r"</code> / <code>"w"</code>) on Windows causes inaccurate offset calculations due to <code>\r\n</code> translation. Always use binary modes (<code>"rb"</code> / <code>"wb"</code> / <code>"r+b"</code>) for byte-exact seeking.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li><code>fseek()</code> returns <code>0</code> on success and non-zero on failure.</li>
+          <li>For binary random access, always open streams using binary access modes.</li>
+          <li>Always reset or reposition file cursor after reaching EOF before calling subsequent read routines.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Random access file seeking uses <code>fseek()</code>, <code>ftell()</code>, and <code>rewind()</code> to jump directly to any byte location. It enables $O(1)$ binary record access and file size measurement.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Random access seeking ke zariye hum <code>fseek()</code> se file cursor ko kisi bhi byte par jump kara sakte hain. Single record badalne ya file size napne ke liye ye sabse fast tariqa hai.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>File cursor la direct konthyahi byte var jau dhenyasathi <code>fseek()</code> vapartat. File size milvanyasathi <code>ftell()</code> aani reset sathi <code>rewind()</code> vapra.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>What are the three origin constants used by <code>fseek()</code>?</li>
+          <li>How do you calculate the exact byte size of a file using <code>fseek()</code> and <code>ftell()</code>?</li>
+          <li>Why must you call <code>rewind()</code> or <code>fseek(fp, 0, SEEK_SET)</code> after seeking to <code>SEEK_END</code> to measure file size?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>binary_record_updater.c</code> that opens a binary file containing 10 integer values, uses <code>fseek()</code> to jump directly to the 5th integer (index 4), updates its value to 999 in-place, and reads the entire file back.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="03-fread-fwrite-binary-io.html">&larr; Previous: 03. Binary File I/O</a> | <a href="index.html">Module 16 Guide</a> | <a href="../17-preprocessor/index.html">Next Module: 17. Preprocessor & Macros &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

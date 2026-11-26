@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Dynamic Buffer Resizing with realloc() - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Dynamic Buffer Resizing with realloc()</h1>
+        <blockquote><p>🟡 <strong>Difficulty: Intermediate</strong> | Heap Resizing, Temporary Pointer Guards &amp; Capacity Doubling</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>The <code>realloc()</code> function in C adjusts the allocated byte size of an existing heap memory block previously returned by <code>malloc()</code> or <code>calloc()</code>. It can expand or shrink the memory block while preserving existing contents up to the minimum of the old and new sizes.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Dynamic Array Growth:</strong> Implementing growable data structures (like dynamic vectors or lists) whose capacity expands automatically as items arrive.</li>
+          <li><strong>Memory Efficiency:</strong> Trimming over-allocated temporary buffers down to the exact final string/array length.</li>
+        </ul>
+
+        <!-- 4. How It Works: In-Place Expansion vs Relocation -->
+        <h2>⚙️ How It Works: In-Place vs Relocated Expansion</h2>
+        <p>When expanding a heap allocation via <code>realloc(ptr, new_size)</code>, C's memory manager attempts two strategies:</p>
+        <ol>
+          <li><strong>In-Place Expansion:</strong> If adjacent RAM following the current block is free, the heap manager extends the block bounds and returns the <strong>same memory address</strong>.</li>
+          <li><strong>Relocation:</strong> If adjacent RAM is occupied, the manager allocates a new block elsewhere on the heap, copies existing data over, automatically frees the old block, and returns a <strong>new memory address</strong>.</li>
+        </ol>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">#include &lt;stdlib.h&gt;
+
+// CRITICAL IDIOM: Always assign realloc result to a TEMPORARY pointer first!
+int *temp = (int*)realloc(original_ptr, new_size_bytes);
+
+if (temp != NULL) {
+    original_ptr = temp; // Reallocation succeeded; update pointer
+} else {
+    // Reallocation failed! 'original_ptr' remains VALID and UNTOUCHED!
+    // Handle error or free(original_ptr);
+}</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Capacity Doubling Strategy</h2>
+        <p>To achieve amortized constant time $O(1)$ insertions when appending items to a dynamic array, double the array capacity (<code>capacity = capacity * 2</code>) whenever capacity is exhausted, rather than growing by 1 element on every insertion.</p>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Expanding an Array from 3 to 5 Elements</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    size_t initial_count = 3;
+    int *arr = (int*)malloc(initial_count * sizeof(int));
+    if (arr == NULL) return 1;
+
+    for (size_t i = 0; i &lt; initial_count; i++) arr[i] = (int)(i + 1) * 10;
+
+    printf("Initial Heap Buffer Address: %p\n", (void*)arr);
+
+    // Expand array to hold 5 elements
+    size_t new_count = 5;
+    int *temp = (int*)realloc(arr, new_count * sizeof(int));
+    if (temp == NULL) {
+        free(arr);
+        return 1;
+    }
+    arr = temp;
+
+    arr[3] = 40;
+    arr[4] = 50;
+
+    printf("Resized Heap Buffer Address: %p\n", (void*)arr);
+    printf("Array Elements: ");
+    for (size_t i = 0; i &lt; new_count; i++) printf("%d ", arr[i]);
+    printf("\n");
+
+    free(arr);
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Growable Dynamic Vector Pattern</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct {
+    int *data;
+    size_t size;
+    size_t capacity;
+} DynamicVector;
+
+void vector_init(DynamicVector *vec) {
+    vec->size = 0;
+    vec->capacity = 2; // Initial small capacity
+    vec->data = (int*)malloc(vec->capacity * sizeof(int));
+}
+
+void vector_push_back(DynamicVector *vec, int value) {
+    if (vec->size >= vec->capacity) {
+        vec->capacity *= 2; // Amortized O(1) capacity doubling
+        int *temp = (int*)realloc(vec->data, vec->capacity * sizeof(int));
+        if (temp == NULL) {
+            fprintf(stderr, "Vector expansion error!\n");
+            return;
+        }
+        vec->data = temp;
+        printf("[Vector] Expanded capacity to %zu items\n", vec->capacity);
+    }
+    vec->data[vec->size++] = value;
+}
+
+void vector_free(DynamicVector *vec) {
+    free(vec->data);
+    vec->data = NULL;
+    vec->size = 0;
+    vec->capacity = 0;
+}
+
+int main(void) {
+    DynamicVector v;
+    vector_init(&amp;v);
+
+    for (int i = 1; i &lt;= 5; i++) {
+        vector_push_back(&amp;v, i * 100);
+    }
+
+    printf("Vector Elements: ");
+    for (size_t i = 0; i &lt; v.size; i++) printf("%d ", v.data[i]);
+    printf("\n");
+
+    vector_free(&amp;v);
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Shrinking Excess Heap Space</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    // Allocate large over-dimensioned buffer
+    int *large_buf = (int*)malloc(100 * sizeof(int));
+    if (large_buf == NULL) return 1;
+
+    // Use only first 5 elements
+    for (int i = 0; i &lt; 5; i++) large_buf[i] = i + 1;
+
+    printf("Pre-shrink Capacity : 100 ints\n");
+
+    // Trim allocation to exact 5 elements
+    int *trimmed = (int*)realloc(large_buf, 5 * sizeof(int));
+    if (trimmed != NULL) {
+        large_buf = trimmed;
+        printf("Post-shrink Capacity: 5 ints (Memory reclaimed!)\n");
+    }
+
+    free(large_buf);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>int *temp = (int*)realloc(arr, new_size);</code>: Stores the return pointer in <code>temp</code>. If reallocation fails and returns <code>NULL</code>, <code>arr</code> is still valid and not leaked.</li>
+          <li><code>vec->capacity *= 2;</code>: Implements the exponential capacity doubling strategy for dynamic vector lists.</li>
+          <li><code>realloc(large_buf, 5 * sizeof(int));</code>: Reclaims unused heap bytes by shrinking the block size.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Initial Heap Buffer Address: 0x5601a21042a0
+Resized Heap Buffer Address: 0x5601a21042a0
+Array Elements: 10 20 30 40 50
+[Vector] Expanded capacity to 4 items
+[Vector] Expanded capacity to 8 items
+Vector Elements: 100 200 300 400 500
+Pre-shrink Capacity : 100 ints
+Post-shrink Capacity: 5 ints (Memory reclaimed!)</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Direct Re-assignment Trap (<code>ptr = realloc(ptr, new_size)</code>):</strong> If <code>realloc()</code> fails and returns <code>NULL</code>, overwriting <code>ptr</code> with <code>NULL</code> permanently loses the address of the original heap block, causing an unrecoverable <strong>Memory Leak</strong>!</li>
+          <li><strong>Using Old Pointer Address After Relocation:</strong> If <code>realloc()</code> moves the block to a new address, using the old <code>ptr</code> address leads to Use-After-Free memory corruption.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Always store <code>realloc()</code> results in a temporary pointer first.</li>
+          <li><code>realloc(NULL, size)</code> behaves identically to <code>malloc(size)</code>.</li>
+          <li><code>realloc(ptr, 0)</code> is implementation-defined; always call <code>free(ptr)</code> explicitly instead of reallocating to size 0.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p><code>realloc()</code> resizes existing heap blocks, expanding or relocating as needed. Always store the return value in a temporary pointer to prevent memory leaks if allocation fails.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p><code>realloc()</code> heap memory ka size badhane ya ghatane ke liye use hota hai. <code>realloc()</code> ke result ko hamesha <code>temp</code> pointer mein rakhein taaki failure ke case mein purana data leak na ho.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p><code>realloc()</code> mughal heap memory resize karta yete. Return pointer nehamhi <code>temp</code> variable madhye store kara.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why is writing <code>ptr = realloc(ptr, new_size)</code> considered a severe memory leak anti-pattern?</li>
+          <li>What happens if <code>realloc()</code> expands a buffer in-place vs when it relocates the buffer?</li>
+          <li>How does dynamic vector capacity doubling maintain amortized $O(1)$ append time?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>dynamic_string_builder.c</code> that reads characters one by one from stdin and uses <code>realloc()</code> with capacity doubling to build a dynamic string of arbitrary length.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="01-malloc-calloc-free.html">&larr; Previous: 01. Heap Allocation</a> | <a href="index.html">Module 12 Guide</a> | <a href="03-memory-leaks-valgrind-asan.html">Next: 03. Memory Leaks & Sanitizers &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

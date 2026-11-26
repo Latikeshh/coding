@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. 1D Arrays & Contiguous Memory Layout - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. 1D Arrays &amp; Contiguous Memory Layout in C</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | Sequential RAM Layout, Zero-Based Indexing &amp; Address Offsets</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>A <strong>1D array</strong> in C is a contiguous block of memory allocated to hold a fixed number of elements of the same data type. Elements are indexed starting from zero (<code>0</code>) up to <code>N - 1</code>, where <code>N</code> is the declared length of the array.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>O(1) Direct Memory Indexing:</strong> Accessing any element by index requires constant time $O(1)$ because the memory address is computed via direct offset addition: <code>Address(arr[i]) = BaseAddress + (i * sizeof(ElementType))</code>.</li>
+          <li><strong>CPU Cache Locality:</strong> Contiguous memory placement maximizes hardware prefetching and L1/L2 cache hit ratios during sequential loops.</li>
+        </ul>
+
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works: Address Offset Math</h2>
+        <p>If an integer array <code>int arr[5]</code> starts at memory address <code>0x1000</code> and <code>sizeof(int) == 4</code> bytes:</p>
+        <ul>
+          <li><code>arr[0]</code> address = <code>0x1000</code></li>
+          <li><code>arr[1]</code> address = <code>0x1000 + (1 * 4) = 0x1004</code></li>
+          <li><code>arr[2]</code> address = <code>0x1000 + (2 * 4) = 0x1008</code></li>
+          <li><code>arr[i]</code> address = <code>BaseAddress + (i * sizeof(ElementType))</code></li>
+        </ul>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">// 1. Declaration without initialization (Contains garbage data if local!)
+int scores[10];
+
+// 2. Declaration with explicit initializer list
+int primes[5] = {2, 3, 5, 7, 11};
+
+// 3. Zero-filling all elements
+int buffer[100] = {0}; // All 100 elements zero-initialized!
+
+// 4. C99 Designated Initializers
+int sparse[5] = {[0] = 10, [3] = 40}; // indices 1, 2, 4 are automatically 0</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Calculating Array Length At Compile Time</h2>
+        <p>In C, arrays do not store their length at runtime. To compute the element count of a static stack array, divide the total array size in bytes by the size of a single element:</p>
+        <pre><code class="language-c">int data[] = {10, 20, 30, 40, 50};
+size_t length = sizeof(data) / sizeof(data[0]); // Computes 20 / 4 = 5</code></pre>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int marks[5] = {85, 92, 78, 90, 88};
+    size_t count = sizeof(marks) / sizeof(marks[0]);
+
+    printf("=== Student Test Marks ===\n");
+    for (size_t i = 0; i &lt; count; i++) {
+        printf("Student #%zu: %d\n", i + 1, marks[i]);
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Inspecting RAM Address Offsets</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int numbers[4] = {100, 200, 300, 400};
+
+    printf("=== Contiguous RAM Address Breakdown ===\n");
+    printf("Base Array Pointer Address (&amp;numbers): %p\n", (void*)numbers);
+
+    for (int i = 0; i &lt; 4; i++) {
+        printf("Element numbers[%d] | Address: %p | Value: %d\n",
+               i, (void*)&amp;numbers[i], numbers[i]);
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Reversing an Array In-Place</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void reverse_array_in_place(int arr[], size_t size) {
+    if (arr == NULL || size == 0) return;
+
+    size_t left = 0;
+    size_t right = size - 1;
+
+    while (left &lt; right) {
+        // Swap elements at left and right pointers
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+
+        left++;
+        right--;
+    }
+}
+
+int main(void) {
+    int values[] = {1, 2, 3, 4, 5, 6};
+    size_t len = sizeof(values) / sizeof(values[0]);
+
+    reverse_array_in_place(values, len);
+
+    printf("Reversed Array: ");
+    for (size_t i = 0; i &lt; len; i++) {
+        printf("%d ", values[i]);
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>int buffer[100] = {0};</code>: Zero-initializes all 100 elements. Specifying the first element as 0 causes C to fill all remaining unlisted elements with zeroes.</li>
+          <li><code>(void*)&amp;numbers[i]</code>: Prints hexadecimal RAM addresses for each element, demonstrating 4-byte address spacing for <code>int</code>.</li>
+          <li><code>sizeof(values) / sizeof(values[0])</code>: Idiomatic idiom for calculating total elements in a fixed array.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">=== Student Test Marks ===
+Student #1: 85
+Student #2: 92
+Student #3: 78
+Student #4: 90
+Student #5: 88
+=== Contiguous RAM Address Breakdown ===
+Base Array Pointer Address (&numbers): 0x7ffd8a12b400
+Element numbers[0] | Address: 0x7ffd8a12b400 | Value: 100
+Element numbers[1] | Address: 0x7ffd8a12b404 | Value: 200
+Element numbers[2] | Address: 0x7ffd8a12b408 | Value: 300
+Element numbers[3] | Address: 0x7ffd8a12b40c | Value: 400
+Reversed Array: 6 5 4 3 2 1 </code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Out-of-Bounds Index Access:</strong> Accessing <code>arr[5]</code> on an array declared as <code>int arr[5]</code> (valid indices are <code>0</code> through <code>4</code>) triggers Undefined Behavior or Buffer Overflow.</li>
+          <li><strong>Uninitialized Local Array Garbage:</strong> Declaring <code>int arr[10];</code> inside a function without initializers leaves random memory garbage in the array.</li>
+          <li><strong>Attempting Array Re-assignment:</strong> In C, array names are constant non-modifiable lvalues (e.g. <code>arr1 = arr2;</code> is illegal in C; use <code>memcpy()</code> or loop copy).</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Array index bounds are NOT checked at compile time or runtime in C.</li>
+          <li>Static and global arrays are automatically zero-initialized by the C runtime environment.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>A 1D array stores elements sequentially in contiguous RAM. Accessing elements by zero-based index takes constant O(1) time using memory address offsets.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>1D array RAM mein saare elements ko continuously ek ke baad ek store karta hai. Array ka pehla index <code>0</code> hota hai aur aakhri index <code>N-1</code>.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>1D array RAM madhye elements satat (contiguous) store karto. Index <code>0</code> pasun suru hoto.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why does accessing an element by index in a C array take $O(1)$ time?</li>
+          <li>What is the difference in initialization between <code>int a[10];</code> inside a function versus at global scope?</li>
+          <li>How do you zero-initialize all elements of an array in C?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>second_largest.c</code> that initializes an array of 8 integers, iterates through it in a single pass, and finds both the largest and second-largest elements.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="index.html">&larr; Module 09 Guide</a> | <a href="02-2d-multidimensional-arrays.html">Next: 02. 2D & Multidimensional Matrices &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

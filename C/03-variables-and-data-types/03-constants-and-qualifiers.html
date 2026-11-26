@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Constants & Type Qualifiers (const, volatile, restrict) - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>03. Constants &amp; Type Qualifiers (const, volatile, restrict)</h1>
+        <blockquote><p>🟡 <strong>Difficulty: Intermediate</strong> | Read-Only Constants, Volatile Memory &amp; Alias Optimizations</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>In C, <strong>type qualifiers</strong> (<code>const</code>, <code>volatile</code>, and <code>restrict</code>) modify the behavior and compiler optimization assumptions for declared types. <strong>Constants</strong> are immutable values that cannot be modified after initialization, enforced by the compiler or stored in read-only memory.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong><code>const</code> (Immutability):</strong> Prevents accidental modification of configuration parameters, function arguments, and constant tables.</li>
+          <li><strong><code>volatile</code> (Hardware Register Access):</strong> Informs the compiler that a variable's value can change asynchronously outside program control (e.g., hardware I/O registers or signal handlers). Prevents the compiler from caching loads in CPU registers.</li>
+          <li><strong><code>restrict</code> (Pointer Non-Aliasing Optimization):</strong> Tells the compiler that a pointer is the <em>sole</em> reference to an underlying memory block during a scope, enabling aggressive SIMD and auto-vectorization optimizations.</li>
+        </ul>
+
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works &amp; Critical Misconceptions</h2>
+        <p>It is vital to understand the precise ISO C definitions of these qualifiers:</p>
+        <ul>
+          <li><strong><code>const</code>:</strong> Making a variable <code>const</code> guarantees read-only access through that specific identifier. Global <code>const</code> variables are placed in the read-only Text/ROData segment.</li>
+          <li><strong><code>volatile</code> IS NOT THREAD SYNCHRONIZATION:</strong> <code>volatile</code> does <strong>NOT</strong> provide atomic access or memory barriers for multi-threaded programming in C! It strictly prevents the compiler from optimizing away repeated memory reads/writes. For multi-threaded atomics, ISO C11 <code>&lt;stdatomic.h&gt;</code> must be used instead.</li>
+          <li><strong><code>restrict</code>:</strong> Added in C99, <code>restrict</code> is a promise by the developer to the optimizer that two pointer parameters do not overlap in memory (e.g. <code>memcpy</code> vs <code>memmove</code>).</li>
+        </ul>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">// 1. Const variable declaration
+const double PI = 3.141592653589793;
+
+// 2. Volatile hardware register pointer
+volatile uint32_t * const UART_STATUS_REG = (uint32_t*)0x40001000;
+
+// 3. Restrict pointer parameters for vector optimizations
+void vector_add(size_t n, float * restrict a, float * restrict b, const float * restrict c);</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Qualifier Summary Table</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Qualifier</th>
+              <th>Compiler Optimization Impact</th>
+              <th>Primary Real-World Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>const</code></td>
+              <td>Enables constant folding and read-only memory placement.</td>
+              <td>Immutable function arguments, lookup tables, math constants.</td>
+            </tr>
+            <tr>
+              <td><code>volatile</code></td>
+              <td>Suppresses load/store caching; forces fresh RAM/hardware reads.</td>
+              <td>Memory-mapped I/O (MMIO), interrupt service routine (ISR) flags.</td>
+            </tr>
+            <tr>
+              <td><code>restrict</code></td>
+              <td>Assumes no memory aliasing; enables auto-vectorization.</td>
+              <td>High-performance math, image processing, matrix multiplications.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Const Variables</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    const int MAX_USERS = 100;
+    printf("Maximum Users Allowed: %d\n", MAX_USERS);
+
+    // MAX_USERS = 200; // COMPILATION ERROR: assignment of read-only variable 'MAX_USERS'
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Volatile Hardware Simulation Flag</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+// Simulated hardware flag modified asynchronously (e.g., ISR or hardware interrupt)
+volatile bool hardware_event_flag = false;
+
+void simulate_hardware_interrupt(void) {
+    printf("[ISR] Hardware Interrupt Fired!\n");
+    hardware_event_flag = true;
+}
+
+int main(void) {
+    printf("Waiting for hardware event...\n");
+
+    // Without 'volatile', an optimizing compiler might hoist the read outside the loop,
+    // converting while(!hardware_event_flag) into an infinite loop!
+    simulate_hardware_interrupt();
+
+    if (hardware_event_flag) {
+        printf("Hardware Event Handled Successfully!\n");
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Restrict Pointer Optimization</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// Using 'restrict' guarantees pointers 'out', 'in1', and 'in2' do not overlap
+void fast_add(size_t n, int * restrict out, const int * restrict in1, const int * restrict in2) {
+    for (size_t i = 0; i &lt; n; i++) {
+        out[i] = in1[i] + in2[i];
+    }
+}
+
+int main(void) {
+    int arr1[4] = {1, 2, 3, 4};
+    int arr2[4] = {10, 20, 30, 40};
+    int result[4];
+
+    fast_add(4, result, arr1, arr2);
+
+    printf("Vectorized Addition Result: %d, %d, %d, %d\n",
+           result[0], result[1], result[2], result[3]);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>volatile bool hardware_event_flag = false;</code>: Forces the compiler to re-read RAM at every inspection instead of caching in a register.</li>
+          <li><code>int * restrict out</code>: Promising the compiler that <code>out</code> does not overlap with <code>in1</code> or <code>in2</code>, enabling SIMD register instructions.</li>
+          <li><code>const int * restrict in1</code>: Combined qualifier: read-only data (<code>const</code>) accessed exclusively through <code>in1</code> (<code>restrict</code>).</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Waiting for hardware event...
+[ISR] Hardware Interrupt Fired!
+Hardware Event Handled Successfully!
+Vectorized Addition Result: 11, 22, 33, 44</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Confusing <code>volatile</code> with Multithreaded Atomics:</strong> <code>volatile</code> does NOT make operations thread-safe or atomic. For thread safety, use <code>&lt;stdatomic.h&gt;</code> or mutex locks.</li>
+          <li><strong>Violating <code>restrict</code> Contracts:</strong> Passing overlapping memory regions to <code>restrict</code> pointer parameters causes Undefined Behavior.</li>
+          <li><strong>Casting Away <code>const</code>:</strong> Casting a <code>const int*</code> to <code>int*</code> and writing to it is Undefined Behavior if the original object was defined as <code>const</code>.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li><code>const</code> protects against assignment through that specific variable or pointer expression.</li>
+          <li><code>restrict</code> applies only to pointer declarations (added in C99).</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Type qualifiers change compiler optimization behavior. <code>const</code> creates read-only variables, <code>volatile</code> forces direct RAM re-reads for hardware registers, and <code>restrict</code> guarantees no pointer aliasing for fast vector optimizations.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p><code>const</code> se variable read-only banta hai. <code>volatile</code> compiler ko bolta hai ki memory value bahar se change ho sakti hai isliye RAM se dubara padho (hardware registers ke liye). <code>restrict</code> compiler ko optimized SIMD code banane mein madad karta hai.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p><code>const</code> mule value badalta yet nahi. <code>volatile</code> mule compiler la RAM madhunach dhyave lagte (hardware registers sathi). <code>restrict</code> pointer alias nastil tar code fast optimize karnyasathi vapartat.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why is <code>volatile</code> insufficient for thread-safe concurrent programming in C?</li>
+          <li>What compiler optimization does the <code>restrict</code> keyword enable?</li>
+          <li>What is the difference between <code>const int *ptr</code> and <code>int * const ptr</code>?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C function <code>void array_scale(size_t len, double * restrict dest, const double * restrict src, double factor)</code> that scales elements of <code>src</code> by <code>factor</code> into <code>dest</code>. Verify that compiling with <code>gcc -O3 -std=c11</code> generates clean, non-aliased assembly loops.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="02-data-types.html">&larr; Previous: 02. Primitive Data Types</a> | <a href="index.html">Module 03 Guide</a> | <a href="04-type-conversion-casting.html">Next: 04. Type Conversion & Casting &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

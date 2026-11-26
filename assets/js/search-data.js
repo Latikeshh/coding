@@ -20,140 +20,180 @@ window.SEARCH_INDEX = [
     "snippet": "Introduction to C \ud83d\udfe2 Beginner \ud83d\udcd6 Definition C is a general-purpose, procedural, compiled programming language developed by Dennis Ritchie between 1969 and 1972 at AT&T Bell Labs. C provides low-level access to computer memory, clean control structures, and minimal runtime overhead, making it foundational to modern computing. \ud83c\udf10 Multilingual Explanation English C is a compiled procedural language that gives developers"
   },
   {
-    "title": "03 variables and data types - C Language",
+    "title": "03. Variables & Data Types - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "03-variables-and-data-types.html",
-    "url": "C/03-variables-and-data-types.html",
-    "snippet": "Variables and Data Types in C \ud83d\udfe2 Beginner \ud83d\udcd6 Definition In C, a variable is a named storage location in memory used to hold data that can be read or modified during execution. C is a statically typed language, meaning every variable must be declared with an explicit data type before it can be used. \ud83c\udf10 Multilingual Explanation English Variables"
+    "file": "index.html",
+    "url": "C/03-variables-and-data-types/index.html",
+    "snippet": "Variables and Data Types in C. Primitives, fixed-width integer types stdint.h, const, volatile, restrict qualifiers, and type casting."
   },
   {
-    "title": "04 input output - C Language",
+    "title": "04. Input & Output - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "04-input-output.html",
-    "url": "C/04-input-output.html",
-    "snippet": "Input and Output in C \ud83d\udfe2 Beginner \ud83d\udcd6 Definition Input and Output (I/O) operations allow C programs to display formatted output to the user terminal ( stdout ) and read formatted user input from standard input stream ( stdin ) using standard C library functions declared in . \ud83c\udf10 Multilingual Explanation English C uses functions from for stream I/O. printf()"
+    "file": "index.html",
+    "url": "C/04-input-output/index.html",
+    "snippet": "Input and Output in C. printf format specifiers, scanf validation, getchar/putchar, fgets buffer overflow handling."
   },
   {
-    "title": "09 arrays - C Language",
+    "title": "05. Operators - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "09-arrays.html",
-    "url": "C/09-arrays.html",
-    "snippet": "Arrays in C \ud83d\udfe1 Intermediate \ud83d\udcd6 Definition An array is a fixed-size, contiguous sequence of elements of the same data type stored sequentially in computer memory. Individual elements are accessed using zero-based indices ( 0 to size - 1 ). \ud83c\udf10 Multilingual Explanation English Arrays store multiple values of the same type in consecutive memory locations. In C, array indexing"
+    "file": "index.html",
+    "url": "C/05-operators/index.html",
+    "snippet": "Operators in C. Arithmetic, relational, logical short-circuiting, bitwise bit manipulation, assignment, increment/decrement, sizeof."
   },
   {
-    "title": "10 pointers basics - C Language",
+    "title": "06. Conditionals - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "10-pointers-basics.html",
-    "url": "C/10-pointers-basics.html",
-    "snippet": "Pointers Basics in C \ud83d\udfe1 Intermediate \ud83d\udcd6 Definition A pointer is a variable that stores the memory address of another variable as its value. Pointers provide direct access to computer memory, enabling efficient data manipulation and dynamic memory management. \ud83c\udf10 Multilingual Explanation English A pointer stores a memory address. The address-of operator & retrieves the memory address of a variable."
+    "file": "index.html",
+    "url": "C/06-conditionals/index.html",
+    "snippet": "Conditionals in C. if, if-else, else-if ladder, switch statement jump tables, nested conditionals dangling-else, ternary operator."
   },
   {
-    "title": "11 advanced pointers - C Language",
+    "title": "07. Loops & Iteration - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "11-advanced-pointers.html",
-    "url": "C/11-advanced-pointers.html",
-    "snippet": "Advanced Pointers & Pointer Arithmetic \ud83d\udd34 Advanced \ud83d\udcd6 Definition Advanced Pointer concepts in C encompass pointer arithmetic (moving pointers based on byte sizes), double pointers ( ), const qualifiers with pointers , generic void pointers** ( void* ), and function pointers (pointers holding memory addresses of executable code). \ud83c\udf10 Multilingual Explanation English Pointer arithmetic operates on memory address offsets based"
+    "file": "index.html",
+    "url": "C/07-loops/index.html",
+    "snippet": "Loops in C. Entry-controlled for loop, C99 inline counters, while loop event polling, exit-controlled do-while, 2D nested loops, break and continue."
   },
   {
-    "title": "12 strings - C Language",
+    "title": "08. Functions & Scope - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "12-strings.html",
-    "url": "C/12-strings.html",
-    "snippet": "Strings in C ( ) \ud83d\udfe1 Intermediate \ud83d\udcd6 Definition In C, a string is not a primitive data type; it is represented as a 1D array of characters terminated by a special ASCII null character '\\0' (null terminator). The null terminator signals the end of the string in computer memory. \ud83c\udf10 Multilingual Explanation English Strings in C are null-terminated character"
+    "file": "index.html",
+    "url": "C/08-functions/index.html",
+    "snippet": "Functions in C. Function prototypes, stack activation frames, pass-by-value vs pointer reference mutation, recursion, static scope, function pointers qsort, variadic stdarg.h."
   },
   {
-    "title": "13 dynamic memory allocation - C Language",
+    "title": "09. Arrays & VLAs - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "13-dynamic-memory-allocation.html",
-    "url": "C/13-dynamic-memory-allocation.html",
-    "snippet": "Dynamic Memory Allocation ( malloc , calloc , realloc , free ) \ud83d\udd34 Advanced \ud83d\udcd6 Definition Dynamic Memory Allocation in C allows programs to request variable amounts of memory from the Heap at runtime using standard functions declared in . Unlike Stack memory (which has fixed sizes determined at compile time), Heap allocations persist until explicitly released using free() ."
+    "file": "index.html",
+    "url": "C/09-arrays/index.html",
+    "snippet": "Arrays in C. 1D contiguous RAM layout, 2D row-major matrices, parameter decay to pointers, C99 Variable-Length Arrays VLAs."
   },
   {
-    "title": "14 structures - C Language",
+    "title": "10. Pointers & Memory - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "14-structures.html",
-    "url": "C/14-structures.html",
-    "snippet": "Structures ( struct ) & typedef \ud83d\udfe1 Intermediate \ud83d\udcd6 Definition A Structure ( struct ) is a composite user-defined data type in C that groups logically related variables of different data types together under a single custom type name. \ud83c\udf10 Multilingual Explanation English Structures group heterogeneous data variables together. Use the dot operator ( . ) to access struct members"
+    "file": "index.html",
+    "url": "C/10-pointers/index.html",
+    "snippet": "Pointers in C. Address-of &, dereference *, pointer arithmetic scaling, double pointers **, const pointers, generic void*, null/dangling pointer safety."
   },
   {
-    "title": "15 unions and bit fields - C Language",
+    "title": "11. Strings & Buffer Safety - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "15-unions-and-bit-fields.html",
-    "url": "C/15-unions-and-bit-fields.html",
-    "snippet": "Unions & Bit Fields in C \ud83d\udd34 Advanced \ud83d\udcd6 Definition Union: A user-defined data type where all members share the exact same memory location . The size of a union equals the size of its largest member. Bit Fields: Explicit bit-width specifications inside structures or unions ( unsigned int flag : 1; ) that pack integer data into exact numbers"
+    "file": "index.html",
+    "url": "C/11-strings/index.html",
+    "snippet": "Strings in C. Null terminator \\0, string.h utilities strlen, strcpy, strcmp, strtok, pointer traversal, safe snprintf and fgets buffer overflow defense."
   },
   {
-    "title": "16 enums - C Language",
+    "title": "12. Dynamic Memory (Heap) - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "16-enums.html",
-    "url": "C/16-enums.html",
-    "snippet": "Enumerations ( enum ) \ud83d\udfe1 Intermediate \ud83d\udcd6 Definition An Enumeration ( enum ) is a custom user-defined data type in C consisting of a set of named integer constants. Enums replace raw \"magic numbers\" in code with self-documenting human-readable labels. \ud83c\udf10 Multilingual Explanation English An enum defines custom symbolic names for integer constants. By default, compiler assigns integer values starting"
+    "file": "index.html",
+    "url": "C/12-dynamic-memory/index.html",
+    "snippet": "Dynamic Memory Allocation in C. malloc, calloc, free, realloc dynamic resizing, memory leak detection with Valgrind and GCC AddressSanitizer ASan."
   },
   {
-    "title": "17 file handling - C Language",
+    "title": "13. Structures & Alignment - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "17-file-handling.html",
-    "url": "C/17-file-handling.html",
-    "snippet": "File Handling ( fopen , fread , fwrite ) \ud83d\udd34 Advanced \ud83d\udcd6 Definition File Handling in C allows programs to create, read, update, and delete files on disk storage. Using stream pointers ( FILE* ) declared in , data can be persisted across program executions in either Text or Binary formats. \ud83c\udf10 Multilingual Explanation English C file handling manages file"
+    "file": "index.html",
+    "url": "C/13-structures/index.html",
+    "snippet": "Structures in C. struct declaration, typedef aliasing, pointers to structs arrow operator ->, array of structs, memory padding and offsetof."
   },
   {
-    "title": "18 preprocessor and macros - C Language",
+    "title": "14. Unions & Bit-Fields - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "18-preprocessor-and-macros.html",
-    "url": "C/18-preprocessor-and-macros.html",
-    "snippet": "C Preprocessor & Macros ( #define , #ifdef ) \ud83d\udfe1 Intermediate \ud83d\udcd6 Definition The C Preprocessor is a macro expansion step that processes source code text *before* actual compilation begins. Preprocessor directives start with # and perform text substitutions, file inclusions ( #include ), and conditional compilation ( #ifdef ). \ud83c\udf10 Multilingual Explanation English The preprocessor runs before compiler syntax"
+    "file": "index.html",
+    "url": "C/14-unions-and-bit-fields/index.html",
+    "snippet": "Unions and Bit-Fields in C. Overlapping shared memory, tagged variant unions, type punning, bit-fields for hardware register maps."
   },
   {
-    "title": "19 storage classes - C Language",
+    "title": "15. Enumerations (enum) - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "19-storage-classes.html",
-    "url": "C/19-storage-classes.html",
-    "snippet": "Storage Classes & Qualifiers in C \ud83d\udd34 Advanced \ud83d\udcd6 Definition Storage Classes ( static , extern , auto , register ) determine the scope (visibility), lifetime, and linkage of variables and functions in C. Type Qualifiers ( const , volatile , restrict ) modify how the compiler treats variable memory access and optimization. \ud83c\udf10 Multilingual Explanation English Storage classes define"
+    "file": "15-enums.html",
+    "url": "C/15-enums.html",
+    "snippet": "Enumerations in C. Named integer constants, typedef enum, state machine switch dispatching, bitmask feature flags."
   },
   {
-    "title": "20 command line arguments - C Language",
+    "title": "16. File I/O Operations - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "20-command-line-arguments.html",
-    "url": "C/20-command-line-arguments.html",
-    "snippet": "Command Line Arguments ( argc , argv ) \ud83d\udfe1 Intermediate \ud83d\udcd6 Definition Command Line Arguments pass inputs directly into a C application from the terminal shell when launching the executable binary. In C, these parameters are received in main() via int argc (argument count) and char *argv[] (argument vector array of string pointers). \ud83c\udf10 Multilingual Explanation English Command line arguments"
+    "file": "index.html",
+    "url": "C/16-file-handling/index.html",
+    "snippet": "File Handling in C. FILE* streams, fopen, fclose access modes, fprintf/fscanf text I/O, fread/fwrite binary I/O, fseek/ftell random access."
   },
   {
-    "title": "21 multi file projects - C Language",
+    "title": "17. Preprocessor & Macros - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "21-multi-file-projects.html",
-    "url": "C/21-multi-file-projects.html",
-    "snippet": "Multi-file Projects & Header Files ( .h ) \ud83d\udd34 Advanced \ud83d\udcd6 Definition Production C software is organized into Multi-file Projects consisting of Header Files ( .h containing type definitions, macros, and function prototypes) and Source Files ( .c containing actual function implementations). This separates interface declarations from implementation code, enabling modular software development and faster incremental compilation. \ud83c\udf10 Multilingual Explanation"
+    "file": "index.html",
+    "url": "C/17-preprocessor/index.html",
+    "snippet": "Preprocessor in C. #include, #define macros, conditional compilation #ifdef/#ifndef, include guards, stringification #, concatenation ##, #pragma once."
   },
   {
-    "title": "22 error handling - C Language",
+    "title": "18. Storage Classes - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "22-error-handling.html",
-    "url": "C/22-error-handling.html",
-    "snippet": "Error Handling & Debugging ( errno , perror ) \ud83d\udd34 Advanced \ud83d\udcd6 Definition C does not possess built-in high-level exception handling constructs (such as try-catch blocks found in Java or C++). Error Handling in C relies on checking function return values, evaluating global system error codes declared in , and printing human-readable diagnostics using perror() and strerror() . \ud83c\udf10 Multilingual"
+    "file": "18-storage-classes.html",
+    "url": "C/18-storage-classes.html",
+    "snippet": "Storage Classes in C. auto, register, static local and global, extern linkage, scope, lifetime and visibility matrix."
   },
   {
-    "title": "23 mini projects - C Language",
+    "title": "19. Command Line Arguments - C Language",
     "course": "C Language",
     "course_id": "C",
-    "file": "23-mini-projects.html",
-    "url": "C/23-mini-projects.html",
-    "snippet": "Comprehensive C Mini Projects \ud83d\udd34 Advanced \ud83d\udcd6 Definition This lesson presents Comprehensive C Mini Projects designed to synthesize all core C concepts \u2014 control flow, functions, pointers, dynamic memory allocation ( malloc / free ), structures ( struct ), file I/O ( FILE* ), error handling ( errno ), and modular architecture \u2014 into production-grade functional software. \ud83c\udf10 Multilingual Explanation"
+    "file": "19-command-line-arguments.html",
+    "url": "C/19-command-line-arguments.html",
+    "snippet": "Command Line Arguments in C. argc, argv char** vector, terminal flag parsing, strtol and strtod numeric conversion validation."
+  },
+  {
+    "title": "20. Multi-File Projects - C Language",
+    "course": "C Language",
+    "course_id": "C",
+    "file": "20-multi-file-projects.html",
+    "url": "C/20-multi-file-projects.html",
+    "snippet": "Multi-File Projects in C. Header files .h, implementation files .c, include guards #ifndef, object compilation gcc -c, linking, Makefile automation."
+  },
+  {
+    "title": "21. Error Handling - C Language",
+    "course": "C Language",
+    "course_id": "C",
+    "file": "21-error-handling.html",
+    "url": "C/21-error-handling.html",
+    "snippet": "Error Handling in C. System errno codes, perror, strerror, defensive status return codes, non-local exception jumping setjmp and longjmp."
+  },
+  {
+    "title": "22. Debugging & Sanitizers - C Language",
+    "course": "C Language",
+    "course_id": "C",
+    "file": "22-debugging-and-sanitizers.html",
+    "url": "C/22-debugging-and-sanitizers.html",
+    "snippet": "Debugging in C. GDB breakpoints, backtrace bt, AddressSanitizer -fsanitize=address, UndefinedBehaviorSanitizer, Valgrind, assert diagnostics."
+  },
+  {
+    "title": "23. C Standard Library - C Language",
+    "course": "C Language",
+    "course_id": "C",
+    "file": "23-standard-library.html",
+    "url": "C/23-standard-library.html",
+    "snippet": "C Standard Library. ISO C essential headers stdlib.h, math.h, time.h, stdbool.h, stdint.h, limits.h, random numbers, benchmarking."
+  },
+  {
+    "title": "24. Production Projects - C Language",
+    "course": "C Language",
+    "course_id": "C",
+    "file": "24-mini-projects.html",
+    "url": "C/24-mini-projects.html",
+    "snippet": "Capstone C Mini-Projects. Bank Account System binary I/O, Shell Command Line Parser, Custom Fixed-Block Memory Allocator."
   },
   {
     "title": "C Master Syllabus - C Language",

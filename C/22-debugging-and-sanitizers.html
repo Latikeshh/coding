@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22. Debugging with GDB, Valgrind & Sanitizers - C Language Course</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="22-debugging-and-sanitizers.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>22. Debugging with GDB, Valgrind &amp; Compiler Sanitizers</h1>
+        <blockquote><p>🔴 <strong>Difficulty: Advanced</strong> | GDB Breakpoints, Backtraces, ASan (-fsanitize=address) &amp; UBSan</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p><strong>Debugging</strong> is the process of diagnosing and resolving software defects (bugs) in C binaries. Modern C debugging combines interactive step-by-step debuggers (<strong>GDB - GNU Debugger</strong>), compiler instrumentation sanitizers (<strong>AddressSanitizer - ASan</strong> and <strong>UndefinedBehaviorSanitizer - UBSan</strong>), and runtime memory checkers (<strong>Valgrind</strong>).</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Segmentation Fault Diagnosis:</strong> Using GDB backtraces (<code>bt</code>) to pinpoint the exact line number and function call stack where a null pointer or illegal memory access occurred.</li>
+          <li><strong>Catching Undefined Behavior:</strong> Using UBSan (<code>-fsanitize=undefined</code>) to catch signed integer overflows, null pointer dereferences, and unaligned accesses automatically during test execution.</li>
+        </ul>
+
+        <!-- 4. How It Works: GDB Command Reference -->
+        <h2>⚙️ How It Works: Essential GDB Commands</h2>
+        <p>To enable GDB symbol debugging, compile binaries with the <code>-g</code> flag (e.g. <code>gcc -g -Wall main.c -o myprog</code>):</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>GDB Command</th>
+              <th>Shorthand</th>
+              <th>Action / Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>run [args]</code></td><td><code>r</code></td><td>Starts executable execution with optional arguments.</td></tr>
+            <tr><td><code>break location</code></td><td><code>b</code></td><td>Sets a breakpoint at function name or line number (e.g. <code>b main.c:25</code>).</td></tr>
+            <tr><td><code>next</code></td><td><code>n</code></td><td>Executes next source line, stepping OVER function calls.</td></tr>
+            <tr><td><code>step</code></td><td><code>s</code></td><td>Executes next source line, stepping INTO function calls.</td></tr>
+            <tr><td><code>print expr</code></td><td><code>p</code></td><td>Evaluates and prints value of a variable/expression (e.g. <code>p *ptr</code>).</td></tr>
+            <tr><td><code>backtrace</code></td><td><code>bt</code></td><td>Prints current call stack frames from crash location to <code>main()</code>.</td></tr>
+            <tr><td><code>continue</code></td><td><code>c</code></td><td>Resumes execution until next breakpoint or crash.</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 5. Syntax: Enabling Compiler Sanitizers -->
+        <h2>📝 Syntax: Compiler Sanitizer Flags</h2>
+        <pre><code class="language-bash"># 1. Compile with AddressSanitizer (Memory leaks, out-of-bounds, Use-After-Free)
+gcc -Wall -Wextra -std=c11 -g -fsanitize=address main.c -o app_asan
+
+# 2. Compile with UndefinedBehaviorSanitizer (Integer overflow, shift out-of-bounds)
+gcc -Wall -Wextra -std=c11 -g -fsanitize=undefined main.c -o app_ubsan
+
+# 3. Combine both Sanitizers for Maximum Rigor
+gcc -Wall -Wextra -std=c11 -g -fsanitize=address,undefined main.c -o app_sanitizing</code></pre>
+
+        <!-- 6. Code Examples -->
+        <h2>💻 Code Walkthrough: Diagnosing Memory Bugs</h2>
+
+        <h3>1. Buggy Code: <code>buggy.c</code></h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void trigger_crash(int *p) {
+    printf("Accessing pointer: %d\n", *p); // CRASH if p == NULL!
+}
+
+int main(void) {
+    int *ptr = NULL;
+    trigger_crash(ptr); // Triggers Segmentation Fault (Signal 11)
+    return 0;
+}</code></pre>
+
+        <h3>2. GDB Session Walkthrough</h3>
+        <pre><code class="language-bash">$ gcc -g buggy.c -o buggy
+$ gdb ./buggy
+(gdb) run
+Starting program: ./buggy
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555555149 in trigger_crash (p=0x0) at buggy.c:5
+5	    printf("Accessing pointer: %d\n", *p);
+(gdb) bt
+#0  0x0000555555555149 in trigger_crash (p=0x0) at buggy.c:5
+#1  0x000055555555516e in main () at buggy.c:10
+(gdb) p p
+$1 = (int *) 0x0</code></pre>
+
+        <!-- 8. Intermediate Example: Assertions with <assert.h> -->
+        <h2>🌼 Intermediate Example: Invariant Checks with assert()</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+double calculate_average(const int arr[], size_t count) {
+    // Runtime assertion verifying preconditions during development
+    assert(arr != NULL &amp;&amp; "Array pointer must not be NULL!");
+    assert(count &gt; 0 &amp;&amp; "Element count must be greater than zero!");
+
+    int sum = 0;
+    for (size_t i = 0; i &lt; count; i++) {
+        sum += arr[i];
+    }
+    return (double)sum / count;
+}
+
+int main(void) {
+    int data[] = {10, 20, 30};
+    printf("Average: %.2f\n", calculate_average(data, 3));
+
+    // Uncommenting below triggers assert() abort failure!
+    // calculate_average(NULL, 0);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Average: 20.00
+=== GDB Backtrace Crash Diagnostics ===
+Program received signal SIGSEGV, Segmentation fault.
+p = (int *) 0x0 (Null pointer dereference identified at line 5)</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting <code>-g</code> Flag During Compilation:</strong> Compiling without <code>-g</code> leaves GDB with no line numbers or symbol names, printing raw hexadecimal addresses instead of source code locations.</li>
+          <li><strong>Leaving Debug Sanitizers in Release Builds:</strong> Shipping binaries built with <code>-fsanitize=address</code> to production increases binary size and reduces runtime execution speed.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Always compile with <code>gcc -g</code> when debugging with GDB or Valgrind.</li>
+          <li>Use <code>-fsanitize=address,undefined</code> during testing to catch memory corruption and undefined behavior automatically.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Debugging uses GDB for interactive stack backtraces, ASan (<code>-fsanitize=address</code>) for memory corruption, and UBSan for undefined behavior checks. Always compile debug builds with <code>-g</code>.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Debugging ke liye <code>gcc -g</code> se compile karke GDB chalayein. Segmentation faults ka exact line number dekhne ke liye GDB mein <code>bt</code> (backtrace) command ka upyog karein. ASan se memory leaks aani out-of-bounds access turant pakde jate hain.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Debugging sathi <code>gcc -g</code> waaparun GDB aani AddressSanitizer (ASan) vapartat. Crash zalya nantar line number shodhnayasathi GDB madhye <code>bt</code> vapra.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>What does the <code>-g</code> GCC compilation flag do?</li>
+          <li>In GDB, what is the difference between the <code>step</code> (<code>s</code>) and <code>next</code> (<code>n</code>) commands?</li>
+          <li>What memory errors does AddressSanitizer (<code>-fsanitize=address</code>) catch at runtime?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Compile a buggy C program with <code>gcc -Wall -Wextra -g -fsanitize=address,undefined</code>, run it to observe ASan error reports, fix the bug, and verify a clean execution.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="21-error-handling.html">&larr; Previous: 21. Error Handling</a> | <a href="index.html">Master Syllabus</a> | <a href="23-standard-library.html">Next Module: 23. C Standard Library &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/search-data.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/contributors.js"></script>
+</body>
+</html>

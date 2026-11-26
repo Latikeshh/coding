@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>04 Switch Statement in C - C Language</title>
+  <title>04. Switch Statement & Jump Tables - C Language Course</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -44,23 +44,40 @@
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
-          <a href="../index.html" class="nav-back-btn">
+          <a href="../../index.html" class="nav-back-btn">
             <span class="back-arrow">&larr;</span> All Courses
           </a>
         </div>
         <div class="course-nav-header">
           <span class="course-header-title">C Language</span>
-          <span class="course-header-badge">23 Lessons</span>
+          <span class="course-header-badge">24 Modules</span>
         </div>
         <ul class="nav-menu course-lessons-menu">
-          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn C Language — Course Overview</span></a></li>
-          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals Module Hub</span></a></li>
-          <li class="nav-item"><a href="01-if-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. If Statement in C</span></a></li>
-          <li class="nav-item"><a href="02-if-else-statement.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. If-Else Statement in C</span></a></li>
-          <li class="nav-item"><a href="03-else-if-ladder.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Else-If Ladder in C</span></a></li>
-          <li class="nav-item"><a href="04-switch-statement.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Switch Statement in C</span></a></li>
-          <li class="nav-item"><a href="05-nested-conditionals.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Nested Conditionals in C</span></a></li>
-          <li class="nav-item"><a href="06-ternary-operator.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Ternary Operator in C</span></a></li>
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
         </ul>
       </div>
       <div class="sidebar-footer">
@@ -74,26 +91,198 @@
     <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>Switch Statement in C in C Language</h1>
-        <blockquote><p>🟢 Beginner</p></blockquote>
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>04. The Switch Statement &amp; Jump Tables in C</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | Discrete Expression Dispatching &amp; Fall-Through Mechanics</p></blockquote>
 
+        <!-- 2. Definition -->
         <h2>📖 Definition</h2>
-        <p>A <strong>switch statement</strong> tests an integer/char variable against multiple <code>case</code> constants using <code>break</code> to prevent fallthrough.</p>
-        <h2>⚡ Code Example</h2>
+        <p>The <code>switch</code> statement is a multi-way decision branch control structure in C that evaluates an integral or character expression against a series of constant <code>case</code> labels. When a match is found, execution transfers directly to that <code>case</code> label.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>O(1) Jump Table Optimization:</strong> For dense integer constant cases, compilers optimize <code>switch</code> into a direct <strong>Jump Table</strong> array lookup in assembly, outperforming long <code>else-if</code> chains.</li>
+          <li><strong>Clean State Machine &amp; Menu Handling:</strong> Ideal for parsing menu selections, <code>enum</code> options, and protocol state machines.</li>
+        </ul>
+
+        <!-- 4. How It Works: Fall-Through Behavior -->
+        <h2>⚙️ How It Works &amp; Fall-Through Mechanics</h2>
+        <p>In C, case labels are jump targets. After jumping to a matching <code>case</code>, execution continues sequentially downward into subsequent <code>case</code> blocks <strong>unless a <code>break</code> statement is encountered</strong>. This behavior is called <strong>Fall-Through</strong>.</p>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">switch (integral_expression) {
+    case CONSTANT_1:
+        // Executed if integral_expression == CONSTANT_1
+        break; // Exits switch block
+    case CONSTANT_2:
+        // Executed if integral_expression == CONSTANT_2
+        break;
+    default:
+        // Optional fallback: Executed if no case constants match
+        break;
+}</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Intentional Multi-Case Grouping (Fall-Through)</h2>
+        <p>Fall-through can be intentionally used to share code across multiple case constants:</p>
+        <pre><code class="language-c">switch (character) {
+    case 'a': case 'e': case 'i': case 'o': case 'u':
+    case 'A': case 'E': case 'I': case 'O': case 'U':
+        printf("Vowels matched!\n");
+        break;
+    default:
+        printf("Consonant or symbol.\n");
+        break;
+}</code></pre>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Simple Day Selector</h2>
         <pre><code class="language-c">#include &lt;stdio.h&gt;
-int main() {
-    char grade = 'B';
-    switch (grade) {
-        case 'A': printf("Excellent\n"); break;
-        case 'B': printf("Good\n"); break;
-        default: printf("Pass\n");
+
+int main(void) {
+    int day_code = 3;
+
+    switch (day_code) {
+        case 1: printf("Day: Monday\n"); break;
+        case 2: printf("Day: Tuesday\n"); break;
+        case 3: printf("Day: Wednesday\n"); break;
+        case 4: printf("Day: Thursday\n"); break;
+        case 5: printf("Day: Friday\n"); break;
+        case 6: case 7: printf("Day: Weekend!\n"); break;
+        default: printf("Error: Invalid day code (%d)\n", day_code); break;
     }
     return 0;
 }</code></pre>
 
-        <hr>
-        <h2>🧭 Navigation</h2>
-        <p><a href="03-else-if-ladder.html">&larr; 03. Else-If Ladder in C</a> | <a href="index.html">Module Index</a> | <a href="05-nested-conditionals.html">05. Nested Conditionals in C &rarr;</a></p>
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Calculator Menu System</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    char operator = '*';
+    double a = 12.0, b = 4.0;
+
+    switch (operator) {
+        case '+':
+            printf("%.2lf + %.2lf = %.2lf\n", a, b, a + b);
+            break;
+        case '-':
+            printf("%.2lf - %.2lf = %.2lf\n", a, b, a - b);
+            break;
+        case '*':
+            printf("%.2lf * %.2lf = %.2lf\n", a, b, a * b);
+            break;
+        case '/':
+            if (b != 0) {
+                printf("%.2lf / %.2lf = %.2lf\n", a, b, a / b);
+            } else {
+                printf("Error: Division by zero!\n");
+            }
+            break;
+        default:
+            printf("Error: Unknown operator '%c'\n", operator);
+            break;
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: State Machine with Enum Dispatching</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef enum {
+    STATE_IDLE,
+    STATE_CONNECTING,
+    STATE_CONNECTED,
+    STATE_DISCONNECTED
+} ConnectionState;
+
+void process_connection(ConnectionState state) {
+    switch (state) {
+        case STATE_IDLE:
+            puts("[State Machine] Idle: Ready for socket initialization.");
+            break;
+        case STATE_CONNECTING:
+            puts("[State Machine] Connecting: Handshake in progress...");
+            break;
+        case STATE_CONNECTED:
+            puts("[State Machine] Connected: Session established successfully.");
+            break;
+        case STATE_DISCONNECTED:
+            puts("[State Machine] Disconnected: Reconnect timer armed.");
+            break;
+        default:
+            puts("[State Machine] Error: Corrupted state byte detected!");
+            break;
+    }
+}
+
+int main(void) {
+    process_connection(STATE_CONNECTING);
+    process_connection(STATE_CONNECTED);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>switch (operator)</code>: Evaluates char variable <code>operator</code> against case constants.</li>
+          <li><code>case '*':</code>: Matches ASCII value <code>'*'</code>, executing the multiplication print statement.</li>
+          <li><code>break;</code>: Terminates the <code>switch</code> statement and jumps execution past the closing brace <code>}</code>.</li>
+          <li><code>default:</code>: Catches any unmatched non-supported operator characters.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Day: Wednesday
+12.00 * 4.00 = 48.00
+[State Machine] Connecting: Handshake in progress...
+[State Machine] Connected: Session established successfully.</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting <code>break</code> (Accidental Fall-Through):</strong> Omitting <code>break</code> causes execution to flow directly into the next <code>case</code> statements regardless of whether they match.</li>
+          <li><strong>Attempting Non-Integral Case Expressions:</strong> Using floating-point values (like <code>case 3.14:</code>) or string variables in a <code>switch</code> causes compilation errors (ISO C requires integral constant expressions).</li>
+          <li><strong>Declaring Variables Directly Inside Cases:</strong> Declaring local variables inside a case without wrapping the case block in curly braces <code>case 1: { int x = 5; break; }</code> is illegal in standard C.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Switch expression and case labels must be integral types (<code>int</code>, <code>char</code>, <code>enum</code>).</li>
+          <li>Case constants within the same switch statement must be unique.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>The <code>switch</code> statement dispatches control to matching integer or character <code>case</code> labels. Compilers optimize <code>switch</code> into fast jump tables. Always end each <code>case</code> block with a <code>break</code> statement unless intentional fall-through is desired.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p><code>switch</code> statement integer ya character values par fast decision routing deta hai. Har <code>case</code> ke aakhri mein <code>break</code> zaroor lagayein taaki accidental fall-through se bacha ja sake.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p><code>switch</code> statement fast jump table optimization vaparto. Pratyek <code>case</code> chya shevati <code>break</code> vaparane garjeche aste.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why does ISO C prohibit floating-point variables as <code>switch</code> expressions?</li>
+          <li>What happens if you omit <code>break</code> at the end of a <code>case</code> block?</li>
+          <li>What is the purpose of the <code>default</code> label in a <code>switch</code> statement?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>month_days.c</code> that prompts the user for a month number (1–12) and uses a <code>switch</code> statement with intentional multi-case grouping to print the number of days in that month (assume 28 days for February).</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="03-else-if-ladder.html">&larr; Previous: 03. Else-If Ladder</a> | <a href="index.html">Module 06 Guide</a> | <a href="05-nested-conditionals.html">Next: 05. Nested Conditionals &rarr;</a></p>
       </div>
     </main>
   </div>

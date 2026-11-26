@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Safe Bounded String Functions & Buffer Safety - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>04. Safe Bounded String Functions &amp; Buffer Safety</h1>
+        <blockquote><p>🔴 <strong>Difficulty: Advanced</strong> | Buffer Overflow Vulnerabilities, snprintf, strncpy &amp; Secure Inputs</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>A <strong>buffer overflow</strong> occurs when a program writes more character data into a destination buffer than the buffer was allocated to hold. In C, unbounded string functions (like <code>gets()</code>, <code>strcpy()</code>, <code>strcat()</code>, and <code>sprintf()</code>) do not check destination bounds, making them prime targets for stack corruption and security exploits.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Eliminating Security Exploits:</strong> Modern production C code bans unsafe functions to prevent stack smashing and remote code execution (RCE) attacks.</li>
+          <li><strong>Guaranteed Null Termination with <code>snprintf</code>:</strong> Bounded functions respect explicit byte limits (<code>sizeof(buffer)</code>) and guarantee null termination when truncating long input data.</li>
+        </ul>
+
+        <!-- 4. How It Works: Replacing Unsafe String Functions -->
+        <h2>⚙️ How It Works: Unsafe vs Safe Bounded Replacements</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Unsafe / Banned Function</th>
+              <th>Reason Banned</th>
+              <th>Production Safe Replacement</th>
+              <th>Safe Mechanics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>gets(buf)</code></td><td>Removed in C11! No length parameter; overflows buffer easily.</td><td><code>fgets(buf, sizeof(buf), stdin)</code></td><td>Reads up to <code>sizeof(buf) - 1</code> bytes, ensuring null termination.</td></tr>
+            <tr>
+              <td><code>strcpy(dest, src)</code></td><td>Unbounded write; overflows if <code>strlen(src) &gt;= sizeof(dest)</code>.</td><td><code>snprintf(dest, sizeof(dest), "%s", src)</code></td><td>Clamps output strictly to buffer size with null termination.</td></tr>
+            <tr>
+              <td><code>strcat(dest, src)</code></td><td>Unbounded append; overflows destination buffer.</td><td><code>snprintf(dest, sizeof(dest), "%s%s", dest, src)</code></td><td>Safely formats concatenated strings into fixed buffer.</td></tr>
+            <tr>
+              <td><code>sprintf(dest, fmt, ...)</code></td><td>Unbounded formatted write.</td><td><code>snprintf(dest, sizeof(dest), fmt, ...)</code></td><td>Clamps output formatting strictly to specified buffer limit.</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">char buffer[32];
+
+// 1. Safe Line Reading from Console/File
+if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+    // Strip trailing newline character if present
+    buffer[strcspn(buffer, "\n")] = '\0';
+}
+
+// 2. Safe String Copying & Formatting
+snprintf(buffer, sizeof(buffer), "User: %s | ID: %d", username, user_id);</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Pitfalls of <code>strncpy()</code></h2>
+        <p>Although <code>strncpy(dest, src, n)</code> was created as a bounded copy function, it has a dangerous caveat: <strong>if <code>strlen(src) &gt;= n</code>, <code>strncpy()</code> does NOT append a null terminator to <code>dest</code>!</strong> In production code, <code>snprintf()</code> is preferred over <code>strncpy()</code> because <code>snprintf()</code> guarantees null termination.</p>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Safe Console Input Reading with fgets()</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(void) {
+    char name_buf[16]; // Holds up to 15 characters + '\0'
+
+    printf("Enter your full name (max 15 chars): ");
+    if (fgets(name_buf, sizeof(name_buf), stdin) != NULL) {
+        // Strip trailing newline left by fgets()
+        name_buf[strcspn(name_buf, "\r\n")] = '\0';
+
+        printf("Welcome, %s!\n", name_buf);
+        printf("Buffer Size: %zu bytes | String Length: %zu chars\n",
+               sizeof(name_buf), strlen(name_buf));
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Safe String Formatting with snprintf()</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(void) {
+    char log_entry[32];
+    const char *module_name = "AuthenticationSubsystem";
+    int status_code = 403;
+
+    // snprintf safely truncates long inputs without overflowing 'log_entry[32]'
+    int required_len = snprintf(log_entry, sizeof(log_entry),
+                                "[%s] Status: %d", module_name, status_code);
+
+    printf("Formatted Log Output: \"%s\"\n", log_entry);
+    printf("Actual Buffer Size  : %zu bytes\n", sizeof(log_entry));
+    printf("Total Length Needed : %d chars (Truncated = %s)\n",
+           required_len, (required_len &gt;= (int)sizeof(log_entry)) ? "YES" : "NO");
+
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Defensive String Copy Utility Function</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;string.h&gt;
+
+// Secure helper that guarantees null-terminated string copying
+bool safe_strcpy(char *dest, size_t dest_size, const char *src) {
+    if (dest == NULL || src == NULL || dest_size == 0) return false;
+
+    int written = snprintf(dest, dest_size, "%s", src);
+    if (written &lt; 0 || (size_t)written &gt;= dest_size) {
+        // Truncation occurred, but null-termination is guaranteed
+        return false;
+    }
+    return true; // Copied completely without truncation
+}
+
+int main(void) {
+    char short_buf[10];
+    const char *long_text = "Supercalifragilisticexpialidocious";
+
+    bool success = safe_strcpy(short_buf, sizeof(short_buf), long_text);
+
+    printf("Copy Success Status : %s\n", success ? "SUCCESS" : "TRUNCATED");
+    printf("Safely Clamped Text : \"%s\"\n", short_buf);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>fgets(name_buf, sizeof(name_buf), stdin);</code>: Reads up to 15 characters plus <code>'\0'</code> safely without overflowing <code>name_buf[16]</code>.</li>
+          <li><code>name_buf[strcspn(name_buf, "\r\n")] = '\0';</code>: Uses <code>strcspn</code> to find the newline character and replace it with a null terminator.</li>
+          <li><code>snprintf(dest, sizeof(dest), "%s", src);</code>: Copies <code>src</code> into <code>dest</code>, writing at most <code>sizeof(dest) - 1</code> characters and appending <code>'\0'</code>.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Enter your full name (max 15 chars): Alexander Hamilton
+Welcome, Alexander Hamil!
+Buffer Size: 16 bytes | String Length: 15 chars
+Formatted Log Output: "[AuthenticationSubsystem] Status"
+Actual Buffer Size  : 32 bytes
+Total Length Needed : 39 chars (Truncated = YES)
+Copy Success Status : TRUNCATED
+Safely Clamped Text : "Supercali"</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Using Banned <code>gets()</code>:</strong> The <code>gets()</code> function was removed in C11 because it is impossible to use safely. Calling <code>gets()</code> causes compilation errors or major security vulnerabilities.</li>
+          <li><strong>Assuming <code>strncpy()</code> Always Null-Terminates:</strong> If <code>src</code> length equals or exceeds the specified size <code>n</code>, <code>strncpy()</code> leaves the destination buffer WITHOUT a null terminator! Always use <code>snprintf()</code> or manually write <code>dest[n - 1] = '\0'</code>.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Never use <code>gets()</code>, <code>strcpy()</code>, or <code>sprintf()</code> in production code.</li>
+          <li>Always pass buffer sizes explicitly using <code>sizeof(buffer)</code> to <code>fgets()</code> and <code>snprintf()</code>.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Unbounded functions like <code>strcpy</code> cause buffer overflows. Use bounded functions like <code>fgets</code> for input and <code>snprintf</code> for safe copying and formatting with guaranteed null termination.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Unbounded functions jaise <code>strcpy</code> se buffer overflow ho jata hai. Hamesha safe functions jaise <code>fgets()</code> aur <code>snprintf()</code> ka upyog karein jo buffer size (<code>sizeof(buf)</code>) ko strictly respect karte hain.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p><code>strcpy</code> cha vapar kelyas buffer overflow mhanje memory corrupt hou shakte. Security sathi <code>fgets()</code> aani <code>snprintf()</code> cha vapar kara.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why was the <code>gets()</code> function completely removed from the C11 standard?</li>
+          <li>Why is <code>snprintf()</code> safer than <code>strncpy()</code> when copying strings into a fixed-size buffer?</li>
+          <li>How does <code>strcspn(buf, "\n")</code> help strip trailing newlines after <code>fgets()</code>?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>safe_user_registration.c</code> that prompts for a username, email, and password using <code>fgets</code>, strips newlines, and uses <code>snprintf</code> to build a formatted JSON user record in a fixed 128-byte buffer.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="03-string-traversal-manipulation.html">&larr; Previous: 03. String Traversal & Manipulation</a> | <a href="index.html">Module 11 Guide</a> | <a href="../12-dynamic-memory/index.html">Next Module: 12. Dynamic Memory (Heap) &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

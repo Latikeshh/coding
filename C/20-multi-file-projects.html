@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20. Multi-File Projects & Header Files (.h) - C Language Course</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="20-multi-file-projects.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>20. Multi-File Projects, Header Files (.h) &amp; Makefiles</h1>
+        <blockquote><p>🟡 <strong>Difficulty: Intermediate to Advanced</strong> | Translation Units, Separate Compilation &amp; Build Orchestration</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>A <strong>multi-file project</strong> in C decomposes software architecture into independent compilation units (source files ending in <code>.c</code>) and shared contract interface files (header files ending in <code>.h</code>). Each <code>.c</code> file compiles independently into an object file (<code>.o</code> / <code>.obj</code>), which the <strong>Linker</strong> combines into a single executable binary.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Modular Software Architecture:</strong> Separating database, network, UI, and business logic into dedicated component files.</li>
+          <li><strong>Incremental Compilation Speed:</strong> Changing a single line in <code>math_utils.c</code> requires recompiling only <code>math_utils.c</code> instead of rebuilding a massive 50,000-line monolithic file.</li>
+          <li><strong>Symbol Hiding:</strong> Exposing public prototypes in <code>.h</code> while keeping private helper functions local via <code>static</code> in <code>.c</code>.</li>
+        </ul>
+
+        <!-- 4. How It Works: The Four-Stage C Build Pipeline -->
+        <h2>⚙️ How It Works: The Build Pipeline</h2>
+        <ol>
+          <li><strong>Preprocessing:</strong> Expands <code>#include</code> files, macros, and comments (creates <code>.i</code> text file).</li>
+          <li><strong>Compilation:</strong> Translates preprocessed C code into CPU assembly instructions (creates <code>.s</code> file).</li>
+          <li><strong>Assembly:</strong> Converts assembly into binary object machine code (creates <code>.o</code> object file).</li>
+          <li><strong>Linking:</strong> Resolves function address calls across object files and standard libraries to emit final executable binary.</li>
+        </ol>
+
+        <!-- 5. Syntax: Multi-File Project Layout -->
+        <h2>📝 Syntax: File Structure Example</h2>
+        <pre><code class="language-text">project/
+├── math_utils.h   # Public prototypes and struct definitions
+├── math_utils.c   # Executable function implementations
+└── main.c         # Entry point invoking math_utils library</code></pre>
+
+        <!-- 6. Code Examples -->
+        <h2>💻 Code Walkthrough: Multi-File Component</h2>
+
+        <h3>1. Header File: <code>math_utils.h</code></h3>
+        <pre><code class="language-c">#ifndef MATH_UTILS_H
+#define MATH_UTILS_H
+
+// Public function prototypes
+int add_integers(int a, int b);
+double compute_circle_area(double radius);
+
+#endif // MATH_UTILS_H</code></pre>
+
+        <h3>2. Implementation File: <code>math_utils.c</code></h3>
+        <pre><code class="language-c">#include "math_utils.h"
+
+#define PI 3.1415926535
+
+int add_integers(int a, int b) {
+    return a + b;
+}
+
+double compute_circle_area(double radius) {
+    return PI * radius * radius;
+}</code></pre>
+
+        <h3>3. Main Entry File: <code>main.c</code></h3>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include "math_utils.h" // Import public prototypes
+
+int main(void) {
+    int sum = add_integers(40, 2);
+    double area = compute_circle_area(10.0);
+
+    printf("Sum Result: %d\n", sum);
+    printf("Circle Area: %.2f\n", area);
+    return 0;
+}</code></pre>
+
+        <!-- 7. Build Commands -->
+        <h2>🛠️ Compilation &amp; Makefile Automation</h2>
+        <p>To compile and link a multi-file project manually using GCC:</p>
+        <pre><code class="language-bash"># Option A: Direct one-step multi-file compilation
+gcc -Wall -Wextra -std=c11 main.c math_utils.c -o my_app
+
+# Option B: Two-step object file compilation (Incremental Build)
+gcc -c main.c -o main.o
+gcc -c math_utils.c -o math_utils.o
+gcc main.o math_utils.o -o my_app</code></pre>
+
+        <h3>Simple <code>Makefile</code> Example</h3>
+        <pre><code class="language-makefile">CC = gcc
+CFLAGS = -Wall -Wextra -std=c11 -g
+
+all: my_app
+
+my_app: main.o math_utils.o
+	$(CC) $(CFLAGS) main.o math_utils.o -o my_app
+
+main.o: main.c math_utils.h
+	$(CC) $(CFLAGS) -c main.c
+
+math_utils.o: math_utils.c math_utils.h
+	$(CC) $(CFLAGS) -c math_utils.c
+
+clean:
+	rm -f *.o my_app</code></pre>
+
+        <!-- 10. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Sum Result: 42
+Circle Area: 314.16</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Putting Function Definitions in Header Files:</strong> Defining <code>int add(int a, int b) { return a+b; }</code> directly inside a <code>.h</code> file causes "multiple definition of 'add'" linker errors when included in multiple <code>.c</code> files! Put only <em>prototypes</em> in <code>.h</code> files, and put <em>definitions</em> in <code>.c</code> files.</li>
+          <li><strong>Forgetting Include Guards in Headers:</strong> Omitting <code>#ifndef HEADER_H</code> in header files causes "redefinition of struct" compilation errors during nested includes.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Header files (<code>.h</code>) contain declarations; source files (<code>.c</code>) contain definitions.</li>
+          <li>Always protect header files using Include Guards or <code>#pragma once</code>.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Multi-file projects separate declarations into <code>.h</code> headers and implementations into <code>.c</code> files. Each <code>.c</code> file compiles independently into an object file, and the linker combines them into an executable.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Multi-file projects mein hum declarations ko <code>.h</code> file mein aur function definitions ko <code>.c</code> file mein alag rakhte hain. Compiling ke baad linker saare object files ko jod kar executable banata hai.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Multi-file projects madhye declarations <code>.h</code> file madhye aani actual code <code>.c</code> file madhye lihtat. Linker sagle object files jodhun main executable tayar karto.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why should function definitions generally NOT be placed inside <code>.h</code> header files?</li>
+          <li>What is the difference between the compilation stage and the linking stage?</li>
+          <li>How does a <code>Makefile</code> speed up build times for large software projects?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Create a 3-file modular C project: <code>string_utils.h</code> (declarations for <code>to_uppercase</code>), <code>string_utils.c</code> (implementation), and <code>main.c</code> (tests the library), along with a working <code>Makefile</code>.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="19-command-line-arguments.html">&larr; Previous: 19. Command Line Arguments</a> | <a href="index.html">Master Syllabus</a> | <a href="21-error-handling.html">Next Module: 21. Error Handling &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/search-data.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/contributors.js"></script>
+</body>
+</html>

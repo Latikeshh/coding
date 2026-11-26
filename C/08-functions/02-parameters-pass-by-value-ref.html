@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parameters & Pointer Mutation in C - C Language</title>
+  <title>02. Parameters: Pass-by-Value vs Pointer Reference - C Language Course</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../../index.html" class="mobile-brand">
         <span class="brand-logo">&#128187;</span>
@@ -22,6 +23,7 @@
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="../../index.html" class="site-brand">
@@ -48,38 +50,35 @@
         </div>
         <div class="course-nav-header">
           <span class="course-header-title">C Language</span>
-          <span class="course-header-badge">23 Lessons</span>
+          <span class="course-header-badge">24 Modules</span>
         </div>
         <ul class="nav-menu course-lessons-menu">
-  <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn C Programming</span></a></li>
-  <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Up C Environment</span></a></li>
-  <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C</span></a></li>
-  <li class="nav-item"><a href="../03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables and Data Types in C</span></a></li>
-  <li class="nav-item"><a href="../04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input and Output in C</span></a></li>
-  <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C</span></a></li>
-  <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Conditionals in C</span></a></li>
-  <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops in C</span></a></li>
-  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C</span></a>
-          <li class="nav-item"><a href="01-prototypes-definitions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Prototypes & Definitions</span></a></li>
-          <li class="nav-item"><a href="02-parameters-pass-by-value-ref.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Parameters & Pointer Mutation</span></a></li>
-          <li class="nav-item"><a href="03-recursion-in-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Recursion & Call Stack</span></a></li>
-          <li class="nav-item"><a href="04-function-scope-and-lifetime.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Scope, Storage & Lifetime</span></a></li></li>
-  <li class="nav-item"><a href="../09-arrays.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Arrays in C</span></a></li>
-  <li class="nav-item"><a href="../10-pointers-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Pointers Basics in C</span></a></li>
-  <li class="nav-item"><a href="../11-advanced-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Advanced Pointers & Pointer Arithmetic</span></a></li>
-  <li class="nav-item"><a href="../12-strings.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Strings in C (&lt;string.h&gt;)</span></a></li>
-  <li class="nav-item"><a href="../13-dynamic-memory-allocation.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Dynamic Memory Allocation (`malloc`, `calloc`, `realloc`, `free`)</span></a></li>
-  <li class="nav-item"><a href="../14-structures.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Structures (`struct`) & `typedef`</span></a></li>
-  <li class="nav-item"><a href="../15-unions-and-bit-fields.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Unions & Bit Fields in C</span></a></li>
-  <li class="nav-item"><a href="../16-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Enumerations (`enum`)</span></a></li>
-  <li class="nav-item"><a href="../17-file-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">File Handling (`fopen`, `fread`, `fwrite`)</span></a></li>
-  <li class="nav-item"><a href="../18-preprocessor-and-macros.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C Preprocessor & Macros (`#define`, `#ifdef`)</span></a></li>
-  <li class="nav-item"><a href="../19-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Storage Classes & Qualifiers in C</span></a></li>
-  <li class="nav-item"><a href="../20-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Command Line Arguments (`argc`, `argv`)</span></a></li>
-  <li class="nav-item"><a href="../21-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Multi-file Projects & Header Files (`.h`)</span></a></li>
-  <li class="nav-item"><a href="../22-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Error Handling & Debugging (`errno`, `perror`)</span></a></li>
-  <li class="nav-item"><a href="../23-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Comprehensive C Mini Projects</span></a></li>
-</ul>
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
       </div>
       <div class="sidebar-footer">
         <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
@@ -89,37 +88,233 @@
       </div>
     </aside>
 
+    <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>Function Parameters &amp; Pointer Mutation in C</h1>
-        <blockquote><p>🟢 Intermediate Level | Pass-by-Value vs Pointer Reference Simulation</p></blockquote>
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>02. Parameters: Pass-by-Value vs Pointer Reference Mutation</h1>
+        <blockquote><p>🟡 <strong>Difficulty: Intermediate</strong> | Parameter Passing Mechanics, Memory Copying &amp; Pointer Indirection</p></blockquote>
 
-        <h2>📖 Pass-by-Value in C</h2>
-        <p>In C, all function arguments are passed strictly <strong>by value</strong>. The function receives local copies of the caller's arguments. Modifying parameters inside the function body does not alter variables in the calling function.</p>
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>In C, <strong>all parameters are strictly passed by value</strong>. Passing a variable to a function copies its data onto the function's local call stack frame. To simulate <strong>pass-by-reference</strong> (allowing a function to mutate a variable in the caller's stack frame), the caller passes the <strong>memory address pointer</strong> of the variable (e.g., <code>&amp;var</code>), and the function dereferences it via pointer indirection (<code>*ptr</code>).</p>
 
-        <h2>💡 Simulating Reference Semantics with Pointers</h2>
-        <p>To mutate caller variables inside a called function, pass memory addresses (pointers) as argument values, then dereference them using <code>*</code>.</p>
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Caller State Mutation:</strong> Modifying caller variables directly (e.g. <code>swap(&amp;a, &amp;b)</code> or updating multi-field structs).</li>
+          <li><strong>Returning Multiple Results:</strong> C functions can return only one value via <code>return</code>; passing pointers allows functions to populate multiple output parameters.</li>
+          <li><strong>Large Struct Copying Avoidance:</strong> Passing a pointer (8 bytes) to a 1000-byte <code>struct</code> avoids copying huge stack payloads.</li>
+        </ul>
 
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works: Stack Copy vs Pointer Dereferencing</h2>
+        <p>When calling <code>func(x)</code>, a 4-byte or 8-byte copy of <code>x</code>'s value is pushed onto the new stack frame. Modifying <code>x</code> inside <code>func</code> changes only the stack copy. When calling <code>func(&amp;x)</code>, the address of <code>x</code> is copied. Dereferencing <code>*ptr = 100</code> resolves directly to <code>x</code>'s original RAM location in the caller's stack frame.</p>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">// 1. Pass-by-Value (Copy - Caller variable unchanged)
+void modify_copy(int num) {
+    num = 100; // Changes only local stack copy!
+}
+
+// 2. Simulated Pass-by-Reference (Pointer Mutation)
+void modify_original(int *ptr) {
+    if (ptr != NULL) {
+        *ptr = 100; // Mutates caller's original RAM location!
+    }
+}</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Pass-by-Value vs Pointer Reference Comparison</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Passing Mechanism</th>
+              <th>What Is Pushed to Stack?</th>
+              <th>Can Function Mutate Caller Variable?</th>
+              <th>Memory Overhead</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pass-by-Value</strong></td>
+              <td>Full copy of variable value</td>
+              <td>❌ No (Local copy mutated)</td>
+              <td>Copies full byte size of data type</td>
+            </tr>
+            <tr>
+              <td><strong>Pointer Pass-by-Ref</strong></td>
+              <td>Copy of memory address (pointer)</td>
+              <td>✅ Yes (Via <code>*ptr</code> dereference)</td>
+              <td>Always 8 bytes (64-bit address)</td>
+            </tr>
+            <tr>
+              <td><strong>Const Pointer Parameter</strong></td>
+              <td>Copy of memory address (read-only)</td>
+              <td>❌ No (Guarded by <code>const</code>)</td>
+              <td>Always 8 bytes (prevents struct copy)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: The Classic Swap Problem</h2>
         <pre><code class="language-c">#include &lt;stdio.h&gt;
 
-// Swapping two integers using pointers
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+// Failed Swap: Pass-by-Value
+void swap_failed(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// Successful Swap: Pointer Pass-by-Reference
+void swap_successful(int *a, int *b) {
+    if (a != NULL &amp;&amp; b != NULL) {
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+    }
 }
 
 int main(void) {
     int x = 10, y = 20;
-    printf("Before swap: x=%d, y=%d\n", x, y);
-    swap(&x, &y);
-    printf("After swap:  x=%d, y=%d\n", x, y);
+
+    swap_failed(x, y);
+    printf("After swap_failed    : x = %d, y = %d (Unchanged!)\n", x, y);
+
+    swap_successful(&amp;x, &amp;y);
+    printf("After swap_successful: x = %d, y = %d (Swapped!)\n", x, y);
     return 0;
 }</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Multiple Return Parameters</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+// Returns success status, populates quotient and remainder via pointers
+bool safe_divide(int dividend, int divisor, int *out_quotient, int *out_remainder) {
+    if (divisor == 0 || out_quotient == NULL || out_remainder == NULL) {
+        return false; // Division error
+    }
+    *out_quotient = dividend / divisor;
+    *out_remainder = dividend % divisor;
+    return true;
+}
+
+int main(void) {
+    int q, r;
+    if (safe_divide(17, 5, &amp;q, &amp;r)) {
+        printf("17 / 5 =&gt; Quotient: %d, Remainder: %d\n", q, r);
+    } else {
+        printf("Division error encountered!\n");
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Efficient Struct Mutation &amp; Read-Only Const Pointers</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int user_id;
+    double account_balance;
+    char tier;
+} UserAccount;
+
+// Fast Read-Only Access: Avoids copying struct, prevents accidental field mutation
+void display_account(const UserAccount *acc) {
+    if (acc != NULL) {
+        printf("ID: %d | Balance: $%.2lf | Tier: %c\n",
+               acc-&gt;user_id, acc-&gt;account_balance, acc-&gt;tier);
+    }
+}
+
+// In-Place Mutation: Modifies caller's struct directly
+void apply_bonus(UserAccount *acc, double bonus_amount) {
+    if (acc != NULL &amp;&amp; bonus_amount &gt; 0) {
+        acc-&gt;account_balance += bonus_amount;
+    }
+}
+
+int main(void) {
+    UserAccount user = {8841, 1200.00, 'Gold'};
+    display_account(&amp;user);
+
+    apply_bonus(&amp;user, 300.50);
+    printf("--- After Bonus ---\n");
+    display_account(&amp;user);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>void swap_successful(int *a, int *b)</code>: Accepts pointer memory addresses of two integers.</li>
+          <li><code>int temp = *a; *a = *b; *b = temp;</code>: Dereferences pointers to read and modify original variables in caller's stack frame.</li>
+          <li><code>bool safe_divide(..., int *out_quotient, ...)</code>: Populates output results through output pointers.</li>
+          <li><code>void display_account(const UserAccount *acc)</code>: Uses <code>const</code> pointer to read struct fields via arrow operator <code>acc-&gt;user_id</code> without copying the struct.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">After swap_failed    : x = 10, y = 20 (Unchanged!)
+After swap_successful: x = 20, y = 10 (Swapped!)
+17 / 5 => Quotient: 3, Remainder: 2
+ID: 8841 | Balance: $1200.00 | Tier: G
+--- After Bonus ---
+ID: 8841 | Balance: $1500.50 | Tier: G</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting <code>&amp;</code> Address Operator at Call Site:</strong> Calling <code>swap_successful(x, y)</code> passes integers instead of addresses, causing compiler type errors or crashes.</li>
+          <li><strong>Dereferencing Null Pointers inside Functions:</strong> Attempting <code>*ptr = 100</code> without checking <code>if (ptr != NULL)</code> leads to segmentation faults.</li>
+          <li><strong>Returning Pointers to Local Stack Variables:</strong> Returning <code>&amp;local_var</code> from a function is a dangling pointer bug because the local stack frame is destroyed upon return!</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>All parameter passing in C is strictly pass-by-value. Pass-by-reference is simulated by passing pointer addresses by value.</li>
+          <li>Always check pointer parameters for <code>NULL</code> before dereferencing.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>C strictly passes arguments by value. To allow a function to modify caller variables, pass memory address pointers (<code>&amp;var</code>) and dereference them (<code>*ptr</code>) inside the function.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>C mein saare arguments pass-by-value hote hain. Agar aap chahte hain ki function main variable ki value change kare, toh variable ka address <code>&amp;var</code> pass karein aur function ke andar <code>*ptr</code> se value modify karein.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>C madhye sagle arguments pass-by-value hotat. Caller function madhil variable badalnyasathi address <code>&amp;var</code> pass kara aani function madhye <code>*ptr</code> vapra.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why does <code>swap_failed(int a, int b)</code> fail to swap variables in the main function?</li>
+          <li>How do pointer parameters allow a C function to return multiple results?</li>
+          <li>Why is returning the address of a local automatic stack variable dangerous?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>min_max_finder.c</code> with a function <code>void find_min_max(const int arr[], size_t size, int *out_min, int *out_max)</code> that iterates through an array and assigns the minimum and maximum values via output pointers.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="01-prototypes-definitions.html">&larr; Previous: 01. Function Prototypes</a> | <a href="index.html">Module 08 Guide</a> | <a href="03-recursion-in-c.html">Next: 03. Recursion & Call Stack &rarr;</a></p>
       </div>
     </main>
   </div>
+
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
 </body>
 </html>

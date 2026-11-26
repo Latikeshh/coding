@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. File Streams, fopen(), fclose() & Access Modes - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. File Streams, fopen(), fclose() &amp; Access Modes</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | FILE* Pointers, Stream Handles, File Modes &amp; NULL Validation</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>In C, a <strong>file stream</strong> is represented by an opaque pointer to a <code>FILE</code> structure handle declared in <code>&lt;stdio.h&gt;</code>. The <code>fopen()</code> function opens a disk file path with a specified <strong>access mode</strong> (such as read, write, or append), returning a <code>FILE*</code> pointer. The <code>fclose()</code> function flushes stream buffers and releases OS file descriptors.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Data Persistence:</strong> Preserving application state, configuration settings, and database records across system reboots.</li>
+          <li><strong>Stream Abstraction:</strong> Unifying file I/O, console input (<code>stdin</code>), console output (<code>stdout</code>), and error logging (<code>stderr</code>) under a single consistent <code>FILE*</code> stream API.</li>
+        </ul>
+
+        <!-- 4. How It Works: File Access Modes Table -->
+        <h2>⚙️ How It Works: Access Modes Overview</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Mode String</th>
+              <th>Access Action</th>
+              <th>Behavior If File Exists</th>
+              <th>Behavior If File Does NOT Exist</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>"r"</code></td><td>Read Text</td><td>Opens for reading at beginning</td><td>Fails (returns <code>NULL</code>)</td></tr>
+            <tr><td><code>"w"</code></td><td>Write Text</td><td><strong>Truncates (erases) file to 0 bytes!</strong></td><td>Creates new empty file</td></tr>
+            <tr><td><code>"a"</code></td><td>Append Text</td><td>Appends writes to end of file</td><td>Creates new empty file</td></tr>
+            <tr><td><code>"r+"</code></td><td>Read / Write Text</td><td>Opens for update without erasing</td><td>Fails (returns <code>NULL</code>)</td></tr>
+            <tr><td><code>"w+"</code></td><td>Read / Write Text</td><td><strong>Truncates (erases) file to 0 bytes!</strong></td><td>Creates new empty file</td></tr>
+            <tr><td><code>"a+"</code></td><td>Read / Append Text</td><td>Opens for reading/appending</td><td>Creates new empty file</td></tr>
+            <tr><td><code>"rb"</code>, <code>"wb"</code></td><td>Binary Stream</td><td>Binary byte-for-byte stream I/O</td><td>Same rules as text counterparts</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+FILE *file_ptr = fopen("config.txt", "r");
+
+if (file_ptr == NULL) {
+    perror("Error opening file"); // Prints OS error message (e.g., "File not found")
+    return 1;
+}
+
+// Perform file operations...
+
+fclose(file_ptr); // Mandatory cleanup!
+file_ptr = NULL;</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Standard Stream Pre-defined Handles</h2>
+        <p>C automatically opens three standard stream handles on startup:</p>
+        <ul>
+          <li><code>stdin</code>: Standard Input Stream (Keyboard input)</li>
+          <li><code>stdout</code>: Standard Output Stream (Terminal screen)</li>
+          <li><code>stderr</code>: Standard Error Stream (Unbuffered terminal error output)</li>
+        </ul>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Opening, Writing &amp; Closing a File</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    FILE *fp = fopen("output.txt", "w"); // Create or truncate file
+    if (fp == NULL) {
+        perror("Failed to open output.txt");
+        return 1;
+    }
+
+    fputs("Hello, C File Handling!\n", fp);
+    printf("Successfully wrote message to output.txt\n");
+
+    fclose(fp); // Flushes buffer to disk and closes stream
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Reading File Character-by-Character</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    FILE *fp = fopen("output.txt", "r");
+    if (fp == NULL) {
+        perror("Could not open output.txt for reading");
+        return 1;
+    }
+
+    int ch; // Must use 'int' to capture EOF properly!
+    printf("=== File Contents ===\n");
+    while ((ch = fgetc(fp)) != EOF) {
+        putchar(ch);
+    }
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Safe File Appender with Error Handling</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+bool append_log_entry(const char *filename, const char *log_message) {
+    if (filename == NULL || log_message == NULL) return false;
+
+    FILE *log_file = fopen(filename, "a"); // Append mode
+    if (log_file == NULL) {
+        perror("Error opening log file");
+        return false;
+    }
+
+    if (fputs(log_message, log_file) == EOF || fputs("\n", log_file) == EOF) {
+        perror("Error writing to log file");
+        fclose(log_file);
+        return false;
+    }
+
+    fclose(log_file); // Guarantees log write is committed
+    return true;
+}
+
+int main(void) {
+    if (append_log_entry("app.log", "[INFO] System Boot Event 0x101")) {
+        printf("Log entry appended successfully.\n");
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>FILE *fp = fopen("output.txt", "w");</code>: Requests a write handle for <code>output.txt</code>.</li>
+          <li><code>if (fp == NULL) perror(...)</code>: Mandatory check verifying file opened successfully before attempting stream calls.</li>
+          <li><code>while ((ch = fgetc(fp)) != EOF)</code>: Reads character stream until reaching End-Of-File (<code>EOF</code>).</li>
+          <li><code>fclose(fp);</code>: Commits unwritten kernel buffer data to physical storage media.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Successfully wrote message to output.txt
+=== File Contents ===
+Hello, C File Handling!
+Log entry appended successfully.</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Forgetting NULL Check on <code>fopen()</code>:</strong> Calling <code>fputs()</code> or <code>fscanf()</code> on a <code>NULL</code> file pointer causes an immediate Segmentation Fault crash.</li>
+          <li><strong>Accidentally Overwriting Files with Mode <code>"w"</code>:</strong> Opening an existing file with mode <code>"w"</code> instantly truncates it to 0 bytes! Use mode <code>"a"</code> to append data safely.</li>
+          <li><strong>Capturing <code>fgetc()</code> in <code>char</code> instead of <code>int</code>:</strong> <code>EOF</code> is an integer constant (typically <code>-1</code>). Storing <code>fgetc()</code> in a <code>char</code> variable breaks <code>EOF</code> detection on platforms where <code>char</code> is unsigned!</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Always verify <code>if (fp != NULL)</code> after every <code>fopen()</code> call.</li>
+          <li>Always close open streams using <code>fclose(fp)</code> to avoid running out of OS file handles.</li>
+          <li>Store <code>fgetc()</code> return values in an <code>int</code> variable to compare with <code>EOF</code> correctly.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>File handling uses <code>FILE*</code> stream pointers. Always check if <code>fopen()</code> returns <code>NULL</code>, use mode <code>"a"</code> to append without erasing, and close streams with <code>fclose()</code>.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>File handling ke liye <code>FILE*</code> pointer ka upyog hota hai. <code>fopen()</code> ke baad <code>NULL</code> check zaroori hai. Purana data erse na karne ke liye mode <code>"a"</code> (append) ka use karein.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>File operations sathi <code>FILE*</code> stream pointer vapartat. <code>fopen()</code> nantar <code>NULL</code> check kara aani nehamhi <code>fclose()</code> ne stream close kara.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>What is the difference between file mode <code>"w"</code> and file mode <code>"a"</code>?</li>
+          <li>Why must the return value of <code>fgetc()</code> be assigned to an <code>int</code> variable rather than a <code>char</code> variable?</li>
+          <li>What happens if you forget to call <code>fclose()</code> on a file opened for writing?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>line_counter.c</code> that opens a text file specified by the user, reads it character-by-character, and counts the total number of newline characters (<code>'\n'</code>) to output total line count.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="index.html">&larr; Module 16 Guide</a> | <a href="02-fprintf-fscanf-text-io.html">Next: 02. Formatted Text I/O &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

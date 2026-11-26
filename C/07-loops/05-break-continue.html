@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Break, Continue & Loop Control Flow - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="../13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>05. Break, Continue &amp; Jump Control Flow</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | Early Loop Termination &amp; Iteration Skipping</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>The <code>break</code> and <code>continue</code> statements alter normal sequential loop execution in C. <code>break</code> terminates the innermost enclosing loop or <code>switch</code> immediately, jumping execution to the first statement past the loop. <code>continue</code> skips the rest of the current iteration's body and jumps directly to the next loop evaluation step.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Early Exit (<code>break</code>):</strong> Exiting a search loop as soon as a target element is found, eliminating unnecessary subsequent iterations.</li>
+          <li><strong>Filtering Input (<code>continue</code>):</strong> Skipping invalid items, negative numbers, or comments during data processing without wrapping code in nested <code>if</code> blocks.</li>
+        </ul>
+
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works</h2>
+        <ul>
+          <li>When <code>break</code> executes, control jumps out of the innermost enclosing loop or switch block.</li>
+          <li>When <code>continue</code> executes in a <code>for</code> loop, control jumps directly to the counter increment step (<code>i++</code>) and then re-evaluates the condition. In <code>while</code> / <code>do-while</code>, control jumps directly to the condition test.</li>
+        </ul>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">// 1. Early Termination
+for (int i = 0; i &lt; 10; i++) {
+    if (i == 5) break; // Exits loop when i reaches 5
+}
+
+// 2. Skipping Current Iteration
+for (int i = 0; i &lt; 10; i++) {
+    if (i % 2 == 0) continue; // Skips even numbers
+    printf("%d ", i); // Prints only odd numbers
+}</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Control Flow Statement Comparison</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Statement</th>
+              <th>Action Taken</th>
+              <th>Target Jump Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>break</code></td><td>Terminates loop/switch immediately.</td><td>First statement past the enclosing <code>}</code> brace.</td></tr>
+            <tr><td><code>continue</code></td><td>Skips remainder of current iteration.</td><td>Loop update step (for) or condition check (while).</td></tr>
+            <tr><td><code>goto label</code></td><td>Jumps unconditionally to a labeled statement inside the same function.</td><td>Target <code>label:</code> in function.</td></tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf("Printing odd numbers from 1 to 10 (skipping evens):\n");
+
+    for (int i = 1; i &lt;= 10; i++) {
+        if (i % 2 == 0) {
+            continue; // Skip even numbers
+        }
+        printf("%d ", i);
+    }
+    printf("\n");
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Early Exit Search Loop</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main(void) {
+    int dataset[] = {14, 28, 42, 99, 56, 70};
+    size_t len = sizeof(dataset) / sizeof(dataset[0]);
+    int target = 99;
+    int found_index = -1;
+
+    for (size_t i = 0; i &lt; len; i++) {
+        if (dataset[i] == target) {
+            found_index = (int)i;
+            break; // Target found; no need to inspect remaining elements!
+        }
+    }
+
+    if (found_index != -1) {
+        printf("Target %d found at index %d!\n", target, found_index);
+    } else {
+        printf("Target %d not present in dataset.\n", target);
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Breaking Out of Multi-Nested Loops via Goto Error Handler</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+bool search_matrix(int matrix[3][3], int target) {
+    bool found = false;
+
+    // Standard 'break' only exits the INNERMOST loop!
+    // To cleanly break out of nested loops, use a flag or a clean goto label:
+    for (int r = 0; r &lt; 3; r++) {
+        for (int c = 0; c &lt; 3; c++) {
+            if (matrix[r][c] == target) {
+                printf("Found %d at row %d, col %d!\n", target, r, c);
+                found = true;
+                goto search_complete; // Jumps out of BOTH nested loops cleanly!
+            }
+        }
+    }
+
+search_complete:
+    return found;
+}
+
+int main(void) {
+    int grid[3][3] = {
+        {10, 20, 30},
+        {40, 50, 60},
+        {70, 80, 90}
+    };
+
+    search_matrix(grid, 50);
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>if (i % 2 == 0) continue;</code>: Bypasses the <code>printf()</code> call for even numbers, moving directly to <code>i++</code>.</li>
+          <li><code>break;</code>: Terminates array search immediately upon matching <code>target == 99</code>, saving CPU cycles.</li>
+          <li><code>goto search_complete;</code>: Solves the limitation that <code>break</code> only exits 1 level of nesting, jumping out of both 2D loops to the label.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Printing odd numbers from 1 to 10 (skipping evens):
+1 3 5 7 9
+Target 99 found at index 3!
+Found 50 at row 1, col 1!</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Expecting <code>break</code> to Exit Multiple Nested Loops:</strong> <code>break</code> only exits the single innermost loop where it is called.</li>
+          <li><strong>Infinite Loops with <code>continue</code> in <code>while</code> Loops:</strong> If the counter update step (e.g. <code>i++</code>) is placed AFTER <code>continue</code> in a <code>while</code> loop, skipping it creates an infinite loop!</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li><code>break</code> can only be used inside loops (<code>for</code>, <code>while</code>, <code>do-while</code>) and <code>switch</code> blocks.</li>
+          <li><code>continue</code> can only be used inside loops (not in <code>switch</code> statements).</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p><code>break</code> exits a loop immediately; <code>continue</code> skips the current iteration and advances to the next pass. Note that <code>break</code> only breaks out of one level of nested loops.</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p><code>break</code> poore loop ko turant khatam kar deta hai. <code>continue</code> current iteration ko skip karke agli cycle par chala jata hai. Single <code>break</code> sirf sabse andar wale loop ko todta hai.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p><code>break</code> mule loop ekadam thambto. <code>continue</code> mule chaluchya iteration cha baaki code skip houn navin cycle suru hote.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>What is the difference in behavior between <code>break</code> and <code>continue</code> inside a <code>for</code> loop?</li>
+          <li>Why does <code>break</code> fail to exit multi-level nested loops?</li>
+          <li>In a <code>while</code> loop, what happens if the loop counter variable is placed after a <code>continue</code> statement?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>prime_search.c</code> that loops through numbers from 1 to 50. Use <code>continue</code> to skip even numbers except 2, use a nested loop with <code>break</code> to test for primality, and print all prime numbers found.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="04-nested-loops.html">&larr; Previous: 04. Nested Loops</a> | <a href="index.html">Module 07 Guide</a> | <a href="../08-functions/index.html">Next Module: 08. Functions & Scope &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>

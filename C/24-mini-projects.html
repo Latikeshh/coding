@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24. Production C Mini-Projects - C Language Course</title>
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="13-structures/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="24-mini-projects.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>24. Production C Mini-Projects &amp; Capstone Architectures</h1>
+        <blockquote><p>🔴 <strong>Difficulty: Advanced</strong> | Comprehensive End-to-End Applications &amp; Capstone Implementations</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>This capstone module synthesizes all core C programming concepts—from pointers, dynamic heap allocation, custom structures, binary file I/O, error handling, preprocessor macros, to modular function design—into three fully functional, production-grade mini-project software applications.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Real-World Capstone Integration:</strong> Combining individual C syntax rules into robust architectural designs.</li>
+          <li><strong>Production Portfolio Building:</strong> Demonstrating mastery of C file persistence, terminal user interfaces, and memory management.</li>
+        </ul>
+
+        <!-- 4. Projects Overview -->
+        <h2>⚙️ Capstone Mini-Projects List</h2>
+        <ol>
+          <li><strong>Project 1: Bank Account Management System (Binary I/O &amp; Structs)</strong> — Persists customer records to disk using binary <code>fwrite</code>/<code>fread</code>, featuring random-access account updates.</li>
+          <li><strong>Project 2: Shell Command Line Interface &amp; Token Parser</strong> — Implements an interactive terminal prompt that parses input strings into command tokens using <code>strtok</code> and dynamic memory.</li>
+          <li><strong>Project 3: Custom Fixed-Block Pool Allocator</strong> — Implements a high-speed custom memory pool manager using pointer arithmetic and bitmap allocation flags.</li>
+        </ol>
+
+        <!-- 5. Project 1 Implementation -->
+        <h2>🚀 Project 1: Bank Account Management System</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdbool.h&gt;
+
+#define DB_FILE "bank_records.dat"
+
+typedef struct {
+    int account_number;
+    char name[32];
+    double balance;
+} BankAccount;
+
+void create_account(void) {
+    FILE *fp = fopen(DB_FILE, "ab"); // Append binary mode
+    if (fp == NULL) { perror("Failed to open DB"); return; }
+
+    BankAccount acc;
+    printf("Enter Account Number: ");
+    if (scanf("%d", &amp;acc.account_number) != 1) { fclose(fp); return; }
+    printf("Enter Customer Name  : ");
+    scanf("%31s", acc.name);
+    printf("Enter Initial Deposit: ");
+    if (scanf("%lf", &amp;acc.balance) != 1) { fclose(fp); return; }
+
+    fwrite(&amp;acc, sizeof(BankAccount), 1, fp);
+    fclose(fp);
+    printf("[Success] Account #%d created for %s.\n", acc.account_number, acc.name);
+}
+
+void display_all_accounts(void) {
+    FILE *fp = fopen(DB_FILE, "rb");
+    if (fp == NULL) { puts("No bank database records found."); return; }
+
+    BankAccount acc;
+    puts("\n=== ALL BANK ACCOUNTS ===");
+    while (fread(&amp;acc, sizeof(BankAccount), 1, fp) == 1) {
+        printf("Acc #%d | Name: %-15s | Balance: $%.2lf\n",
+               acc.account_number, acc.name, acc.balance);
+    }
+    fclose(fp);
+}
+
+int main(void) {
+    int choice;
+    do {
+        puts("\n--- BANK MANAGEMENT SYSTEM ---");
+        puts("1. Create New Account");
+        puts("2. Display All Accounts");
+        puts("3. Exit");
+        printf("Choice: ");
+        if (scanf("%d", &amp;choice) != 1) break;
+
+        if (choice == 1) create_account();
+        else if (choice == 2) display_all_accounts();
+    } while (choice != 3);
+
+    puts("Exiting Bank System. Goodbye!");
+    return 0;
+}</code></pre>
+
+        <!-- 6. Project 2 Implementation -->
+        <h2>🚀 Project 2: Terminal Command Line Parser</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX_LINE 256
+#define MAX_TOKENS 16
+
+int parse_command_line(char *input_line, char *tokens[]) {
+    int token_count = 0;
+    char *tok = strtok(input_line, " \t\r\n");
+
+    while (tok != NULL &amp;&amp; token_count &lt; MAX_TOKENS - 1) {
+        tokens[token_count++] = tok;
+        tok = strtok(NULL, " \t\r\n");
+    }
+    tokens[token_count] = NULL; // Null-terminate argument list for exec
+    return token_count;
+}
+
+int main(void) {
+    char line[MAX_LINE];
+    char *tokens[MAX_TOKENS];
+
+    puts("=== SIMPLE C COMMAND PARSER (Type 'exit' to quit) ===");
+    while (1) {
+        printf("c_shell> ");
+        if (fgets(line, sizeof(line), stdin) == NULL) break;
+
+        int count = parse_command_line(line, tokens);
+        if (count == 0) continue;
+
+        if (strcmp(tokens[0], "exit") == 0) break;
+
+        printf("Parsed Command: '%s' (%d arguments)\n", tokens[0], count - 1);
+        for (int i = 0; i &lt; count; i++) {
+            printf("  arg[%d] = \"%s\"\n", i, tokens[i]);
+        }
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 7. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">--- BANK MANAGEMENT SYSTEM ---
+1. Create New Account
+2. Display All Accounts
+3. Exit
+Choice: 1
+Enter Account Number: 1001
+Enter Customer Name  : Alan_Turing
+Enter Initial Deposit: 5000.00
+[Success] Account #1001 created for Alan_Turing.
+
+=== SIMPLE C COMMAND PARSER (Type 'exit' to quit) ===
+c_shell> gcc -Wall main.c -o app
+Parsed Command: 'gcc' (3 arguments)
+  arg[0] = "gcc"
+  arg[1] = "-Wall"
+  arg[2] = "main.c"
+  arg[3] = "-o"
+  arg[4] = "app"
+c_shell> exit</code></pre>
+
+        <!-- 8. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Mixing Interactive scanf() and fgets():</strong> Calling <code>scanf("%d")</code> leaves trailing <code>\n</code> in the input buffer, causing subsequent <code>fgets()</code> calls to read an empty line immediately! Clean buffer using <code>getchar()</code>.</li>
+          <li><strong>Hardcoding Fixed Array Bounds:</strong> Assuming terminal inputs or database record counts will fit in tiny fixed buffers.</li>
+        </ul>
+
+        <!-- 9. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Capstone mini-projects combine pointers, dynamic memory, structures, binary file I/O, and string parsing to build robust, real-world C applications.</p>
+
+        <!-- 10. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Mini-projects C language ke saare concepts (pointers, structs, file I/O, memory allocation) ko combine karke production-grade terminal apps banate hain.</p>
+
+        <!-- 11. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Mini-projects madhye C saathi pointers, structs, file I/O aani dynamic memory ekatra vaparun full working applications banavtat.</p>
+
+        <!-- 12. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>How does opening a file in <code>"ab"</code> mode support appending new binary records in Project 1?</li>
+          <li>Why must token arrays in command line parsers end with a <code>NULL</code> pointer?</li>
+          <li>How do you handle input buffer clearing when mixing <code>scanf()</code> and <code>fgets()</code>?</li>
+        </ol>
+
+        <!-- 13. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Extend Project 1 (Bank Management System) to add a function <code>void deposit_money(int acc_num, double amount)</code> that uses <code>fseek()</code> to update account balances in-place in <code>bank_records.dat</code>.</p>
+
+        <!-- 14. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="23-standard-library.html">&larr; Previous: 23. C Standard Library</a> | <a href="index.html">Master Syllabus</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/search-data.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/contributors.js"></script>
+</body>
+</html>

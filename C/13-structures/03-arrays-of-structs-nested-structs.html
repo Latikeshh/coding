@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Arrays of Structs & Nested Struct Composition - C Language Course</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
+            <span class="search-shortcut">Ctrl K</span>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> All Courses
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">C Language</span>
+          <span class="course-header-badge">24 Modules</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
+          <li class="nav-item"><a href="../01-setup-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Environment Setup</span></a></li>
+          <li class="nav-item"><a href="../02-introduction-to-c.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C</span></a></li>
+          <li class="nav-item"><a href="../03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables & Data Types</span></a></li>
+          <li class="nav-item"><a href="../04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input & Output</span></a></li>
+          <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators</span></a></li>
+          <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals</span></a></li>
+          <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops & Iteration</span></a></li>
+          <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions & Scope</span></a></li>
+          <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & VLAs</span></a></li>
+          <li class="nav-item"><a href="../10-pointers/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Pointers & Memory</span></a></li>
+          <li class="nav-item"><a href="../11-strings/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. Strings & Buffer Safety</span></a></li>
+          <li class="nav-item"><a href="../12-dynamic-memory/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">12. Dynamic Memory (Heap)</span></a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">13. Structures & Alignment</span></a></li>
+          <li class="nav-item"><a href="../14-unions-and-bit-fields/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Unions & Bit-Fields</span></a></li>
+          <li class="nav-item"><a href="../15-enums.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Enumerations (enum)</span></a></li>
+          <li class="nav-item"><a href="../16-file-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">16. File I/O Operations</span></a></li>
+          <li class="nav-item"><a href="../17-preprocessor/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">17. Preprocessor & Macros</span></a></li>
+          <li class="nav-item"><a href="../18-storage-classes.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Storage Classes</span></a></li>
+          <li class="nav-item"><a href="../19-command-line-arguments.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. Command Line Arguments</span></a></li>
+          <li class="nav-item"><a href="../20-multi-file-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">20. Multi-File Projects</span></a></li>
+          <li class="nav-item"><a href="../21-error-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Error Handling</span></a></li>
+          <li class="nav-item"><a href="../22-debugging-and-sanitizers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. GDB & Sanitizers</span></a></li>
+          <li class="nav-item"><a href="../23-standard-library.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. C Standard Library</span></a></li>
+          <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Production Projects</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>03. Arrays of Structs &amp; Nested Struct Composition</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner to Intermediate</strong> | In-Memory Database Tables &amp; Multi-Level Object Hierarchies</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>An <strong>array of structs</strong> is an array whose elements are individual structure records, forming an in-memory database table. A <strong>nested struct</strong> is a structure that contains another structure as one of its internal field members, creating hierarchical object compositions.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <ul>
+          <li><strong>Database Table Representation:</strong> Managing collections of identical records (e.g., an array of 1,000 <code>UserAccount</code> records).</li>
+          <li><strong>Domain Composition:</strong> Organizing complex entities naturally (e.g. an <code>Employee</code> struct containing a nested <code>Date</code> birthdate struct and a nested <code>Address</code> struct).</li>
+        </ul>
+
+        <!-- 4. How It Works: Multi-Level Member Chaining -->
+        <h2>⚙️ How It Works: Chaining Operators</h2>
+        <p>Accessing nested fields chains dot operators together:</p>
+        <pre><code class="language-text">employee_list[index].birth_date.year</code></pre>
+        <p>If the outer entity is accessed via a pointer, combine the arrow operator with dot operators:</p>
+        <pre><code class="language-text">emp_ptr-&gt;birth_date.year</code></pre>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-c">typedef struct {
+    int day;
+    int month;
+    int year;
+} Date;
+
+typedef struct {
+    int emp_id;
+    char name[32];
+    Date hire_date; // Nested struct member!
+} Employee;
+
+// Array of Structs Initialization
+Employee roster[2] = {
+    {101, "Alice", {15, 6, 2021}},
+    {102, "Bob",   {1, 10, 2022}}
+};</code></pre>
+
+        <!-- 6. Different Variations / Flavors -->
+        <h2>🔀 Array of Structs vs Struct of Arrays (AoS vs SoA)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>C Memory Layout</th>
+              <th>Best Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Array of Structs (AoS)</strong></td>
+              <td><code>[ {id, gpa}, {id, gpa}, {id, gpa} ]</code></td>
+              <td>General domain modeling, record-by-record processing</td>
+            </tr>
+            <tr>
+              <td><strong>Struct of Arrays (SoA)</strong></td>
+              <td><code>{ ids[100], gpas[100] }</code></td>
+              <td>SIMD vectorization, graphics processing pipelines</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example: Array of Structs Iteration</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int id;
+    char name[20];
+    double score;
+} Student;
+
+int main(void) {
+    Student class_list[3] = {
+        {1, "Alice", 92.5},
+        {2, "Bob",   85.0},
+        {3, "Charlie", 78.0}
+    };
+
+    printf("=== Class Roster ===\n");
+    for (int i = 0; i &lt; 3; i++) {
+        printf("ID: %d | Name: %-8s | Score: %.1lf\n",
+               class_list[i].id, class_list[i].name, class_list[i].score);
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Nested Struct Hierarchies</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    char street[40];
+    char city[20];
+    int zip_code;
+} Address;
+
+typedef struct {
+    char company_name[32];
+    Address hq_address; // Nested struct
+} Company;
+
+int main(void) {
+    Company tech_corp = {
+        .company_name = "TechCorp Global",
+        .hq_address = {
+            .street = "100 Silicon Way",
+            .city = "San Jose",
+            .zip_code = 95110
+        }
+    };
+
+    // Chaining member operators: tech_corp.hq_address.city
+    printf("Company : %s\n", tech_corp.company_name);
+    printf("Street  : %s\n", tech_corp.hq_address.street);
+    printf("City/Zip: %s, %d\n", tech_corp.hq_address.city, tech_corp.hq_address.zip_code);
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Searching &amp; Sorting an Array of Structs</h2>
+        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct {
+    int item_id;
+    char title[32];
+    double price;
+} Product;
+
+// qsort comparator to sort products by price ascending
+int compare_products_by_price(const void *a, const void *b) {
+    const Product *p1 = (const Product*)a;
+    const Product *p2 = (const Product*)b;
+
+    if (p1-&gt;price &lt; p2-&gt;price) return -1;
+    if (p1-&gt;price &gt; p2-&gt;price) return 1;
+    return 0;
+}
+
+int main(void) {
+    Product inventory[] = {
+        {101, "Monitor", 299.99},
+        {102, "Keyboard", 49.99},
+        {103, "Mouse", 25.50},
+        {104, "Headset", 89.99}
+    };
+    size_t count = sizeof(inventory) / sizeof(inventory[0]);
+
+    qsort(inventory, count, sizeof(Product), compare_products_by_price);
+
+    printf("=== Inventory Sorted By Price (Ascending) ===\n");
+    for (size_t i = 0; i &lt; count; i++) {
+        printf("ID: %d | Title: %-10s | Price: $%6.2lf\n",
+               inventory[i].item_id, inventory[i].title, inventory[i].price);
+    }
+    return 0;
+}</code></pre>
+
+        <!-- 10. Line-by-Line Code Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>Student class_list[3] = { ... };</code>: Declares a contiguous array storing 3 full <code>Student</code> struct instances.</li>
+          <li><code>tech_corp.hq_address.city</code>: Chains dot operators to read member fields inside nested structures.</li>
+          <li><code>const Product *p1 = (const Product*)a;</code>: Casts generic void comparison pointers in <code>qsort()</code> to inspect struct fields for price sorting.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">=== Class Roster ===
+ID: 1 | Name: Alice    | Score: 92.5
+ID: 2 | Name: Bob      | Score: 85.0
+ID: 3 | Name: Charlie  | Score: 78.0
+Company : TechCorp Global
+Street  : 100 Silicon Way
+City/Zip: San Jose, 95110
+=== Inventory Sorted By Price (Ascending) ===
+ID: 103 | Title: Mouse      | Price: $ 25.50
+ID: 102 | Title: Keyboard   | Price: $ 49.99
+ID: 104 | Title: Headset    | Price: $ 89.99
+ID: 101 | Title: Monitor    | Price: $299.99</code></pre>
+
+        <!-- 12. Common Mistakes & Pitfalls -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Out-of-Bounds Struct Array Indexing:</strong> Accessing <code>class_list[3]</code> on a 3-element array (valid indices <code>0..2</code>) corrupts adjacent stack memory.</li>
+          <li><strong>Self-Referential Struct Missing Pointer Asterisk:</strong> Attempting <code>struct Node { Node next; };</code> causes an infinite size recursion error. Self-referential structs MUST use pointer members: <code>struct Node *next;</code>.</li>
+        </ul>
+
+        <!-- 13. Important Rules & Limitations -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Nested structs must be declared before they are used as field types in outer structs.</li>
+          <li>A struct cannot contain an instance of itself directly, but can contain a <em>pointer</em> to an instance of itself.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>An array of structs creates tabular database records. Nested structs combine multiple types hierarchically, accessed by chaining member operators (<code>outer.inner.field</code>).</p>
+
+        <!-- 15. Hindi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Structs ka array in-memory table banata hai. Nested struct mein ek struct ke andar doosra struct hota hai, jise chain dot operators (<code>outer.inner.field</code>) se access karte hain.</p>
+
+        <!-- 16. Marathi Explanation (Roman Script) -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Structs cha array mhanje tabular database. Nested struct madhye ekach struct chya aat dusra struct aste (<code>outer.inner.field</code>).</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why must self-referential structures use pointer members (<code>struct Node *next</code>) rather than direct struct instances?</li>
+          <li>How do you chain operators to access a nested struct field through an outer struct pointer?</li>
+          <li>What is the difference between Array of Structs (AoS) and Struct of Arrays (SoA)?</li>
+        </ol>
+
+        <!-- 18. Practical Coding Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a C program named <code>employee_hierarchy.c</code> that defines a <code>Date</code> struct and an <code>Employee</code> struct with nested <code>hire_date</code>, initializes an array of 4 employees, and prints all employees hired after the year 2020.</p>
+
+        <!-- 19. Navigation & Breadcrumbs -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <p><a href="02-pointers-to-structs-arrow-operator.html">&larr; Previous: 02. Pointers to Structs</a> | <a href="index.html">Module 13 Guide</a> | <a href="04-padding-alignment-offsetof.html">Next: 04. Memory Padding & Alignment &rarr;</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/search-data.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/contributors.js"></script>
+</body>
+</html>
