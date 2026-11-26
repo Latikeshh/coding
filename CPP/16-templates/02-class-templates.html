@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Class Templates - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 16</a> &gt; <span>02. Class Templates</span>
+        </div>
+
+        <h1>Class Templates &amp; CTAD</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A class template (<code>template&lt;typename T&gt; class Box</code>) allows building generic classes operating on any data type. C++17 Class Template Argument Deduction (CTAD) allows inferring template arguments directly from constructor arguments.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+class Container {
+private:
+    T item;
+public:
+    Container(T val) : item(val) {}
+    T getItem() const { return item; }
+};
+
+int main() {
+    Container&lt;int&gt; c1(42);
+    Container c2("CTAD String"); // CTAD deduces const char* in C++17
+
+    std::cout &lt;&lt; c1.getItem() &lt;&lt; ", " &lt;&lt; c2.getItem() &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-function-templates.html" class="nav-btn">&larr; Previous: Function Templates</a>
+          <a href="03-template-specialization.html" class="nav-btn">Next: Specialization &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

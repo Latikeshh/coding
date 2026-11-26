@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Stream Error Handling - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 18</a> &gt; <span>03. Stream Errors</span>
+        </div>
+
+        <h1>File Stream Error Handling &amp; State Flags</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>C++ stream state flags monitor file I/O operations:</p>
+        <ul>
+          <li><code>file.is_open()</code>: Verifies file opened successfully.</li>
+          <li><code>file.fail()</code>: Set when formatting or parsing errors occur.</li>
+          <li><code>file.eof()</code>: Set when end-of-file is reached.</li>
+          <li><code>file.bad()</code>: Set on unrecoverable hardware/I/O errors.</li>
+        </ul>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main() {
+    std::ifstream file("nonexistent.txt");
+
+    if (!file.is_open()) {
+        std::cerr &lt;&lt; "Error: File could not be opened!\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-binary-file-io.html" class="nav-btn">&larr; Previous: Binary I/O</a>
+          <a href="../19-preprocessor-and-build/index.html" class="nav-btn">Module 19: Preprocessor &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

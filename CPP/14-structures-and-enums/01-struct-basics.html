@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. C++ Structures - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 14</a> &gt; <span>01. Structures</span>
+        </div>
+
+        <h1>C++ Structures (struct)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>In C++, a <code>struct</code> is identical to a <code>class</code> except that its members default to <code>public</code> access. It is primarily used for Plain Old Data (POD) aggregates.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+struct Player {
+    std::string name;
+    int health{100};
+};
+
+int main() {
+    Player p1{"Hero", 150}; // Aggregate initialization
+    std::cout &lt;&lt; "Player: " &lt;&lt; p1.name &lt;&lt; ", HP: " &lt;&lt; p1.health &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-enums-and-scoped-enum-class.html" class="nav-btn">Next: Enums &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

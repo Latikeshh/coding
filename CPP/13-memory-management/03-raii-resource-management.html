@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. RAII Resource Management - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 13</a> &gt; <span>03. RAII</span>
+        </div>
+
+        <h1>RAII (Resource Acquisition Is Initialization)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>RAII is C++'s core memory management idiom: encapsulate resources (heap memory, file handles, mutex locks) inside stack-allocated wrapper objects whose constructor acquires the resource and destructor automatically releases it upon scope exit (even during exception unwinding).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+void writeLog() {
+    std::ofstream file("log.txt"); // RAII opens file
+    file &lt;&lt; "Log entry line\n";
+} // RAII automatically flushes and closes file here
+
+int main() {
+    writeLog();
+    std::cout &lt;&lt; "File safely written and closed via RAII destructor.\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-new-and-delete.html" class="nav-btn">&larr; Previous: new/delete</a>
+          <a href="04-std-unique-ptr.html" class="nav-btn">Next: std::unique_ptr &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

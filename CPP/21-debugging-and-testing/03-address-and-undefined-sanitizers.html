@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. ASan & UBSan Sanitizers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 21</a> &gt; <span>03. Sanitizers</span>
+        </div>
+
+        <h1>Runtime Sanitizers (ASan &amp; UBSan)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>AddressSanitizer (<code>-fsanitize=address</code>) instruments binary code to catch heap/stack buffer overflows, use-after-free, and memory leaks at runtime. UndefinedBehaviorSanitizer (<code>-fsanitize=undefined</code>) catches null pointer dereferences and signed integer overflows.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-bash"># Compile with ASan and UBSan flags
+g++ -fsanitize=address,undefined -g -std=c++17 main.cpp -o main_sanitized
+./main_sanitized</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-gdb-and-lldb-debugging.html" class="nav-btn">&larr; Previous: Debuggers</a>
+          <a href="04-unit-testing.html" class="nav-btn">Next: Unit Testing &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

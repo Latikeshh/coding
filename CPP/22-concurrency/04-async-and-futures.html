@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. std::async & futures - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 22</a> &gt; <span>04. Async</span>
+        </div>
+
+        <h1>Asynchronous Tasks (std::async &amp; std::future)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The <code>&lt;future&gt;</code> header provides high-level task-based concurrency: <code>std::async</code> runs a function asynchronously and returns a <code>std::future&lt;T&gt;</code> handle. Calling <code>future.get()</code> blocks until the async task completes and returns its result.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;future&gt;
+
+int computeHeavyTask() {
+    return 42 * 100;
+}
+
+int main() {
+    std::future&lt;int&gt; result = std::async(std::launch::async, computeHeavyTask);
+
+    std::cout &lt;&lt; "Computing in background...\n";
+    std::cout &lt;&lt; "Result: " &lt;&lt; result.get() &lt;&lt; "\n"; // Block until result is ready
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-atomic-variables.html" class="nav-btn">&larr; Previous: Atomics</a>
+          <a href="../23-mini-projects/index.html" class="nav-btn">Module 23: Mini Projects &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

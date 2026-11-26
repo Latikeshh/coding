@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Type Conversion & Casting - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 03</a> &gt; <span>04. Type Casting</span>
+        </div>
+
+        <h1>Type Conversions &amp; Casting in C++</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Type casting converts a value from one data type to another. C++ provides compile-time safe explicit casting using <code>static_cast&lt;T&gt;(expr)</code> instead of unsafe C-style <code>(T)expr</code> casts.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int totalScore = 95;
+    int totalCount = 10;
+
+    // static_cast forces floating-point division instead of integer division truncation
+    double average = static_cast&lt;double&gt;(totalScore) / totalCount;
+
+    std::cout &lt;&lt; "Average Score: " &lt;&lt; average &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>👀 Output</h2>
+        <pre><code class="language-text">Average Score: 9.5</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-constants-and-qualifiers.html" class="nav-btn">&larr; Previous: Constants</a>
+          <a href="../04-input-output/index.html" class="nav-btn">Module 04: I/O Streams &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

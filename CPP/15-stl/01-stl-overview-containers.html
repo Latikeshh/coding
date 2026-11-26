@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. STL Overview - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 15</a> &gt; <span>01. STL Overview</span>
+        </div>
+
+        <h1>C++ Standard Template Library (STL) Architecture</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The C++ Standard Template Library (STL) is a powerful collection of generic data structures, iterators, and algorithms. Its three pillars—Containers (data storage), Iterators (traversal pointers), and Algorithms (processing operations)—are decoupled via generic templates.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+int main() {
+    std::vector&lt;int&gt; data{40, 10, 30, 20};
+    std::sort(data.begin(), data.end()); // Generic STL algorithm on container iterators
+
+    for (int x : data) std::cout &lt;&lt; x &lt;&lt; " ";
+    std::cout &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-sequence-containers-vector-deque-list.html" class="nav-btn">Next: Sequence Containers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

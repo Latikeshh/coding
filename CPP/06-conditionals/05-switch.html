@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. switch Statement - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 06</a> &gt; <span>05. switch</span>
+        </div>
+
+        <h1>The switch Statement &amp; Fallthrough Control</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A <code>switch</code> statement compares an integral/enum expression against <code>case</code> values. <code>break</code> statements prevent fallthrough to subsequent case labels. C++17 provides <code>[[fallthrough]]</code> attribute for intentional fallthroughs.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int option = 2;
+    switch (option) {
+        case 1:
+            std::cout &lt;&lt; "Option 1 Selected\n";
+            break;
+        case 2:
+            std::cout &lt;&lt; "Option 2 Selected\n";
+            break;
+        default:
+            std::cout &lt;&lt; "Invalid Option\n";
+            break;
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-nested-conditionals.html" class="nav-btn">&larr; Previous: Nested Logic</a>
+          <a href="06-ternary.html" class="nav-btn">Next: Ternary Operator &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

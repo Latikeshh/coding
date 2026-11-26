@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Associative Containers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 15</a> &gt; <span>03. map &amp; set</span>
+        </div>
+
+        <h1>Associative Ordered Containers: std::map &amp; std::set</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p><code>std::map&lt;K, V&gt;</code> (key-value dictionary) and <code>std::set&lt;T&gt;</code> (unique value collection) store sorted data structured internally as Red-Black self-balancing binary search trees, guaranteeing logarithmic <code>O(log N)</code> search, insertion, and deletion complexity.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;map&gt;
+
+int main() {
+    std::map&lt;std::string, int&gt; ages;
+    ages["Aria"] = 24;
+    ages["Bob"] = 30;
+
+    std::cout &lt;&lt; "Aria's Age: " &lt;&lt; ages["Aria"] &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-sequence-containers-vector-deque-list.html" class="nav-btn">&larr; Previous: Sequence Containers</a>
+          <a href="04-unordered-containers.html" class="nav-btn">Next: Unordered Containers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

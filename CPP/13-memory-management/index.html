@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 13: Memory Management & Smart Pointers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> C++ Modules
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Module 13</span>
+          <span class="course-header-badge">Memory Safety</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Module Overview</span></a></li>
+          <li class="nav-item"><a href="01-stack-vs-heap-memory.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Stack vs Heap Memory</span></a></li>
+          <li class="nav-item"><a href="02-new-and-delete.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. new &amp; delete Expressions</span></a></li>
+          <li class="nav-item"><a href="03-raii-resource-management.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. RAII Idiom</span></a></li>
+          <li class="nav-item"><a href="04-std-unique-ptr.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. std::unique_ptr</span></a></li>
+          <li class="nav-item"><a href="05-std-shared-ptr.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. std::shared_ptr</span></a></li>
+          <li class="nav-item"><a href="06-std-weak-ptr.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. std::weak_ptr</span></a></li>
+          <li class="nav-item"><a href="07-rule-of-zero-three-five.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Rule of 0/3/5</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <span>Module 13: Memory Management</span>
+        </div>
+
+        <h1>Module 13: Memory Management &amp; Smart Pointers</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <p>Comprehensive guide to C++ memory management: stack vs heap architecture, raw <code>new</code>/<code>delete</code> allocation risks, RAII resource lifetime management, three genuinely distinct deep dives into <code>std::unique_ptr</code>, <code>std::shared_ptr</code>, and <code>std::weak_ptr</code>, and the Rule of 0/3/5.</p>
+
+        <h2>📖 Lessons in this Module</h2>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Lesson Title</th><th>Level</th><th>Link</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>Stack Frame vs Heap Dynamic Memory</td><td>🔴 Advanced</td><td><a href="01-stack-vs-heap-memory.html">Open Lesson</a></td></tr>
+            <tr><td>02</td><td>Raw Allocation with new &amp; delete</td><td>🔴 Advanced</td><td><a href="02-new-and-delete.html">Open Lesson</a></td></tr>
+            <tr><td>03</td><td>RAII (Resource Acquisition Is Initialization)</td><td>🔴 Advanced</td><td><a href="03-raii-resource-management.html">Open Lesson</a></td></tr>
+            <tr><td>04</td><td>std::unique_ptr Deep Dive (Exclusive Ownership)</td><td>🔴 Advanced</td><td><a href="04-std-unique-ptr.html">Open Lesson</a></td></tr>
+            <tr><td>05</td><td>std::shared_ptr Deep Dive (Reference Counting)</td><td>🔴 Advanced</td><td><a href="05-std-shared-ptr.html">Open Lesson</a></td></tr>
+            <tr><td>06</td><td>std::weak_ptr Deep Dive (Cycle Breaking)</td><td>🔴 Advanced</td><td><a href="06-std-weak-ptr.html">Open Lesson</a></td></tr>
+            <tr><td>07</td><td>Rule of Zero, Three, and Five</td><td>🔴 Advanced</td><td><a href="07-rule-of-zero-three-five.html">Open Lesson</a></td></tr>
+          </tbody>
+        </table>
+
+        <div class="navigation-footer">
+          <a href="../12-object-oriented-programming/index.html" class="nav-btn">&larr; Module 12: OOP</a>
+          <a href="01-stack-vs-heap-memory.html" class="nav-btn">Start Lesson 01 &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

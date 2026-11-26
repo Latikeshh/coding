@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>02 introduction to cpp - C++</title>
+  <title>02. Introduction to C++ Language & ISO Standards - C++ Standard Curriculum</title>
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
@@ -11,7 +11,6 @@
 </head>
 <body>
   <div class="site-wrapper">
-    <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../index.html" class="mobile-brand">
         <span class="brand-logo">&#128187;</span>
@@ -23,7 +22,6 @@
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="../index.html" class="site-brand">
@@ -33,14 +31,6 @@
             <span class="brand-tagline">Developer Hub</span>
           </div>
         </a>
-        <div class="search-container">
-          <div class="search-input-wrapper">
-            <span class="search-icon">&#128269;</span>
-            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
-            <span class="search-shortcut">Ctrl K</span>
-          </div>
-          <div id="search-results" class="search-results"></div>
-        </div>
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
@@ -49,268 +39,128 @@
           </a>
         </div>
         <div class="course-nav-header">
-          <span class="course-header-title">C++</span>
-          <span class="course-header-badge">23 Lessons</span>
+          <span class="course-header-title">C++ Course</span>
+          <span class="course-header-badge">23 Modules</span>
         </div>
         <ul class="nav-menu course-lessons-menu">
-  <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn C++</span></a></li>
-  <li class="nav-item"><a href="01-setup-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Up C++ Environment</span></a></li>
-  <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
-  <li class="nav-item"><a href="03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
-  <li class="nav-item"><a href="04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++ (`for`, `while`, `do-while`, Range-based `for`)</span></a></li>
-  <li class="nav-item"><a href="08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++ (Pass-by-Value, Pass-by-Reference & Overloading)</span></a></li>
-  <li class="nav-item"><a href="09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic `std::vector` in C++</span></a></li>
-  <li class="nav-item"><a href="10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming (OOP) in C++</span></a></li>
-  <li class="nav-item"><a href="11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors, Member Initializer Lists & Destructors in C++</span></a></li>
-  <li class="nav-item"><a href="12-inheritance-and-polymorphism.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Inheritance, Virtual Functions & Polymorphism (`virtual`, `override`, `= 0`)</span></a></li>
-  <li class="nav-item"><a href="13-operator-overloading.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operator Overloading in C++ (`+`, `==`, `<<`)</span></a></li>
-  <li class="nav-item"><a href="14-smart-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Smart Pointers & Memory Management in Modern C++ (`unique_ptr`, `shared_ptr`, `weak_ptr`)</span></a></li>
-  <li class="nav-item"><a href="15-stl-containers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ Standard Template Library (STL) Containers (`vector`, `map`, `unordered_map`, `set`)</span></a></li>
-  <li class="nav-item"><a href="16-stl-algorithms.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ STL Algorithms (`std::sort`, `std::find`, `std::accumulate`, `std::transform`)</span></a></li>
-  <li class="nav-item"><a href="17-templates.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Templates & Generic Programming in C++ (`template<typename T>`)</span></a></li>
-  <li class="nav-item"><a href="18-lambdas.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lambda Expressions & Functional Programming in C++ (`[](){}`)</span></a></li>
-  <li class="nav-item"><a href="19-exception-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Exception Handling in C++ (`try`, `catch`, `throw`, `std::exception`)</span></a></li>
-  <li class="nav-item"><a href="20-file-streams.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">File I/O Streams in C++ (`std::ifstream`, `std::ofstream`, `<fstream>`)</span></a></li>
-  <li class="nav-item"><a href="21-namespaces-and-modern-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Namespaces, `auto`, `constexpr` & `std::optional` in Modern C++</span></a></li>
-  <li class="nav-item"><a href="22-move-semantics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Move Semantics, Lvalues, Rvalues & `std::move` in C++</span></a></li>
-  <li class="nav-item"><a href="23-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Capstone Mini Projects in C++ (OOP & File I/O System)</span></a></li>
-</ul>
-      </div>
-      <div class="sidebar-footer">
-        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
-          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-          <span>View on GitHub</span>
-        </a>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus Overview</span></a></li>
+          <li class="nav-item"><a href="01-setup-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Setup C++ Environment</span></a></li>
+          <li class="nav-item"><a href="02-introduction-to-cpp.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to C++</span></a></li>
+          <li class="nav-item"><a href="03-variables-and-data-types/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Variables &amp; Data Types</span></a></li>
+          <li class="nav-item"><a href="04-input-output/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Input &amp; Output Streams</span></a></li>
+        </ul>
       </div>
     </aside>
 
-    <!-- Main Content Area -->
     <main class="main-content">
       <div class="content-wrapper">
-<h1>Introduction to C++ Language & ISO Standards
-</h1>
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> &gt; <a href="index.html">CPP</a> &gt; <span>02. Introduction to C++</span>
+        </div>
 
-<blockquote><p>🟢 Beginner
-</p></blockquote>
+        <h1>02. Introduction to C++ Language &amp; ISO Standards</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
 
-<p>---</p>
+        <h2>📖 Definition</h2>
+        <p><strong>C++</strong> is a general-purpose, statically typed, compiled, systems-level programming language created by <strong>Bjarne Stroustrup</strong> in 1979 at Bell Labs as an expansion of the C language ("C with Classes"). C++ combines low-level direct memory manipulation with high-level Object-Oriented, Generic, and Functional programming paradigms.</p>
 
-<h2>📖 Definition
-</h2>
+        <h2>🌐 Multilingual Explanation</h2>
 
-<p><strong>C++</strong> is a general-purpose, statically typed, compiled, middle-level programming language created by <strong>Bjarne Stroustrup</strong> in 1979 at Bell Labs as an expansion of the C language ("C with Classes"). C++ combines low-level direct memory manipulation with high-level Object-Oriented, Generic, and Functional programming paradigms.</p>
+        <h3>English</h3>
+        <p>C++ is a high-performance language providing direct control over system memory while supporting rich zero-cost abstractions such as classes, templates, smart pointers, and standard algorithms.</p>
 
-<p>---</p>
+        <h3>Hindi (Roman Script)</h3>
+        <p>C++ ek bahut hi fast aur powerful programming language hai jo C language par berbasis hai. C++ mein aapko direct memory control (pointers) ke saath-saath Object-Oriented Programming (Classes & Objects) aur Standard Template Library (STL) milti hai.</p>
 
-<h2>🇮🇳 Hindi Explanation
-</h2>
+        <h3>Marathi (Roman Script)</h3>
+        <p>C++ hi C language madhye sudharana karun tayar keleli ek atyant vegvan (fast) aani powerful programming language aahe. C++ madhye memory vr sarakshat control (Pointers) aani Object-Oriented Programming (OOP) che sarva features miltat.</p>
 
-<p>C++ ek bahut hi fast aur powerful programming language hai jo C language par berbasis hai. C++ mein aapko direct memory control (pointers) ke saath-saath Object-Oriented Programming (Classes & Objects) aur Standard Template Library (STL) milti hai. Issi wajah se games (Unreal Engine), Operating Systems, aur high-frequency trading platforms C++ mein likhe jaate hain.</p>
+        <h2>🤔 Why Learn C++?</h2>
+        <ol>
+          <li><strong>Unmatched Performance &amp; Speed:</strong> Zero-cost abstractions mean you don't pay a runtime penalty for using high-level language constructs.</li>
+          <li><strong>Direct Hardware &amp; Memory Control:</strong> Fine-grained control with pointers, stack/heap layout control, and custom allocators.</li>
+          <li><strong>Rich Ecosystem:</strong> Standard Template Library (STL) provides battle-tested containers (<code>std::vector</code>, <code>std::unordered_map</code>, <code>std::set</code>) and generic algorithms.</li>
+          <li><strong>ISO Standardization:</strong> C++ evolves under an ISO standard updated every 3 years (C++11, C++14, C++17, C++20, C++23).</li>
+        </ol>
 
-<p>---</p>
+        <h2>🧠 Simple Analogy</h2>
+        <p>Think of programming languages as vehicles:</p>
+        <ul>
+          <li><strong>Python:</strong> An automatic electric car (comfortable and user-friendly, but system details are abstracted away).</li>
+          <li><strong>C++:</strong> A Formula-1 racing machine with manual tuning (you control every gear ratio, engine valve, and memory offset to achieve peak execution speed).</li>
+        </ul>
 
-<h2>🚩 Marathi Explanation
-</h2>
+        <h2>📝 Evolution of ISO C++ Standards</h2>
+        <table>
+          <thead>
+            <tr><th>ISO Standard</th><th>Key Highlights &amp; Introduced Features</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>C++98 / C++03</strong></td><td>Classes, Inheritance, Templates, Exceptions, Initial STL</td></tr>
+            <tr><td><strong>C++11</strong></td><td>Modern C++ Era: <code>auto</code>, Lambdas, Smart Pointers, Move Semantics, Rvalue References</td></tr>
+            <tr><td><strong>C++14 / C++17</strong></td><td>Generic Lambdas, <code>std::optional</code>, <code>std::variant</code>, <code>std::string_view</code>, Structured Bindings</td></tr>
+            <tr><td><strong>C++20</strong></td><td>Concepts, Ranges, Coroutines, Modules (<code>import</code>), <code>std::format</code></td></tr>
+            <tr><td><strong>C++23</strong></td><td><code>std::print</code>, Multidimensional subscript operator <code>[]</code>, Expected type</td></tr>
+          </tbody>
+        </table>
 
-<p>C++ hi C language madhye sudharana karun tayar keleli ek atyant वेगवान (fast) aani powerful programming language aahe. C++ madhye memory vr sarakshat control (Pointers) aani Object-Oriented Programming (OOP) che sarva features miltat. Games, Operating Systems, aani Complex Applications madhye C++ cha sarvadhik vapar kele jato.</p>
+        <h2>💡 Practical Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
 
-<p>---</p>
+int main() {
+    std::string language = "ISO C++17";
+    int releaseYear = 2017;
 
-<h2>🤔 Why Learn C++?
-</h2>
+    std::cout &lt;&lt; "Language Standard: " &lt;&lt; language &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Standardized Year: " &lt;&lt; releaseYear &lt;&lt; std::endl;
+    std::cout &lt;&lt; "C++ combines Direct Memory Control + High-Speed Execution!" &lt;&lt; std::endl;
 
-<p>1. <strong>Unmatched Performance & Speed</strong>: Zero-cost abstractions mean you don't pay a performance penalty for using high-level features.</p>
-<p>2. <strong>Direct Hardware & Memory Control</strong>: Fine-grained pointers and explicit stack/heap allocation.</p>
-<p>3. <strong>Rich Ecosystem</strong>: Standard Template Library (STL) provides battle-tested data structures (<code>vector</code>, <code>unordered_map</code>, <code>set</code>, algorithms).</p>
-<p>4. <strong>ISO Standardization Evolution</strong>: C++ is actively updated every 3 years (C++11, C++14, C++17, C++20, C++23).</p>
+    return 0;
+}</code></pre>
 
-<p>---</p>
+        <h2>🔍 Code Breakdown</h2>
+        <ul>
+          <li><code>#include &lt;iostream&gt;</code>: Includes terminal stream objects (<code>std::cout</code>).</li>
+          <li><code>std::string</code>: ISO C++ Standard Library string class.</li>
+          <li><code>return 0;</code>: Indicates successful execution exit status to operating system.</li>
+        </ul>
 
-<h2>🧠 Simple Analogy
-</h2>
+        <h2>👀 Expected Output</h2>
+        <pre><code class="language-text">Language Standard: ISO C++17
+Standardized Year: 2017
+C++ combines Direct Memory Control + High-Speed Execution!</code></pre>
 
-<p>Think of programming languages as vehicles:</p>
-<ul>
-<p>  <li><strong>Python</strong>: A self-driving automatic Tesla (very comfortable, easy to drive, but the computer controls everything).</li></p>
-<p>  <li><strong>C++</strong>: A Formula-1 racing car with a manual gearbox (you control every gear, engine valve, and steering millimeter. It requires skill, but achieves blistering speed!).</li></p>
-<p></ul></p>
+        <h2>⚠️ Common Mistakes</h2>
+        <ul>
+          <li><strong>Confusing C and C++:</strong> C++ is a distinct multi-paradigm language. Avoid using raw <code>malloc/free</code> when modern RAII constructs like <code>std::vector</code> or smart pointers are available.</li>
+          <li><strong>Omitting Standard Flag:</strong> Compiling without <code>-std=c++17</code> or <code>-std=c++20</code> can default to older dialect features.</li>
+        </ul>
 
-<p>---</p>
+        <h2>🛡️ Best Practices</h2>
+        <ul>
+          <li>Prefer modern C++ abstractions (<code>std::vector</code>, <code>std::unique_ptr</code>) over raw C-style arrays and unmanaged pointers.</li>
+        </ul>
 
-<h2>📝 Evolution of C++ Standards
-</h2>
+        <h2>🌍 Real-World Usage</h2>
+        <ul>
+          <li><strong>Game Engines:</strong> Unreal Engine 5, Frostbite, Unity Engine Core.</li>
+          <li><strong>Operating Systems:</strong> Microsoft Windows Kernel, macOS Core, Android Runtime (ART).</li>
+          <li><strong>Browsers &amp; Compilers:</strong> Google Chrome (V8), LLVM/Clang, GCC.</li>
+        </ul>
 
-<table>
-<p>  <thead><tr><th>ISO Standard</th><th>Major Introduced Features</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td><strong>C++98 / C++03</strong></td><td>Classes, Templates, Exceptions, Initial STL</td></tr></p>
-<p>    <tr><td><strong>C++11</strong></td><td>Modern C++ Revolution! <code>auto</code>, Lambdas, Smart Pointers, Move Semantics</td></tr></p>
-<p>    <tr><td><strong>C++14 / C++17</strong></td><td>Generic Lambdas, <code>std::optional</code>, <code>std::variant</code>, Structured Binding</td></tr></p>
-<p>    <tr><td><strong>C++20</strong></td><td>Concepts, Ranges, Coroutines, Modules (<code>import</code>), <code>std::format</code></td></tr></p>
-<p>    <tr><td><strong>C++23</strong></td><td><code>std::print</code>, Expected type, Multidimensional subscript operator <code>[]</code></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+        <h2>🧪 Try It Yourself</h2>
+        <ol>
+          <li>Compile the code snippet using <code>g++ -Wall -Wextra -Wpedantic -std=c++17 main.cpp -o main</code>.</li>
+          <li>Change the standard string to C++20 and compile with <code>-std=c++20</code>.</li>
+        </ol>
 
-<p>---</p>
-
-<h2>💡 Practical Example
-</h2>
-
-<pre><code class="language-cpp">#include &lt;iostream&gt;
-<p>#include &lt;string&gt;</p>
-
-<p>int main() {</p>
-<p>    std::string language = &quot;C++20&quot;;</p>
-<p>    int releaseYear = 2020;</p>
-<p>    </p>
-<p>    std::cout &lt;&lt; &quot;Language: &quot; &lt;&lt; language &lt;&lt; std::endl;</p>
-<p>    std::cout &lt;&lt; &quot;Standardized in: &quot; &lt;&lt; releaseYear &lt;&lt; std::endl;</p>
-<p>    std::cout &lt;&lt; &quot;C++ combines Low-Level Control + High-Level Speed!&quot; &lt;&lt; std::endl;</p>
-<p>    </p>
-<p>    return 0;</p>
-<p>}</code></pre></p>
-
-<p>---</p>
-
-<h2>🔍 Code Breakdown
-</h2>
-
-<ul>
-<p>  <li><code><iostream></code>: Preprocessor header providing <code>std::cout</code> and <code>std::cin</code>.</li></p>
-<p>  <li><code>std::string</code>: Modern dynamic string class provided by standard library.</li></p>
-<p>  <li><code>std::endl</code>: Flushes buffer and outputs <code>\n</code>.</li></p>
-<p></ul></p>
-
-<p>---</p>
-
-<h2>👀 Output
-</h2>
-
-<pre><code class="language-text">Language: C++20
-<p>Standardized in: 2020</p>
-<p>C++ combines Low-Level Control + High-Level Speed!</code></pre></p>
-
-<p>---</p>
-
-<h2>⚠️ Common Mistakes
-</h2>
-
-<ul>
-<p>  <li><strong>Confusing C and C++</strong>: C++ supports everything C does, but adds Classes, References, Templates, and Smart Pointers. Do not write raw <code>malloc/free</code> when <code>new/delete</code> or <code>std::vector</code> is available in C++.</li></p>
-<p>  <li><strong>Forgetting Namespace Prefix</strong>: Writing <code>cout</code> instead of <code>std::cout</code> without <code>using namespace std;</code>.</li></p>
-<p></ul></p>
-
-<p>---</p>
-
-<h2>🛡️ Best Practices
-</h2>
-
-<ul>
-<p>  <li>Prefer modern C++ idioms (<code>std::vector</code>, <code>std::unique_ptr</code>) over raw C-style arrays and raw pointers.</li></p>
-<p></ul></p>
-
-<p>---</p>
-
-<h2>🌍 Real-World Usage
-</h2>
-
-<ul>
-<p>  <li><strong>Game Development</strong>: Unreal Engine 5, Unity Engine Core, EA Frostbite.</li></p>
-<p>  <li><strong>Operating Systems</strong>: Microsoft Windows Kernel, Apple macOS Core, Android Runtime (ART).</li></p>
-<p>  <li><strong>Web Browsers</strong>: Google Chrome V8 JavaScript Engine, Mozilla Firefox.</li></p>
-<p></ul></p>
-
-<p>---</p>
-
-<h2>🧪 Try It Yourself
-</h2>
-
-<p>1. Compile a C++ script using <code>g++ -std=c++20 main.cpp</code> and print the version of C++ you are practicing.</p>
-
-<p>---</p>
-
-<h2>🎯 Mini Challenge
-</h2>
-
-<p>Write a program that prints 3 advantages of C++ formatted as bullet points on separate lines.</p>
-
-<p>---</p>
-
-<h2>🔗 Related Topics
-</h2>
-
-<ul>
-<p>  <li><a href="01-setup-cpp.html">Setup C++ Development Environment</a></li></p>
-<p>  <li><a href="03-variables-and-data-types.html">Variables & Data Types</a></li></p>
-<p></ul></p>
-
-<p>---</p>
-
-<h2>🧭 Navigation
-</h2>
-
-<p><a href="./">← C++ Home</a> | <a href="01-setup-cpp.html">← Previous: Setup</a> | <a href="03-variables-and-data-types.html">Next: Variables & Data Types →</a></p>
-
-
+        <div class="navigation-footer">
+          <a href="01-setup-cpp.html" class="nav-btn">&larr; Module 01: Setup</a>
+          <a href="03-variables-and-data-types/index.html" class="nav-btn">Next: Module 03 &rarr;</a>
+        </div>
       </div>
     </main>
   </div>
-
-  <!-- Mobile Sidebar & Search Scripts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var toggleBtn = document.getElementById('sidebar-toggle');
-      var sidebar = document.getElementById('sidebar');
-      var overlay = document.getElementById('sidebar-overlay');
-
-      function openSidebar() {
-        sidebar.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeSidebar() {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      function toggleSidebar() {
-        if (sidebar.classList.contains('active')) {
-          closeSidebar();
-        } else {
-          openSidebar();
-        }
-      }
-
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', toggleSidebar);
-      }
-      if (overlay) {
-        overlay.addEventListener('click', closeSidebar);
-      }
-
-      var navLinks = sidebar ? sidebar.querySelectorAll('a') : [];
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          if (window.innerWidth <= 868) {
-            closeSidebar();
-          }
-        });
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
-          closeSidebar();
-        }
-      });
-    });
-  </script>
-  <script src="../assets/js/search-data.js"></script>
-  <script src="../assets/js/search.js"></script>
-  <script src="../assets/js/contributors.js"></script>
 </body>
 </html>

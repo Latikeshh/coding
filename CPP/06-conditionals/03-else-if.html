@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. else-if Ladder - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 06</a> &gt; <span>03. else-if</span>
+        </div>
+
+        <h1>The else-if Ladder</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>An <code>else-if</code> ladder tests multiple conditions sequentially from top to bottom. As soon as a condition evaluates to true, its block is executed and the remainder of the ladder is skipped.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int marks = 85;
+    if (marks &gt;= 90) {
+        std::cout &lt;&lt; "Grade A+\n";
+    } else if (marks &gt;= 80) {
+        std::cout &lt;&lt; "Grade A\n";
+    } else {
+        std::cout &lt;&lt; "Grade B\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-if-else.html" class="nav-btn">&larr; Previous: if-else</a>
+          <a href="04-nested-conditionals.html" class="nav-btn">Next: Nested Conditionals &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

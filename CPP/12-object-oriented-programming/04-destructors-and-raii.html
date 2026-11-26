@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Destructors & RAII - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 12</a> &gt; <span>04. Destructors</span>
+        </div>
+
+        <h1>Destructors &amp; RAII Lifecycle</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A destructor (<code>~Class()</code>) automatically executes when an object leaves scope. Under RAII, resource cleanup (closing files, releasing heap memory) is bound to object destruction.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+class ResourceGuard {
+public:
+    ResourceGuard() { std::cout &lt;&lt; "Resource Acquired\n"; }
+    ~ResourceGuard() { std::cout &lt;&lt; "Resource Released Automatically\n"; }
+};
+
+int main() {
+    {
+        ResourceGuard guard;
+    } // guard destroyed here
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-constructors-initializer-lists.html" class="nav-btn">&larr; Previous: Constructors</a>
+          <a href="05-inheritance-basics.html" class="nav-btn">Next: Inheritance &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

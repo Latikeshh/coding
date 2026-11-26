@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Default Arguments - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 08</a> &gt; <span>04. Default Args</span>
+        </div>
+
+        <h1>Default Function Arguments</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Default parameters allow function callers to omit trailing arguments. Default values must be specified starting from the rightmost parameter in the prototype signature.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+void displayMessage(const std::string&amp; msg, int repeat = 1) {
+    for (int i = 0; i &lt; repeat; ++i) {
+        std::cout &lt;&lt; msg &lt;&lt; "\n";
+    }
+}
+
+int main() {
+    displayMessage("Hello C++!"); // Uses default repeat = 1
+    displayMessage("Repeating...", 2);
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-function-overloading.html" class="nav-btn">&larr; Previous: Overloading</a>
+          <a href="05-inline-constexpr.html" class="nav-btn">Next: inline &amp; constexpr &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

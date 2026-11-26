@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. std::atomic Operations - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 22</a> &gt; <span>03. Atomics</span>
+        </div>
+
+        <h1>Lock-Free Atomic Types (std::atomic)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Provided in <code>&lt;atomic&gt;</code>, <code>std::atomic&lt;T&gt;</code> wraps primitive types into lock-free atomic variables that execute read-modify-write operations directly using hardware CPU instructions, eliminating mutex lock overhead for simple counters and flags.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;atomic&gt;
+
+std::atomic&lt;int&gt; atomicCounter{0};
+
+void task() {
+    for (int i = 0; i &lt; 1000; ++i) {
+        ++atomicCounter; // Atomic CPU increment
+    }
+}
+
+int main() {
+    std::thread t1(task), t2(task);
+    t1.join(); t2.join();
+    std::cout &lt;&lt; "Atomic Counter: " &lt;&lt; atomicCounter &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-mutex-and-locks.html" class="nav-btn">&larr; Previous: Mutexes</a>
+          <a href="04-async-and-futures.html" class="nav-btn">Next: Futures &amp; Async &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

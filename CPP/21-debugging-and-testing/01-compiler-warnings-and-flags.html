@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Compiler Warning Flags - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 21</a> &gt; <span>01. Compiler Flags</span>
+        </div>
+
+        <h1>Compiler Warning Flags (-Wall -Wextra -Wpedantic)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Compilers catch subtle bugs, uninitialized variables, narrow casts, and type mismatches prior to execution. Enabling strict compiler warning flags (<code>-Wall -Wextra -Wpedantic -Werror</code>) treats potential logical flaws as fatal compilation errors.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-bash"># Recommended strict compilation flag set for GCC / Clang
+g++ -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Werror -std=c++17 main.cpp -o main</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-gdb-and-lldb-debugging.html" class="nav-btn">Next: Debuggers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

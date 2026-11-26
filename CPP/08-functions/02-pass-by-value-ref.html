@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Pass-by-Value & Pass-by-Reference - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 08</a> &gt; <span>02. Pass-by-Reference</span>
+        </div>
+
+        <h1>Pass-by-Value vs Pass-by-Reference in C++</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Pass-by-value creates a local copy of arguments. Pass-by-reference (<code>&amp;</code>) passes an alias to the original object, avoiding copy overhead and allowing direct modification. <code>const T&amp;</code> provides zero-copy read-only access.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+void modifyByRef(int&amp; val) {
+    val *= 2;
+}
+
+int main() {
+    int number = 50;
+    modifyByRef(number);
+    std::cout &lt;&lt; "Modified value: " &lt;&lt; number &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-function-basics.html" class="nav-btn">&larr; Previous: Basics</a>
+          <a href="03-function-overloading.html" class="nav-btn">Next: Overloading &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

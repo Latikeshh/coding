@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Stream Formatting - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 04</a> &gt; <span>03. iomanip</span>
+        </div>
+
+        <h1>Stream Formatting with &lt;iomanip&gt;</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The <code>&lt;iomanip&gt;</code> header provides manipulators like <code>std::setw</code>, <code>std::setprecision</code>, <code>std::fixed</code>, and <code>std::setfill</code> to format tabular console output cleanly.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+int main() {
+    double pi = 3.14159265;
+    std::cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(2);
+    std::cout &lt;&lt; "Formatted PI: " &lt;&lt; pi &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>👀 Output</h2>
+        <pre><code class="language-text">Formatted PI: 3.14</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-cerr-and-clog.html" class="nav-btn">&larr; Previous: cerr &amp; clog</a>
+          <a href="04-string-input-and-getline.html" class="nav-btn">Next: getline &amp; Buffer &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

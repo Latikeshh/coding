@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. CMake Build System - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 19</a> &gt; <span>04. CMake</span>
+        </div>
+
+        <h1>CMake Build System (CMakeLists.txt)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>CMake is the industry-standard meta-build system for C++ projects. A <code>CMakeLists.txt</code> file specifies target executables, compiler flags, standards requirements, and third-party dependency linking across platform toolchains.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cmake">cmake_minimum_required(VERSION 3.15)
+project(MyCppProject VERSION 1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(app main.cpp utils.cpp)</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-compilation-and-linking.html" class="nav-btn">&larr; Previous: Linking</a>
+          <a href="../20-modern-cpp/index.html" class="nav-btn">Module 20: Modern C++ &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

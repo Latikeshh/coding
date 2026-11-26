@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06. Iterators - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 15</a> &gt; <span>06. Iterators</span>
+        </div>
+
+        <h1>Iterators &amp; Range Traversal</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Iterators are generalized pointer objects that connect STL containers with generic algorithms. Standard iterators include Input, Output, Forward, Bidirectional, and RandomAccess iterators (supporting <code>.begin()</code>, <code>.end()</code>, <code>.cbegin()</code>, <code>.cend()</code>).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; v{1, 2, 3, 4};
+
+    for (std::vector&lt;int&gt;::const_iterator it = v.cbegin(); it != v.cend(); ++it) {
+        std::cout &lt;&lt; *it &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="05-container-adapters-stack-queue.html" class="nav-btn">&larr; Previous: Adapters</a>
+          <a href="07-stl-algorithms.html" class="nav-btn">Next: STL Algorithms &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Pointers vs References - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 10</a> &gt; <span>04. Pointers vs References</span>
+        </div>
+
+        <h1>Pointers vs References Comparison</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A reference (<code>T&amp;</code>) is an immovable alias bound at initialization that cannot be null. A pointer (<code>T*</code>) is an independent variable that can be null, reassigned, or incremented.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int a = 10;
+    int&amp; ref = a; // Alias
+    int* ptr = &amp;a; // Memory address
+
+    ref = 20; // Modifies 'a' directly
+    std::cout &lt;&lt; "a: " &lt;&lt; a &lt;&lt; ", *ptr: " &lt;&lt; *ptr &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-const-and-void-pointers.html" class="nav-btn">&larr; Previous: const/void*</a>
+          <a href="05-dynamic-memory-allocation.html" class="nav-btn">Next: Dynamic Memory &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

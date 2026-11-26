@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Compilation & Linking - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 19</a> &gt; <span>03. Linking</span>
+        </div>
+
+        <h1>Compilation Pipeline &amp; Linker Errors</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The C++ build pipeline converts source files (<code>.cpp</code>) into preprocessed files, then machine object code (<code>.o</code>/<code>.obj</code>), and finally links all object files and libraries into a standalone executable. Missing definitions trigger linker errors (<code>undefined reference to...</code>).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-bash"># Separate compilation step
+g++ -std=c++17 -c main.cpp -o main.o
+g++ -std=c++17 -c utils.cpp -o utils.o
+
+# Linker step
+g++ main.o utils.o -o my_app</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-header-files-and-guards.html" class="nav-btn">&larr; Previous: Header Guards</a>
+          <a href="04-cmake-build-system.html" class="nav-btn">Next: CMake &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

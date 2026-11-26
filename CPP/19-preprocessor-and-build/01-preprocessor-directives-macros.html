@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Preprocessor Directives - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 19</a> &gt; <span>01. Preprocessor</span>
+        </div>
+
+        <h1>Preprocessor Directives &amp; Macro Hazards</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The preprocessor transforms source code text before actual compilation using directives (<code>#include</code>, <code>#define</code>, <code>#ifdef</code>). In modern C++, prefer <code>constexpr</code> constants and <code>inline</code> functions over raw preprocessor macros.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+#define ENABLE_LOGGING 1
+
+int main() {
+#if ENABLE_LOGGING
+    std::cout &lt;&lt; "Logging enabled at compile time.\n";
+#endif
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-header-files-and-guards.html" class="nav-btn">Next: Header Guards &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. std::unique_ptr Deep Dive - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 13</a> &gt; <span>04. std::unique_ptr</span>
+        </div>
+
+        <h1>std::unique_ptr Deep Dive (Exclusive Ownership)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition &amp; Core Mechanics</h2>
+        <p><code>std::unique_ptr&lt;T&gt;</code> is a zero-overhead smart pointer that enforces <strong>Exclusive Ownership</strong> over a heap resource. It deleted its copy constructor (<code>unique_ptr(const unique_ptr&amp;) = delete</code>) so it cannot be copied, but supports move semantics (<code>std::move</code>) to transfer ownership. When a <code>unique_ptr</code> leaves scope, it automatically invokes <code>delete</code> on its managed raw pointer.</p>
+
+        <h2>🛠️ Key Operations &amp; Helper Functions</h2>
+        <ul>
+          <li><code>std::make_unique&lt;T&gt;(args...)</code> (C++14): Factory function providing exception-safe allocation.</li>
+          <li><code>uPtr.get()</code>: Accesses the underlying raw pointer without transferring ownership.</li>
+          <li><code>uPtr.release()</code>: Relinquishes ownership and returns raw pointer, leaving <code>uPtr</code> null.</li>
+          <li><code>uPtr.reset(newPtr)</code>: Deallocates current resource and assigns a new raw pointer.</li>
+        </ul>
+
+        <h2>💡 Complete Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+class DatabaseConnection {
+public:
+    DatabaseConnection() { std::cout &lt;&lt; "Connected to DB\n"; }
+    ~DatabaseConnection() { std::cout &lt;&lt; "Disconnected from DB\n"; }
+    void query() const { std::cout &lt;&lt; "Executing SQL Query\n"; }
+};
+
+int main() {
+    // 1. Creation with std::make_unique
+    std::unique_ptr&lt;DatabaseConnection&gt; conn1 = std::make_unique&lt;DatabaseConnection&gt;();
+    conn1-&gt;query();
+
+    // 2. Transfer Ownership via std::move
+    std::unique_ptr&lt;DatabaseConnection&gt; conn2 = std::move(conn1);
+
+    if (!conn1) {
+        std::cout &lt;&lt; "conn1 is now null after std::move\n";
+    }
+    conn2-&gt;query();
+
+    return 0; // conn2 destructor automatically closes DB connection
+}</code></pre>
+
+        <h2>👀 Expected Output</h2>
+        <pre><code class="language-text">Connected to DB
+Executing SQL Query
+conn1 is now null after std::move
+Executing SQL Query
+Disconnected from DB</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-raii-resource-management.html" class="nav-btn">&larr; Previous: RAII</a>
+          <a href="05-std-shared-ptr.html" class="nav-btn">Next: std::shared_ptr &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

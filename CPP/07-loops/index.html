@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loops & Iteration - C++</title>
+  <title>Module 07: Loops & Iteration - C++ Standard Curriculum</title>
   <link rel="stylesheet" href="../../assets/css/custom.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -31,83 +31,61 @@
             <span class="brand-tagline">Developer Hub</span>
           </div>
         </a>
-        <div class="search-container">
-          <div class="search-input-wrapper">
-            <span class="search-icon">&#128269;</span>
-            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
-            <span class="search-shortcut">Ctrl K</span>
-          </div>
-          <div id="search-results" class="search-results"></div>
-        </div>
       </div>
       <div class="sidebar-nav">
         <div class="nav-back-container">
-          <a href="../../index.html" class="nav-back-btn">
-            <span class="back-arrow">&larr;</span> All Courses
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> C++ Modules
           </a>
         </div>
         <div class="course-nav-header">
-          <span class="course-header-title">C++</span>
-          <span class="course-header-badge">23 Lessons</span>
+          <span class="course-header-title">Module 07</span>
+          <span class="course-header-badge">Loops</span>
         </div>
         <ul class="nav-menu course-lessons-menu">
-  <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn C++</span></a></li>
-  <li class="nav-item"><a href="../01-setup-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Up C++ Environment</span></a></li>
-  <li class="nav-item"><a href="../02-introduction-to-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to C++ Language & ISO Standards</span></a></li>
-  <li class="nav-item"><a href="../03-variables-and-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables & Primitive Data Types in C++</span></a></li>
-  <li class="nav-item"><a href="../04-input-output.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Input & Output Streams in C++ (`std::cin`, `std::cout`, `getline`)</span></a></li>
-  <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operators in C++ (Arithmetic, Relational, Logical, Bitwise)</span></a></li>
-  <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Control Flow & Conditionals in C++ (`if`, `else`, `switch`)</span></a></li>
-  <li class="nav-item"><a href="index.html" class="nav-link active" ><span class="nav-bullet">&bull;</span><span class="nav-title">Loops & Iteration in C++</span></a>
-          <li class="nav-item"><a href="for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; for Loop</span></a></li>
-          <li class="nav-item"><a href="02-while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; while Loop</span></a></li>
-          <li class="nav-item"><a href="03-do-while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; do-while Loop</span></a></li>
-          <li class="nav-item"><a href="range-based-for.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">&nbsp;&nbsp;&bull; Range-based for Loop</span></a></li></li>
-  <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Functions in C++</span></a></li>
-  <li class="nav-item"><a href="../09-arrays-and-vectors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Fixed Arrays vs Dynamic std::vector</span></a></li>
-  <li class="nav-item"><a href="../10-classes-and-oops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Classes & Object-Oriented Programming</span></a></li>
-  <li class="nav-item"><a href="../11-constructors-and-destructors.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Constructors & Destructors</span></a></li>
-  <li class="nav-item"><a href="../12-inheritance-and-polymorphism.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Inheritance & Polymorphism</span></a></li>
-  <li class="nav-item"><a href="../13-operator-overloading.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Operator Overloading</span></a></li>
-  <li class="nav-item"><a href="../14-smart-pointers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Smart Pointers</span></a></li>
-  <li class="nav-item"><a href="../15-stl-containers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ STL Containers</span></a></li>
-  <li class="nav-item"><a href="../16-stl-algorithms.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">C++ STL Algorithms</span></a></li>
-  <li class="nav-item"><a href="../17-templates.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Templates & Generic Programming in C++ (`template<typename T>`)</span></a></li>
-  <li class="nav-item"><a href="../18-lambdas.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Lambda Expressions & Functional Programming in C++ (`[](){}`)</span></a></li>
-  <li class="nav-item"><a href="../19-exception-handling.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Exception Handling in C++ (`try`, `catch`, `throw`, `std::exception`)</span></a></li>
-  <li class="nav-item"><a href="../20-file-streams.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">File I/O Streams in C++ (`std::ifstream`, `std::ofstream`, `<fstream>`)</span></a></li>
-  <li class="nav-item"><a href="../21-namespaces-and-modern-cpp.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Namespaces, `auto`, `constexpr` & `std::optional` in Modern C++</span></a></li>
-  <li class="nav-item"><a href="../22-move-semantics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Move Semantics, Lvalues, Rvalues & `std::move` in C++</span></a></li>
-  <li class="nav-item"><a href="../23-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Capstone Mini Projects in C++ (OOP & File I/O System)</span></a></li>
-</ul>
-      </div>
-      <div class="sidebar-footer">
-        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
-          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-          <span>View on GitHub</span>
-        </a>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Module Overview</span></a></li>
+          <li class="nav-item"><a href="01-for-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. for Loop</span></a></li>
+          <li class="nav-item"><a href="02-while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. while Loop</span></a></li>
+          <li class="nav-item"><a href="03-do-while-loop.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. do-while Loop</span></a></li>
+          <li class="nav-item"><a href="04-range-based-for.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Range-based for</span></a></li>
+          <li class="nav-item"><a href="05-nested-loops.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Nested Loops</span></a></li>
+          <li class="nav-item"><a href="06-break-and-continue.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. break &amp; continue</span></a></li>
+        </ul>
       </div>
     </aside>
 
     <main class="main-content">
       <div class="content-wrapper">
-        <h1>Loops & Iteration in C++</h1>
-        <blockquote><p>🟢 Module Overview: Master standard counting loops and modern C++ range-based for loops.</p></blockquote>
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <span>Module 07: Loops</span>
+        </div>
 
-        <h2>📖 What are Loops in C++?</h2>
-        <p>Loops repeatedly execute a block of statements as long as a control condition evaluates to <code>true</code> (non-zero).</p>
+        <h1>Module 07: Loops &amp; Iteration</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
 
-        <h2>📚 Module Lessons</h2>
-        <ul>
-          <li><a href="for-loop.html"><strong>1. The <code>for</code> Loop:</strong> Standard counter-driven iteration.</a></li>
-          <li><a href="02-while-loop.html"><strong>2. The <code>while</code> Loop:</strong> Pre-tested conditional loops.</a></li>
-          <li><a href="03-do-while-loop.html"><strong>3. The <code>do-while</code> Loop:</strong> Post-tested exit-controlled loops.</a></li>
-          <li><a href="range-based-for.html"><strong>4. Range-based <code>for</code> Loop:</strong> Modern C++ <code>for (const auto& item : container)</code> range iteration.</a></li>
-        </ul>
+        <p>Master iteration structures in C++: standard counter-based <code>for</code> loops, pre-condition <code>while</code> loops, post-condition <code>do-while</code> loops, modern range-based <code>for</code> loops, multi-dimensional nested loops, and loop control statements (<code>break</code>, <code>continue</code>).</p>
+
+        <h2>📖 Lessons in this Module</h2>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Lesson Title</th><th>Level</th><th>Link</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>for Loop</td><td>🟢 Beginner</td><td><a href="01-for-loop.html">Open Lesson</a></td></tr>
+            <tr><td>02</td><td>while Loop</td><td>🟢 Beginner</td><td><a href="02-while-loop.html">Open Lesson</a></td></tr>
+            <tr><td>03</td><td>do-while Loop</td><td>🟢 Beginner</td><td><a href="03-do-while-loop.html">Open Lesson</a></td></tr>
+            <tr><td>04</td><td>Range-based for Loop (C++11)</td><td>🟢 Beginner</td><td><a href="04-range-based-for.html">Open Lesson</a></td></tr>
+            <tr><td>05</td><td>Nested Loops &amp; Grid Processing</td><td>🟡 Intermediate</td><td><a href="05-nested-loops.html">Open Lesson</a></td></tr>
+            <tr><td>06</td><td>break &amp; continue Statements</td><td>🟢 Beginner</td><td><a href="06-break-and-continue.html">Open Lesson</a></td></tr>
+          </tbody>
+        </table>
+
+        <div class="navigation-footer">
+          <a href="../06-conditionals/index.html" class="nav-btn">&larr; Module 06: Conditionals</a>
+          <a href="01-for-loop.html" class="nav-btn">Start Lesson 01 &rarr;</a>
+        </div>
       </div>
     </main>
   </div>
-  <script src="../../assets/js/search-data.js"></script>
-  <script src="../../assets/js/search.js"></script>
 </body>
 </html>

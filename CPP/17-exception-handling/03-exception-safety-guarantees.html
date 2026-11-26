@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Exception Safety Guarantees - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 17</a> &gt; <span>03. Safety Guarantees</span>
+        </div>
+
+        <h1>Exception Safety Guarantees &amp; noexcept</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Exception safety guarantees describe program integrity when an exception occurs:</p>
+        <ul>
+          <li><strong>Basic Guarantee:</strong> No memory leaks occur; invariants are preserved.</li>
+          <li><strong>Strong Guarantee:</strong> Operation commits fully or rolls back to the original state (copy-and-swap idiom).</li>
+          <li><strong>Nothrow Guarantee (<code>noexcept</code>):</strong> Promises a function will never throw exceptions, critical for move constructors and destructors.</li>
+        </ul>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+void safeFunction() noexcept {
+    // Guaranteed not to throw exceptions
+}
+
+int main() {
+    std::cout &lt;&lt; "Is safeFunction noexcept? " &lt;&lt; std::boolalpha &lt;&lt; noexcept(safeFunction()) &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-standard-exceptions.html" class="nav-btn">&larr; Previous: Standard Exceptions</a>
+          <a href="../18-file-handling/index.html" class="nav-btn">Module 18: File Streams &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

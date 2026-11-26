@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. try-catch-throw - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 17</a> &gt; <span>01. try-catch</span>
+        </div>
+
+        <h1>try, catch &amp; throw Basics</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>C++ exception handling separates normal execution code inside a <code>try</code> block from error handling logic in a <code>catch</code> handler. An exception object is emitted using the <code>throw</code> keyword when a runtime error condition occurs.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+double divide(double a, double b) {
+    if (b == 0.0) throw "Division by zero!";
+    return a / b;
+}
+
+int main() {
+    try {
+        std::cout &lt;&lt; divide(10.0, 0.0) &lt;&lt; "\n";
+    } catch (const char* msg) {
+        std::cerr &lt;&lt; "Caught Exception: " &lt;&lt; msg &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-standard-exceptions.html" class="nav-btn">Next: Standard Exceptions &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

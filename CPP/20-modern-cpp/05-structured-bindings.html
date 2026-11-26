@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Structured Bindings - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 20</a> &gt; <span>05. Structured Bindings</span>
+        </div>
+
+        <h1>Structured Bindings (C++17)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in C++17, structured bindings (<code>auto [x, y] = expression;</code>) unpack tuple-like types, <code>std::pair</code>, C-style arrays, and public data member structs directly into distinct named variables.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;tuple&gt;
+#include &lt;string&gt;
+
+struct User {
+    std::string name;
+    int age;
+};
+
+int main() {
+    User u{"Aria", 25};
+    auto [n, a] = u; // C++17 structured binding
+
+    std::cout &lt;&lt; "Name: " &lt;&lt; n &lt;&lt; ", Age: " &lt;&lt; a &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-optional-variant-any.html" class="nav-btn">&larr; Previous: Vocabulary Types</a>
+          <a href="06-cpp20-concepts.html" class="nav-btn">Next: C++20 Concepts &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

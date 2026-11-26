@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Variadic Templates - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 16</a> &gt; <span>04. Variadic Templates</span>
+        </div>
+
+        <h1>Variadic Templates &amp; Fold Expressions (C++17)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in C++11, variadic templates accept a variable number of template parameters via parameter packs (<code>typename... Args</code>). C++17 fold expressions (<code>(... + args)</code>) cleanly unpack parameter packs without recursion.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+template &lt;typename... Args&gt;
+auto sumAll(Args... args) {
+    return (... + args); // C++17 fold expression
+}
+
+int main() {
+    std::cout &lt;&lt; "Sum: " &lt;&lt; sumAll(1, 2, 3, 4, 5) &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-template-specialization.html" class="nav-btn">&larr; Previous: Specialization</a>
+          <a href="../17-exception-handling/index.html" class="nav-btn">Module 17: Exceptions &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

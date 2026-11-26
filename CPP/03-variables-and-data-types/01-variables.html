@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Variable Declarations, Scope & Lifetime - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Sticky Mobile Header -->
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> C++ Modules
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Module 03</span>
+          <span class="course-header-badge">Variables</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Module Overview</span></a></li>
+          <li class="nav-item"><a href="01-variables.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Variables &amp; Scope</span></a></li>
+          <li class="nav-item"><a href="02-data-types.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Primitive Data Types</span></a></li>
+          <li class="nav-item"><a href="03-constants-and-qualifiers.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Constants &amp; Qualifiers</span></a></li>
+          <li class="nav-item"><a href="04-type-conversion-and-casting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Type Conversions &amp; Casting</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty Badge -->
+        <h1>01. Variable Declarations, Scope &amp; Lifetime in C++</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | Storage Allocation, Initializer Syntax &amp; Scope Rules</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>A <strong>variable</strong> in C++ is a named memory location in RAM allocated by the compiler to hold a value. C++ is statically and strongly typed, requiring every variable to be explicitly declared before usage (or declared using C++11 <code>auto</code> type deduction), establishing its type, memory layout, scope, and lifetime.</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <p>Variables eliminate manual hex memory tracking and provide compile-time type safety:</p>
+        <ul>
+          <li><strong>Compile-time Safety:</strong> The compiler verifies valid operations before program execution.</li>
+          <li><strong>State Persistence:</strong> Stores dynamic calculation results, object states, and loop counters.</li>
+          <li><strong>Resource Control:</strong> Explicit block scope (<code>{}</code>) restricts object lifetime, enabling automatic RAII destruction.</li>
+        </ul>
+
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works</h2>
+        <p>Local variables are allocated on the function's <strong>Call Stack Frame</strong> upon entering scope and popped automatically when exiting scope. Global and <code>static</code> variables reside in the <strong>Data/BSS segment</strong> for the entire program execution.</p>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-cpp">// Copy Initialization (C-style)
+data_type varName = initialValue;
+
+// Direct Initialization
+data_type varName(initialValue);
+
+// Uniform Direct List Initialization (C++11 Best Practice - Prevents Narrowing!)
+data_type varName{initialValue};
+
+// Type Deduction (C++11)
+auto varName = initialValue;</code></pre>
+
+        <!-- 6. Initialization Flavors Table -->
+        <h2>🔀 Variable Scope &amp; Lifetime Categories</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Declaration Location</th>
+              <th>Memory Segment</th>
+              <th>Default Initializer</th>
+              <th>Lifetime</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Local Automatic</strong></td>
+              <td>Inside block <code>{}</code></td>
+              <td>Stack Frame</td>
+              <td>Garbage Value (Undefined)</td>
+              <td>Block exit</td>
+            </tr>
+            <tr>
+              <td><strong>Static Local</strong></td>
+              <td>Inside block with <code>static</code></td>
+              <td>Data / BSS Segment</td>
+              <td>Zero (<code>0</code>)</td>
+              <td>Program lifetime</td>
+            </tr>
+            <tr>
+              <td><strong>Global Scope</strong></td>
+              <td>Outside all functions</td>
+              <td>Data / BSS Segment</td>
+              <td>Zero (<code>0</code>)</td>
+              <td>Program lifetime</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 7. Beginner Example -->
+        <h2>🌱 Beginner Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    int age{21}; // Uniform initialization
+    double height{5.9};
+    std::string name{"Aria"};
+
+    std::cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; "\n";
+    std::cout &lt;&lt; "Age: " &lt;&lt; age &lt;&lt; " years\n";
+    std::cout &lt;&lt; "Height: " &lt;&lt; height &lt;&lt; " feet\n";
+    return 0;
+}</code></pre>
+
+        <!-- 8. Intermediate Example -->
+        <h2>🌼 Intermediate Example: Scope Shadowing &amp; Uniform Initialization</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int globalCounter{100}; // Global scope
+
+void checkScope() {
+    int localVar{10};
+    std::cout &lt;&lt; "checkScope: localVar = " &lt;&lt; localVar
+              &lt;&lt; ", globalCounter = " &lt;&lt; globalCounter &lt;&lt; "\n";
+}
+
+int main() {
+    int x{5};
+    std::cout &lt;&lt; "Outer main x = " &lt;&lt; x &lt;&lt; "\n";
+
+    { // Inner Block Scope
+        int x{50}; // Shadows outer x
+        int y{20};
+        std::cout &lt;&lt; "Inner block x = " &lt;&lt; x &lt;&lt; ", y = " &lt;&lt; y &lt;&lt; "\n";
+    } // y destroyed here
+
+    std::cout &lt;&lt; "Outer main x after block = " &lt;&lt; x &lt;&lt; "\n";
+    checkScope();
+    return 0;
+}</code></pre>
+
+        <!-- 9. Advanced Example -->
+        <h2>🌲 Advanced Example: Static State Persistence Across Calls</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+void transactionLogger() {
+    int autoCount{0};         // Re-allocated on stack each call
+    static int staticCount{0}; // Allocated once in data segment
+
+    autoCount++;
+    staticCount++;
+
+    std::cout &lt;&lt; "autoCount: " &lt;&lt; autoCount
+              &lt;&lt; " | staticCount (Persistent): " &lt;&lt; staticCount &lt;&lt; "\n";
+}
+
+int main() {
+    std::cout &lt;&lt; "--- Call 1 ---\n"; transactionLogger();
+    std::cout &lt;&lt; "--- Call 2 ---\n"; transactionLogger();
+    std::cout &lt;&lt; "--- Call 3 ---\n"; transactionLogger();
+    return 0;
+}</code></pre>
+
+        <!-- 10. Code Breakdown -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>int age{21};</code>: Uses C++11 list initialization. If a floating point value like <code>21.8</code> were passed, the compiler raises a narrowing conversion error!</li>
+          <li><code>static int staticCount{0};</code>: Constructed once. Retains value 1, 2, 3 across multiple calls.</li>
+        </ul>
+
+        <!-- 11. Expected Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">--- Call 1 ---
+autoCount: 1 | staticCount (Persistent): 1
+--- Call 2 ---
+autoCount: 1 | staticCount (Persistent): 2
+--- Call 3 ---
+autoCount: 1 | staticCount (Persistent): 3</code></pre>
+
+        <!-- 12. Common Mistakes -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Reading Uninitialized Local Variables:</strong> Reading local primitives before setting a value yields undefined behavior garbage values.</li>
+          <li><strong>Narrowing Conversions in C-Style Initialization:</strong> Writing <code>int x = 3.14;</code> silently truncates to <code>3</code>. Using <code>int x{3.14};</code> forces a compiler error!</li>
+        </ul>
+
+        <!-- 13. Important Rules -->
+        <h2>📌 Important Rules &amp; Limitations</h2>
+        <ul>
+          <li>Variable identifiers must start with an alphabetic letter or underscore, not a digit.</li>
+          <li>C++ keywords (<code>int</code>, <code>class</code>, <code>const</code>, <code>virtual</code>) cannot be used as variable names.</li>
+        </ul>
+
+        <!-- 14. English Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p>Variables store typed data in RAM with defined scope and lifetime. Prefer C++11 uniform direct initialization <code>{value}</code> to catch narrowing errors at compile time.</p>
+
+        <!-- 15. Hindi Explanation -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Variable C++ mein memory ka named container hota hai. Direct list initialization <code>int x{10};</code> use karna sabse safe tareeka hai kyunki yeh fractional narrowing error ko pakad leta hai.</p>
+
+        <!-- 16. Marathi Explanation -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Variable mhanje RAM madhil eka jageche naav. C++11 madhil list initialization <code>int x{10};</code> vaparane sarvat surakshit aahe karanh te invalid data conversions rokhate.</p>
+
+        <!-- 17. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why is uniform list initialization <code>int x{5};</code> preferred over <code>int x = 5;</code> in modern C++?</li>
+          <li>What is the lifetime of a <code>static</code> local variable vs an automatic local variable?</li>
+        </ol>
+
+        <!-- 18. Practical Challenge -->
+        <h2>🚀 Practical Coding Challenge</h2>
+        <p>Write a program named <code>call_counter.cpp</code> containing a function <code>trackVisits()</code> that uses a <code>static</code> variable to print the total visit count every time it is called in <code>main()</code>.</p>
+
+        <!-- 19. Navigation Footer -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-data-types.html" class="nav-btn">Next: 02. Primitive Data Types &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Unordered Containers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 15</a> &gt; <span>04. Unordered</span>
+        </div>
+
+        <h1>Unordered Hash Containers: std::unordered_map &amp; set</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in C++11, <code>std::unordered_map&lt;K, V&gt;</code> and <code>std::unordered_set&lt;T&gt;</code> store unsorted elements in hash tables, delivering average-case constant time <code>O(1)</code> lookup performance.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+
+int main() {
+    std::unordered_map&lt;int, std::string&gt; users;
+    users[101] = "Alice";
+    users[102] = "Bob";
+
+    std::cout &lt;&lt; "User 101: " &lt;&lt; users[101] &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-associative-containers-map-set.html" class="nav-btn">&larr; Previous: Ordered Maps</a>
+          <a href="05-container-adapters-stack-queue.html" class="nav-btn">Next: Container Adapters &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

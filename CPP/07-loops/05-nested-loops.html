@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Nested Loops - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 07</a> &gt; <span>05. Nested Loops</span>
+        </div>
+
+        <h1>Nested Loops &amp; Grid Processing</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A nested loop is a loop placed inside the body of another loop. Outer loop iterations trigger complete runs of inner loops, commonly used for multi-dimensional matrices and grids.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    for (int row = 1; row &lt;= 3; ++row) {
+        for (int col = 1; col &lt;= 3; ++col) {
+            std::cout &lt;&lt; "(" &lt;&lt; row &lt;&lt; "," &lt;&lt; col &lt;&lt; ") ";
+        }
+        std::cout &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-range-based-for.html" class="nav-btn">&larr; Previous: Range-based for</a>
+          <a href="06-break-and-continue.html" class="nav-btn">Next: break &amp; continue &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

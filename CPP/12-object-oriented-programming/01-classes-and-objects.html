@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Classes & Objects - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 12</a> &gt; <span>01. Classes &amp; Objects</span>
+        </div>
+
+        <h1>Classes &amp; Objects in C++</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A <code>class</code> defines a user-defined blueprint combining data members (state) and member functions (behavior). An <code>object</code> is an instantiated instance of a class occupying memory.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Student {
+public:
+    std::string name;
+    int id;
+
+    void printInfo() const {
+        std::cout &lt;&lt; "Student: " &lt;&lt; name &lt;&lt; " (ID: " &lt;&lt; id &lt;&lt; ")\n";
+    }
+};
+
+int main() {
+    Student s1;
+    s1.name = "Aria";
+    s1.id = 101;
+    s1.printInfo();
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-access-specifiers-encapsulation.html" class="nav-btn">Next: Encapsulation &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

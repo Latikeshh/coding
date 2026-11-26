@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Constants & Qualifiers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 03</a> &gt; <span>03. Constants</span>
+        </div>
+
+        <h1>Constants &amp; Qualifiers (const &amp; constexpr)</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>In C++, <code>const</code> promises that a value will not change after initialization. <code>constexpr</code> enforces compile-time evaluation of constant expressions.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+constexpr double square(double x) {
+    return x * x;
+}
+
+int main() {
+    const double PI = 3.14159;
+    constexpr double AREA_UNIT = square(5.0); // Evaluated at compile time
+
+    std::cout &lt;&lt; "PI: " &lt;&lt; PI &lt;&lt; "\nUnit Area: " &lt;&lt; AREA_UNIT &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>👀 Output</h2>
+        <pre><code class="language-text">PI: 3.14159
+Unit Area: 25</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-data-types.html" class="nav-btn">&larr; Previous: Data Types</a>
+          <a href="04-type-conversion-and-casting.html" class="nav-btn">Next: Type Casting &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

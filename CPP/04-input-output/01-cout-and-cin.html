@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Standard I/O Streams (std::cout & std::cin) - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="mobile-header">
+      <a href="../../index.html" class="mobile-brand">
+        <span class="brand-logo">&#128187;</span>
+        <span>Learn Coding</span>
+      </a>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+        <span class="hamburger-icon">&#9776;</span> Menu
+      </button>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../../index.html" class="site-brand">
+          <span class="brand-logo">&#128187;</span>
+          <div class="brand-text">
+            <span class="brand-name">Coding</span>
+            <span class="brand-tagline">Developer Hub</span>
+          </div>
+        </a>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-back-container">
+          <a href="../index.html" class="nav-back-btn">
+            <span class="back-arrow">&larr;</span> C++ Modules
+          </a>
+        </div>
+        <div class="course-nav-header">
+          <span class="course-header-title">Module 04</span>
+          <span class="course-header-badge">I/O Streams</span>
+        </div>
+        <ul class="nav-menu course-lessons-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Module Overview</span></a></li>
+          <li class="nav-item"><a href="01-cout-and-cin.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">01. cout &amp; cin Streams</span></a></li>
+          <li class="nav-item"><a href="02-cerr-and-clog.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. cerr &amp; clog Streams</span></a></li>
+          <li class="nav-item"><a href="03-iomanip-formatting.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Stream Formatting</span></a></li>
+          <li class="nav-item"><a href="04-string-input-and-getline.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. getline &amp; Buffer Flushing</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- 1. Title & Difficulty -->
+        <h1>01. Standard I/O Streams (std::cout &amp; std::cin) in C++</h1>
+        <blockquote><p>🟢 <strong>Difficulty: Beginner</strong> | Console Input, Output &amp; Stream Operators</p></blockquote>
+
+        <!-- 2. Definition -->
+        <h2>📖 Definition</h2>
+        <p>In C++, console Input and Output operations are managed via stream objects provided by the <code>&lt;iostream&gt;</code> header. <code>std::cout</code> represents the standard output stream (terminal) operated using the insertion operator (<code>&lt;&lt;</code>). <code>std::cin</code> represents the standard input stream (keyboard) operated using the extraction operator (<code>&gt;&gt;</code>).</p>
+
+        <!-- 3. Why It Is Used -->
+        <h2>🎯 Why It Is Used</h2>
+        <p>Stream I/O provides type-safe, extensible console operations without requiring format specifier strings (like C's <code>%d</code> or <code>%s</code>):</p>
+        <ul>
+          <li><strong>Type Safety:</strong> The compiler automatically selects overloaded <code>operator&lt;&lt;</code> and <code>operator&gt;&gt;</code> functions based on the variable's type.</li>
+          <li><strong>Chaining:</strong> Multiple variables and literals can be concatenated in a single statement.</li>
+        </ul>
+
+        <!-- 4. How It Works -->
+        <h2>⚙️ How It Works</h2>
+        <p>Streams act as abstraction buffers between your C++ application and OS terminal device drivers. Writing to <code>std::cout</code> appends bytes to an output buffer until flushed (by <code>std::endl</code> or buffer saturation).</p>
+
+        <!-- 5. Syntax -->
+        <h2>📝 Syntax</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+// Output Chaining
+std::cout &lt;&lt; "Message: " &lt;&lt; value &lt;&lt; "\n";
+
+// Input Extraction
+std::cin &gt;&gt; variableName;</code></pre>
+
+        <!-- 6. Beginner Example -->
+        <h2>🌱 Beginner Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int age;
+    std::cout &lt;&lt; "Enter your age: ";
+    std::cin &gt;&gt; age;
+
+    std::cout &lt;&lt; "You are " &lt;&lt; age &lt;&lt; " years old.\n";
+    return 0;
+}</code></pre>
+
+        <!-- 7. Line-by-Line Explanation -->
+        <h2>🔍 Line-by-Line Explanation</h2>
+        <ul>
+          <li><code>#include &lt;iostream&gt;</code>: Includes declarations for <code>std::cout</code> and <code>std::cin</code>.</li>
+          <li><code>std::cout &lt;&lt; "Enter your age: ";</code>: Inserts string literal into console output buffer.</li>
+          <li><code>std::cin &gt;&gt; age;</code>: Pauses execution until keyboard input is entered and parsed into integer <code>age</code>.</li>
+        </ul>
+
+        <!-- 8. Expected Terminal Output -->
+        <h2>💻 Expected Terminal Output</h2>
+        <pre><code class="language-text">Enter your age: 25
+You are 25 years old.</code></pre>
+
+        <!-- 9. Common Mistakes -->
+        <h2>⚠️ Common Mistakes &amp; Pitfalls</h2>
+        <ul>
+          <li><strong>Confusing Operators:</strong> Using <code>&gt;&gt;</code> with <code>cout</code> or <code>&lt;&lt;</code> with <code>cin</code> causes compilation errors! (Remember: <code>cout &lt;&lt;</code> points text OUT to screen; <code>cin &gt;&gt;</code> pushes text IN to variable).</li>
+          <li><strong>Overusing <code>std::endl</code>:</strong> <code>std::endl</code> forces an explicit OS buffer flush every iteration. Prefer <code>"\n"</code> in heavy loops for higher execution speed.</li>
+        </ul>
+
+        <!-- 10. Multilingual Explanation -->
+        <h2>🌐 Multilingual Explanation: English</h2>
+        <p><code>std::cout</code> outputs data to screen using <code>&lt;&lt;</code>, while <code>std::cin</code> reads keyboard input into variables using <code>&gt;&gt;</code> with automatic type parsing.</p>
+
+        <!-- 11. Multilingual Explanation: Hindi -->
+        <h2>🌐 Multilingual Explanation: Hindi (Roman Script)</h2>
+        <p>Console par output dikhane ke liye <code>std::cout &lt;&lt;</code> aur user se input lene ke liye <code>std::cin &gt;&gt;</code> ka istemal kiya jata hai.</p>
+
+        <!-- 12. Multilingual Explanation: Marathi -->
+        <h2>🌐 Multilingual Explanation: Marathi (Roman Script)</h2>
+        <p>Screen var output dakhavanyasathi <code>std::cout &lt;&lt;</code> aani user kadun input ghenyasathi <code>std::cin &gt;&gt;</code> cha vapar kartat.</p>
+
+        <!-- 13. Practice Questions -->
+        <h2>❓ Practice Questions</h2>
+        <ol>
+          <li>Why is <code>"\n"</code> faster than <code>std::endl</code> inside high-performance loops?</li>
+          <li>What happens when non-numeric text is entered into <code>std::cin &gt;&gt; intVar</code>?</li>
+        </ol>
+
+        <!-- 14. Navigation -->
+        <h2>🧭 Navigation &amp; Breadcrumbs</h2>
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-cerr-and-clog.html" class="nav-btn">Next: 02. cerr &amp; clog Streams &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

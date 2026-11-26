@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Enums & enum class - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 14</a> &gt; <span>02. Enums</span>
+        </div>
+
+        <h1>Strongly Typed Enums (enum class)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>C++11 introduced <code>enum class</code> (strongly typed / scoped enumerations) to prevent scope pollution and accidental implicit conversions to integer types that occur with legacy unscoped C-style enums.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+enum class Status { Pending, Active, Suspended };
+
+int main() {
+    Status s = Status::Active;
+
+    if (s == Status::Active) {
+        std::cout &lt;&lt; "Account is active!\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-struct-basics.html" class="nav-btn">&larr; Previous: Structures</a>
+          <a href="../15-stl/index.html" class="nav-btn">Module 15: STL &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

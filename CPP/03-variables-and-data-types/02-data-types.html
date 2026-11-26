@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Primitive Data Types - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 03</a> &gt; <span>02. Data Types</span>
+        </div>
+
+        <h1>Primitive Data Types in C++</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Primitive Types Table</h2>
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Size (Bytes)</th><th>Description</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>int</code></td><td>4</td><td>Signed integers</td><td><code>42</code></td></tr>
+            <tr><td><code>float</code></td><td>4</td><td>Single precision floating point</td><td><code>3.14f</code></td></tr>
+            <tr><td><code>double</code></td><td>8</td><td>Double precision floating point</td><td><code>2.71828</code></td></tr>
+            <tr><td><code>char</code></td><td>1</td><td>Single ASCII character</td><td><code>'A'</code></td></tr>
+            <tr><td><code>bool</code></td><td>1</td><td>Boolean true/false</td><td><code>true</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int age = 25;
+    double price = 19.99;
+    char grade = 'A';
+    bool passed = true;
+
+    std::cout &lt;&lt; "Age: " &lt;&lt; age &lt;&lt; ", Price: $" &lt;&lt; price &lt;&lt; ", Grade: " &lt;&lt; grade &lt;&lt; ", Passed: " &lt;&lt; std::boolalpha &lt;&lt; passed &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>👀 Output</h2>
+        <pre><code class="language-text">Age: 25, Price: $19.99, Grade: A, Passed: true</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-variables.html" class="nav-btn">&larr; Previous: Variables</a>
+          <a href="03-constants-and-qualifiers.html" class="nav-btn">Next: Constants &amp; Qualifiers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06. Virtual Functions & Polymorphism - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 12</a> &gt; <span>06. Polymorphism</span>
+        </div>
+
+        <h1>Virtual Functions, Vtables &amp; Dynamic Polymorphism</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Declaring a base class function <code>virtual</code> enables dynamic dispatch at runtime via a virtual method table (vtable). Derived classes override it using the <code>override</code> keyword. Base classes with virtual functions must declare a <code>virtual ~Base() = default;</code> destructor to prevent undefined behavior when deleting via base pointers.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+class Shape {
+public:
+    virtual void draw() const { std::cout &lt;&lt; "Drawing Shape\n"; }
+    virtual ~Shape() = default;
+};
+
+class Circle : public Shape {
+public:
+    void draw() const override { std::cout &lt;&lt; "Drawing Circle\n"; }
+};
+
+int main() {
+    std::unique_ptr&lt;Shape&gt; shape = std::make_unique&lt;Circle&gt;();
+    shape-&gt;draw(); // Dynamic dispatch calls Circle::draw()
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="05-inheritance-basics.html" class="nav-btn">&larr; Previous: Inheritance</a>
+          <a href="07-abstract-classes-interfaces.html" class="nav-btn">Next: Abstract Classes &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

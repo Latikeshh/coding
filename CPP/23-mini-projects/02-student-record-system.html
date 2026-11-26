@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Student Records - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 23</a> &gt; <span>02. Student Records</span>
+        </div>
+
+        <h1>Student Record Management System (Capstone Project 02)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Project Architecture</h2>
+        <p>A C++ system combining STL containers (<code>std::vector</code>, <code>std::unordered_map</code>), exception handling, and generic algorithms to manage student enrollment records and GPA calculations.</p>
+
+        <h2>💡 Complete Source Code</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+struct Student {
+    int id;
+    std::string name;
+    double gpa;
+};
+
+int main() {
+    std::vector&lt;Student&gt; database{
+        {101, "Alice", 3.9},
+        {102, "Bob", 3.7}
+    };
+
+    for (const auto&amp; s : database) {
+        std::cout &lt;&lt; "ID: " &lt;&lt; s.id &lt;&lt; " | Name: " &lt;&lt; s.name &lt;&lt; " | GPA: " &lt;&lt; s.gpa &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-bank-management-system.html" class="nav-btn">&larr; Previous: Banking System</a>
+          <a href="03-inventory-management-system.html" class="nav-btn">Next: Inventory System &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Function Basics - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 08</a> &gt; <span>01. Function Basics</span>
+        </div>
+
+        <h1>Function Declarations &amp; Definitions</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A function in C++ is a named block of code that executes a specific task. Prototypes declare a function's signature before its usage, while definitions supply the implementation body.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+// Function prototype
+int addNumbers(int a, int b);
+
+int main() {
+    int sum = addNumbers(15, 25);
+    std::cout &lt;&lt; "Sum: " &lt;&lt; sum &lt;&lt; "\n";
+    return 0;
+}
+
+// Function definition
+int addNumbers(int a, int b) {
+    return a + b;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-pass-by-value-ref.html" class="nav-btn">Next: Pass-by-Reference &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

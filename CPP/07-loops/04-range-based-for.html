@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Range-based for Loop - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 07</a> &gt; <span>04. Range-based for</span>
+        </div>
+
+        <h1>Range-based for Loop (C++11)</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in C++11, the range-based <code>for</code> loop (<code>for (const auto&amp; element : range)</code>) cleanly iterates over elements of containers like arrays, <code>std::vector</code>, and initializer lists without managing raw index subscripts.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; numbers{10, 20, 30, 40, 50};
+
+    for (const auto&amp; num : numbers) {
+        std::cout &lt;&lt; "Number: " &lt;&lt; num &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-do-while-loop.html" class="nav-btn">&larr; Previous: do-while</a>
+          <a href="05-nested-loops.html" class="nav-btn">Next: Nested Loops &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

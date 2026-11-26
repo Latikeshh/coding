@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CPP Master Syllabus - Learn C++</title>
+  <title>ISO C++ Master Syllabus - Learn C++</title>
   <link rel="stylesheet" href="../assets/css/custom.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
@@ -11,97 +11,93 @@
 </head>
 <body class="main-content">
   <div class="content-wrapper">
-<h1>🚀 Learn C++
-</h1>
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> &gt; <a href="index.html">CPP</a> &gt; <span>Master README Syllabus</span>
+    </div>
 
-<p>C++ is a high-performance, object-oriented, systems-level programming language used in game development (Unreal Engine), high-frequency trading, operating systems, compilers, database systems, embedded devices, and robotics.</p>
+    <h1>🚀 Learn C++ Standard Curriculum</h1>
 
-<blockquote><p>🟢 <strong>Beginner to Advanced:</strong> start with streams and basic syntax, master object-oriented programming (OOP), constructors, smart pointers (<code>unique_ptr</code>/<code>shared_ptr</code>), STL containers, generic templates, lambdas, exception handling, move semantics, and modern C++11–C++20 standards.
-</p></blockquote>
+    <p>C++ is a high-performance, object-oriented, systems-level programming language used in game development (Unreal Engine), high-frequency trading, operating systems, compilers, database systems, embedded devices, and robotics.</p>
 
-<h2>📖 What You Will Learn
-</h2>
+    <div class="callout callout-info">
+      <p>🟢 <strong>Beginner to Advanced:</strong> Start with setup and stream syntax, master object-oriented programming (OOP), RAII, smart pointers (<code>unique_ptr</code>, <code>shared_ptr</code>, <code>weak_ptr</code>), STL containers &amp; algorithms, generic templates, lambdas, exception handling, move semantics (<code>std::move</code>), and modern C++17–C++20 standards.</p>
+    </div>
 
-<ul>
-<p>  <li>Setting up <code>g++</code>/<code>clang++</code> compilers and compiling C++ codebases</li></p>
-<p>  <li>Stream I/O (<code>std::cout</code>, <code>std::cin</code>, <code>getline</code>) and string handling (<code>std::string</code>)</li></p>
-<p>  <li>Pass-by-value vs pass-by-reference (<code>&</code>), default arguments, and function overloading</li></p>
-<p>  <li>Dynamic array management using <code>std::vector</code></li></p>
-<p>  <li>Object-Oriented Programming (OOP): classes, encapsulation, private/public access, constructors, destructors, Rule of 3/5/0, inheritance, and dynamic polymorphism (<code>virtual</code> / <code>override</code>)</li></p>
-<p>  <li>Custom operator overloading (<code>+</code>, <code><<</code>, <code>==</code>, <code>[]</code>)</li></p>
-<p>  <li>Modern memory management with Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code>)</li></p>
-<p>  <li>Standard Template Library (STL): <code>std::vector</code>, <code>std::map</code>, <code>std::unordered_map</code>, <code>std::set</code>, <code>std::list</code>, <code>std::pair</code>, <code>std::tuple</code></li></p>
-<p>  <li>STL Algorithms (<code>std::sort</code>, <code>std::find</code>, <code>std::binary_search</code>, <code>std::transform</code>)</li></p>
-<p>  <li>Generic programming using Function Templates and Class Templates</li></p>
-<p>  <li>C++ Lambda Expressions, closures, and <code>std::function</code></li></p>
-<p>  <li>Exception handling (<code>try</code>, <code>catch</code>, <code>throw</code>, <code>std::exception</code>)</li></p>
-<p>  <li>Modern C++ Features: Rvalue references (<code>&&</code>), Move semantics (<code>std::move</code>), <code>constexpr</code>, <code>auto</code>, <code>enum class</code>, and Structured Binding</li></p>
-<p></ul></p>
+    <h2>📖 What You Will Learn</h2>
 
-<h2>📚 Lessons
-</h2>
+    <ul>
+      <li>Setting up <code>g++</code>/<code>clang++</code> compilers and compiling C++ codebases with strict flags (<code>-Wall -Wextra -Wpedantic</code>).</li>
+      <li>Stream I/O (<code>std::cout</code>, <code>std::cin</code>, <code>getline</code>) and string handling (<code>std::string</code>, <code>std::string_view</code>).</li>
+      <li>Pass-by-value vs pass-by-reference (<code>&amp;</code>), default arguments, and function overloading.</li>
+      <li>Fixed arrays vs dynamic memory using <code>std::vector</code> and raw pointers.</li>
+      <li>Object-Oriented Programming (OOP): classes, encapsulation, access specifiers, constructors, destructors, Rule of 0/3/5, inheritance, and dynamic polymorphism (<code>virtual</code> / <code>override</code>).</li>
+      <li>Custom operator overloading (<code>+</code>, <code>&lt;&lt;</code>, <code>==</code>, <code>[]</code>).</li>
+      <li>Modern memory management with RAII and distinct Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code>).</li>
+      <li>Standard Template Library (STL): <code>std::vector</code>, <code>std::map</code>, <code>std::unordered_map</code>, <code>std::set</code>, <code>std::list</code>, <code>std::pair</code>, <code>std::tuple</code>.</li>
+      <li>STL Algorithms (<code>std::sort</code>, <code>std::find</code>, <code>std::binary_search</code>, <code>std::transform</code>).</li>
+      <li>Generic programming using Function Templates and Class Templates.</li>
+      <li>C++ Lambda Expressions, closures, and <code>std::function</code>.</li>
+      <li>Exception handling (<code>try</code>, <code>catch</code>, <code>throw</code>, <code>std::exception</code>) and exception safety guarantees.</li>
+      <li>Modern C++ Features: Rvalue references (<code>&amp;&amp;</code>), Move semantics (<code>std::move</code> cast), <code>constexpr</code>, <code>auto</code>, <code>enum class</code>, Structured Bindings, and C++20 Concepts &amp; Ranges.</li>
+    </ul>
 
-<table>
-<p>  <thead><tr><th>#</th><th>Topic</th><th>Level</th><th>Link</th></tr></thead></p>
-<p>  <tbody></p>
-<p>    <tr><td>01</td><td>Set Up C++ Environment</td><td>🟢 Beginner</td><td><a href="01-setup-cpp.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>02</td><td>Introduction to C++</td><td>🟢 Beginner</td><td><a href="02-introduction-to-cpp.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>03</td><td>Variables & Primitive Data Types</td><td>🟢 Beginner</td><td><a href="03-variables-and-data-types.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>04</td><td>Input & Output (<code>std::cout</code>, <code>std::cin</code>, <code>getline</code>)</td><td>🟢 Beginner</td><td><a href="04-input-output.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>05</td><td>Operators</td><td>🟢 Beginner</td><td><a href="05-operators/index.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>06</td><td>Conditionals (<code>if</code>, <code>else</code>, <code>switch</code>)</td><td>🟢 Beginner</td><td><a href="06-conditionals/index.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>07</td><td>Loops & Range-Based For</td><td>🟢 Beginner</td><td><a href="07-loops/index.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>08</td><td>Functions, Default Arguments & References</td><td>🟢 Beginner</td><td><a href="08-functions/index.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>09</td><td>Arrays & Dynamic Vectors (<code>std::vector</code>)</td><td>🟡 Intermediate</td><td><a href="09-arrays-and-vectors.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>10</td><td>Classes & Objects (OOP Basics)</td><td>🟡 Intermediate</td><td><a href="10-classes-and-oops.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>11</td><td>Constructors, Destructors & RAII</td><td>🟡 Intermediate</td><td><a href="11-constructors-and-destructors.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>12</td><td>Inheritance & Polymorphism (<code>virtual</code>, <code>override</code>)</td><td>🔴 Advanced</td><td><a href="12-inheritance-and-polymorphism.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>13</td><td>Operator Overloading</td><td>🔴 Advanced</td><td><a href="13-operator-overloading.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>14</td><td>Smart Pointers (<code>unique_ptr</code>, <code>shared_ptr</code>)</td><td>🔴 Advanced</td><td><a href="14-smart-pointers.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>15</td><td>STL Containers (<code>map</code>, <code>set</code>, <code>unordered_map</code>)</td><td>🟡 Intermediate</td><td><a href="15-stl-containers.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>16</td><td>STL Algorithms & Iterators</td><td>🟡 Intermediate</td><td><a href="16-stl-algorithms.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>17</td><td>Generic Programming & Templates</td><td>🔴 Advanced</td><td><a href="17-templates.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>18</td><td>Lambdas & Function Objects</td><td>🔴 Advanced</td><td><a href="18-lambdas.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>19</td><td>Exception Handling (<code>try</code>, <code>catch</code>, <code>throw</code>)</td><td>🟡 Intermediate</td><td><a href="19-exception-handling.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>20</td><td>File Streams (<code>ifstream</code>, <code>ofstream</code>)</td><td>🟡 Intermediate</td><td><a href="20-file-streams.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>21</td><td>Namespaces & Modern C++ (C++11 to C++20)</td><td>🔴 Advanced</td><td><a href="21-namespaces-and-modern-cpp.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>22</td><td>Move Semantics & Rvalue References (<code>&&</code>)</td><td>🔴 Advanced</td><td><a href="22-move-semantics.html">Open lesson</a></td></tr></p>
-<p>    <tr><td>23</td><td>Comprehensive C++ Mini Projects</td><td>🔴 Advanced</td><td><a href="23-mini-projects.html">Open lesson</a></td></tr></p>
-<p>  </tbody></p>
-<p></table></p>
+    <h2>📚 23 Canonical Modules</h2>
 
-<h2>🎯 Suggested Learning Flow
-</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Module Topic</th>
+          <th>Level</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td>Set Up C++ Environment</td><td>🟢 Beginner</td><td><a href="01-setup-cpp.html">Open module</a></td></tr>
+        <tr><td>02</td><td>Introduction to C++ Language &amp; Standards</td><td>🟢 Beginner</td><td><a href="02-introduction-to-cpp.html">Open module</a></td></tr>
+        <tr><td>03</td><td>Variables &amp; Primitive Data Types</td><td>🟢 Beginner</td><td><a href="03-variables-and-data-types/index.html">Open module</a></td></tr>
+        <tr><td>04</td><td>Input &amp; Output Streams</td><td>🟢 Beginner</td><td><a href="04-input-output/index.html">Open module</a></td></tr>
+        <tr><td>05</td><td>Operators &amp; Precedence</td><td>🟢 Beginner</td><td><a href="05-operators/index.html">Open module</a></td></tr>
+        <tr><td>06</td><td>Conditionals &amp; Control Flow</td><td>🟢 Beginner</td><td><a href="06-conditionals/index.html">Open module</a></td></tr>
+        <tr><td>07</td><td>Loops &amp; Range-Based For</td><td>🟢 Beginner</td><td><a href="07-loops/index.html">Open module</a></td></tr>
+        <tr><td>08</td><td>Functions, References &amp; Overloading</td><td>🟢 Beginner</td><td><a href="08-functions/index.html">Open module</a></td></tr>
+        <tr><td>09</td><td>Arrays &amp; Dynamic Vectors</td><td>🟡 Intermediate</td><td><a href="09-arrays-and-vectors/index.html">Open module</a></td></tr>
+        <tr><td>10</td><td>Pointers &amp; Memory Allocation</td><td>🟡 Intermediate</td><td><a href="10-pointers/index.html">Open module</a></td></tr>
+        <tr><td>11</td><td>Strings &amp; std::string_view</td><td>🟡 Intermediate</td><td><a href="11-strings/index.html">Open module</a></td></tr>
+        <tr><td>12</td><td>Object-Oriented Programming (OOP)</td><td>🟡 Intermediate</td><td><a href="12-object-oriented-programming/index.html">Open module</a></td></tr>
+        <tr><td>13</td><td>Memory Management &amp; Smart Pointers</td><td>🔴 Advanced</td><td><a href="13-memory-management/index.html">Open module</a></td></tr>
+        <tr><td>14</td><td>Structures &amp; Strongly Typed Enums</td><td>🟡 Intermediate</td><td><a href="14-structures-and-enums/index.html">Open module</a></td></tr>
+        <tr><td>15</td><td>STL Containers &amp; Algorithms</td><td>🟡 Intermediate</td><td><a href="15-stl/index.html">Open module</a></td></tr>
+        <tr><td>16</td><td>Generic Programming &amp; Templates</td><td>🔴 Advanced</td><td><a href="16-templates/index.html">Open module</a></td></tr>
+        <tr><td>17</td><td>Exception Handling &amp; Safety</td><td>🟡 Intermediate</td><td><a href="17-exception-handling/index.html">Open module</a></td></tr>
+        <tr><td>18</td><td>File Streams &amp; I/O Handling</td><td>🟡 Intermediate</td><td><a href="18-file-handling/index.html">Open module</a></td></tr>
+        <tr><td>19</td><td>Preprocessor &amp; Build Systems</td><td>🟡 Intermediate</td><td><a href="19-preprocessor-and-build/index.html">Open module</a></td></tr>
+        <tr><td>20</td><td>Modern C++ (C++17 &amp; C++20 Features)</td><td>🔴 Advanced</td><td><a href="20-modern-cpp/index.html">Open module</a></td></tr>
+        <tr><td>21</td><td>Debugging &amp; Unit Testing</td><td>🟡 Intermediate</td><td><a href="21-debugging-and-testing/index.html">Open module</a></td></tr>
+        <tr><td>22</td><td>Concurrency &amp; Multithreading</td><td>🔴 Advanced</td><td><a href="22-concurrency/index.html">Open module</a></td></tr>
+        <tr><td>23</td><td>Comprehensive Capstone Mini Projects</td><td>🔴 Advanced</td><td><a href="23-mini-projects/index.html">Open module</a></td></tr>
+      </tbody>
+    </table>
 
-<p><code>01–08 C++ Core Syntax</code> → <code>09–11 OOP & Constructors</code> → <code>12–14 Inheritance, Overloading & Smart Pointers</code> → <code>15–16 STL Containers & Algorithms</code> → <code>17–18 Templates & Lambdas</code> → <code>19–22 Modern C++ Features & Move Semantics</code> → <code>23 Projects</code></p>
+    <h2>🎯 Suggested Learning Flow</h2>
 
-<h2>🧪 Practice Routine
-</h2>
+    <p><code>01–07 C++ Core Syntax</code> &rarr; <code>08–11 Functions &amp; Pointers</code> &rarr; <code>12–14 OOP &amp; Smart Pointers</code> &rarr; <code>15–18 STL &amp; File Streams</code> &rarr; <code>19–22 Modern C++ &amp; Concurrency</code> &rarr; <code>23 Projects</code></p>
 
-<p>1. Read the explanation and code example.</p>
-<p>2. Compile using <code>g++ -std=c++17 -Wall filename.cpp -o program</code>.</p>
-<p>3. Test edge cases, memory lifecycle, and class behavior.</p>
-<p>4. Solve practice exercises.</p>
+    <h2>🧪 Practice Routine</h2>
 
-<h2>✅ Progress Checklist
-</h2>
+    <ol>
+      <li>Read the explanation, syntax breakdowns, and annotated code examples.</li>
+      <li>Compile using <code>g++ -std=c++17 -Wall -Wextra -Wpedantic filename.cpp -o program</code>.</li>
+      <li>Test boundary conditions, object lifecycles, and exception cases.</li>
+      <li>Complete practical exercises at the end of each module.</li>
+    </ol>
 
-<ul>
-<p>  <li>[ ] I can write and compile modern C++17/20 code using <code>g++</code>.</li></p>
-<p>  <li>[ ] I understand classes, encapsulation, inheritance, and dynamic polymorphism.</li></p>
-<p>  <li>[ ] I can manage object lifecycle safely using RAII and Smart Pointers (<code>unique_ptr</code>/<code>shared_ptr</code>).</li></p>
-<p>  <li>[ ] I can manipulate STL containers (<code>map</code>, <code>set</code>, <code>vector</code>) and algorithms (<code>std::sort</code>).</li></p>
-<p>  <li>[ ] I can write template classes and functions for generic programming.</li></p>
-<p>  <li>[ ] I understand move semantics, rvalue references (<code>&&</code>), and lambda expressions.</li></p>
-<p></ul></p>
+    <h2>🧭 Navigation</h2>
 
-<h2>🧭 Navigation
-</h2>
-
-<p><a href="../">← Repository Home</a> | <a href="01-setup-cpp.html">Start with Lesson 01 →</a></p>
-
-
-
+    <div class="navigation-footer">
+      <a href="../index.html" class="nav-btn">&larr; Repository Home</a>
+      <a href="01-setup-cpp.html" class="nav-btn">Start Module 01 &rarr;</a>
+    </div>
   </div>
 </body>
 </html>

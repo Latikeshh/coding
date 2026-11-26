@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. std::thread Basics - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 22</a> &gt; <span>01. std::thread</span>
+        </div>
+
+        <h1>Thread Creation &amp; Management (std::thread)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in C++11, <code>std::thread</code> (in <code>&lt;thread&gt;</code>) manages execution threads. Threads must either be joined (<code>t.join()</code>) before destruction to wait for completion or detached (<code>t.detach()</code>) to run independently in the background; failing to do so causes <code>std::terminate</code>.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+
+void workerTask(int id) {
+    std::cout &lt;&lt; "Worker Thread " &lt;&lt; id &lt;&lt; " executing.\n";
+}
+
+int main() {
+    std::thread t1(workerTask, 1);
+    t1.join(); // Wait for t1 thread execution to finish
+    std::cout &lt;&lt; "Main thread finished.\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-mutex-and-locks.html" class="nav-btn">Next: Mutexes &amp; Locks &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

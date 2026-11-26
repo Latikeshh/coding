@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. constexpr & consteval - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 20</a> &gt; <span>03. constexpr</span>
+        </div>
+
+        <h1>Compile-Time Evaluation (constexpr &amp; C++20 consteval)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p><code>constexpr</code> functions can be evaluated at compile time if arguments are constant expressions. C++20 <code>consteval</code> defines an immediate function that MUST evaluate at compile time, causing a compilation error if called with runtime arguments.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+consteval int factorial(int n) { // C++20 immediate function
+    return (n &lt;= 1) ? 1 : n * factorial(n - 1);
+}
+
+int main() {
+    constexpr int val = factorial(5); // Computed at compile time (120)
+    std::cout &lt;&lt; "Factorial 5: " &lt;&lt; val &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-move-semantics-and-rvalue-references.html" class="nav-btn">&larr; Previous: Move Semantics</a>
+          <a href="04-optional-variant-any.html" class="nav-btn">Next: Vocabulary Types &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

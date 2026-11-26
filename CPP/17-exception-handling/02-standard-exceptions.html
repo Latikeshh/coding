@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Standard Exceptions - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 17</a> &gt; <span>02. std::exception</span>
+        </div>
+
+        <h1>Standard Exceptions &amp; Custom Exception Classes</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The <code>&lt;stdexcept&gt;</code> header defines standard exception classes inheriting from <code>std::exception</code> (e.g. <code>std::runtime_error</code>, <code>std::invalid_argument</code>, <code>std::out_of_range</code>) providing a <code>.what()</code> virtual method to retrieve descriptive error messages.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;stdexcept&gt;
+
+void validateAge(int age) {
+    if (age &lt; 0) throw std::invalid_argument("Age cannot be negative!");
+}
+
+int main() {
+    try {
+        validateAge(-5);
+    } catch (const std::exception&amp; e) {
+        std::cerr &lt;&lt; "Error: " &lt;&lt; e.what() &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-try-catch-throw-basics.html" class="nav-btn">&larr; Previous: Basics</a>
+          <a href="03-exception-safety-guarantees.html" class="nav-btn">Next: Exception Safety &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

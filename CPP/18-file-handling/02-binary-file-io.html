@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Binary File I/O - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 18</a> &gt; <span>02. Binary I/O</span>
+        </div>
+
+        <h1>Binary File I/O (read &amp; write)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Opening files with <code>std::ios::binary</code> flag enables direct binary transfer of POD struct memory to disk using <code>file.write(reinterpret_cast&lt;char*&gt;(&amp;obj), sizeof(obj))</code> and <code>file.read(...)</code>.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+struct Record {
+    int id;
+    double score;
+};
+
+int main() {
+    Record r1{101, 98.5};
+
+    // Write binary
+    std::ofstream out("data.bin", std::ios::binary);
+    out.write(reinterpret_cast&lt;char*&gt;(&amp;r1), sizeof(r1));
+    out.close();
+
+    // Read binary
+    Record r2{};
+    std::ifstream in("data.bin", std::ios::binary);
+    in.read(reinterpret_cast&lt;char*&gt;(&amp;r2), sizeof(r2));
+
+    std::cout &lt;&lt; "Read Record ID: " &lt;&lt; r2.id &lt;&lt; ", Score: " &lt;&lt; r2.score &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-text-file-streams.html" class="nav-btn">&larr; Previous: Text Files</a>
+          <a href="03-stream-error-handling.html" class="nav-btn">Next: Stream Error Handling &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

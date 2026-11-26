@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. GDB & LLDB Debuggers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 21</a> &gt; <span>02. GDB &amp; LLDB</span>
+        </div>
+
+        <h1>Interactive Debugging with GDB &amp; LLDB</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Command-line debuggers (GDB/LLDB) allow stepping through C++ code line by line, inspecting variable memory values, setting breakpoints, and examining call-stack backtraces (<code>bt</code>) when segmentation faults occur. Compile with <code>-g</code> to embed debug symbols.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-bash"># Compile with debug symbols (-g)
+g++ -g -std=c++17 main.cpp -o main_debug
+
+# Launch GDB session
+gdb ./main_debug
+(gdb) break main
+(gdb) run
+(gdb) print variable_name
+(gdb) backtrace</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-compiler-warnings-and-flags.html" class="nav-btn">&larr; Previous: Warnings</a>
+          <a href="03-address-and-undefined-sanitizers.html" class="nav-btn">Next: Sanitizers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

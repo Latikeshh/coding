@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06. Lambda Expressions - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 08</a> &gt; <span>06. Lambdas</span>
+        </div>
+
+        <h1>C++ Lambda Expressions &amp; Closures</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in C++11, a lambda expression (<code>[captures](params) -&gt; return_type { body }</code>) creates an anonymous inline function object (closure) capable of capturing surrounding variables by value or reference.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+int main() {
+    std::vector&lt;int&gt; nums{5, 2, 8, 1, 9};
+
+    // Lambda comparison operator passed to std::sort
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+        return a &gt; b; // Descending sort
+    });
+
+    for (int n : nums) std::cout &lt;&lt; n &lt;&lt; " ";
+    std::cout &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <h2>👀 Output</h2>
+        <pre><code class="language-text">9 8 5 2 1</code></pre>
+
+        <div class="navigation-footer">
+          <a href="05-inline-constexpr.html" class="nav-btn">&larr; Previous: inline/constexpr</a>
+          <a href="../09-arrays-and-vectors/index.html" class="nav-btn">Module 09: Arrays &amp; Vectors &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

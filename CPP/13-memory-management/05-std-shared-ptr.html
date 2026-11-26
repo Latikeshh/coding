@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. std::shared_ptr Deep Dive - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 13</a> &gt; <span>05. std::shared_ptr</span>
+        </div>
+
+        <h1>std::shared_ptr Deep Dive (Shared Reference Counting)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition &amp; Control Block Architecture</h2>
+        <p><code>std::shared_ptr&lt;T&gt;</code> manages shared ownership of a heap resource using a dynamically allocated <strong>Control Block</strong>. The control block contains an atomic reference counter (strong count) and weak reference counter (weak count). Copying a <code>shared_ptr</code> increments the reference count. When the strong reference count drops to 0, the heap object is deleted.</p>
+
+        <h2>🛠️ Key Mechanics &amp; Factory Helper</h2>
+        <ul>
+          <li><code>std::make_shared&lt;T&gt;(args...)</code>: Allocates the control block and target object in a single contiguous memory block, improving cache locality and reducing heap allocations.</li>
+          <li><code>sPtr.use_count()</code>: Returns current strong reference count.</li>
+          <li><code>sPtr.unique()</code>: Returns true if <code>use_count() == 1</code>.</li>
+        </ul>
+
+        <h2>💡 Complete Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+class Texture {
+public:
+    Texture() { std::cout &lt;&lt; "Texture Loaded into VRAM\n"; }
+    ~Texture() { std::cout &lt;&lt; "Texture Unloaded from VRAM\n"; }
+};
+
+int main() {
+    std::shared_ptr&lt;Texture&gt; tex1 = std::make_shared&lt;Texture&gt;();
+    std::cout &lt;&lt; "Ref Count: " &lt;&lt; tex1.use_count() &lt;&lt; "\n"; // 1
+
+    {
+        std::shared_ptr&lt;Texture&gt; tex2 = tex1; // Copy increments ref count
+        std::cout &lt;&lt; "Inner Scope Ref Count: " &lt;&lt; tex1.use_count() &lt;&lt; "\n"; // 2
+    } // tex2 destroyed -> Ref count decremented back to 1
+
+    std::cout &lt;&lt; "Outer Scope Ref Count: " &lt;&lt; tex1.use_count() &lt;&lt; "\n"; // 1
+    return 0; // tex1 destroyed -> Ref count reaches 0 -> VRAM freed
+}</code></pre>
+
+        <h2>👀 Expected Output</h2>
+        <pre><code class="language-text">Texture Loaded into VRAM
+Ref Count: 1
+Inner Scope Ref Count: 2
+Outer Scope Ref Count: 1
+Texture Unloaded from VRAM</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-std-unique-ptr.html" class="nav-btn">&larr; Previous: std::unique_ptr</a>
+          <a href="06-std-weak-ptr.html" class="nav-btn">Next: std::weak_ptr &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

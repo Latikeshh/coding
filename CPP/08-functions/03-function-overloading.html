@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Function Overloading - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 08</a> &gt; <span>03. Overloading</span>
+        </div>
+
+        <h1>Function Overloading in C++</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Function overloading allows multiple functions in the same scope to share the exact same name, provided their parameter types or parameter counts differ (compiler mangled signatures).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int multiply(int a, int b) { return a * b; }
+double multiply(double a, double b) { return a * b; }
+
+int main() {
+    std::cout &lt;&lt; "Int Product: " &lt;&lt; multiply(4, 5) &lt;&lt; "\n";
+    std::cout &lt;&lt; "Double Product: " &lt;&lt; multiply(2.5, 4.0) &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-pass-by-value-ref.html" class="nav-btn">&larr; Previous: Pass-by-Ref</a>
+          <a href="04-default-arguments.html" class="nav-btn">Next: Default Arguments &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

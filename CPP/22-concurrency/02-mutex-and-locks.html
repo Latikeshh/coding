@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. std::mutex & std::scoped_lock - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 22</a> &gt; <span>02. Mutexes</span>
+        </div>
+
+        <h1>Data Races, Mutexes &amp; std::scoped_lock (C++17)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A data race occurs when concurrent threads access shared memory simultaneously without synchronization and at least one access is a write. <code>std::mutex</code> (in <code>&lt;mutex&gt;</code>) along with RAII lock guards (<code>std::lock_guard</code> or C++17 <code>std::scoped_lock</code>) guarantees mutually exclusive critical section access.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+
+int sharedCounter = 0;
+std::mutex mtx;
+
+void incrementCounter() {
+    for (int i = 0; i &lt; 1000; ++i) {
+        std::scoped_lock lock(mtx); // C++17 RAII deadlock-safe lock
+        ++sharedCounter;
+    }
+}
+
+int main() {
+    std::thread t1(incrementCounter);
+    std::thread t2(incrementCounter);
+    t1.join();
+    t2.join();
+
+    std::cout &lt;&lt; "Synchronized Counter: " &lt;&lt; sharedCounter &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-std-thread-basics.html" class="nav-btn">&larr; Previous: std::thread</a>
+          <a href="03-atomic-variables.html" class="nav-btn">Next: Atomic Operations &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

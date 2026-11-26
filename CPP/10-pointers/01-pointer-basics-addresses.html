@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Pointer Basics - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 10</a> &gt; <span>01. Pointer Basics</span>
+        </div>
+
+        <h1>Pointer Basics &amp; Memory Addresses</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A pointer variable (<code>T* ptr</code>) holds the hexadecimal RAM address of another object. The address-of operator (<code>&amp;</code>) retrieves an object's memory address, while the dereference operator (<code>*ptr</code>) accesses the value at that address.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int val = 42;
+    int* ptr = &amp;val; // Store address of val in ptr
+
+    std::cout &lt;&lt; "Value: " &lt;&lt; val &lt;&lt; "\n";
+    std::cout &lt;&lt; "Address (&amp;val): " &lt;&lt; ptr &lt;&lt; "\n";
+    std::cout &lt;&lt; "Dereferenced (*ptr): " &lt;&lt; *ptr &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-pointer-arithmetic.html" class="nav-btn">Next: Pointer Arithmetic &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

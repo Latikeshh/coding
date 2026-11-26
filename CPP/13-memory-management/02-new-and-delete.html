@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. new & delete Expressions - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 13</a> &gt; <span>02. new &amp; delete</span>
+        </div>
+
+        <h1>Raw Dynamic Allocation: new &amp; delete</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The <code>new</code> operator allocates heap memory and calls the object's constructor. The <code>delete</code> operator calls the object's destructor and frees heap memory. For arrays allocated via <code>new T[N]</code>, matching <code>delete[]</code> must be invoked to prevent undefined behavior.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int* arr = new int[3]{100, 200, 300}; // Array new
+
+    for (int i = 0; i &lt; 3; ++i) {
+        std::cout &lt;&lt; arr[i] &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; "\n";
+
+    delete[] arr; // Array delete
+    arr = nullptr;
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-stack-vs-heap-memory.html" class="nav-btn">&larr; Previous: Stack vs Heap</a>
+          <a href="03-raii-resource-management.html" class="nav-btn">Next: RAII Idiom &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

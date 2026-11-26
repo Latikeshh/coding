@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Move Semantics - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 20</a> &gt; <span>02. Move Semantics</span>
+        </div>
+
+        <h1>Move Semantics, Rvalues &amp; std::move Cast</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition &amp; Technical Accuracy</h2>
+        <p>Introduced in C++11, <strong>Move Semantics</strong> transfers internal heap resources from temporary or expiring objects (rvalues/xvalues) to new owners instead of performing expensive deep copies.</p>
+        <ul>
+          <li><strong>Rvalue Reference (<code>T&amp;&amp;</code>):</strong> Binds to temporary prvalues and expiring xvalues.</li>
+          <li><strong><code>std::move(x)</code>:</strong> A pure static cast (<code>static_cast&lt;T&amp;&amp;&gt;(x)</code>) that converts an lvalue into an rvalue reference. <strong><code>std::move</code> itself does NOT move any memory or resources</strong>; it simply enables the move constructor or move assignment operator to be selected during overload resolution.</li>
+        </ul>
+
+        <h2>💡 Complete Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;utility&gt;
+#include &lt;vector&gt;
+
+class Buffer {
+public:
+    std::vector&lt;int&gt; data;
+
+    Buffer(size_t size) : data(size, 42) {
+        std::cout &lt;&lt; "Buffer Constructed (" &lt;&lt; size &lt;&lt; " elements)\n";
+    }
+
+    // Move Constructor
+    Buffer(Buffer&amp;&amp; other) noexcept : data(std::move(other.data)) {
+        std::cout &lt;&lt; "Buffer MOVED (Zero Allocation Copy!)\n";
+    }
+};
+
+int main() {
+    Buffer b1(1000000);
+    Buffer b2 = std::move(b1); // std::move casts b1 to rvalue, triggering move constructor
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-auto-and-decltype.html" class="nav-btn">&larr; Previous: auto &amp; decltype</a>
+          <a href="03-constexpr-and-consteval.html" class="nav-btn">Next: constexpr &amp; consteval &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

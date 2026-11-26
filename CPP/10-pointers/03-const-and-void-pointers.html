@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. const & void Pointers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 10</a> &gt; <span>03. const &amp; void*</span>
+        </div>
+
+        <h1>const Pointers, Pointers to const &amp; void*</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A pointer to const (<code>const T*</code>) prevents modifying the pointed-to object. A const pointer (<code>T* const</code>) prevents reassigning the pointer address. A generic pointer (<code>void*</code>) holds raw memory addresses without type information.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int x = 100;
+    const int* p1 = &amp;x; // Cannot change *p1
+    int* const p2 = &amp;x; // Cannot change p2 address
+
+    std::cout &lt;&lt; "*p1: " &lt;&lt; *p1 &lt;&lt; ", *p2: " &lt;&lt; *p2 &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-pointer-arithmetic.html" class="nav-btn">&larr; Previous: Arithmetic</a>
+          <a href="04-pointers-and-references.html" class="nav-btn">Next: Pointers vs Refs &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

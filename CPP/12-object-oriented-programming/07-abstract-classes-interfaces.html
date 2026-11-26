@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07. Abstract Classes - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 12</a> &gt; <span>07. Abstract Classes</span>
+        </div>
+
+        <h1>Abstract Classes &amp; Pure Virtual Interfaces</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A class containing at least one pure virtual function (<code>virtual void method() = 0;</code>) is an Abstract Class and cannot be instantiated directly. It defines a pure interface contract for derived classes to implement.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+class Printable {
+public:
+    virtual void print() const = 0; // Pure virtual interface
+    virtual ~Printable() = default;
+};
+
+class Document : public Printable {
+public:
+    void print() const override { std::cout &lt;&lt; "Printing Document...\n"; }
+};
+
+int main() {
+    Document doc;
+    doc.print();
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="06-virtual-functions-polymorphism.html" class="nav-btn">&larr; Previous: Polymorphism</a>
+          <a href="08-operator-overloading.html" class="nav-btn">Next: Operator Overloading &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

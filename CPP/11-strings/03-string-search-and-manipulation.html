@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Search & Manipulation - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 11</a> &gt; <span>03. Search</span>
+        </div>
+
+        <h1>Substring Searching &amp; String Manipulation</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p><code>std::string</code> provides <code>.find()</code> to locate substring index offsets (returning <code>std::string::npos</code> on failure), <code>.substr(pos, count)</code> to slice substrings, and <code>.replace()</code> to overwrite characters.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string text = "ISO C++17 Standard";
+    size_t pos = text.find("C++17");
+
+    if (pos != std::string::npos) {
+        std::cout &lt;&lt; "Found C++17 at index " &lt;&lt; pos &lt;&lt; "\n";
+        std::string sub = text.substr(pos, 5);
+        std::cout &lt;&lt; "Extracted: " &lt;&lt; sub &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-std-string-operations.html" class="nav-btn">&larr; Previous: Operations</a>
+          <a href="04-std-string-view-cpp17.html" class="nav-btn">Next: std::string_view &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

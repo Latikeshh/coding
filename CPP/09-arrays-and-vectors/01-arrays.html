@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. C-Style Fixed Arrays - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 09</a> &gt; <span>01. Arrays</span>
+        </div>
+
+        <h1>Fixed-Size C-Style Arrays in C++</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A C-style array (<code>T arr[N]</code>) stores a fixed-length contiguous sequence of elements of the same type in memory. When passed to functions, raw arrays decay into pointers to their first element.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int scores[5] = {90, 85, 78, 92, 88};
+
+    for (int i = 0; i &lt; 5; ++i) {
+        std::cout &lt;&lt; "Score [" &lt;&lt; i &lt;&lt; "]: " &lt;&lt; scores[i] &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-std-array.html" class="nav-btn">Next: std::array &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

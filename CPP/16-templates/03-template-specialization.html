@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Specialization - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 16</a> &gt; <span>03. Specialization</span>
+        </div>
+
+        <h1>Template Specialization</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Template specialization (<code>template&lt;&gt; class Box&lt;bool&gt;</code>) allows customizing a template's implementation specifically for a particular type or combination of types (e.g. <code>std::vector&lt;bool&gt;</code> space-optimized bitset specialization).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+struct Formatter {
+    static void print(T val) { std::cout &lt;&lt; "Generic: " &lt;&lt; val &lt;&lt; "\n"; }
+};
+
+// Full specialization for bool
+template &lt;&gt;
+struct Formatter&lt;bool&gt; {
+    static void print(bool val) { std::cout &lt;&lt; "Bool Spec: " &lt;&lt; (val ? "true" : "false") &lt;&lt; "\n"; }
+};
+
+int main() {
+    Formatter&lt;int&gt;::print(10);
+    Formatter&lt;bool&gt;::print(true);
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-class-templates.html" class="nav-btn">&larr; Previous: Class Templates</a>
+          <a href="04-variadic-templates.html" class="nav-btn">Next: Variadic Templates &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

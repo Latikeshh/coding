@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Unit Testing - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 21</a> &gt; <span>04. Unit Testing</span>
+        </div>
+
+        <h1>C++ Unit Testing Frameworks (GoogleTest)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Unit testing frameworks like GoogleTest (gtest) or Catch2 automate verifying function return values and class behavior using assertions (<code>EXPECT_EQ</code>, <code>ASSERT_TRUE</code>, <code>EXPECT_THROW</code>).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cassert&gt;
+
+int add(int a, int b) { return a + b; }
+
+void runTests() {
+    assert(add(2, 2) == 4);
+    assert(add(-1, 1) == 0);
+    std::cout &lt;&lt; "All Unit Tests Passed Successfully!\n";
+}
+
+int main() {
+    runTests();
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-address-and-undefined-sanitizers.html" class="nav-btn">&larr; Previous: Sanitizers</a>
+          <a href="../22-concurrency/index.html" class="nav-btn">Module 22: Concurrency &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

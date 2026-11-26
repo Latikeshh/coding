@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. std::array (C++11) - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 09</a> &gt; <span>02. std::array</span>
+        </div>
+
+        <h1>Modern Fixed-Size std::array (C++11)</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Provided in <code>&lt;array&gt;</code>, <code>std::array&lt;T, N&gt;</code> wraps C-style fixed arrays into an STL container supporting <code>.size()</code>, bounds-checked <code>.at()</code>, iterator traversal, and zero performance overhead.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;array&gt;
+
+int main() {
+    std::array&lt;int, 4&gt; data = {10, 20, 30, 40};
+
+    std::cout &lt;&lt; "Size: " &lt;&lt; data.size() &lt;&lt; "\n";
+    std::cout &lt;&lt; "Element at index 2: " &lt;&lt; data.at(2) &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-arrays.html" class="nav-btn">&larr; Previous: C-Arrays</a>
+          <a href="03-std-vector-basics.html" class="nav-btn">Next: std::vector &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

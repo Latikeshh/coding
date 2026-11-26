@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01. Text File Streams - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 18</a> &gt; <span>01. Text File I/O</span>
+        </div>
+
+        <h1>Text File Streams (ifstream &amp; ofstream)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>The <code>&lt;fstream&gt;</code> header provides <code>std::ofstream</code> (file output stream) to write formatted text to disk and <code>std::ifstream</code> (file input stream) to read text files line by line using <code>std::getline()</code>.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Write
+    {
+        std::ofstream outFile("sample.txt");
+        outFile &lt;&lt; "Line 1: ISO C++17\nLine 2: Persistent Storage\n";
+    }
+
+    // Read
+    std::ifstream inFile("sample.txt");
+    std::string line;
+    while (std::getline(inFile, line)) {
+        std::cout &lt;&lt; line &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="index.html" class="nav-btn">&larr; Module Overview</a>
+          <a href="02-binary-file-io.html" class="nav-btn">Next: Binary File I/O &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

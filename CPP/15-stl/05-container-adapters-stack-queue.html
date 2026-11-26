@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Container Adapters - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 15</a> &gt; <span>05. Adapters</span>
+        </div>
+
+        <h1>Container Adapters: stack, queue &amp; priority_queue</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Container adapters wrap underlying sequence containers to restrict access interfaces:
+          <ul>
+            <li><code>std::stack</code>: Last-In First-Out (LIFO) stack interface (push, pop, top).</li>
+            <li><code>std::queue</code>: First-In First-Out (FIFO) queue interface (push, pop, front, back).</li>
+            <li><code>std::priority_queue</code>: Max-heap priority queue (top returns highest priority element).</li>
+          </ul>
+        </p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+int main() {
+    std::stack&lt;int&gt; s;
+    s.push(10);
+    s.push(20);
+
+    while (!s.empty()) {
+        std::cout &lt;&lt; s.top() &lt;&lt; " "; // LIFO access
+        s.pop();
+    }
+    std::cout &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-unordered-containers.html" class="nav-btn">&larr; Previous: Unordered Containers</a>
+          <a href="06-iterators.html" class="nav-btn">Next: Iterators &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

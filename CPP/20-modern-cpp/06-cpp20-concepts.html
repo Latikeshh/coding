@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06. C++20 Concepts - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 20</a> &gt; <span>06. Concepts</span>
+        </div>
+
+        <h1>C++20 Concepts &amp; Type Constraints (requires)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in ISO C++20, <strong>Concepts</strong> (in <code>&lt;concepts&gt;</code>) constrain template arguments at compile time (e.g. <code>template&lt;std::integral T&gt;</code>), replacing SFINAE with clean, readable compiler diagnostics.</p>
+
+        <h2>💡 Code Example (C++20)</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;concepts&gt;
+
+template &lt;std::integral T&gt;
+T addInts(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    std::cout &lt;&lt; "Sum: " &lt;&lt; addInts(10, 20) &lt;&lt; "\n"; // Compiles cleanly
+    // addInts(3.14, 2.71); // COMPILATION ERROR: double fails std::integral concept!
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="05-structured-bindings.html" class="nav-btn">&larr; Previous: Structured Bindings</a>
+          <a href="07-cpp20-ranges.html" class="nav-btn">Next: C++20 Ranges &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

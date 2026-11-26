@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Pointer Arithmetic - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 10</a> &gt; <span>02. Pointer Arithmetic</span>
+        </div>
+
+        <h1>Pointer Arithmetic &amp; Array Traversal</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Adding an integer <code>k</code> to a pointer <code>ptr</code> increments the raw memory address by <code>k * sizeof(T)</code> bytes. This forms the foundation of raw array subscript indexing (<code>arr[i]</code> is equivalent to <code>*(arr + i)</code>).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int arr[] = {10, 20, 30, 40};
+    int* ptr = arr;
+
+    for (int i = 0; i &lt; 4; ++i) {
+        std::cout &lt;&lt; "*(ptr + " &lt;&lt; i &lt;&lt; ") = " &lt;&lt; *(ptr + i) &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-pointer-basics-addresses.html" class="nav-btn">&larr; Previous: Pointer Basics</a>
+          <a href="03-const-and-void-pointers.html" class="nav-btn">Next: const &amp; void Pointers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

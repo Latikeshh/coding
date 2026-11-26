@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. std::string Operations - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 11</a> &gt; <span>02. Operations</span>
+        </div>
+
+        <h1>std::string Concatenation &amp; Methods</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p><code>std::string</code> supports overloaded <code>+</code> and <code>+=</code> concatenation operators, length inspection via <code>.length()</code> / <code>.size()</code>, character access via <code>.at(i)</code>, and conversion to C-string via <code>.c_str()</code>.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string s1 = "Modern ";
+    std::string s2 = "C++";
+    std::string full = s1 + s2;
+
+    std::cout &lt;&lt; "Full: " &lt;&lt; full &lt;&lt; " (Length: " &lt;&lt; full.length() &lt;&lt; ")\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-c-strings-vs-std-string.html" class="nav-btn">&larr; Previous: C-Strings</a>
+          <a href="03-string-search-and-manipulation.html" class="nav-btn">Next: Search &amp; Manipulation &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

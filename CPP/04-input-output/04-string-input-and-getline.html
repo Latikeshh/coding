@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. getline & Buffer Flushing - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 04</a> &gt; <span>04. getline</span>
+        </div>
+
+        <h1>String Input with std::getline() &amp; Buffer Flushing</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>While <code>std::cin &gt;&gt;</code> stops reading at whitespace, <code>std::getline(std::cin, str)</code> reads an entire line including spaces up to a newline character. Using <code>cin.ignore()</code> clears leftover <code>\n</code> characters from prior numerical extractions.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;limits&gt;
+
+int main() {
+    int id;
+    std::string name;
+
+    std::cout &lt;&lt; "Enter ID: ";
+    std::cin &gt;&gt; id;
+    std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), '\n'); // Clear buffer
+
+    std::cout &lt;&lt; "Enter Full Name: ";
+    std::getline(std::cin, name);
+
+    std::cout &lt;&lt; "ID: " &lt;&lt; id &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-iomanip-formatting.html" class="nav-btn">&larr; Previous: Formatting</a>
+          <a href="../05-operators/index.html" class="nav-btn">Module 05: Operators &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06. std::weak_ptr Deep Dive - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 13</a> &gt; <span>06. std::weak_ptr</span>
+        </div>
+
+        <h1>std::weak_ptr Deep Dive (Non-Owning Observer & Cycle Breaking)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition &amp; Why We Need It</h2>
+        <p><code>std::weak_ptr&lt;T&gt;</code> holds a <strong>non-owning reference</strong> to an object managed by <code>std::shared_ptr</code> without incrementing the strong reference counter. Its primary purpose is to **break cyclic shared_ptr references** (where Object A points to B and B points to A, causing permanent memory leaks).</p>
+
+        <h2>🛠️ Accessing Target Data safely</h2>
+        <p>A <code>std::weak_ptr</code> cannot directly access object methods. To access the object, call <code>wPtr.lock()</code>, which returns a temporary <code>std::shared_ptr</code> if the object is still alive, or a null <code>shared_ptr</code> if the object was destroyed.</p>
+
+        <h2>💡 Complete Code Example: Breaking Circular Deadlocks</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+struct Node {
+    std::shared_ptr&lt;Node&gt; next;
+    std::weak_ptr&lt;Node&gt; prev; // weak_ptr breaks cyclic reference leak!
+
+    ~Node() { std::cout &lt;&lt; "Node Destroyed\n"; }
+};
+
+int main() {
+    auto n1 = std::make_shared&lt;Node&gt;();
+    auto n2 = std::make_shared&lt;Node&gt;();
+
+    n1-&gt;next = n2;
+    n2-&gt;prev = n1; // Non-owning back link
+
+    if (auto lockedParent = n2-&gt;prev.lock()) {
+        std::cout &lt;&lt; "Parent is still alive!\n";
+    }
+
+    return 0; // Both nodes correctly destroyed without memory leak!
+}</code></pre>
+
+        <h2>👀 Expected Output</h2>
+        <pre><code class="language-text">Parent is still alive!
+Node Destroyed
+Node Destroyed</code></pre>
+
+        <div class="navigation-footer">
+          <a href="05-std-shared-ptr.html" class="nav-btn">&larr; Previous: std::shared_ptr</a>
+          <a href="07-rule-of-zero-three-five.html" class="nav-btn">Next: Rule of 0/3/5 &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

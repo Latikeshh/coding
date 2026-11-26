@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Access Specifiers & Encapsulation - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 12</a> &gt; <span>02. Encapsulation</span>
+        </div>
+
+        <h1>Access Specifiers &amp; Encapsulation</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Encapsulation bundles data and methods together while hiding implementation details behind <code>private</code> access specifiers, exposing controlled validation interfaces via <code>public</code> getters and setters.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+class BankAccount {
+private:
+    double balance{0.0};
+
+public:
+    void deposit(double amount) {
+        if (amount &gt; 0) balance += amount;
+    }
+
+    double getBalance() const { return balance; }
+};
+
+int main() {
+    BankAccount acc;
+    acc.deposit(500.0);
+    std::cout &lt;&lt; "Balance: $" &lt;&lt; acc.getBalance() &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-classes-and-objects.html" class="nav-btn">&larr; Previous: Classes</a>
+          <a href="03-constructors-initializer-lists.html" class="nav-btn">Next: Constructors &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

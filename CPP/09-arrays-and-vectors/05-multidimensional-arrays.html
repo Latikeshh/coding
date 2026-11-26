@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Multidimensional Grids - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 09</a> &gt; <span>05. 2D Grids</span>
+        </div>
+
+        <h1>2D Arrays &amp; Matrix Grid Processing</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A 2D array (<code>T matrix[R][C]</code> or <code>std::vector&lt;std::vector&lt;T&gt;&gt;</code>) stores elements in row-major contiguous memory order, accessed via double subscript indexing (<code>matrix[row][col]</code>).</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int matrix[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    for (int r = 0; r &lt; 2; ++r) {
+        for (int c = 0; c &lt; 3; ++c) {
+            std::cout &lt;&lt; matrix[r][c] &lt;&lt; " ";
+        }
+        std::cout &lt;&lt; "\n";
+    }
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-vector-capacity-memory.html" class="nav-btn">&larr; Previous: Capacity</a>
+          <a href="../10-pointers/index.html" class="nav-btn">Module 10: Pointers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

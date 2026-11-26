@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. std::string_view (C++17) - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 11</a> &gt; <span>04. string_view</span>
+        </div>
+
+        <h1>Non-Owning std::string_view (C++17)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Introduced in C++17, <code>std::string_view</code> (in <code>&lt;string_view&gt;</code>) provides a non-owning read-only pointer + length reference to any sequence of characters (C-string, string literal, or <code>std::string</code>), eliminating temporary dynamic string allocations.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string_view&gt;
+
+void printSV(std::string_view sv) {
+    std::cout &lt;&lt; "View: " &lt;&lt; sv &lt;&lt; " (Len: " &lt;&lt; sv.length() &lt;&lt; ")\n";
+}
+
+int main() {
+    printSV("Literal String"); // Zero allocation
+    std::string str = "Dynamic String";
+    printSV(str); // Zero allocation
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="03-string-search-and-manipulation.html" class="nav-btn">&larr; Previous: Search</a>
+          <a href="../12-object-oriented-programming/index.html" class="nav-btn">Module 12: OOP &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

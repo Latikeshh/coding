@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. std::vector Basics - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 09</a> &gt; <span>03. std::vector</span>
+        </div>
+
+        <h1>Dynamic Arrays with std::vector</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Provided in <code>&lt;vector&gt;</code>, <code>std::vector&lt;T&gt;</code> is a dynamic array class that automatically manages contiguous heap memory, resizing itself as elements are inserted or erased.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; vec;
+    vec.push_back(100);
+    vec.push_back(200);
+    vec.push_back(300);
+
+    for (int x : vec) {
+        std::cout &lt;&lt; x &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-std-array.html" class="nav-btn">&larr; Previous: std::array</a>
+          <a href="04-vector-capacity-memory.html" class="nav-btn">Next: Capacity &amp; Growth &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

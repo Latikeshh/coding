@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Inventory System - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 23</a> &gt; <span>03. Inventory System</span>
+        </div>
+
+        <h1>Inventory &amp; Stock Management System (Capstone Project 03)</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Project Architecture</h2>
+        <p>A modern C++ inventory management application demonstrating smart pointer lifetime management (<code>std::unique_ptr</code>), polymorphic item categories, and file serialization.</p>
+
+        <h2>💡 Complete Source Code</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;memory&gt;
+#include &lt;string&gt;
+
+class Item {
+public:
+    std::string name;
+    double price;
+    Item(std::string n, double p) : name(n), price(p) {}
+    virtual void print() const {
+        std::cout &lt;&lt; "Item: " &lt;&lt; name &lt;&lt; " | Price: $" &lt;&lt; price &lt;&lt; "\n";
+    }
+    virtual ~Item() = default;
+};
+
+int main() {
+    std::vector&lt;std::unique_ptr&lt;Item&gt;&gt; inventory;
+    inventory.push_back(std::make_unique&lt;Item&gt;("Gaming Laptop", 1499.99));
+    inventory.push_back(std::make_unique&lt;Item&gt;("Mechanical Keyboard", 129.50));
+
+    for (const auto&amp; item : inventory) {
+        item-&gt;print();
+    }
+    return 0; // Smart pointers clean up dynamic items automatically
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-student-record-system.html" class="nav-btn">&larr; Previous: Student Records</a>
+          <a href="../index.html" class="nav-btn">Curriculum Home &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

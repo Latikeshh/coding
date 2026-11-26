@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02. Sequence Containers - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 15</a> &gt; <span>02. Sequence Containers</span>
+        </div>
+
+        <h1>Sequence Containers: vector, deque &amp; list</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Sequence containers maintain sequential order:</p>
+        <ul>
+          <li><code>std::vector</code>: Contiguous dynamic array (O(1) random access, fast push_back).</li>
+          <li><code>std::deque</code>: Double-ended queue (O(1) push_front and push_back).</li>
+          <li><code>std::list</code>: Doubly linked list (O(1) middle insertions/deletions, O(N) traversal).</li>
+        </ul>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;deque&gt;
+
+int main() {
+    std::deque&lt;int&gt; dq;
+    dq.push_back(20);
+    dq.push_front(10); // O(1) double-ended insertion
+
+    std::cout &lt;&lt; "Front: " &lt;&lt; dq.front() &lt;&lt; ", Back: " &lt;&lt; dq.back() &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="01-stl-overview-containers.html" class="nav-btn">&larr; Previous: Overview</a>
+          <a href="03-associative-containers-map-set.html" class="nav-btn">Next: Associative Containers &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

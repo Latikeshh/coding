@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. Dynamic Memory Allocation - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 10</a> &gt; <span>05. Dynamic Memory</span>
+        </div>
+
+        <h1>Dynamic Allocation (new &amp; delete Hazards)</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Raw dynamic allocation uses <code>new</code> to allocate heap storage and <code>delete</code> (or <code>delete[]</code> for arrays) to free it. Forgetting to deallocate results in memory leaks, while accessing deallocated memory causes dangling pointer UB.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int* p = new int(42); // Heap allocation
+    std::cout &lt;&lt; "Heap val: " &lt;&lt; *p &lt;&lt; "\n";
+
+    delete p; // Explicit deallocation
+    p = nullptr; // Prevent dangling pointer usage
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-pointers-and-references.html" class="nav-btn">&larr; Previous: Pointers vs Refs</a>
+          <a href="../11-strings/index.html" class="nav-btn">Module 11: Strings &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

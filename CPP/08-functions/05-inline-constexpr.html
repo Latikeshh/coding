@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05. inline & constexpr Functions - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 08</a> &gt; <span>05. inline &amp; constexpr</span>
+        </div>
+
+        <h1>inline &amp; constexpr Functions</h1>
+        <p><span class="badge badge-beginner">🟢 Beginner</span></p>
+
+        <h2>📖 Definition</h2>
+        <p><code>inline</code> hints to the compiler to substitute function calls inline to eliminate call-stack overhead. <code>constexpr</code> specifies that a function can be evaluated at compile time when passed constant expression arguments.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+constexpr int cube(int x) {
+    return x * x * x;
+}
+
+int main() {
+    constexpr int result = cube(3); // Evaluated at compile time!
+    std::cout &lt;&lt; "3 cubed = " &lt;&lt; result &lt;&lt; "\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="04-default-arguments.html" class="nav-btn">&larr; Previous: Default Args</a>
+          <a href="06-lambda-expressions.html" class="nav-btn">Next: Lambdas &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

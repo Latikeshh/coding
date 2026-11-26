@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03. Constructors & Initializer Lists - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 12</a> &gt; <span>03. Constructors</span>
+        </div>
+
+        <h1>Constructors &amp; Member Initializer Lists</h1>
+        <p><span class="badge badge-intermediate">🟡 Intermediate</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>A constructor initializes an object upon creation. Member initializer lists (<code>Class() : member1(val1) {}</code>) initialize members directly prior to the constructor body execution, which is mandatory for <code>const</code> and reference members.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+class Point {
+private:
+    int x;
+    int y;
+public:
+    // Member initializer list
+    Point(int xVal, int yVal) : x(xVal), y(yVal) {}
+
+    void print() const { std::cout &lt;&lt; "(" &lt;&lt; x &lt;&lt; ", " &lt;&lt; y &lt;&lt; ")\n"; }
+};
+
+int main() {
+    Point p(10, 20);
+    p.print();
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="02-access-specifiers-encapsulation.html" class="nav-btn">&larr; Previous: Encapsulation</a>
+          <a href="04-destructors-and-raii.html" class="nav-btn">Next: Destructors &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

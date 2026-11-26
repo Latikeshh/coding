@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08. Operator Overloading - C++ Standard Curriculum</title>
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <main class="main-content">
+      <div class="content-wrapper">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> &gt; <a href="../index.html">CPP</a> &gt; <a href="index.html">Module 12</a> &gt; <span>08. Operator Overloading</span>
+        </div>
+
+        <h1>Custom Operator Overloading</h1>
+        <p><span class="badge badge-advanced">🔴 Advanced</span></p>
+
+        <h2>📖 Definition</h2>
+        <p>Operator overloading allows user-defined classes to redefine standard C++ operators (e.g. <code>+</code>, <code>==</code>, <code>&lt;&lt;</code>, <code>[]</code>) to provide intuitive syntax for custom domain types.</p>
+
+        <h2>💡 Code Example</h2>
+        <pre><code class="language-cpp">#include &lt;iostream&gt;
+
+class Complex {
+public:
+    double real, imag;
+
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+
+    Complex operator+(const Complex&amp; rhs) const {
+        return Complex(real + rhs.real, imag + rhs.imag);
+    }
+};
+
+int main() {
+    Complex c1(1.5, 2.5), c2(2.0, 3.0);
+    Complex c3 = c1 + c2;
+
+    std::cout &lt;&lt; "Sum: " &lt;&lt; c3.real &lt;&lt; " + " &lt;&lt; c3.imag &lt;&lt; "i\n";
+    return 0;
+}</code></pre>
+
+        <div class="navigation-footer">
+          <a href="07-abstract-classes-interfaces.html" class="nav-btn">&larr; Previous: Abstract Classes</a>
+          <a href="../13-memory-management/index.html" class="nav-btn">Module 13: Memory Management &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
