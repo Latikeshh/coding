@@ -1,6 +1,6 @@
 /**
  * Universal Dynamic Sidebar Rendering Engine & Mobile Drawer Controller
- * Powered by Live GitHub REST API Repository Scanner & Course Metadata Registry
+ * Instant Synchronous Render via sidebar-data.js + Live GitHub API Upgrade
  */
 (function () {
   'use strict';
@@ -20,10 +20,6 @@
     var sidebarEl = document.getElementById('sidebar');
     if (!sidebarEl) return;
 
-    if (sidebarEl.getAttribute('data-rendered') === 'true') {
-      return;
-    }
-
     var courseKey = sidebarEl.getAttribute('data-course') || 'CSS';
     var courseRegistry = window.COURSE_REGISTRY ? window.COURSE_REGISTRY[courseKey] : {
       title: courseKey + " Curriculum",
@@ -38,30 +34,26 @@
     var prefix = depth > 0 ? '../'.repeat(depth) : '';
     var rootPrefix = '../'.repeat(depth + 1);
 
-    // Render Initial Loading State
-    sidebarEl.innerHTML = renderSkeleton(rootPrefix, courseRegistry);
+    // 1. Instant Synchronous Render using window.SIDEBAR_DATA if available
+    var staticData = window.SIDEBAR_DATA ? window.SIDEBAR_DATA[courseKey] : null;
+    if (staticData && staticData.lessons) {
+      renderSidebarContent(sidebarEl, courseKey, courseRegistry, staticData, pageRelPath, prefix, rootPrefix);
+    } else {
+      sidebarEl.innerHTML = renderSkeleton(rootPrefix, courseRegistry);
+    }
 
-    // Fetch Live Repository Tree via RepositoryScanner
+    // 2. Dynamic Upgrade via Live GitHub API RepositoryScanner
     if (window.RepositoryScanner) {
       window.RepositoryScanner.getCourseTree(courseKey).then(function (courseTree) {
-        if (!courseTree || !courseTree.lessons) {
-          throw new Error('Course navigation data empty');
+        if (courseTree && courseTree.lessons) {
+          renderSidebarContent(sidebarEl, courseKey, courseRegistry, courseTree, pageRelPath, prefix, rootPrefix);
         }
-        renderSidebarContent(sidebarEl, courseKey, courseRegistry, courseTree, pageRelPath, prefix, rootPrefix);
       }).catch(function (err) {
-        console.warn('Falling back to static sidebar data for course ' + courseKey, err);
-        var fallbackData = window.SIDEBAR_DATA ? window.SIDEBAR_DATA[courseKey] : null;
-        if (fallbackData) {
-          renderSidebarContent(sidebarEl, courseKey, courseRegistry, fallbackData, pageRelPath, prefix, rootPrefix);
-        } else {
+        // If staticData wasn't rendered and live API failed, render error box
+        if (!staticData) {
           sidebarEl.innerHTML = renderErrorState(rootPrefix, courseRegistry, err);
         }
       });
-    } else {
-      var fallbackData = window.SIDEBAR_DATA ? window.SIDEBAR_DATA[courseKey] : null;
-      if (fallbackData) {
-        renderSidebarContent(sidebarEl, courseKey, courseRegistry, fallbackData, pageRelPath, prefix, rootPrefix);
-      }
     }
   }
 
@@ -78,7 +70,7 @@
     html += '</div>';
     html += '<div class="sidebar-nav">';
     html += '  <div class="course-nav-header"><span class="course-header-title">' + courseRegistry.title + '</span></div>';
-    html += '  <div class="sidebar-loading-pulse"><span class="loading-spinner"></span> Scanning GitHub repository...</div>';
+    html += '  <div class="sidebar-loading-pulse"><span class="loading-spinner"></span> Loading navigation...</div>';
     html += '</div>';
     return html;
   }
@@ -90,7 +82,7 @@
     html += '</div>';
     html += '<div class="sidebar-nav">';
     html += '  <div class="sidebar-error-box">';
-    html += '    <p>⚠️ Navigation API Unavailable</p>';
+    html += '    <p>⚠️ Navigation Unavailable</p>';
     html += '    <button onclick="window.location.reload()" class="retry-btn">Retry Connection</button>';
     html += '  </div>';
     html += '</div>';
@@ -160,7 +152,7 @@
       html += '      <div class="nav-item-header">';
       html += '        <a href="' + itemHref + '" class="nav-link' + linkActiveClass + '"' + ariaCurrent + '>';
       html += '          <span class="nav-bullet">&bull;</span>';
-      html += '          <span class="nav-title">' + item.title + '</span>';
+      html += '          <span class="nav-title">' + escapeHtml(item.title) + '</span>';
       html += '        </a>';
 
       if (hasSubItems) {
