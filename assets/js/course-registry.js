@@ -21,7 +21,7 @@
       description: "ISO C11, Pointers, Memory Management, Structs, Unions & Systems Programming."
     },
     CPP: {
-      title: "C++ Standard Curriculum",
+      title: "C++ Curriculum",
       badge: "23 Modules",
       icon: "🚀",
       accent: "#f43f5e",

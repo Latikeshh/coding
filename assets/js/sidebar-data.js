@@ -685,7 +685,7 @@ window.SIDEBAR_DATA = {
     ]
   },
   "CPP": {
-    "title": "C++ Standard Curriculum",
+    "title": "C++ Curriculum",
     "badge": "23 Modules",
     "lessons": [
       {

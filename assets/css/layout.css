@@ -121,9 +121,12 @@
 }
 
 .course-header-title {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .course-header-badge {
@@ -134,6 +137,8 @@
   padding: 0.15rem 0.55rem;
   border-radius: 9999px;
   border: 1px solid #2563eb;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .course-lessons-menu {

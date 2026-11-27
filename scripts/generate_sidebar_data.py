@@ -7,8 +7,7 @@ ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 COURSES = {
     "CSS": { "title": "CSS3 Curriculum", "badge": "32 Modules" },
     "C": { "title": "C Language", "badge": "24 Modules" },
-    "CPP": { "title": "C++ Standard Curriculum", "badge": "23 Modules" },
-    "HTML": "HTML5 Curriculum", # string or dict format
+    "CPP": { "title": "C++ Curriculum", "badge": "23 Modules" },
     "HTML": { "title": "HTML5 Curriculum", "badge": "32 Modules" },
     "JS": { "title": "JavaScript Curriculum", "badge": "25 Modules" },
     "Python": { "title": "Python 3 Curriculum", "badge": "32 Modules" },
@@ -95,7 +94,6 @@ def generate_sidebar_data_js():
             "lessons": lessons
         }
 
-    # Format JS file content
     import json
     js_json = json.dumps(data_out, indent=2)
 
