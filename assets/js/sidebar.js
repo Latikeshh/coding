@@ -20,7 +20,13 @@
     var sidebarEl = document.getElementById('sidebar');
     if (!sidebarEl) return;
 
-    var courseKey = sidebarEl.getAttribute('data-course') || 'CSS';
+    // Do NOT render course-specific sidebar if data-course is omitted (e.g. Root Homepage)
+    var courseKey = sidebarEl.getAttribute('data-course');
+    if (!courseKey) {
+      setupMobileDrawer(sidebarEl);
+      return;
+    }
+
     var courseRegistry = window.COURSE_REGISTRY ? window.COURSE_REGISTRY[courseKey] : {
       title: courseKey + " Curriculum",
       badge: "Modules",
