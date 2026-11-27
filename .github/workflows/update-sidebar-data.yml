@@ -1,0 +1,44 @@
+name: Auto Update Sidebar Data Navigation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'C/**'
+      - 'CPP/**'
+      - 'HTML/**'
+      - 'CSS/**'
+      - 'JS/**'
+      - 'Python/**'
+      - 'Java/**'
+      - 'SQL/**'
+      - 'Git-and-GitHub/**'
+      - 'scripts/generate_sidebar_data.py'
+
+permissions:
+  contents: write
+
+jobs:
+  update-sidebar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate Navigation Data
+        run: python scripts/generate_sidebar_data.py
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update sidebar-data.js via GitHub Actions workflow"
+          file_pattern: "assets/js/sidebar-data.js"
