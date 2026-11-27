@@ -16,45 +16,13 @@
         <span class="brand-logo">&#128187;</span>
         <span>Learn Coding</span>
       </a>
-      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+      <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
         <span class="hamburger-icon">&#9776;</span> Menu
       </button>
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <a href="../../index.html" class="site-brand">
-          <span class="brand-logo">&#128187;</span>
-          <div class="brand-text">
-            <span class="brand-name">Coding</span>
-            <span class="brand-tagline">Developer Hub</span>
-          </div>
-        </a>
-      </div>
-      <div class="sidebar-nav">
-        <div class="nav-back-container">
-          <a href="../index.html" class="nav-back-btn">
-            <span class="back-arrow">&larr;</span> C++ Modules
-          </a>
-        </div>
-        <div class="course-nav-header">
-          <span class="course-header-title">Module 12</span>
-          <span class="course-header-badge">OOP</span>
-        </div>
-        <ul class="nav-menu course-lessons-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Module Overview</span></a></li>
-          <li class="nav-item"><a href="01-classes-and-objects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Classes &amp; Objects</span></a></li>
-          <li class="nav-item"><a href="02-access-specifiers-encapsulation.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Encapsulation</span></a></li>
-          <li class="nav-item"><a href="03-constructors-initializer-lists.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Constructors</span></a></li>
-          <li class="nav-item"><a href="04-destructors-and-raii.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Destructors &amp; RAII</span></a></li>
-          <li class="nav-item"><a href="05-inheritance-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Inheritance</span></a></li>
-          <li class="nav-item"><a href="06-virtual-functions-polymorphism.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Virtual Polymorphism</span></a></li>
-          <li class="nav-item"><a href="07-abstract-classes-interfaces.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Abstract Classes</span></a></li>
-          <li class="nav-item"><a href="08-operator-overloading.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Operator Overloading</span></a></li>
-        </ul>
-      </div>
-    </aside>
+    <aside class="sidebar" id="sidebar" data-course="CPP"></aside>
 
     <main class="main-content">
       <div class="content-wrapper">
@@ -91,5 +59,12 @@
       </div>
     </main>
   </div>
+  <script src="../assets/js/repository-scanner.js"></script>
+  <script src="../assets/js/course-registry.js"></script>
+  <script src="../assets/js/navigation-snapshot.js"></script>
+  <script src="../assets/js/sidebar-data.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/course-navigation.js"></script>
+
 </body>
 </html>

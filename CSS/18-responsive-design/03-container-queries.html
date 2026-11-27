@@ -13,29 +13,11 @@
   <div class="site-wrapper">
     <header class="mobile-header">
       <a href="../../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
-      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar"><span class="hamburger-icon">&#9776;</span> Menu</button>
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <a href="../../index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div></a>
-      </div>
-      <div class="sidebar-nav">
-        <div class="nav-back-container"><a href="../../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
-        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
-        <ul class="nav-menu course-lessons-menu">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Responsive Design</span></a>
-            <ul class="nav-sub-menu">
-              <li class="nav-sub-item"><a href="01-responsive-fundamentals.html" class="nav-sub-link">01. RWD Fundamentals</a></li>
-              <li class="nav-sub-item"><a href="02-media-queries.html" class="nav-sub-link">02. Media Queries</a></li>
-              <li class="nav-sub-item"><a href="03-container-queries.html" class="nav-sub-link active">03. Container Queries</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </aside>
+    <aside class="sidebar" id="sidebar" data-course="CSS"></aside>
 
     <main class="main-content">
       <div class="content-wrapper">
@@ -181,6 +163,13 @@
       </div>
     </main>
   </div>
+  <script src="../assets/js/repository-scanner.js"></script>
+  <script src="../assets/js/course-registry.js"></script>
+  <script src="../assets/js/navigation-snapshot.js"></script>
+  <script src="../assets/js/sidebar-data.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/course-navigation.js"></script>
+
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>
   <script src="../../assets/js/contributors.js"></script>

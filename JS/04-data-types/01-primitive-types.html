@@ -17,72 +17,14 @@
         <span class="brand-logo">&#128187;</span>
         <span>Learn Coding</span>
       </a>
-      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+      <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
         <span class="hamburger-icon">&#9776;</span> Menu
       </button>
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- Sidebar Navigation Drawer -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <a href="../../index.html" class="site-brand">
-          <span class="brand-logo">&#128187;</span>
-          <div class="brand-text">
-            <span class="brand-name">Coding</span>
-            <span class="brand-tagline">Developer Hub</span>
-          </div>
-        </a>
-        <div class="search-container">
-          <div class="search-input-wrapper">
-            <span class="search-icon">&#128269;</span>
-            <input type="text" id="search-input" class="search-input" placeholder="Search lessons..." autocomplete="off">
-            <span class="search-shortcut">Ctrl K</span>
-          </div>
-          <div id="search-results" class="search-results"></div>
-        </div>
-      </div>
-      <div class="sidebar-nav">
-        <div class="nav-back-container">
-          <a href="../index.html" class="nav-back-btn">
-            <span class="back-arrow">&larr;</span> All Courses
-          </a>
-        </div>
-        <div class="course-nav-header">
-          <span class="course-header-title">JavaScript</span>
-          <span class="course-header-badge">25 Lessons</span>
-        </div>
-        <ul class="nav-menu course-lessons-menu">
-  <li class="nav-item"><a href="../index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Learn JavaScript — Course Overview</span></a></li>
-  <li class="nav-item"><a href="../01-setup-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Set Up JavaScript Environment</span></a></li>
-  <li class="nav-item"><a href="../02-introduction-to-js.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Introduction to JavaScript</span></a></li>
-  <li class="nav-item"><a href="../03-variables.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Variables in JavaScript (`let`, `const`, `var`)</span></a></li>
-  <li class="nav-item"><a href="../04-data-types/index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">04. Data Types & Memory Module</span></a></li>
-  <li class="nav-item"><a href="../05-operators/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">05. Operators in JavaScript</span></a></li>
-  <li class="nav-item"><a href="../06-conditionals/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">06. Conditionals in JavaScript</span></a></li>
-  <li class="nav-item"><a href="../07-loops/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">07. Loops in JavaScript</span></a></li>
-  <li class="nav-item"><a href="../08-functions/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">08. Functions Module in JavaScript</span></a></li>
-  <li class="nav-item"><a href="../09-arrays/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">09. Arrays & Functional Methods</span></a></li>
-  <li class="nav-item"><a href="../10-objects/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">10. Objects, Maps & RegExp</span></a></li>
-  <li class="nav-item"><a href="../11-es6-scope-and-features/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">11. ES6+ Scope & Syntax Module</span></a></li>
-  <li class="nav-item"><a href="../14-closures-and-callbacks.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">14. Higher-Order Functions & Closures</span></a></li>
-  <li class="nav-item"><a href="../15-async-javascript/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">15. Asynchronous JavaScript Module</span></a></li>
-  <li class="nav-item"><a href="../18-object-oriented-js/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">18. Object-Oriented JavaScript</span></a></li>
-  <li class="nav-item"><a href="../19-dom-and-events/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">19. DOM & Events Module</span></a></li>
-  <li class="nav-item"><a href="../21-web-storage/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">21. Web Storage & Cookies Module</span></a></li>
-  <li class="nav-item"><a href="../22-error-handling/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">22. Error Handling Module</span></a></li>
-  <li class="nav-item"><a href="../23-modules/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">23. JavaScript Modules Module</span></a></li>
-  <li class="nav-item"><a href="../24-mini-projects.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">24. Capstone JS Mini Projects</span></a></li>
-  <li class="nav-item"><a href="../25-javascript-debugging/index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">25. JavaScript Debugging Module</span></a></li>
-</ul>
-      </div>
-      <div class="sidebar-footer">
-        <a href="https://github.com/Latikeshh/coding" target="_blank" rel="noopener noreferrer" class="github-link">
-          <svg class="github-icon" height="20" width="20" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-          <span>View on GitHub</span>
-        </a>
-      </div>
-    </aside>
+    <aside class="sidebar" id="sidebar" data-course="JS"></aside>
 
     <!-- Main Content Area -->
     <main class="main-content">
@@ -107,6 +49,13 @@ console.log(a, b); // 42, 100 (a remains unchanged)</code></pre>
       </div>
     </main>
   </div>
+  <script src="../assets/js/repository-scanner.js"></script>
+  <script src="../assets/js/course-registry.js"></script>
+  <script src="../assets/js/navigation-snapshot.js"></script>
+  <script src="../assets/js/sidebar-data.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/course-navigation.js"></script>
+
 
   <script src="../../assets/js/search-data.js"></script>
   <script src="../../assets/js/search.js"></script>

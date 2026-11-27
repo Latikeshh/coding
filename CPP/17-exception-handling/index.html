@@ -16,40 +16,13 @@
         <span class="brand-logo">&#128187;</span>
         <span>Learn Coding</span>
       </a>
-      <button class="sidebar-toggle-btn" id="sidebar-toggle">
+      <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
         <span class="hamburger-icon">&#9776;</span> Menu
       </button>
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <a href="../../index.html" class="site-brand">
-          <span class="brand-logo">&#128187;</span>
-          <div class="brand-text">
-            <span class="brand-name">Coding</span>
-            <span class="brand-tagline">Developer Hub</span>
-          </div>
-        </a>
-      </div>
-      <div class="sidebar-nav">
-        <div class="nav-back-container">
-          <a href="../index.html" class="nav-back-btn">
-            <span class="back-arrow">&larr;</span> C++ Modules
-          </a>
-        </div>
-        <div class="course-nav-header">
-          <span class="course-header-title">Module 17</span>
-          <span class="course-header-badge">Exceptions</span>
-        </div>
-        <ul class="nav-menu course-lessons-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">Module Overview</span></a></li>
-          <li class="nav-item"><a href="01-try-catch-throw-basics.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">01. try-catch-throw Basics</span></a></li>
-          <li class="nav-item"><a href="02-standard-exceptions.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Standard Exceptions</span></a></li>
-          <li class="nav-item"><a href="03-exception-safety-guarantees.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. Exception Safety</span></a></li>
-        </ul>
-      </div>
-    </aside>
+    <aside class="sidebar" id="sidebar" data-course="CPP"></aside>
 
     <main class="main-content">
       <div class="content-wrapper">
@@ -81,5 +54,12 @@
       </div>
     </main>
   </div>
+  <script src="../assets/js/repository-scanner.js"></script>
+  <script src="../assets/js/course-registry.js"></script>
+  <script src="../assets/js/navigation-snapshot.js"></script>
+  <script src="../assets/js/sidebar-data.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/course-navigation.js"></script>
+
 </body>
 </html>

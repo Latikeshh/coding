@@ -14,29 +14,12 @@
     <!-- Sticky Mobile Header -->
     <header class="mobile-header">
       <a href="../index.html" class="mobile-brand"><span class="brand-logo">&#128187;</span><span>Learn Coding</span></a>
-      <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="hamburger-icon">&#9776;</span> Menu</button>
+      <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar"><span class="hamburger-icon">&#9776;</span> Menu</button>
     </header>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- Sidebar Navigation Drawer -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <a href="../index.html" class="site-brand">
-          <span class="brand-logo">&#128187;</span>
-          <div class="brand-text"><span class="brand-name">Coding</span><span class="brand-tagline">Developer Hub</span></div>
-        </a>
-      </div>
-      <div class="sidebar-nav">
-        <div class="nav-back-container"><a href="../index.html" class="nav-back-btn"><span class="back-arrow">&larr;</span> All Courses</a></div>
-        <div class="course-nav-header"><span class="course-header-title">CSS3 Course</span><span class="course-header-badge">32 Modules</span></div>
-        <ul class="nav-menu course-lessons-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">Master Syllabus</span></a></li>
-          <li class="nav-item"><a href="01-setup-css.html" class="nav-link active"><span class="nav-bullet">&bull;</span><span class="nav-title">01. Setup CSS Environment</span></a></li>
-          <li class="nav-item"><a href="02-introduction-to-css.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">02. Introduction to CSS</span></a></li>
-          <li class="nav-item"><a href="03-history-and-standards.html" class="nav-link"><span class="nav-bullet">&bull;</span><span class="nav-title">03. History &amp; Standards</span></a></li>
-        </ul>
-      </div>
-    </aside>
+    <aside class="sidebar" id="sidebar" data-course="CSS"></aside>
 
     <main class="main-content">
       <div class="content-wrapper">
@@ -63,7 +46,7 @@
         <!-- 5. Syntax -->
         <h2>4. Syntax</h2>
         <pre><code class="language-html">&lt;!-- Linking an external CSS file inside HTML &lt;head&gt; --&gt;
-&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+&lt;link rel="stylesheet" href="../assets/css/custom.css"&gt;</code></pre>
 
         <!-- 6. Different Variations -->
         <h2>5. Variants &amp; Setup Tool Comparison</h2>
@@ -85,7 +68,7 @@
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;My First CSS Page&lt;/title&gt;
-  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;link rel="stylesheet" href="../assets/css/custom.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;h1&gt;Hello World!&lt;/h1&gt;
@@ -100,8 +83,8 @@
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;title>Modular CSS Project&lt;/title&gt;
-  &lt;link rel="stylesheet" href="css/base.css"&gt;
-  &lt;link rel="stylesheet" href="css/layout.css"&gt;
+  &lt;link rel="stylesheet" href="../assets/css/base.css"&gt;
+  &lt;link rel="stylesheet" href="../assets/css/layout.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;main class="container"&gt;
@@ -118,8 +101,8 @@
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;title&gt;Production CSS Environment&lt;/title&gt;
-  &lt;link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin&gt;
-  &lt;link rel="stylesheet" href="assets/css/style.min.css"&gt;
+  &lt;link rel="preload" href="../assets/css/custom.css" as="font" type="font/woff2" crossorigin&gt;
+  &lt;link rel="stylesheet" href="../assets/css/custom.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div id="app"&gt;&lt;/div&gt;
@@ -129,9 +112,9 @@
         <!-- 10. Line-by-Line Code Explanation -->
         <h2>9. Line-by-Line Code Explanation</h2>
         <ul>
-          <li><code>&lt;link rel="stylesheet" href="css/style.css"&gt;</code>: Establishes a relationship between the HTML file and external CSS stylesheet.</li>
+          <li><code>&lt;link rel="stylesheet" href="../assets/css/custom.css"&gt;</code>: Establishes a relationship between the HTML file and external CSS stylesheet.</li>
           <li><code>rel="stylesheet"</code>: Tells the browser that the linked file contains CSS styling rules.</li>
-          <li><code>href="css/style.css"</code>: Relative file path pointing to the stylesheet location.</li>
+          <li><code>href="../assets/css/custom.css"</code>: Relative file path pointing to the stylesheet location.</li>
         </ul>
 
         <!-- 11. Expected Output -->
@@ -141,7 +124,7 @@
         <!-- 12. Common Mistakes -->
         <h2>11. Common Mistakes &amp; Pitfalls</h2>
         <ul>
-          <li><strong>Incorrect Relative File Path:</strong> Linking <code>href="style.css"</code> when the file is placed inside a <code>css/</code> subfolder.</li>
+          <li><strong>Incorrect Relative File Path:</strong> Linking <code>href="../assets/css/custom.css"</code> when the file is placed inside a <code>css/</code> subfolder.</li>
           <li><strong>Missing <code>rel="stylesheet"</code> Attribute:</strong> Browser ignores linked <code>.css</code> files if the <code>rel</code> attribute is omitted.</li>
         </ul>
 
@@ -157,7 +140,7 @@
 
         <!-- 15. Hindi Explanation -->
         <h2>14. Multilingual Explanation: Hindi (Roman Script)</h2>
-        <p>CSS setup karne ke liye HTML file ke <code>&lt;head&gt;</code> mein <code>&lt;link rel="stylesheet" href="style.css"&gt;</code> tag jodna padta hai. VS Code mein Live Server use karne se code save karte hi browser automatically refresh ho jata hai.</p>
+        <p>CSS setup karne ke liye HTML file ke <code>&lt;head&gt;</code> mein <code>&lt;link rel="stylesheet" href="../assets/css/custom.css"&gt;</code> tag jodna padta hai. VS Code mein Live Server use karne se code save karte hi browser automatically refresh ho jata hai.</p>
 
         <!-- 16. Marathi Explanation -->
         <h2>15. Multilingual Explanation: Marathi (Roman Script)</h2>
@@ -189,6 +172,13 @@
       </div>
     </main>
   </div>
+  <script src="assets/js/repository-scanner.js"></script>
+  <script src="assets/js/course-registry.js"></script>
+  <script src="assets/js/navigation-snapshot.js"></script>
+  <script src="assets/js/sidebar-data.js"></script>
+  <script src="assets/js/sidebar.js"></script>
+  <script src="assets/js/course-navigation.js"></script>
+
   <script src="../assets/js/search-data.js"></script>
   <script src="../assets/js/search.js"></script>
   <script src="../assets/js/contributors.js"></script>

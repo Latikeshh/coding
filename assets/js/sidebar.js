@@ -1,17 +1,17 @@
 /**
- * Centralized Sidebar Rendering Engine & Mobile Drawer Controller
+ * Universal Dynamic Sidebar Rendering Engine & Mobile Drawer Controller
+ * Powered by Live GitHub REST API Repository Scanner & Course Metadata Registry
  */
 (function () {
   'use strict';
 
-  function getPageRelPath(courseName) {
+  function getPageRelPath(courseKey) {
     var path = window.location.pathname.replace(/\\/g, '/');
-    var marker = '/' + courseName + '/';
+    var marker = '/' + courseKey + '/';
     var idx = path.indexOf(marker);
     if (idx !== -1) {
       return path.substring(idx + marker.length);
     }
-    // Fallback: extract filename or index
     var parts = path.split('/');
     return parts[parts.length - 1] || 'index.html';
   }
@@ -20,19 +20,84 @@
     var sidebarEl = document.getElementById('sidebar');
     if (!sidebarEl) return;
 
+    if (sidebarEl.getAttribute('data-rendered') === 'true') {
+      return;
+    }
+
     var courseKey = sidebarEl.getAttribute('data-course') || 'CSS';
-    var courseData = window.SIDEBAR_DATA ? window.SIDEBAR_DATA[courseKey] : null;
-    if (!courseData) return;
+    var courseRegistry = window.COURSE_REGISTRY ? window.COURSE_REGISTRY[courseKey] : {
+      title: courseKey + " Curriculum",
+      badge: "Modules",
+      icon: "📚"
+    };
 
     var pageRelPath = getPageRelPath(courseKey);
-    // Count subfolders to compute prefix back to course root
     var pathSegments = pageRelPath.split('/').filter(Boolean);
     var depth = pathSegments.length > 1 ? pathSegments.length - 1 : 0;
 
     var prefix = depth > 0 ? '../'.repeat(depth) : '';
     var rootPrefix = '../'.repeat(depth + 1);
 
-    // Build Sidebar Inner HTML
+    // Render Initial Loading State
+    sidebarEl.innerHTML = renderSkeleton(rootPrefix, courseRegistry);
+
+    // Fetch Live Repository Tree via RepositoryScanner
+    if (window.RepositoryScanner) {
+      window.RepositoryScanner.getCourseTree(courseKey).then(function (courseTree) {
+        if (!courseTree || !courseTree.lessons) {
+          throw new Error('Course navigation data empty');
+        }
+        renderSidebarContent(sidebarEl, courseKey, courseRegistry, courseTree, pageRelPath, prefix, rootPrefix);
+      }).catch(function (err) {
+        console.warn('Falling back to static sidebar data for course ' + courseKey, err);
+        var fallbackData = window.SIDEBAR_DATA ? window.SIDEBAR_DATA[courseKey] : null;
+        if (fallbackData) {
+          renderSidebarContent(sidebarEl, courseKey, courseRegistry, fallbackData, pageRelPath, prefix, rootPrefix);
+        } else {
+          sidebarEl.innerHTML = renderErrorState(rootPrefix, courseRegistry, err);
+        }
+      });
+    } else {
+      var fallbackData = window.SIDEBAR_DATA ? window.SIDEBAR_DATA[courseKey] : null;
+      if (fallbackData) {
+        renderSidebarContent(sidebarEl, courseKey, courseRegistry, fallbackData, pageRelPath, prefix, rootPrefix);
+      }
+    }
+  }
+
+  function renderSkeleton(rootPrefix, courseRegistry) {
+    var html = '';
+    html += '<div class="sidebar-header">';
+    html += '  <a href="' + rootPrefix + 'index.html" class="site-brand">';
+    html += '    <span class="brand-logo">&#128187;</span>';
+    html += '    <div class="brand-text">';
+    html += '      <span class="brand-name">Coding</span>';
+    html += '      <span class="brand-tagline">Developer Hub</span>';
+    html += '    </div>';
+    html += '  </a>';
+    html += '</div>';
+    html += '<div class="sidebar-nav">';
+    html += '  <div class="course-nav-header"><span class="course-header-title">' + courseRegistry.title + '</span></div>';
+    html += '  <div class="sidebar-loading-pulse"><span class="loading-spinner"></span> Scanning GitHub repository...</div>';
+    html += '</div>';
+    return html;
+  }
+
+  function renderErrorState(rootPrefix, courseRegistry, err) {
+    var html = '';
+    html += '<div class="sidebar-header">';
+    html += '  <a href="' + rootPrefix + 'index.html" class="site-brand"><span class="brand-logo">&#128187;</span><div class="brand-text"><span class="brand-name">Coding</span></div></a>';
+    html += '</div>';
+    html += '<div class="sidebar-nav">';
+    html += '  <div class="sidebar-error-box">';
+    html += '    <p>⚠️ Navigation API Unavailable</p>';
+    html += '    <button onclick="window.location.reload()" class="retry-btn">Retry Connection</button>';
+    html += '  </div>';
+    html += '</div>';
+    return html;
+  }
+
+  function renderSidebarContent(sidebarEl, courseKey, courseRegistry, courseTree, pageRelPath, prefix, rootPrefix) {
     var html = '';
 
     // 1. Sidebar Header
@@ -54,7 +119,7 @@
     html += '  </div>';
     html += '</div>';
 
-    // 2. Sidebar Navigation
+    // 2. Sidebar Navigation Body
     html += '<div class="sidebar-nav">';
     html += '  <div class="nav-back-container">';
     html += '    <a href="' + rootPrefix + 'index.html" class="nav-back-btn">';
@@ -62,34 +127,62 @@
     html += '    </a>';
     html += '  </div>';
     html += '  <div class="course-nav-header">';
-    html += '    <span class="course-header-title">' + courseData.title + '</span>';
-    html += '    <span class="course-header-badge">' + courseData.badge + '</span>';
+    html += '    <span class="course-header-title">' + courseRegistry.title + '</span>';
+    html += '    <span class="course-header-badge">' + (courseTree.badge || courseRegistry.badge || 'Modules') + '</span>';
     html += '  </div>';
 
-    // 3. Lessons Menu
+    // 3. Dynamic Lessons List
     html += '  <ul class="nav-menu course-lessons-menu">';
-    for (var i = 0; i < courseData.lessons.length; i++) {
-      var item = courseData.lessons[i];
+    var lessons = courseTree.lessons || [];
+
+    for (var i = 0; i < lessons.length; i++) {
+      var item = lessons[i];
       var itemHref = prefix + item.href;
       var isActive = (pageRelPath === item.href);
-      var activeClass = isActive ? ' active' : '';
+      var hasSubItems = item.subItems && item.subItems.length > 0;
 
-      html += '    <li class="nav-item">';
-      html += '      <a href="' + itemHref + '" class="nav-link' + activeClass + '">';
-      html += '        <span class="nav-bullet">&bull;</span>';
-      html += '        <span class="nav-title">' + item.title + '</span>';
-      html += '      </a>';
+      // Check if current page is inside subItems
+      var isSubActiveParent = false;
+      if (hasSubItems) {
+        for (var k = 0; k < item.subItems.length; k++) {
+          if (pageRelPath === item.subItems[k].href) {
+            isSubActiveParent = true;
+            break;
+          }
+        }
+      }
 
-      if (item.subItems && item.subItems.length > 0) {
-        html += '      <ul class="nav-sub-menu">';
+      var activeClass = (isActive || isSubActiveParent) ? ' active-parent' : '';
+      var linkActiveClass = isActive ? ' active' : '';
+      var ariaCurrent = isActive ? ' aria-current="page"' : '';
+
+      html += '    <li class="nav-item' + activeClass + '">';
+      html += '      <div class="nav-item-header">';
+      html += '        <a href="' + itemHref + '" class="nav-link' + linkActiveClass + '"' + ariaCurrent + '>';
+      html += '          <span class="nav-bullet">&bull;</span>';
+      html += '          <span class="nav-title">' + item.title + '</span>';
+      html += '        </a>';
+
+      if (hasSubItems) {
+        var expandedAttr = (isActive || isSubActiveParent) ? ' aria-expanded="true"' : ' aria-expanded="false"';
+        html += '        <button class="nav-folder-toggle" type="button"' + expandedAttr + ' aria-label="Toggle sub-menu for ' + escapeHtml(item.title) + '">';
+        html += '          <span class="toggle-icon">&#9662;</span>';
+        html += '        </button>';
+      }
+      html += '      </div>';
+
+      if (hasSubItems) {
+        var subMenuDisplay = (isActive || isSubActiveParent) ? ' style="display: flex;"' : ' style="display: none;"';
+        html += '      <ul class="nav-sub-menu"' + subMenuDisplay + '>';
         for (var j = 0; j < item.subItems.length; j++) {
           var sub = item.subItems[j];
           var subHref = prefix + sub.href;
           var isSubActive = (pageRelPath === sub.href);
           var subActiveClass = isSubActive ? ' active' : '';
+          var subAriaCurrent = isSubActive ? ' aria-current="page"' : '';
 
           html += '        <li class="nav-sub-item">';
-          html += '          <a href="' + subHref + '" class="nav-sub-link' + subActiveClass + '">' + sub.title + '</a>';
+          html += '          <a href="' + subHref + '" class="nav-sub-link' + subActiveClass + '"' + subAriaCurrent + '>' + escapeHtml(sub.title) + '</a>';
           html += '        </li>';
         }
         html += '      </ul>';
@@ -109,9 +202,52 @@
     html += '</div>';
 
     sidebarEl.innerHTML = html;
+    sidebarEl.setAttribute('data-rendered', 'true');
 
-    // Attach Mobile Sidebar Toggle Listeners
+    // Setup Interactive Event Listeners
+    setupFolderToggles(sidebarEl);
     setupMobileDrawer(sidebarEl);
+
+    // Auto-scroll Active Link Into View
+    var activeLink = sidebarEl.querySelector('a.active');
+    if (activeLink) {
+      setTimeout(function () {
+        activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }, 100);
+    }
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function setupFolderToggles(sidebarEl) {
+    var toggles = sidebarEl.querySelectorAll('.nav-folder-toggle');
+    for (var i = 0; i < toggles.length; i++) {
+      toggles[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var btn = this;
+        var navItem = btn.closest('.nav-item');
+        var subMenu = navItem ? navItem.querySelector('.nav-sub-menu') : null;
+
+        if (subMenu) {
+          var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          if (isExpanded) {
+            btn.setAttribute('aria-expanded', 'false');
+            subMenu.style.display = 'none';
+          } else {
+            btn.setAttribute('aria-expanded', 'true');
+            subMenu.style.display = 'flex';
+          }
+        }
+      });
+    }
   }
 
   function setupMobileDrawer(sidebarEl) {
@@ -121,11 +257,15 @@
     function openSidebar() {
       if (sidebarEl) sidebarEl.classList.add('active');
       if (overlay) overlay.classList.add('active');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeSidebar() {
       if (sidebarEl) sidebarEl.classList.remove('active');
       if (overlay) overlay.classList.remove('active');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
 
     function toggleSidebar() {
@@ -136,8 +276,15 @@
       }
     }
 
-    if (toggleBtn) toggleBtn.addEventListener('click', toggleSidebar);
-    if (overlay) overlay.addEventListener('click', closeSidebar);
+    if (toggleBtn && !toggleBtn.dataset.bound) {
+      toggleBtn.addEventListener('click', toggleSidebar);
+      toggleBtn.dataset.bound = 'true';
+    }
+
+    if (overlay && !overlay.dataset.bound) {
+      overlay.addEventListener('click', closeSidebar);
+      overlay.dataset.bound = 'true';
+    }
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && sidebarEl && sidebarEl.classList.contains('active')) {
@@ -147,7 +294,11 @@
 
     var navLinks = sidebarEl.querySelectorAll('a');
     for (var i = 0; i < navLinks.length; i++) {
-      navLinks[i].addEventListener('click', closeSidebar);
+      navLinks[i].addEventListener('click', function () {
+        if (window.innerWidth <= 868) {
+          closeSidebar();
+        }
+      });
     }
   }
 
